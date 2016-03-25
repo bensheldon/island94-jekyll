@@ -1,0 +1,50 @@
+---
+title: 2011 in review
+date: '2012-01-07'
+tags: []
+wp:post_type: post
+redirects:
+- 2012/01/2011-in-review/
+- "?p=2969"
+---
+
+2011 was a year of transitions: plenty of new starts and sad endings.
+
+**Shuttering the Transmission Project:** in August our funding for the Digital Arts Service Corps ended. Despite the disappearance of our funding (and a pointless federal audit to boot), it was also one of the Transmission Project's best years in terms in terms of our staff, Corps members and the work we did in our twilight. I can't not mention though the frustration felt by the end of the Digital Arts Service Corps at the same time [other media/technology-based](http://www.island94.org/2011/05/nailed-that-response/) national service programs come online.
+
+**Building 549 Columbus:** with 4 months of unemployment, I had time to help build a cooperative coworking space in the South End.
+
+**Sundowned two websites:** Both MeetAmeriCorps and MappingAccess were taken down in 2011; it felt good to recognize that they were long neglected.
+
+**Many new websites:** [DrunkenStumble](http://www.island94.org/2011/03/the-48-hour-mobile-web-app-drunken-stumble/), [Print & Share](http://www.island94.org/2011/07/donorschoose-contest-update-consolation-prize-edition/), and [Day of the Shirt](http://www.island94.org/2011/04/shirt-sales-scraped-daily/) (it launched in Oct 2010, but I spent a lot of time building traffic in 2011).
+
+**Goodbye Boston: **I moved to San Francisco in November.
+
+**Founding the Boston Cyclists Union:** following [Danielle Martin](http://verdesmoke.com)'s 1st Principle of Community Organizing, "Keep showing up", I am proud to be a founding board member of the BCU.
+
+**BetterBio:** that didn't go so well, but I learned _a lot._
+
+**Other stuff:** I did the layout again for my second edition of _ [Survival News](http://www.island94.org/2011/03/advocacy-in-print-survival-news-for-2011/)._ I made my first serious pitches for a project ("All the Right People", which was the thoughtchild of my coworkers Howie and Billy). I did a bunch of contract work for WGBH, Utile, LexCreative and SocialContxt. I had the pleasure of filing for unemployment insurance. I presented at the SF Wordpress Meetup (speedgeeking on "wp\_filter"). Angelina's friend Anna and Greg were married in Iowa.  I attended the Code for America Summit, Nonprofit Software Developers Conference, and DrupalCon.
+
+**Places I've slept**
+
+- York, ME (I woke up there on the 1st)
+
+- Jamaica Plain, MA
+
+- Seattle, WA
+
+- Chicago, IL
+
+- Okoboji, IA.
+
+- Lenox, MA
+
+- San Francisco, CA
+
+- Poway, CA
+
+
+[ ![](2012-01-07-2011-in-review/viewimage_story.jpeg "viewimage_story") ](2012-01-07-2011-in-review/viewimage_story.jpeg) [ ![](2012-01-07-2011-in-review/Tube_closingtime2-600x776.png "Tube_closingtime2") ](2012-01-07-2011-in-review/Tube_closingtime2.png)
+
+[ ![](2012-01-07-2011-in-review/BCU-Incorporation-600x769.jpg "BCU Incorporation") ](2012-01-07-2011-in-review/BCU-Incorporation.jpg) [ ![](2012-01-07-2011-in-review/USA-Pixel-600x374.png "USA-Pixel") ](2012-01-07-2011-in-review/USA-Pixel.png)

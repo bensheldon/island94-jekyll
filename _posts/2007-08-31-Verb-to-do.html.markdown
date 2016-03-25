@@ -1,0 +1,200 @@
+---
+title: Verb to do
+date: '2007-08-31'
+tags:
+- meaning
+- word usage
+- writing
+wp:post_type: post
+redirects:
+- node/142
+- verb-do
+- 2007/08/verb-to-do/
+- "?p=142"
+---
+
+A great list of [functional verbs](http://www.college.ucla.edu/personnel/jobdesc/funcverbs.asp) for writing resumes or their reverse situational equivalent: job descriptions. (via [Google](http://www.google.com/search?q=writing+job+descriptions))
+
+>
+
+> **ADMINISTRATIVE ACTION VERBS**
+
+| **advise** | Offer an informed opinion or give specialized information to others. |
+| **adapt** | Modify or change to fit specific or new situations. |
+| **administer** | Manage or direct. (Generally requires some additional explanation to show specific detail.) See **manage**. |
+| **appoint** | To set officially, arrange. |
+| **approve** | Exercise final and decisive authority, causing action to use money, manpower, materials, or equipment. |
+| **arrange** | To make preparations for, to plan. |
+| **authorize** | Approve or commit an act implying subsequent action by others. |
+| **consult** | Consider, asking advice or requesting opinion of. |
+| **control** | Direct, regulate, or guide the use of money, methods, equipment, and materials. Also, the process of monitoring activities to ensure conformance with planned results. |
+| **coordinate** | Regulate, adjust or direct the related actions of others in order to attain desired results. |
+| **decide** | To select a course of action. |
+| **delegate** | Entrust to another person tasks or duties which require exercise of some of the authority of the person originally responsible, as "To delegate an administrative assistant to represent the department at conferences." |
+| **determine** | To fix conclusively, regulate. To decide by choice of alternatives. |
+| **direct** | Govern or control work operations by establishing the implementing objectives, practices and methods. |
+| **enforce** | To effect or gain by force. To carry out effectively. |
+| **establish** | To institute permanently by enactment or agreement. |
+| **execute** | Put into effect or carry out methods, plans, etc. |
+| **initiate** | Set going or introduce. |
+| **manage** | Plan, organize, direct, control, and evaluate operation of an organizational unit, with responsibility for the output. |
+| **order** | Arrange or command to come to a specified place or decision. |
+| **organize** | To set up an administrative structure for. To arrange by systematic planning and united effort. |
+| **plan** | To design or plot a scheme or project by means or method devised for doing something to achieve an end. |
+| **reject** | To refuse to accept, consider or submit to. |
+| **require** | To ask for by right and authority, request. |
+| **review** | Consider or examine facts or results for accuracy, completeness and suitability. |
+| **supervise** | Personally oversee or control work performance and conduct of others, where there is opportunity for control or inspection of work performed. |
+| **train** | Teach, demonstrate, or guide others in the performance of assigned work. |
+| |
+
+> **PUSH ALONG VERBS**
+
+| **activate** | Set up or formally introduce with necessary personnel or equipment. |
+| **encourage** | Give help, inspire or pay patronage to. |
+| **expediate** | Accelerate the process or progress of a plan, idea. |
+| **further** | Promote or advance. |
+| **implement** | Carry out or fulfill by taking action. |
+| **maintain** | Keep in satisfactory condition. |
+| **motivate** | Provide incentive or drive. |
+| |
+
+> **STOP VERBS**
+
+| **check** | To proof or review for errors. |
+| **delete** | Eliminate or wipe out. |
+| **prevent** | Keep from happening or holding back. |
+| **return** | Go back in thought or action. Give an official account to a superior. |
+| **stop** | Keep from carrying out a proposed action. |
+| |
+
+> **HELPER VERBS**
+
+| **advise** | Offer an informed opinion or give specialized information to others. |
+| **aid** | Provide with what is useful or necessary for achieving an end. |
+| **cooperate** | Act jointly with others. Act or work with others to obtain a mutual benefit. |
+| **counsel** | Advise or consult. |
+| **explain** | Make plain or understandable. |
+| **guide** | Direct, supervise, influence or superintend the training of people. |
+| **instruct** | Teach, demonstrate, or by other methods impart knowledge to others. Direct that a specific activity be performed, may include directing how it is to be performed. |
+| **participate** | To take part or have a share in a project, group. |
+| **protect** | Maintain status or integrity of project, idea. |
+| **serve** | Comply with the commands and demands of a boss, group. |
+| **show** | Propose or mention an idea as workable or desirable. |
+| **suggest** | ? |
+| |
+
+> **GET & GIVE VERBS**
+
+| **accept** | Give admittance or approval to. |
+| **accumulate** | Increase gradually in quantity or number. |
+| **acquire** | Come into possession or control of an item or items. |
+| **arrange for** | To make preparations for, to plan. |
+| **buy** | Acquire possession, ownership or rights to the use of services, items. |
+| **collect** | Gather or exact information or materials from a number of persons or sources. |
+| **compile** | Put together information or assemble data in a new form. |
+| **deliver** | Send or bring a desired object. |
+| **distribute** | Deliver or hand out to several or many. |
+| **exchange** | Give and receive reciprocally. |
+| **forward** | Send goods or information onward. |
+| **furnish** | Provide or equip with what is needed. |
+| **gather** | Bring together or collect parts of a group. |
+| **get** | Obtain or receive. |
+| **give** | Grant or yield to another. |
+| **inform** | Communicate knowledge to others. |
+| **inquire** | Ask or search into. |
+| **issue** | Make available through distribution. |
+| **keep** | Preserve or maintain in a good and orderly condition. |
+| **mail** | To send by the postal service. |
+| **notify** | Give notice or a report on an occurrence or information. |
+| **obtain** | Gain or possess. |
+| **pick up** | ? |
+| **procure** | Get possession or obtain by particular care and effort. |
+| **provide** | To supply support to meet a need, make available. |
+| **pull** | Demand or obtain advantage by use of exertion or influence. |
+| **purchase** | Gain or acquire by labor, money. |
+| **recall** | Call back or cancel. |
+| **receive** | Come into possession of or acquire an item, idea. |
+| **recruit** | Increase numbers of a group or bring in new members. |
+| **render** | Deliver or hand down. |
+| **report** | Give an account or make a written summary or statement. |
+| **secure** | Put beyond hazard or receive lasting control. |
+| **sell** | Give up property in exchange for money. |
+| **send** | Deliver or dispatch as means of communication or delivery. |
+| **solicit** | To make a petition or request for services, money. |
+| **submit** | Yield or surrender to authority. |
+| **supply** | Make materials available for use. |
+| **take** | Get or seize into possession. |
+| **transfer** | Pass over from one person to another. |
+| **withdraw** | Back away or remove. |
+| |
+
+> **CREATIVE VERBS**
+
+| **create** | Produce through imaginative skill. |
+| **design** | Create or fashion a plan or idea. |
+| **develop** | Disclose, discover, perfect, or unfold a plan or idea, in detail, gradually. Implies study and/or experiment unless otherwise stated. When used as "to develop subordinates", see [train](http://www.college.ucla.edu/personnel/jobdesc/funcverbs.asp#trn). |
+| **devise** | Form in the mind by combinations of ideas, new applications of principles, or new arrangement of parts. |
+| **establish** | To institute permanently by enactment or agreement. |
+| **estimate** | Forecast future quantities, values, sizes, extents, etc., either on the basis of judgment or calculations. Frequently, estimating is shared with others, in which case it is more precise to use "estimate" as a noun, and to state the job's function in relation thereto, i.e., originates, analyzes, endorses, approves, etc., estimates of... |
+| **forecast** | Predict future events based on specified assumptions. |
+| **formulate** | Put into a systemized expression or statement. |
+| **iniyiate** | Set going or introduce. |
+| **install** | To set up for use. |
+| **originate** | Begin or initiate. |
+| **plan** | To design or plot a scheme or project by means or method devised for doing something to achieve an end. |
+| **project** | Plan, figure, or estimate for the future. |
+| **schedule** | Appoint a fixed time. |
+| |
+
+> **APPRAISE/STUDY VERBS**
+
+| **analyze** | Identify the elements of a whole and critically examine and relate these component parts separately and/or in relation to the whole. |
+| **appraise** | Judge as to quality; compare critically with established standards. |
+| **ascertain** | Find out or learn with certainty. |
+| **check** | To proof or review for errors. |
+| **compare** | To examine characteristics to discover similarities or differences. |
+| **consider** | To observe or think about with regard to taking some action. |
+| **criticize** | To evaluate and judge merits or faults. |
+| **develop** | Disclose, discover, perfect, or unfold a plan or idea, in detail, gradually. Implies study and/or experiment unless otherwise stated. When used as "to develop subordinates", see [train](http://www.college.ucla.edu/personnel/jobdesc/funcverbs.asp#trn). |
+| **evaluate** | Appraise, to determine value, condition, significance or worth. |
+| **examine** | Investigate in order to determine progress, fitness or knowledge. |
+| **forecast** | Predict future events based on specified assumptions. |
+| **identify** | The act of proving identity. |
+| **inspect** | Examine materials, equipment, reports, work, etc., to determine quality, suitability for use, etc. |
+| **interpret** | Explain to others (orally or in writing) the meaning or significance of something. |
+| **interview** | Obtain information through questioning. |
+| **investigate** | Uncover facts by systematically finding them, conducting a search, and examining various sources. |
+| **measure** | Control or regulate by a standard or in measured amounts. |
+| **plan** | To design or plot a scheme or project by means or method devised for doing something to achieve an end. |
+| **rate** | Estimate or determine the relative value, rank, or amount of an item. |
+| **research** | Specific inquiry involving prolonged and critical investigation, having for its aim the study of new facts and their interpretation, the revision of accepted conclusions or theories that may be affected by newly discovered factors, or the practical application of such new or revised conclusions. Example: Technical research to develop new products for the company. |
+| **resolve** | Deal with a problem, dilemma successfully. |
+| **review** | Consider or examine facts or results for accuracy, completeness and suitability. |
+| **solve** | Find a solution, answer, or explanation for a question or problem. |
+| **study** | Apply thought to any subject of investigation in order to arrive at the most suitable conclusion. |
+| **summarize** | To tell and reduce a story, idea. |
+| **survey** | Examine a condition, situation or value. |
+| **test** | Assign a value or evaluate an item by a given test. |
+| **weigh** | Merit consideration as to importance. |
+| |
+
+> **CONTROL VERBS**
+
+| **allocate** | Assign or apportion for a specific purpose or to a particular person. |
+| **audit** | Perform a formal examination into a company’s formal accounts. |
+| **check** | To proof or review for errors. |
+| **conserve** | Slow or block the progress of something |
+| **control** | Direct, regulate, or guide the use of money, methods, equipment, and materials. Also, the process of monitoring activities to ensure conformance with planned results. |
+| **edit** | Alter, adapt or refine a written text, concept, or idea. |
+| **enforce** | To effect or gain by force. To carry out effectively. |
+| **ensure** | Make sure, certain, or safe. |
+| **guarantee** | Undertake to answer for debt and default or promise security. |
+| **inspect** | Examine materials, equipment, reports, work, etc., to determine quality, suitability for use, etc. |
+| **regulate** | Fix or adjust the time, amount, degree, or rate. |
+| **restrict** | Place under restriction as to use or distribution. |
+| **review** | Consider or examine facts or results for accuracy, completeness and suitability. |
+| **verify** | Confirm or substantiate by oath, law, or other documentation. |
+
+> ![](http://www.college.ucla.edu/personnel/images/arrow2.gif) [back to top](http://www.college.ucla.edu/personnel/jobdesc/funcverbs.asp#top)
+

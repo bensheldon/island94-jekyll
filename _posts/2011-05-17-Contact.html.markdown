@@ -1,0 +1,11 @@
+---
+title: Contact
+date: '2011-05-17'
+tags: []
+wp:post_type: page
+redirects:
+- contact/
+- "?p=2657"
+---
+
+Please contact me by emailing [bensheldon@gmail.com](mailto:bensheldon@gmail.com) or on Twitter at [@bensheldon](http://twitter.com/bensheldon).

@@ -1,0 +1,19 @@
+---
+title: Hemp milk
+date: '2007-09-03'
+tags:
+- alternative
+- food
+- milk
+- vegetarian
+wp:post_type: post
+redirects:
+- node/146
+- hemp-milk
+- 2007/09/hemp-milk/
+- "?p=146"
+---
+
+Info on [Hemp Milk](http://www.post-gazette.com/pg/07123/782900-34.stm).
+
+I just bought some of this (Manitoba Harvest brand, the chocolate kind) at Whole Foods. It's not soy milk, but I'm not sure if it's any better. I kind've got a bit of a choke in the back of my throat on the first sip, though after that it was pretty smooth.

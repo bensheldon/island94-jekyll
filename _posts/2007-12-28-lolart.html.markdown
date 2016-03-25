@@ -1,0 +1,18 @@
+---
+title: lolart
+date: '2007-12-28'
+tags:
+- art
+- fun
+- inane
+wp:post_type: post
+redirects:
+- node/197
+- articles/lolart
+- 2007/12/lolart/
+- "?p=197"
+---
+
+[ ![funny pictures](2007-12-28-lolart/ucallmeezishmael.jpg) ](http://mine.icanhascheezburger.com/View.aspx?ucallmeezis128433303032993750.jpg)
+
+Thought I should (tardily) follow up considering my [Nonprofit Technology Sandwich](http://island94.org/articles/nonprofit-technology-sandwich) was featured on [LOLnptech.org](http://lolnptech.blogspot.com/2007/08/nonprofit-technology-sandwich-anyone.html)

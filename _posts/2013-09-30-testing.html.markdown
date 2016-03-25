@@ -1,0 +1,25 @@
+---
+title: testing
+date: '2013-09-30'
+tags: []
+published: false
+wp:post_type: post
+redirects:
+- "?p=3110"
+---
+
+http://www.reddit.com/r/rails/comments/1mligj/how\_to\_organize\_rspec/ccakk4u
+
+
+> I think you have 2 separate questions:
+>
+> 1. How to write good, clear tests.
+> 2. How to make writing tests something that improves your development process and outcome.
+>
+> As for the first thing, I think that's googleable and I'd start with somethign like  [Railscasts](http://railscasts.com/episodes/275-how-i-test) or  [Everyday Rails](http://everydayrails.com/2012/03/12/testing-series-intro.html). Also [The Perfect Rspec](http://blog.bandzarewicz.com/slides/krug-the-perfect-rspec/) (it nearly made me weep when I first read it):  ... and after that, read the somewhat disagreeing  [http://betterspecs.org](http://betterspecs.org/)
+>
+> As for the second thing, I would recommend you:
+>
+> - Install  [Guard](https://github.com/guard/guard) to constantly run your tests as you develop...which makes a TDD process effortless and becomes a great harness for inspecting objects without cracking open rails console, just  `put *.inspect`  in your test and guard will dump the object to the console just by saving the file. Install  [Spring](https://github.com/jonleighton/spring) to run them even faster.
+> - Have your tests run with a continous integration service like Travis (free for open source) or CircleCI. For bonus points, have them continuously deploy your app to staging/production too if the tests pass. They also integrate with Github and will show whether tests on pull requests are passing before you merge. This makes the outcome of your tests more visible and not something you forget to do in development.
+> - Sign up for a test coverage service like  [Coveralls](http://coveralls.io/)  (you can run simplecov locally, but these services can integrate really nicely with travis/circle and github). This will help you find holes in your code coverage and makes writing tests more like like a game and less like a big time sink.

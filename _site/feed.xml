@@ -1,0 +1,925 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Island94.org</title>
+    <description>A Lost and Found
+</description>
+    <link>http://island94.org/</link>
+    <atom:link href="http://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Fri, 25 Mar 2016 16:46:43 -0700</pubDate>
+    <lastBuildDate>Fri, 25 Mar 2016 16:46:43 -0700</lastBuildDate>
+    <generator>Jekyll v3.0.3</generator>
+    
+      <item>
+        <title>Welcome to Jekyll!</title>
+        <description>&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+
+&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+
+&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;Tom&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints &#39;Hi, Tom&#39; to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;
+
+</description>
+        <pubDate>Fri, 25 Mar 2016 14:17:52 -0700</pubDate>
+        <link>http://island94.org/jekyll/update/2016/03/25/welcome-to-jekyll.html</link>
+        <guid isPermaLink="true">http://island94.org/jekyll/update/2016/03/25/welcome-to-jekyll.html</guid>
+        
+        
+        <category>jekyll</category>
+        
+        <category>update</category>
+        
+      </item>
+    
+      <item>
+        <title>Geekout: Video on Maps for Cable Access TV</title>
+        <description>&lt;p&gt;&lt;img src=&quot;/assets/2007-08/mediamap-600x448.jpg&quot; alt=&quot;&quot; title=&quot;mediamap&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;I recently did some &lt;a href=&quot;http://drupal.org&quot;&gt;Drupal&lt;/a&gt; development work for &lt;a href=&quot;http://cctvcambridge.org&quot;&gt;Cambridge Community Television&lt;/a&gt;. As part of the really amazing work they are doing combining new media with traditional &lt;a href=&quot;http://alliancecm.org&quot;&gt;Cable Access Television&lt;/a&gt;, CCTV has been mapping videos their members produce. They call this project the &lt;a href=&quot;http://cctvcambridge.org/mediamap&quot;&gt;Mediamap&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;I was really excited to work on the Mediamap with CCTV because of my long &lt;a href=&quot;http://island94.org/articles/future-cable-access&quot;&gt;involvement&lt;/a&gt; with Cable Access Television, most notably the now-defunct &lt;a href=&quot;http://digitalbicycle.org&quot;&gt;DigitalBicycle Project&lt;/a&gt; and the community maintained directory of Cable Access Stations I built and administer: &lt;a href=&quot;http://mappingaccess.com&quot;&gt;MappingAccess.com&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Despite CCTV running their website on Drupal, their first proof-of-concept version of the Mediamap was created manually, using the very capable &lt;a href=&quot;http://mapbuilder.net&quot;&gt;Mapbuilder.net&lt;/a&gt; service and copy-and-pasted embedded flash video. While simple from a technological standpoint, they were running to problems optimizing the workflow of updating the map; changes had to be made via the Mapbuilder.net interface, with a single username and password, then manually parsed to remove some coding irregularities, and finally copy and pasted whole into a page on their website.&lt;/p&gt;
+
+&lt;p&gt;I was asked to improve the workflow and ultimately take fuller advantage of Drupal’s built-in user management and content management features. For instance, taking advantage of CCTV’s current member submitted video capabilities and flowing them into the map as an integrated report, not a separate and parallel system.&lt;/p&gt;
+
+&lt;p&gt;In my discussions with them, a couple of issues came up. Foremost was that CCTV was running an older version of Drupal: 4.7. While still quite powerful, many newer features and contributed modules were not available for this earlier release. The current version of Drupal, 5.1, has many rich, well-developed utilities for creating reports and mapping them: &lt;a href=&quot;http://drupal.org/project/cck&quot;&gt;Content Construction Kit (CCK)&lt;/a&gt; + &lt;a href=&quot;http://drupal.org/project/views&quot;&gt;Views&lt;/a&gt; + &lt;a href=&quot;http://drupal.org/project/gmap&quot;&gt;Gmap&lt;/a&gt; + &lt;a href=&quot;http://drupal.org/project/location&quot;&gt;Location&lt;/a&gt;. As it was though, with the older version, I would have to develop the additional functionality manually.&lt;/p&gt;
+
+&lt;p&gt;The following is a description, with code examples, of the functionality I created for the Mediamap. Additionally, following this initial development, CCTV upgraded their Drupal installation to 5.1, giving me the opportunity to demonstrate the ease and power of Drupal’s most recent release—rendering blissfully obsolete most of the custom coding I had done.&lt;/p&gt;
+
+&lt;p&gt;Location and Gmap was used in both versions for storing geographic data and hooking into the Google Map API. One of Drupal’s great strengths is the both the diversity of contributed modules, and the flexibility with which a developer can use them.&lt;/p&gt;
+
+&lt;h3 id=&quot;adding-additional-content-fields&quot;&gt;Adding additional content fields&lt;/h3&gt;
+
+&lt;p&gt;CCTV already has a process in which member’s can submit content nodes. In 4.7, the easiest way to add additional data fields to these was with a custom &lt;a href=&quot;http://api.drupal.org/api/file/nodeapi_example.module/4.7&quot;&gt;NodeAPI module&lt;/a&gt;. CCTV was interested in using embedded flash video, primarily from &lt;a href=&quot;http://blip.tv&quot;&gt;Blip.tv&lt;/a&gt;, but also Google Video or YouTube if the flexibility was needed. To simplify the process, we decided on just adding the cut-and-paste embed code to a custom content field in existing nodes.&lt;/p&gt;
+
+&lt;p&gt;To do this, I created a new module that invoked hook_nodeapi:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/\*\*\ * Implementation of hook_nodeapi\ * /
+
+function cambridge_mediamap_nodeapi(&lt;span class=&quot;err&quot;&gt;&amp;amp;&lt;/span&gt;$node, $op, $teaser, $page) {
+  switch ($op) {
+    case &#39;validate&#39;:
+      if (variable_get(&#39;cambridge_mediamap_&#39;.$node - &amp;gt; type, TRUE)) {
+        if (user_access(&#39;modify node data&#39;)) {
+          if ($node - &amp;gt; cambridge_mediamap[&#39;display&#39;] &lt;span class=&quot;err&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; $node - &amp;gt; cambridge_mediamap[&#39;embed&#39;] == &#39;&#39;) {
+            form_set_error(&#39;cambridge_mediamap&#39;, t(&#39;Media Map: You must enter embed code or disable display of this node on the map&#39;));
+          }
+        }
+      }
+      break;
+    case &#39;load&#39;:
+      $object = db_fetch_object(db_query(&#39;SELECT display, embed FROM {cambridge_mediamap} WHERE nid = %d&#39;, $node - &amp;gt; nid));
+      $embed = $object - &amp;gt; embed;
+      $embed_resize = cambridge_mediamap_resize($embed);
+      return array(&#39;cambridge_mediamap&#39; =&amp;gt; array(&#39;display&#39; =&amp;gt; $object - &amp;gt; display, &#39;embed&#39; =&amp;gt; $embed, &#39;embed_resize&#39; =&amp;gt; $embed_resize, ));
+      break;
+    case &#39;insert&#39;:
+      db_query(&quot;INSERT INTO {cambridge_mediamap} (nid, display, embed) VALUES (%d, %d, &#39;%s&#39;)&quot;, $node - &amp;gt; nid, $node - &amp;gt; cambridge_mediamap[&#39;display&#39;], $node - &amp;gt; cambridge_mediamap[&#39;embed&#39;]);
+      break;
+    case &#39;update&#39;:
+      db_query(&#39;DELETE FROM {cambridge_mediamap} WHERE nid = %d&#39;, $node - &amp;gt; nid);
+      db_query(&quot;INSERT INTO {cambridge_mediamap} (nid, display, embed) VALUES (%d, %d, &#39;%s&#39;)&quot;, $node - &amp;gt; nid, $node - &amp;gt; cambridge_mediamap[&#39;display&#39;], $node - &amp;gt; cambridge_mediamap[&#39;embed&#39;]);
+      break;
+    case &#39;delete&#39;:
+      db_query(&#39;DELETE FROM {cambridge_mediamap} WHERE nid = %d&#39;, $node - &amp;gt; nid);
+      break;  
+    case &#39;view&#39;:
+      break;
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;As you can see, there is a considerable amount of coding required, from defining the form, validating input and configuring database storage and retrieval calls.&lt;/p&gt;
+
+&lt;p&gt;Now that we have the glue for the custom field, we have to configure what node types that custom field appears on. Additionally, we need to set up administrative settings to configure where that custom field will appear, and lastly insert that field into the node edit screen:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+\**
+ * Implementation of hook_form_alter
+ */
+function cambridge_mediamap_nodeapi( &lt;span class=&quot;err&quot;&gt;&amp;amp;&lt;/span&gt; $node, $op, $teaser, $page) {
+  switch ($op) {
+    case &#39;validate&#39;:
+      if (variable_get(&#39;cambridge_mediamap_&#39;.$node - &amp;gt; type, TRUE)) {
+        if (user_access(&#39;modify node data&#39;)) {
+          if ($node - &amp;gt; cambridge_mediamap[&#39;display&#39;] &lt;span class=&quot;err&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; $node - &amp;gt; cambridge_mediamap[&#39;embed&#39;] == &#39;&#39;) {
+            form_set_error(&#39;cambridge_mediamap&#39;, t(&#39;Media Map: You must enter embed code or disable display of this node on the map&#39;));
+          }
+        }
+      }
+      break;
+    case &#39;load&#39;:
+      $object = db_fetch_object(db_query(&#39;SELECT display, embed FROM {cambridge_mediamap} WHERE nid = %d&#39;, $node - &amp;gt; nid));
+      $embed = $object - &amp;gt; embed;
+      $embed_resize = cambridge_mediamap_resize($embed);
+      return array(
+        &#39;cambridge_mediamap&#39; =&amp;gt; array(
+          &#39;display&#39; =&amp;gt; $object - &amp;gt; display,
+          &#39;embed&#39; =&amp;gt; $embed,
+          &#39;embed_resize&#39; =&amp;gt; $embed_resize,
+        )
+      );
+      break;
+    case &#39;insert&#39;:
+      db_query(&quot;INSERT INTO {cambridge_mediamap} (nid, display, embed) VALUES (%d, %d, &#39;%s&#39;)&quot;, $node - &amp;gt; nid, $node - &amp;gt; cambridge_mediamap[&#39;display&#39;], $node - &amp;gt; cambridge_mediamap[&#39;embed&#39;]);
+      break;
+    case &#39;update&#39;:
+      db_query(&#39;DELETE FROM {cambridge_mediamap} WHERE nid = %d&#39;, $node - &amp;gt; nid);
+      db_query(&quot;INSERT INTO {cambridge_mediamap} (nid, display, embed) VALUES (%d, %d, &#39;%s&#39;)&quot;, $node - &amp;gt; nid, $node - &amp;gt; cambridge_mediamap[&#39;display&#39;], $node - &amp;gt; cambridge_mediamap[&#39;embed&#39;]);
+      break;
+    case &#39;delete&#39;:
+      db_query(&#39;DELETE FROM {cambridge_mediamap} WHERE nid = %d&#39;, $node - &amp;gt; nid);
+      break;
+    case &#39;view&#39;:
+      break;
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;As you can see, that’s a lot of lines of code for what we essentially can do, in Drupal 5.1 with CCK. CCK allows you, graphically through the Drupal web-interface, to create a new content field and add it to a node type; it takes about a minute.&lt;/p&gt;
+
+&lt;h3 id=&quot;building-the-map&quot;&gt;Building the Map&lt;/h3&gt;
+
+&lt;p&gt;The primary goal of rebuilding the Mediamap using native Drupal was workflow optimization: it was frustrating to submit information both within Drupal and then recreate it within Mapbuilder. In essence, the map should be just another report of Drupal content: you may have a short bulleted list of the top five articles, a paginated history with teasers and author information, or a full-blown map, but most importantly, all of it is flowing dynamically out of the Drupal database.&lt;/p&gt;
+
+&lt;p&gt;The Gmap module provides many powerful ways to integrate the Google Map API with Drupal. While Gmap for 4.7 provides a default map of content it would not provide the features or customizability we desired with the Mediamap. Instead, one of the most powerful ways to use Gmap is to hook directly into the module’s own API-like functions:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;\**
+ * A page callback to draw the map
+ */
+
+function cambridge_mediamap_map() {
+  $output = &#39;&#39;;
+  //Collect the nodes to be displayed
+  $results = db_query(&#39;SELECT embed, nid FROM {cambridge_mediamap} WHERE display = 1&#39;);
+  //Initialize our marker array
+  $markers = array();
+  //check to see what modules are enabled
+  $location_enabled = module_exist(&#39;location&#39;);
+  $gmap_location_enabled = module_exist(&#39;gmap_location&#39;);
+  //load each node and set it&#39;s attributes in the marker array
+  while ($item = db_fetch_object($results)) {
+    $latitude = 0;
+    $longitude = 0;
+    //load the node
+    $node = node_load(array(&#39;nid&#39; =&amp;gt; $item - &amp;gt; nid));
+    //set the latitude and longitude
+    //give location module data preference over gmap module data
+    if ($location_enabled) {
+      $latitude = $node - &amp;gt; location[&#39;latitude&#39;];
+      $longitude = $node - &amp;gt; location[&#39;longitude&#39;];
+    }
+    elseif($gmap_location_enabled) {
+      $latitude = $node - &amp;gt; gmap_location_latitude;
+      $longitude = $node - &amp;gt; gmap_location_longitude;
+    }
+    if ($latitude &amp;amp;&amp;amp; $longitude) {
+      $markers[] = array(
+        &#39;label&#39; =&amp;gt; theme(&#39;cambridge_mediamap_marker&#39;, $node),
+        &#39;latitude&#39; =&amp;gt; $latitude,
+        &#39;longitude&#39; =&amp;gt; $longitude,
+        &#39;markername&#39; =&amp;gt; variable_get(&#39;cambridge_mediamap_default_marker&#39;, &#39;marker&#39;),
+      );
+    }
+  }
+  $latlon = explode(&#39;,&#39;, variable_get(&#39;cambridge_mediamap_default_latlong&#39;, &#39;42.369452,-71.100426&#39;));
+  $map = array(
+    &#39;id&#39; =&amp;gt; &#39;cambridge_mediamap&#39;,
+    &#39;latitude&#39; =&amp;gt; trim($latlon[0]),
+    &#39;longitude&#39; =&amp;gt; trim($latlon[1]),
+    &#39;width&#39; =&amp;gt; variable_get(&#39;cambridge_mediamap_default_width&#39;, &#39;100%&#39;),
+    &#39;height&#39; =&amp;gt; variable_get(&#39;cambridge_mediamap_default_height&#39;, &#39;500px&#39;),
+    &#39;zoom&#39; =&amp;gt; variable_get(&#39;cambridge_mediamap_default_zoom&#39;, 13),
+    &#39;control&#39; =&amp;gt; variable_get(&#39;cambridge_mediamap_default_control&#39;, &#39;Large&#39;),
+    &#39;type&#39; =&amp;gt; variable_get(&#39;cambridge_mediamap_default_type&#39;, &#39;Satellite&#39;),
+    &#39;markers&#39; =&amp;gt; $markers,
+  );
+   
+  return gmap_draw_map($map);
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;As you can see, this is quite complicated. Drupal 5.1 offers the powerful Views module, which allows one to define custom reports, once again graphically from the Drupal web-interface, in just a couple minutes of configuration. The gmap_views module, which ships with Gmap, allows one to add those custom reports to a Google Map, which is incredibly useful and renders obsolete much of the development work I did.&lt;/p&gt;
+
+&lt;h3 id=&quot;on-displaying-video-in-maps&quot;&gt;On displaying video in maps&lt;/h3&gt;
+
+&lt;p&gt;In my discussions with CCTV, we felt it most pragmatic to use the embedded video code provided by video hosting services such as Blip.tv. While we could have used one of the Drupal video modules, we wanted the ability to host video offsite due to storage constraints. While I was concerned about the danger of code injection via minimally validated inputs, we felt that this would be of small danger because the content would be maintained by CCTV staff and select members.&lt;/p&gt;
+
+&lt;p&gt;The markers were themed using the embedded video field pulled from the Drupal database, along with the title and a snippet of the description, all linking back to the full content node.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/**
+ * A theme function for our markers
+ */
+function theme_cambridge_mediamap_marker($node) {
+  $output = &#39;&#39;;
+  $output. = &#39;&#39; . l($node-&amp;gt;title, &#39;node / &#39; . $node-&amp;gt;nid) . &#39;&#39;;
+  $output. = &#39;&#39; . $node-&amp;gt;cambridge_mediamap[&#39; . embed_resize &#39;] . &#39;&#39;;
+  $output. = &#39;&#39;;
+  return $output;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;With Drupal 5.1 and Views, we still had to override the standard marker themes, but this was simple and done through the standard methods.&lt;/p&gt;
+
+&lt;p&gt;One of the most helpful pieces was some code developed by &lt;a href=&quot;http://circuitous.org&quot;&gt;Rebecca White&lt;/a&gt;, who I previously worked with on &lt;a href=&quot;http://panlexicon.com&quot;&gt;Panlexicon&lt;/a&gt;. She provided the critical pieces of code that parsed the embedded video code and resized it for display on small marker windows.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/**
+
+\* Returns a resized embed code
+
+\*/
+function cambridge_mediamap_resize($embed = &#39;&#39;) {
+  if (!$embed) {
+    return &#39;&#39;;
+  }
+  list($width, $height) = cambridge_mediamap_get_embed_size($embed);
+  //width/height ratio
+  $width_to_height = $width / $height;
+  $max_width = variable_get(&#39;cambridge_mediamap_embed_width&#39;, &#39;320&#39;);
+  $max_height = variable_get(&#39;cambridge_mediamap_embed_height&#39;, &#39;240&#39;);
+  //shrink down widths while maintaining proportion
+  if ($width &amp;gt;= $height) {
+    if ($width &amp;gt; $max_width) {
+      $width = $max_width;
+      $height = (1 / $width_to_height)\ * $width;
+    }
+    if ($height &amp;gt; $max_height) {
+      $height = $max_height;
+      $width = ($width_to_height)\ * $height;
+    }
+  } else {
+    if ($height &amp;gt; $max_height) {
+      $height = $max_height;
+      $width = ($width_to_height)\ * $height;
+    }
+    if ($width &amp;gt; $max_width) {
+      $width = $max_width;
+      $height = (1 / $width_to_height)\ * $width;
+    }
+  }
+  return cambridge_mediamap_set_embed_size($embed, intval($width), intval($height));
+}
+/\*\*\ * find out what size the embedded thing is\ * /
+
+function cambridge_mediamap_get_embed_size($html) {
+  preg_match(&#39;/]\*width(\s\*=\s\*&quot;|:\s\*)(\d+)/i&#39;, $html, $match_width);
+  preg_match(&#39;/]\*height(\s\*=\s\*&quot;|:\s\*)(\d+)/i&#39;, $html, $match_height);
+  return array($match_width[2], $match_height[2]);
+}
+/\*\*\ * set the size of the embeded thing\ * /
+
+function cambridge_mediamap_set_embed_size($html, $width, $height) {
+  $html = preg_replace(&#39;/(&lt;span class=&quot;err&quot;&gt;&amp;lt;&lt;/span&gt;(embed|object)\s[^&amp;gt;]\*width(\s\*=\s\*&quot;|:\s\*))(\d+)/i&#39;, &#39;${1}&#39;.$width, $html);
+  $html = preg_replace(&#39;/(&lt;span class=&quot;err&quot;&gt;&amp;lt;&lt;/span&gt;(embed|object)\s[^&amp;gt;]\*height(\s\*=\s\*&quot;|:\s\*))(\d+)/i&#39;, &#39;${1}&#39;.$height, $html);
+  return $html;
+}
+/\*\*\ * returns the base url of the src attribute.\*youtube = www.youtube.com\ * blip = blip.tv\ * google video = video.google.com\ * /
+
+function cambridge_mediamap_get_embed_source($html) {
+  preg_match(&#39;/]\*src=&quot;http:\/\/([^\/&quot;]+)/i&#39;, $html, $match_src);
+  return $match_src[1];
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;the-wrap-up&quot;&gt;The Wrap-Up&lt;/h3&gt;
+
+&lt;p&gt;While it may not seem so from the lines of code above, developing for Drupal is still relatively easy. Drupal provides a rich set of features for developers, &lt;a href=&quot;http://api.drupal.org&quot;&gt;well documented features&lt;/a&gt;, and strong &lt;a href=&quot;http://drupal.org/coding-standards&quot;&gt;coding standards&lt;/a&gt;—making reading other people’s code and learning from it incredibly productive.&lt;/p&gt;
+
+&lt;p&gt;Below is the entirety of the custom module I developed for the 4.7 version of the CCTV Media Map. Because it was custom and intended to be used in-house, many important, release worthy functions were omitted, such as richer administrative options and module/function verifications.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&#39;cambridge_mediamap&#39;, &#39;title&#39; =&amp;gt; t(&#39;Mediamap&#39;), &#39;callback&#39; =&amp;gt; &#39;cambridge_mediamap_map&#39;, &#39;access&#39; =&amp;gt; user_access(&#39;access mediamap&#39;), );
+}
+return $items;
+}
+/\*\*\ * Implementation of hook_nodeapi\ * /
+
+function cambridge_mediamap_nodeapi( &lt;span class=&quot;err&quot;&gt;&amp;amp;&lt;/span&gt; $node, $op, $teaser, $page) {
+  switch ($op) {
+    case &#39;validate&#39;:
+      if (variable_get(&#39;cambridge_mediamap_&#39;.$node - &amp;gt; type, TRUE)) {
+        if (user_access(&#39;modify node data&#39;)) {
+          if ($node - &amp;gt; cambridge_mediamap[&#39;display&#39;] &lt;span class=&quot;err&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; $node - &amp;gt; cambridge_mediamap[&#39;embed&#39;] == &#39;&#39;) {
+            form_set_error(&#39;cambridge_mediamap&#39;, t(&#39;Media Map: You must enter embed code or disable display of this node on the map&#39;));
+          }
+        }
+      }
+      break;
+    case &#39;load&#39;:
+      $object = db_fetch_object(db_query(&#39;SELECT display, embed FROM {cambridge_mediamap} WHERE nid = %d&#39;, $node - &amp;gt; nid));
+      $embed = $object - &amp;gt; embed;
+      $embed_resize = cambridge_mediamap_resize($embed);
+      return array(&#39;cambridge_mediamap&#39; =&amp;gt; array(&#39;display&#39; =&amp;gt; $object - &amp;gt; display, &#39;embed&#39; =&amp;gt; $embed, &#39;embed_resize&#39; =&amp;gt; $embed_resize, ));
+      break;
+    case &#39;insert&#39;:
+      db_query(&quot;INSERT INTO {cambridge_mediamap} (nid, display, embed) VALUES (%d, %d, &#39;%s&#39;)&quot;, $node - &amp;gt; nid, $node - &amp;gt; cambridge_mediamap[&#39;display&#39;], $node - &amp;gt; cambridge_mediamap[&#39;embed&#39;]);
+      break;
+    case &#39;update&#39;:
+      db_query(&#39;DELETE FROM {cambridge_mediamap} WHERE nid = %d&#39;, $node - &amp;gt; nid);
+      db_query(&quot;INSERT INTO {cambridge_mediamap} (nid, display, embed) VALUES (%d, %d, &#39;%s&#39;)&quot;, $node - &amp;gt; nid, $node - &amp;gt; cambridge_mediamap[&#39;display&#39;], $node - &amp;gt; cambridge_mediamap[&#39;embed&#39;]);
+      break;
+    case &#39;delete&#39;:
+      db_query(&#39;DELETE FROM {cambridge_mediamap} WHERE nid = %d&#39;, $node - &amp;gt; nid);
+      break;
+    case &#39;view&#39;:
+      break;
+  }
+}
+/\*\*\ * Returns a resized embed code\ * /
+
+function cambridge_mediamap_resize($embed = &#39;&#39;) {
+  if (!$embed) {
+    return &#39;&#39;;
+  }
+  list($width, $height) = cambridge_mediamap_get_embed_size($embed);
+  //width/height ratio
+  $width_to_height = $width / $height;
+  $max_width = variable_get(&#39;cambridge_mediamap_embed_width&#39;, &#39;320&#39;);
+  $max_height = variable_get(&#39;cambridge_mediamap_embed_height&#39;, &#39;240&#39;);
+  //shrink down widths while maintaining proportion
+  if ($width &amp;gt;= $height) {
+    if ($width &amp;gt; $max_width) {
+      $width = $max_width;
+      $height = (1 / $width_to_height)\ * $width;
+    }
+    if ($height &amp;gt; $max_height) {
+      $height = $max_height;
+      $width = ($width_to_height)\ * $height;
+    }
+  } else {
+    if ($height &amp;gt; $max_height) {
+      $height = $max_height;
+      $width = ($width_to_height)\ * $height;
+    }
+    if ($width &amp;gt; $max_width) {
+      $width = $max_width;
+      $height = (1 / $width_to_height)\ * $width;
+    }
+  }
+  return cambridge_mediamap_set_embed_size($embed, intval($width), intval($height));
+}
+/\*\*\ * find out what size the embedded thing is\ * /
+
+function cambridge_mediamap_get_embed_size($html) {
+  preg_match(&#39;/]\*width(\s\*=\s\*&quot;|:\s\*)(\d+)/i&#39;, $html, $match_width);
+  preg_match(&#39;/]\*height(\s\*=\s\*&quot;|:\s\*)(\d+)/i&#39;, $html, $match_height);
+  return array($match_width[2], $match_height[2]);
+}
+/\*\*\ * set the size of the embeded thing\ * /
+
+function cambridge_mediamap_set_embed_size($html, $width, $height) {
+  $html = preg_replace(&#39;/(&lt;span class=&quot;err&quot;&gt;&amp;lt;&lt;/span&gt;(embed|object)\s[^&amp;gt;]\*width(\s\*=\s\*&quot;|:\s\*))(\d+)/i&#39;, &#39;${1}&#39;.$width, $html);
+  $html = preg_replace(&#39;/(&lt;span class=&quot;err&quot;&gt;&amp;lt;&lt;/span&gt;(embed|object)\s[^&amp;gt;]\*height(\s\*=\s\*&quot;|:\s\*))(\d+)/i&#39;, &#39;${1}&#39;.$height, $html);
+  return $html;
+}
+/\*\*\ * returns the base url of the src attribute.\*youtube = www.youtube.com\ * blip = blip.tv\ * google video = video.google.com\ * /
+
+function cambridge_mediamap_get_embed_source($html) {
+  preg_match(&#39;/]\*src=&quot;http:\/\/([^\/&quot;]+)/i&#39;, $html, $match_src);
+  return $match_src[1];
+}
+/\*\*\ * Implementation of hook_form_alter\ * /
+
+function cambridge_mediamap_form_alter($form_id, &lt;span class=&quot;err&quot;&gt;&amp;amp;&lt;/span&gt; $form) {
+  // We&#39;re only modifying node forms, if the type field isn&#39;t set we don&#39;t need
+  // to bother.
+  if (!isset($form[&#39;type&#39;])) {
+    return;
+  }
+  //disable the Gmap module&#39;s location map for unauthorized users
+  //unfortunately Gmap.module doesn&#39;t have this setting
+  if (isset($form[&#39;coordinates&#39;])) {
+    if (!user_access(&#39;modify node data&#39;)) {
+      unset($form[&#39;coordinates&#39;]);
+    }
+  }
+  // Make a copy of the type to shorten up the code
+  $type = $form[&#39;type&#39;][&#39;#value&#39;];
+  // Is the map enabled for this content type?
+  $enabled = variable_get(&#39;cambridge_mediamap_&#39;.$type, 0);
+  switch ($form_id) {
+    // We need to have a way for administrators to indicate which content
+    // types should have the additional media map information added.
+    case $type.
+    &#39;_node_settings&#39;:
+      $form[&#39;workflow&#39;][&#39;cambridge_mediamap_&#39;.$type] = array(&#39;#type&#39; =&amp;gt; &#39;radios&#39;, &#39;#title&#39; =&amp;gt; t(&#39;Cambridge Mediamap setting&#39;), &#39;#default_value&#39; =&amp;gt; $enabled, &#39;#options&#39; =&amp;gt; array(0 =&amp;gt; t(&#39;Disabled&#39;), 1 =&amp;gt; t(&#39;Enabled&#39;)), &#39;#description&#39; =&amp;gt; t(&#39;Allow the attaching of externally hosted imbedded video to be displayed in a map?&#39;), );
+      break;
+    case $type.
+    &#39;_node_form&#39;:
+      if ($enabled &lt;span class=&quot;err&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; user_access(&#39;modify node data&#39;)) {
+        //create the fieldset
+        $form[&#39;cambridge_mediamap&#39;] = array(&#39;#type&#39; =&amp;gt; &#39;fieldset&#39;, &#39;#title&#39; =&amp;gt; t(&#39;Media Map&#39;), &#39;#collapsible&#39; =&amp;gt; TRUE, &#39;#collapsed&#39; =&amp;gt; FALSE, &#39;#tree&#39; =&amp;gt; TRUE, );
+        //insert the embed code
+        $form[&#39;cambridge_mediamap&#39;][&#39;embed&#39;] = array(&#39;#type&#39; =&amp;gt; &#39;textarea&#39;, &#39;#title&#39; =&amp;gt; t(&#39;Video Embed Code&#39;), &#39;#default_value&#39; =&amp;gt; $form[&#39;#node&#39;] - &amp;gt; cambridge_mediamap[&#39;embed&#39;], &#39;#cols&#39; =&amp;gt; 60, &#39;#rows&#39; =&amp;gt; 5, &#39;#description&#39; =&amp;gt; t(&#39;Copy and paste the embed code from an external video or media hosting service&#39;), );
+        //enable or disable on map
+        $form[&#39;cambridge_mediamap&#39;][&#39;display&#39;] = array(&#39;#type&#39; =&amp;gt; &#39;select&#39;, &#39;#title&#39; =&amp;gt; t(&#39;Display this node&#39;), &#39;#default_value&#39; =&amp;gt; $form[&#39;#node&#39;] - &amp;gt; cambridge_mediamap[&#39;display&#39;], &#39;#options&#39; =&amp;gt; array(&#39;0&#39; =&amp;gt; t(&#39;Disable display&#39;), &#39;1&#39; =&amp;gt; t(&#39;Enable display&#39;), ), );
+      }
+      break;
+  }
+}
+/\*\*\ * A page callback to draw the map\ * /
+
+function cambridge_mediamap_map() {
+  $output = &#39;&#39;;
+  //Collect the nodes to be displayed
+  $results = db_query(&#39;SELECT embed, nid FROM {cambridge_mediamap} WHERE display = 1&#39;);
+  //Initialize our marker array
+  $markers = array();
+  //check to see what modules are enabled
+  $location_enabled = module_exist(&#39;location&#39;);
+  $gmap_location_enabled = module_exist(&#39;gmap_location&#39;);
+  //load each node and set it&#39;s attributes in the marker array
+  while ($item = db_fetch_object($results)) {
+    $latitude = 0;
+    $longitude = 0;
+    //load the node
+    $node = node_load(array(&#39;nid&#39; =&amp;gt; $item - &amp;gt; nid));
+    //set the latitude and longitude
+    //give location module data preference over gmap module data
+    if ($location_enabled) {
+      $latitude = $node - &amp;gt; location[&#39;latitude&#39;];
+      $longitude = $node - &amp;gt; location[&#39;longitude&#39;];
+    }
+    elseif($gmap_location_enabled) {
+      $latitude = $node - &amp;gt; gmap_location_latitude;
+      $longitude = $node - &amp;gt; gmap_location_longitude;
+    }
+    if ($latitude &lt;span class=&quot;err&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; $longitude) {
+      $markers[] = array(&#39;label&#39; =&amp;gt; theme(&#39;cambridge_mediamap_marker&#39;, $node), &#39;latitude&#39; =&amp;gt; $latitude, &#39;longitude&#39; =&amp;gt; $longitude, &#39;markername&#39; =&amp;gt; variable_get(&#39;cambridge_mediamap_default_marker&#39;, &#39;marker&#39;), );
+    }
+  }
+  $latlon = explode(&#39;,&#39;, variable_get(&#39;cambridge_mediamap_default_latlong&#39;, &#39;42.369452,-71.100426&#39;));
+  $map = array(&#39;id&#39; =&amp;gt; &#39;cambridge_mediamap&#39;, &#39;latitude&#39; =&amp;gt; trim($latlon[0]), &#39;longitude&#39; =&amp;gt; trim($latlon[1]), &#39;width&#39; =&amp;gt; variable_get(&#39;cambridge_mediamap_default_width&#39;, &#39;100%&#39;), &#39;height&#39; =&amp;gt; variable_get(&#39;cambridge_mediamap_default_height&#39;, &#39;500px&#39;), &#39;zoom&#39; =&amp;gt; variable_get(&#39;cambridge_mediamap_default_zoom&#39;, 13), &#39;control&#39; =&amp;gt; variable_get(&#39;cambridge_mediamap_default_control&#39;, &#39;Large&#39;), &#39;type&#39; =&amp;gt; variable_get(&#39;cambridge_mediamap_default_type&#39;, &#39;Satellite&#39;), &#39;markers&#39; =&amp;gt; $markers, );
+  return gmap_draw_map($map);
+}
+/\*\*\ * A theme
+function
+for our markers\ * /
+
+function theme_cambridge_mediamap_marker($node) {
+  $output = &#39;
+  &#39;;
+  $output. = &#39;
+  &#39; . l($node-&amp;gt;title, &#39;
+  node / &#39; . $node-&amp;gt;nid) . &#39;
+  &#39;;
+  $output. = &#39;
+  &#39; . $node-&amp;gt;cambridge_mediamap[&#39;
+  embed_resize &#39;] . &#39;
+  &#39;;
+  $output. = &#39;
+  &#39;;
+  return $output;
+}
+/\*\*\ * Settings page\ * /
+
+function cambridge_mediamap_settings() {
+  // Cambridge data
+  // latitude = 42.369452
+  // longitude = -71.100426
+  $form[&#39;defaults&#39;] = array(&#39;#type&#39; =&amp;gt; &#39;fieldset&#39;, &#39;#title&#39; =&amp;gt; t(&#39;Default map settings&#39;), );
+  $form[&#39;defaults&#39;][&#39;cambridge_mediamap_default_width&#39;] = array(&#39;#type&#39; =&amp;gt; &#39;textfield&#39;, &#39;#title&#39; =&amp;gt; t(&#39;Default width&#39;), &#39;#default_value&#39; =&amp;gt; variable_get(&#39;cambridge_mediamap_default_width&#39;, &#39;100%&#39;), &#39;#size&#39; =&amp;gt; 25, &#39;#maxlength&#39; =&amp;gt; 6, &#39;#description&#39; =&amp;gt; t(&#39;The default width of a Google map. Either px or %&#39;), );
+  $form[&#39;defaults&#39;][&#39;cambridge_mediamap_default_height&#39;] = array(&#39;#type&#39; =&amp;gt; &#39;textfield&#39;, &#39;#title&#39; =&amp;gt; t(&#39;Default height&#39;), &#39;#default_value&#39; =&amp;gt; variable_get(&#39;cambridge_mediamap_default_height&#39;, &#39;500px&#39;), &#39;#size&#39; =&amp;gt; 25, &#39;#maxlength&#39; =&amp;gt; 6, &#39;#description&#39; =&amp;gt; t(&#39;The default height of Mediamap. In px.&#39;), );
+  $form[&#39;defaults&#39;][&#39;cambridge_mediamap_default_latlong&#39;] = array(&#39;#type&#39; =&amp;gt; &#39;textfield&#39;, &#39;#title&#39; =&amp;gt; t(&#39;Default center&#39;), &#39;#default_value&#39; =&amp;gt; variable_get(&#39;cambridge_mediamap_default_latlong&#39;, &#39;42.369452,-71.100426&#39;), &#39;#description&#39; =&amp;gt; &#39;The decimal latitude,longitude of the centre of the map. The &quot;.&quot; is used for decimal, and &quot;,&quot; is used to separate latitude and longitude.&#39;, &#39;#size&#39; =&amp;gt; 50, &#39;#maxlength&#39; =&amp;gt; 255, &#39;#description&#39; =&amp;gt; t(&#39;The default longitude, latitude of Mediamap.&#39;), );
+  $form[&#39;defaults&#39;][&#39;cambridge_mediamap_default_zoom&#39;] = array(&#39;#type&#39; =&amp;gt; &#39;select&#39;, &#39;#title&#39; =&amp;gt; t(&#39;Default zoom&#39;), &#39;#default_value&#39; =&amp;gt; variable_get(&#39;cambridge_mediamap_default_zoom&#39;, 13), &#39;#options&#39; =&amp;gt; drupal_map_assoc(range(0, 17)), &#39;#description&#39; =&amp;gt; t(&#39;The default zoom level of Mediamap.&#39;), );
+  $form[&#39;defaults&#39;][&#39;cambridge_mediamap_default_control&#39;] = array(&#39;#type&#39; =&amp;gt; &#39;select&#39;, &#39;#title&#39; =&amp;gt; t(&#39;Default control type&#39;), &#39;#default_value&#39; =&amp;gt; variable_get(&#39;cambridge_mediamap_default_control&#39;, &#39;Large&#39;), &#39;#options&#39; =&amp;gt; array(&#39;None&#39; =&amp;gt; t(&#39;None&#39;), &#39;Small&#39; =&amp;gt; t(&#39;Small&#39;), &#39;Large&#39; =&amp;gt; t(&#39;Large&#39;)), );
+  $form[&#39;defaults&#39;][&#39;cambridge_mediamap_default_type&#39;] = array(&#39;#type&#39; =&amp;gt; &#39;select&#39;, &#39;#title&#39; =&amp;gt; t(&#39;Default map type&#39;), &#39;#default_value&#39; =&amp;gt; variable_get(&#39;cambridge_mediamap_default_type&#39;, &#39;Satellite&#39;), &#39;#options&#39; =&amp;gt; array(&#39;Map&#39; =&amp;gt; t(&#39;Map&#39;), &#39;Satellite&#39; =&amp;gt; t(&#39;Satellite&#39;), &#39;Hybrid&#39; =&amp;gt; t(&#39;Hybrid&#39;)), );
+  $markers = gmap_get_markers();
+  $form[&#39;defaults&#39;][&#39;cambridge_mediamap_default_marker&#39;] = array(&#39;#type&#39; =&amp;gt; &#39;select&#39;, &#39;#title&#39; =&amp;gt; t(&#39;Marker&#39;), &#39;#default_value&#39; =&amp;gt; variable_get(&#39;cambridge_mediamap_default_marker&#39;, &#39;marker&#39;), &#39;#options&#39; =&amp;gt; $markers, );
+  $form[&#39;embed&#39;] = array(&#39;#type&#39; =&amp;gt; &#39;fieldset&#39;, &#39;#title&#39; =&amp;gt; t(&#39;Default embedded video settings&#39;), );
+  $form[&#39;embed&#39;][&#39;cambridge_mediamap_embed_width&#39;] = array(&#39;#type&#39; =&amp;gt; &#39;textfield&#39;, &#39;#title&#39; =&amp;gt; t(&#39;Default width&#39;), &#39;#default_value&#39; =&amp;gt; variable_get(&#39;cambridge_mediamap_embed_width&#39;, &#39;320&#39;), &#39;#size&#39; =&amp;gt; 25, &#39;#maxlength&#39; =&amp;gt; 6, &#39;#description&#39; =&amp;gt; t(&#39;The maximum width of embedded video&#39;), );
+  $form[&#39;embed&#39;][&#39;cambridge_mediamap_embed_height&#39;] = array(&#39;#type&#39; =&amp;gt; &#39;textfield&#39;, &#39;#title&#39; =&amp;gt; t(&#39;Default height&#39;), &#39;#default_value&#39; =&amp;gt; variable_get(&#39;cambridge_mediamap_embed_height&#39;, &#39;240&#39;), &#39;#size&#39; =&amp;gt; 25, &#39;#maxlength&#39; =&amp;gt; 6, &#39;#description&#39; =&amp;gt; t(&#39;The maximum height of embedded video.&#39;), );
+  return $form;
+}
+/\*\*\ * Prints human - readable(html) information about a variable.\*Use: print debug($variable_name);\ * Or assign output to a variable.\*/
+
+function debug($value) {
+  return preg_replace(&quot;/\s/&quot;, &quot; &quot;, preg_replace(&quot;/\n/&quot;, &quot;&quot;, print_r($value, true)));
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Thu, 02 Aug 2007 00:00:00 -0700</pubDate>
+        <link>http://island94.org/2007/08/02/Geekout-Video-on-Maps-for-Cable-Access-TV.html.html</link>
+        <guid isPermaLink="true">http://island94.org/2007/08/02/Geekout-Video-on-Maps-for-Cable-Access-TV.html.html</guid>
+        
+        <category>Cable Access</category>
+        
+        <category>coding</category>
+        
+        <category>development</category>
+        
+        <category>Drupal</category>
+        
+        <category>geekout</category>
+        
+        <category>navigation</category>
+        
+        <category>portfolio</category>
+        
+        <category>video</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Walkabout Trail, RI</title>
+        <description>&lt;p&gt;&lt;a href=&quot;http://www.flickr.com/photos/bensheldon/819325062/&quot; title=&quot;Photo Sharing&quot;&gt; &lt;img src=&quot;http://farm2.static.flickr.com/1327/819325062_64e6660ffa_m.jpg&quot; alt=&quot;Frog&quot; /&gt; &lt;/a&gt; &lt;a href=&quot;http://www.flickr.com/photos/bensheldon/818413293/&quot; title=&quot;Photo Sharing&quot;&gt; &lt;img src=&quot;http://farm2.static.flickr.com/1054/818413293_f3c656f1ce_m.jpg&quot; alt=&quot;Helen sees something&quot; /&gt; &lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;A few weeks ago I hiked the &lt;a href=&quot;http://www.google.com/maps?q=Providence,+RI,+USA&amp;amp;ie=UTF8&amp;amp;ll=41.92353,-71.75776&amp;amp;spn=0.00372,0.009388&amp;amp;t=h&amp;amp;z=17&amp;amp;om=1&quot;&gt;Walkabout Trail&lt;/a&gt; in Northwestern Rhode Island with my friend &lt;a href=&quot;http://flickr.com/photos/helenday/&quot;&gt;Helen&lt;/a&gt;. The trail was gorgeously green and mossy with many fun frogs, toads and critters. We hiked the eight miles (which cuts for shorter walks) in a little over three hours, which was a great pace leading up to a cooling swim in the adjoining pond afterwards.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://flickr.com/photos/bensheldon/sets/72157600835146342/&quot;&gt; &lt;img src=&quot;/assets/2007-08/walkabout-trail.png&quot; alt=&quot;&quot; /&gt; &lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Wed, 01 Aug 2007 00:00:00 -0700</pubDate>
+        <link>http://island94.org/2007/08/01/Walkabout-Trail-RI.html.html</link>
+        <guid isPermaLink="true">http://island94.org/2007/08/01/Walkabout-Trail-RI.html.html</guid>
+        
+        <category>friends</category>
+        
+        <category>frogs</category>
+        
+        <category>hiking</category>
+        
+        <category>mossy</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>&quot;Should I get a nonprofit job?&quot;</title>
+        <description>&lt;p&gt;I have a lot of friends and acquaintances considering a job in the nonprofit sector. I’ve been employed within small (under $2 million budgets), community nonprofit organizations for three years now, beginning straight out of college, but have also talked to many people with many different experiences and histories in the sector and outside of it about their experiences. The following is my boilerplate advice to people that asks me about working, or finding work, within nonprofits.&lt;/p&gt;
+
+&lt;p&gt;Assuming that you are an intelligent, well-educated (or seeking to be), self-motivated and upwardly mobile individual, your interest probably spans a combination of two distinct (or should be in your mind) issues:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;You want a job, with a modicum of stability, freedom, and disposable income.&lt;/li&gt;
+  &lt;li&gt;You want to change the world, or a least do it less harm than otherwise.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;My advice for you:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Find a corporate job that you like, or don’t feel too guilty about, and that provides you with plenty of disposable income and time. Find a small, local nonprofit (or church, or social group) that meets your standards for doing good, and invest your disposable income and time with them. Join their governing board, connect them with your professional and personal networks and help them grow in a direction you believe in. You will enact more change from a higher level than you could, in most situations, by being a direct employee of that organization.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;Non-categorical rationale:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Nonprofits have jobs, but they don’t have a lot of them and it’s hard to break into one that distinguishes you from your peers: you can find a job answering phones, but it’s difficult to get one with responsibility and authority. Nonprofits are bad (or relatively worse than their commercial peers) at: recognizing ability, enabling it, and rewarding it.&lt;/p&gt;
+
+&lt;p&gt;Nonprofits are insulating. Because you are constantly understaffed, under-budgeted and under-resourced (time, training, equipment) it is difficult to find the time to truly reflect. It is difficult to critically look at what you are doing and what you have done; to connect with other practitioners and look at what you are doing as a group; to reach outside the sector to learn from others and see how you fit into that broadest context.&lt;/p&gt;
+
+&lt;p&gt;A job is a job, wherever you’re working. This may sound selfish (and it probably is) but you should be concerned that, whatever your job is, you:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;are challenged&lt;/li&gt;
+  &lt;li&gt;are encouraged to try and learn new things&lt;/li&gt;
+  &lt;li&gt;are acknowledged (even celebrated on occassion)&lt;/li&gt;
+  &lt;li&gt;can advance to greater responsibility and authority&lt;/li&gt;
+  &lt;li&gt;are provided a separate personal life&lt;/li&gt;
+  &lt;li&gt;are afforded physical and mental health (no 80 hour weeks or screaming matches)&lt;/li&gt;
+  &lt;li&gt;have fun or enjoy your work a majority of the time (no puritan work ethic for me)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;By looking after yourself on an individual level, you will ultimately be in a better position to have compassion for those around you and be better positioned to act upon that compassion.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 19 Jul 2007 00:00:00 -0700</pubDate>
+        <link>http://island94.org/2007/07/19/Should-I-get-a-nonprofit-job.html.html</link>
+        <guid isPermaLink="true">http://island94.org/2007/07/19/Should-I-get-a-nonprofit-job.html.html</guid>
+        
+        <category>advice</category>
+        
+        <category>career</category>
+        
+        <category>nonprofit</category>
+        
+        <category>strategy</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Planning Strategic Planning</title>
+        <description>&lt;p&gt;At work I have been furiously engaged in strategic planning in advance of some major grant-writing. This process is a continuation from some vine-withered efforts my coworker and I had made last fall, but due to some changing circumstances—a better understanding of the existing processes at play and increased authority to manage the outcomes—this most recent effort is bearing more fruit.&lt;/p&gt;
+
+&lt;p&gt;Perhaps the largest set-back to our strategic planning projects has been &lt;em&gt;the planning of our strategic planning&lt;/em&gt;. Without having to recurse infinitely backwards, perhaps the most important things I’ve learned are:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Strategic planning relies on individuals.&lt;/strong&gt; Strategic planning usually requires the actions of a single, or a small handful of individuals that not only are motivated, but have the resources and authority (or the full backing of someone with authority) to proceed. This is not to diminish the value of &lt;a href=&quot;http://en.wikipedia.org/wiki/Swot_analysis&quot;&gt;SWOT&lt;/a&gt; or &lt;a href=&quot;http://en.wikipedia.org/wiki/SMART_(project_management)&quot;&gt;SMART&lt;/a&gt;, but to reaffirm that strategic planning relies upon someone to begin the process, facilitate it, and ensure that its outcomes are useful.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Strategic planning should build on your strengths.&lt;/strong&gt; There is a tendency to relegate strategic planning activities to weak periods or to use it to shore up areas that are perceived lacking. This often means that you aren’t able to properly recognize what led to successful periods or why certain components succeeded.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Define goals by need, not by resources or activities.&lt;/strong&gt; Perhaps due to the tendency to use strategic planning to shore up weaknesses, goals are often defined narrowly out of current activities. Rather, goals should be widest effect you hope to enact. Just because a program’s goals are narrow does not mean that an organization cannot hope to affect a broader mission; or that a program cannot target only a single need within a much larger issue.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;These three pieces come from my own experience with strategic planning, but I do like that they tie in nicely with much broader advice on philanthropy from Peter Drucker (via &lt;a href=&quot;http://giving.typepad.com/theworldwewant/2006/05/update_on_the_w.html&quot;&gt;The World We Want&lt;/a&gt;):&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Fund extraordinary people, not institutions.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Build on islands of health, not problems to be solved.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Get big or get gone. Scale up to the size of the need, not down to the resources available.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;(I’m always looking this quote up for a variety of reasons, so for simplicities sake I figure I should just post it here.)&lt;/p&gt;
+</description>
+        <pubDate>Sun, 15 Jul 2007 00:00:00 -0700</pubDate>
+        <link>http://island94.org/2007/07/15/Planning-Strategic-Planning.html.html</link>
+        <guid isPermaLink="true">http://island94.org/2007/07/15/Planning-Strategic-Planning.html.html</guid>
+        
+        <category>advice</category>
+        
+        <category>nonprofit</category>
+        
+        <category>strategic planning</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Small things of Spring</title>
+        <description>&lt;p&gt;&lt;a href=&quot;http://www.flickr.com/photos/bensheldon/530395402/&quot; title=&quot;Photo Sharing&quot;&gt; &lt;img src=&quot;http://farm2.static.flickr.com/1285/530395402_2567dc64cd.jpg&quot; alt=&quot;Goslings&quot; /&gt; &lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.flickr.com/photos/bensheldon/530535995/&quot; title=&quot;Photo Sharing&quot;&gt; &lt;img src=&quot;http://farm2.static.flickr.com/1220/530535995_82b282cda5.jpg&quot; alt=&quot;Ladybug in the Garden&quot; /&gt; &lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.flickr.com/photos/bensheldon/513475262/&quot; title=&quot;Photo Sharing&quot;&gt; &lt;img src=&quot;http://farm1.static.flickr.com/207/513475262_e9fb4f340d.jpg&quot; alt=&quot;Early Grapes&quot; /&gt; &lt;/a&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 04 Jun 2007 00:00:00 -0700</pubDate>
+        <link>http://island94.org/2007/06/04/Small-things-of-Spring.html.html</link>
+        <guid isPermaLink="true">http://island94.org/2007/06/04/Small-things-of-Spring.html.html</guid>
+        
+        <category>bugs</category>
+        
+        <category>geese</category>
+        
+        <category>photos</category>
+        
+        <category>small things</category>
+        
+        <category>spring</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Spring arrives</title>
+        <description>&lt;p&gt;&lt;a href=&quot;http://www.flickr.com/photos/bensheldon/448506773/&quot; title=&quot;Photo Sharing&quot;&gt; &lt;img src=&quot;http://farm1.static.flickr.com/218/448506773_55049ea73c.jpg&quot; alt=&quot;CIMG2509.JPG&quot; /&gt; &lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Spring came a lot earlier to Washington, DC than it did to New England, but the mercury is topping 80 today in Boston. Above, I’m at the Cherry Blossom Festival in Washington, DC last month. Below is the one of the multitudinous dandelions that have sprung up around UMass Boston.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.flickr.com/photos/bensheldon/489864761/&quot; title=&quot;Photo Sharing&quot;&gt; &lt;img src=&quot;http://farm1.static.flickr.com/194/489864761_ffcbfa0a22.jpg&quot; alt=&quot;Dandelions at UMass Boston&quot; /&gt; &lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Wed, 09 May 2007 00:00:00 -0700</pubDate>
+        <link>http://island94.org/2007/05/09/Spring-arrives.html.html</link>
+        <guid isPermaLink="true">http://island94.org/2007/05/09/Spring-arrives.html.html</guid>
+        
+        <category>Boston</category>
+        
+        <category>flowers</category>
+        
+        <category>season</category>
+        
+        <category>spring</category>
+        
+        <category>Washington DC</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>New England Construction</title>
+        <description>&lt;p&gt;&lt;em&gt;Wrote this a while back and it’s been floating around my drafts pile. The story is a little light, but mostly I wrote it to remember all the arcane details my landlord’s handyman told me when he came to rehang our doors.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Monday morning; my girl was out of town on business. Her business. I was watching the Price is Right: dolts with nothing better to do with their time either. One knocked at my door.&lt;/p&gt;
+
+&lt;p&gt;I wiped the spent food refuse and old files towards the far end of my desk. The desk is a large one and sometimes that’s needed. Today it wasn’t.&lt;/p&gt;
+
+&lt;p&gt;I called it, her, in.&lt;/p&gt;
+
+&lt;p&gt;I’m no bunny humper but fur coats make little sense to me I don’t need the socio-economic, market differentiation explanation. Here’s an old woman, probably afraid to watch the evening news, yet wears the clothing equivalent of a sausage factory.&lt;/p&gt;
+
+&lt;p&gt;I operate my business on a sliding scale. I slid it to the right. I’ve been known to do pro-bono, but I didn’t think she’d need it. She didn’t.&lt;/p&gt;
+
+&lt;p&gt;“I’ve lost something.”&lt;/p&gt;
+
+&lt;p&gt;I keep my list of services vague. Boston’s a tough town and you never know when a treed cat will pay the heating bill.&lt;/p&gt;
+
+&lt;p&gt;“A ring, it’s somewhere in my house.”&lt;/p&gt;
+
+&lt;p&gt;“I’m sorry, Miss—”&lt;/p&gt;
+
+&lt;p&gt;“Capshaw, Rosemary Capshaw.”&lt;/p&gt;
+
+&lt;p&gt;“I don’t do house cleaning. Perhaps you have an assistant?” Or a psychic. But from the looks of her she probably did; on retainer. A phrenologist too. I gave the scale another shove.&lt;/p&gt;
+
+&lt;p&gt;“No, it’s in my house. Somewhere in the walls.”&lt;/p&gt;
+
+&lt;p&gt;“You need a carpenter.” And a shrink. But she’d already have one of those too; maybe should up her dose.&lt;/p&gt;
+
+&lt;p&gt;“I had one but he couldn’t find it. He tore my house apart and still couldn’t find it. Then he gave me your number.”&lt;/p&gt;
+
+&lt;p&gt;I have to wonder about the people that recommend me. I probably photographed his wife cheating. Maybe roughed the guy up too. Value-addeds make customers for life.&lt;/p&gt;
+
+&lt;p&gt;“I’ll see what I can do.” My calendar, if I had a calendar, was empty; also why I don’t have a calendar.&lt;/p&gt;
+
+&lt;p&gt;Rosemary drove. I could have asked to bring along an elephant and it would have fit comfortably in the backseat; might have scuffed up the leather though.&lt;/p&gt;
+
+&lt;p&gt;Her house was large, but that was to be expected considering she needed somewhere to park the car. It was an old carriage house with a mansard roof. That sort of thing may have fooled the French, who taxed by the floor, but Yankee assayers are more clever. They call it historical architecture and increase the value. But I don’t think property taxes keep Rosemary up at night.&lt;/p&gt;
+
+&lt;p&gt;She had a nice place. Selling it would lead to quite the nice South Florida retirement. Nothing like my own apartment. Atlantic city has nothing on the Boston rental market: the odds are horrible and the house always wins. I rent the second floor of a triple-decker. Unless I experience a “life altering” event, I’m guaranteed to be out on my ass: carting my belongings down the street when the place goes condo, or in an ambulance when the owner firebombs it.&lt;/p&gt;
+
+&lt;p&gt;She showed me to the attic. Quite a carpenter she found; the place was ripped to shreds. To be expected if the guy recommended me. The floorboards along an entire wall was torn apart, down to the studs.&lt;/p&gt;
+
+&lt;p&gt;While we were driving over she explained the situation: priceless ring, slip of the hand, crack in the floor.&lt;/p&gt;
+
+&lt;p&gt;“So you’re sure this is exactly where it slipped.”&lt;/p&gt;
+
+&lt;p&gt;“Completely. I was right here.”&lt;/p&gt;
+
+&lt;p&gt;“What’s beneath this?”&lt;/p&gt;
+
+&lt;p&gt;“My parlor.”&lt;/p&gt;
+
+&lt;p&gt;The wood in this place was amazing, and I don’t just mean the floor. Moldings, doorframes, inset cabinetry was all perfect. Most times it’s easier just gut them rather than refinish. Replace priceless mahogany and cherry with spruce or pine. Spruce takes a good coat of paint but not much else. As for pine, when I was a baby I teethed on our furniture. Wouldn’t happen here though. Somebody probably sanded their family a new car working on this place and that car would still be out of my price range.&lt;/p&gt;
+
+&lt;p&gt;In the parlor the baseboards were completely torn up too, with obvious belief that the ring would have fallen down through the wall. No insulation: typical. Coldest winters in the country and nobody thinks to use a little fiberglass.&lt;/p&gt;
+
+&lt;p&gt;I knocked the wall. Carpenter was a dolt. New England houses are always interesting, and he apparently didn’t know this one’s particular peculiarity:&lt;/p&gt;
+
+&lt;p&gt;Hurricane brace; a solid beam running diagonally across the wall. From modern architectural standing such a thing is half over-engineering, half-diminished standards: buildings these days are mostly plastic wrap. That it comes from 3M rather than Stretch-Tite doesn’t make much of a difference.&lt;/p&gt;
+
+&lt;p&gt;I measured out the dimensions in my head, matching up where she dropped her ring in the attic above.&lt;/p&gt;
+
+&lt;p&gt;“Do you mind?”&lt;/p&gt;
+
+&lt;p&gt;Plaster walls: it takes a jackhammer to drive a nail into, but any flat, blunt object will bust them wide open. Like a fist.&lt;/p&gt;
+
+&lt;p&gt;There are few parts of my CV I enjoy more than my extensive knowledge of and experience in effectively hitting things. The wall gave way in a burst of gypsum and lead paint. Between the mangled wooden strips of plaster-backing, I spotted a glint of something.&lt;/p&gt;
+
+&lt;p&gt;I reached through the hole, gave my sliding scale one last tap, and retrieved her ring. Needless to say, she was satisfied. And cleaning up is never a part of my job description.&lt;/p&gt;
+</description>
+        <pubDate>Sun, 29 Apr 2007 00:00:00 -0700</pubDate>
+        <link>http://island94.org/2007/04/29/New-England-Construction.html.html</link>
+        <guid isPermaLink="true">http://island94.org/2007/04/29/New-England-Construction.html.html</guid>
+        
+        <category>architecture</category>
+        
+        <category>detective story</category>
+        
+        <category>fiction</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Introducing Panlexicon.com</title>
+        <description>&lt;p&gt;&lt;a href=&quot;http://www.flickr.com/photos/bensheldon/459184378/&quot; title=&quot;Photo Sharing&quot;&gt; &lt;img src=&quot;http://farm1.static.flickr.com/178/459184378_b3538d860c.jpg&quot; alt=&quot;Panlexicon.com&quot; /&gt; &lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;I’m very proud to be officially launching ** &lt;a href=&quot;http://panlexicon.com&quot;&gt;Panlexicon.com&lt;/a&gt;: a unique thesaurus&lt;strong&gt;. Using intuitive **“tag clouds”&lt;/strong&gt; to represent synonyms, &lt;a href=&quot;http://panlexicon.com&quot;&gt;Panlexicon&lt;/a&gt; makes discovering the word you want quick, easy and explorational.&lt;/p&gt;
+
+&lt;p&gt;Panlexicon’s current functions allow you to:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;First&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.iucn-tftsg.org/?albino_farm&quot;&gt;Albino Farm full&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;, perform a lookup on a single word and receive a weighted cloud of synonyms.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Second&lt;/strong&gt;, view synonyms that overlap across multiple words either by entering the words manually, or clicking on words already in the cloud to further refine your search.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;For example&lt;/strong&gt;, performing a search on “ &lt;a href=&quot;http://panlexicon.com/?query=cool&quot;&gt;cool&lt;/a&gt;” provides a wide variety of synonyms from “chilly”, to “unimpassioned”, to “groovy”. Refining the search using &lt;a href=&quot;http://panlexicon.com/?query=cool,nifty&quot;&gt;cool &lt;em&gt;and&lt;/em&gt; nifty&lt;/a&gt; provides more refined synonyms.&lt;/p&gt;
+
+&lt;p&gt;By varying the size of the typeface, like tag clouds do, the most relevant terms &lt;strong&gt;pop out at you&lt;/strong&gt; allowing you to quickly scan through large lists of words. Also, because the algorithm is a little fuzzy, you may run across related words that provide better context.&lt;/p&gt;
+
+&lt;p&gt;Panlexicon was developed jointly with &lt;a href=&quot;http://circuitous.org&quot;&gt;Rebecca&lt;/a&gt; who originally proposed the project and did much of the research on thesauri and helped develop the word relevance algorithms.&lt;/p&gt;
+
+&lt;p&gt;The word lists come from the &lt;a href=&quot;http://www.gutenberg.org/etext/3202&quot;&gt;Moby Thesaurus&lt;/a&gt; as part of &lt;a href=&quot;http://www.gutenberg.org/&quot;&gt;Project Gutenburg’s&lt;/a&gt; library of free electronic texts. &lt;a href=&quot;http://drupal.org&quot;&gt;Drupal&lt;/a&gt; is used as a simple framework for core functions such as database abstraction and page callbacks and to simplify future feature developments. Google AdSense is activated on the site, but that is due more to curiosity over the interplay of contextual advertising and the word lists than on any current revenue model.&lt;/p&gt;
+</description>
+        <pubDate>Sat, 14 Apr 2007 00:00:00 -0700</pubDate>
+        <link>http://island94.org/2007/04/14/Introducing-Panlexiconcom.html.html</link>
+        <guid isPermaLink="true">http://island94.org/2007/04/14/Introducing-Panlexiconcom.html.html</guid>
+        
+        <category>development</category>
+        
+        <category>launch</category>
+        
+        <category>navigation</category>
+        
+        <category>portfolio</category>
+        
+        <category>synonyms</category>
+        
+        <category>thesaurus</category>
+        
+        <category>webdesign</category>
+        
+        <category>website</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Nonprofit Communications 2.0</title>
+        <description>&lt;p&gt;Last week I attended NTEN’s 2007 &lt;a href=&quot;http://nten.org/ntc&quot;&gt;Nonprofit Technology Conference&lt;/a&gt; and sat in on a wonderful session entitled &lt;strong&gt;Nonprofit Communications 2.0: Seven Steps to Transform Your Organization.&lt;/strong&gt; Led by &lt;a href=&quot;http://www.cctv.org/index.php?SiteAlias=cctv&amp;amp;PageAlias=CCTV_Staff#LG&quot;&gt;Lauren-Glenn Davitian&lt;/a&gt; of the &lt;a href=&quot;http://www.cctv.org/&quot;&gt;CCTV Center for Media and Democracy&lt;/a&gt;, the session provided a strong framework for nonprofits to better communicate in an increasingly networked society.&lt;/p&gt;
+
+&lt;p&gt;I am also very lucky to serve with Lauren-Glenn on the editorial board of the &lt;a href=&quot;http://communitymediareview.org/&quot;&gt;Community Media Review&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The video itself is approximately 1 hour, 24 minutes long and worth every second, but I included my notes from the session below.&lt;/p&gt;
+
+&lt;blockquote&gt;
+
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Community building talent is the single most important resource in the modern world.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Peter Drucker&lt;/p&gt;
+
+&lt;h3 id=&quot;how-to-engage-and-mobilize-members&quot;&gt;How to engage and mobilize members&lt;/h3&gt;
+
+&lt;p&gt;A Communications framework for thinking about how organizational objectives are met through interaction. The correlating Development framework is in parenthesis.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;Welcome&lt;/strong&gt; (Prospect)&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Educate&lt;/strong&gt; (Cultivation)&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Ask&lt;/strong&gt; (Involvement)&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Thank&lt;/strong&gt; (Stewardship)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;the-seven-steps&quot;&gt;The Seven Steps&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;Assessment&lt;/strong&gt;: Defining your goal (What behavior are you trying to change in undertaking a communications strategy?), audience (an explicit, targeted “who” and their values), evaluating your infrastructure (orthodoxies, structure, time, leadership)&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Awareness&lt;/strong&gt;: Start by searching &lt;a href=&quot;http://nten.org&quot;&gt;NTEN&lt;/a&gt;, &lt;a href=&quot;http://techsoup.org&quot;&gt;TechSoup&lt;/a&gt;, &lt;a href=&quot;http://www.idealware.org/&quot;&gt;Idealware&lt;/a&gt;, etc. (Link Research)&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Training&lt;/strong&gt;: A discipline of doing things. How are stories told, infrastructure built and actions communicated to regular people?&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Content Production&lt;/strong&gt;: “The currency of the new world”&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Technical Support&lt;/strong&gt;: An example: how to know when to build and when to buy&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Partnerships&lt;/strong&gt;: Who is going to stand up for you?&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Planning&lt;/strong&gt;: What are the components that revolve around your goal?&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;other-links&quot;&gt;Other Links&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://secure.spinproject.org/modinput4.php?modin=56&quot;&gt;Strategic Communications Plan Generator&lt;/a&gt; from The SPIN Project&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.npowerseattle.org/education/resources/communications.htm&quot;&gt;Tech Savvy Communications Toolkit&lt;/a&gt; ** &lt;a href=&quot;http://time-travel.com/?aloha_scooby_doo&quot;&gt;Aloha, Scooby-Doo rip&lt;/a&gt;** from NPower Seattle&lt;/li&gt;
+  &lt;li&gt;Storytelling: &lt;a href=&quot;http://www.agoodmanonline.com/&quot;&gt;Andy Goodman&lt;/a&gt;, &lt;a href=&quot;http://sethgodin.typepad.com/&quot;&gt;Seth Godin&lt;/a&gt;, &lt;a href=&quot;http://www.gilbert.org/&quot;&gt;The Gilbert Center&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;I shot this video with a &lt;a href=&quot;http://www.amazon.com/Casio-Exilim-EX-S600-Digital-Optical/dp/B000E158D4&quot;&gt;Casio EX-S600&lt;/a&gt;, which shoots full-frame (640 x 480) MPEG-4 video. With a two gigabyte SD Card it can shoot approximately an hour and a half of video at medium quality before its battery dies. The Casio’s AVI wrapper is incompatible with iMovie (or any Quicktime decoder), so I first used &lt;a href=&quot;http://www.techspansion.com/visualhub/&quot;&gt;VisualHub&lt;/a&gt; to repackage the video as an MP4 before importing into iMovie to add titles. I exported from iMovie as DV and then converted that with VisualHub into MPEG-4. Compressed and at quarter-frame (320 x 240) the entire video was 105 MB. This time I uploaded to Google Video since &lt;a href=&quot;http://blip.tv&quot;&gt;Blip.tv&lt;/a&gt; stalled out.&lt;/em&gt;&lt;/p&gt;
+</description>
+        <pubDate>Fri, 13 Apr 2007 00:00:00 -0700</pubDate>
+        <link>http://island94.org/2007/04/13/Nonprofit-Communications-20.html.html</link>
+        <guid isPermaLink="true">http://island94.org/2007/04/13/Nonprofit-Communications-20.html.html</guid>
+        
+        <category>07ntc</category>
+        
+        <category>communications</category>
+        
+        <category>conference</category>
+        
+        <category>nonprofit</category>
+        
+        <category>nptech</category>
+        
+        <category>nten</category>
+        
+        <category>strategy</category>
+        
+        <category>video</category>
+        
+        
+      </item>
+    
+  </channel>
+</rss>

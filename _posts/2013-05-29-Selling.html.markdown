@@ -1,0 +1,22 @@
+---
+title: Selling
+date: '2013-05-29'
+tags: []
+published: false
+wp:post_type: post
+redirects:
+- "?p=3086"
+---
+
+From ["How Draft Grew Paying Customers by 200%"](http://insideintercom.io/how-draft-grew-paying-customers-by-200/) by Nathan Kontny on Intercom's Blog:
+
+
+> One other thing you might notice in this reminder window is it’s an Intercom conversation, so it’s a two way dialogue. This way I was able to include a question “If there’s a reason you won’t subscribe, I’d love to hear your feedback. You can reply to this message below.“
+>
+> I got this idea from Noah Kagan, the founder of AppSumo and blogger at OkDork. One of three things is going to happen:
+>
+> 1. Your potential customer will realize they don’t actually have an objection to buying today.
+>
+> 2. You’ll hear real objections which you can test and solve immediately and potentially win a new customer.
+>
+> 3. You’ll learn what features paying customers value so you know where to focus development.

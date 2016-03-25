@@ -1,0 +1,33 @@
+---
+title: A new look
+date: '2006-07-03'
+tags:
+- blog
+- design
+- Drupal
+wp:post_type: post
+redirects:
+- node/62
+- articles/new-look
+- 2006/07/a-new-look/
+- "?p=62"
+---
+
+Island94.org has undergone some revision today; I hope you noticed. I upgraded Drupal to 4.7 and rethemed the site.
+
+Drupal 4.7 adds a lot of really great features, the main one, from a 'nifty' perspective is free tagging. This gives a lot more granularity to organizing posts. There is also a lot of nice stuff under the hood. I had been a little lax in upgrading my old Drupal install, so the upgrade also fixes a couple of security issues as well.
+
+The theme is a major change from the old design. I had really liked the woodcut motif that I grabbed from Mark Twain's _Life on the Mississippi_ but it was starting to show its age. Also, looking under the hood I was always reminded of my own inexperience at the time I put it together.
+
+With the new theme I had a couple of things in mind:
+
+First off, I really wanted to better separate posts of a personal nature, from that of a professional or fictional nature. I'm fairly prodigious in creating media, it's mostly a matter of audience. I don't want some boss reading a slasher tale thinking I'm a psychopath, or my mom reading halfway through some technical post to realize she doesn't care. I'm really excited about the hats theme, not only are they simply beautiful, but they help to quickly convey what overall category the post falls into.
+
+Secondly, Drupal's the standard interface is beautiful and intuitive, but when a couple thousand websites start using it, it has become a little rusty. Much of my time in designing Drupal sites is making sure it _doesn't_ look like Drupal.
+
+Lastly, I really wanted to fool around with some soft gradients and big bubbly icons. I've been pulling from the [Open Clip Art Library](http://openclipart.org) for the most part and using Inkscape and Gimpshop for editing.
+
+I hope that my new theme is both easy to use and beautiful. At the moment, I've pretty much given up on Internet Explorer compatibility. Maybe something to do later, but frankly, I am a little tired of dealing with its nonstandard quirks.
+
+I started work on the design yesterday morning using [Luka Cvrk's](http://openwebdesign.org/userinfo.phtml?user=LanVacation) Small Studio as a base, and considering I didn't get a vacation day today (it _is_ Monday, July 3rd), I am happy with the result. I hope you are as well.
+
