@@ -1,0 +1,28 @@
+<p>An <a href="http://wordpress.org/support/topic/how-can-i-set-the-class-of-anchors">enduring issue</a> with linked images ( <code class="highlighter-rouge">&lt;a href=""&gt;&lt;img src="" /&gt;&lt;/a&gt;</code> ), is targeting the anchor link for theming—especially for disabling borders and highlighting that look great on text links but odd for images. CSS doesn’t have a parent selector ( <code class="highlighter-rouge">a &gt; img:parent</code> ), and javascript feels like overkill. The simple solution is to add a <code class="highlighter-rouge">class</code> to the parent anchor (<code class="highlighter-rouge">&lt;a href="" class="img"&gt;)</code>, but that can get repetitive, especially when Wordpress is supposed to automate those sorts of things.</p>
+
+<p>Adding the following code to your Wordpress theme’s <code class="highlighter-rouge">functions.php</code> file will automatically add a class to the anchor link when you insert linked images through Wordpress’s Media Library interface. It won’t fix posts you’ve already written, but should make things better moving forward.</p>
+
+<p>```php
+/**
+ * Attach a class to linked images’ parent anchors
+ * e.g. a img =&gt; a.img img
+ */
+function give_linked_images_class($html, $id, $caption, $title, $align, $url, $size, $alt = ‘’ ) {
+  // Separate classes with spaces, e.g. ‘img image-link’
+  $classes = ‘img’;</p>
+
+<p>// check if there are already classes assigned to the anchor
+  if ( preg_match(‘/&lt;a.<em>? class=”.</em>?”&gt;/’, $html) ) {
+    $html = preg_replace(‘/(&lt;a.<em>? class=”.</em>?)(“.\?&gt;)/’, ‘$1 ‘ . $classes . ‘$2’, $html);
+  }
+  else {
+    $html = preg_replace(‘/(&lt;a.*?)&gt;/’, ‘$1 class=”’ . $classes . ‘” &gt;’, $html);
+  }</p>
+
+<p>return $html;
+}</p>
+
+<p>add_filter(‘image_send_to_editor’, ‘give_linked_images_class’, 10, 8);
+```</p>
+
+<p>The if/else could probably be done with a single regular expression, but I’m not <em>that</em> smart.</p>

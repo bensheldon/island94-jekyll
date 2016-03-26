@@ -12,7 +12,7 @@ redirects:
 - "?p=3018"
 ---
 
-![](2012-08-14-Put-Your-Civics-Where-Your-Houseplant-Is/civicsgarden-large-600x266.png "civicsgarden-large")
+![](/assets/2012-08/civicsgarden-large-600x266.png "civicsgarden-large")
 
 The core assumption of engagement applications is that people will do an activity consistently and repeatedly if you just structure the experience and incentivize it correctly — even if it’s asinine.  The justification for _civic_ engagement apps can be similarly foolish: people will perform a potentially beneficial activity that they aren't currently doing if we give them the ability to do it on the internet (or via SMS, or iPhone, etc.). That's why I built [Civics Garden](http://civicsgarden.herokuapp.com).
 
@@ -24,7 +24,7 @@ Projecting from my own nature, people are fickle, lazy, unreliable creatures. Th
 
 Civics Garden combines these concepts: by signing up, users adopt a virtual plant that they keep healthy by regularly "watering" it by writing down their civic deeds. If they go too long without a journal entry, the plant will wither and eventually die. Just like owning real houseplants, it has exhilarating potential.
 
-![](2012-08-14-Put-Your-Civics-Where-Your-Houseplant-Is/bamboo-states-600x218.png "bamboo-states")
+![](/assets/2012-08/bamboo-states-600x218.png "bamboo-states")
 
 I built Civics Garden with Node.js and MongoDB using Twitter for authentication. Each new user receives a healthy bamboo plant to caretake by writing short journal entries. To keep people reflecting regularly, one's plant will wither after two days, and die after four--though users can replant it as many times as necessary. To keep them coming back to the site, users receive a tweet from [@civicsgarden](http://twitter.com/civicsgarden) to let them know when their plant needs refreshing. As an minimum viable product (MVP), it's high-on-concept/low-on-looks, but Diana and Emily helped with the graphics.
 
@@ -32,4 +32,4 @@ I've tested it internally with Code for America fellows and it should be a rousi
 
 …or maybe people just don't like bamboo.
 
-![](2012-08-14-Put-Your-Civics-Where-Your-Houseplant-Is/civicsgarden-result-600x408.png "civicsgarden-result")
+![](/assets/2012-08/civicsgarden-result-600x408.png "civicsgarden-result")
