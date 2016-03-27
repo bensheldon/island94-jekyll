@@ -13,7 +13,7 @@ redirects:
 - "?p=3057"
 ---
 
-![](/assets/2012-09/screenshot-600x437.png "screenshot")
+![](/uploads/2012-09/screenshot-600x437.png "screenshot")
 
   [Super Mayor Emanuel](http://supermayor.io) is one of the goofier applications I've built at Code for America: [**supermayor.io**](http://supermayor.io)
 

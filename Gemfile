@@ -1,7 +1,4 @@
 source 'https://rubygems.org'
+ruby File.read(File.join(File.dirname(__FILE__), '.ruby-version')).strip
 
-require 'json'
-require 'open-uri'
-versions = JSON.parse(open('https://pages.github.com/versions.json').read)
-
-gem 'github-pages', versions['github-pages']
+gem 'github-pages'

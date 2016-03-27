@@ -11,7 +11,7 @@ wp_link: /2011/10/the-work-itself-isnt-inhumane/
 wp:post_type: post
 ---
 
-![](/assets/2011-10/IMG_1116-600x450.jpg "IMG_1116")
+![](/uploads/2011-10/IMG_1116-600x450.jpg "IMG_1116")
 
 Two weeks ago, while riding BART from East Bay to San Francisco, I was offered a transit survey from a BART Survey Team member. Pointing to what seemed to me to be a large number of written-response questions for a survey being delivered on a moving train, I asked her, "Do you have to read and code all these surveys?"
 

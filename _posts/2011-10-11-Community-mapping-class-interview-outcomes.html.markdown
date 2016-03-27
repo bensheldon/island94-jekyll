@@ -8,7 +8,7 @@ redirects:
 - "?p=2919"
 ---
 
-![](/assets/2011-10/CIMG3114-600x399.jpg "CIMG3114")
+![](/uploads/2011-10/CIMG3114-600x399.jpg "CIMG3114")
 
 
 Last year I interviewed [Richard (Dick) Howe](http://www.richardhowe.com), [Lowell's Registrar of Deeds](http://www.lowelldeeds.com/) about the impact of his participation in a Community Mapping class I taught at [LTC](http://ltc.org) in Spring, 2006.

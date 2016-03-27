@@ -19,7 +19,7 @@ redirects:
 - "?p=136"
 ---
 
-![](/assets/2007-08/mediamap-600x448.jpg "mediamap")
+![](/uploads/2007-08/mediamap-600x448.jpg "mediamap")
 
 I recently did some [Drupal](http://drupal.org) development work for [Cambridge Community Television](http://cctvcambridge.org). As part of the really amazing work they are doing combining new media with traditional [Cable Access Television](http://alliancecm.org), CCTV has been mapping videos their members produce. They call this project the [Mediamap](http://cctvcambridge.org/mediamap).
 

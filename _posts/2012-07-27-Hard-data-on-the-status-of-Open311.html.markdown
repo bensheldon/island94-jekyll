@@ -12,7 +12,7 @@ redirects:
 - "?p=3012"
 ---
 
-![](/assets/2012-07/open311status.herokuapp-2-600x369.png "open311status.herokuapp-2")
+![](/uploads/2012-07/open311status.herokuapp-2-600x369.png "open311status.herokuapp-2")
 
 With the recent announcement of [311 Labs](http://codeforamerica.org/2012/07/12/hello-311-labs/) and Code for America's recent [podcast featuring me](http://codeforamerica.org/2012/07/23/open311-reality-check-how-usable-is-the-api-for-developers/) talking about my perspective on Open311, this write-up about [Open311Status](http://open311status.herokuapp.com) is probably long overdue.
 

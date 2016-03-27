@@ -21,7 +21,7 @@ Somewhere long, long ago, an arbitrary decision was made that we would "program"
 
 Unfortunately because the primary context we experience Javascript _is_ in the web browser, we more strongly associate JavaScript with its browser-specific functions/extensions (for manipulating the DOM and listening for UI clicks) than its core language which can exist completely separately from the web browser. Just like we can use Ruby for general purpose programming without using Rails.
 
-![Javascript Language](/assets/2012-12/javascript-600x170.png)
+![Javascript Language](/uploads/2012-12/javascript-600x170.png)
 
 If you only think of Javascript in the context of the browser, you're really missing out; Javascript as a language is badass: lambdas, closures, inheritance, passing by reference.
 
@@ -33,7 +33,7 @@ Why did JavaScript come to dominate the web browser? JavaScript is really good i
 
 (Remember, we're talking about these properties as being inherent to the Javascript language itself, not just the functions/extensions that help it interact with the web browser while its doing these things).
 
-![js on browser and server](/assets/2012-12/js-on-browser-and-server-600x470.png)
+![js on browser and server](/uploads/2012-12/js-on-browser-and-server-600x470.png)
 
 Turns out that the same properties that make javascript work well for interacting with a web page are also very similar to what's needed for building a good web server.
 
@@ -43,7 +43,7 @@ Turns out that the same properties that make javascript work well for interactin
 
 So how are other languages that aren't (for the most part) event-based/asynchronous used on web servers? Like Ruby, Python and PHP. The synchronous code runs on top of an asynchronous web server (Apache, Rack, WSGI) that creates a synchronous "thread" to run your Ruby/Python/PHP code. If another request comes in while that first thread is still processing, the web server creates a new thread. Unfortunately, those threads are resource-intensive which means you can only create a limited number of them (based on how powerful your server is). If all your threads are in-use, a new request will have to wait until a previous request is finished and the thread becomes available again.
 
-![typical vs node server](/assets/2012-12/typical-vs-node-server-600x344.png)
+![typical vs node server](/uploads/2012-12/typical-vs-node-server-600x344.png)
 
 So what happens when you build the entire web server in Javascript: You get Node.js! Instead of adding web-browser functions/extensions to the Core Javascript language, Node.js adds server functions/extensions e.g. managing http requests, filesystem operations, talking to databases, etc. While Node.js runs everything on one single "thread", because Javascript is event-based/asynchronous we can serve hundreds (if not thousands) of simultaneous requests at once because Node.js doesn't have to freeze/lock for the "I/O" ("In/Out" e.g. database, filesystem, external-service) processes to finish… Node.js can just answer another request (and another) while waiting for first request's (and subsequent requests') I/O process to complete, then come back to it and do the next step in responding to the request. Node.js is a master delegator.
 
@@ -57,7 +57,7 @@ So what can you do when you're able to quickly serve hundreds/thousands of simul
 
 Example of all 3: visualizing traffic going through a Node.js load-balancer by geolocating the requesting IP address and sending them to a map  in the web browser in real-time via Socket.io: [http://vimeo.com/48470307](http://vimeo.com/48470307)
 
-[ ![maptail](/assets/2012-12/maptail-600x330.png) ](http://vimeo.com/48470307)
+[ ![maptail](/uploads/2012-12/maptail-600x330.png) ](http://vimeo.com/48470307)
 
  
 
@@ -83,6 +83,6 @@ Still, the opportunities that Node.js creates are worth it. Other fun stuff/oppo
 
 The Rails ecosystem is more mature than Node's: there are more engineers, more libraries, stronger conventions and a more complete development and deployment pipeline (scaffolding, testing, continuous integration, monitoring, etc.). If you have a startup with a limited development window and a typical product design ("users create accounts, post content, favorite other user's content, see what was most favorited content") that you need to quickly/agilely iterate, Rails has that problem solved (this is the strength of Rails over pretty much everything, not a weakness of Node specifically). If you're looking at a cost curve, the starting cost for Rails will be way lower for a vanilla product. Now if you're talking about doing something non-typical (realtime interaction) or are operating at a huge scale (where you can swap infrastructure costs for engineering costs), Node is enabling (there are some things you just can't/don't want to do without Node) if not affordable. Also, you can use Node in a heterogenous environment (running the load balancer, or analytics server) or integrate a Node-powered service into a more traditional product (for example, real-time chat is powered by Node, but user accounts, relationships and chat history is managed by Rails).
 
-![nodejs-cost](/assets/2012-12/nodejs-cost.png)
+![nodejs-cost](/uploads/2012-12/nodejs-cost.png)
 
  

@@ -45,6 +45,6 @@ redirects:
 - Poway, CA
 
 
-[ ![](/assets/2012-01/viewimage_story.jpeg "viewimage_story") ](/assets/2012-01//viewimage_story.jpeg) [ ![](2012-01-07-2011-in-review/Tube_closingtime2-600x776.png "Tube_closingtime2") ](2012-01-07-2011-in-review/Tube_closingtime2.png)
+[ ![](/uploads/2012-01/viewimage_story.jpeg "viewimage_story") ](/uploads/2012-01//viewimage_story.jpeg) [ ![](2012-01-07-2011-in-review/Tube_closingtime2-600x776.png "Tube_closingtime2") ](2012-01-07-2011-in-review/Tube_closingtime2.png)
 
-[ ![](/assets/2012-01/BCU-Incorporation-600x769.jpg "BCU Incorporation") ](/assets/2012-01/BCU-Incorporation.jpg) [ ![](2012-01-07-2011-in-review/USA-Pixel-600x374.png "USA-Pixel") ](2012-01-07-2011-in-review/USA-Pixel.png)
+[ ![](/uploads/2012-01/BCU-Incorporation-600x769.jpg "BCU Incorporation") ](/uploads/2012-01/BCU-Incorporation.jpg) [ ![](2012-01-07-2011-in-review/USA-Pixel-600x374.png "USA-Pixel") ](2012-01-07-2011-in-review/USA-Pixel.png)
