@@ -14,7 +14,7 @@ tar -xzvf bootstrap.tar.gz
 # Copy assets to proper place
 mv bootstrap-sass-`echo $VERSION`/assets/stylesheets _sass/bootstrap
 mv bootstrap-sass-`echo $VERSION`/assets/fonts/bootstrap assets/fonts/bootstrap
-mv bootstrap-sass-`echo $VERSION`/assets/javascripts/bootstrap.min.js assets/javascripts/bootstrap.min.js
+mv bootstrap-sass-`echo $VERSION`/assets/javascripts/bootstrap.min.js assets/javascripts/vendor/bootstrap.min.js
 
 # Cleanup
 rm bootstrap.tar.gz
