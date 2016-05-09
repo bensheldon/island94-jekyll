@@ -12,8 +12,6 @@ $blockquote-font-size: $font-size-base;
 
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import
-  "base",
-  "layout",
   "syntax-highlighting",
   "vendor/bootstrap/bootstrap",
   "vendor/fontawesome/font-awesome"
