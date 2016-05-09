@@ -6,7 +6,7 @@ tags:
 - Boston
 - history
 wp:post_type: post
-redirects:
+redirect_from:
 - john-hancock-building
 - node/166
 - 2007/11/the-john-hancock-building/

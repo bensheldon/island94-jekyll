@@ -5,7 +5,7 @@ tags:
 - career
 - trust
 wp:post_type: post
-redirects:
+redirect_from:
 - observation/transitivity-fallacy
 - node/211
 - 2008/04/transitivity-fallacy/

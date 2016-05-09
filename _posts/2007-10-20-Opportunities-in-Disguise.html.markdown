@@ -5,7 +5,7 @@ tags:
 - do-gooding
 - quote
 wp:post_type: post
-redirects:
+redirect_from:
 - node/162
 - john-gardner
 - opportunities-disguise

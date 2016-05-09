@@ -7,7 +7,7 @@ tags:
 - nonprofit
 - nptech
 wp:post_type: post
-redirects:
+redirect_from:
 - 2009/03/the-essence-of-capacity-building/
 - "?p=596"
 ---

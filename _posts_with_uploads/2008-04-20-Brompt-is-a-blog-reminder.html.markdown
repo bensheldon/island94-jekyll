@@ -8,7 +8,7 @@ tags:
 - Web 2.0
 - webdesign
 wp:post_type: post
-redirects:
+redirect_from:
 - node/216
 - articles/brompt-blog-reminder
 - 2008/04/brompt-is-a-blog-reminder/

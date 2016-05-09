@@ -7,7 +7,7 @@ tags:
 - language
 - metaphors
 wp:post_type: post
-redirects:
+redirect_from:
 - 2010/11/metaphors-and-diversity/
 - "?p=2283"
 ---

@@ -7,7 +7,7 @@ tags:
 - me
 - nonprofit
 wp:post_type: post
-redirects:
+redirect_from:
 - 2011/07/similar-message-wider-audience/
 - "?p=2785"
 ---

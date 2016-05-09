@@ -10,7 +10,7 @@ tags:
 - pollution
 - trash
 wp:post_type: post
-redirects:
+redirect_from:
 - node/7
 - articles/autumn-pollution
 - 2005/11/autumn-pollution/

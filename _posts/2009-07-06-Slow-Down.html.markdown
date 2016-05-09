@@ -8,7 +8,7 @@ tags:
 - land-speed-velocity
 - monkeys
 wp:post_type: post
-redirects:
+redirect_from:
 - 2009/07/slow-down/
 - "?p=629"
 ---

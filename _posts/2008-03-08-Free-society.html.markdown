@@ -4,7 +4,7 @@ date: '2008-03-08'
 tags:
 - politics
 wp:post_type: post
-redirects:
+redirect_from:
 - observation/free-society
 - node/210
 - 2008/03/free-society/

@@ -13,7 +13,7 @@ tags:
 - singularity
 - striving
 wp:post_type: post
-redirects:
+redirect_from:
 - 2009/10/growing-toward-the-omega-point/
 - 2009/10/obviously-not-to-scale/
 - "?p=850"

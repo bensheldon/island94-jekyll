@@ -6,7 +6,7 @@ tags:
 - forms
 - paper
 wp:post_type: post
-redirects:
+redirect_from:
 - 2010/07/the-medium-is-the-method/
 - "?p=2111"
 ---

@@ -6,7 +6,7 @@ tags:
 - nonprofit
 - strategic planning
 wp:post_type: post
-redirects:
+redirect_from:
 - node/133
 - articles/planning-strategic-planning
 - 2007/07/planning-strategic-planning/

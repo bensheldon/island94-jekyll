@@ -7,7 +7,7 @@ tags:
 - language
 - rhetoric
 wp:post_type: post
-redirects:
+redirect_from:
 - 2011/09/where-rhetoric-is-substance/
 - "?p=2815"
 ---

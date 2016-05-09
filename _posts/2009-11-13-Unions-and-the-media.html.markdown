@@ -9,7 +9,7 @@ tags:
 - messaging
 - union
 wp:post_type: post
-redirects:
+redirect_from:
 - 2009/11/unions-and-the-media/
 - "?p=1006"
 ---

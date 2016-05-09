@@ -8,7 +8,7 @@ tags:
 - politics
 - techno-utopianism
 wp:post_type: post
-redirects:
+redirect_from:
 - 2011/10/that-californian-ideology/
 - "?p=2928"
 ---

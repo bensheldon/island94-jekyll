@@ -6,7 +6,7 @@ tags:
 - review
 - summary
 wp:post_type: post
-redirects:
+redirect_from:
 - 2013/06/state-of-the-shirt-2012/
 - "?p=3093"
 ---

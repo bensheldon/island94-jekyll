@@ -9,7 +9,7 @@ tags:
 - nonprofit
 - rules
 wp:post_type: post
-redirects:
+redirect_from:
 - 2009/10/chasing-best-practices/
 - "?p=848"
 ---

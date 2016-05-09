@@ -8,7 +8,7 @@ tags:
 - peace
 - zen
 wp:post_type: post
-redirects:
+redirect_from:
 - 2010/02/washing-of-dishes-requires-great-peace-of-mind/
 - "?p=1752"
 ---

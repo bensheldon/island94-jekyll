@@ -6,7 +6,7 @@ tags:
 - management
 - practice
 wp:post_type: post
-redirects:
+redirect_from:
 - 2011/05/reductionist-function-and-practice/
 - "?p=2644"
 ---

@@ -8,7 +8,7 @@ tags:
 - knowledge
 - relativism
 wp:post_type: post
-redirects:
+redirect_from:
 - 2009/02/the-ethics-of-awareness/
 - "?p=437"
 ---

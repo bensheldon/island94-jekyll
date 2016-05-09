@@ -8,7 +8,7 @@ tags:
 - navigation
 - portfolio
 wp:post_type: post
-redirects:
+redirect_from:
 - 2010/10/fairly-fool-proof-popovers/
 - "?p=2243"
 ---

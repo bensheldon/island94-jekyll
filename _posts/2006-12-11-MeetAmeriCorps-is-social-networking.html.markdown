@@ -13,7 +13,7 @@ tags:
 - webdesign
 - website
 wp:post_type: post
-redirects:
+redirect_from:
 - 2006/12/meetamericorps-is-"social-networking"!/
 - node/111
 - articles/meetamericorps-social-networking

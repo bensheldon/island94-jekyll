@@ -3,7 +3,7 @@ title: Anxiety Reading
 date: '2009-08-24'
 tags: []
 wp:post_type: post
-redirects:
+redirect_from:
 - 2009/08/anxiety-reading/
 - "?p=694"
 ---

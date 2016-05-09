@@ -9,7 +9,7 @@ tags:
 - snark
 - technology
 wp:post_type: post
-redirects:
+redirect_from:
 - 2010/11/accessible-leisure-through-technology/
 - "?p=2313"
 ---

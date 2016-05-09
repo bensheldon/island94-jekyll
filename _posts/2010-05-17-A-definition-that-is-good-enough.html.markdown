@@ -7,7 +7,7 @@ tags:
 - philosophy
 - rationality
 wp:post_type: post
-redirects:
+redirect_from:
 - 2010/05/a-definition-that-is-good-enough/
 - "?p=1919"
 ---

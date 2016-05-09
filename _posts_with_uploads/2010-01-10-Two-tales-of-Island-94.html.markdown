@@ -6,7 +6,7 @@ tags:
 - mississippi
 - story
 wp:post_type: post
-redirects:
+redirect_from:
 - 2010/01/two-tales-of-island-94/
 - "?p=1673"
 ---

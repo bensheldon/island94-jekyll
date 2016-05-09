@@ -8,7 +8,7 @@ tags:
 - fashion
 - shirt
 wp:post_type: post
-redirects:
+redirect_from:
 - node/30
 - articles/my-first-t-shirt
 - 2006/03/my-first-t-shirt/

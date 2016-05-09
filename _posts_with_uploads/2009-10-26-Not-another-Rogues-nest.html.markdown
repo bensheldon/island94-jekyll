@@ -9,7 +9,7 @@ tags:
 wp:post_type: post
 failed_files:
 - http://www.island94.org/wp-content/uploads/2009/10/navigator-p161.jpg
-redirects:
+redirect_from:
 - 2009/10/a-crow-but-not-a-rogues-nest/
 - 2009/10/not-another-rogues-nest/
 - "?p=890"

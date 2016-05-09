@@ -8,7 +8,7 @@ tags:
 - subway
 - T
 wp:post_type: post
-redirects:
+redirect_from:
 - node/91
 - articles/deeper-porter
 - 2006/08/deeper-than-porter/

@@ -6,7 +6,7 @@ tags:
 - meta
 - poverty
 wp:post_type: post
-redirects:
+redirect_from:
 - 2008/10/blog-action-day:-poverty/
 - node/262
 - articles/blog-action-day-poverty

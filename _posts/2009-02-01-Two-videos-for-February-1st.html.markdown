@@ -9,7 +9,7 @@ tags:
 - rain
 - videos
 wp:post_type: post
-redirects:
+redirect_from:
 - 2009/02/two-videos-for-february-1st/
 - "?p=407"
 ---

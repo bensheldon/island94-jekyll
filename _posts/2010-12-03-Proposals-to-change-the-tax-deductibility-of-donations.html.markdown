@@ -8,7 +8,7 @@ tags:
 - regulation
 - taxes
 wp:post_type: post
-redirects:
+redirect_from:
 - 2010/12/proposals-to-change-the-tax-deductibility-of-donations/
 - "?p=2339"
 ---

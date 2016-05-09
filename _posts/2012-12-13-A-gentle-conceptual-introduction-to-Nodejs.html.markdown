@@ -6,7 +6,7 @@ tags:
 - javascript
 - programming
 wp:post_type: post
-redirects:
+redirect_from:
 - 2012/12/a-gentle-conceptual-introduction-to-node-js/
 - "?p=3066"
 ---

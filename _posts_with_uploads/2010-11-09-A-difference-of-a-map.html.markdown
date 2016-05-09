@@ -10,7 +10,7 @@ tags:
 - olpc
 - participation
 wp:post_type: post
-redirects:
+redirect_from:
 - 2010/11/a-difference-of-a-map/
 - "?p=2288"
 ---

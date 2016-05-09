@@ -7,7 +7,7 @@ tags:
 - philosophy
 - postmodern
 wp:post_type: post
-redirects:
+redirect_from:
 - 2010/03/the-author-function-and-the-internet/
 - "?p=1852"
 ---

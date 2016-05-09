@@ -8,7 +8,7 @@ tags:
 - experience
 - stupid
 wp:post_type: post
-redirects:
+redirect_from:
 - 2009/11/ethics-made-easy/
 - "?p=1013"
 ---

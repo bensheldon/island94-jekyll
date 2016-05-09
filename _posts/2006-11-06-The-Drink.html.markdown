@@ -7,7 +7,7 @@ tags:
 - drinks
 - milk
 wp:post_type: post
-redirects:
+redirect_from:
 - node/109
 - articles/drink
 - 2006/11/the-drink/

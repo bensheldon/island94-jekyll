@@ -8,7 +8,7 @@ tags:
 - project-design
 - webdesign
 wp:post_type: post
-redirects:
+redirect_from:
 - 2011/09/project-fecundity/
 - "?p=2912"
 ---

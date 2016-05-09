@@ -7,7 +7,7 @@ tags:
 - photos
 - San Francisco
 wp:post_type: post
-redirects:
+redirect_from:
 - node/56
 - articles/san-francisco-nights
 - 2006/07/san-francisco-nights/

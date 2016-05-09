@@ -7,7 +7,7 @@ tags:
 - life
 - nostalgia
 wp:post_type: post
-redirects:
+redirect_from:
 - 2011/08/7-years-in-boston/
 - "?p=2804"
 ---

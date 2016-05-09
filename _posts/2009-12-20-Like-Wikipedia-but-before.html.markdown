@@ -7,7 +7,7 @@ tags:
 - teaching
 - web
 wp:post_type: post
-redirects:
+redirect_from:
 - 2009/12/like-wikipedia-but-before/
 - "?p=1611"
 ---

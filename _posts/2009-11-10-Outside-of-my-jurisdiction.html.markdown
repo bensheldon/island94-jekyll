@@ -3,7 +3,7 @@ title: Outside of my jurisdiction
 date: '2009-11-10'
 tags: []
 wp:post_type: post
-redirects:
+redirect_from:
 - 2009/11/outside-of-my-jurisdiction/
 - "?p=1007"
 ---

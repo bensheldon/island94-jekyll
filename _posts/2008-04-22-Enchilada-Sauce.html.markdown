@@ -5,7 +5,7 @@ tags:
 - food
 - recipe
 wp:post_type: post
-redirects:
+redirect_from:
 - node/217
 - observation/echilada-sauce
 - observation/enchilada-sauce

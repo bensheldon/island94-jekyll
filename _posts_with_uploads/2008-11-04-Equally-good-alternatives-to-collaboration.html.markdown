@@ -6,7 +6,7 @@ tags:
 - negotiation
 - nonprofit
 wp:post_type: post
-redirects:
+redirect_from:
 - node/270
 - articles/equally-good-alternatives-collaboration
 - 2008/11/equally-good-alternatives-to-collaboration/

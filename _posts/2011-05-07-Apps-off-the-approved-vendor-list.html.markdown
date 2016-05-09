@@ -9,7 +9,7 @@ tags:
 - process
 - software
 wp:post_type: post
-redirects:
+redirect_from:
 - 2011/05/apps-off-the-approved-vendor-list/
 - "?p=2642"
 ---

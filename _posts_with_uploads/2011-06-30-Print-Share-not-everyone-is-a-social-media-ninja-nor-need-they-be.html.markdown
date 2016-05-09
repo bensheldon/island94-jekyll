@@ -9,7 +9,7 @@ tags:
 - publishing
 - website
 wp:post_type: post
-redirects:
+redirect_from:
 - 2011/06/print-share-not-everyone-is-a-social-media-ninja-nor-need-they-be/
 - "?p=2732"
 ---

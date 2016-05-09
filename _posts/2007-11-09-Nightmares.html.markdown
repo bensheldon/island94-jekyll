@@ -6,7 +6,7 @@ tags:
 - nightmares
 - psychology
 wp:post_type: post
-redirects:
+redirect_from:
 - node/168
 - nightmares
 - 2007/11/nightmares/

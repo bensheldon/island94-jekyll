@@ -6,7 +6,7 @@ tags:
 - development
 - organizing
 wp:post_type: post
-redirects:
+redirect_from:
 - 2011/06/developing-intent/
 - "?p=2725"
 ---

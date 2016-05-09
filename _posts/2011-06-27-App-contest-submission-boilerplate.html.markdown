@@ -5,7 +5,7 @@ tags:
 - boilerplate
 - contest
 wp:post_type: post
-redirects:
+redirect_from:
 - 2011/06/app-contest-submission-boilerplate/
 - "?p=2723"
 ---

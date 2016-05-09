@@ -6,7 +6,7 @@ tags:
 - web-development
 - wordpress
 wp:post_type: post
-redirects:
+redirect_from:
 - 2011/11/speedgeeking-on-wordpress-filters/
 - "?p=2957"
 ---

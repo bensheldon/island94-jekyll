@@ -9,7 +9,7 @@ tags:
 - welfare
 - women
 wp:post_type: post
-redirects:
+redirect_from:
 - 2011/03/advocacy-in-print-survival-news-for-2011/
 - "?p=2537"
 ---

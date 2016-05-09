@@ -8,7 +8,7 @@ tags:
 - portfolio
 - teamwork
 wp:post_type: post
-redirects:
+redirect_from:
 - 2010/04/i-am-now-a-technology-of-participation-facilitator/
 - "?p=1894"
 ---

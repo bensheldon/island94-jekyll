@@ -5,7 +5,7 @@ tags:
 - hiring
 - questions
 wp:post_type: post
-redirects:
+redirect_from:
 - node/272
 - observation/interview-questions
 - 2008/11/interview-questions/

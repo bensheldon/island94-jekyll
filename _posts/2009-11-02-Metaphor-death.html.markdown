@@ -8,7 +8,7 @@ tags:
 - planning
 - reality
 wp:post_type: post
-redirects:
+redirect_from:
 - 2009/11/metaphor-death/
 - "?p=937"
 ---

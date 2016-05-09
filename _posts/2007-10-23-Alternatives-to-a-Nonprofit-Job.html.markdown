@@ -8,7 +8,7 @@ tags:
 - nonprofit
 - strategy
 wp:post_type: post
-redirects:
+redirect_from:
 - node/164
 - articles/alternatives-nonprofit-job
 - 2007/10/alternatives-to-a-nonprofit-job/

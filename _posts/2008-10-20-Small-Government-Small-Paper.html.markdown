@@ -8,7 +8,7 @@ tags:
 - politics
 - story
 wp:post_type: post
-redirects:
+redirect_from:
 - 2008/10/small-government-/-small-paper/
 - node/263
 - observation/small-government-small-paper

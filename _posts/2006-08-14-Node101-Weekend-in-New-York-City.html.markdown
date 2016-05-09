@@ -10,7 +10,7 @@ tags:
 wp:post_type: post
 failed_files:
 - http://island94.org/files/node101mnnset.png
-redirects:
+redirect_from:
 - node/87
 - articles/node101-weekend-new-york-city
 - 2006/08/node101-weekend-in-new-york-city/

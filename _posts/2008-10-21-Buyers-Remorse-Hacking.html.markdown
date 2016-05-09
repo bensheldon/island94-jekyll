@@ -6,7 +6,7 @@ tags:
 - computers
 - consumption
 wp:post_type: post
-redirects:
+redirect_from:
 - 2008/10/buyer\'s-remorse-hacking/
 - node/264
 - observation/buyers-remorse-hacking

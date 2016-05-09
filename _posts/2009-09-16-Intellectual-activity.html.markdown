@@ -10,7 +10,7 @@ tags:
 - pedagogy
 - power
 wp:post_type: post
-redirects:
+redirect_from:
 - 2009/09/intellectual-activity/
 - "?p=740"
 ---

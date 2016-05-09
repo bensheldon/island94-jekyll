@@ -10,7 +10,7 @@ tags:
 wp:post_type: post
 failed_files:
 - http://www.island94.org/wp-content/uploads/2010/12/Metro_bike-crash-map.jpg
-redirects:
+redirect_from:
 - 2010/12/boston-bike-crash-map-in-the-news/
 - "?p=2365"
 ---

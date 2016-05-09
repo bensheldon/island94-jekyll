@@ -6,7 +6,7 @@ tags:
 - media
 - science
 wp:post_type: post
-redirects:
+redirect_from:
 - node/237
 - observation/digital-media-forensics
 - 2008/08/digital-media-forensics/

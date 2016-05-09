@@ -7,7 +7,7 @@ tags:
 - photos
 - politics
 wp:post_type: post
-redirects:
+redirect_from:
 - node/79
 - articles/vote-ben
 - 2006/07/vote-ben/

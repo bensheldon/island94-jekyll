@@ -6,7 +6,7 @@ tags:
 - nonprofit
 - poetry
 wp:post_type: post
-redirects:
+redirect_from:
 - 2010/09/mystics-poets-and-best-practices/
 - "?p=2215"
 ---

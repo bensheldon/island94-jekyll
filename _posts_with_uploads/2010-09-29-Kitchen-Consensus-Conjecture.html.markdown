@@ -6,7 +6,7 @@ tags:
 - cooking
 - nonprofit
 wp:post_type: post
-redirects:
+redirect_from:
 - 2010/09/kitchen-consensus-conjecture/
 - "?p=2212"
 ---

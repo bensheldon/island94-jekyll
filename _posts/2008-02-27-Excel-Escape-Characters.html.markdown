@@ -4,7 +4,7 @@ date: '2008-02-27'
 tags:
 - spreadsheets
 wp:post_type: post
-redirects:
+redirect_from:
 - node/203
 - excel-escape-characters
 - 2008/02/excel-escape-characters/

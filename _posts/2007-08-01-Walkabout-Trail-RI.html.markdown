@@ -7,7 +7,7 @@ tags:
 - hiking
 - mossy
 wp:post_type: post
-redirects:
+redirect_from:
 - node/135
 - articles/walkabout-trail-ri
 - 2007/08/walkabout-trail-ri/

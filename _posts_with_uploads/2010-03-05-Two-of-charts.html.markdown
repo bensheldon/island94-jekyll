@@ -7,7 +7,7 @@ tags:
 - nerd
 - stacy-q
 wp:post_type: post
-redirects:
+redirect_from:
 - 2010/03/two-of-charts/
 - "?p=1836"
 ---

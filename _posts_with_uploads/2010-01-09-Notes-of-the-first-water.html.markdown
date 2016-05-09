@@ -7,7 +7,7 @@ tags:
 - mississippi
 - navigation
 wp:post_type: post
-redirects:
+redirect_from:
 - 2010/01/notes-of-the-first-water/
 - "?p=1668"
 ---

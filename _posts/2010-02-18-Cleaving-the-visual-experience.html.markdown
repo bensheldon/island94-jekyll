@@ -8,7 +8,7 @@ tags:
 - photography
 - visuals
 wp:post_type: post
-redirects:
+redirect_from:
 - 2010/02/cleaving-the-visual-experience/
 - "?p=1774"
 ---

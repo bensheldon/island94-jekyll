@@ -7,7 +7,7 @@ tags:
 - education
 - generational
 wp:post_type: post
-redirects:
+redirect_from:
 - node/208
 - observation/millenial-idea
 - 2008/03/a-millenial-idea/

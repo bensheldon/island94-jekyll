@@ -9,7 +9,7 @@ tags:
 wp:post_type: post
 failed_files:
 - http://www.island94.org/wp-content/uploads/2010/06/cat-in-a-box.jpg
-redirects:
+redirect_from:
 - 2010/06/get-your-own/
 - "?p=2020"
 ---

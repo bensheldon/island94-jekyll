@@ -3,7 +3,7 @@ title: "\"If you don't know how to notice, you can't do anything well\""
 date: '2010-03-23'
 tags: []
 wp:post_type: post
-redirects:
+redirect_from:
 - 2010/03/if-you-dont-know-how-to-notice-you-cant-do-anything-well/
 - "?p=1856"
 ---

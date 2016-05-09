@@ -4,7 +4,7 @@ date: '2008-06-15'
 tags:
 - language
 wp:post_type: post
-redirects:
+redirect_from:
 - node/222
 - observation/contextonomy
 - 2008/06/contextonomy/

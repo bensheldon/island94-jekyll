@@ -6,7 +6,7 @@ tags:
 - drawing
 - internet
 wp:post_type: post
-redirects:
+redirect_from:
 - node/248
 - articles/makes-you-crazy
 - 2008/08/makes-you-crazy/

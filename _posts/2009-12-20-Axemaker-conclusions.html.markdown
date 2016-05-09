@@ -8,7 +8,7 @@ tags:
 - science
 - technology
 wp:post_type: post
-redirects:
+redirect_from:
 - 2009/12/axemaker-conclusions/
 - "?p=1609"
 ---

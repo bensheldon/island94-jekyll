@@ -8,7 +8,7 @@ tags:
 - rights
 - union
 wp:post_type: post
-redirects:
+redirect_from:
 - observation/weingarten-rights
 - node/278
 - 2009/01/weingarten-rights/

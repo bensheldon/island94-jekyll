@@ -6,7 +6,7 @@ tags:
 - urls
 - web
 wp:post_type: post
-redirects:
+redirect_from:
 - 2011/09/ambiguous-url/
 - "?p=2822"
 ---

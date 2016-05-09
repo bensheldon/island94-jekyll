@@ -6,7 +6,7 @@ tags:
 - creative-commons
 - graphics
 wp:post_type: post
-redirects:
+redirect_from:
 - 2010/10/this-image-will-save-us/
 - "?p=2230"
 ---

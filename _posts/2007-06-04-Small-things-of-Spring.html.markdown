@@ -8,7 +8,7 @@ tags:
 - small things
 - spring
 wp:post_type: post
-redirects:
+redirect_from:
 - node/132
 - articles/small-things-spring
 - 2007/06/small-things-of-spring/

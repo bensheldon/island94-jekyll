@@ -8,7 +8,7 @@ tags:
 - modeling
 - philosophy
 wp:post_type: post
-redirects:
+redirect_from:
 - node/172
 - creating-models
 - 2007/11/creating-models/

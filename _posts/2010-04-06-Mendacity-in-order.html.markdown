@@ -8,7 +8,7 @@ tags:
 - taxonomy
 - typology
 wp:post_type: post
-redirects:
+redirect_from:
 - 2010/04/mendacity-in-order/
 - "?p=1880"
 ---

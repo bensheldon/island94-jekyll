@@ -3,7 +3,7 @@ title: Task identification and completion
 date: '2010-06-23'
 tags: []
 wp:post_type: post
-redirects:
+redirect_from:
 - 2010/06/task-identification-and-completion/
 - "?p=2103"
 ---

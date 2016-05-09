@@ -5,7 +5,7 @@ tags:
 - cleaving
 - language
 wp:post_type: post
-redirects:
+redirect_from:
 - 2008/08/are-you-ahw-or-arr
 - node/241
 - observation/ahw-or-arr

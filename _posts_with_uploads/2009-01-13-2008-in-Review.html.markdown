@@ -3,7 +3,7 @@ title: 2008 in Review
 date: '2009-01-13'
 tags: []
 wp:post_type: post
-redirects:
+redirect_from:
 - 2009/01/325/
 - 2009/01/2008-in-review/
 - "?p=325"

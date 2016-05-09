@@ -8,7 +8,7 @@ tags:
 - vanity
 - webdesign
 wp:post_type: post
-redirects:
+redirect_from:
 - 2010/09/this-is-not-a-website/
 - "?p=2203"
 ---

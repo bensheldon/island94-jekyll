@@ -6,7 +6,7 @@ tags:
 - cleaving
 - language
 wp:post_type: post
-redirects:
+redirect_from:
 - 2009/03/satyagraha-versus-duragraha/
 - "?p=555"
 ---

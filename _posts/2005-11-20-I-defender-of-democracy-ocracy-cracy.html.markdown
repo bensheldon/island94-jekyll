@@ -9,7 +9,7 @@ tags:
 - subway
 - T
 wp:post_type: post
-redirects:
+redirect_from:
 - articles/i-defender-democracy-ocracy-cracy
 - node/10
 - 2005/11/i-defender-of-democracy-ocracy-cracy/

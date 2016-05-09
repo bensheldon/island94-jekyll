@@ -11,7 +11,7 @@ tags:
 - snippet
 - webdesign
 wp:post_type: post
-redirects:
+redirect_from:
 - 2008/08/drupal:-theme-override-for-upload-module\'s-attachments-list-/
 - node/238
 - articles/overriding

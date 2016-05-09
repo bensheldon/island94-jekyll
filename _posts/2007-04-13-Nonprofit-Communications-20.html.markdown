@@ -11,7 +11,7 @@ tags:
 - strategy
 - video
 wp:post_type: post
-redirects:
+redirect_from:
 - node/127
 - articles/nonprofit-communications-2-0
 - 2007/04/nonprofit-communications-2-0/

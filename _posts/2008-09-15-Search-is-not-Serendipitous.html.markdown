@@ -6,7 +6,7 @@ tags:
 - language
 - search
 wp:post_type: post
-redirects:
+redirect_from:
 - node/255
 - observation/search-not-serendipitous
 - 2008/09/search-is-not-serendipitous/

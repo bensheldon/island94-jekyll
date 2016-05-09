@@ -8,7 +8,7 @@ tags:
 - pedagogy
 - teaching
 wp:post_type: post
-redirects:
+redirect_from:
 - 2009/10/teaching-through-breakage/
 - "?p=837"
 ---

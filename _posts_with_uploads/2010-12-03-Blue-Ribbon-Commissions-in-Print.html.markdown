@@ -7,7 +7,7 @@ tags:
 - power
 - search
 wp:post_type: post
-redirects:
+redirect_from:
 - 2010/12/blue-ribbon-commissions-in-print/
 - "?p=2342"
 ---

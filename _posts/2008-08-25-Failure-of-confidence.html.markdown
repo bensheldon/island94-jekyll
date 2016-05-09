@@ -6,7 +6,7 @@ tags:
 - language
 - politics
 wp:post_type: post
-redirects:
+redirect_from:
 - node/246
 - observation/failure-confidence
 - 2008/08/failure-of-confidence/

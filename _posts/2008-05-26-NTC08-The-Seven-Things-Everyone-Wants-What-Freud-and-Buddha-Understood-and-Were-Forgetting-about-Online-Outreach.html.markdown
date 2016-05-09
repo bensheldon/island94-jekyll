@@ -10,7 +10,7 @@ tags:
 - nten
 - outreach
 wp:post_type: post
-redirects:
+redirect_from:
 - node/221
 - observation/ntc08-seven-things-everyone-wants-what-freud-and-buddha-understood-and-were-forgetting-a
 - 2008/05/ntc08-the-seven-things-everyone-wants/

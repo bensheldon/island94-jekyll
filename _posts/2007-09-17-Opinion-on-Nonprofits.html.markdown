@@ -6,7 +6,7 @@ tags:
 - keynote
 - nonprofits
 wp:post_type: post
-redirects:
+redirect_from:
 - node/155
 - opinion-nonprofits
 - 2007/09/opinion-on-nonprofits/

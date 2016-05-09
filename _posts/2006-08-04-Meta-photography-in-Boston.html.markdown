@@ -7,7 +7,7 @@ tags:
 - meta
 - photos
 wp:post_type: post
-redirects:
+redirect_from:
 - node/81
 - articles/meta-photography-boston
 - 2006/08/meta-photography-in-boston/

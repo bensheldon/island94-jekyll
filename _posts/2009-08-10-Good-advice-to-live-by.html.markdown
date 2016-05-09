@@ -11,7 +11,7 @@ tags:
 - politics
 - save-the-world
 wp:post_type: post
-redirects:
+redirect_from:
 - 2009/08/good-advice-to-live-by/
 - "?p=668"
 ---

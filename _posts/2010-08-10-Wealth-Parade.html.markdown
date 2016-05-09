@@ -6,7 +6,7 @@ tags:
 - metaphor
 - wealth
 wp:post_type: post
-redirects:
+redirect_from:
 - 2010/08/wealth-procession/
 - 2010/08/wealth-parade/
 - "?p=2121"

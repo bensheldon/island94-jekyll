@@ -5,7 +5,7 @@ tags:
 - career
 - nonprofit
 wp:post_type: post
-redirects:
+redirect_from:
 - node/212
 - observation/nonprofit-job-misconceptions
 - 2008/04/nonprofit-job-misconceptions/

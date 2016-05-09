@@ -12,7 +12,7 @@ tags:
 - wages
 - women
 wp:post_type: post
-redirects:
+redirect_from:
 - 2009/10/social-work-is-womens-work-so-we-dont-care/
 - "?p=840"
 ---

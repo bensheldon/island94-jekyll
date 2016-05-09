@@ -6,7 +6,7 @@ tags:
 - critique
 - nonprofit
 wp:post_type: post
-redirects:
+redirect_from:
 - node/171
 - criticism-civic-literacy
 - 2007/11/criticism-of-civic-literacy/

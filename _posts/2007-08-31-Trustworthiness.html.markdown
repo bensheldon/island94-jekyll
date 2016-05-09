@@ -6,7 +6,7 @@ tags:
 - trust
 - wikipedia
 wp:post_type: post
-redirects:
+redirect_from:
 - node/141
 - trustworthiness
 - 2007/08/trustworthiness/

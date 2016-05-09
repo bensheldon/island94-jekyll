@@ -8,7 +8,7 @@ tags:
 - video
 - washingtonDC
 wp:post_type: post
-redirects:
+redirect_from:
 - node/121
 - articles/airport-vehicles
 - 2007/03/airport-vehicles/

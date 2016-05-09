@@ -5,7 +5,7 @@ tags:
 - birthday
 - message
 wp:post_type: post
-redirects:
+redirect_from:
 - node/178
 - articles/happy-birthday-me
 - 2007/12/happy-birthday-to-me/

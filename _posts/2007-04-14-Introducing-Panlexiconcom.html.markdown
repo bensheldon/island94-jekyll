@@ -11,7 +11,7 @@ tags:
 - webdesign
 - website
 wp:post_type: post
-redirects:
+redirect_from:
 - node/128
 - articles/introducing-panlexicon-com
 - 2007/04/introducing-panlexicon-com/

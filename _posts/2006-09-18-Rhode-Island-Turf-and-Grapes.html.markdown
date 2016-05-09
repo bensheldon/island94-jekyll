@@ -8,7 +8,7 @@ tags:
 - Rhode Island
 - turf
 wp:post_type: post
-redirects:
+redirect_from:
 - node/97
 - articles/rhode-island-turf-and-grapes
 - 2006/09/rhode-island-turf-and-grapes/

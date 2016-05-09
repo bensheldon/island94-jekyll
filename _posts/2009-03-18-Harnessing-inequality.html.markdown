@@ -10,7 +10,7 @@ tags:
 - online
 - participation
 wp:post_type: post
-redirects:
+redirect_from:
 - 2009/03/harnessing-inequality/
 - "?p=508"
 ---

@@ -7,7 +7,7 @@ tags:
 - nonprofit
 - zilch
 wp:post_type: post
-redirects:
+redirect_from:
 - 2010/07/zilch-for-a-nonprofit/
 - "?p=2114"
 ---

@@ -5,7 +5,7 @@ tags:
 - internet
 - search
 wp:post_type: post
-redirects:
+redirect_from:
 - node/227
 - observation/lumifi-search-widget
 - 2008/06/lumifi-search-widget/

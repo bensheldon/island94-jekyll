@@ -6,7 +6,7 @@ tags:
 - nonprofit
 - poverty
 wp:post_type: post
-redirects:
+redirect_from:
 - node/214
 - articles/progressive-terminology-discussing-poverty
 - 2008/04/progressive-terminology-for-discussing-poverty/

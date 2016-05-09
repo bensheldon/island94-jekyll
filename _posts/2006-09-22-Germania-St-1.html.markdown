@@ -7,7 +7,7 @@ tags:
 - fiction
 - subway. Germania Street
 wp:post_type: post
-redirects:
+redirect_from:
 - node/98
 - articles/germania-st-1
 - 2006/09/germania-st-1/

@@ -5,7 +5,7 @@ tags:
 - parlor tricks
 - psychology
 wp:post_type: post
-redirects:
+redirect_from:
 - node/173
 - cold-reading
 - 2007/11/cold-reading/

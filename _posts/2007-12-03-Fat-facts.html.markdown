@@ -7,7 +7,7 @@ tags:
 - risk
 - statistics
 wp:post_type: post
-redirects:
+redirect_from:
 - node/181
 - fat-facts
 - 2007/12/fat-facts/

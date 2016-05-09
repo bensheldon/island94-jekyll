@@ -21,6 +21,7 @@ gems:
   - jekyll-coffeescript
   - jekyll-paginate
   - jekyll-feed
+  - jekyll-redirect-from
 
 whitelist:
   - jekyll-coffeescript

@@ -7,7 +7,7 @@ tags:
 - cybernetics
 - technology
 wp:post_type: post
-redirects:
+redirect_from:
 - node/176
 - close-machine
 - 2007/11/close-to-the-machine/

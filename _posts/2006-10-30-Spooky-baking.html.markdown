@@ -14,7 +14,7 @@ tags:
 wp:post_type: post
 failed_files:
 - http://island94.org/files/halloween_cooke_tableau.png
-redirects:
+redirect_from:
 - articles/spooky-baking
 - node/105
 - 2006/10/spooky-baking/

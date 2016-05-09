@@ -7,7 +7,7 @@ tags:
 - honesty
 - justice
 wp:post_type: post
-redirects:
+redirect_from:
 - node/193
 - detective-nonsense
 - 2007/12/detective-nonsense/

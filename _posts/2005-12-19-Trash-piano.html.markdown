@@ -7,7 +7,7 @@ tags:
 - piano
 - Southie
 wp:post_type: post
-redirects:
+redirect_from:
 - node/26
 - articles/trash-piano
 - 2005/12/trash-piano/

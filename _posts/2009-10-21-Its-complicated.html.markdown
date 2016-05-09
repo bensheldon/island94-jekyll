@@ -7,7 +7,7 @@ tags:
 - scenario
 - think-harder
 wp:post_type: post
-redirects:
+redirect_from:
 - 2009/10/its-complicated/
 - "?p=843"
 ---

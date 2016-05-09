@@ -7,7 +7,7 @@ tags:
 - internet
 - protest
 wp:post_type: post
-redirects:
+redirect_from:
 - 2012/01/protest-shirts/
 - "?p=2987"
 ---

@@ -8,7 +8,7 @@ tags:
 - research
 - resume
 wp:post_type: post
-redirects:
+redirect_from:
 - 2009/02/tips-for-researching-and-applying-to-nonprofit-jobs/
 - "?p=419"
 ---

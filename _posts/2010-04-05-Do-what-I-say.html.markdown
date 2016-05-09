@@ -7,7 +7,7 @@ tags:
 - practice
 - society
 wp:post_type: post
-redirects:
+redirect_from:
 - 2010/04/i-know-not-what-ive-done/
 - 2010/04/do-what-i-say/
 - "?p=1867"

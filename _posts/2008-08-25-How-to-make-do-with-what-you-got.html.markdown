@@ -6,7 +6,7 @@ tags:
 - language
 - nonprofit
 wp:post_type: post
-redirects:
+redirect_from:
 - node/247
 - articles/how-make-do-what-you-got
 - 2008/08/how-to-make-do-with-what-you-got/

@@ -6,7 +6,7 @@ tags:
 - nonprofit
 - search
 wp:post_type: post
-redirects:
+redirect_from:
 - node/160
 - google-relevance
 - 2007/10/google-relevance/

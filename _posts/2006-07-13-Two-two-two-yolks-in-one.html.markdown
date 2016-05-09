@@ -8,7 +8,7 @@ tags:
 - freaky
 - video
 wp:post_type: post
-redirects:
+redirect_from:
 - articles/two-two-two-yolks-one
 - node/68
 - 2006/07/two-two-two-yolks-in-one/

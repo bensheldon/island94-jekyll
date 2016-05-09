@@ -6,7 +6,7 @@ tags:
 - participation
 - you-should-ask-me-for-advice
 wp:post_type: post
-redirects:
+redirect_from:
 - 2010/09/be-manically-participatory/
 - "?p=2206"
 ---

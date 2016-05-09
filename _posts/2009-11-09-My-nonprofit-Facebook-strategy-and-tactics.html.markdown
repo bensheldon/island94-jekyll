@@ -7,7 +7,7 @@ tags:
 - social media
 - whatever
 wp:post_type: post
-redirects:
+redirect_from:
 - 2009/11/my-nonprofit-facebook-strategy-and-tactics/
 - "?p=1001"
 ---

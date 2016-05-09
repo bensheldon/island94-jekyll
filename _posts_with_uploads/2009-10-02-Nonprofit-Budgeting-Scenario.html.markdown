@@ -11,7 +11,7 @@ tags:
 - portfolio
 - roleplay
 wp:post_type: post
-redirects:
+redirect_from:
 - 2009/10/nonprofit-budgeting-scenario/
 - "?p=752"
 ---

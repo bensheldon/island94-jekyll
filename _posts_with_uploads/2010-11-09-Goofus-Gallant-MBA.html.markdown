@@ -8,7 +8,7 @@ tags:
 - nonprofit
 - rhetoric
 wp:post_type: post
-redirects:
+redirect_from:
 - 2010/11/goofus-gallant-mbas/
 - 2010/11/goofus-gallant-mba/
 - "?p=2298"

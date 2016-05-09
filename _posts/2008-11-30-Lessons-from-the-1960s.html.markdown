@@ -9,7 +9,7 @@ tags:
 - history
 - patriotism
 wp:post_type: post
-redirects:
+redirect_from:
 - node/273
 - articles/lessons-1960s
 - 2008/11/lessons-from-the-1960s/

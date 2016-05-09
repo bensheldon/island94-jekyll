@@ -6,7 +6,7 @@ tags:
 - musings
 - research
 wp:post_type: post
-redirects:
+redirect_from:
 - node/148
 - fears-death
 - 2007/09/fears-of-death/

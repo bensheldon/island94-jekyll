@@ -7,7 +7,7 @@ tags:
 - mayo
 - sandwich
 wp:post_type: post
-redirects:
+redirect_from:
 - node/47
 - articles/x-salad-sandwich
 - 2006/05/x-salad-sandwich/

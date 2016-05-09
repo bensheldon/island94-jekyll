@@ -9,7 +9,7 @@ tags:
 - graphics
 - management
 wp:post_type: post
-redirects:
+redirect_from:
 - 2009/06/charting-work-success/
 - "?p=605"
 ---

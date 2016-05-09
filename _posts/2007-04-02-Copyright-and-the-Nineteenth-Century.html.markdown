@@ -9,7 +9,7 @@ tags:
 - law
 - Mark Twain
 wp:post_type: post
-redirects:
+redirect_from:
 - node/125
 - articles/copyright-and-nineteenth-century
 - 2007/04/copyright-and-the-nineteenth-century/

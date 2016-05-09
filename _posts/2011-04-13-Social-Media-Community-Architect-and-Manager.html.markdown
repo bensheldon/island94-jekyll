@@ -8,7 +8,7 @@ tags:
 - nonprofits
 - resume
 wp:post_type: post
-redirects:
+redirect_from:
 - 2011/04/social-media-community-architect-and-manager/
 - "?p=2261"
 ---

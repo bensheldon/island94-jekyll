@@ -5,7 +5,7 @@ tags:
 - language
 - philosophy
 wp:post_type: post
-redirects:
+redirect_from:
 - node/179
 - creating-meaning-through-interaction
 - 2007/12/creating-meaning-through-interaction/

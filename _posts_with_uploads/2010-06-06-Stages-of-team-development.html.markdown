@@ -8,7 +8,7 @@ tags:
 - stages
 - teams
 wp:post_type: post
-redirects:
+redirect_from:
 - 2010/06/stages-of-team-development/
 - "?p=2014"
 ---

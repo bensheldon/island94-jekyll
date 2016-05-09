@@ -7,7 +7,7 @@ tags:
 - history
 - walk
 wp:post_type: post
-redirects:
+redirect_from:
 - node/90
 - articles/about-dorchester
 - 2006/08/about-in-dorchester/

@@ -5,7 +5,7 @@ tags:
 - consulting
 - webdesign
 wp:post_type: post
-redirects:
+redirect_from:
 - node/239
 - observation/what-ask-building-website
 - 2008/08/what-to-ask-before-building-a-website/

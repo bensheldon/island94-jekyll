@@ -7,7 +7,7 @@ tags:
 - logo
 - nonprofit
 wp:post_type: post
-redirects:
+redirect_from:
 - 2007/03/but-it\'s-just-a-logo/
 - node/123
 - articles/its-just-logo

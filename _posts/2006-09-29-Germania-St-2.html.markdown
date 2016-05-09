@@ -9,7 +9,7 @@ tags:
 - painting
 - watercolor
 wp:post_type: post
-redirects:
+redirect_from:
 - 2006/09/germania-st-
 - articles/germania-st-2
 - node/100

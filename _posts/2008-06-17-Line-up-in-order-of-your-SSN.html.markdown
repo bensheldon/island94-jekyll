@@ -5,7 +5,7 @@ tags:
 - math
 - taxes
 wp:post_type: post
-redirects:
+redirect_from:
 - observation/line-order-your-ssn
 - node/225
 - 2008/06/line-up-in-order-of-your-ssn/

@@ -7,7 +7,7 @@ tags:
 - sales
 - weasel-words
 wp:post_type: post
-redirects:
+redirect_from:
 - 2009/02/press-release-rhythm/
 - "?p=504"
 ---

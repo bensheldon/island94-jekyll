@@ -8,7 +8,7 @@ tags:
 - photo
 - photography
 wp:post_type: post
-redirects:
+redirect_from:
 - 2009/09/my-featured-dead-cockroach/
 - "?p=707"
 ---

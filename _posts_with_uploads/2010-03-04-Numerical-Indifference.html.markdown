@@ -10,7 +10,7 @@ tags:
 - portfolio
 - rhetoric
 wp:post_type: post
-redirects:
+redirect_from:
 - 2010/03/numerical-indifference/
 - "?p=1802"
 ---

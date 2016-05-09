@@ -9,7 +9,7 @@ tags:
 - religion
 - thought
 wp:post_type: post
-redirects:
+redirect_from:
 - 2009/10/in-the-beginning-god-separated-heaven-and-earth/
 - "?p=807"
 ---

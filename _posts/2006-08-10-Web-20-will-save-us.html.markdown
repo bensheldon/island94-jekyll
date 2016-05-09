@@ -13,7 +13,7 @@ tags:
 - Web 2.0
 - web design
 wp:post_type: post
-redirects:
+redirect_from:
 - node/84
 - articles/web-2-0-will-save-us
 - 2006/08/web-2-0-will-save-us/

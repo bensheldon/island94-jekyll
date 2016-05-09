@@ -6,7 +6,7 @@ tags:
 - consumption
 - internet
 wp:post_type: post
-redirects:
+redirect_from:
 - 2012/03/state-of-the-shirt-march-2012/
 - "?p=3001"
 ---

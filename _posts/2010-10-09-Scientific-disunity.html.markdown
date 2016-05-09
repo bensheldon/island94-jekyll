@@ -6,7 +6,7 @@ tags:
 - history
 - science
 wp:post_type: post
-redirects:
+redirect_from:
 - 2010/10/scientific-disunity/
 - "?p=2227"
 ---

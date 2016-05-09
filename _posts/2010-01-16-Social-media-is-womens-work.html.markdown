@@ -11,7 +11,7 @@ tags:
 - pay
 - sexism
 wp:post_type: post
-redirects:
+redirect_from:
 - 2010/01/social-media-is-womens-work/
 - "?p=1684"
 ---

@@ -6,7 +6,7 @@ tags:
 - recipe
 - salsa
 wp:post_type: post
-redirects:
+redirect_from:
 - node/184
 - cribbed-apple-salsa
 - 2007/12/cribbed-apple-salsa/

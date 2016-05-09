@@ -7,7 +7,7 @@ tags:
 - media
 - politics
 wp:post_type: post
-redirects:
+redirect_from:
 - node/233
 - observation/political-news-coverage
 - 2008/07/political-news-coverage/

@@ -3,7 +3,7 @@ title: 'Excerpt: Sectors of the US Right---Active in the Year 2001'
 date: '2009-03-03'
 tags: []
 wp:post_type: post
-redirects:
+redirect_from:
 - 2009/03/excerpt-sectors-of-the-us-right-active-in-the-year-2001/
 - "?p=512"
 ---

@@ -7,7 +7,7 @@ tags:
 - video
 - vlogarm
 wp:post_type: post
-redirects:
+redirect_from:
 - node/120
 - articles/self-photography
 - 2007/02/self-photography/

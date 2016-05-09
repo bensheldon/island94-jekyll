@@ -5,7 +5,7 @@ tags:
 - Drupal
 - technology
 wp:post_type: post
-redirects:
+redirect_from:
 - 2008/06/conference-notes:-managing-nonprofit-technology-projects-/
 - node/223
 - observation/conference-notes-managing-nonprofit-technology-projects

@@ -8,7 +8,7 @@ tags:
 - listening
 - process
 wp:post_type: post
-redirects:
+redirect_from:
 - 2009/01/types-of-facilitator-interventions/
 - "?p=369"
 ---

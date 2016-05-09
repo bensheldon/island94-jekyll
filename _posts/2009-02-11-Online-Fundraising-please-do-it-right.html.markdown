@@ -10,7 +10,7 @@ tags:
 - nonprofit
 - practice
 wp:post_type: post
-redirects:
+redirect_from:
 - 2009/02/online-fundraising-please-do-it-right/
 - "?p=456"
 ---

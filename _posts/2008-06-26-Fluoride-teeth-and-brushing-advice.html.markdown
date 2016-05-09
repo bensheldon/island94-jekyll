@@ -5,7 +5,7 @@ tags:
 - health
 - hygiene
 wp:post_type: post
-redirects:
+redirect_from:
 - node/228
 - observation/fluoride-teeth-and-brushing-advice
 - 2008/06/fluoride-teeth-and-brushing-advice/

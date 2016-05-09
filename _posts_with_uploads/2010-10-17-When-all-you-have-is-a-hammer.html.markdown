@@ -8,7 +8,7 @@ tags:
 - looks-like-a-nail
 - political
 wp:post_type: post
-redirects:
+redirect_from:
 - 2010/10/when-all-you-have-is-a-hammer/
 - "?p=2236"
 ---

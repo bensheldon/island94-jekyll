@@ -6,7 +6,7 @@ tags:
 - education
 - urinal
 wp:post_type: post
-redirects:
+redirect_from:
 - 2006/08/education-urinal-=-
 - node/94
 - articles/education-urinal

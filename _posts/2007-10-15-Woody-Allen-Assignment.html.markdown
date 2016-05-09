@@ -7,7 +7,7 @@ tags:
 - criticism
 - irony
 wp:post_type: post
-redirects:
+redirect_from:
 - node/159
 - woody-allen-assignment
 - 2007/10/woody-allen-assignment/

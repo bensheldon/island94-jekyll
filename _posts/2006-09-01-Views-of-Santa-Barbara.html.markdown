@@ -3,7 +3,7 @@ title: Views of Santa Barbara
 date: '2006-09-01'
 tags: []
 wp:post_type: post
-redirects:
+redirect_from:
 - node/95
 - views-santa-barbara
 - 2006/09/views-of-santa-barbara/

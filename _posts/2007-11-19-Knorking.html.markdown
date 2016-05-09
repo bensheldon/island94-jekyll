@@ -6,7 +6,7 @@ tags:
 - language
 - tableware
 wp:post_type: post
-redirects:
+redirect_from:
 - node/174
 - knorking
 - 2007/11/knorking/

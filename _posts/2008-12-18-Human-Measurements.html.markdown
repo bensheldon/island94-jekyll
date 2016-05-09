@@ -3,7 +3,7 @@ title: Human Measurements
 date: '2008-12-18'
 tags: []
 wp:post_type: post
-redirects:
+redirect_from:
 - node/277
 - observation/human-measurements
 - 2008/12/human-measurements/

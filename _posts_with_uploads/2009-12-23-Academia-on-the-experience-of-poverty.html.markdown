@@ -8,7 +8,7 @@ tags:
 - livelihood
 - poverty
 wp:post_type: post
-redirects:
+redirect_from:
 - 2009/12/academia-on-the-experience-of-poverty/
 - "?p=1616"
 ---

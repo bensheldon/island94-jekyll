@@ -6,7 +6,7 @@ tags:
 - politics
 - synonyms
 wp:post_type: post
-redirects:
+redirect_from:
 - 2008/06/other-words-for-"lie"/
 - observation/other-words-lie
 - node/224

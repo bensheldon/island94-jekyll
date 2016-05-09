@@ -9,7 +9,7 @@ tags:
 - navigation
 - portfolio
 wp:post_type: post
-redirects:
+redirect_from:
 - node/218
 - boston-vegetable-planting-chart
 - articles/boston-vegetable-planting-chart

@@ -6,7 +6,7 @@ tags:
 - failure
 - zen
 wp:post_type: post
-redirects:
+redirect_from:
 - 2011/05/failure-on-balance/
 - "?p=2669"
 ---

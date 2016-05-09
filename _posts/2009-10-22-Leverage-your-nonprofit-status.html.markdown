@@ -7,7 +7,7 @@ tags:
 - nuts
 - weapons
 wp:post_type: post
-redirects:
+redirect_from:
 - 2009/10/leverage-your-nonprofit-status/
 - "?p=867"
 ---

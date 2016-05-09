@@ -6,7 +6,7 @@ tags:
 - examples
 - webdesign
 wp:post_type: post
-redirects:
+redirect_from:
 - node/157
 - who-using-drupal
 - 2007/09/who-is-using-drupal?/

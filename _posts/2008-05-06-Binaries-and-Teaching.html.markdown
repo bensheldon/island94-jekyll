@@ -7,7 +7,7 @@ tags:
 - teaching
 - youtube
 wp:post_type: post
-redirects:
+redirect_from:
 - node/219
 - observation/binaries-and-teaching
 - 2008/05/binaries-and-teaching/

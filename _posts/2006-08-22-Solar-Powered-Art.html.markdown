@@ -11,7 +11,7 @@ tags:
 wp:post_type: post
 failed_files:
 - http://island94.org/files/solaronegroup.png
-redirects:
+redirect_from:
 - node/89
 - articles/solar-powered-art
 - 2006/08/solar-powered-art/

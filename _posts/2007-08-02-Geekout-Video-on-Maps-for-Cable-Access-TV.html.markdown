@@ -11,7 +11,7 @@ tags:
 - portfolio
 - video
 wp:post_type: post
-redirects:
+redirect_from:
 - 2007/08/geekout:-video-on-maps-for-cable-access-tv/
 - node/136
 - articles/geekout-video-maps-cable-access-tv

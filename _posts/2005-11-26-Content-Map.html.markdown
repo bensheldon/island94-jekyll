@@ -3,7 +3,7 @@ title: Content Map
 date: '2005-11-26'
 tags: []
 wp:post_type: post
-redirects:
+redirect_from:
 - node/15
 - content-map
 - 2005/11/content-map/

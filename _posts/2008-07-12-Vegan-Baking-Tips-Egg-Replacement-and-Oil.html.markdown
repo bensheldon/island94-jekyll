@@ -6,7 +6,7 @@ tags:
 - food
 - recipe
 wp:post_type: post
-redirects:
+redirect_from:
 - 2008/07/vegan-baking-tips:-egg-replacement-and-oil/
 - node/231
 - observation/vegan-baking-tips-egg-replacement-and-oil

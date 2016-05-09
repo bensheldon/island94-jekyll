@@ -5,7 +5,7 @@ tags:
 - broadcasting
 - tv
 wp:post_type: post
-redirects:
+redirect_from:
 - node/201
 - ny-times-public-television
 - 2008/02/ny-times-on-public-television/

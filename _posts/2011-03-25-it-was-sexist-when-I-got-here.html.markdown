@@ -9,7 +9,7 @@ tags:
 - sexism
 - women
 wp:post_type: post
-redirects:
+redirect_from:
 - 2011/03/it-was-sexist-when-i-got-here/
 - "?p=2558"
 ---

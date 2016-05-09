@@ -4,7 +4,7 @@ date: '2008-06-19'
 tags:
 - nonprofit
 wp:post_type: post
-redirects:
+redirect_from:
 - node/226
 - observation/7-nonprofit-challenges
 - 2008/06/7-nonprofit-challenges/

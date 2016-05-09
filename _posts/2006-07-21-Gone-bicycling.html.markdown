@@ -9,7 +9,7 @@ tags:
 - time lapse
 - video
 wp:post_type: post
-redirects:
+redirect_from:
 - node/78
 - articles/gone-bicycling
 - 2006/07/gone-bicycling/

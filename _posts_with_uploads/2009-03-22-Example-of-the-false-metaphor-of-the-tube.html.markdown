@@ -3,7 +3,7 @@ title: Example of the (false) metaphor of the tube
 date: '2009-03-22'
 tags: []
 wp:post_type: post
-redirects:
+redirect_from:
 - 2009/03/example-of-the-false-metaphor-of-the-tube/
 - "?p=580"
 ---

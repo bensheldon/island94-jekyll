@@ -8,7 +8,7 @@ tags:
 - technology
 - zen
 wp:post_type: post
-redirects:
+redirect_from:
 - 2010/02/criticism-for-everyone/
 - "?p=1749"
 ---

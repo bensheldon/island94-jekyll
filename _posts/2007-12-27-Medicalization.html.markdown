@@ -5,7 +5,7 @@ tags:
 - medicine
 - psychology
 wp:post_type: post
-redirects:
+redirect_from:
 - node/196
 - medicalization
 - 2007/12/medicalization/

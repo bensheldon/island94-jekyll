@@ -7,7 +7,7 @@ tags:
 - poverty
 - religion
 wp:post_type: post
-redirects:
+redirect_from:
 - node/235
 - articles/poverty-singular-moral-challenge
 - 2008/07/poverty-as-the-singular-moral-challenge/

@@ -8,7 +8,7 @@ tags:
 - panorama
 - photos
 wp:post_type: post
-redirects:
+redirect_from:
 - node/64
 - articles/charles-4th
 - 2006/07/charles-on-the-4th/

@@ -7,7 +7,7 @@ tags:
 - Saul
 - writing
 wp:post_type: post
-redirects:
+redirect_from:
 - articles/first-monday-night-write
 - node/76
 - 2006/07/first-monday-night-write/

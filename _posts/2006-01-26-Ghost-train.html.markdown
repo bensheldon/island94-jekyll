@@ -7,7 +7,7 @@ tags:
 - train
 - winter
 wp:post_type: post
-redirects:
+redirect_from:
 - node/27
 - articles/ghost-train
 - 2006/01/ghost-train/

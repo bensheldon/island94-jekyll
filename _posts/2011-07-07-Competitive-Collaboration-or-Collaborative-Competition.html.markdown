@@ -7,7 +7,7 @@ tags:
 - cooperation
 - development
 wp:post_type: post
-redirects:
+redirect_from:
 - 2011/07/competitive-collaboration-or-collaborative-competition/
 - "?p=2751"
 ---

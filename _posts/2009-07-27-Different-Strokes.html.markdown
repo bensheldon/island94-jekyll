@@ -12,7 +12,7 @@ tags:
 - time-management
 - trendsetting
 wp:post_type: post
-redirects:
+redirect_from:
 - 2009/07/different-strokes/
 - "?p=650"
 ---

@@ -6,7 +6,7 @@ tags:
 - photos
 - Santa Barbara
 wp:post_type: post
-redirects:
+redirect_from:
 - node/59
 - articles/views-isla-vista
 - 2006/07/views-of-isla-vista/

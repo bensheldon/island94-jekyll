@@ -6,7 +6,7 @@ tags:
 - communications
 - psychology
 wp:post_type: post
-redirects:
+redirect_from:
 - 2007/12/understanding-beliefs-(and-how-to-change-them)/
 - node/195
 - articles/understanding-beliefs-and-how-change-them
