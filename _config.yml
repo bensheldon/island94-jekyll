@@ -17,6 +17,9 @@ github_username:  bensheldon
 
 paginate: 5
 
+exclude:
+  - scripts
+
 gems:
   - jekyll-coffeescript
   - jekyll-paginate
