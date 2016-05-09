@@ -7,7 +7,7 @@ tags:
 - programming-code
 - weeding
 wp:post_type: post
-redirects:
+redirect_from:
 - 2009/12/gatekeeper-code/
 - "?p=1599"
 ---

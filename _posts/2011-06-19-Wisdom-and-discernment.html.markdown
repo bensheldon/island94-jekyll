@@ -7,7 +7,7 @@ tags:
 - wealth
 - wisdom
 wp:post_type: post
-redirects:
+redirect_from:
 - 2011/06/wisdom-and-discernment/
 - "?p=2719"
 ---

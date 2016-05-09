@@ -5,7 +5,7 @@ tags:
 - language
 - politics
 wp:post_type: post
-redirects:
+redirect_from:
 - node/204
 - reject-or-denounce
 - 2008/03/reject-or-denounce/

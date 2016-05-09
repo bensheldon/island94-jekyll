@@ -10,7 +10,7 @@ tags:
 wp:post_type: post
 failed_files:
 - http://island94.org/files/centralpark.png
-redirects:
+redirect_from:
 - node/86
 - articles/central-park-pictures
 - 2006/08/central-park-pictures/

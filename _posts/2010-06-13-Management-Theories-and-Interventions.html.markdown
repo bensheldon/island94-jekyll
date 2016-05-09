@@ -7,7 +7,7 @@ tags:
 - methodologies
 - theory
 wp:post_type: post
-redirects:
+redirect_from:
 - 2010/06/management-theories-and-interventions/
 - "?p=2076"
 ---

@@ -12,7 +12,7 @@ tags:
 - video
 - weather
 wp:post_type: post
-redirects:
+redirect_from:
 - node/75
 - articles/making-smoothies
 - 2006/07/making-smoothies/

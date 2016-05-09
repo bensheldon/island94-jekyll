@@ -13,7 +13,7 @@ tags:
 - pluralism
 - politics
 wp:post_type: post
-redirects:
+redirect_from:
 - 2009/07/moving-day/
 - "?p=631"
 ---

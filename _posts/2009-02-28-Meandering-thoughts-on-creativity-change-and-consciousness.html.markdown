@@ -8,7 +8,7 @@ tags:
 - heroism
 - take-a-flying-leap
 wp:post_type: post
-redirects:
+redirect_from:
 - 2009/02/meandering-thoughts-on-creativity-change-and-consciousness/
 - "?p=506"
 ---

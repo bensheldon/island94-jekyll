@@ -6,7 +6,7 @@ tags:
 - food
 - recipe
 wp:post_type: post
-redirects:
+redirect_from:
 - node/158
 - pancake-recipe
 - 2007/10/pancake-recipe/

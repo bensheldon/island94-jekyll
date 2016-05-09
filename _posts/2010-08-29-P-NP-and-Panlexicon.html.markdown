@@ -5,7 +5,7 @@ tags:
 - math
 - panlexicon
 wp:post_type: post
-redirects:
+redirect_from:
 - 2010/08/p-np-and-panlexicon/
 - "?p=2142"
 ---

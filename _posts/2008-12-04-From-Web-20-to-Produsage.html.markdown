@@ -8,7 +8,7 @@ tags:
 - social media
 - Web 2.0
 wp:post_type: post
-redirects:
+redirect_from:
 - node/276
 - articles/web-2-0-produsage
 - 2008/12/from-web-2-to-produsage/

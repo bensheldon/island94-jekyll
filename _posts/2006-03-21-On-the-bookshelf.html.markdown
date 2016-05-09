@@ -3,7 +3,7 @@ title: On the bookshelf
 date: '2006-03-21'
 tags: []
 wp:post_type: post
-redirects:
+redirect_from:
 - node/32
 - articles/bookshelf
 - 2006/03/on-the-bookshelf/

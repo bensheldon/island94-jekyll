@@ -7,7 +7,7 @@ tags:
 - random
 - statistics
 wp:post_type: post
-redirects:
+redirect_from:
 - 2010/05/try-it-again/
 - "?p=1963"
 ---

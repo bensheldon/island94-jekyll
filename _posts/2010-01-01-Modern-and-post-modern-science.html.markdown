@@ -3,7 +3,7 @@ title: Modern and post-modern science
 date: '2010-01-01'
 tags: []
 wp:post_type: post
-redirects:
+redirect_from:
 - 2010/01/modern-and-post-modern-science/
 - "?p=1656"
 ---

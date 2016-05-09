@@ -7,7 +7,7 @@ tags:
 - pride
 - webdesign
 wp:post_type: post
-redirects:
+redirect_from:
 - 2011/03/a-form-from-my-favorites/
 - "?p=2549"
 ---

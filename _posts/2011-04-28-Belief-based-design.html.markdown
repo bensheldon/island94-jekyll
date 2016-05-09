@@ -6,7 +6,7 @@ tags:
 - design
 - values
 wp:post_type: post
-redirects:
+redirect_from:
 - 2011/04/belief-based-design/
 - "?p=2635"
 ---

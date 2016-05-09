@@ -11,7 +11,7 @@ tags:
 - philanthropy
 - philosophy
 wp:post_type: post
-redirects:
+redirect_from:
 - 2009/11/gifts-of-magnificence/
 - "?p=1032"
 ---

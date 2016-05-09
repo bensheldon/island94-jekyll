@@ -5,7 +5,7 @@ tags:
 - history
 - ideology
 wp:post_type: post
-redirects:
+redirect_from:
 - 2010/05/history-is-an-art/
 - "?p=1913"
 ---

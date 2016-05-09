@@ -7,7 +7,7 @@ tags:
 - psychology
 - wealth
 wp:post_type: post
-redirects:
+redirect_from:
 - 2009/08/marketing-in-wealth-bondage/
 - "?p=652"
 ---

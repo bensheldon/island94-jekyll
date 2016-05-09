@@ -8,7 +8,7 @@ tags:
 - nonprofit
 - random
 wp:post_type: post
-redirects:
+redirect_from:
 - node/275
 - articles/nonprofit-between-scylla-and-charydbis
 - 2008/12/the-nonprofit-between-scylla-and-charydbis/

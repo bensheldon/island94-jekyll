@@ -6,7 +6,7 @@ tags:
 - language
 - nonprofits
 wp:post_type: post
-redirects:
+redirect_from:
 - 2011/06/irrefutable-gerunds/
 - "?p=2726"
 ---

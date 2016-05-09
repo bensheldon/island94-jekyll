@@ -5,7 +5,7 @@ tags:
 - aging
 - children
 wp:post_type: post
-redirects:
+redirect_from:
 - node/268
 - observation/being-wrong-right
 - observation/being-wrong-right-not-education-system

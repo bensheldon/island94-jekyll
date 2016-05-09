@@ -9,7 +9,7 @@ tags:
 - time
 - Washington
 wp:post_type: post
-redirects:
+redirect_from:
 - articles/rubbed-away-dc
 - node/92
 - 2006/08/rubbed-away-in-dc/

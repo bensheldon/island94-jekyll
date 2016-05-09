@@ -10,7 +10,7 @@ tags:
 - ownership
 - perspective
 wp:post_type: post
-redirects:
+redirect_from:
 - 2009/10/frames-for-copyright/
 - "?p=916"
 ---

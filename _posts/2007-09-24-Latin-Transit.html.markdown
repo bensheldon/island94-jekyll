@@ -7,7 +7,7 @@ tags:
 - quote
 - speech
 wp:post_type: post
-redirects:
+redirect_from:
 - node/156
 - latin-transit
 - 2007/09/latin-transit/

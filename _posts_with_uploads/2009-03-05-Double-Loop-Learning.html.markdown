@@ -3,7 +3,7 @@ title: Double Loop Learning
 date: '2009-03-05'
 tags: []
 wp:post_type: post
-redirects:
+redirect_from:
 - 2009/03/double-loop-learning/
 - "?p=531"
 ---

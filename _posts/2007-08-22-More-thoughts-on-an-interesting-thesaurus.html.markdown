@@ -8,7 +8,7 @@ tags:
 - panlexicon
 - thesaurus
 wp:post_type: post
-redirects:
+redirect_from:
 - node/139
 - articles/more-thoughts-interesting-thesaurus
 - articles/some-more-thoughts-interesting-thesaurus

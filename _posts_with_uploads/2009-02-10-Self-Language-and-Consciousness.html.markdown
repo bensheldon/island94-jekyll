@@ -10,7 +10,7 @@ tags:
 - reflection
 - self
 wp:post_type: post
-redirects:
+redirect_from:
 - 2009/02/self-language-and-consciousness/
 - "?p=446"
 ---

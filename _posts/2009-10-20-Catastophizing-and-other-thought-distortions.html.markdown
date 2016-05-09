@@ -3,7 +3,7 @@ title: Catastophizing and other thought distortions
 date: '2009-10-20'
 tags: []
 wp:post_type: post
-redirects:
+redirect_from:
 - 2009/10/catastophizing-and-other-thought-distortions/
 - "?p=822"
 ---

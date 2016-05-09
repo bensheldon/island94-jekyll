@@ -7,7 +7,7 @@ tags:
 - travel
 - Travels with Lisa
 wp:post_type: post
-redirects:
+redirect_from:
 - node/65
 - articles/zandvoort
 - 2006/07/zandvoort/

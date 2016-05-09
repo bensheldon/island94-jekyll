@@ -7,7 +7,7 @@ tags:
 - management
 - supervisory skills
 wp:post_type: post
-redirects:
+redirect_from:
 - node/137
 - articles/desc-scripting-and-conflict-resolution
 - 2007/08/desc-scripting-and-conflict-resolution/

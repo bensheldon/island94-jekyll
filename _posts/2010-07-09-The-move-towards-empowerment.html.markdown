@@ -10,7 +10,7 @@ tags:
 - neo-liberalism
 - women
 wp:post_type: post
-redirects:
+redirect_from:
 - 2010/07/the-move-towards-empowerment/
 - "?p=2107"
 ---

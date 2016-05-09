@@ -8,7 +8,7 @@ tags:
 - media
 - reflection
 wp:post_type: post
-redirects:
+redirect_from:
 - 2010/12/mediation-journal-pieces/
 - "?p=2374"
 ---

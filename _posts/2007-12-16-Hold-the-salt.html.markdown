@@ -7,7 +7,7 @@ tags:
 - recipe
 - teach back
 wp:post_type: post
-redirects:
+redirect_from:
 - node/190
 - hold-salt
 - 2007/12/hold-the-salt/

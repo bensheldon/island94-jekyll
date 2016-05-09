@@ -7,7 +7,7 @@ tags:
 - meaning
 - semantings
 wp:post_type: post
-redirects:
+redirect_from:
 - 2009/01/using-distinctions-to-create-meaning/
 - "?p=335"
 ---

@@ -8,7 +8,7 @@ tags:
 - Santa Barbara
 - video
 wp:post_type: post
-redirects:
+redirect_from:
 - node/58
 - articles/chase-palm-park
 - 2006/07/chase-palm-park/

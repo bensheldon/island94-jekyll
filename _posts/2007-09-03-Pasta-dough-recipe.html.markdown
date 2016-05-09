@@ -6,7 +6,7 @@ tags:
 - flour
 - recipe
 wp:post_type: post
-redirects:
+redirect_from:
 - node/145
 - pasta-dough-recipe
 - 2007/09/pasta-dough-recipe/

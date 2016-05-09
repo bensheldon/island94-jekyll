@@ -9,7 +9,7 @@ tags:
 - radio
 - society
 wp:post_type: post
-redirects:
+redirect_from:
 - 2008/08/radio-ga-ga-2:-the-role-of-nonprofits-in-constructing-a-better-world/
 - node/249
 - articles/radio-ga-ga-2-role-nonprofits-constructing-better-world

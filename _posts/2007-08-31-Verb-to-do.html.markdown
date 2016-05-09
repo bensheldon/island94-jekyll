@@ -6,7 +6,7 @@ tags:
 - word usage
 - writing
 wp:post_type: post
-redirects:
+redirect_from:
 - node/142
 - verb-do
 - 2007/08/verb-to-do/

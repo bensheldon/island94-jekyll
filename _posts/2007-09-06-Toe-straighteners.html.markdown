@@ -5,7 +5,7 @@ tags:
 - advertisement
 - weird
 wp:post_type: post
-redirects:
+redirect_from:
 - node/149
 - toe-straighteners
 - 2007/09/toe-straighteners/

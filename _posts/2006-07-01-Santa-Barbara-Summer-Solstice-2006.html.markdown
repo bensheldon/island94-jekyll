@@ -13,7 +13,7 @@ tags:
 wp:post_type: post
 failed_files:
 - http://island94.org/files/Solstice-thumb.png
-redirects:
+redirect_from:
 - node/55
 - articles/santa-barbara-summer-solstice-2006
 - 2006/07/santa-barbara-summer-solstice-2006/

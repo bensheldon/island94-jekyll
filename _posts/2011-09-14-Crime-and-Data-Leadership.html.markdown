@@ -8,7 +8,7 @@ tags:
 - knowledge
 - management
 wp:post_type: post
-redirects:
+redirect_from:
 - 2011/09/crime-and-data-leadership/
 - "?p=2829"
 ---

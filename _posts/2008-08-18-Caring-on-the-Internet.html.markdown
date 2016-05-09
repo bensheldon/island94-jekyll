@@ -6,7 +6,7 @@ tags:
 - internet
 - media
 wp:post_type: post
-redirects:
+redirect_from:
 - node/242
 - observation/caring-internet
 - 2008/08/caring-on-the-internet/

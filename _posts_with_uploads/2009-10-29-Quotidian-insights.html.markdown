@@ -3,7 +3,7 @@ title: Quotidian insights
 date: '2009-10-29'
 tags: []
 wp:post_type: post
-redirects:
+redirect_from:
 - 2009/10/quotidian-insights/
 - "?p=905"
 ---

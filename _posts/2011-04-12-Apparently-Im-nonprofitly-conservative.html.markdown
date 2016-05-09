@@ -7,7 +7,7 @@ tags:
 - policy
 - reform
 wp:post_type: post
-redirects:
+redirect_from:
 - 2011/04/apparently-im-nonprofitly-conservative/
 - "?p=2455"
 ---

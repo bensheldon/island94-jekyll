@@ -7,7 +7,7 @@ tags:
 - Lowell
 - photos
 wp:post_type: post
-redirects:
+redirect_from:
 - articles/my-pigeons-row
 - node/19
 - 2005/11/my-pigeons-in-a-row/

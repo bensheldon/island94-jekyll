@@ -7,7 +7,7 @@ tags:
 - knowledge
 - thinking
 wp:post_type: post
-redirects:
+redirect_from:
 - 2012/02/methodological-belief/
 - "?p=2996"
 ---

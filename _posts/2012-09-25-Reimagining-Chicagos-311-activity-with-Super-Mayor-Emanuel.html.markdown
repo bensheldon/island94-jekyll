@@ -7,7 +7,7 @@ tags:
 - open311
 - portfolio
 wp:post_type: post
-redirects:
+redirect_from:
 - 2012/11/reimagining-chicagos-311-activity-with-super-mayor-emanuel/
 - 2012/09/reimagining-chicagos-311-activity-with-super-mayor-emanuel/
 - "?p=3057"

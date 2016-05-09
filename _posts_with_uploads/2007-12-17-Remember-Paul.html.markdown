@@ -7,7 +7,7 @@ tags:
 - mentor
 - remembrance
 wp:post_type: post
-redirects:
+redirect_from:
 - node/191
 - articles/remember-paul
 - 2007/12/remember-paul/

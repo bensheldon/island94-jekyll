@@ -11,7 +11,7 @@ tags:
 - photos
 - Saul
 wp:post_type: post
-redirects:
+redirect_from:
 - node/72
 - articles/canoes-mystic-river
 - 2006/07/canoes-on-the-mystic-river/

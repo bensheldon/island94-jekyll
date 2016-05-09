@@ -6,7 +6,7 @@ tags:
 - religion
 - technology
 wp:post_type: post
-redirects:
+redirect_from:
 - node/261
 - observation/graphical-organization-talmud
 - 2008/10/graphical-organization-of-the-talmud/

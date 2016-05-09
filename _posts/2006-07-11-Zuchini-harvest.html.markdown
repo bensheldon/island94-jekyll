@@ -9,7 +9,7 @@ tags:
 - recipe
 - zuchini
 wp:post_type: post
-redirects:
+redirect_from:
 - node/67
 - articles/zuchini-harvest
 - 2006/07/zuchini-harvest/

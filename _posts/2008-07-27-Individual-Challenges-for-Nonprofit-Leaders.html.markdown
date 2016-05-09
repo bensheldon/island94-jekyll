@@ -5,7 +5,7 @@ tags:
 - leadership
 - nonprofit
 wp:post_type: post
-redirects:
+redirect_from:
 - node/236
 - articles/individual-challenges-nonprofit-leaders
 - 2008/07/individual-challenges-for-nonprofit-leaders/

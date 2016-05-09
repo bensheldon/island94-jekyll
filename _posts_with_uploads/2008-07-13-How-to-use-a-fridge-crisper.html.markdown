@@ -5,7 +5,7 @@ tags:
 - food
 - kitchen cooking
 wp:post_type: post
-redirects:
+redirect_from:
 - node/232
 - observation/how-use-fridge-crisper
 - 2008/07/how-to-use-a-fridge-crisper/

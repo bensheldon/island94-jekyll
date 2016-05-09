@@ -6,7 +6,7 @@ tags:
 - Jessica
 - vocabulary
 wp:post_type: post
-redirects:
+redirect_from:
 - 2005/12/word-of-the-day:-cankle/
 - node/23
 - articles/word-day-cankle

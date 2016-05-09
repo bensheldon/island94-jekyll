@@ -7,7 +7,7 @@ tags:
 - photos
 - winter
 wp:post_type: post
-redirects:
+redirect_from:
 - node/24
 - articles/hole-ice
 - 2005/12/a-hole-in-the-ice/

@@ -6,7 +6,7 @@ tags:
 - innovation
 - technology
 wp:post_type: post
-redirects:
+redirect_from:
 - 2011/10/the-point-where-creativity-and-invention-occur/
 - "?p=2942"
 ---

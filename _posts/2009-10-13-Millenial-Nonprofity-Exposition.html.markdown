@@ -8,7 +8,7 @@ tags:
 - service
 - storytelling
 wp:post_type: post
-redirects:
+redirect_from:
 - 2009/10/millenial-nonprofity-exposition/
 - "?p=797"
 ---

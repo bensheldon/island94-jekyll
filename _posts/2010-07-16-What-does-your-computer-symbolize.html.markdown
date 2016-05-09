@@ -7,7 +7,7 @@ tags:
 - history
 - technology
 wp:post_type: post
-redirects:
+redirect_from:
 - 2010/07/what-does-your-computer-symbolize/
 - "?p=2118"
 ---

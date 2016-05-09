@@ -9,7 +9,7 @@ tags:
 - search
 - wordlist
 wp:post_type: post
-redirects:
+redirect_from:
 - 2010/10/a-deucedly-outrag-wordlist/
 - "?p=2266"
 ---

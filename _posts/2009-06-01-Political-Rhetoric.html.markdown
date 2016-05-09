@@ -6,7 +6,7 @@ tags:
 - politics
 - rhetoric
 wp:post_type: post
-redirects:
+redirect_from:
 - 2009/06/political-rhetoric/
 - "?p=601"
 ---

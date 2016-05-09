@@ -7,7 +7,7 @@ tags:
 - statistics
 - volunteering
 wp:post_type: post
-redirects:
+redirect_from:
 - node/177
 - volunteer-logic
 - 2007/12/volunteer-logic/

@@ -6,7 +6,7 @@ tags:
 - thanks
 - volunteer
 wp:post_type: post
-redirects:
+redirect_from:
 - 2010/12/de-nada-una-pequena-casa/
 - "?p=2391"
 ---

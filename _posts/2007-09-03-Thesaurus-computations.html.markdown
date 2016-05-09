@@ -4,7 +4,7 @@ date: '2007-09-03'
 tags:
 - thesaurus
 wp:post_type: post
-redirects:
+redirect_from:
 - node/147
 - thesaurus-computations
 - 2007/09/thesaurus-computations/

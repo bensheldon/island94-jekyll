@@ -7,7 +7,7 @@ tags:
 - lyrics
 - music
 wp:post_type: post
-redirects:
+redirect_from:
 - node/46
 - articles/emo-lyrics-jason
 - 2006/05/emo-lyrics-for-jason/

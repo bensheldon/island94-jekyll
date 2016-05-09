@@ -10,7 +10,7 @@ tags:
 - portfolio
 - project
 wp:post_type: post
-redirects:
+redirect_from:
 - 2010/11/boston-bike-crash-map/
 - "?p=2305"
 ---

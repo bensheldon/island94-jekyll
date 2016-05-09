@@ -9,7 +9,7 @@ tags:
 - portfolio
 - technology
 wp:post_type: post
-redirects:
+redirect_from:
 - 2009/12/easier-drawn-than-said/
 - "?p=1620"
 ---

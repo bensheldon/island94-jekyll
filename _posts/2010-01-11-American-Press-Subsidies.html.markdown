@@ -10,7 +10,7 @@ tags:
 - press
 - subsidies
 wp:post_type: post
-redirects:
+redirect_from:
 - 2010/01/american-press-subsidies/
 - "?p=1678"
 ---

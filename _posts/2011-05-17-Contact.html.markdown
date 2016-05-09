@@ -3,7 +3,7 @@ title: Contact
 date: '2011-05-17'
 tags: []
 wp:post_type: page
-redirects:
+redirect_from:
 - contact/
 - "?p=2657"
 ---

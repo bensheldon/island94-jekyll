@@ -3,7 +3,7 @@ title: Automatic analysis
 date: '2013-05-28'
 tags: []
 wp:post_type: post
-redirects:
+redirect_from:
 - 2013/05/automatic-analysis/
 - "?p=3085"
 ---

@@ -6,7 +6,7 @@ tags:
 - cybernetics
 - legitimacy exchange
 wp:post_type: post
-redirects:
+redirect_from:
 - node/165
 - understanding-academia
 - understanding-academia-and-legitimacy-exchange

@@ -7,7 +7,7 @@ tags:
 - maslow
 - training
 wp:post_type: post
-redirects:
+redirect_from:
 - 2011/11/literacy-is-more-than-reading/
 - "?p=2950"
 ---

@@ -6,7 +6,7 @@ tags:
 - nonprofit
 - questions
 wp:post_type: post
-redirects:
+redirect_from:
 - node/258
 - observation/questions-external-brand-interviews
 - 2008/10/questions-for-external-brand-interviews/

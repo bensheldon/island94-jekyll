@@ -11,7 +11,7 @@ tags:
 wp:post_type: post
 failed_files:
 - http://island94.org/wp-content/uploads/2009/10/TheNavigator1824.jpg
-redirects:
+redirect_from:
 - 2009/10/an-ample-account/
 - "?p=872"
 ---

@@ -3,7 +3,7 @@ title: Boston Fallout Shelters
 date: '2005-11-29'
 tags: []
 wp:post_type: post
-redirects:
+redirect_from:
 - node/21
 - boston-fallout-shelters
 - 2005/11/boston-fallout-shelters/

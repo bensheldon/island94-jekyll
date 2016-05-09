@@ -8,7 +8,7 @@ tags:
 - poetry
 - rhetoric
 wp:post_type: post
-redirects:
+redirect_from:
 - 2009/11/three-story-intellect-model/
 - "?p=1529"
 ---

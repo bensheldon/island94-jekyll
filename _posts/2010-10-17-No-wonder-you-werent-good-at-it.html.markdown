@@ -7,7 +7,7 @@ tags:
 - satire
 - teaching
 wp:post_type: post
-redirects:
+redirect_from:
 - 2010/10/no-wonder-you-werent-good-at-it/
 - "?p=2249"
 ---

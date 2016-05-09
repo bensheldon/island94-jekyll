@@ -7,7 +7,7 @@ tags:
 - musings
 - plagiarism
 wp:post_type: post
-redirects:
+redirect_from:
 - node/150
 - plagiarism
 - 2007/09/plagiarism/

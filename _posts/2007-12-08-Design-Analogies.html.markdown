@@ -6,7 +6,7 @@ tags:
 - process
 - strategic planning
 wp:post_type: post
-redirects:
+redirect_from:
 - node/188
 - design-analogies
 - 2007/12/design-analogies/

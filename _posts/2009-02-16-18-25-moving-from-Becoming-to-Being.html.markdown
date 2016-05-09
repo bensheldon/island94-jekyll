@@ -9,7 +9,7 @@ tags:
 - life
 - millenials
 wp:post_type: post
-redirects:
+redirect_from:
 - 2009/02/18-25-moving-from-becoming-to-being/
 - "?p=487"
 ---

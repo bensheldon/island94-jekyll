@@ -8,7 +8,7 @@ tags:
 - theming
 - wordpress
 wp:post_type: post
-redirects:
+redirect_from:
 - 2011/01/adding-class-to-wordpress-linked-images/
 - "?p=2425"
 ---

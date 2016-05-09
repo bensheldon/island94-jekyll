@@ -6,7 +6,7 @@ tags:
 - quotes
 - self
 wp:post_type: post
-redirects:
+redirect_from:
 - 2010/04/quotes-on-self/
 - "?p=1872"
 ---

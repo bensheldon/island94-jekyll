@@ -8,7 +8,7 @@ tags:
 - philosophy
 - religion
 wp:post_type: post
-redirects:
+redirect_from:
 - 2009/08/religion-and-individualism/
 - "?p=671"
 ---

@@ -7,7 +7,7 @@ tags:
 - photos
 - somerville
 wp:post_type: post
-redirects:
+redirect_from:
 - node/101
 - articles/meta-photography-powder-house-square
 - 2006/10/meta-photography-in-powder-house-square/

@@ -9,7 +9,7 @@ tags:
 - privileged-debate
 - technology
 wp:post_type: post
-redirects:
+redirect_from:
 - 2010/10/the-analog-divide/
 - "?p=2223"
 ---

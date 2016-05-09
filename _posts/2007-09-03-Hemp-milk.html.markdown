@@ -7,7 +7,7 @@ tags:
 - milk
 - vegetarian
 wp:post_type: post
-redirects:
+redirect_from:
 - node/146
 - hemp-milk
 - 2007/09/hemp-milk/

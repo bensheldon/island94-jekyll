@@ -6,7 +6,7 @@ tags:
 - experiment
 - recipe
 wp:post_type: post
-redirects:
+redirect_from:
 - node/185
 - apple-and-green-papaya
 - 2007/12/apple-and-green-papaya/

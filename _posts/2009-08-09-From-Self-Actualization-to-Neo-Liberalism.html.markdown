@@ -10,7 +10,7 @@ tags:
 - liberalism
 - politics
 wp:post_type: post
-redirects:
+redirect_from:
 - 2009/08/from-self-actualization-to-neo-liberalism/
 - "?p=665"
 ---

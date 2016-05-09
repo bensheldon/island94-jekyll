@@ -5,7 +5,7 @@ tags:
 - danger
 - food
 wp:post_type: post
-redirects:
+redirect_from:
 - node/230
 - observation/tragic-food
 - 2008/07/tragic-food/

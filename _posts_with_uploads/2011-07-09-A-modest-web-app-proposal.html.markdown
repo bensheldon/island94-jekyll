@@ -7,7 +7,7 @@ tags:
 - satire
 - the-new-web-2-0
 wp:post_type: post
-redirects:
+redirect_from:
 - 2011/07/a-modest-web-app-proposal/
 - "?p=2731"
 ---

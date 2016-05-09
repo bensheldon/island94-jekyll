@@ -8,7 +8,7 @@ tags:
 - online
 - social media
 wp:post_type: post
-redirects:
+redirect_from:
 - 2010/10/dont-confuse-online-with-twitter/
 - "?p=2241"
 ---

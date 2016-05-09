@@ -11,7 +11,7 @@ tags:
 - website
 - wiki
 wp:post_type: post
-redirects:
+redirect_from:
 - 2010/06/goodbye-producers-forum/
 - "?p=1999"
 ---

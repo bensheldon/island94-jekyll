@@ -10,7 +10,7 @@ tags:
 wp:post_type: post
 failed_files:
 - http://island94.org/files/planesgroup.png
-redirects:
+redirect_from:
 - node/93
 - articles/planes-galore
 - 2006/08/planes-galore/

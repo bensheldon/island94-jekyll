@@ -8,7 +8,7 @@ tags:
 - poverty
 - religion
 wp:post_type: post
-redirects:
+redirect_from:
 - 2008/09/exploring-poverty:-participation-practice-imagination-and-exploration/
 - node/254
 - articles/exploring-poverty-participation-practice-imagination-and-exploration

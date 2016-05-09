@@ -8,7 +8,7 @@ tags:
 - youth
 - youth channel
 wp:post_type: post
-redirects:
+redirect_from:
 - node/88
 - articles/youth-channel-blockparty
 - 2006/08/youth-channel-blockparty/

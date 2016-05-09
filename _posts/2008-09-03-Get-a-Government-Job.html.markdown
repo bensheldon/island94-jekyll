@@ -6,7 +6,7 @@ tags:
 - research
 - search
 wp:post_type: post
-redirects:
+redirect_from:
 - observation/get-government-job
 - node/250
 - 2008/09/get-a-government-job/

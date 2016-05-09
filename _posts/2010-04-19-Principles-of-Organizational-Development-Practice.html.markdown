@@ -8,7 +8,7 @@ tags:
 - principles
 - values
 wp:post_type: post
-redirects:
+redirect_from:
 - 2010/04/principles-of-organizational-development-practice/
 - "?p=1891"
 ---

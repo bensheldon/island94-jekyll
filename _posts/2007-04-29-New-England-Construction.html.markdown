@@ -6,7 +6,7 @@ tags:
 - detective story
 - fiction
 wp:post_type: post
-redirects:
+redirect_from:
 - articles/new-england-construction
 - node/130
 - 2007/04/new-england-construction/

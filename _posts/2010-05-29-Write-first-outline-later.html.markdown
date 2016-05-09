@@ -7,7 +7,7 @@ tags:
 - editing
 - writing
 wp:post_type: post
-redirects:
+redirect_from:
 - 2010/05/write-first-outline-later/
 - "?p=1966"
 ---

@@ -9,7 +9,7 @@ tags:
 - portfolio
 - webdesign
 wp:post_type: post
-redirects:
+redirect_from:
 - 2010/09/find-fresh-perspectives-at-nonprofitmillennials-org/
 - "?p=2167"
 ---

@@ -7,7 +7,7 @@ tags:
 - shut-up
 - silence
 wp:post_type: post
-redirects:
+redirect_from:
 - 2009/02/notes-on-silence/
 - "?p=416"
 ---

@@ -10,7 +10,7 @@ tags:
 - science
 - technology
 wp:post_type: post
-redirects:
+redirect_from:
 - 2010/01/he-thinks-im-working-on-parts-im-working-on-concepts/
 - "?p=1726"
 ---

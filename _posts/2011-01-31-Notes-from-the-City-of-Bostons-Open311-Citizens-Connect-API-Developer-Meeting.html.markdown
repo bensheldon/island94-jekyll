@@ -8,7 +8,7 @@ tags:
 - government
 - meeting
 wp:post_type: post
-redirects:
+redirect_from:
 - 2011/01/notes-from-the-city-of-bostons-open311-developer-meeting/
 - "?p=2463"
 ---

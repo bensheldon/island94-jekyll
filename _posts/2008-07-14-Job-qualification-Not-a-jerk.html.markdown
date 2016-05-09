@@ -6,7 +6,7 @@ tags:
 - hiring
 - jobs
 wp:post_type: post
-redirects:
+redirect_from:
 - 2008/07/job-qualification:-not-a-jerk/
 - node/234
 - observation/job-qualification-not-jerk

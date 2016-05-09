@@ -3,7 +3,7 @@ title: Cold-Start car advice
 date: '2009-03-11'
 tags: []
 wp:post_type: post
-redirects:
+redirect_from:
 - 2009/03/cold-start-car-advice/
 - "?p=551"
 ---

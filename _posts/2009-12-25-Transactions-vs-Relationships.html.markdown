@@ -3,7 +3,7 @@ title: Transactions vs. Relationships
 date: '2009-12-25'
 tags: []
 wp:post_type: post
-redirects:
+redirect_from:
 - 2009/12/transactions-vs-relationships/
 - "?p=1623"
 ---

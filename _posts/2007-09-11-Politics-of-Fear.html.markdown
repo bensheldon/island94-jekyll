@@ -7,7 +7,7 @@ tags:
 - politics
 - quote
 wp:post_type: post
-redirects:
+redirect_from:
 - politics-fear
 - node/153
 - 2007/09/politics-of-fear/

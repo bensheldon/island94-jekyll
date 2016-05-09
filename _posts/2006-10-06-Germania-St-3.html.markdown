@@ -7,7 +7,7 @@ tags:
 - Germania Street
 - illustration
 wp:post_type: post
-redirects:
+redirect_from:
 - 2006/10/germania-st-
 - articles/germania-st-3
 - node/102

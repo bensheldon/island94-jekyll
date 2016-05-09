@@ -8,7 +8,7 @@ tags:
 - social networking
 - webdesign
 wp:post_type: post
-redirects:
+redirect_from:
 - node/126
 - articles/meetamericorps-still-success
 - 2007/04/meetamericorps-still-a-success/

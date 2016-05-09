@@ -6,7 +6,7 @@ tags:
 - art
 - drawing
 wp:post_type: post
-redirects:
+redirect_from:
 - node/252
 - articles/pod-whales
 - articles/whales

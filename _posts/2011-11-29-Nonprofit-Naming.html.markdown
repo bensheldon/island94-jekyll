@@ -4,7 +4,7 @@ date: '2011-11-29'
 tags: []
 published: false
 wp:post_type: post
-redirects:
+redirect_from:
 - "?p=547"
 ---
 

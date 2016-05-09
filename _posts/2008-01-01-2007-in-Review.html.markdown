@@ -5,7 +5,7 @@ tags:
 - navel gazing
 - review
 wp:post_type: post
-redirects:
+redirect_from:
 - 2008/01/2007-in-review-/
 - articles/2007-review
 - node/198

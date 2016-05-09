@@ -7,7 +7,7 @@ tags:
 - meta
 - recollection
 wp:post_type: post
-redirects:
+redirect_from:
 - 2012/04/a-commonplace-book/
 - "?p=3009"
 ---

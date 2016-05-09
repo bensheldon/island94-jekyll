@@ -8,7 +8,7 @@ tags:
 - religion
 - sin
 wp:post_type: post
-redirects:
+redirect_from:
 - 2009/10/charity-mercy-and-sin/
 - "?p=927"
 ---

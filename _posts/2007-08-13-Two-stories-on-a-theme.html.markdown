@@ -7,7 +7,7 @@ tags:
 - learning story
 - pedagogy
 wp:post_type: post
-redirects:
+redirect_from:
 - articles/two-stories-theme
 - node/138
 - 2007/08/two-stories-on-a-theme/

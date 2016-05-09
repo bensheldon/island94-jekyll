@@ -4,7 +4,7 @@ date: '2009-09-14'
 tags: []
 published: false
 wp:post_type: post
-redirects:
+redirect_from:
 - "?p=715"
 ---
 

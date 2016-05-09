@@ -7,7 +7,7 @@ tags:
 - law
 - politics
 wp:post_type: post
-redirects:
+redirect_from:
 - 2009/02/existential-charters/
 - "?p=482"
 ---

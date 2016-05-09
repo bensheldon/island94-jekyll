@@ -6,7 +6,7 @@ tags:
 - jargon
 - plants
 wp:post_type: post
-redirects:
+redirect_from:
 - chill-units
 - node/167
 - 2007/11/chill-units/

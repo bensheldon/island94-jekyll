@@ -3,7 +3,7 @@ title: San Diego is Burning
 date: '2007-10-22'
 tags: []
 wp:post_type: post
-redirects:
+redirect_from:
 - node/163
 - san-diego-burning
 - 2007/10/san-diego-is-burning/

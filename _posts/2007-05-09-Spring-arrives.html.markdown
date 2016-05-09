@@ -8,7 +8,7 @@ tags:
 - spring
 - Washington DC
 wp:post_type: post
-redirects:
+redirect_from:
 - node/131
 - articles/spring-arrives
 - 2007/05/spring-arrives/

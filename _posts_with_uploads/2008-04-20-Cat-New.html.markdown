@@ -6,7 +6,7 @@ tags:
 - cat
 - pet
 wp:post_type: post
-redirects:
+redirect_from:
 - node/215
 - articles/cat-new
 - 2008/04/cat-new/

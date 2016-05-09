@@ -13,7 +13,7 @@ tags:
 - timelapse
 - water
 wp:post_type: post
-redirects:
+redirect_from:
 - articles/ways-and-water
 - node/122
 - 2007/03/ways-and-water/

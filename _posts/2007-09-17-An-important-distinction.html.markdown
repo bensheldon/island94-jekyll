@@ -6,7 +6,7 @@ tags:
 - affirmation
 - mail
 wp:post_type: post
-redirects:
+redirect_from:
 - node/154
 - important-distinction
 - 2007/09/an-important-distinction/

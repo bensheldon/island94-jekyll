@@ -9,7 +9,7 @@ tags:
 - surf-comparisons
 - writing
 wp:post_type: post
-redirects:
+redirect_from:
 - 2010/09/making-language-of-meaning/
 - "?p=2190"
 ---

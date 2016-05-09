@@ -6,7 +6,7 @@ tags:
 - video
 - wedding
 wp:post_type: post
-redirects:
+redirect_from:
 - node/57
 - articles/two-minutes-paul-and-liz
 - 2006/07/two-minutes-for-paul-and-liz/

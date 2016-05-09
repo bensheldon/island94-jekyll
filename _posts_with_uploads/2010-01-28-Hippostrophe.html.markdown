@@ -7,7 +7,7 @@ tags:
 - hippostrophe
 - punctuation
 wp:post_type: post
-redirects:
+redirect_from:
 - 2010/01/hippostrophe/
 - "?p=1738"
 ---

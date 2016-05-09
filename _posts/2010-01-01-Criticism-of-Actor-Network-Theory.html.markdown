@@ -3,7 +3,7 @@ title: Criticism of Actor-Network Theory
 date: '2010-01-01'
 tags: []
 wp:post_type: post
-redirects:
+redirect_from:
 - 2010/01/criticism-actor-network-theory/
 - "?p=1659"
 ---

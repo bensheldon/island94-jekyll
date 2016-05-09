@@ -3,7 +3,7 @@ title: 'American Commissar: my family archive project'
 date: '2009-01-25'
 tags: []
 wp:post_type: post
-redirects:
+redirect_from:
 - 2009/01/american-commissar-my-family-archive-project/
 - "?p=354"
 ---

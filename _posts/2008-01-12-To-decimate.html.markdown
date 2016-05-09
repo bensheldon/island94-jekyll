@@ -5,7 +5,7 @@ tags:
 - etymology
 - language
 wp:post_type: post
-redirects:
+redirect_from:
 - 2008/01/to-"decimate"/
 - node/199
 - decimate

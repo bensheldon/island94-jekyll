@@ -6,7 +6,7 @@ tags:
 - sailing
 - San Francisco
 wp:post_type: post
-redirects:
+redirect_from:
 - node/49
 - articles/san-francisco-bay
 - 2006/06/on-san-francisco-bay/

@@ -7,7 +7,7 @@ tags:
 - sailboats
 - sailing
 wp:post_type: post
-redirects:
+redirect_from:
 - node/70
 - articles/sails-charles
 - 2006/07/sails-on-the-charles/

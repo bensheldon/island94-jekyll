@@ -6,7 +6,7 @@ tags:
 - cleave
 - language
 wp:post_type: post
-redirects:
+redirect_from:
 - 2008/08/cleaving-running-reds-from-jaybiking-/
 - node/240
 - observation/cleaving-running-reds-jaybiking

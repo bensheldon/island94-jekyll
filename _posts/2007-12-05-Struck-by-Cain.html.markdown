@@ -6,7 +6,7 @@ tags:
 - literature
 - philosophy
 wp:post_type: post
-redirects:
+redirect_from:
 - node/183
 - struck-cain
 - 2007/12/struck-by-cain/

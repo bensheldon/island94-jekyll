@@ -8,7 +8,7 @@ tags:
 - love
 - marriage
 wp:post_type: post
-redirects:
+redirect_from:
 - node/113
 - articles/love
 - 2006/12/love/

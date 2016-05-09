@@ -10,7 +10,7 @@ tags:
 - smoothie
 - wet hair
 wp:post_type: post
-redirects:
+redirect_from:
 - node/69
 - articles/breakfast-smoothie
 - 2006/07/breakfast-smoothie/

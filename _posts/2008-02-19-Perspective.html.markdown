@@ -6,7 +6,7 @@ tags:
 - philosophy
 - politics
 wp:post_type: post
-redirects:
+redirect_from:
 - node/202
 - perspective
 - 2008/02/perspective/

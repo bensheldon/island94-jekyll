@@ -10,7 +10,7 @@ tags:
 - produce
 - vegetables
 wp:post_type: post
-redirects:
+redirect_from:
 - 2009/02/know-your-organic-plu-by-number/
 - "?p=410"
 ---

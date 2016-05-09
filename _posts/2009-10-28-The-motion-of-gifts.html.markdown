@@ -9,7 +9,7 @@ tags:
 - relationships
 - trade
 wp:post_type: post
-redirects:
+redirect_from:
 - 2009/10/the-motion-of-gifts/
 - "?p=921"
 ---

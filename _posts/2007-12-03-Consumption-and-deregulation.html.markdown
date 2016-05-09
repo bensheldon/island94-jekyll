@@ -6,7 +6,7 @@ tags:
 - economics
 - politics
 wp:post_type: post
-redirects:
+redirect_from:
 - node/180
 - consumption-and-deregulation
 - 2007/12/consumption-and-deregulation/

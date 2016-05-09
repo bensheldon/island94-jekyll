@@ -9,7 +9,7 @@ tags:
 - memory
 - telecommunications
 wp:post_type: post
-redirects:
+redirect_from:
 - 2009/10/kick-in-the-baud/
 - "?p=882"
 ---

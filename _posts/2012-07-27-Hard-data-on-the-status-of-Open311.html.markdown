@@ -7,7 +7,7 @@ tags:
 - navigation
 - portfolio
 wp:post_type: post
-redirects:
+redirect_from:
 - 2012/07/hard-data-on-the-status-of-open311/
 - "?p=3012"
 ---

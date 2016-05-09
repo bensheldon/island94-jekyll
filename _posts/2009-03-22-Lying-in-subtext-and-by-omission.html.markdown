@@ -7,7 +7,7 @@ tags:
 - politics
 - writing
 wp:post_type: post
-redirects:
+redirect_from:
 - 2009/03/lying-in-subtext-and-by-omission/
 - "?p=573"
 ---

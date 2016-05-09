@@ -6,7 +6,7 @@ tags:
 - drawing
 - idea
 wp:post_type: post
-redirects:
+redirect_from:
 - 2010/10/stop-being-a-weenie-and-just-go-make-something/
 - "?p=2268"
 ---

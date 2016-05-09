@@ -3,7 +3,7 @@ title: A rhetoric for writing in the post-digital era
 date: '2010-03-22'
 tags: []
 wp:post_type: post
-redirects:
+redirect_from:
 - 2010/03/a-rhetoric-for-writing-in-the-post-digital-era/
 - "?p=1846"
 ---

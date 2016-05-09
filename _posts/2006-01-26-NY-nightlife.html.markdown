@@ -7,7 +7,7 @@ tags:
 - night
 - photos
 wp:post_type: post
-redirects:
+redirect_from:
 - node/28
 - articles/ny-nightlife
 - 2006/01/ny-nightlife/

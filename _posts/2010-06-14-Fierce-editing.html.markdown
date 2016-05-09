@@ -6,7 +6,7 @@ tags:
 - editing
 - writing
 wp:post_type: post
-redirects:
+redirect_from:
 - 2010/06/fierce-editing/
 - "?p=2092"
 ---

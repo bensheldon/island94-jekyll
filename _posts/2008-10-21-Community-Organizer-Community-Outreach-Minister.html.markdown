@@ -6,7 +6,7 @@ tags:
 - nonprofit
 - service
 wp:post_type: post
-redirects:
+redirect_from:
 - 2008/10/community-organizer-=-community-outreach-minister/
 - observation/community-organizer-community-outreach-minister
 - node/265

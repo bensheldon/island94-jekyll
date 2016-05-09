@@ -3,7 +3,7 @@ title: "[REMOVED] Boston Subway in Vector Format (SVG)"
 date: '2009-09-09'
 tags: []
 wp:post_type: post
-redirects:
+redirect_from:
 - 2009/09/boston-subway-in-vector-format-svg/
 - "?p=697"
 ---

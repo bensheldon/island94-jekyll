@@ -8,7 +8,7 @@ tags:
 - staccato
 - writing
 wp:post_type: post
-redirects:
+redirect_from:
 - 2010/10/professional-writing-sample/
 - "?p=2252"
 ---

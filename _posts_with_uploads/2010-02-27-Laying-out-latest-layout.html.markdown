@@ -10,7 +10,7 @@ tags:
 - project
 - publishing
 wp:post_type: post
-redirects:
+redirect_from:
 - 2010/02/laying-out-latest-layout/
 - "?p=1795"
 ---

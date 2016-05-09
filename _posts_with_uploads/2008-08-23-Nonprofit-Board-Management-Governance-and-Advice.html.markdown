@@ -7,7 +7,7 @@ tags:
 - nonprofit
 - notes
 wp:post_type: post
-redirects:
+redirect_from:
 - articles/nonprofit-board-management-governance-and-advice
 - node/243
 - 2008/08/nonprofit-board-management-governance-and-advice/

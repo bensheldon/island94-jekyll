@@ -4,7 +4,7 @@ date: '2008-03-04'
 tags:
 - food
 wp:post_type: post
-redirects:
+redirect_from:
 - node/207
 - breakfast-cereals-oh-my
 - 2008/03/breakfast-cereals-oh-my/

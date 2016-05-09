@@ -6,7 +6,7 @@ tags:
 - imagination
 - politics
 wp:post_type: post
-redirects:
+redirect_from:
 - 2011/05/lovingly-reimagined-progressively-remade/
 - "?p=2639"
 ---

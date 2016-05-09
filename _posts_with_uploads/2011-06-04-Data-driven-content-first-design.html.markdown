@@ -8,7 +8,7 @@ tags:
 - development
 - layout
 wp:post_type: post
-redirects:
+redirect_from:
 - 2011/06/data-driven-content-first-design/
 - "?p=2682"
 ---

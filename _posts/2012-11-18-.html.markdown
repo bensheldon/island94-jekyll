@@ -4,7 +4,7 @@ date: '2012-11-18'
 tags:
 - navigation-2
 wp:post_type: nav_menu_item
-redirects:
+redirect_from:
 - 2012/11/3028/
 - "?p=3028"
 ---

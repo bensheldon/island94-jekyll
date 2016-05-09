@@ -6,7 +6,7 @@ tags:
 - project
 - sketch
 wp:post_type: post
-redirects:
+redirect_from:
 - 2010/06/straightforward-project-satisfaction-and-fulfillment/
 - "?p=2071"
 ---

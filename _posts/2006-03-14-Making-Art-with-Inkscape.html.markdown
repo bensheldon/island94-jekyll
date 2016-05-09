@@ -11,7 +11,7 @@ tags:
 wp:post_type: post
 failed_files:
 - http://island94.org/files/digitalbicycle-guy-thumb.png
-redirects:
+redirect_from:
 - node/63
 - articles/making-art-inkscape
 - 2006/03/making-art-with-inkscape/

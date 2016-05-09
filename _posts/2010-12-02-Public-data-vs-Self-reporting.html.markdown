@@ -9,7 +9,7 @@ tags:
 - participation-gap
 - public-data
 wp:post_type: post
-redirects:
+redirect_from:
 - 2010/12/public-data-vs-self-reporting/
 - "?p=2322"
 ---

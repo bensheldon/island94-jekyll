@@ -5,7 +5,7 @@ tags:
 - evaluation
 - ranking
 wp:post_type: post
-redirects:
+redirect_from:
 - 2008/11/when-"good"-is-better-than-"best"/
 - node/267
 - observation/when-good-better-best

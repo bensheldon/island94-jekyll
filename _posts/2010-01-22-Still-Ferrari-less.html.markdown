@@ -7,7 +7,7 @@ tags:
 - philanthropy
 - salary
 wp:post_type: post
-redirects:
+redirect_from:
 - 2010/01/still-ferrari-less/
 - "?p=1724"
 ---

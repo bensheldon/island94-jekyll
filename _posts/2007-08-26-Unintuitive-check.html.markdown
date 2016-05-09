@@ -4,7 +4,7 @@ date: '2007-08-26'
 tags:
 - Drupal
 wp:post_type: post
-redirects:
+redirect_from:
 - node/140
 - unintuitive-check
 - 2007/08/unintuitive:-check/

@@ -7,7 +7,7 @@ tags:
 - me
 - things
 wp:post_type: post
-redirects:
+redirect_from:
 - node/266
 - articles/birthday-list
 - articles/birthday-wishlist

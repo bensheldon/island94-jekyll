@@ -6,7 +6,7 @@ tags:
 - dictionary
 - language
 wp:post_type: post
-redirects:
+redirect_from:
 - 2007/12/vis-a-vis-viz-vis-a-vis-viz-/
 - viz-vis-vis-viz
 - node/182

@@ -9,7 +9,7 @@ tags:
 - peace on earth
 - video
 wp:post_type: post
-redirects:
+redirect_from:
 - node/114
 - articles/happy-holidays-2006
 - 2006/12/happy-holidays-2006/

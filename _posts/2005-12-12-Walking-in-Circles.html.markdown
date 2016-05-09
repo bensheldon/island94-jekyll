@@ -7,7 +7,7 @@ tags:
 - snow
 - winter
 wp:post_type: post
-redirects:
+redirect_from:
 - node/25
 - articles/walking-circles
 - 2005/12/walking-in-circles/

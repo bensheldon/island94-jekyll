@@ -9,7 +9,7 @@ tags:
 - portfolio
 - visualizations
 wp:post_type: post
-redirects:
+redirect_from:
 - 2009/09/technology-2-0-mapping-presentation/
 - "?p=716"
 ---

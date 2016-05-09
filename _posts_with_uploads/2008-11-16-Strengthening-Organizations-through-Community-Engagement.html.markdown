@@ -9,7 +9,7 @@ tags:
 - nonprofit
 - outreach
 wp:post_type: post
-redirects:
+redirect_from:
 - node/271
 - articles/strengthening-organizations-through-community-engagement
 - 2008/11/strengthening-organizations-through-community-engagement/

@@ -6,7 +6,7 @@ tags:
 - food
 - sick
 wp:post_type: post
-redirects:
+redirect_from:
 - node/200
 - observation/ors-amounts-nalgene-bottle
 - ors-amounts-nalgene-bottle

@@ -5,7 +5,7 @@ tags:
 - dessert
 - recipe
 wp:post_type: post
-redirects:
+redirect_from:
 - node/220
 - observation/jp-cafe-brownies
 - 2008/05/jp-cafe-brownies/

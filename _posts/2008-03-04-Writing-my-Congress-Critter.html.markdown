@@ -4,7 +4,7 @@ date: '2008-03-04'
 tags:
 - politics
 wp:post_type: post
-redirects:
+redirect_from:
 - node/206
 - writing-congresscritter
 - writing-my-congress-critter

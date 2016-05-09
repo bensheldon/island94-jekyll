@@ -6,7 +6,7 @@ tags:
 - geeking
 - modules
 wp:post_type: post
-redirects:
+redirect_from:
 - drupal-wysiwyg-editors
 - node/152
 - 2007/09/drupal-wysiwyg-editors/

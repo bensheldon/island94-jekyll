@@ -6,7 +6,7 @@ tags:
 - evaluation
 - happiness
 wp:post_type: post
-redirects:
+redirect_from:
 - 2011/05/capturing-well-being-not-simply-access-and-speed/
 - "?p=2433"
 ---

@@ -8,7 +8,7 @@ tags:
 - nonprofit
 - starvation
 wp:post_type: post
-redirects:
+redirect_from:
 - 2009/10/starvation-begets-starvation/
 - "?p=931"
 ---

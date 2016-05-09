@@ -7,7 +7,7 @@ tags:
 - walking
 - weird
 wp:post_type: post
-redirects:
+redirect_from:
 - articles/no-chirps-lowell
 - node/77
 - 2006/07/no-chirps-for-lowell/

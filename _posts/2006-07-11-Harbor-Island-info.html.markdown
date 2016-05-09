@@ -13,7 +13,7 @@ tags:
 - textbooks
 - VISTA
 wp:post_type: post
-redirects:
+redirect_from:
 - node/66
 - articles/harbor-island-info
 - 2006/07/harbor-island-info/

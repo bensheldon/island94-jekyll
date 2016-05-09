@@ -7,7 +7,7 @@ tags:
 - social networking
 - technology
 wp:post_type: post
-redirects:
+redirect_from:
 - 2008/07/facebook-to-phone-trees:-nonprofit-technology-for-everyone/
 - node/229
 - articles/facebook-phone-trees-nonprofit-technology-everyone

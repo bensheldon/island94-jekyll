@@ -5,7 +5,7 @@ tags:
 - development
 - structure
 wp:post_type: post
-redirects:
+redirect_from:
 - 2011/06/minimal-mass/
 - "?p=2691"
 ---

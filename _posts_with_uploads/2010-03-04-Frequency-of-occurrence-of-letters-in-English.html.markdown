@@ -7,7 +7,7 @@ tags:
 - numbers
 - scrabble
 wp:post_type: post
-redirects:
+redirect_from:
 - 2010/03/frequency-of-occurrence-of-letters-in-english/
 - "?p=1826"
 ---

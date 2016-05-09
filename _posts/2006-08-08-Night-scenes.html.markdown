@@ -8,7 +8,7 @@ tags:
 - photos
 - Sullivan Square
 wp:post_type: post
-redirects:
+redirect_from:
 - node/83
 - articles/night-scenes
 - 2006/08/night-scenes/

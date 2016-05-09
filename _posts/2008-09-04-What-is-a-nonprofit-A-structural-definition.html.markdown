@@ -5,7 +5,7 @@ tags:
 - law
 - nonprofit
 wp:post_type: post
-redirects:
+redirect_from:
 - 2008/09/what-is-a-nonprofit
 - articles/what-nonprofit-structural-definition
 - node/251

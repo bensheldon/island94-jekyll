@@ -7,7 +7,7 @@ tags:
 - Coolidge Corner
 - Jessica
 wp:post_type: post
-redirects:
+redirect_from:
 - node/8
 - articles/first-light-coolidge-corner
 - 2005/11/first-light-in-coolidge-corner/

@@ -6,7 +6,7 @@ tags:
 - punctuation
 - writing
 wp:post_type: post
-redirects:
+redirect_from:
 - 2009/09/my-use-of-the-comma/
 - "?p=735"
 ---
