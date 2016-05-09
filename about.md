@@ -12,7 +12,7 @@ redirects:
 
 You can reach Ben Sheldon, the author of this blog, by emailing [ben@island94.org](mailto:ben@island94.org).
 
-### Historical
+## Historical
 
 At one time you would find Island 94, known as Crow's Nest Island or Stack Island, on the Mississippi River, whose islands were numbered consecutively south from where the mouth of the Ohio fed into her muddy waters. This particular island was known as a haven for rogues, thieves and river pirates who would prey both on the commerce and towns of the river.
 
@@ -22,7 +22,7 @@ This series of earthquakes would continue for more than 6 months, causing the li
 
 > I shall go to Detroit. When I arrive there, I will stamp my foot on the ground and shake down every house in Tuckhabatchee.
 
-### Apocryphal
+## Apocryphal
 
 I have always found the early history of North America to be fascinating. Not just the struggling nation of the United States and her nieghbors, but the individuals, heard of or not, who lived during the time. These were both the people seeking a better life, long before the encouragements of Horace Greely, and those hoping to maintain and regain what they had or had already lost.
 
