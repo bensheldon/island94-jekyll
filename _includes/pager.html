@@ -1,0 +1,17 @@
+<nav>
+  <ul class="pager">
+    {% if paginator.previous_page %}
+      <li class="pager-prev"><a href="{{ paginator.previous_page_path }}"><span aria-hidden="true">&larr; </span> Older</a></li>
+    {% else %}
+      <li class="pager-prev disabled"><span><span aria-hidden="true">&larr; </span>Older</span></li>
+    {% endif %}
+
+    <span class="pager-current">Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
+
+    {% if paginator.next_page %}
+      <li class="pager-next"><a href="{{ paginator.next_page_path }}">Newer<span aria-hidden="true"> &rarr;</span></a></li>
+    {% else %}
+      <li class="pager-next disabled"><span>Newer <span aria-hidden="true"> &rarr;</span></span></li>
+    {% endif %}
+  </ul>
+</nav>
