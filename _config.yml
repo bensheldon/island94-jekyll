@@ -15,7 +15,8 @@ url: "http://island94.org" # the base hostname & protocol for your site
 twitter_username: bensheldon
 github_username:  bensheldon
 
-paginate: 5
+paginate: 10
+paginate_path: "/page-:num/"
 
 exclude:
   - scripts
