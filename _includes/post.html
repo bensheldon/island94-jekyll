@@ -7,6 +7,7 @@
     <p class="post-meta">
       {% if post.date %}<time datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">{{ post.date | date: "%B %-d, %Y" }}</time>{% endif %}
       {% if post.author %} • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ post.author }}</span></span>{% endif %}
+      {% if post.tags.size > 0 %} • Tagged {{ post.tags | array_to_sentence_string }}{% endif %}
     </p>
   </header>
 
