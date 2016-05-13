@@ -20,6 +20,7 @@ paginate_path: "/page-:num/"
 
 exclude:
   - scripts
+  - spec
 
 gems:
   - jekyll-coffeescript
