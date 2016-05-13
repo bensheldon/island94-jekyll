@@ -20,6 +20,8 @@ paginate_path: "/page-:num/"
 
 exclude:
   - scripts
+  - spec
+  - vendor # for building on CircleCI or anywhere that installs gems into vendor
 
 gems:
   - jekyll-coffeescript
