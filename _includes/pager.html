@@ -6,7 +6,7 @@
       <li class="pager-prev disabled"><span><span aria-hidden="true">&larr; </span>Newer</span></li>
     {% endif %}
 
-    <span class="pager-current">Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
+    <small class="pager-current text-muted">Page {{ paginator.page }} of {{ paginator.total_pages }}</small>
 
     {% if paginator.next_page %}
       <li class="pager-next"><a href="{{ paginator.next_page_path }}">Older<span aria-hidden="true"> &rarr;</span></a></li>
