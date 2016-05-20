@@ -4,7 +4,7 @@
     <h1 class="post-title" itemprop="name headline">
       <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
     </h1>
-    <p class="post-meta">
+    <p class="post-meta text-muted">
       {% if post.date %}<time datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">{{ post.date | date: "%B %-d, %Y" }}</time>{% endif %}
       {% if post.author %} • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ post.author }}</span></span>{% endif %}
       {% if post.tags.size > 0 %} • Tagged {{ post.tags | array_to_sentence_string }}{% endif %}
