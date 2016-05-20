@@ -23,25 +23,13 @@ Meet AmeriCorps started as ServiceSpeak in 2005, which was my introduction to Ci
 Technology aside, Meet AmeriCorps scratched a lot of philosophical and ideological itches---from organizing to communication and technology---in a time when no one was sure if Facebook would stick (not to mention the advertising and personal data collection, either). Last year, when it was finally clear that Meet AmeriCorps should be sundowned, I penned this open letter about the project and the AmeriCorps ecosystem in general:
 
 > Since we launched this website, first as ServiceSpeak then Meet AmeriCorps, our goal has always been to connect AmeriCorps members and alumni. Networking members, within communities and across the country, enables them to learn from one another and bonds them in the shared experience of service. We believe this creates greater well-being in members, greater impact upon the communities they serve, and greater strength to national service as a whole.
-
 >
-
 > 5 years ago the technology needed to create a successful online community required both commitment and technical skills. Frustrated with the lack of investment by AmeriCorps and the Corporation for National and Community Service (CNCS), we spent considerable time surveying, designing, building, launching, and incorporating feedback into Meet AmeriCorps. We were informed by our own experience as AmeriCorps members and motivated by our desire to better recognize the innate experience and ability of its corps members.
-
 >
-
 > Today, anyone can create an online community without significant resources or technical skills. Online social media and social networking tools now require only passion and commitment to create thriving communities of practice. Many new communities have already been created by other AmeriCorps members who identified the same needs and opportunities we did so many years ago.
-
 >
-
 > Unfortunately, AmeriCorps and CNCS still place little emphasis on connecting and networking their members. Official websites are created without community input, poorly designed, rarely communicated to members, unmoderated by knowledgeable staff, and frequently replaced with equivalently disengaged websites. Communication tools are designed for top-down announcements rather than bottom-up dialogue, and even then are used rarely to meaningfully inform members or recognize their abilities and impact.
-
 >
-
 > We are glad that technology is now accessible enough for AmeriCorps members to connect themselves. We are disappointed that that AmeriCorps has not done more to lead, nurture, facilitate and inform these networks. With the energy of the Obama administration and its complementary focuses on both national service and empowering uses of technology, we hope that AmeriCorps and CNCS will better recognize the individual benefits and national impact a purposely and well-connected corps can have.
-
 >
-
-> In community,
-
-> The Meet AmeriCorps Team
+> In community,<br>The Meet AmeriCorps Team
