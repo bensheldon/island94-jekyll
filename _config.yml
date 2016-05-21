@@ -14,6 +14,7 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://island94.org" # the base hostname & protocol for your site
 twitter_username: bensheldon
 github_username:  bensheldon
+repository_url: https://github.com/bensheldon/bensheldon.github.io
 
 paginate: 10
 paginate_path: "/page-:num/"
