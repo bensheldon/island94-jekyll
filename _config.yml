@@ -16,6 +16,7 @@ twitter_username: bensheldon
 github_username:  bensheldon
 repository_url: https://github.com/bensheldon/bensheldon.github.io
 
+permalink: "/:year/:month/:title"
 paginate: 10
 paginate_path: "/page-:num/"
 
