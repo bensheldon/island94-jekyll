@@ -1,10 +1,11 @@
 ---
 title: Idleness and disability
-date: 2016-06-26
+date: 2016-06-26 22:12 UTC
 tags:
 - disability
 - solidarity
 ---
+
 From [The politics of Helen Keller: Socialism and disability](http://isreview.org/issue/96/politics-helen-keller) by Keith Rosenthal:
 
 > For instance, in a groundbreaking article, “The Unemployed,” written in 1911 for a magazine for the blind Keller argued,
