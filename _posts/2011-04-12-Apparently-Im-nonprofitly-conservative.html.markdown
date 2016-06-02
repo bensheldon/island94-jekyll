@@ -19,9 +19,7 @@ It's kind've funny how in some contexts I'm a shut-up-and-go radical and in othe
 ... I left this [comment](http://nonprofiteer.net/2011/01/19/the-rich-get-richer-once-more/#comment-5207)
 
 > I’m sympathetic to the overall sentiment, but I’m always worried when an organization’s activities are judged against an arbitrary measure of “nonprofitness”. The strength of the sector—hard fought over 150 years of legislation and case law—is the breadth of allowable activity. The danger of reform is codifying subjective and contemporary distaste as unlawful behavior, thus limiting the ability of truly transformative organizations to form or function. How might Howard University, for example, find egalitarian social benefit in favoring legacy students?
-
 >
-
 > When an organization’s status as a “nonprofit” is the basis for allegations of hypocrisy I find that the outcome usually furthers the goals of those who wish to do away with the nonprofit sector by doing away with taxes entirely (and by extension their social and redistributive benefits). Which is not to dismiss all nonprofit reform (I am quite in support of transparency and reporting), but the real issue here is not “How can we get more poor kids into Harvard?” but “Harvard should not be your only or best option.”
 
 And I agree with the response I received back from the Nonprofiteer---which goes to the strength of dialogue as tool for [navigating between two extremes](http://www.island94.org/2008/12/the-nonprofit-between-scylla-and-charydbis/):
