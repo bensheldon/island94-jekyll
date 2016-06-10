@@ -25,3 +25,7 @@ redirect_from:
 > And because it's harder to demo, people are less likely to write it, because, hey, it's not going to be as easy to post about it on Slashdot or Hacker News :-). Well, also because it's a lot more work: interactive tools are simply more complex, in absolute terms, than single-algorithm full-service dashboards that load a known data query and treat it the same way every time.
 >
 > So what I'm saying is: Any tool that tries to do this, but where you just have to enter a person's name or a project's name and click "Go", is going to be useless. If you didn't shape the query in partnership with the tool, then whatever question the tool is answering is probably not the question you were interested in.
+
+Added: June 10, 2016 - From [The Daily WTF's "The Oracle Effect"](http://thedailywtf.com/articles/the-oracle-effect):
+
+> Work against the Oracle Effect by building software systems that do not provide conclusions, but arguments. Resist throwing some KPIs on a dashboard without working with your users to understand how this feeds into their decision-making. Keep in mind how your software is going to be used, and make sure its value, its reasoning is transparent, even if your code is proprietary. And make sure the software products you use can also answer the important question about every step of their process: Why?
