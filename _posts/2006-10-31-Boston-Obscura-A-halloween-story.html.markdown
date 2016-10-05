@@ -9,7 +9,6 @@ tags:
 - spooky
 wp:post_type: post
 redirect_from:
-- 2006/10/boston-obscura:-a-halloween-story/
 - node/107
 - articles/boston-obscura-halloween-story
 - 2006/10/boston-obscura-a-halloween-story/

@@ -11,7 +11,6 @@ tags:
 - travel
 wp:post_type: post
 redirect_from:
-- 2006/10/travel:-amherst/
 - articles/travel-amherst
 - node/103
 - 2006/10/travel-amherst/

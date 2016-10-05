@@ -7,7 +7,6 @@ wp:post_type: post
 redirect_from:
 - node/140
 - unintuitive-check
-- 2007/08/unintuitive:-check/
 - "?p=140"
 ---
 
