@@ -26,4 +26,4 @@ At work we're pushing the idea of Honest Practices over Best Practices. Honest P
 
 > As the term has become more popular, some organizations have begun using the term "best practices" to refer to what are in fact merely 'rules', causing a linguistic drift in which a new term such as "good ideas" is needed to refer to what would previously have been called "best practices."
 
-I really want to toss {{Citation Needed}} after the suggestion that "good ideas" is a suitable replacement for what was formerly known as Best Practices. But that would be _too_ Honest.
+I really want to toss [[Citation Needed]] after the suggestion that "good ideas" is a suitable replacement for what was formerly known as Best Practices. But that would be _too_ Honest.

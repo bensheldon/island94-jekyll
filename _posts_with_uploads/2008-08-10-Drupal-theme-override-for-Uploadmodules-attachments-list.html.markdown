@@ -12,7 +12,6 @@ tags:
 - webdesign
 wp:post_type: post
 redirect_from:
-- 2008/08/drupal:-theme-override-for-upload-module\'s-attachments-list-/
 - node/238
 - articles/overriding
 - articles/override-upload-modules-attachments-list

@@ -11,7 +11,6 @@ wp:post_type: post
 failed_files:
 - http://island94.org/files/Bens-Interview-on-WUML_%2020060922.mp3
 redirect_from:
-- 2006/09/radio-ga-ga:-discussing-americorp*vista-on-wuml/
 - node/99
 - articles/radio-ga-ga-discussing-americorp-vista-wuml
 - 2006/09/radio-ga-ga-discussing-americorp-vista-on-wuml/
