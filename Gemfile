@@ -1,7 +1,10 @@
 source 'https://rubygems.org'
 ruby File.read(File.join(File.dirname(__FILE__), '.ruby-version')).strip
 
-gem 'github-pages'
+group :jekyll_plugins do
+  gem 'github-pages', '104'
+  gem 'jekyll-compose'
+end
 
 group :development, :test do
   gem 'rspec'
