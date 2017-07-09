@@ -1,7 +1,9 @@
 ---
 title: Engeering Practice Ad nauseam
 date: 2017-01-30 04:22 UTC
-tags: software engineering, boil the ocean
+tags:
+  - software engineering
+  - boil the ocean
 ---
 
 
@@ -58,11 +60,11 @@ Within complex systems - both human and technical - it’s difficult to ensure t
 
 - Asset hosting and CDNs: Quick, reliable, and caches don't ruin your day ("you'll have to clear your cache")
 - Service monitoring (deliverability, consistency, verification): Healthchecks; SLO; Pagerduty; thresholds; frog boils.
-- Security: https, XSS, Pentests, Bugbounties, responsible disclosure, Human/asset management 
+- Security: https, XSS, Pentests, Bugbounties, responsible disclosure, Human/asset management
 - Business Continuity: Backups, Domain name and certificate renewals, multi-datacenter, hit-by-a-bus problems
 - Dependency and vulnerability management philosophy: Scheduling reviews/updates
 - Incident Command and Management: Roles and responsibilities, SLAs, incident reporting, play/run-books
-- Bugs and regression management: identification, prioritization, prevention 
+- Bugs and regression management: identification, prioritization, prevention
 - Marketing/activity/metrics tracking: Practice (tag management) and Process (can easily report out biz analysis numbers without heroics)
 
 ## Standardization and Innovation
