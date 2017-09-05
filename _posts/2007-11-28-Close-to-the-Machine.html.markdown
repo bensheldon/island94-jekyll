@@ -14,7 +14,6 @@ redirect_from:
 - "?p=176"
 ---
 
-[HouseSitter movies](http://www.iucn-tftsg.org/?housesitter)
 Fred Turner's _From Counterculture to Cyberculture_ has an amazingly pointed criticism of modern technocracy (my word) following what is an amazing outline of both Countercultural/Communal philosophy and modern cyberculture.
 
 One book mentioned in this conclusion is Ellen Ullman's _Close to the Machine_:
