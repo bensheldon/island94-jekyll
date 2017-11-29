@@ -18,7 +18,7 @@ repository_url: https://github.com/bensheldon/bensheldon.github.io
 
 permalink: "/:year/:month/:title"
 paginate: 10
-paginate_path: "/page-:num/"
+paginate_path: "/page/:num/"
 
 exclude:
   - scripts
