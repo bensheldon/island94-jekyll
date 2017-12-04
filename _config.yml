@@ -14,7 +14,7 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://island94.org" # the base hostname & protocol for your site
 twitter_username: bensheldon
 github_username:  bensheldon
-repository_url: https://github.com/bensheldon/bensheldon.github.io
+repository_url: https://github.com/bensheldon/island94-jekyll
 
 permalink: "/:year/:month/:title"
 paginate: 10
@@ -25,7 +25,7 @@ exclude:
   - spec
   - vendor # for building on CircleCI or anywhere that installs gems into vendor
 
-gems:
+plugins:
   - jekyll-coffeescript
   - jekyll-paginate
   - jekyll-feed
