@@ -1,11 +1,10 @@
+require 'bundler/setup'
 require 'capybara/rspec'
-require 'rack/file'
+require 'pry'
+require 'rack/jekyll'
+
+Capybara.app = Rack::Jekyll.new(force_build: false)
 
 RSpec.configure do |config|
   config.include Capybara::DSL
-
-  config.before :suite do
-    built_dir = File.join(File.dirname(__FILE__), '../_site')
-    Capybara.app = Rack::Directory.new(built_dir)
-  end
 end
