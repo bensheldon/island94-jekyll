@@ -19,6 +19,16 @@ repository_url: https://github.com/bensheldon/island94-jekyll
 permalink: "/:year/:month/:title"
 paginate: 10
 paginate_path: "/page/:num/"
+defaults:
+  - scope:
+      path: "page"
+    values:
+      sitemap: false
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
 
 exclude:
   - Rakefile
@@ -28,9 +38,10 @@ exclude:
 
 plugins:
   - jekyll-coffeescript
-  - jekyll-paginate
   - jekyll-feed
+  - jekyll-paginate
   - jekyll-redirect-from
+  - jekyll-sitemap
 
 whitelist:
   - jekyll-coffeescript
@@ -42,10 +53,3 @@ kramdown:
   input: GFM # Enable GitHub Flavored Markdown (fenced code blocks)
   hard_wrap: false
 highlighter: rouge
-
-defaults:
-  - scope:
-      path: ""
-      type: "posts"
-    values:
-      layout: "post"
