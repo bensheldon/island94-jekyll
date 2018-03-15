@@ -2,7 +2,7 @@
 title: If you replaced “accessibility” with “responsive design” in 2018, this is what you’d get
 ---
 
-_I took all of the conversations and experiences I’ve had over the years advocating accessibility features, and applied them to responsive design. It’s not pretty._
+_I took all of the conversations and experiences I’ve had over the years advocating accessibility features, and imagined them applied to responsive design._
 
 ### Imagine
 
