@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 title: Japanese processes
 ---
 ### Jugyō Kenkyū ("Lesson Study”)
