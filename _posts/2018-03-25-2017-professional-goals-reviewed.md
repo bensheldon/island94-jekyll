@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 ---
 
 I changed jobs in March, 2017. It was a tough decision. I went into the job with some very specific goals to accomplish.
