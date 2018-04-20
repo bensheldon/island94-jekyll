@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 ---
 Some reflections from Matt Webb on their [accelerator's office hours](Mid-program reflections #4 – six thoughts about Office Hours):
 
