@@ -3,7 +3,7 @@ published: true
 ---
 Some reflections from Matt Webb on their [accelerator's office hours](Mid-program reflections #4 – six thoughts about Office Hours):
 
-> 4. There is often a crisis. Fixing the issue is not my job.
+> 4\. There is often a crisis. Fixing the issue is not my job.
 > 
 > A special type of Office Hours is when there's a crisis. I would characterise a crisis as any time the founder brings urgency into the room--whether it's good or bad. There are times when sales are going just too well! "A great problem to have" can trigger a panicked response just as a more existential crisis such as an unhappy team.
 > 
