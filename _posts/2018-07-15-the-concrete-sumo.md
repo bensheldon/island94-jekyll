@@ -1,7 +1,4 @@
 ---
-published: false
----
----
 title: The concrete sumo
 date: '2018-07-15'
 tags: []
