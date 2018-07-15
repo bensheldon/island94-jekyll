@@ -19,4 +19,3 @@ The afterward explains the simplified procedure:
 > The following semester, one of the students informed me that he had taken the FEE and passed it, and had done very well on its ethics portion.
 > 
 > Perhaps the literary approach to problem solving in ethics and deference to the old yet have places in engineering, in practice as well as in the classroom, today.
-</blockqoute>
