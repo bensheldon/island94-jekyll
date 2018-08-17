@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 title: Best Practice Practices
 ---
 I like how _Rapid Development: Taming Wild Software Schedules_ by by Steve McConnell lays out exactly how "Best Practices" were selected or rejected:
