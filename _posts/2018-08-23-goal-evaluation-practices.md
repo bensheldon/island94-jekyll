@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 ---
 
 From [Appraising Performance Appraisal](https://www.linkedin.com/pulse/20131109201506-2293107-appraising-performance-appraisal/) by Steven Sinofsky:
