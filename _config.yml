@@ -53,3 +53,22 @@ kramdown:
   input: GFM # Enable GitHub Flavored Markdown (fenced code blocks)
   hard_wrap: false
 highlighter: rouge
+prose:
+  rooturl: '_posts'
+  siteurl: 'https://island94.org/'
+  media: 'uploads'
+  ignore:
+    - /_layouts
+    - /_includes
+  metadata:
+    _posts:
+      - name: "tags"
+        field:
+          element: "multiselect"
+          label: "Add Tags"
+          placeholder: "Choose Tags"
+		  alterable: true
+      - name: "title"
+        field:
+          element: "text"
+          label: "title"
