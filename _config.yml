@@ -67,7 +67,7 @@ prose:
           element: "multiselect"
           label: "Add Tags"
           placeholder: "Choose Tags"
-		  alterable: true
+          alterable: true
       - name: "title"
         field:
           element: "text"
