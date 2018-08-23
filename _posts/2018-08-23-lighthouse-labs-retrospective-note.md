@@ -1,6 +1,6 @@
 ---
 date: '2018-08-23 07:51 -0700'
-published: false
+published: true
 title: Lighthouse Labs retrospective note
 tags:
   - accessibility
