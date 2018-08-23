@@ -62,13 +62,19 @@ prose:
     - /_includes
   metadata:
     _posts:
+      - name: "title"
+        field:
+          element: "text"
+          label: "title"
+      - name: "date"
+        field:
+          element: "text"
+          label: "Date"
+          value: CURRENT_DATETIME
       - name: "tags"
         field:
           element: "multiselect"
           label: "Add Tags"
           placeholder: "Choose Tags"
           alterable: true
-      - name: "title"
-        field:
-          element: "text"
-          label: "title"
+
