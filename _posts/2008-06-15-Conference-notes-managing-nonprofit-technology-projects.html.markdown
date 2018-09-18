@@ -17,7 +17,7 @@ Notes from Rebecca below on managing nonprofit technology projects
 http://aspirationtech.org/events/mntp-sf
 http://mntp.aspirationtech.org/index.php/Event\_Agenda
 
-** [Becket divx](http://www.iucn-tftsg.org/?becket)** ...maybe I'll clean this up someday.
+ ...maybe I'll clean this up someday.
 
 ï»¿----
 !!!Basic Stages of a Project

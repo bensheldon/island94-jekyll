@@ -28,5 +28,3 @@ Jalapeno
 Pineapple juice (like a tiny splash, maybe)
 
 It's all chopped up into maybe 1/4 chunks and amazing
-
-[Banana Joe movie](http://www.iucn-tftsg.org/?banana_joe)

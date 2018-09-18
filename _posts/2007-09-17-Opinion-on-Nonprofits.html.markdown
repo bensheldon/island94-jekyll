@@ -28,4 +28,3 @@ She gave us her **Top Ten List of things she hates about nonprofits**:
 9. The standard business model: "We do good work. Give us money". In response: "Monetize your core competency". You should hope to put yourself out of business.
 10. Cute names: Do you think you'll raise more money if your name rhymes?
 
-- [Open Road movie download](http://www.websita.com/?open_road)

@@ -20,8 +20,6 @@ She had only read one of three critics ( [Carney](http://people.bu.edu/rcarney/c
 
 Coming up with a thesis, even as simple as "Many critics disagree as to whether Woody Allen's films are comedic or dramatic."
 
-  [The Believer buy](http://www.iucn-tftsg.org/?the_believer)
-
 Then deconstruct and explain those elements in a logical fashion:
 
 1. Who is Woody Allen, what are his films and why do we care enough to write 12-15 pages on what other people think of him.

@@ -20,8 +20,4 @@ A Chicago/Milwaukee appeal was made to the FCC over a lack of local and regional
 
 Also interesting how they cut up the types of coverage:
 
->
-
 > As for the style of the stories, or "frame," as the CMPA study put it, most went to "horse race" stories (guesstimating a candidates' electoral chances at the moment) and "strategic" stories ("how the candidate was using an event to reach particular groups of voters"). Strategy and horse race items dominated coverage. Issues-oriented features counted for less than a fifth of air time.
-
-[Fast Food Nation on dvd](http://www.iucn-tftsg.org/?fast_food_nation)

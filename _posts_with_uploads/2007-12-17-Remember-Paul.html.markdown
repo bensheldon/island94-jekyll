@@ -16,7 +16,7 @@ redirect_from:
 
 ![Color Lego Guy](2007-12-17-Remember-Paul/lego2web.jpg)
 
-  _ [Jab We Met the movie](http://www.websita.com/?jab_we_met)_ ** [Thank You for Smoking on dvd](http://www.iucn-tftsg.org/?thank_you_for_smoking)** Paul Hansen: my boss, friend and mentor; husband, artist and Director of the CTC VISTA Project; passed away Monday night. Paul's humor, optimism and vision have profoundly influenced me in the past two years I have known him.
+** Paul Hansen: my boss, friend and mentor; husband, artist and Director of the CTC VISTA Project; passed away Monday night. Paul's humor, optimism and vision have profoundly influenced me in the past two years I have known him.
 
 Paul was an inspiration to me: in his design and art, his use of colors and contrast, his rediscovery of common (and uncommon) objects and his whimsy and delight in their placement. In our work Paul showed me how to stay sane in insane places and where to look for fun in the mundane. Most of all, Paul was a model for maintaining one's sense of self in the most ego-reducing places.
 

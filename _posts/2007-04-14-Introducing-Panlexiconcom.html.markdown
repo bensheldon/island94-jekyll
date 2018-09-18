@@ -24,11 +24,7 @@ I'm very proud to be officially launching ** [Panlexicon.com](http://panlexicon.
 
 Panlexicon's current functions allow you to:
 
-- **First**
-
-[Albino Farm full](http://www.iucn-tftsg.org/?albino_farm)
-
-, perform a lookup on a single word and receive a weighted cloud of synonyms.
+- **First**, perform a lookup on a single word and receive a weighted cloud of synonyms.
 
 - **Second**, view synonyms that overlap across multiple words either by entering the words manually, or clicking on words already in the cloud to further refine your search.
 

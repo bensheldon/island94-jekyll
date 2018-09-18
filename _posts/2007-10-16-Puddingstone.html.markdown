@@ -17,9 +17,7 @@ redirect_from:
 
 I happen to be particularly fond of Puddingstone, the conglomerate rock found around Boston. It's also the official rock of Massachusetts; specifically [Roxbury Puddingstone](http://en.wikipedia.org/wiki/Roxbury_puddingstone).
 
-_ [College Road Trip ipod](http://www.iucn-tftsg.org/?college_road_trip)_ It's a nifty looking rock, or rather a collection of different rocks within a sedimentary rock.
-
-[Police Academy 4: Citizens on Patrol video](http://time-travel.com/?police_academy_4_citizens_on_patrol)
+It's a nifty looking rock, or rather a collection of different rocks within a sedimentary rock.
 
 It also has some fantastical elements:
 

@@ -19,7 +19,7 @@ Clippings for PEG Access TV
 ### Productivity
 43 Folders Life Clever Personal Positivity Blog
 ### Online
-The Long Tail Many to Many [Mad Max Beyond Thunderdome dvdrip](http://www.iucn-tftsg.org/?mad_max_beyond_thunderdome) MediaShift A. Fine Blog apophenia Chris Garrett on New Media Pattern Recognition Mind Mob
+The Long Tail Many to Many MediaShift A. Fine Blog apophenia Chris Garrett on New Media Pattern Recognition Mind Mob
 ### Nonprofit
 NTEN Connect Confessions of a Nonprofit IT Director The World We Want Beth's Blog Zen and the Art of Nonprofit Technology
 ### Food

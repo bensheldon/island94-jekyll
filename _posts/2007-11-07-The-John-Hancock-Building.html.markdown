@@ -13,9 +13,7 @@ redirect_from:
 - "?p=166"
 ---
 
-  [Dan in Real Life video](http://time-travel.com/?dan_in_real_life) The JHB was known as the "Plywood Skyscraper" after having faulty glass windows that would pop out during it's construction in the 1970s.
-
->
+The JHB was known as the "Plywood Skyscraper" after having faulty glass windows that would pop out during it's construction in the 1970s.
 
 > Police were left closing off surrounding streets whenever winds reached 45 mph
 
