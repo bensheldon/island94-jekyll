@@ -52,7 +52,7 @@ A Communications framework for thinking about how organizational objectives are 
 ### Other Links
 
 - [Strategic Communications Plan Generator](https://secure.spinproject.org/modinput4.php?modin=56) from The SPIN Project
-- [Tech Savvy Communications Toolkit](http://www.npowerseattle.org/education/resources/communications.htm) ** [Aloha, Scooby-Doo rip](http://time-travel.com/?aloha_scooby_doo)** from NPower Seattle
+- [Tech Savvy Communications Toolkit](http://www.npowerseattle.org/education/resources/communications.htm) from NPower Seattle
 - Storytelling: [Andy Goodman](http://www.agoodmanonline.com/), [Seth Godin](http://sethgodin.typepad.com/), [The Gilbert Center](http://www.gilbert.org/)
 
 _I shot this video with a [Casio EX-S600](http://www.amazon.com/Casio-Exilim-EX-S600-Digital-Optical/dp/B000E158D4), which shoots full-frame (640 x 480) MPEG-4 video. With a two gigabyte SD Card it can shoot approximately an hour and a half of video at medium quality before its battery dies. The Casio's AVI wrapper is incompatible with iMovie (or any Quicktime decoder), so I first used [VisualHub](http://www.techspansion.com/visualhub/) to repackage the video as an MP4 before importing into iMovie to add titles. I exported from iMovie as DV and then converted that with VisualHub into MPEG-4. Compressed and at quarter-frame (320 x 240) the entire video was 105 MB. This time I uploaded to Google Video since [Blip.tv](http://blip.tv) stalled out._

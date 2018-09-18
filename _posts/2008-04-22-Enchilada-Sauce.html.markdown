@@ -35,6 +35,5 @@ Add 4 green onions and cilantro.
 Simmer for 15 minutes.
 Salt and pepper to taste.
 
-_My alteration:
-** [On the Waterfront movie full](http://time-travel.com/?on_the_waterfront)**
+_My alteration_:
 Take all of the above ingredients, and just throw them in a blender (I use a can of whole stewed tomatoes rather than the fresh tomatoes---probably better fresh). Done._

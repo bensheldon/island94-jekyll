@@ -13,8 +13,6 @@ redirect_from:
 - "?p=188"
 ---
 
-- [Kill Switch release](http://www.iucn-tftsg.org/?kill_switch)
-
 I was having a talk today with [Danielle](http://verdesmoke.com) about this proposal on ["Open Source Engagement"](http://dcdw.mit.edu/~11.941/wiki/index.php?title=Open_source_engagement) on Milla Digitalia. Mostly I was being critical of the manner in which the authors sling around "open source".
 
 But back to Danielle, and the analogy. The fallacy of that proposal is that the authors are confusing design and process. The argument, as I can tell, is that Wikipedia and Open Source Software Development (like Linux) _work_ a certain, so they will design their Project to work that way too (when I say "work", I am intentionally being vague as to whether I mean design or process).

@@ -16,14 +16,10 @@ Brief article on [getting a nonprofit job](http://www.nytimes.com/2008/04/06/job
 
 Q. What are the biggest misconceptions about switching from the corporate world to the nonprofit world?
 
->
-
 > A. Many people are surprised to find the hours longer and stress greater than in the corporate world. Brian Olson, who left the private sector for a nonprofit in 2006, found the decision-making process to be unfocused.
-
+>
 > “No matter how good a volunteer board is, it’s not the same as a corporate board, because everyone has a different agenda,” said Mr. Olson, who returned to the private sector a year later to be vice president for public affairs at Video Professor Inc., a company in Lakewood, Colo., that sells self-tutorial programs. “There was a purity to corporate life I missed,” he said.
-
-_ [Bloody Sunday movie full](http://www.iucn-tftsg.org/?bloody_sunday)_
-
+>
 > **There is value, he said, to “a company just getting the job done based on the needs of the marketplace.”**
 
 Makes me think of my friend's snarky t-shirt idea: "Get a Nonprofit Career: Make a difference in someone's life. Your own." or simply "Nonprofit jobs let you feel good about yourself".

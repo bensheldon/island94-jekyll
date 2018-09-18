@@ -28,11 +28,7 @@ A **Continuum** is a linear series capped by two Unities.  Sometimes there is m
 
 A **Plane **(or **Field**_)_ is an flat-area bounded by multiple  unities.  Creating meaning from one's position within the plane becomes more difficult to communicate unless in close proximity (or far distant) to a unity.
 
-A **Space **
-
-- [Shrink movie](http://utero.pe/?shrink)
-
-is the most complex construction of meaning in which many unities are "mapped" out.  For such a construction, pointing out significant features (low-points, high-points, etc.) are the only way to communicate meaning about a space.
+A **Space ** is the most complex construction of meaning in which many unities are "mapped" out.  For such a construction, pointing out significant features (low-points, high-points, etc.) are the only way to communicate meaning about a space.
 
 Ending with spaces, it's interesting to note that the realm of human understanding (as bounded by our senses and cognition) is still a simplification of the complete space of possibility.  Even so, simpler and simpler constructions are made in order to successfully communicate.
 

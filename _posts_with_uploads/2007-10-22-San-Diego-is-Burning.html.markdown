@@ -12,7 +12,7 @@ redirect_from:
 
 I got an email from my mom this morning that the wildfires in Southern California county were strongly encroaching on my hometown of Poway and the surrounding communities. A couple of my friends started an email list and we've been sending around information about what's happening.
 
-_ [Stick It film](http://www.iucn-tftsg.org/?stick_it)_ My heart goes out to everyone that's lost something or is worried they may. I hear that both Tabitha's and Liz's dad's, school bus driver and reserve sheriff, respectively, are helping to evacuate people and I'm grateful to them.
+My heart goes out to everyone that's lost something or is worried they may. I hear that both Tabitha's and Liz's dad's, school bus driver and reserve sheriff, respectively, are helping to evacuate people and I'm grateful to them.
 
 For news I've been following the local Public Radio Station KPBS which is doing an [awesome job of keeping up with news and updates.](http://kpbs.digitaria.com/)
 

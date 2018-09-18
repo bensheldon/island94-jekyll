@@ -23,11 +23,7 @@ Most importantly, we're working on stepping up our outreach. Unlike what some of
 
 **Outreach is key**, and unfortunately it usually means a change of strategy. We're building our networks online because it's cheap real estate, but on the internet you can't shout very far and most people are deaf. If you're trying to get in front of someone's face (or next to their ear), putting something on the internet is probably the worst way to go about it.
 
-**Physical objects are best**
-
-[The Impostors dvdrip](http://time-travel.com/?the_impostors)
-
-, so I'm in the process of designing a postcard to mail out to AmeriCorps host organizations.
+**Physical objects are best**, so I'm in the process of designing a postcard to mail out to AmeriCorps host organizations.
 
 Also, because MeetAmeriCorps.com already has so many [members across the country](http://meetamericorps.com/map), we can have them lend a hand too in outreach activities. That's always a benefit of working with AmeriCorps: we love to help.
 

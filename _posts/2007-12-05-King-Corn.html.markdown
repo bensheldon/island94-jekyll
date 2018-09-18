@@ -13,7 +13,6 @@ redirect_from:
 - "?p=186"
 ---
 
-[I Love Trouble film](http://www.iucn-tftsg.org/?i_love_trouble)
 I saw the movie King Corn last night at Harvard. It was ok. The best part I thought was when they interviewed [Earl Butz](http://en.wikipedia.org/wiki/Earl_Butz), a Secretary of Agriculture in the 1970s that instigated a major food production policy shift.
 
 Earl said that his change in policy led to a decrease in the amount of money people spent on food (from ~40% to 15-20%) which led to the economic prosperity of today. (eg more disposable income, more consumption, expanded economy).

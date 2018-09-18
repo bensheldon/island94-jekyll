@@ -39,10 +39,7 @@ In short (lots more notes and examples in the link):
 
 > Doom and gloom, and finger-wagging messages don't work.
 
-> **Need 5: The security of TRUST
-**
-
-** [Police Academy 6: City Under Siege ipod](http://www.iucn-tftsg.org/?police_academy_6_city_under_siege)**
+> **Need 5: The security of TRUST**
 
 > People are starved for a sense of trust in "the messenger."
 
