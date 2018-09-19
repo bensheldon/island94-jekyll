@@ -4,11 +4,11 @@ title: Tags
 permalink: /tags/
 ---
 
-{% assign sorted_tags = site.tags | sort:0 %}
+{% assign sorted_tags = site.tags %}
 {% for tag in sorted_tags %}
-    {% assign tag_name = tag | first %}
+    {% assign tag_name = tag[0] %}
     {% assign tag_posts = tag[1] %}
-    {% assign tag_slug = tag_name | slugify %}
+    {% assign tag_slug = tag_name | replace:' ','_' %}
 
     <h2 name="{{tag_slug}}">
         {{tag_name}}
