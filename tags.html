@@ -1,0 +1,22 @@
+---
+layout: page
+title: Tags
+permalink: /tags/
+---
+
+{% assign sorted_tags = site.tags | sort:0 %}
+{% for tag in sorted_tags %}
+    {% assign tag_name = tag | first %}
+    {% assign tag_posts = tag[1] %}
+    {% assign tag_slug = tag_name | slugify %}
+
+    <h2 name="{{tag_slug}}">
+        {{tag_name}}
+        <small><a href="#{{tag_slug}}">#</a></small>
+    </h2>
+    <ul>
+        {% for tag_post in tag_posts %}
+            <li><a href="{{tag_post.url}}">{{tag_post.title}}</a></li>
+        {% endfor %}
+    </ul>
+{% endfor %}
