@@ -18,7 +18,7 @@ In my last post about [nonprofit structure](http://island94.org/articles/what-no
 
 The tax-exemption at the heart of nonprofit organizations---along with "nondistribution constraint" (i.e. one cannot profit from, or own equity in, a nonprofit; it may not inure to someone)---is the the key distinction between a nonprofit organization and any other incorporated entity. The reasons why a nonprofit organization should receive tax-exemption (and the government subsidy it implies) are varied and contested.
 
-Norman Silber's _ [A Corporate Form of Freedom](http://books.google.com/books?id=1OuEGu-Ua6wC)_ (p. 167-169) presents the following reason why nonprofit organizations---in aggregate---should receive the special privilege of tax-exemption:
+Norman Silber's _[A Corporate Form of Freedom](http://books.google.com/books?id=1OuEGu-Ua6wC)_ (p. 167-169) presents the following reason why nonprofit organizations---in aggregate---should receive the special privilege of tax-exemption:
 
 - The difficulty in measuring a nonprofit's income and assessing an appropriate tax. (Boris Bittker and George Dahdert, 1967)
 
