@@ -1,6 +1,6 @@
 ---
 date: '2018-09-24 20:26 -0700'
-published: false
+published: true
 title: Disfunctional workplaces
 ---
 I've found too many opportunities to quote this from ["Ask a Manager"](https://www.askamanager.org/2018/09/how-can-i-brace-myself-for-my-toxic-new-job.html) in the past few weeks:
