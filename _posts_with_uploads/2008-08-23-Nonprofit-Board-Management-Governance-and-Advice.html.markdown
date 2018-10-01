@@ -62,7 +62,7 @@ Last weekend I was in NYC for the Craigslist Foundation's [Nonprofit Bootcamp](h
 
 - Solicit contributions
 
-**Common Board Issues** [Terror by Night move](http://utero.pe/?terror_by_night) : vague expectations; not knowing what having "success" as a board member means; no feedback loops (was I good or bad as a board member); hot romance/cold match syndrome (hot and heavy dating/recruitment but a cold marriage/service)
+**Common Board Issues**: vague expectations; not knowing what having "success" as a board member means; no feedback loops (was I good or bad as a board member); hot romance/cold match syndrome (hot and heavy dating/recruitment but a cold marriage/service)
 
 **The Board Chair**: It is the Board Chair's (the President usually) responsibility to create a functioning board. The board chair doesn't support the organization, they support the board.
 

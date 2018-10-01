@@ -24,6 +24,4 @@ That being said, this [Cooks Illustrated PDF](http://www.google.com/url?sa=t&ct=
 
 - **Closing the baffles** to stop air from circulating allows the humidity to rise for leafy vegetables.
 
-** [Meet Wally Sparks ipod](http://utero.pe/?meet_wally_sparks)**
-
 But according to Cooks Illustrated, it's all much more complicated than that---some produce like it warmer than the crisper may provide, like green beans, subtropical fruits, melons and herbs. So good luck if you have roommates.
