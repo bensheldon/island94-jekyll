@@ -19,11 +19,9 @@
       </form>
 
       <ul class="nav navbar-nav navbar-right">
-        {% for my_page in site.pages %}
-          {% if my_page.title %}
-          <li><a class="page-link" href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a></li>
-          {% endif %}
-        {% endfor %}
+        <li><a class="page-link" href="{{ '/about/' | prepend: site.baseurl }}">About</a></li>
+        <li><a class="page-link" href="{{ '/archives/' | prepend: site.baseurl }}">Archives</a></li>
+        <li><a class="page-link" href="{{ '/tags/' | prepend: site.baseurl }}">Tags</a></li>
         <li><a href="{{ "/feed.xml" | prepend: site.baseurl }}"><span class="fa fa-rss"></span> RSS</a></li>
       </ul>
     </div>
