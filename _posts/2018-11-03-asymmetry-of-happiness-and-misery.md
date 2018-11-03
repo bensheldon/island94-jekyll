@@ -1,6 +1,6 @@
 ---
 date: '2018-11-03 11:45 -0700'
-published: false
+published: true
 title: Asymmetry of happiness and misery
 ---
 From Michael Lewis' _The Undoing Project_ on how happiness and misery is experienced differently:
