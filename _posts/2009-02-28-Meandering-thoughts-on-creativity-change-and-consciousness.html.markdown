@@ -13,8 +13,6 @@ redirect_from:
 - "?p=506"
 ---
 
->
->
 > "The most effective way to manage change is to create it." ---Peter Drucker
 
 I have been collecting quotes for my Leadership class, and this one in particular made me think about my own creative process---or really any process that I can't do on autopilot.  The above quotation is actually in respect to organizations (_yawn_), but I think it closely related to my earlier [advice for youngish people](http://www.island94.org/2009/02/18-25-moving-from-becoming-to-being/).
@@ -29,8 +27,6 @@ For myself, the reluctance to step over the precipice of fear and doubt comes fr
 
 The following quote captures the danger of remaining upon the precipice and never venturing forth. It is from Joseph Campbell's _The Hero with a Thousand Faces_ (which is entirely about the heroic path) quoting Charles Francis Atkinson's _Art and Artist_ (reformatted for easier reading):
 
->
->
 > If we compare the neurotic with the productive type, it is evident that the former suffers from an excessive check on his impulsive life. Both are distinguished fundamentally from the average type, who accepts himself as he is, by their tendency to exercise their volition in reshaping themselves. There is, however, this difference:
 >
 > That the neurotic, in this voluntary remaking of his ego, does not get beyond the destructive preliminary work and is therefore unable to detach the whole creative process from his own person and transfer it to an ideological abstraction.

@@ -17,8 +17,6 @@ redirect_from:
 I was pointed to Political Scientist Michael Parenti's [7 categories of generalizations about the way the news media create anti-union messaging](http://books.google.com/books?id=6SaQ5IoscCcC&pg=PA10&lpg=PA10&dq=jaundiced+eyes+seven+generalizations+of+labor&source=bl&ots=ILlq_7h8ZT&sig=atHZTLuApdUAiEE4Gm1nxw3lrGw&hl=en&ei=uFb3Sri9FMml8Abd6ZjzCQ&sa=X&oi=book_result&ct=result&resnum=2&ved=0CA8Q6AEwAQ#v=onepage&q=&f=false) by this article analyzing [the media's portrayal of the Philadelphia public transit strike](http://phillylabor.org/wolf-scribes-clothing-septa-strike-and-subterfuge-philadelphias-media-monopoly). I got really steamed about a month ago listening to a local interview/call-in show about Boston charter schools and the Teacher Union that revolved very strongly along these lines:
 
 >
->
->
 
 - Portrayal of labors struggles as senseless, avoidable contests created by unions' unwillingness to negotiate in good faith,
 

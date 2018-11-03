@@ -10,8 +10,6 @@ redirect_from:
 
 A quote from a Slashdot story on a new fast charge/discharge lithium battery:
 
->
->
 > ...in any high current circuit, the power wasted in the circuit as heat can be very high. It's current squared times resistance. With batteries that have a high internal resistance, that power heats the battery and is also power that's wasted. With a high current delivery capability, these would have very low internal resistance and under heavy loads, the batteries would run cooler and would be able to deliver more power to the actual load instead of throwing it away as heat.
 >
 > ...

@@ -28,8 +28,6 @@ The free-spirited atmosphere created by a lack of international copyright affect
 
 At this time the authors often banded together in copyright clubs or leagues to protest. [James Russell Lowell](http://en.wikipedia.org/wiki/James_Russell_Lowell), noted poet and president of American Copyright League penned this motto:
 
->
->
 > In vain we call old notions fudge,
 >
 > And bend our conscience to our dealing;

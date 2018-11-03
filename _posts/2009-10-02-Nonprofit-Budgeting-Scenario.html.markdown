@@ -66,8 +66,6 @@ I pasted the text of the  scenario below, though you can download the whole thi
 
 - What sacrifices are _you_ willing to make to get the organization through the year?
 
->
->
 > In addition to cutting expenses, Rural Food Services has two “Earned Income” strategies for creating income based on their services, though each has its own drawbacks and implications.
 >
 >
@@ -78,8 +76,6 @@ I pasted the text of the  scenario below, though you can download the whole thi
 
 2. Underwriting (advertising) for the Radio Station from local and national businesses. Increasing this income will reduce the local/independent focus of the station’s community-led programming.
 
->
->
 > Lastly, income from Individual Donations (“Individual Giving”) has been left open. While the current economic climate forecasts a decrease in individual giving, you could recommend the implementation of aggressive individual fundraising (especially from “Major Donors”); though such a strategy would require significant inputs of staff time and resources.
 >
 > **The Budget Making Process:**

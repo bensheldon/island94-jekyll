@@ -15,8 +15,6 @@ redirect_from:
 
 I really liked this series of comments on a [BoingBoing post](http://www.boingboing.net/2008/08/17/how-the-daily-shows.html#comment-262112)
 
->
->
 > _#3 posted by pAULbOWEN , August 17, 2008 12:48 PM_
 >
 > I should care because?

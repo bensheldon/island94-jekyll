@@ -19,52 +19,25 @@ One of my AmeriCorps members asked for resources on technology needs-assessment 
 
 > _Note to the respondent: Please keep this questionnaire in your possession for the survey interval in your usual work location while performing your customary duties. Make entries to the items as appropriate responses occur to you. Your responses will help inform the technology planning process about the best application of technologies in your teaching situation._
 >
+> 1. Do you ever, or often, think, “there must be an easier way to do this?” If so, please list and describe as many of the things or situations as you can to which this statement would apply:
+> 
+>   1.
 >
-
-1. Do you ever, or often, think, “there must be an easier way to do this?” If so, please list and describe as many of the things or situations as you can to which this statement would apply:
-
+>   2.
 >
+>   3.
 >
-> 1.
+>   4.
 >
-> 2.
+>   5.
+>   [Note: All of the following questions repeat this format, but the phrase "If so, please list and describe as many of the things or situations as you can to which this statement would apply: #1-5" is omitted for brevity ]
 >
-> 3.
->
-> 4.
->
-> 5.
->
-> [Note: All of the following questions repeat this format, but the phrase "If so, please list and describe as many of the things or situations as you can to which this statement would apply: #1-5" is omitted for brevity ]
->
->
-
-2. Do you ever, or often, think, “I could do this faster if only...”
-
->
-
-3. Do you ever, or often, think, “I wish I had a helper to help me do...”
-
->
-
-4. Do you ever, or often, think, “I wish I had a computer or other device so I could...”
-
->
-
-5. Do you ever, or often, think, “I wish I or my students could contact someone right now to tell them...”
-
->
-
-6. Do you ever, or often, think, “I wish I or my students could contact someone right now to find out...”
-
->
-
-7. Do you ever, or often, think, “I wish my students had improved computers or other technological resources available so they could...”
-
->
-
-8. Do you ever, or often, think, “I wish my students had more computers or other technological resources available so they could...”
-
->
+> 2. Do you ever, or often, think, “I could do this faster if only...”
+> 3. Do you ever, or often, think, “I wish I had a helper to help me do...”
+> 4. Do you ever, or often, think, “I wish I had a computer or other device so I could...”
+> 5. Do you ever, or often, think, “I wish I or my students could contact someone right now to tell them...”
+> 6. Do you ever, or often, think, “I wish I or my students could contact someone right now to find out...”
+> 7. Do you ever, or often, think, “I wish my students had improved computers or other technological resources available so they could...”
+> 8. Do you ever, or often, think, “I wish my students had more computers or other technological resources available so they could...”
 >
 > Please use the space below to state in your own words any suggestions, recommendations, or concerns you have for the use of computers, networks, or other advanced technologies for your work or for your students, your school, or the school district. Thank you for providing this information.

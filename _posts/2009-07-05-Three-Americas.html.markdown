@@ -30,5 +30,3 @@ My friend Thomas posted a status message to Facebook "wonders why Republicans ha
 3. a geo-political demarcation for a group of people equally as unexceptional as everyone else.
 
 >
->
->

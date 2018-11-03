@@ -25,8 +25,6 @@ My boss came in this morning to gripe about how a media service, [Mixcloud](http
 - [порно онлайн огромный](http://narkoz.ucoz.ru/news/2010-01-04-36)
 
 >
->
->
 
 I love that "throughout the universe" part. Harvard Law's [Berkman Center](http://cyber.law.harvard.edu/) used to have a project parsing Licensing Agreements, but I can't find it. So here's a recent report on how [Charitable Foundations could benefit from more freely licensing their publications and those of their grantees](http://cyber.law.harvard.edu/publications/2009/Open_Content_Licensing_for_Foundations). An excerpt:
 

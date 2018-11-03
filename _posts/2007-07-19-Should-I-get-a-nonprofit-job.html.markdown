@@ -24,8 +24,6 @@ Assuming that you are an intelligent, well-educated (or seeking to be), self-mot
 
 **My advice for you:**
 
->
->
 > Find a corporate job that you like, or don't feel too guilty about, and that provides you with plenty of disposable income and time. Find a small, local nonprofit (or church, or social group) that meets your standards for doing good, and invest your disposable income and time with them. Join their governing board, connect them with your professional and personal networks and help them grow in a direction you believe in. You will enact more change from a higher level than you could, in most situations, by being a direct employee of that organization.
 
 **Non-categorical rationale:**

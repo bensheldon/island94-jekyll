@@ -17,8 +17,6 @@ redirect_from:
 
 From the [John F. Kennedy Presidential Library & Museum](http://www.jfklibrary.org/):
 
->
->
 > OPERATION HIGH HOPES
 >
 > Explanation and Instruction Sheet
