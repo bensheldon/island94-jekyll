@@ -11,3 +11,7 @@ From Pietra Rivoli's _The Travels of a T-Shirt in the Global Economy: An Economi
 Specifically:
 
 > My T-shirt's story, then, is not a tale of Adam Smith's market forces, but is instead a tale of Karl Polanyi's double movement, in which market forces on the one hand meet demands for protection on the other.
+
+I also like this on boring meetings as a sign of progress:
+
+> With a long historical perspective, it seems clear that when the meetings get boring, we have taken a step forward. Boring meetings mean that the radical has become mainstream, and that the establishment has changed its mind about the very nature of right and wrong. The struggles for bans on child labor, or for fire exits or minimum wage or factory codes of conduct, are never boring. But when the fight is won, the meetings get boring. While the battle rages for and against, it is interesting. But when the battle is over and the fight is no longer about whether to have fire exits but where to put them, not whether to have a minimum wage, but how to administer it, not whether to disclose factory locations but by what means and how often—when the establishment has changed its mind and we are just working out the details in (yet another) early morning committee meeting—it gets boring.
