@@ -12,7 +12,7 @@ redirect_from:
 - "?p=918"
 ---
 
-Lewis Hyde's introduction from _ [Frames from the Framers: How America’s Revolutionaries Imagined Intellectual Property](http://papers.ssrn.com/sol3/papers.cfm?abstract_id=870073):_
+Lewis Hyde's introduction from _[Frames from the Framers: How America’s Revolutionaries Imagined Intellectual Property](http://papers.ssrn.com/sol3/papers.cfm?abstract_id=870073):_
 
 > The linguist George Lakoff has been insisting for some years now that progressives need to improve the way they frame their issues. Conservatives have become very good at framing-- ”the death tax,” “partial-birth abortion,” “the ownership society”--and, Lakoff argues, once a debate is joined in terms set by the frame, the debate is lost. You can speak of taxation as a way for groups to empower themselves toward worthy ends (schools, bridges, libraries), or you can speak of taxation as an oppressive tool of Big Government. When you let the debate begins in the Big Government frame, you never get your library funded.
 

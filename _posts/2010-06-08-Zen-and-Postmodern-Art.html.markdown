@@ -12,7 +12,7 @@ redirect_from:
 - "?p=559"
 ---
 
-From _ [Zen and the Art of Postmodern Philosophy]( http://books.google.com/books?id=VR1SYOYq6r8C&pg=PA10&lpg=PA10&dq=cleaving+in+philosophy&source=bl&ots=eg_6e5AkC1&sig=b5e6qRmSOeSq9GuEKXvGy1jrf7Y&hl=en&ei=9RPBSfuaFpbEMaLH7aoN&sa=X&oi=book_result&resnum=3&ct=result)_ by Carl Olsen (I added paragraph breaks):
+From _[Zen and the Art of Postmodern Philosophy]( http://books.google.com/books?id=VR1SYOYq6r8C&pg=PA10&lpg=PA10&dq=cleaving+in+philosophy&source=bl&ots=eg_6e5AkC1&sig=b5e6qRmSOeSq9GuEKXvGy1jrf7Y&hl=en&ei=9RPBSfuaFpbEMaLH7aoN&sa=X&oi=book_result&resnum=3&ct=result)_ by Carl Olsen (I added paragraph breaks):
 
 > Within the context of postmodern art, Mark C. Taylor identifies, for instance, two processes at work: disfiguring and cleaving. These two operations are identified by Taylor in his attempt to grasp the _chora_, a nonexistent that stands behind being and becoming, makes possible all existences, and forms the essential space where both form and copy are inscribed.
 >

@@ -74,4 +74,4 @@ redirect_from:
 
 |
 
-From _ [Making Sense of Change Management](http://www.makingsenseofchange.com/)_ by Esther Cameron and Mike Green.
+From _[Making Sense of Change Management](http://www.makingsenseofchange.com/)_ by Esther Cameron and Mike Green.

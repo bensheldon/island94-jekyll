@@ -15,7 +15,7 @@ redirect_from:
 - "?p=916"
 ---
 
-Lewis Hyde, author of _The Gift_, has a wonderful essay entitled _ [Frames from the Framers: How America's Revolutionaries Imagined Intellectual Property](http://papers.ssrn.com/sol3/papers.cfm?abstract_id=870073) _about the differing perspectives on copyright present during the drafting of the US Constitution. I have written of [historical perspectives on copyright](http://www.island94.org/2007/04/copyright-and-the-nineteenth-century/) before, but Hyde outlines 3 different frames in which creative works and copyright existed (via [BoingBoing](http://www.boingboing.net/2009/10/23/important-and-fascin.html)):
+Lewis Hyde, author of _The Gift_, has a wonderful essay entitled _[Frames from the Framers: How America's Revolutionaries Imagined Intellectual Property](http://papers.ssrn.com/sol3/papers.cfm?abstract_id=870073) _about the differing perspectives on copyright present during the drafting of the US Constitution. I have written of [historical perspectives on copyright](http://www.island94.org/2007/04/copyright-and-the-nineteenth-century/) before, but Hyde outlines 3 different frames in which creative works and copyright existed (via [BoingBoing](http://www.boingboing.net/2009/10/23/important-and-fascin.html)):
 
 **1. The common gift from god:**
 
