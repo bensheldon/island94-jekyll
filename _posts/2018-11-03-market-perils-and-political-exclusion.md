@@ -1,6 +1,6 @@
 ---
 date: '2018-11-03 12:04 -0700'
-published: false
+published: true
 title: Market perils and political exclusion
 ---
 
