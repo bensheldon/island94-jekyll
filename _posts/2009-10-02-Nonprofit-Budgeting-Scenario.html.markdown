@@ -24,10 +24,6 @@ I pasted the text of the  scenario below, though you can download the whole thi
 >
 > **Rural Food Services **
 >
->
->
->
->
 > **Mission: “_SERVING the needs of Spring County_”**
 >
 > **Summary:**
@@ -54,28 +50,17 @@ I pasted the text of the  scenario below, though you can download the whole thi
 >
 > **Current Circumstances: **You have just been informed that your primary funder, the Pierpont Memorial Trust, has decided to reduce all grants by 50% because of the current economic climate. Though your organization receives a mixture of private and government grants, individual donations and earned income, this news will severely impact your organization in the coming year. Tough decisions have to be made about how to cut costs with the knowledge that the need for your organization’s services has not lessened (they have most likely grown). The questions you must tackle include:
 >
+> - What do _you_ think the organization’s priorities are? Immediate and long-term
 >
-
-- What do _you _ think the organization’s priorities are? Immediate and long-term
-
+> - What values do _you_ think the organization should protect? Internally and externally.
 >
-
-- What values do _you_think the organization should protect? Internally and externally.
-
+> - What sacrifices are _you_ willing to make to get the organization through the year?
 >
-
-- What sacrifices are _you_ willing to make to get the organization through the year?
-
 > In addition to cutting expenses, Rural Food Services has two “Earned Income” strategies for creating income based on their services, though each has its own drawbacks and implications.
 >
+> 1. Sliding Scale Fee charged to individuals using the Food Bank depending on their ability to pay. Increasing this income increases the amount charged to Rural Food Services’s clients.
+> 2. Underwriting (advertising) for the Radio Station from local and national businesses. Increasing this income will reduce the local/independent focus of the station’s community-led programming.
 >
-
-1. Sliding Scale Fee charged to individuals using the Food Bank depending on their ability to pay. Increasing this income increases the amount charged to Rural Food Services’s clients.
-
->
-
-2. Underwriting (advertising) for the Radio Station from local and national businesses. Increasing this income will reduce the local/independent focus of the station’s community-led programming.
-
 > Lastly, income from Individual Donations (“Individual Giving”) has been left open. While the current economic climate forecasts a decrease in individual giving, you could recommend the implementation of aggressive individual fundraising (especially from “Major Donors”); though such a strategy would require significant inputs of staff time and resources.
 >
 > **The Budget Making Process:**
