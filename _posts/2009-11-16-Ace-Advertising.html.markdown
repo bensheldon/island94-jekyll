@@ -24,9 +24,7 @@ The CPI being this (more Wikipedia):
 So to tie up the loose ends, I'll quote from a favorite, Allan Weisbecker's _Can't You Get Along with Anyone_:
 
 > Remember Bhopal? The toxic waste cloud released by Union Carbide that killed over 20,000 people in India back in 1984? What do you ﬁgure was the ﬁrst thing the CEO Warren Anderson did when he learned of the catastrophic misery and death his company had perpetrated? See to it that medical and evacuation people were rushed in?
-
 >
-
 > No. Anderson called Union Carbide's public relations chief, a guy named Bob Berzok, to get on the crisis management, the spin control. "Spin" (or "spin control") is, of course, a euphemism for _lying like a slug_. And there's even a euphemism for the euphemism, a description/label/concept I really like -- in the morbid sense -- for its Orwellian ring. _Perception management_.
 
 **Update**: Bob Berzok left a note in the [comments](http://www.island94.org/2009/11/ace-advertising/#comment-32269) about this incident:

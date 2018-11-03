@@ -20,13 +20,9 @@ From _Zen and the Art of Motorcycle Maintenance_:
 The following precedes the former, but if I put it in order the people who care about technology will stop reading when they hit romance (you know who you are!) and vice versa (same!) and the people who can grok both won't care either way (yeah!):
 
 > In the past our common universe of reason has been in the process of escaping, rejecting the romantic, irrational world of prehistoric man. It’s been necessary since before the time of Socrates to reject the passions, the emotions, in order to free the rational mind for an understanding of nature’s order which was as yet unknown. Now it’s time to further an understanding of nature’s order by reassimilating those passions which were originally fled from. The passions, the emotions, the affective domain of man’s consciousness are a part of nature’s order too. The central part.
-
 >
-
 > ...
-
 >
-
 > The time for a real unification of art and technology is really long overdue.
 
 So go make something lovely (that's for the people who can grok both; the rest of you are grousing).

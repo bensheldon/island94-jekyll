@@ -18,7 +18,5 @@ A good [World Wide Words this week](http://www.worldwidewords.org/nl/rgnp.htm). 
 World Wide Words takes on its misuse:
 
 > It feels right to me when it’s used, as H W Fowler wrote in 1926, of “the destruction in any way of a large proportion of anything reckoned by number”.
-
 >
-
 > White’s criticism of “terribly decimated” seems fair, because it’s innumerate, as does “incredibly decimated”, from a recent US newspaper report quoting a librarian complaining about a 15% budget cut. It also seems incorrect to use decimate for indivisibles (“Some have set out to decimate the soul of this great country”), to imply complete destruction (“a totally decimated population”), the killing of an individual (“He protects his brother from the thugs intent on physically decimating him”), the destruction of a named fraction (“A single frosty night decimated the fruit by 80%”), or the part of a whole (“disease decimated most of the population”).

@@ -14,7 +14,7 @@ redirect_from:
 ---
 
 >
-
+>
 > "The most effective way to manage change is to create it." ---Peter Drucker
 
 I have been collecting quotes for my Leadership class, and this one in particular made me think about my own creative process---or really any process that I can't do on autopilot.  The above quotation is actually in respect to organizations (_yawn_), but I think it closely related to my earlier [advice for youngish people](http://www.island94.org/2009/02/18-25-moving-from-becoming-to-being/).
@@ -30,15 +30,15 @@ For myself, the reluctance to step over the precipice of fear and doubt comes fr
 The following quote captures the danger of remaining upon the precipice and never venturing forth. It is from Joseph Campbell's _The Hero with a Thousand Faces_ (which is entirely about the heroic path) quoting Charles Francis Atkinson's _Art and Artist_ (reformatted for easier reading):
 
 >
-
+>
 > If we compare the neurotic with the productive type, it is evident that the former suffers from an excessive check on his impulsive life. Both are distinguished fundamentally from the average type, who accepts himself as he is, by their tendency to exercise their volition in reshaping themselves. There is, however, this difference:
-
+>
 > That the neurotic, in this voluntary remaking of his ego, does not get beyond the destructive preliminary work and is therefore unable to detach the whole creative process from his own person and transfer it to an ideological abstraction.
-
+>
 > The productive artist also begins with that re-creation of himself which results in an ideologically constructed ego; [but then in his case] this ego is then in a position to shift the creative will-power from his own person to ideological representations of that person and thus render it objective.
-
+>
 > It is admitted that this process is in a measure limited to within the individual himself, and that not only in its constructive, but also in its destructive aspects. This explains why hardly any productive work gets through without morbid crises of a 'neurotic' nature.
-
+>
 >
 
 At 26, I would say the most amazing thing I have realized about myself is that I am still myself. As a younger person, I was always expecting some conscious-breaking event between youth and adulthood. A clear cusp in which I would know "I've made it", stripping away the old for something new. And as I now believe, there was no chrysalis (at least not in my agnostic, protective, modern upbringing). Change did not come as a distinct event, instead it was gradual and iterative---I am still the same person I was at 8 years old, just with more experiences (and body hair).

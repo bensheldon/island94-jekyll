@@ -20,7 +20,7 @@ But back to Danielle, and the analogy. The fallacy of that proposal is that the 
 So here is the analogy:
 
 >
-
+>
 > Wikipedia/OSS are like buildings (Danielle is in an Urban Planning Program). They are designed to have as many doors as possible. All over the place. And it just so happens that people really like using the front door and the door into the kitchen, and mostly ignore the other doors.
 
 Now, in this proposal, they make this argument: We've learned from Wikipedia/OSS that front doors and kitchen doors really work great, so we're going to design our project to have a front door and a kitchen door just like they do.

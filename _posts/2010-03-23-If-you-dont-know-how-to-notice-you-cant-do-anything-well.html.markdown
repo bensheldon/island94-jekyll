@@ -11,7 +11,7 @@ redirect_from:
 A subchapter on art from K.C. Cole's _Something incredibly wonderful happens: Frank Oppenheimer and the world he made up_.
 
 > ** A Matter of Urgency**
-
+>
 > _"It's through familiarity with the arts that I think we will make the kinds of changes that make life stay human."_
 >
 > A respect for aesthetics, Frank thought, should be a central part of sound decision-making. He didn't think it would be out of place — though he admitted it would be impractical — if Congress, unable to decide on a difﬁcult matter, took a recess to visit the National Gallery for guidance. "Art," he liked to say, "is not valid merely to decorate our surroundings with statues in the plazas of skyscrapers, any more than science is valid because it provides the conveniences of electric shavers."

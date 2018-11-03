@@ -24,13 +24,9 @@ At 40 tabloid-sized pages, this edition is 52 square feet of pictures and copy. 
 I don't often find myself in InDesign, the layout program I used, but I still had fun with the project. Due to time and process constraints I couldn't be as free with the design as I would have liked, but I am proud of the outcome. In keeping with the existing style and editorial demands, my goal was to normalize the ideas and voices within the text. I am sympathetic to criticism of this approach. From David Barringer in his essay "Left Wanting", writing on the conservative design of liberal magazines:
 
 > Timid political art. Stale design. The money excuse. The market dynamic in which political speech is toned down for a presumably thin-skinned public. Artistic cowardice masquerading as commercial sensibility. These are the charges, but what is the role of design in political magazines? Is it to perpetuate a stylistic template? To signify stability?
-
 >
-
 > ...
-
 >
-
 > "Design is order, economy, teaching people beauty, creating individuals," says [Mirko] Ilic [designer for the _Village Voice_]. "Good design is subversive. And because it's subversive, good design is left wing."
 
 If I do the next edition, I hope to be able to spend more time on good design.

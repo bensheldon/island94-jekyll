@@ -18,7 +18,7 @@ I listened to the TED talk of [Sir Ken Robinson](http://www.ted.com/index.php/ta
 The short quote:
 
 >
-
+>
 > If you're not prepared to be wrong, you'll never come up with anything original.
 
 But there is a lot more there about how the education system is built to get people into college as an end in and of itself.
@@ -26,5 +26,5 @@ But there is a lot more there about how the education system is built to get peo
 Sir Robinson also mentioned Picasso's quote:
 
 >
-
+>
 > Every child is an artist. The problem is how to remain an artist once we grow up.

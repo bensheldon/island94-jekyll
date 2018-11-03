@@ -21,9 +21,7 @@ The following is from a handout I created for the CTCnet Conference in which I p
 ### Introduction to Community Engagement
 
 > The core competency for any organization—private or nonprofit, funder or grantee—is learning to manage change while maintaining high performance on standard functions and simultaneously building capacity to learn and evolve.
-
 >
-
 > ---Evaluations of Capacity Building: Lesson from the Field,Alliance for Nonprofit Management
 
 Communities form the context in which nonprofit organizations operate. Driven by community needs and powered by community resources, successful organizations must continually assess how their organization's mission and programs fit into the evolving landscape of their communities.
@@ -41,13 +39,9 @@ Building these two competencies into an organization with limited abilities and 
 ### Community Engagement
 
 > "...community engagement is the process of working collaboratively with and through groups of people affiliated by geographic proximity, special interest, or similar situations to address issues affecting the well-being of those people. It is a powerful vehicle for bringing about environmental and behavioral changes that will improve the health of the community and its members. It often involves partnerships and coalitions that help mobilize resources and influence systems, change relationships among partners, and serve as catalysts for changing policies, programs, and practices."
-
 >
-
 > ---Stephen B. Fawcett, Work Group for Community Health and Development
-
 >
-
 >
 
 Community engagement supports your organization's mission, programs and capacity by ensuring they remain relevant to community needs and environmental forces. Developing your organizations Community Engagement competency is Capacity Building. This may include the creation of:

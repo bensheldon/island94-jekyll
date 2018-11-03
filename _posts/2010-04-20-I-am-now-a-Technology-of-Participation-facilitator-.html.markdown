@@ -27,7 +27,7 @@ One of my first questions in the training was the ethical/political dimension to
 > - the leader does not champion participation
 > - people want a quick ﬁx to a deep problem
 > - participation is performed around a non-issue or merely a surface issue—that is, when the focus is to "straighten something out."
-
+>
 > _from Participation Works: Business Cases from Around the World, James P. Troxel (ed.) with the Institute of Cultural Affairs, Alexandria,Virginia, Miles River Press, 1993, p. 28._
 
 I participated in the facilitator training both because of my enjoyment in facilitating small groups---and my desire to improve my methods and confidence for facilitating larger groups---and that my boss is also trained in the Technology of Participation and I've quite enjoyed being a participant in the use of these methods.

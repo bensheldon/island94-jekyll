@@ -20,9 +20,7 @@ Lewis Hyde, author of _The Gift_, has a wonderful essay entitled _[Frames from t
 **1. The common gift from god:**
 
 > The oldest model, I suspect, is one that takes the fruits of human creativity to be gifts from the gods, the muses, or the ancient ones and, as a corollary, takes it that such works therefore should not be bought and sold (nor can they be exactly forged, plagiarized, or stolen). Such was the traditional understanding for medieval Christians, their dictum being Scientia Donum Dei Est, Unde Vendi Non Potest--“Knowledge is a gift from God, consequently it cannot be sold.” To sell knowledge was to traffic in the sacred and thus to engage in the sin of simony. Reformation Protestants were particularly sensitive to simony, having charged the Catholic church with the buying and selling of ecclesiastical preferments and benefices. Martin Luther said of his own created works, “Freely have I received, freely I have given, and I want nothing in return.”
-
 >
-
 > I suppose that in the present moment if you were a Lutheran choir director who download hymns for your congregation and the music industry sued, saying that the work had been copyrighted and that “theft was theft,” you ought to be able to shift the frame by replying: “simony is simony.” I doubt that you’d find much support in the American legal tradition, however, even in its early years. Reformation ideas about knowledge had been considerably altered by the time the founders framed their own.
 
 **2. Ownership of the Landed Estate:**
@@ -32,11 +30,7 @@ Lewis Hyde, author of _The Gift_, has a wonderful essay entitled _[Frames from t
 **3. Monopoly:**
 
 > Monopoly had a marked historical meaning for early theorists of intellectual property, seventeenth-century Puritans having begun their argument with royal power over exactly this issue. As the historian and statesman Thomas Babington Macaulay explains in his History of England, Puritans in the House of Commons long felt that Queen Elizabeth had encroached upon the House’s authority to manage trade having, in particular, taken it “upon herself to grant patents of monopoly by scores.”  Macaulay lists iron, coal, oil, vinegar, saltpetre, lead, starch, yarn, skins, leather, and glass, saying that these “could be bought only at exorbitant prices.”
-
 >
-
 > Macaulay doesn’t list printing in his History, but it was the case that in the late sixteenth century the Queen’s printer, Christopher Barker, held monopoly rights to the Bible, the Book of Common Prayer, and all statutes, proclamations, and other official documents. And Macaulay does mention monopoly in his 1841 Parliamentary speech in opposition to a proposed extension to the term of copyright. “Copyright is monopoly, and produces all the effects which the general voice of mankind attributes to monopoly,” he said, asking rhetorically if the Parliament wished to reinstate “the East India Company’s monopoly of tea, or ... Lord Essex’s monopoly of sweet wines”?
-
 >
-
 > The understanding of copyright as monopoly was not Macaulay’s invention; it was almost as old as copyright itself. In 1694 John Locke--a strong supporter of property rights in other respects--had objected to copyrights given by government license as a form of monopoly “injurious to learning.” Locke was partly concerned with religious liberty, the laws in question having been written to suppress books “offensive” to the Church of England, but mostly he was distressed that works by classic authors were not readily available to the public in well-made, cheap editions (he himself had tried to publish an edition of Aesop only to be blocked by a printer holding an exclusive right). “It is very absurd and ridiculous,” he wrote to a friend in Parliament, “that any one now living should pretend to have a propriety in ... writings of authors who lived before printing was known or used in Europe.” Regarding authors yet living, Locke thought they should have control of their own work, but for a limited term only. As with Macaulay, his framing issue was monopoly privilege, not property rights.

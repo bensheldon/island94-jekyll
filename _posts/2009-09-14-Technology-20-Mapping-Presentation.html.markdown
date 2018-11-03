@@ -17,13 +17,13 @@ redirect_from:
 On Saturday I presented on Mapping at the Technology 2.0 community summit convened by the [Organizers Collaborative](http://organizerscollaborative.org) (I'm chairperson of the board), [Boston Neighborhood Network](http://bnntv.org) (the local cable access TV station) and the [John O'Bryant African American Institute](http://www.aai.neu.edu/). I had 10 minutes to...
 
 > 1. introduce the technology (mapping) with a very short description and reference to particular brand names (if that helps)
-
+>
 > 2. say how they use it and why it works for their purposes ("I use  google maps to...")
-
+>
 > 3. demonstrate online (if this helps)
-
+>
 > 4. provide a sense of how this technology is changing or has changed the world (i.e. why people should care about learning this tech).
-
+>
 > 5. wrap up
 
 I shared a panel with Curtis Henderson (BNN), Denise Moorehead ( [Third Sector New England](http://www.tsne.org/)) and Gabriel Fishman ( [Open Air Boston](http://openairboston.net)); it was moderated by Suren Moodliar of [Massachusetts Global Action](http://massglobalaction.org/) and the [Organizers Collaborative](http://organizerscollaborative.org). The presentation will be cablecast eventually, but I posted some pictures on Facebook and despite my attempts to tamp down the enthuisiasm, people were very interested. So here's what it was (only lacking in my dynamic physical presence).

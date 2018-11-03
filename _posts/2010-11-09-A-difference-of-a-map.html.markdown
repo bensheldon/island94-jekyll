@@ -32,11 +32,7 @@ I was invited to attend the summit because of my experience in organizing commun
 But not to  rip on that report either, since it verifies a lot of anecdotes about the impact of OLPC deployments:
 
 > Teachers in Ethiopia praised the ease in which they were able to adapt the XO to their existing curricula and its complimentary nature to their lesson plans. They noted that the introduction of the XO forced them to outline a daily schedule and their class objectives each morning, facilitating more effective planning and a more productive day in school. Teachers in the Solomon Islands repeatedly mention how the XO helps them to record children’s activities, monitor their progress, and track their assignments. In Haiti, most teachers noted in their interviews that it was much easier to edit their students’ work on the XO laptop and as such they were able to spend more time working one-on-one with students and less time lecturing.
-
 >
-
 > ....
-
 >
-
 > Increased specialized attention, motivation and enthusiasm for learning, and confidence in children’s futures as a result of skills and knowledge building are huge components in building child confidence and drastically improving attendance, thereby decreasing dropout rates in the long-run, and producing a more well-educated society. Similar overwhelmingly positive statements about child confidence and the feelings of being “special” and worthwhile as a result of the introduction of laptops into the community for the children are found in reports from Alabama in the United States all the way to remote indigenous communities in Western Australia.

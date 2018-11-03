@@ -29,15 +29,15 @@ The free-spirited atmosphere created by a lack of international copyright affect
 At this time the authors often banded together in copyright clubs or leagues to protest. [James Russell Lowell](http://en.wikipedia.org/wiki/James_Russell_Lowell), noted poet and president of American Copyright League penned this motto:
 
 >
-
+>
 > In vain we call old notions fudge,
-
+>
 > And bend our conscience to our dealing;
-
+>
 > The Ten Commandments will not budge,
-
+>
 > And stealing will continue stealing.
-
+>
 >
 
 This motto, in the same vein as many other pro-copyright writings, is interesting because of the themes it calls up. Notably, it evokes a traditionalist past implying that there was a time when literary property was respected. The motto also refers explicitly to stealing, yet at the time, there did not exist a legal framework of infringement. Indeed, courts at the time stated that there existed no common-law for the protection of literary works

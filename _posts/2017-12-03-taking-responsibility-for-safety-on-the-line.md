@@ -7,7 +7,7 @@ date: 2017-12-03 21:08 -0800
 From Sidney Dekker's _The Field Guide to Understanding 'Human Error'_:
 
 > To take responsibility for safety on the line, you should first and foremost look at people's work, more than (just) at people's safety.
-
+>
 > - What does it take to get the job done on a daily basis? What are the "workarounds," innovations or improvisations that people have to engage in in order to meet the various demands imposed on them?
 > - What are the daily "frustrations" that people encounter in getting a piece of machinery, or technology, or even a team of people (for example, contractors), to work the way they expect?
 > - What do your people believe is "dodgy" about the operation? Ask them that question directly, and you may get some surprising results.

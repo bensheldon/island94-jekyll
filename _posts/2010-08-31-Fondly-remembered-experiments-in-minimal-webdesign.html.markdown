@@ -21,11 +21,11 @@ redirect_from:
 Pantextual was a micro-blogging experiment developed by [Rebecca White](http://circuitous.org) and me in 2006; before we were completely sure we wanted to blog [via text message](http://twitter.com/pantextual). As an experiment, our intent was more of exploration than refinement---and refining with Drupal 5RC would have taken all the fun out of it. Our about page read:
 
 > Sometimes even a little bit is too much.
-
+>
 > But what if it was really beautiful, interesting and fun?
-
+>
 > Then you might not notice all the other irritations of life so much.
-
+>
 > Perhaps you might enjoy it.
 
 Our goal was to fit as much content into a square box as possible and yet still make it a pleasure to read and an invitation to explore.

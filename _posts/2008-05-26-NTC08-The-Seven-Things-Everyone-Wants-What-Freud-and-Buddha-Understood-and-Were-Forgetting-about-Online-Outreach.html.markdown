@@ -21,16 +21,14 @@ I've been meaning to type of some of my notes from the NTEN 2008 Conference, but
 
 In short (lots more notes and examples in the link):
 
->
-
 > **Need 1: To be SEEN and HEARD**
-
+>
 > Does your home page make people feel heard? Not many people give money because they read a well word-smithed mission statement. Effective sites and campaigns provide space for people to express themselves. Nonprofits need to truly listen to their supporters and acknowledge what they are saying.
-
+>
 > **Need 2: To be CONNECTED to someone or something**
-
+>
 > Engage people by connecting to what they (not you!) care about.
-
+>
 > **Need 3: To be part of something GREATER THAN THEMSELVES
 **
 
@@ -38,16 +36,16 @@ In short (lots more notes and examples in the link):
 **
 
 > Doom and gloom, and finger-wagging messages don't work.
-
+>
 > **Need 5: The security of TRUST**
-
+>
 > People are starved for a sense of trust in "the messenger."
-
+>
 > **Need 6: To be of SERVICE
 **
 
 > The #1 reason people stop giving to a nonprofit is that they feel like they are being treated like an ATM machine. They want to help, but they want to be of service, and to have different ways of serving. That need is not being fulfilled if all they hear is the unimaginative drumbeat of dollars.
-
+>
 > **Need 7: To want HAPPINESS for self and others
 **
 

@@ -58,9 +58,7 @@ And if you place them in terms of money that's been wasted through [fraud](http:
 When numbers are placed in context to things we know and have experience with, they take on actual meaning. This is from the Pew Research Center's Excellence in Journalism Project's [Principles of Journalism](http://www.journalism.org/resources/principles):
 
 > 7. IT MUST STRIVE TO MAKE THE SIGNIFICANT INTERESTING AND RELEVANT
-
 >
-
 > Journalism is storytelling with a purpose. It should do more than gather an audience or catalogue the important. For its own survival, it must balance what readers know they want with what they cannot anticipate but need. In short, it must strive to make the significant interesting and relevant. The effectiveness of a piece of journalism is measured both by how much a work engages its audience and enlightens it. This means journalists must continually ask what information has most value to citizens and in what form. While journalism should reach beyond such topics as government and public safety, a journalism overwhelmed by trivia and false significance ultimately engenders a trivial society.
 
 I'm not saying we all should strive to be journalists, but I think we should strive to make the significant interesting and relevant. To be fair, false significance can be a powerful rhetorical device when it comes to numbers: just watch your evening news the next time they breathlessly "break" a story about public employees making "gasp!" $60k/year. "How dare they make _twice_ the local average income level?!" ...because that's how averages work.

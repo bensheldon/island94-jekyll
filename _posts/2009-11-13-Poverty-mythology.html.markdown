@@ -17,9 +17,7 @@ Two beautifully worded comments from [Gift Hub on Wage Theft](http://www.gifthub
 and [Gerry](http://twitter.com/ddenizen):
 
 > They would have to abandon the mythology that the poor deserve it and recognize that most people would be just fine if they system were just, which it isn't.
-
 >
-
 > Fairness would be a nice start.
 
 http://interimtom.blogspot.com/

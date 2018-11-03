@@ -13,11 +13,8 @@ redirect_from:
 ---
 
 The IRS is using the last two digits of your Social Security Number to determine [when you'll receive your Economic Stimulus](http://www.irs.gov/irs/article/0,,id=180250,00.html) (e.g. free money i.e. your children's money).
-
->
-
 > Paper checks will also go out based on Social Security number. For Social Security numbers ending in 00 through 09, the paper checks will be mailed starting May 9 and will continue through May 16. A similar process will be repeated in the following weeks.
-
+>
 > Please allow additional delivery time, perhaps 3 to 5 days, since the paper checks are being sent through the mail.
 PAPER CHECK
 

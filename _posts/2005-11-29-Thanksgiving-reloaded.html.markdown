@@ -18,8 +18,6 @@ redirect_from:
 - "?p=18"
 ---
 
->
-
 > I have been writing blog postings offline on my commute to and from work but just forget to post them when I get home. Sorry for any delays.
 
 [ ![](http://static.flickr.com/20/68517300_e2619db2fd_m.jpg) ](href=http://www.flickr.com/photos/atomicworkshop/68517300/)

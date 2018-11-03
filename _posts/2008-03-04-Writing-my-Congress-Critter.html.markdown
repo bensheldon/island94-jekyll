@@ -17,14 +17,14 @@ I got one of those "write your congress-critter right now!" emails and tried to 
 **Update:**Just got an email saying that Free Press was having some technical issues that are now fixed (PS they use Convio to route representative messages).
 
 >
-
+>
 > Dear Michael Capuano,
-
+>
 > Please do not grant legal immunity to telephone companies for turning over our private phone records to the government. This is not an issue of national security but of one of the upholding due process and the rule of law in our great country.
-
+>
 > As a patriotic and freedom loving American, I understand that extraordinary measures must be taken when those freedoms are in peril. But such measures must take place legally and through the time-tested methods our forefathers established within the Constitution and our system of laws.
-
+>
 > Please do not reward the White House for seeking to overturn the checks and balances of the Constitution and our rule of law. Please do not excuse the unlawful actions of telecom companies in turning over private information without legal cause.
-
+>
 > Thank you,
 Ben Sheldon

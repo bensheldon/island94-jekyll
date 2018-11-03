@@ -23,7 +23,7 @@ Carl Rogers on the seven stages of change (cribbed from [here](http://www.behik.
 > - no desire for change;
 > - feelings neither recognized nor owned;
 > - problems neither recognized nor perceived.
-
+>
 > Two:
 >
 > - expressions begin to flow;
