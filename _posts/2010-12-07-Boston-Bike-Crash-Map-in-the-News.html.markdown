@@ -22,9 +22,9 @@ Boston's _Metro_ newspaper ran a [page 2 article](http://www.metro.us/boston/loc
 - In the [_Boston Globe Blog_'s "The Angle"](http://www.boston.com/bostonglobe/editorial_opinion/blogs/the_angle/2010/12/bike_crash_map.html):
 
 > This is a stunning example of what a non-profit can do with government statistics, Google Maps, and a very dedicated volunteer.
-
-- On [WBUR Radio](http://www.wbur.org/2010/11/29/bike-crash-map):
-
+>
+> - On [WBUR Radio](http://www.wbur.org/2010/11/29/bike-crash-map):
+>
 > Among other concentrations, it shows a dark line of bruised elbows, broken fenders, and worse stretching from the Back Bay to Allston along Commonwealth Avenue, right past our studios at WBUR.
 
 - And [Universal Hub](http://www.universalhub.com/2010/thats-lot-crashes).

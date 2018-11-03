@@ -15,8 +15,6 @@ redirect_from:
 
 Interesting explanation about the traditional layout of the Talmud. From Andrew on the Marks and Meaning [mailing list](http://groups.google.com/group/marks-and-meaning?hl=en)
 
->
->
 > I'm reminded as you discuss this of the arrangement of texts in a traditional manuscript copy of the Talmud. Most printed copies are a bit different, but originally a Talmud page was divided into nine squares like a tic-tac-toe grid. Sometimes the central box was further subdivided, but I'm getting ahead of myself.
 >
 > The central box served as the location of the primary text to be analyzed in the original Hebrew — usually it was a Torah or Haftorah portion. The boxes to the left and right were explanations of the vowel-pointing for this piece of text; in other words, they were commentaries on what the Hebrew ./meant./ — what actual words were in play here, along with a brief definition of unusual or rare words. The boxes above and below the main text were set up to act as containers for alternate versions of the story, or stories that played off of elements in the center box.

@@ -46,8 +46,6 @@ The 3 major approaches to Critical Thinking are:
 
 Here's my conclusion:
 
->
->
 > Interestingly, the majority of theories and works cited fall under the skills approach. In addition, both Lipman and Perkins fall under more than one approach; Lipman falls under all three. Lipman and Perkin’s wider frame could explain this: both approach the teaching of critical thinking from a frame of philosophy rather than psychology or cognition.
 >
 > Though it was not known when this paper was first conceived, this paper ascribes to the understanding approach. By placing these individuals’ theories and works within the context of critical thinking pedagogy, and relating them to each other, these theories and works can be both better understood and applied.

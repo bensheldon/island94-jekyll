@@ -16,8 +16,6 @@ redirect_from:
 
 I love reading Mac vs. PC pissing contests. The fact is, a computer, for most consumers (not workplace ROI), is a commodity device (though I admit the pissing usually takes place between niche users). That all being said, I enjoyed this [thread](http://apple.slashdot.org/comments.pl?sid=1002215&cid=25450333) on a recent Slashdot posting entitled " [Doing the Math On the New MacBook](http://apple.slashdot.org/apple/08/10/21/0132232.shtml)":
 
->
->
 > Macs are design items. Some people don't mind paying a higher price for something which appeals to them.
 >
 > Price is what you pay, value is what you get. If you subjectively feel that the value of the product matches the price paid then an objective comparison is not significant.

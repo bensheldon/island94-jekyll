@@ -15,8 +15,6 @@ redirect_from:
 
 From "Business of Design", a section of David Barringer's excellent book _There's nothing funny about design_:
 
->
->
 > **Definitions**
 >
 > Quality of life depends on quality of mind, which depends on quality of language. Heightened experience requires both practiced sensory perception and the vocabulary with which to render its significance to yourself and others.

@@ -17,14 +17,10 @@ Read a fun article about [Breakfast Cereals](http://www.salon.com/mwt/food/eat_d
 
 Mostly I like the article because of all the industry definitions:
 
->
->
 > RTEC: Ready to Eat Cereal
 >
 > inclusions: the industry term for all that extra junk like raisins, marshmallows and honey-coated granola clusters.
 
 and random facts, like this one:
 
->
->
 > a serving of Cheerios has 10 milligrams more sodium than a serving of Doritos.

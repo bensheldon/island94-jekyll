@@ -18,8 +18,6 @@ We just had our AmeriCorps\*VISTA orientation last week---which to our delight a
 
 I realized I take a very broad view of poverty; perhaps as broad as they come. One of the activities involved each of us (about 40 people in all) writing on a tacky note their definition of poverty. My definition I gave was:
 
->
->
 > Poverty is the inability to fully participate in or benefit from society.
 
 The other responses were along the standard lines of material poverty (not having basic survival needs met), and what I would breezily (and in the current economy) define as the "making under $30k a year" type of poverty (and the personal/social issues that come along with that). And to be perfectly clear, I fully acknowledge that these are the standard and usual definitions of poverty---the attendees were a wicked smart bunch.
@@ -38,8 +36,6 @@ But I want to move beyond the specific religion aspect and back to poverty for t
 
 The conception of poverty is a secular humanistic version of what Buddhism calls _dukha_, a fundemental element of life. I'm the first to be suspicious of people quoting eastern philosophies, but the idea of dukha is illuminating: usually it's defined as "suffering", that something is wrong, that life is "awry". I woul advance a more rigorous (and humanistic) definition along the lines of:
 
->
->
 > Human beings, as innately and uniquely compassionate, imaginative and intelligent creatures, have fundemental anxiety over existing within a universe/reality of scarcity. Not just a scarcity of energy/food/shelter, but of, among other things, time (our linear lifespan), physical space (our necessary physical existence displaces other beings) and understanding (we cannot perfectly communicate ourselves to one another). This anxiety is dukha, which is innate to being human.
 
 As Karen Armstrong would argue, the purpose of a practical religion is to help people overcome, transcend or accept this suffering (or help people move towards such unattainable perfects). Such practical religions attempt to reach towards this goal through both material, psychological and social means (the latter two being what we might call spiritual means).

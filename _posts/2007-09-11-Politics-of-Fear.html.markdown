@@ -16,8 +16,6 @@ redirect_from:
 
 There are so many overlapping assumptions and statements in this congressman's statement it's amazing. It's also amazing how 40 years of history inures you to something viciously contested by minds great and small.
 
->
->
 > On September 21st [1964], Congressman Donald C. Bruce of Indiana lashed out at the Daisy and Ice Cream ads at a Republican Ward dinner. He suggested that the spots aided Soviet political goals by "repeating as fact a Communist-sponsored lie which for years has been Kremlin-directed propaganda aimed at neutralizing the American will to resist the Communist program for world conquest by promoting fear of 'the bomb.'"
 >
 >

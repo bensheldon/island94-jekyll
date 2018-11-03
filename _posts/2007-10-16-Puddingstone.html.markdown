@@ -53,8 +53,6 @@ Puddingstone is also to be imbued with magical and protective powers. [Herfordsh
 
 **
 
->
->
 > There was a giant in time of old,
 >
 > A mighty one was he;

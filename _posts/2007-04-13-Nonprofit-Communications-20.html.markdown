@@ -24,8 +24,6 @@ I am also very lucky to serve with Lauren-Glenn on the editorial board of the [C
 
 The video itself is approximately 1 hour, 24 minutes long and worth every second, but I included my notes from the session below.
 
->
->
 > Community building talent is the single most important resource in the modern world.
 
 Peter Drucker

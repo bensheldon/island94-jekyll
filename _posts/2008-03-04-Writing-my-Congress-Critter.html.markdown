@@ -16,8 +16,6 @@ I got one of those "write your congress-critter right now!" emails and tried to 
 
 **Update:**Just got an email saying that Free Press was having some technical issues that are now fixed (PS they use Convio to route representative messages).
 
->
->
 > Dear Michael Capuano,
 >
 > Please do not grant legal immunity to telephone companies for turning over our private phone records to the government. This is not an issue of national security but of one of the upholding due process and the rule of law in our great country.

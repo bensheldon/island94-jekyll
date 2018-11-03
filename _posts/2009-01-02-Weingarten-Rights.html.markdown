@@ -17,8 +17,6 @@ redirect_from:
 
 I found my union card today and with it was a little [Weingarten Rights](http://en.wikipedia.org/wiki/Weingarten_Rights) card---explaining my right to have union representation during an interview by my employer. I didn't particularly like the text of it, so this is from Wikipedia:
 
->
->
 > RULE 1: The employee must make a clear request for union representation before or during the interview. The employee cannot be punished for making this request.
 >
 > RULE 2: After the employee makes the request, the employer must choose from among three options. The Employer must either: grant the request and delay questioning until the union representative arrives and has a chance to consult privately with the employee; deny the request and end the interview immediately; or give the employee a choice of having the interview without representation or ending the interview.
@@ -29,8 +27,6 @@ In 2000, Weingarten Rights were extended to non-union employees (in the form of 
 
 Some [protected activities](http://library.findlaw.com/2004/Jul/19/133510.html) still do exist for non-union employees:, including:
 
->
->
 > 1. Free To Discuss Discipline, Wages and Benefits
 >
 > Non-union employers cannot prohibit employees from discussing work conditions, wages or discipline. In Double Eagle Hotel & Casino, an employer violated the NLRA by promulgating a work rule that prohibited employees from sharing such information with each other or persons outside the company. Such a rule, according to the Board, "plainly infringes on upon Section 7 rights."

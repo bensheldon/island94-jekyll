@@ -18,8 +18,6 @@ redirect_from:
 
 A few weeks ago, I listened to [Bill Ayers](http://en.wikipedia.org/wiki/Bill_Ayers) interviewed NPR's [Fresh Air](http://www.npr.org/templates/story/story.php?storyId=97112600). As an interview, it wasn't very good, but Ayers himself said some really interesting things, which I went through and transcribed:
 
->
->
 > You cannot live a political life---you can't live a moral life---if you're not willing to open your eyes and see the world more clearly; see some of the injustice that is going on. Try to make yourself aware of what's happening in the world.
 >
 > And when you are aware, you have a responsibility to act. And when you act, you have a responsibility to doubt. And when you doubt you can't get paralyzed; you have to use that doubt to act again. And that then becomes the cycle. You open your eyes, you act, you doubt; you act, you doubt.
@@ -32,8 +30,6 @@ While the question was specifically about whether Ayers had doubts about what he
 
 Ayers also talked about American democracy in a way that resonates very strongly with me---and where I draw my patriotism from:
 
->
->
 > **To me, in a wild and diverse democracy like this, each of us should be trying to talk to lots and lots and lots of people outside of our comfort zone and community.** And that injunction goes even further for political leaders. They should talk to everyone. They should listen to everyone. And at the end of the day, they should have a mind of their own.
 
 And I don't want to get into the ethics or morality of what he (or the collective for which he identified with) did. Stick to the didactic.

@@ -12,8 +12,6 @@ redirect_from:
 
 Great comment from slashdot on [English Units](http://tech.slashdot.org/comments.pl?sid=1066141&cid=26159359):
 
->
->
 > A league is about the distance a healthy man can walk on a good road in one hour. A fathom is about the height of a tall man; it is about eighteen hand widths (fingers closed). A US gallon is the volume of eight pounds of water. An imperial gallon (i.e. the UK gallon) is the volume of ten pounds of water.
 >
 > One interesting thing about weights. The system of dram/ounce/pound is base 16, which makes division by two a practical measuring operation. Take a pound of something readily dividable, divide it into two equal portions (using a balance scale). Then repeat the process four times. The result is one ounce.
@@ -32,8 +30,6 @@ Great comment from slashdot on [English Units](http://tech.slashdot.org/comments
 > 1 furlong = 10 chains = distance ox team can plow without rest
 1 mile = 880 fathoms
 
->
->
 > Notice that if you lay out a square field such that an ox team can plow one furrow across then rest, you get a square with sides of exactly one furlong or 660 ft. The area of that field 43,600 square feet, which is nearly exactly one acre (43,560 ft).
 >
 > For purposes of round measurement (no fractions), such as you would use in commerce, traditional measurement is far more convenient. If I'm buying liquor, the following units exhaust all the practical measures to which I might wish to round a purchase:

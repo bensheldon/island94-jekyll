@@ -14,8 +14,6 @@ redirect_from:
 
 I was forwarded this from [Angelina](http://alinapazwrites.blogspot.com/), who apparently read it on the side of her Starbucks cup (emphasis mine):
 
->
->
 > "There is a subtle difference between a mission and a promise. A mission is something you strive to accomplish -- a promise is something you are compelled to keep. **One is individual, the other is shared.** When a mission and a promise are one and the same . . . that's when mountains are moved and races are won."
 >
 > _Hala Moddelmog,
