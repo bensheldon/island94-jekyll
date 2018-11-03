@@ -12,7 +12,7 @@ redirect_from:
 - "?p=1907"
 ---
 
-Again from Marianne M. Jennings' _ [The Seven Signs of Ethical Collapse: How to Spot Moral Meltdowns in Companies... Before It's Too Late](http://www.amazon.com/Seven-Signs-Ethical-Collapse-Companies/dp/0312354304)_:
+Again from Marianne M. Jennings' _[The Seven Signs of Ethical Collapse: How to Spot Moral Meltdowns in Companies... Before It's Too Late](http://www.amazon.com/Seven-Signs-Ethical-Collapse-Companies/dp/0312354304)_:
 
 > Some years ago a former dean asked me to look into a new way of teaching students business ethics. He wanted to stop sending our students over to the philosophy department for their ethics training. His reasoning was that "they go over there, find out capitalism is a tool of the devil, and then switch majors." His theory had one more part to it. Those who did not switch majors and returned to study business came back with a guilt complex. They assumed, based on the views of their philosophy professors, that they had already sold their souls to the devil, so what possible difference could a little cooking of the books mean in their eternal damnation? So, those who remained became comfortable with crossing ethical lines.
 >

@@ -13,7 +13,7 @@ redirect_from:
 - "?p=1609"
 ---
 
-The following is from the conclusion of the _ [Axemaker's Gift](http://www.amazon.com/Axemakers-Gift-Robert-Ornstein/dp/0874778565)_ by James Burke and Robert Ornstein:
+The following is from the conclusion of the _[Axemaker's Gift](http://www.amazon.com/Axemakers-Gift-Robert-Ornstein/dp/0874778565)_ by James Burke and Robert Ornstein:
 
 > The first step may be to recognize that we can use our technology as it has been used time and again through history. We can use it to change minds, but this time for our own reasons in our own terms and at our own pace, if we use the coming technologies for what they could be: instruments of freedom. The very interactive nature of the modem world makes it less easy to block such an act and to continue with the old ways of hierarchy and division. But in any case, all that ever kept us in thrall of institutions was our ignorance of the kind of knowledge that could soon now be so easily accessible and understandable that it will be a waste of time to know it. When Gutenberg printed his books, he greatly lessened the power of memory and tradition. The new technologies will lessen the power of arcane, specialist knowledge. And when they do, we will all, in one sense, return to what we were before the first axe.
 

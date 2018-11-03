@@ -22,4 +22,4 @@ From _The Number's Game: the commonsense guide to understanding numbers in the n
 >
 > In everyday speech, "average" is a word meaning low or disdained. With incomes, the average is high. The colloquial use, being blunt, thoughtless, and bordering on a term of abuse, distorts the statistical one, which might, according to the distribution, be high, or low, or in the middle, or altogether irrelevant. It is worth knowing which. If only one thought survives about averages, let it be that they are not necessarily anywhere near the middle, nor representative of what's typical, and that places often called "the middle" by politicians or the media may be far removed. These ideas have been lazily hitched together for too long. It is time for a divorce.
 
-A more narrative explanation is available from _ [The Atlantic](http://www.theatlantic.com/magazine/archive/2006/09/the-height-of-inequality/5089/)._
+A more narrative explanation is available from _[The Atlantic](http://www.theatlantic.com/magazine/archive/2006/09/the-height-of-inequality/5089/)._
