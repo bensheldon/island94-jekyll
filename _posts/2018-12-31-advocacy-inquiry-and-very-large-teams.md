@@ -3,7 +3,7 @@ date: '2018-12-31 18:38 -0800'
 published: true
 title: 'Advocacy, inquiry, and very large teams'
 ---
-> From _Overcoming The Five Dysfunctions of a Team_ by Patrick Lencioni: 
+From _Overcoming The Five Dysfunctions of a Team_ by Patrick Lencioni: 
 
 > **How many people should be on a team?**
 >
