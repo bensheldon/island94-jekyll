@@ -1,10 +1,10 @@
 ---
 date: '2018-12-31 18:25 -0800'
-published: true
+published: false
 title: What are the rewards?
 ---
 
-From _Overcoming The Five Dysfunctions_ by Patrick Lencioni: 
+From _Overcoming The Five Dysfunctions of a Team_ by Patrick Lencioni: 
 
 > **Question #1: Are we really a team?**
 >
