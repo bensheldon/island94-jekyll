@@ -1,6 +1,6 @@
 ---
 date: '2018-12-31 18:25 -0800'
-published: false
+published: true
 title: What are the rewards?
 ---
 
