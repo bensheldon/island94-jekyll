@@ -1,6 +1,6 @@
 ---
 date: '2019-01-23 07:45 -0800'
-published: false
+published: true
 title: The work of product management
 ---
 From _[Escaping the Build Trap](Escaping the Build Trap: How Effective Product Management Creates Real Value)_ by Melissa Perri:
