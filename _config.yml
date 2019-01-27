@@ -77,4 +77,7 @@ prose:
           label: "Add Tags"
           placeholder: "Choose Tags"
           alterable: true
-
+      - name: "published"
+        field:
+          element: "checkbox"
+          value: true
