@@ -12,7 +12,7 @@ redirect_from:
 - "?p=2249"
 ---
 
-From the introduction to Paul Lockhart's _A Mathematician's Lament _( [PDF](http://www.maa.org/devlin/LockhartsLament.pdf);  it's also published as a book which is how I discovered it):
+From the introduction to Paul Lockhart's _A Mathematician's Lament_ ([PDF](http://www.maa.org/devlin/LockhartsLament.pdf);  it's also published as a book which is how I discovered it):
 
 > A musician wakes from a terrible nightmare. In his dream he finds himself in a society where music education has been made mandatory. “We are helping our students become more competitive in an increasingly sound-filled world.” Educators, school systems, and the state are put in charge of this vital project. Studies are commissioned, committees are formed, and decisions are made— all without the advice or participation of a single working musician or composer.
 >
