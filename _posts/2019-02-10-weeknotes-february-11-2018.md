@@ -30,4 +30,4 @@ From this post by [Cate Huston](https://cate.blog/2019/02/06/the-cost-of-fixing-
 5. Conflict in values
 6. Work overload
 
-Last, I got an email that the Foundation Center and guidestar are rebranding as Candid. I think it’s ridiculous. 
+Last, I got an email that the Foundation Center and Guidestar are [rebranding as Candid](https://foundationcenter.org/about-us/press-room/archive/foundation-center-and-guidestar-join-forces-to-become-a-new-nonprofit-entity-named-candid). I think it’s ridiculous.
