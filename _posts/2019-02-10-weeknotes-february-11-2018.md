@@ -15,7 +15,7 @@ I binge read Fred Brooks _The Mythical Man Month_ after seeing someone tweet a B
 2. definitely not in the "never plan" camp:
 > Sharp milestones are in fact a service to the team, and one they can properly expect from a manager. The fuzzy milestone is the harder burden to live with. It is in fact a millstone that grinds down morale, for it deceives one about lost time until it is irremediable. And chronic schedule slippage is a morale-killer.  
 
-We had a work trip visiting Montgomery, Alabama to attend the National Memorial of Peace and Justice and the Legacy Museum, in addition to the Civil Rights Museum and the Rosa Parks Museum. At the legacy museum there was a neat display weighing regressive court opinions (2x) vs progressive ones. I liked a quote from justice Brennan, in dissent of one of the regressive ones, criticizing the majority of having a “fear of too much justice”.
+We had a work trip visiting Montgomery, Alabama to attend the National Memorial of Peace and Justice and the Legacy Museum, in addition to the Civil Rights Museum and the Rosa Parks Museum. At the legacy museum there was a neat display weighing regressive court opinions (2x) vs progressive ones. I liked a quote from Justice Brennan, in dissent of one of the regressive ones, criticizing the majority of having a “fear of too much justice”.
 
 Two weeks ago I attended a [manager training](https://www.beplucky.com/manager/). One suggestion was to dedicate the 1st one-on-one of the month to career development, to ensure it happens. I followed that advice with my reports and had some incredible conversations. I asked them to pick from the Career Planning cards from the [Plucky 1:1 Deck](https://shop.beplucky.com/products/the-plucky-1-1-starter-pack). 
 
