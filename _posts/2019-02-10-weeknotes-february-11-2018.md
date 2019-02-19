@@ -1,7 +1,9 @@
 ---
 date: '2019-02-10 20:09 -0800'
 published: true
-title: 'Weeknotes - February 11, 2018'
+title: 'Weeknotes - February 10, 2018'
+redirect_from:
+- "2019/02/weeknotes-february-11-2018"
 ---
 I'm trying out week notes in the spirit of [Phil Gyford](https://www.gyford.com/phil/writing/2018/05/13/modern-desperation/) :
 
