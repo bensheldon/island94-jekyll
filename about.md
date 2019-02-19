@@ -4,7 +4,7 @@ title: About
 date: '2005-11-13'
 tags: []
 permalink: /about/
-redirects:
+redirect_from:
 - node/4
 - about/
 - "?p=4"
