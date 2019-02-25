@@ -27,7 +27,7 @@ More from [Christina Maslach on Job Burnout](https://itrevolution.com/understand
 
 Anna Shipman on [Finding the Next Level Tech Job](https://www.annashipman.co.uk/jfdi/finding-next-level-job.html):
 
-<blockquote markdown=“1”>
+<blockquote markdown="1">
 
 The first important step was to work out what I was good at. This is something worth doing because although it seems like it might be obvious, I tend to focus on getting things done, and don’t always reflect on what skills it is that mean I’m succeeding (or what weaknesses mean I’m not).
 
