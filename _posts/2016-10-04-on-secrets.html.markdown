@@ -9,7 +9,7 @@ tags:
 From "Secrets: A memoir of Vietnam and the Pentagon Papers" by Daniel Ellsberg: 
 
 
-> “Henry, there’s something I would like to tell you, for what it’s worth, something I wish I had been told years ago. You’ve been a consultant for a long time, and you’ve dealt a great deal with top secret information. But you’re about to receive a whole slew of special clearances, maybe fifteen or twenty of them, that are higher than top secret.
+> “Henry [Kissinger], there’s something I would like to tell you, for what it’s worth, something I wish I had been told years ago. You’ve been a consultant for a long time, and you’ve dealt a great deal with top secret information. But you’re about to receive a whole slew of special clearances, maybe fifteen or twenty of them, that are higher than top secret.
 >
 > “I’ve had a number of these myself, and I’ve known other people who have just acquired them, and I have a pretty good sense of what the effects of receiving these clearances are on a person who didn’t previously know they even existed. And the effects of reading the information that they will make available to you.
 >
