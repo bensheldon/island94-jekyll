@@ -11,7 +11,7 @@ The back page of [“Learning How to Learn” by Joseph D. Novak, D. Bob Gowin, 
 > 
 > All those concerned with the improvement of education will find something of interest in _Learning how to learn_.
 
-I revisited [“When you get that wealthy, you start to buy your own bullshit”: The miseducation of Sheryl Sandberg”](https://www.vanityfair.com/news/2018/11/sheryl-sandberg-harvard-business-school-leadership) which I’ve been [tweeting about](https://twitter.com/bensheldon/status/1078527121532710912). From “The Parable of the Sadhu”, a Harvard Business case study by Bowen McCoy, which is held up as an example of bullshit and stands in contrast to the ethics of [The Concrete Sumo](https://island94.org/2018/07/the-concrete-sumo): 
+I revisited [“When you get that wealthy, you start to buy your own bullshit”: The miseducation of Sheryl Sandberg”](https://www.vanityfair.com/news/2018/11/sheryl-sandberg-harvard-business-school-leadership) which I’ve been [tweeting about](https://twitter.com/bensheldon/status/1078527121532710912). From ["The Parable of the Sadhu"](http://dhensley.com/wp-content/uploads/2017/06/parable-of-sadhu.pdf), a Harvard Business case study by Bowen McCoy, which is held up as an example of bullshit and stands in contrast to the ethics of [The Concrete Sumo](https://island94.org/2018/07/the-concrete-sumo): 
 
 > The word *ethics* turns off many and confuses more. Yet the notions of shared values and an agreed-upon process for dealing with adversity and change – what many people mean when they talk about corporate culture – seem to be at the heart of the ethical issue. People who are in touch with their own core beliefs and the beliefs of others and who are sustained by them can be more comfortable living on the cutting edge. At times, taking a tough line or a decisive stand in a muddle of ambiguity is the only ethical thing to do. If a manager is indecisive about a problem and spends time trying to figure out the “good” thing to do, the enterprise may be lost. 
 > 
@@ -31,7 +31,7 @@ From ["The Vision 2 and the Severing of Politics from Video Games"](https://www.
 
 > Taking those risks requires supporting structures that, in Pedercini’s view, the industry lacks. “The parallel with the film industry is useful,” he said. “A politically uncompromising film like ‘Sorry to Bother You’ became a blockbuster, but its production would not have been possible without Sundance and a whole supportive ecosystem.” Video games have no such ecosystem; as Yang put it, **the medium is in the process of reverse-engineering an art form from an entertainment business**. “We have to build the arts-and-culture platforms and the festival circuits,” Yang said. “We have to convince funding bodies and governments that games are worth more than their sales numbers.”
 
-Penelope Trunk’s ["Here’s the high-priced advice college applicants buy that doesn’t trigger the FBI"](http://blog.penelopetrunk.com/2019/03/14/heres-the-high-priced-advice-college-applicants-buy-that-doesnt-trigger-the-fbi/)":
+Penelope Trunk’s ["Here’s the high-priced advice college applicants buy that doesn’t trigger the FBI"](http://blog.penelopetrunk.com/2019/03/14/heres-the-high-priced-advice-college-applicants-buy-that-doesnt-trigger-the-fbi/):
 
 > …the workplace is just like college admissions. You learn the rules and use them to your advantage. So teach your kids when they’re young that the higher the stakes the game is, the more arcane the rules are. And the more arcane the rules, the more likely it is that you can find a backdoor route to the top. 
 > 
