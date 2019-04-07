@@ -6,7 +6,6 @@ tags: []
 permalink: /about/
 redirect_from:
 - node/4
-- about/
 - "?p=4"
 ---
 

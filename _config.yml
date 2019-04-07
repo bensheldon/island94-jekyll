@@ -35,6 +35,7 @@ exclude:
   - scripts
   - spec
   - vendor # for building on CircleCI or anywhere that installs gems into vendor
+  - .idea
 
 plugins:
   - jekyll-coffeescript

@@ -12,10 +12,9 @@
 
     <div class="collapse navbar-collapse" id="navbar-collapse-links">
       <form id="search" class="navbar-form navbar-right" action="https://google.com/search" method="get">
-        <fieldset role="search">
-          <input class="form-control" name="q" type="hidden" value="site:island94.org">
-          <input class="search form-control" name="q" placeholder="Search (via Google)" results="0" type="text">
-        </fieldset>
+        <input class="form-control" name="q" type="hidden" value="site:island94.org">
+        <input class="search form-control" role="search" name="q" placeholder="Search with Google" aria-label="Search with Google" results="0" type="text">
+        <button class="sr-only" type="submit">Search</button>
       </form>
 
       <ul class="nav navbar-nav navbar-right">
