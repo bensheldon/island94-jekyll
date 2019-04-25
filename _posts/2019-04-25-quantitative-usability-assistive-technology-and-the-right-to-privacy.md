@@ -8,7 +8,7 @@ tags:
 ---
 You have a _legal obligation_ to produce an accessible website; these are some thoughts about what comes next.
 
-At [Lighthouse Labs](http://lighthouse-sf.org/lighthouse-labs/) this month, there was a lively discussion on “Detecting accessibility events, a debate on the ethics and implications of this new feature from Apple” [article](https://www.applevis.com/blog/apple-assistive-technology-ios-macos-news/apple-shares-information-its-new-accessibility-events). I offered this in the pre-discussion email thread:
+At [Lighthouse Labs](http://lighthouse-sf.org/lighthouse-labs/) this month, there was a lively discussion on “Detecting accessibility events, a debate on the ethics and implications of this new feature from Apple” [[article](https://www.applevis.com/blog/apple-assistive-technology-ios-macos-news/apple-shares-information-its-new-accessibility-events)]. I offered this in the pre-discussion email thread:
 
 > I wanted to share some perspective as a web developer: I would like to have aggregated analytics about what screen-readers are using my website (how many and which ones). Here’s why:  
 >   
