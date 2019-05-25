@@ -2,8 +2,17 @@
 $fa-font-path: "../fonts/fontawesome";
 
 // Bootstrap
-$font-size-base: 16px;
+$font-size-base: 19px;
+$line-height-base: 31 / 19;
+$headings-font-weight: 700;
 $blockquote-font-size: $font-size-base;
+
+$navbar-height: 70px;
+$navbar-default-bg: transparent;
+.navbar-brand {
+  color: black;
+  font-weight: 700;
+}
 
 @import "vendor/syntax-highlighting";
 @import "vendor/bootstrap/bootstrap";
