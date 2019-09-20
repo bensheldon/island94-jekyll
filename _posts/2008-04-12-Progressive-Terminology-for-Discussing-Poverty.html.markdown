@@ -44,7 +44,7 @@ _To note, from the [2008 Federal Poverty Guidelines](http://aspe.hhs.gov/poverty
 
 **And a related example...**
 
-This is interesting to me because I work at a prison education organization. We have lots of materials that talk about "prisoners". An ex-prisoner recently called that word into question, saying that it was dehumanizing and he preferred to be referred to as a person (perhaps incarcerated person?). However, I work with a group of folks who deliberately call themselves Ex-Prisoners. So there's no easy answer. (thanks [Mea](http://www.partakers.org)!)
+"This is interesting to me because I work at a prison education organization. We have lots of materials that talk about 'prisoners'. An ex-prisoner recently called that word into question, saying that it was dehumanizing and he preferred to be referred to as a person (perhaps incarcerated person?). However, I work with a group of folks who deliberately call themselves Ex-Prisoners. So there's no easy answer." (thanks [Mea](http://www.partakers.org)!)
 
 **External Resources:**
 
