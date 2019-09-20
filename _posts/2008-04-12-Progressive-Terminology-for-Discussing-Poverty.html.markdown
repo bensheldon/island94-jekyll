@@ -13,8 +13,6 @@ redirect_from:
 - "?p=214"
 ---
 
-.!.
-
 Because of constructive criticism of some of my organization's archaic language, I [asked](http://groups.yahoo.com/group/Mission-Based-Massachusetts/message/2096) the [Mission Based Massachusetts Listserv](http://groups.yahoo.com/group/Mission-Based-Massachusetts/), a nonprofit discussion list, what terms they use in place of "poor people". Below are all of the responses I got, which were awesome!
 
 **Some terminology...**
@@ -34,11 +32,10 @@ Because of constructive criticism of some of my organization's archaic language,
 - For a grant proposal, look at the language the grantmaker is using and follow their lead. (thanks [Dennis](http://caasomerville.org)!)
 - Think of the program as asset based rather than deficit based: people who benefit end up being associated with the problem and not the solution (thanks [Alan](http://homeinc.org)!).
 - "Describing the populations we want to serve as 'marginalized' or 'most vulnerable' makes our donors feel good about themselves, but at the risk of objectifying people, using a dominant culture's description of them as somehow Other. We try to incorporate this awareness into our outreach materials by assuming that the people we serve will be reading the materials. How would they feel about this description? How would they describe themselves? Does a description assume that the people have brought their situation on themselves? Does it assume that the people are simply victims and not actors in their lives? Does the language carry implicit judgment? Calling an activity 'drug abuse' carries many more judgments and assumptions than calling it 'drug use.' (thanks [Kathy](http://www.ccaa.org)!)
--
 
 "'Working poor is a helpful phrase for those who are working, which reminds people that we aren't talking about 'welfare queens', a term I fear may still have resonance....I like to remind people what the actual Federal Poverty Guidelines are. We know, but many people outside our profession don't actually know how low it is, and if you take a minute and ask people to think about how it compares to their own household income, you can see people digest what that means." (thanks [Michelle](http://caasomerville.org )!)
 
-_To note, from the [2008 Federal Poverty Guidelines](http://aspe.hhs.gov/poverty/08poverty.shtml), an individual making less than $10,400 is in poverty, while for a household of 4 poverty is earning less than $21,200 (in the lower 48 states, slightly more in Hawaii and Alaska). As of 2006 there were 36.5 million Americans in poverty (according to the [US Census Bureau](http://www.census.gov/hhes/www/poverty/poverty06/pov06hi.html))_.
+_To note, from the [2008 Federal Poverty Guidelines](http://aspe.hhs.gov/poverty/08poverty.shtml), an individual making less than $10,400 is in poverty, while for a household of 4 poverty is earning less than $21,200 (in the lower 48 states, slightly more in Hawaii and Alaska). As of 2006 there were 36.5 million Americans in poverty (according to the [US Census Bureau](http://www.census.gov/hhes/www/poverty/poverty06/pov06hi.html))._
 
 **Some said that the terminology wasn't the issue...**
 
