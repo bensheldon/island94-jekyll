@@ -16,7 +16,7 @@ There are two things that should be addressed.
 
 ...
 
-I’ve been attempting to find mechanisms to remind myself that my attention is sovereign every single time I open an app on my phone. The only solution, has been to keep it in my pocket and not even try and open an app. Slowly slowly you begin to not bother pulling out your phone atll. If you are actually doing something, like reading a longread news article and feel the urge to check social media you have to think to yourself ‘Should I open twitter *again* or should I keep doing what I was doing’. 
+I’ve been attempting to find mechanisms to remind myself that my attention is sovereign every single time I open an app on my phone. The only solution, has been to keep it in my pocket and not even try and open an app. Slowly slowly you begin to not bother pulling out your phone at all. If you are actually doing something, like reading a longread news article and feel the urge to check social media you have to think to yourself ‘Should I open twitter *again* or should I keep doing what I was doing’. 
 
 </blockquote>
 
