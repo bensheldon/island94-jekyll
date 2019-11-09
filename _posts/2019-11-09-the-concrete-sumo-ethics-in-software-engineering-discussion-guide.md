@@ -3,8 +3,8 @@ date: '2019-11-09 12:38 -0800'
 published: true
 title: 'The Concrete Sumo - Ethics in Software Engineering Discussion Guide '
 ---
-I prepared this disucssion guide for Taft H. Broome, Jr's [
-The Concrete Sumo"](https://www.onlineethics.org/CMS/edu/instructessays/sumo.aspx) and delivered it two weeks ago for the software engineering team at Code for America. 
+I prepared this discussion guide for Taft H. Broome, Jr's [
+The Concrete Sumo"](https://www.onlineethics.org/CMS/edu/instructessays/sumo.aspx) and facilitated it two weeks ago for the software engineering team at Code for America. 
 
 ---
 
