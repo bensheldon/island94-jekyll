@@ -1,3 +1,8 @@
+---
+date: '2019-10-03 12:26 -0800'
+published: false
+title: Adults in the room
+---
 I'm inspired by Megan Greenwell's [Deadspin essay](https://theconcourse.deadspin.com/the-adults-in-the-room-1837487584) (emphasis mine):
 
 > There is a version of the story of this company in which idealistic journalists, unconcerned with profit, are posed against ruthless business-doers, concerned about profit above all else. That would be a convenient story, pitching me and my colleagues and friends as people who just care too much about The Truth to yield before the gale-force winds of Capitalism, but it wouldn’t be a true one.
