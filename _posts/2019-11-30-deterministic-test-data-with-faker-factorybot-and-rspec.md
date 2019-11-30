@@ -3,7 +3,7 @@ date: '2019-11-30 11:33 -0800'
 published: true
 title: 'Deterministic test data with Faker, FactoryBot, and RSpec'
 ---
-I get a lot of joy out of using [Faker](https://github.com/faker-ruby/faker) and [FactoryBot](https://github.com/thoughtbot/factory_bot) to efficiently generate real-world test data, but its randomness can be a liability when trying to debug complicated specs or when setting up systems that require repeatable data across RSpec test runs like [Percy's visual diffs](https://percy.io/).  
+I get a lot of joy from using [Faker](https://github.com/faker-ruby/faker) and [FactoryBot](https://github.com/thoughtbot/factory_bot) to efficiently generate real-world test data, but its randomness can be a liability when trying to debug complicated specs or when setting up systems that require repeatable data across RSpec test runs like [Percy's visual diffs](https://percy.io/).  
 
 Without deterministic test data, generating three new users with `3.times { puts Faker::Name.first_name }` would result in `Danny, Solomon, Fabian` when run once, then `Jordon, Shawn, Asa` when run a second time, then `Bruce, Leonor, Paulette` when run a third time. 
 
