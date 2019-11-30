@@ -1,6 +1,6 @@
 ---
 date: '2019-11-30 11:33 -0800'
-published: false
+published: true
 title: 'Deterministic test data with Faker, FactoryBot, and RSpec'
 ---
 I get a lot of joy out of using [Faker](https://github.com/faker-ruby/faker) and [FactoryBot](https://github.com/thoughtbot/factory_bot) to efficiently generate real-world test data, but its randomness can be a liability when trying to debug complicated specs or when setting up systems that require repeatable data across RSpec test runs like [Percy's visual diffs](https://percy.io/).  
@@ -35,8 +35,8 @@ FactoryBot.define do
       Faker::Name.last_name
     end
 
-    email { “#{first_name.parameterize}.#{last_name.parameterize}@example.com” }
-    password { ‘password123’ }
+    email { "#{first_name.parameterize}.#{last_name.parameterize}@example.com" }
+    password { 'password123' }
   end
 end
 ```
