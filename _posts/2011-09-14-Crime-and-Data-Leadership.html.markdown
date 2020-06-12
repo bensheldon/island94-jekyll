@@ -35,7 +35,7 @@ Ben Fry, [on visualization future and data literacy](http://flowingdata.com/2011
 
 > "I think the real thing that's going to change is that we're going to start understanding that visualization isn't this sort of monolithic thing... I like to look at it a lot like writing. You have novels and poetry and haikus. You know there's lots of different types of writing and styles of writing — and I think the same thing happens in visualization... some things are tools for analysis and some things are purely for entertainment, and there's not so much a spectrum that there is different ways of addressing it.
 
-But this understanding and widespread "data literacy" is not here yet. Its up to us so called techie types to exhibit "Data Leadership" and work to better interpret the and explain the complexity and nuance of our analysis---the absence of which I've [complained about before](http://www.island94.org/2011/06/data-divides-and-umbrellafication/).
+But this understanding and widespread "data literacy" is not here yet. It's up to us so called techie types to exhibit "Data Leadership" and work to better interpret and explain the complexity and nuance of our analysis---the absence of which I've [complained about before](http://www.island94.org/2011/06/data-divides-and-umbrellafication/).
 
 Data leadership is appropriately labeling data. Data leadership is presenting data with a recognition of its limitations. Data leadership is consideration for how your presentation of data may be interpreted _and responsibility_ for the consequences.
 
