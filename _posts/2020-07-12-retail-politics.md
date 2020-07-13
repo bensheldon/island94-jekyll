@@ -3,7 +3,7 @@ date: '2020-07-12 19:16 -0700'
 published: true
 title: Retail politics
 ---
-I will quote anything that reinforces the necessity of showing up. From SF Weekly's ["The Many Faces of Leland Yee: A Politician's Calculated Rise and Dramatic Fall"](http://www.sfweekly.com/2014-04-16/news/leland-yee-shrimp-boy-raymond-chow/3/) :
+I will quote anything that reinforces the necessity of showing up. From SF Weekly's ["The Many Faces of Leland Yee: A Politician's Calculated Rise and Dramatic Fall"](https://archives.sfweekly.com/sanfrancisco/the-many-faces-of-leland-yee-a-politicians-calculated-rise-and-dramatic-fall/Content?oid=2949247&showFullText=true) :
 
 
 <blockquote markdown="1">
