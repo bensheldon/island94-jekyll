@@ -34,7 +34,8 @@ exclude:
   - Rakefile
   - scripts
   - spec
-  - vendor # for building on CircleCI or anywhere that installs gems into vendor
+  - vendor # for building anywhere that installs gems into vendor
+  - .github
   - .idea
 
 plugins:
@@ -54,6 +55,8 @@ kramdown:
   input: GFM # Enable GitHub Flavored Markdown (fenced code blocks)
   hard_wrap: false
 highlighter: rouge
+
+# Prose.io
 prose:
   rooturl: '_posts'
   siteurl: 'https://island94.org/'

@@ -1,0 +1,28 @@
+name: Tests
+on: [push]
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      # Dependencies
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+      - name: Ruby gem cache
+        uses: actions/cache@v1
+        with:
+          path: vendor/bundle
+          key: v1-${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+          restore-keys: |
+            v1-${{ runner.os }}-gems-
+      - name: Install gems
+        run: |
+          gem install bundler -v $(grep -A 1 "BUNDLED WITH" Gemfile.lock | tail -1 | tr -d " ")
+          bundle config path vendor/bundle
+          bundle config --local build.sassc --disable-march-tune-native # https://github.com/sass/sassc-ruby/issues/146
+          bundle install --jobs 4 --retry 3 --frozen && bundle clean
+      # /Dependencies
+      - name: Run RSpec
+        run: bundle exec rspec
