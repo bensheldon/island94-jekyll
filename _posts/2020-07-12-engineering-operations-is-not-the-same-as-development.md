@@ -11,9 +11,9 @@ Over the past month GetCalFresh has tripled the number of food stamp application
 
 GetCalFresh collects foodstamp applicant's information via a series of webforms, and then submits that applicant information to the county to begin the foodstamp eligibility process.
 
-The website and webforms being offline or unavailable is bad.
+The website and webforms being offline or unavailable is **bad**.
 
-Failing to submit application information to the county in a timely manner is awful. Foodstamp benefits are prorated to the day that the client's application arrives _at the county_ before 5pm. Failing to deliver a clients application in a timely manner literally means less food on the table for a hungry family.
+Failing to submit application information to the county in a timely manner is **awful**. Foodstamp benefits are prorated to the day that the client's application arrives _at the county_ before 5pm. Failing to deliver a clients application in a timely manner literally means less food on the table for a hungry family.
 
 Our system is operationally "safe" when it ensures that client information is transmitted to the county in a timely manner. Our system experiences an operational "failure" when information is not submitted in a timely manner. Our system has operational "risk" that degrades safety and is the potential for an operational failure.
 
