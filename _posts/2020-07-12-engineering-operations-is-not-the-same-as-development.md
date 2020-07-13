@@ -19,7 +19,7 @@ Our system is operationally "safe" when it ensures that client information is tr
 
 ## Risks in complicated, complex and chaotic systems
 
-Keeping a website online is complicated, but can be address with good practice. We use boring technologies: Ruby on Rails, SQL, AWS, that scale and respond predictably and are part of a mature ecosystem of monitoring tools and practice.
+Keeping a website online is complicated, but can be addressed with good practice. We use boring technologies: Ruby on Rails, SQL, AWS, that scale and respond predictably and are part of a mature ecosystem of monitoring tools and practice.
 
 Submitting client information to the county is complex and sometimes chaotic. Because county systems often have no API, we have a queue of jobworkers that use Selenium Webdriver to click through and type into a "virtualized" headless Firefox browser. Automating this leads to emergent and novel problems. Client data must be transformed into a series of scripted actions to be performed across multiple county webpages, with dynamic forms and data fields. The county websites may be offline or degraded, and occasionally their structure and content changes. Additional client documents may need to be faxed, emailed or uploaded to the county, and those systems can be degraded as well.
 
