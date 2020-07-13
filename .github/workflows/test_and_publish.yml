@@ -2,7 +2,7 @@ name: Tests
 on: [push]
 jobs:
   test:
-    name: Test
+    name: Test and Publish
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -24,5 +24,16 @@ jobs:
           bundle config --local build.sassc --disable-march-tune-native # https://github.com/sass/sassc-ruby/issues/146
           bundle install --jobs 4 --retry 3 --frozen && bundle clean
       # /Dependencies
+      - name: Jekyll build
+        run: bundle exec jekyll build
       - name: Run RSpec
         run: bundle exec rspec
+      - name: Publish
+        if: github.ref == 'refs/heads/main'
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_site
+          publish_branch: gh-pages
+          enable_jekyll: false
+
