@@ -88,11 +88,11 @@
 
 <p>**Regular Expressions vs. Parsing Engines: **I wrote a the first parser in Python with Regular Expressions, then rewrote it in BeautifulSoup (a Python parser). It took me about 2 hours to write it the first time with RegExp. It took me about 2 days to do it with BeautifulSoup. It’s slightly easier to maintain now, but you tell me which one is more semantically correct:</p>
 
-<p><code class="highlighter-rouge">project_title = re.search('&lt;tr&gt;&lt;td&gt;&lt;b&gt;Project&amp;nbsp;title&lt;/b&gt;&lt;/td&gt;&lt;td&gt;(.+)&lt;/td&gt;&lt;/tr&gt;', line)</code></p>
+<p><code class="language-plaintext highlighter-rouge">project_title = re.search('&lt;tr&gt;&lt;td&gt;&lt;b&gt;Project&amp;nbsp;title&lt;/b&gt;&lt;/td&gt;&lt;td&gt;(.+)&lt;/td&gt;&lt;/tr&gt;', line)</code></p>
 
 <p>versus</p>
 
-<p><code class="highlighter-rouge">project_title = app.find(text="Project&amp;nbsp;title").parent.parent.nextSibling.string</code></p>
+<p><code class="language-plaintext highlighter-rouge">project_title = app.find(text="Project&amp;nbsp;title").parent.parent.nextSibling.string</code></p>
 
 <p>Yep, it’s written in 2-column tables with each row being a different data-set: the first column holds a key (if there is a key; sometimes there isn’t) and the second column being the data . With RegExp, I know exactly what I’m looking for. With the parser, I have to find the element in the tree, then traverse up, over and down (if there isn’t a key, I have to go up, up, over, over, over, down, over, down). The data itself is a big set of applications (about 2000+ total) and each application has about 15 different data-sets (some with keys, some just follow a consistent-ish pattern).</p>
 
