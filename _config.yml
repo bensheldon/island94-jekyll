@@ -37,6 +37,7 @@ exclude:
   - vendor # for building anywhere that installs gems into vendor
   - .github
   - .idea
+  - Gemfile*
 
 plugins:
   - jekyll-coffeescript
