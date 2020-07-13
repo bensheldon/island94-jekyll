@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Best Practice Practices</title>
+  <meta name="description" content="I like how Rapid Development: Taming Wild Software Schedules by by Steve McConnell lays out exactly how “Best Practices” were selected or rejected:">
+
+  <link rel="stylesheet" href="/assets/stylesheets/main.css">
+  <script src="/assets/javascripts/main.js"></script>
+
+  <link rel="canonical" href="http://island94.org/2018/08/best-practice-practices">
+  <link rel="alternate" type="application/rss+xml" title="Island94.org" href="http://island94.org/feed.xml">
+
+  
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-870047-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+</head>
+
+
+  <body>
+
+    <nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-links" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">Island94.org</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="navbar-collapse-links">
+      <form id="search" class="navbar-form navbar-right" action="https://google.com/search" method="get">
+        <input class="form-control" name="q" type="hidden" value="site:island94.org">
+        <input class="search form-control" role="search" name="q" placeholder="Search with Google" aria-label="Search with Google" results="0" type="text">
+        <button class="sr-only" type="submit">Search</button>
+      </form>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li><a class="page-link" href="/about/">About</a></li>
+        <li><a class="page-link" href="/archives/">Archives</a></li>
+        <li><a class="page-link" href="/tags/">Tags</a></li>
+        <li><a href="/feed.xml"><span class="fa fa-rss"></span> RSS</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"
+          
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2018/08/best-practice-practices">Best Practice Practices</a>
+    </h1>
+    <p class="post-meta text-muted">
+      <time datetime="2018-08-17T00:00:00+00:00" itemprop="datePublished">August 17, 2018</time>
+      
+      
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>I like how <em>Rapid Development: Taming Wild Software Schedules</em> by by Steve McConnell lays out exactly how “Best Practices” were selected or rejected:</p>
+
+<blockquote>
+  <h3 id="summary-of-best-practice-candidates">Summary of Best-Practice Candidates</h3>
+  <p>Each practice described in a best-practice chapter has been chosen for one of the following reasons:</p>
+
+  <ul>
+    <li>Reduction of development schedules</li>
+    <li>Reduction of perceived development schedules by making progress more visible</li>
+    <li>Reduction of schedule volatility, thus reducing the chance of a runaway project</li>
+  </ul>
+
+  <p>Some of the best practices are described in Part I of this book, and those best practices are merely summarized in this part of the book.</p>
+
+  <p>You might ask, “Why did you ignore Object-Structured FooBar Charts, which happen to be my favorite practice?” That’s a fair question and one that I struggled with throughout the creation of this book. A candidate for best-practice status could have been excluded for any of several reasons.</p>
+
+  <p><strong>Fundamental development practices.</strong> Many best-practice candidates fell into the category of fundamental development practices. One of the challenges in writing this book has been to keep it from turning into a general software-engineering handbook. In order to keep the book to a manageable size, I introduce those practices in Chapter 2, “Software Development Fundamentals” and provide references to other sources of information. A lot of information is available from other sources on the fundamental practices.</p>
+
+  <p>In a few cases, you might rightly consider a practice to be a fundamental one, but if it has a profound impact on development speed, I included it as a best-practice chapter anyway.</p>
+
+  <p><strong>Best philosophy, but not best practice.</strong> Some best-practice candidates seemed to be more like theories or philosophies than practices. The distinction between theory, practice, and philosophy in software development is not clear, and so an approach that I call a “philosophy” you might call a “practice” and vice versa. Regardless of what it’s called, if I considered it to be “best,” I discussed it in the book somewhere. But if I considered it to be a philosophy, it’s in the first or second part of the book. (See Table III-1 for a list of where each best philosophy is discussed.)</p>
+
+  <p>Best practice, maybe, but not for development speed. Some best-practice candidates might very well be best practices for their effect on quality or usability, but they could not pass the tests of improving actual development schedules, perceived schedules, or schedule volatility. Those practices were not included in this book.</p>
+
+  <p><strong>Insufficient evidence for a practice’s efficacy.</strong> A few promising practices were not supported by enough evidence to deem them to be best practices. If the development community has not yet had enough experience with a practice to publish a handful of experiments or experience reports about it, I didn’t include it. Some of the practices that fell into this category will no doubt someday prove that they have large speed benefits, and I’ll include those in a future edition of this book.</p>
+
+  <p>In a few instances in which published support by itself was not sufficient to justify treating a practice as a best practice, I had personal experience with the practice that convinced me that it was indeed a best practice. I included those in spite of the lack of published support from other sources.</p>
+
+  <p><strong>Questionable evidence for a practice’s efficacy.</strong> A few best-practice candidates seemed promising, but the only published information I could find was from vendors or other parties who had vested interests in promoting the practices, so I excluded them.</p>
+
+  <p><strong>Not a best practice.</strong> A few best-practice candidates are highly regarded (even zealously regarded) in some quarters, but that does not make them best practices. In some cases, experience reports indicated that a well-regarded practice typically failed to live up to expectations. In some, a practice is a good practice, but not a best practice. And in some, the practice works fabulously when it works, but it fails too often to be considered a best practice.</p>
+
+  <p>In one case (RAD), the candidate practice consisted of a combination of many of the other practices described in this book. That might very well be an effective combination in some circumstances. But because this book advocates selecting rapid-development practices that meet the needs of your specific project, that specific pre-fab combination of practices was not itself considered to be a best practice.</p>
+</blockquote>
+
+  </div>
+
+</article>
+
+
+<hr>
+
+<div class="well">
+  Discuss this with me on
+  <a href="https://twitter.com/bensheldon"><span class="fa fa-twitter"></span> Twitter</a>
+  or suggest a <a href="https://github.com/bensheldon/island94-jekyll/blob/master/_posts/2018-08-17-best-practice-practices.md"><span class="fa fa-github-alt"></span> change</a>.
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+</footer>
+
+
+  </body>
+
+</html>

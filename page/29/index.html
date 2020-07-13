@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Island94.org</title>
+  <meta name="description" content="A Lost and Found
+">
+
+  <link rel="stylesheet" href="/assets/stylesheets/main.css">
+  <script src="/assets/javascripts/main.js"></script>
+
+  <link rel="canonical" href="http://island94.org/page/29/">
+  <link rel="alternate" type="application/rss+xml" title="Island94.org" href="http://island94.org/feed.xml">
+
+  
+    <meta name="robots" content="noindex, follow">
+  
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-870047-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+</head>
+
+
+  <body>
+
+    <nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-links" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">Island94.org</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="navbar-collapse-links">
+      <form id="search" class="navbar-form navbar-right" action="https://google.com/search" method="get">
+        <input class="form-control" name="q" type="hidden" value="site:island94.org">
+        <input class="search form-control" role="search" name="q" placeholder="Search with Google" aria-label="Search with Google" results="0" type="text">
+        <button class="sr-only" type="submit">Search</button>
+      </form>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li><a class="page-link" href="/about/">About</a></li>
+        <li><a class="page-link" href="/archives/">Archives</a></li>
+        <li><a class="page-link" href="/tags/">Tags</a></li>
+        <li><a href="/feed.xml"><span class="fa fa-rss"></span> RSS</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"
+          <div class="home">
+  
+    <nav>
+  <ul class="pager">
+    
+      <li class="pager-prev"><a href="/page/28/"><span aria-hidden="true">&larr; </span>Newer</a></li>
+    
+
+    <small class="pager-current text-muted">Page 29 of 58</small>
+
+    
+      <li class="pager-next"><a href="/page/30/">Older<span aria-hidden="true"> &rarr;</span></a></li>
+    
+  </ul>
+</nav>
+
+  
+
+  
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2009/08/Drupal-Adding-a-geocoding-failure-message-to-Location-Module.html">Drupal: Adding a geocoding failure message to Location Module</a>
+    </h1>
+    <p class="post-meta text-muted">
+      <time datetime="2009-08-13T00:00:00+00:00" itemprop="datePublished">August 13, 2009</time>
+      
+       • Tagged Drupal, location, mapping, maps, navigation, portfolio, stupid, and warning
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>One of the coolest pieces of Drupal is how simple it is to quickly enter a street address and have it show up on a dynamic map on your website using <a href="http://drupal.org/project/location">Location</a> and <a href="http://drupal.org/project/gmap">GMap</a> modules. To make it happen, a lot of stuff goes on behind the scenes. Unfortunately, in typical Drupal fashion, when something goes wrong, you aren’t provided much information to fix it.</p>
+
+<p>A big issue if you’re having regular users enter information into your website is <em>malformed</em> addresses that can’t be automatically converted into latitude/longitude coordinates (geocoding) for display on a map. Out of the box, the Location module doesn’t give you a warning if it’s unable to geocode an address. On my website <a href="http://mappingaccess.org">MappingAccess.org</a>–a community maintained directory of Cable Access Television stations—I average about an email a week from a visitor saying “I added my station but it’s not showing up on the map”. Usually it’s a simple matter of using a PO Box or wacky abbreviation, but the website itself should be telling them there is a problem, not me.</p>
+
+<p>So I whipped up a simple module that checks everytime a new station is submitted to see if the address was properly geocoded. If not, it displays a message with some tips on how to correct the issue.</p>
+
+<p><img src="/uploads/2009-08-13-Drupal-Adding-a-geocoding-failure-message-to-Location-Module/Picture-3-500x136.png" alt="Geocode Warning Message" title="Geocode Warning Message" /></p>
+
+<p>You can download the module for Drupal 6.x by <a href="/uploads/2009-08-13-Drupal-Adding-a-geocoding-failure-message-to-Location-Module/geocode_warn.zip"><strong>clicking here</strong></a><strong>.</strong></p>
+
+<p>To be nitpicky, I’d rather the message show up during the validation stage—before the node is submitted—with the option to say “Please edit the address or press submit again to publish with the understanding that it will not show up on the map.” Unfortunately, in Drupal 6 you <a href="http://drupal.org/node/241364">can’t make changes to node form during the validation stage</a>—which I would use to set a flag in a hidden form element so that the validation message only gets triggered once. The current implementation calls a drupal_set_message in hook_nodeapi’s insert/update operations. It can be enabled on a per-content-type basis (on the Content Type Configuration screen).</p>
+
+  </div>
+
+</article>
+
+
+    <hr>
+  
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2009/08/Religion-and-individualism.html">Religion and individualism</a>
+    </h1>
+    <p class="post-meta text-muted">
+      <time datetime="2009-08-10T00:00:00+00:00" itemprop="datePublished">August 10, 2009</time>
+      
+       • Tagged god, individualism, islam, philosophy, and religion
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>Douglas Rushkoff thoroughly <a href="http://www.island94.org/2009/08/from-self-actualization-to-neo-liberalism/">investigates</a> the self-indulgent role of individualism and choice as it is used to justify consumption and corporate control. Karen Armstrong in A History of God, explores the emergence of this through the eyes of religion. The following is about Sir Mohammed Iqbl (1877-1938) “who became for the Muslims of India what Ghandhi was for the Hindus” (emphasis mine):</p>
+
+<blockquote>
+  <p>From such Western philosophers as Nietzsche, Iqbal had imbibed the importance of individualism. The whole universe represented an Absolute from which was the highest form of individuation and which men had called “God.” In order to realize their own unique nature, all human beings must become more like God. That meant that each must become <em>more</em> individual, <em>more</em> creative and must express this creativity in action. The passivity and craven self-effacement (which Iqbal put down to Persian influence) of the Muslims of India must be laid aside. The Muslim principle of <em>ijtihad</em> (independent judgement) should encourage them to be receptive to new ideas: the Koran itself demanded constant revision and self-examination. Like al-Afghani and Abduh, Iqbal tried to show that the empirical attitude, which was key to progress, had originated in Islam and passed to the West via Muslim science and mathematics during the Middle Ages. Before the arrival of the great confessional religions during the Axial Age, the progress of humanity had been haphazard, dependent as it was upon gifted and inspired individuals. Muhammad’s prophecy was the culmination of these intuitive efforts and rendered any further revelation unnecessary. Henceforth people could rely on reason and science.</p>
+
+  <p>Unfortunately individualism had become a new form of idolatry in the West, since it was now an end in itself. People had forgotten that all true individuality derived from God. The genius of the individual could be used to dangerous affect if allowed absolutely free rein. The breed of Supermen who regarded themselves as Gods, as envisaged by Nietzsche, was a frightening prospect: <strong>people needed the challenge of a norm that transcended the whims and notions of the moment</strong>. It was the mission of Islam to uphold the nature of true individualism against the Western corruption of the ideal. They had their Sufi ideal of the Perfect Man, the end of creation and the purpose of its existence. Unlike the Superman who saw himself as supreme and despised the rabble, the Perfect Man was characterized by his total receptivity to the Absolute and would carry the masses along with him.</p>
+
+</blockquote>
+
+  </div>
+
+</article>
+
+
+    <hr>
+  
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2009/08/Good-advice-to-live-by.html">Good advice to live by</a>
+    </h1>
+    <p class="post-meta text-muted">
+      <time datetime="2009-08-10T00:00:00+00:00" itemprop="datePublished">August 10, 2009</time>
+      
+       • Tagged brands, consumerism, economics, marketing, media, nonprofit, politics, and save-the-world
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>Douglas Rushkoff wraps up _Life, Inc. _with the clearest conception of “act local, think global” I’ve read (and usually seems to be misinterpreted).</p>
+
+<blockquote>
+  <p>Instead of fighting corporations with corporations of our own [like nonprofits–Ben], or working through corporations to reduce their negative impact on society, we’re better off reinventing ourselves as humans. We live on a terrain and in a dimension they can pollute but to which they will never belong. By working on this human-scaled landscape instead, we can create changes in our own lives and communities that stand a chance, in aggregate, of trickling up and changing how the big world operates as well.</p>
+
+  <p>We can’t look for those kinds of changes overnight. The grand expectations we have for ourselves and our achievements are really just the false promises of consumerism, brand culture and the politics of revolutionary change. This is the ideological heritage of the Renaissance, and what brought us into the cycle of utopian hopes and alienated cynicism we’re churning through today.</p>
+
+  <p>We’d each like to launch a national movement, create the website that teaches the world how to build community from the bottom up, develop the curriculum that saves public schools, or devise the clever anti-marketing media campaign that breaks the spell of advertising once and for all. But these ego trips are the artifacts of the strident individualism we were taught to embrace. The temptation to save the whole world—and get the credit—comes at the expense of steps we might better take to make our immediate world a more fruitful, engaging, sustainable, and satisfying place. A successful movement depends on getting attention from media and institutions that are dead set against recognizing our ability to create value ourselves, and for its own sake. The minute they find out what we’re up to, it’s their job to dash our hopes and return our attention to the false idols they’re selling us.</p>
+</blockquote>
+
+  </div>
+
+</article>
+
+
+    <hr>
+  
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2009/08/From-Self-Actualization-to-Neo-Liberalism.html">From Self-Actualization to Neo-Liberalism</a>
+    </h1>
+    <p class="post-meta text-muted">
+      <time datetime="2009-08-09T00:00:00+00:00" itemprop="datePublished">August 9, 2009</time>
+      
+       • Tagged counterculture, cybernetics, economics, hippies, history, liberalism, and politics
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>I am continuing to enjoy Douglas Rushkoff’s <em>Life, Inc.</em> Adding to my enjoyment is its parallelism with Fred Turner’s <em>From Counterculture to Cyberculture</em> from which I <a href="http://www.island94.org/2007/11/understanding-academia-and-legitimacy-exchange/">have</a> <a href="http://www.island94.org/2007/11/close-to-the-machine/">quoted</a> <a href="http://www.island94.org/2007/12/destructive-rhetoric/">before</a>.</p>
+
+<blockquote>
+  <p>By the 1960s, the German philosopher Herbert Marcuse had revived much of the spirit of [Wilhelm] Reich—this time for an audience already dissatisfied with the spiritual vacuum offered by consumerism. He was the most vocal member of the Frankfurt School, and spoke frequrently at student and antiwar protests. Marcuse blamed the Freudians—as well as the government and corporate authorities who used their stultifying techniques—for creating a world in which people were reduced to expresssing their feelings and identities through mass-produced objects. He said the individual had been turned into a “one-dimensional man”—conformist and repressed.</p>
+
+  <p>Marcuse became a hero to the real counterculture movement, and his words inspired the Weathermen, Vietnam War protests and the Black Panthers. They saw consumerism as more than a way for corporations to make money; it was also a way to keep the masses docile while the government pursued an illegal war in Southeast Asia. So breaking free of consumption-defined self was a prerequisite to becoming a conscious protester. As Linda Evans of the Weathermen explained, “We want to live a life that isn’t based on materialistic  values, and yet the whole system of government and the economy is based on proit, on personal greed, and selfishness.” But as Stew Albert, a cofounder of the anti-Vietnam movement the Yippies, contended, the police state began in an individual person’s mind. People who sought to be engaged in political activism needed first to make <em>themselves</em> new and better people.</p>
+
+  <p>The counterculture and its psychologics again revised the spirit of Wilhem Reich in the hopes of freeing people from the control of their own minds. To this end, in 1962 the Esalen Institute was founded on 127 acres of California coastline. The Institute hosted a wide range of workshops and lectures in an atmosphere of massage, hot tubs and high quality sex and drugs, all in the name of freeing people from repression. The Human Potential Movement—Renaissance individualistic humanism updated for the twentieth century—began in an explosion of new therapies.</p>
+
+  <p>….</p>
+
+  <p>Like Dorothy embarking down the yellow-brick road to self-fulfillment, thousands flocked to the hot tubs of Esalen to find themselves and self-actualize [as promulgated by Abraham Maslow as the top of his Hierarachy of Needs]. Instead of annihilating the illusion of a self, as Buddha suggested, the self-centered spirituality of Eslaen led to a celebration of self as the source of all experience. Change the way you see the world, and the world changes. Kind of. Instead of fueling people to do something about the world, as the Weathermen and Yippies had hoped, spirituality became a way of changing one’s own perspectives, one’s own experiences and one’s own <em>self</em>. By pushing through to the other side of personal liberation, the descendants of Reich once again found self-adjustment the surest path to happiness. Anna Freud would have been proud. You are the problem, after all.</p>
+</blockquote>
+
+<p>A dozen pages later, the book picks back up at the pivotal 1960s and, just as Turner does so excellently, connects it towards the spread of free-market economic liberalism that both the Left and Right embraced.</p>
+
+<blockquote>
+  <p>The young technocrats at Rand believed that John Nash’s equations presented a way to organize a society of self-interested individuals that promoted their personal freedom. By the 1960s, they had the backing of a counterculture equally obsessed with the personal needs of individuals and the corrupting influence of all institutions—even family. The Scottish psychologist R.D. Laing used game theory to model human interactions, and concluded that kindness and love were merely the tools through which people manipulated one another to get their selfish needs fulfilled. Mental illness was just a label created by the repressive state. So-called crazy people were really evidence of some greater societal problem—a “cry for help” against oppressive institutions. In fact, like the family, the state was just a means of social control that violated the most primal and fundamental urge of human beings to pursue their individual interests. Through Lain, the darkest aspects of game theory were extended to the culture at large and popularized as social truisms: your parents don’t really love you and the man is after your money. What look like social relationships are really just “the games people play.”</p>
+
+  <p>Hippies tool these assessments to the streets, but most of them were too distracted by self-actualization  for the movement to maintain any cohesion. Within a decade, the counterculture’s war against institutional control would become the rallying cry of the Right. The brilliance of Reagonomics was to marry the antiauthoritarian urge of what had once been the counterculture with the antigovernment bias of free-market conservatives. In Reagan’s persona as well as his politics, the independent, shoot-from-the-hip individualism of the Marlboro man became compatible—even synergistic—with the economics and culture of self-interest. No-blink brinksmanship with the “evil” Soviet empire, the dismantling of domestic government institutions, the decertification of labor unions, and the promotion of unfettered corporate capitalism all came out of the same combination of Rand Corporation game theory and the 1960s antipsychiatry movement. Regulations designed to protect the environment, worker safety, and consumer rights were summarily decried as unnecessary government meddling in the marketplace. As if channeling Friedrich Hayek by way of R.D. Laing, Reagan shrank the social-welfare system by closing the public-psychiatric-hospital system.</p>
+
+  <p>…</p>
+
+  <p>Make no mistake about it: by the late Clinton-Blair year, both the Right and the mainstream Left had accepted the basic premise adopted from systems theory that the economy was a natural system whose stability depended on the government’s getting out of the way and allowing self-interested people to work toward a dynamic equilibrium. Gone were the “compassion” and “love” that Mario Cuomo had demanded of government back in his rousing “Tale of Two Cities” speech at the 1984 Democratic convention. In their place were small government and personal accountability. The last heroes of the political age, Reagan and Thatcher were long gone. In their place, the only rebels capable of dismantling the social-welfare hierarchy were the super-CEOs: Jack Welch, Richard Branson, and Ken Lay, as well as the new breed of free-market theorists advising them.</p>
+
+  <p>Thanks to the combined emergence of a computer culture capable of recognizing the power of emergent systems and a rising class of dot-com workers profiting off what appeared to them to be the exploitation of a free-market technology, libertarianism was in ascendance. In reality, the phenomena we were all celebrating in the mid-1990s had little to do with the free market; the Internet had been paid for by the government, and dynamical systems theory was much more applicable to the weather and plankton populations than it was to economics. But as profits and stock indexes rose, the stars themselves seemed to be aligning, and systems theory was a good a way as any of justifying the same options packages that young programmers would have been embarrassed by just a few years before, when they were antiestablishment hackers.</p>
+
+  <p>…</p>
+
+  <p>Ironically, while the intelligentsia were using social evolution to confirm laissez fair capitalism to one another, the politicians promoting these policies to the masses were making the same sale through creationism. Right-wing conservatives turned to fundamentalist Christians to promote the free-market ethos, in return promising lip service to hot-button Christian issues such as abortion and gay marriage. It was now the godless Soviets who sought to thwart the maker’s plan to bestow the universal rights of happiness and property on mankind. America’s founders, on the other hand, had been divinely inspired to create a nation in God’s service, through which people could pursue their individual salvation and savings.</p>
+
+  <p>…</p>
+
+  <p>The same right wing think tanks writing white papers justifying game-theory economics through bottom-up social Darwinism were simultaneously advising conservatives on how to leverage Christian fundamentalists in support of the resultant ideals. What both PR efforts had in common were two falsely reasoned premises: that human beings are private, self-interested actors behaving in ways that consistently promote personal wealth, and that the laissez-faire free market is a natural and self-sustaining system through which scarce resources can be equitably distributed.</p>
+</blockquote>
+
+  </div>
+
+</article>
+
+
+    <hr>
+  
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2009/08/Marketing-in-Wealth-Bondage.html">Marketing in Wealth Bondage</a>
+    </h1>
+    <p class="post-meta text-muted">
+      <time datetime="2009-08-07T00:00:00+00:00" itemprop="datePublished">August 7, 2009</time>
+      
+       • Tagged history, marketing, psychology, and wealth
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>I’m thoroughly enjoying Douglas Rushkoff’s <em>Life, Inc.</em>—“how the world became a corporation and how to take it back”.</p>
+
+<p>The following comes from the middle of a discussion of how marketers themselves are stuck in wealth bondage, and a critique of Malcolm Gladwell:</p>
+
+<blockquote>
+  <p>This [current] generation of ad strategists and corporation psychologists is well aware of the 1960s advertising legends David Ogilvy and Leo Burnett, but go blank when I mention the Creel Commission, Edward Bernays, or NAM. Two generations removed from public relations’ founding fathers, they seem oblivious to the biases that were so explicitly a part of their work. They use techniques that assume the primacy of the corporation, the universal benefits of mass persausion, and the incapacity of average human beings to make decisions in their own best interest. They behave as automatically as the consumers they hope to control, promoting a corporate agenda at the expense of agency.</p>
+
+  <p>When push comes to shove, they quote a member of the new intelligentsia, such as the New Yorker star Malcolm Gladwell, whose books pretend to offer sociology or more, but really just promote an updated view of the stupid masses witha few marketing tips thrown in. Gladwell’s best seller, <em>The Tipping Point</em> portrays human society as a field of iron shavings moving unconsciously between magnetic poles. All you need to put one over on the crowd is self-confidence, magic, and a few friends…</p>
+
+  <p>Revealing techniques like website “stickiness” and the power of “word of mouth” to sell products, Gladwell might well have been writing an update to Vance Packard’s <em>The Hidden Persuaders</em>, which revealed the advertisers’ arts to the reading public for the first time back in the 1950s. But Gladwell instead appraises these techniques from the cool distance of an anthropologist. Though not a scientist himself, he sees simple, scientific adjustments to culture via technology, media, and marketing as the answer to our biggest problems. Humans will respond accordingly. It’s all just chaos math.</p>
+</blockquote>
+
+<p>The book then goes on to compare Reality TV to the Stanley Milgram Prison Experiment: thoroughly engrossing.</p>
+
+  </div>
+
+</article>
+
+
+    <hr>
+  
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2009/07/Different-Strokes.html">Different Strokes</a>
+    </h1>
+    <p class="post-meta text-muted">
+      <time datetime="2009-07-27T00:00:00+00:00" itemprop="datePublished">July 27, 2009</time>
+      
+       • Tagged cool, hip, humanity, management, people, percussion, time, time-management, and trendsetting
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>Paul Graham has a new essay up on <a href="http://paulgraham.com/makersschedule.html">separating Maker’s Schedules from Manager’s Schedules</a>:</p>
+
+<blockquote>
+  <p>One reason programmers dislike meetings so much is that they’re on a different type of schedule from other people. Meetings cost them more.</p>
+
+  <p>There are two types of schedule, which I’ll call the manager’s schedule and the maker’s schedule. The manager’s schedule is for bosses. It’s embodied in the traditional appointment book, with each day cut into one hour intervals. You can block off several hours for a single task if you need to, but by default you change what you’re doing every hour.</p>
+
+  <p>When you use time that way, it’s merely a practical problem to meet with someone. Find an open slot in your schedule, book them, and you’re done.</p>
+
+  <p>Most powerful people are on the manager’s schedule. It’s the schedule of command. But there’s another way of using time that’s common among people who make things, like programmers and writers. They generally prefer to use time in units of half a day at least. You can’t write or program well in units of an hour. That’s barely enough time to get started.</p>
+
+  <p>When you’re operating on the maker’s schedule, meetings are a disaster. A single meeting can blow a whole afternoon, by breaking it into two pieces each too small to do anything hard in. Plus you have to remember to go to the meeting. That’s no problem for someone on the manager’s schedule. There’s always something coming on the next hour; the only question is what. But when someone on the maker’s schedule has a meeting, they have to think about it.</p>
+
+  <p>For someone on the maker’s schedule, having a meeting is like throwing an exception. It doesn’t merely cause you to switch from one task to another; it changes the mode in which you work.</p>
+
+  <p>I find one meeting can sometimes affect a whole day. A meeting commonly blows at least half a day, by breaking up a morning or afternoon. But in addition there’s sometimes a cascading effect. If I know the afternoon is going to be broken up, I’m slightly less likely to start something ambitious in the morning. I know this may sound oversensitive, but if you’re a maker, think of your own case. Don’t your spirits rise at the thought of having an entire day free to work, with no appointments at all? Well, that means your spirits are correspondingly depressed when you don’t. And ambitious projects are by definition close to the limits of your capacity. A small decrease in morale is enough to kill them off.</p>
+</blockquote>
+
+<p>And from Malcolm Gladwell’s <em>The Tipping Point</em> on identifying trendsetters:</p>
+
+<blockquote>
+  <p>“If you ask kids what worries them, the trendsetter kids pick up on things like germ warfare, or terrorism. They pick up on the bigger-picture things, whereas the mainstream kids think about being overweight, or their grandparents dying, or how well they are doing in school. You see more activists in trendsetters. People with more passion.”</p>
+</blockquote>
+
+<p>…and then some crap on being an individual and dancing to the beat of a different drum, etc. In short: “do you identify with more with interpersonal issues or societal issues?” Not that it matters really. Everybody worries and it’s all the same to each of us.</p>
+
+  </div>
+
+</article>
+
+
+    <hr>
+  
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2009/07/Media-and-Radical-Technology.html">Media and Radical Technology</a>
+    </h1>
+    <p class="post-meta text-muted">
+      <time datetime="2009-07-14T00:00:00+00:00" itemprop="datePublished">July 14, 2009</time>
+      
+       • Tagged communications, media, politics, systemic-change, and technology
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p><img src="/uploads/2009-07-14-Media-and-Radical-Technology/media-radical-technology-500x241.png" alt="Radical Technology" title="Radical Technology" /></p>
+
+<p>I’ve been digging through the section on communications in <em>Radical Technology</em>, the 1976 anthology of the magazine <em>Undercurrents</em>.</p>
+
+<blockquote>
+  <p>The global village is no such thing. It is a global castle, in which the barons may chat over their wine, while the serfs outside may overhear a few fragments of merriment.</p>
+
+  <p>Our planet does boast some fine communications systems: there are only a few holes left to be darned in the net of radio, TV and telephone which covers the continents. The engineers praise the vast capactiy of their systems. The talk of bits and bauds and erlangs. But their voices merge with those of the advertisers boasting of peak-hour audiences and market penetration.</p>
+
+  <p>The fallacy that <em>more</em> information, <em>more</em> communication <em>must</em> be good spreads even into the counterculture. Underground film-makers machine-gun their audiences with random images and subliminal cuts. Alternative newspapers boost their data density by printing each paragraph on multiple undercoats of coloured image.</p>
+
+  <p>The “information economy” stresses <em>quantity</em> rather than quality. It values complex data above simple truths. Computers now thrash through megabits of information in order to direct-mail us an advertising circular.</p>
+
+  <p>Words were not wasted in the the days when people could only engrave them on stone.</p>
+
+  <p>…</p>
+
+  <p>Economic and ecological self-sufficiency are respectively the prerequisites of both national liberation and of global survival. Cultural self-sufficiency must be established as part of the same revolutionary process. If a community is to be free of outside domination it must generate its <em>own</em> crafts, stories, architecture and rituals. This is not an argument for cultural apartheid. But it clearly presupposes radical changes in a global communications system whose greatest achievement to date has been to let ten million Japanse watch Princess Anne’s wedding. One day, the serfs must storm the global castle.</p>
+</blockquote>
+
+<p>And on using half-inch portable video for community television:</p>
+
+<blockquote>
+  <p>The animator [the producer] should be neutral; act only when invited; help, but not direct, the slection and debate of issues [John] Hopkins adds. The Challenge for Change [a community video group] worker, as he says, becomes a “spark plug for <em>process</em> rather than a creator of <em>product</em>, and could use his previous liability as an outsider to mediate difficulties and bring conflicting parties together.”</p>
+
+  <p>Community television looks for consens. It uncovers ‘issues’, records opinions supporting either side, and then tries to resolve them by getting people together to watch the tapes and talk. It hopes for ‘media-tion’.</p>
+
+  <p>Video is prolific. Little community voice is left after cutting thirty hours of tape to thirty minutes. Standards rapidly become ‘production’ ones. Is this man interesting? Can this accent be understood? Does this woman help the argument? The editor has to choose.</p>
+
+  <p>Half-inch video benefits from the shadow of the BBC and network television. ‘Television’ remains a magic word. IT takes moral courage not to talk to television. Part of the ‘magic of portable television rests in the power handed down from the corporations. Community television must avoid abusing this power.</p>
+
+  <p>Broadcast television has established a convention of aggressive questioning. The danger is that community video can quickly become as bland.</p>
+
+  <p>The ‘good life’ has become a television commercial. Community must not become a television dialogue.</p>
+
+  <p>Community TV offers the technological fix—using the technology of an oppressive society. Like an Arab firing a Sam 7 missile, the video freak depends on high technology. If that is switched off, he is out of business. As long as his ‘freaking out’ is profitable and amusing he can continue. But when it becomes revolutionary he is soon back to the pot of whitewash and a wall.</p>
+</blockquote>
+
+  </div>
+
+</article>
+
+
+    <hr>
+  
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2009/07/Moving-Day.html">Moving Day</a>
+    </h1>
+    <p class="post-meta text-muted">
+      <time datetime="2009-07-12T00:00:00+00:00" itemprop="datePublished">July 12, 2009</time>
+      
+       • Tagged americana, art, dreams, freedom-from-fear, freedom-from-want, freedom-of-religion, freedom-of-speech, museum, pluralism, and politics
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p><img src="/uploads/2009-07-12-Moving-Day/norman-rockwell-moving-day-500x311.png" alt="norman rockwell - moving day" title="norman rockwell - moving day" /></p>
+
+<p>Visiting Western Massachussetts this weekend—Angelina sang at Tanglewood—we visited the <a href="http://www.nrm.org/">Norman Rockwell Museum</a>. It was beautiful in the Berkshires and while I can’t speak to the comprehensiveness of the collection, it was just what I wanted. Norman Rockwell is one of my favorite americana motifs to wallow in.</p>
+
+<p>At the museum’s center was the Four Freedoms paintings. The feeling I had from reading that speech in high school—and the Port Huron Statement in college—is one of my most comforting whenever I get bogged in the cynicism of politics: that the current state of affairs (whatever they may be) is not for lack of dreams.</p>
+
+<p>When looking at the paintings, I had to remind myself of the false appeal I hear to _better times. _As I learned from the museum, much of what I consider fantasy was that—the policy during the Great Depression was to avoid grim reality—or the lack of color among faces—the policy of the Saturday Evening Post was to only show african-americans if they were performing a service job.</p>
+
+<p>As a tool, the drawings make a powerful message for equality and pluralism: Isn’t <em>this</em> wonderful? Shouldn’t have this idyllic life. This shouldn’t be an America reserved for just one race or class. Which brings up what all this harkens too—and ironically in this context, I am least moved by the <em>I have a dream _part</em>—_is that these paintings are the promissory notes of which all should be able to cash.</p>
+
+  </div>
+
+</article>
+
+
+    <hr>
+  
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2009/07/Slow-Down.html">Slow Down</a>
+    </h1>
+    <p class="post-meta text-muted">
+      <time datetime="2009-07-06T00:00:00+00:00" itemprop="datePublished">July 6, 2009</time>
+      
+       • Tagged advice, cognitive-bias, cognitive dissonance, land-speed-velocity, and monkeys
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>I have been slowly making my way through Malcolm Gladwell’s <em>The Tipping Point</em> (one book among many). The <a href="http://en.wikipedia.org/wiki/List_of_cognitive_biases">cognitive bias</a> being discussed at the moment is Fundamental Attribution Error (or Actor-Observer Bias, Correspondence Bias or Attribution Effect), in which humans tend to ascribe actions to some innate properties of the actor, rather than the context of the action.</p>
+
+<blockquote>
+  <p>Some years ago two Princeton University psychologists, John Darley and Daniel Batson, decided to conduct a study inspired by the biblical story of the Good Samaritan.</p>
+
+  <p>Darley and Batson decided to replicate that study at the Princeton Theological Seminary … Darley and Batson met with a group of seminarians, individually, and asked each one to prepare a short, extemporaneous talk on a given biblical theme, then walk over to a nearby building to present it. Along the way to the presentation, each student ran into a man slumped in an alley, head down, eyes closed, coughing and groaning. The question was, who would stop and help? Darley and Batson introduced three variables into the experiment, to make its results more meaningful. First, before the experiment even started, they gave the students a questionnaire about why they had chosen to study theology. Did they see religion as a means for personal and spiritual fulfillment? Or were they looking for a practical tool for finding meaning in everyday life? Then they varied the subject of the theme the students were asked to talk about. Some were asked to speak on the relevance of the professional clergy to the religious vocation. Others were given the parable of the Good Samaritan. Finally, the instructions given by the experimenters to each student varied as well. In some of the cases, as he sent the students on their way, the experimenter would look at his watch and say, ‘Oh, you’re late. They were expecting you a few minutes ago. We’d better get moving.’ In other cases, he would say, ‘It will be a few minutes before they’re ready for you, but you might as well head over now.’</p>
+
+  <p>If you ask people to predict which seminarians played the Good Samaritan (and subsequent studies have done just this) their answers are highly consistent. They almost all say that the students who entered the ministry to help people and those reminded of the importance of compassion by having just read the parable of the Good Samaritan will be the most likely to stop. Most of us, I think, would agree with those conclusions. In fact, neither of those factors made any difference. ‘It is hard to think of a context in which norms concerning helping those in distress are more salient than for a person thinking about the Good Samaritan, and yet it did not significantly increase helping behavior,’ Darley and Batson concluded. ‘Indeed, on several occasions, a seminary student going to give his talk on the parable of the Good Samaritan literally stepped over the victim as he hurried on his way.’ The only thing that really mattered was whether the student was in a rush. Of the group that was, 10 percent stopped to help. Of the group who knew they had a few minutes to spare, 63 percent stopped.</p>
+
+  <p>What this study is suggesting, in other words, is that the convictions of your heart and the actual contents of your thoughts are less important, in the end, in guiding your actions than the immediate context of your behavior. The words ‘Oh, you’re late’ had the effect of making someone who was ordinarily compassionate into someone who was indifferent to suffering—of turning someone, in that particular moment, into a different person.</p>
+</blockquote>
+
+<p>But then, the lessons of humanity to be gained (once you have studied up on the <a href="http://freekvermeulen.blogspot.com/2008/08/monkey-story-experiment-involved-5.html">Monkey Firehose</a> and the <a href="http://monkeydaynews.blogspot.com/2005/01/monkey-pay-per-view-porn.html">Monkey Pay-Per-View</a>) is that you should be in a hurry because who is to know whether you are late or early upon your true path. And eat your spinach.</p>
+
+  </div>
+
+</article>
+
+
+    <hr>
+  
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2009/07/Three-Americas.html">Three Americas</a>
+    </h1>
+    <p class="post-meta text-muted">
+      <time datetime="2009-07-05T00:00:00+00:00" itemprop="datePublished">July 5, 2009</time>
+      
+       • Tagged conservative, definition, politics, progressive, and rhetoric
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>My friend Thomas posted a status message to Facebook “wonders why Republicans hate America?”. This is where I’m at:</p>
+
+<blockquote>
+  <p>Define your terms! :-) By “America” do you mean?</p>
+
+  <ol>
+    <li>a pluralist society striving for a more representative government and greater civil liberties</li>
+    <li>a consensus society seeking a return to a more stable civic life built upon firm social and ethical principles</li>
+    <li>a geo-political demarcation for a group of people equally as unexceptional as everyone else.</li>
+  </ol>
+</blockquote>
+
+
+  </div>
+
+</article>
+
+
+    
+  
+
+  <nav>
+  <ul class="pager">
+    
+      <li class="pager-prev"><a href="/page/28/"><span aria-hidden="true">&larr; </span>Newer</a></li>
+    
+
+    <small class="pager-current text-muted">Page 29 of 58</small>
+
+    
+      <li class="pager-next"><a href="/page/30/">Older<span aria-hidden="true"> &rarr;</span></a></li>
+    
+  </ul>
+</nav>
+
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+</footer>
+
+
+  </body>
+
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Adding class to Wordpress linked images</title>
+  <meta name="description" content="An enduring issue with linked images ( &lt;a href=""&gt;&lt;img src="" /&gt;&lt;/a&gt; ), is targeting the anchor link for theming—especially for disabling b...">
+
+  <link rel="stylesheet" href="/assets/stylesheets/main.css">
+  <script src="/assets/javascripts/main.js"></script>
+
+  <link rel="canonical" href="http://island94.org/2011/01/Adding-class-to-Wordpress-linked-images.html">
+  <link rel="alternate" type="application/rss+xml" title="Island94.org" href="http://island94.org/feed.xml">
+
+  
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-870047-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+</head>
+
+
+  <body>
+
+    <nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-links" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">Island94.org</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="navbar-collapse-links">
+      <form id="search" class="navbar-form navbar-right" action="https://google.com/search" method="get">
+        <input class="form-control" name="q" type="hidden" value="site:island94.org">
+        <input class="search form-control" role="search" name="q" placeholder="Search with Google" aria-label="Search with Google" results="0" type="text">
+        <button class="sr-only" type="submit">Search</button>
+      </form>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li><a class="page-link" href="/about/">About</a></li>
+        <li><a class="page-link" href="/archives/">Archives</a></li>
+        <li><a class="page-link" href="/tags/">Tags</a></li>
+        <li><a href="/feed.xml"><span class="fa fa-rss"></span> RSS</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"
+          
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2011/01/Adding-class-to-Wordpress-linked-images.html">Adding class to Wordpress linked images</a>
+    </h1>
+    <p class="post-meta text-muted">
+      <time datetime="2011-01-23T00:00:00+00:00" itemprop="datePublished">January 23, 2011</time>
+      
+       • Tagged code, css, php, theming, and wordpress
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>An <a href="http://wordpress.org/support/topic/how-can-i-set-the-class-of-anchors">enduring issue</a> with linked images ( <code class="highlighter-rouge">&lt;a href=""&gt;&lt;img src="" /&gt;&lt;/a&gt;</code> ), is targeting the anchor link for theming—especially for disabling borders and highlighting that look great on text links but odd for images. CSS doesn’t have a parent selector ( <code class="highlighter-rouge">a &gt; img:parent</code> ), and javascript feels like overkill. The simple solution is to add a <code class="highlighter-rouge">class</code> to the parent anchor (<code class="highlighter-rouge">&lt;a href="" class="img"&gt;)</code>, but that can get repetitive, especially when Wordpress is supposed to automate those sorts of things.</p>
+
+<p>Adding the following code to your Wordpress theme’s <code class="highlighter-rouge">functions.php</code> file will automatically add a class to the anchor link when you insert linked images through Wordpress’s Media Library interface. It won’t fix posts you’ve already written, but should make things better moving forward.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="sd">/**
+ * Attach a class to linked images' parent anchors
+ * e.g. a img =&gt; a.img img
+ */</span>
+<span class="k">function</span> <span class="nf">give_linked_images_class</span><span class="p">(</span><span class="nv">$html</span><span class="p">,</span> <span class="nv">$id</span><span class="p">,</span> <span class="nv">$caption</span><span class="p">,</span> <span class="nv">$title</span><span class="p">,</span> <span class="nv">$align</span><span class="p">,</span> <span class="nv">$url</span><span class="p">,</span> <span class="nv">$size</span><span class="p">,</span> <span class="nv">$alt</span> <span class="o">=</span> <span class="s1">''</span> <span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Separate classes with spaces, e.g. 'img image-link'
+</span>  <span class="nv">$classes</span> <span class="o">=</span> <span class="s1">'img'</span><span class="p">;</span>
+
+  <span class="c1">// check if there are already classes assigned to the anchor
+</span>  <span class="k">if</span> <span class="p">(</span> <span class="nb">preg_match</span><span class="p">(</span><span class="s1">'/&lt;a.*? class=".*?"&gt;/'</span><span class="p">,</span> <span class="nv">$html</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="nv">$html</span> <span class="o">=</span> <span class="nb">preg_replace</span><span class="p">(</span><span class="s1">'/(&lt;a.*? class=".*?)(".\?&gt;)/'</span><span class="p">,</span> <span class="s1">'$1 '</span> <span class="o">.</span> <span class="nv">$classes</span> <span class="o">.</span> <span class="s1">'$2'</span><span class="p">,</span> <span class="nv">$html</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="p">{</span>
+    <span class="nv">$html</span> <span class="o">=</span> <span class="nb">preg_replace</span><span class="p">(</span><span class="s1">'/(&lt;a.*?)&gt;/'</span><span class="p">,</span> <span class="s1">'$1 class="'</span> <span class="o">.</span> <span class="nv">$classes</span> <span class="o">.</span> <span class="s1">'" &gt;'</span><span class="p">,</span> <span class="nv">$html</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="k">return</span> <span class="nv">$html</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">add_filter</span><span class="p">(</span><span class="s1">'image_send_to_editor'</span><span class="p">,</span> <span class="s1">'give_linked_images_class'</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>The if/else could probably be done with a single regular expression, but I’m not <em>that</em> smart.</p>
+
+  </div>
+
+</article>
+
+
+<hr>
+
+<div class="well">
+  Discuss this with me on
+  <a href="https://twitter.com/bensheldon"><span class="fa fa-twitter"></span> Twitter</a>
+  or suggest a <a href="https://github.com/bensheldon/island94-jekyll/blob/master/_posts/2011-01-23-Adding-class-to-Wordpress-linked-images.html.markdown"><span class="fa fa-github-alt"></span> change</a>.
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+</footer>
+
+
+  </body>
+
+</html>

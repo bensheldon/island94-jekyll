@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>If you replaced “accessibility” with “responsive design” in 2018, this is what you’d get</title>
+  <meta name="description" content="I took all of the conversations and experiences I’ve had over the years advocating accessibility features, and imagined them applied to responsive design.">
+
+  <link rel="stylesheet" href="/assets/stylesheets/main.css">
+  <script src="/assets/javascripts/main.js"></script>
+
+  <link rel="canonical" href="http://island94.org/2018/03/if-you-replaced-accessibility-with-responsive-design-in-2018-this-is-what-youd-get">
+  <link rel="alternate" type="application/rss+xml" title="Island94.org" href="http://island94.org/feed.xml">
+
+  
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-870047-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+</head>
+
+
+  <body>
+
+    <nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-links" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">Island94.org</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="navbar-collapse-links">
+      <form id="search" class="navbar-form navbar-right" action="https://google.com/search" method="get">
+        <input class="form-control" name="q" type="hidden" value="site:island94.org">
+        <input class="search form-control" role="search" name="q" placeholder="Search with Google" aria-label="Search with Google" results="0" type="text">
+        <button class="sr-only" type="submit">Search</button>
+      </form>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li><a class="page-link" href="/about/">About</a></li>
+        <li><a class="page-link" href="/archives/">Archives</a></li>
+        <li><a class="page-link" href="/tags/">Tags</a></li>
+        <li><a href="/feed.xml"><span class="fa fa-rss"></span> RSS</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"
+          
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2018/03/if-you-replaced-accessibility-with-responsive-design-in-2018-this-is-what-youd-get">If you replaced “accessibility” with “responsive design” in 2018, this is what you’d get</a>
+    </h1>
+    <p class="post-meta text-muted">
+      <time datetime="2018-03-15T00:00:00+00:00" itemprop="datePublished">March 15, 2018</time>
+      
+      
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p><em>I took all of the conversations and experiences I’ve had over the years advocating accessibility features, and imagined them applied to responsive design.</em></p>
+
+<h3 id="imagine">Imagine</h3>
+
+<p>Imagine a product organization where no one has a smartphone or knows how to resize their browser.</p>
+
+<p>A forward-thinking engineer says “Hey folks, I know everyone is busy but I was playing around with this browser draggy thing and I dunno but I think our website isn’t very good on smartphone. Can I help?”</p>
+
+<p>Their manager replies “That’s the kind of initiative we love. Let’s put together a plan.”</p>
+
+<p>Here’s what their plan for “responsive” looks like</p>
+
+<ul>
+  <li><strong>Summarize industry standards</strong> for responsive design. It’s a “growing field”.</li>
+  <li><strong>Do demographic research</strong>: What are common viewports? How many people have smartphones?</li>
+  <li><strong>Standardize on CSS rules for projects</strong>: Every CSS file must have at least 1 media query. All container elements must have at least 2 breakpoints. No fixed width element can be wider than 320px. All buttons must be larger than 16 x 16px.</li>
+  <li><strong>Write some automated tests and QA tools</strong> to ensure those rules are followed.</li>
+</ul>
+
+<h3 id="thats-a-good-planright">That’s a good plan, right?</h3>
+
+<p>The plan is standards based, actionable, measurable, and integrated into the development process. And engineering is championing it. That’s great!</p>
+
+<p>So things move along and then…</p>
+
+<ul>
+  <li>New customers are increasingly focused on “responsive best practices” and the company isn’t sure where they stand in the competitive landscape.</li>
+  <li>An important stakeholder got a smartphone and begins poking the CEO about some weirdness.</li>
+  <li>Product managers and designers grumble about deadlines and bolting-on changes when developer and QA questions get kicked back upstream.</li>
+  <li>That forward-thinking engineer occasionally sighs and pushes through odd-looking code and CSS changes and <em>it’s just kinda ok fine</em>, but isn’t sure how it’ll fit into their next performance review.</li>
+</ul>
+
+<p>So the company decides to hire you.</p>
+
+<h3 id="imagine-youre-hired-to-fixthis">Imagine you’re hired to fix this</h3>
+
+<p>What do you say? (Remember, it’s 2018.)</p>
+
+<p>“Let’s get some goddamn smartphones. And let’s train our people how to resize their browsers. And then we’ll talk about our usability testing practices.”</p>
+
+<p>Time to get to work! But there are still some objections to overcome:</p>
+
+<ul>
+  <li>“Getting ‘good’ at resizing browsers is gonna take a lot of time and training. Is it really that important?”</li>
+  <li>“Not all designers will want to specialize in responsive. Can we really make them?”</li>
+  <li>“We have a lot of other product needs too. How do we prioritize “responsive” against the other business and UX problems we already know about and need to fix.”</li>
+  <li>“Airdropping some smartphones won’t make us native users. We can’t really understand a smartphone user’s experience enough to make it perfect. Our company just isn’t the culture for smartphone people anyway.”</li>
+  <li>“Making existing projects perfectly responsive will be like a total rewrite. Maybe next time we could really bake it in from the beginning.”</li>
+</ul>
+
+<p>This is tough, right? It’s a slow and steady push. It’s amazing anyone manages to do responsive at all.</p>
+
+<h3 id="yet-here-we-are-for-accessibility">Yet here we are for accessibility</h3>
+
+<p>Over and over again I see organizations fall into an approach that places accessibility as an implementation detail to be addressed at the end of the product development process.</p>
+
+<blockquote>
+  <p>Because so many accessibility errors relating to assistive technologies are markup errors, and because markup errors are so easy to identify, we’ve grown up in an accessibility remediation culture that is assistive technology obsessed and focused on discrete code errors. </p>
+
+  <p>Inclusive design has a different take. It acknowledges the importance of markup in making semantic, robust interfaces, but it is the user’s ability to actually get things done that it makes the object. The quality of the markup is measured by what it can offer in terms of UX.</p>
+
+  <p>— <a href="https://shop.smashingmagazine.com/products/inclusive-design-patterns">Inclusive Design Patterns</a> by Heydon Pickering</p>
+</blockquote>
+
+<p>When talking to people, I’ve found the responsive-design analogy helps to reframe their approach to accessibility and inclusion. I follow up with technical recommendations, but it opens a door to having broader impact on product and UX practices.</p>
+
+<p>Like responsive and mobile-first design, integrating accessibility and inclusion into the entire product development process offers another powerful opportunity and perspective to distill user needs, focus product value and intent, and yes, verify the implementation’s delivery.</p>
+
+<p><em>What challenges have you seen in producing organizational and process change around accessibility and inclusion? How are you overcoming them? I’d love to hear from you and continue sharing what I’ve learned.</em></p>
+
+  </div>
+
+</article>
+
+
+<hr>
+
+<div class="well">
+  Discuss this with me on
+  <a href="https://twitter.com/bensheldon"><span class="fa fa-twitter"></span> Twitter</a>
+  or suggest a <a href="https://github.com/bensheldon/island94-jekyll/blob/master/_posts/2018-03-15-if-you-replaced-accessibility-with-responsive-design-in-2018-this-is-what-youd-get.md"><span class="fa fa-github-alt"></span> change</a>.
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+</footer>
+
+
+  </body>
+
+</html>

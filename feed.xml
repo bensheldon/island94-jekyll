@@ -1,0 +1,481 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Island94.org</title>
+    <description>A Lost and Found
+</description>
+    <link>http://island94.org/</link>
+    <atom:link href="http://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Mon, 13 Jul 2020 02:12:57 +0000</pubDate>
+    <lastBuildDate>Mon, 13 Jul 2020 02:12:57 +0000</lastBuildDate>
+    <generator>Jekyll v3.7.4</generator>
+    
+      <item>
+        <title>Engineering Operations is not the same as Development</title>
+        <description>&lt;p&gt;&lt;em&gt;I wrote this memo several years ago when I joined GetCalFresh as the first outside engineering hire. An early focus of mine was helping the team move more confidently into an operational mindset: this memo reframes the teams existing values that drive development as values that also support operations. This also overlaps greatly with a talk I gave at Code for America’s 2018 Summit &lt;a href=&quot;https://speakerdeck.com/bensheldon/keeping-users-at-the-forefront-while-scaling-services&quot;&gt;“Keeping Users at the Forefront While Scaling Services”&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Over the past month GetCalFresh has tripled the number of food stamp applications we’re processing. We often talk about “build the right thing”, but I wanted to focus on what it means to “operate a thing safely”.&lt;/p&gt;
+
+&lt;h2 id=&quot;understanding-operational-failure&quot;&gt;Understanding operational failure&lt;/h2&gt;
+
+&lt;p&gt;GetCalFresh collects foodstamp applicant’s information via a series of webforms, and then submits that applicant information to the county to begin the foodstamp eligibility process.&lt;/p&gt;
+
+&lt;p&gt;The website and webforms being offline or unavailable is bad.&lt;/p&gt;
+
+&lt;p&gt;Failing to submit application information to the county in a timely manner is awful. Foodstamp benefits are prorated to the day that the client’s application arrives &lt;em&gt;at the county&lt;/em&gt; before 5pm. Failing to deliver a clients application in a timely manner literally means less food on the table for a hungry family.&lt;/p&gt;
+
+&lt;p&gt;Our system is operationally “safe” when it ensures that client information is transmitted to the county in a timely manner. Our system experiences an operational “failure” when information is not submitted in a timely manner. Our system has operational “risk” that degrades safety and is the potential for an operational failure.&lt;/p&gt;
+
+&lt;h2 id=&quot;risks-in-complicated-complex-and-chaotic-systems&quot;&gt;Risks in complicated, complex and chaotic systems&lt;/h2&gt;
+
+&lt;p&gt;Keeping a website online is complicated, but can be address with good practice. We use boring technologies: Ruby on Rails, SQL, AWS, that scale and respond predictably and are part of a mature ecosystem of monitoring tools and practice.&lt;/p&gt;
+
+&lt;p&gt;Submitting client information to the county is complex and sometimes chaotic. Because county systems often have no API, we have a queue of jobworkers that use Selenium Webdriver to click through and type into a “virtualized” headless Firefox browser. Automating this leads to emergent and novel problems. Client data must be transformed into a series of scripted actions to be performed across multiple county webpages, with dynamic forms and data fields. The county websites may be offline or degraded, and occasionally their structure and content changes. Additional client documents may need to be faxed, emailed or uploaded to the county, and those systems can be degraded as well.&lt;/p&gt;
+
+&lt;p&gt;Our applicants themselves can cause operational risks. As we target new populations and demographics (e.g. seniors, students, military families, homeless, low-literacy or non-English-speaking), we discover new usability issues and challenges in collecting and transforming data from our webforms into county systems. For example, different county systems have different optional and required fields and expect names and addresses to by sanitized and tokenized differently.&lt;/p&gt;
+
+&lt;p&gt;In this system, we cannot reliably (or affordably, with time and resources) predict how this system will respond as it scales to new users or integrates with new counties.&lt;/p&gt;
+
+&lt;h2 id=&quot;creating-safety-with-staff-and-time&quot;&gt;Creating safety with staff and time&lt;/h2&gt;
+
+&lt;p&gt;We ensure that foodstamp applications are submitted in a timely manner through existing staff and dedicated time. Because we cannot reliably predict how our system scales or responds to changes, we have systems that alerts us to the risk of operational failure and engineers who are available to respond, remediate, and harden against similar circumstances in the future.&lt;/p&gt;
+
+&lt;p&gt;Every day, engineers block out 4pm to 5pm as “Apps &amp;amp; Docs”. We use this time to review any food stamp applications that failed our automated submission process to ensure the applications are submitted to the county by the daily deadline. Problems are documented and potential improvements are added to or reprioritized within the team’s backlog. We create safety by sometimes reaching out to clients for clarification or correction. In the event of an operational failure (we are not able to submit their application that day), we try to make things right; sometimes offering a gift card the client can use to purchase food.&lt;/p&gt;
+
+&lt;p&gt;Examples of problems identified during our hour of Apps &amp;amp; Docs:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Services not allowing multiple parallel sessions using the same credentials.&lt;/li&gt;
+  &lt;li&gt;Inconsistent address tokenization for college campuses, military bases, PO boxes, and Private Mail Boxes&lt;/li&gt;
+  &lt;li&gt;Frequency of people uploading iexplore.exe and notes.app instead of their intended document&lt;/li&gt;
+  &lt;li&gt;Forms that do not allow non-ASCII characters&lt;/li&gt;
+  &lt;li&gt;Forever optimizing headless Firefox, writing flexible and reliable Selenium scripts, and managing an increasing fleet of specialized jobworkers&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;trade-operational-risk-for-speed-of-learning&quot;&gt;Trade operational risk for speed of learning&lt;/h2&gt;
+&lt;p&gt;We can’t predict the exact operational issues we’ll experience during a given day, but by scheduling and protecting one hour per day for operational tasks, we can deliberately trade risk for flexibility. Flexibility comes because we can accept small risks by introducing incomplete or manual-intervention-required workflows into the system. We do not have to build for every edge case or automate every action. We can develop features faster and create more opportunities to learn with real users in a real operational environment. This is an operationalization of our engineering principle “don’t argue, ship”.&lt;/p&gt;
+
+&lt;h2 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Define operational failure&lt;/strong&gt;: Leaving failure ambiguous can lead to fire-drills on every bad experience and exception, even if they may not have a material impact on business process or metrics. Defining service level objectives helps everyone self-organize, prioritize and understand the impact of their work.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Operationalize operations&lt;/strong&gt;: Unexpected things happen all the time, but merely saying “high priority interrupt” does not expose the actual cost of response and remediation. Blocking out explicit times and spaces helps measure, and thus manage, work that might otherwise be overlooked.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Protect Developers’ time only so much&lt;/strong&gt;: “Any improvement not made at the constraint is an illusion.” Approaching automation as an iterative and forever-incomplete process enables our team to move quickly in optimizing the system as a whole. When manual remediation is at risk of overflowing our time block, we dedicate time to greater automation; when we have perceived sufficient tolerances, we can push product features faster by manually tasking edge-cases.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Operations is a practice&lt;/strong&gt;: Product Design and Development principles and practice provide a strong foundation and an experienced team can greatly reduce the risk of technical and market failure… but they can’t eliminate it. Operations is a field and practice that can reinforce and elevate Product Design and Development.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Mon, 13 Jul 2020 01:42:00 +0000</pubDate>
+        <link>http://island94.org/2020/07/engineering-operations-is-not-the-same-as-development</link>
+        <guid isPermaLink="true">http://island94.org/2020/07/engineering-operations-is-not-the-same-as-development</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Decade in Review 2010-2019</title>
+        <description>&lt;p&gt;In loose category and no particular order, other than I think they warrant mentioning.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Personal&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Communications and mental health. Two things that really greatly influenced me was reading &lt;em&gt;Nonviolent Communications&lt;/em&gt; and doing  &lt;a href=&quot;https://moodgym.com.au/&quot;&gt;Mood Gym&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;Inclusion (continuation). Compared to last decade I’ve practiced in larger groups and communities, from workplace to church.  Two books that stick with me are &lt;em&gt;White Fragility&lt;/em&gt; and &lt;em&gt;Dear Church: A Love Letter From a Black Preacher to the Whitest Denomination in the US&lt;/em&gt;.&lt;/li&gt;
+  &lt;li&gt;Business. I incorporated my own business, &lt;a href=&quot;https://dayoftheshirt.com&quot;&gt;Day of the Shirt&lt;/a&gt;, for which I’ve been filing taxes, hiring contractors, and businessing since 2011.&lt;/li&gt;
+  &lt;li&gt;Fiction. Malazan Book of the Fallen. Jemisin’s Inheritance and broken Earth trilogies. Up to book 26 of &lt;em&gt;The Cat Who…&lt;/em&gt;. Remembrance of Earth’s Past trilogy. The Dark Tower series. And the entirety of Discworld.&lt;/li&gt;
+  &lt;li&gt;Many deaths. Dottie Stephens. Many folks from Church: Dale, Clifton, Sam, Kirsten.&lt;/li&gt;
+  &lt;li&gt;Affluence and finance. The move to software engineering has had a four-fold increase on my income. As well as the matters of founders stock, options, shares, RSUs, etc. We bought a new car.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Family&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Marriage. Angelina and I got married in 2014 in San Francisco. We’ve also been together for the entirety of the decade.&lt;/li&gt;
+  &lt;li&gt;Membership organizations (continuation). I became a member of St. Francis Lutheran Church, the South End Rowing Club, Golden Gate Angling and Casting Club, and numerous museums.&lt;/li&gt;
+  &lt;li&gt;Cat changes. We lost Jose Pierpont, but gained Sally Ride and Billie Jean King.&lt;/li&gt;
+  &lt;li&gt;Extended family. Living near a lot of extended family has been a new experience and we’ve gained many new nephews and nieces around the country.&lt;/li&gt;
+  &lt;li&gt;Spending time together. This decade has been marked by a ramping up of  weekend trips and travel, from Calistoga to Australia.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Career&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;San Francisco.  8 years of this decade have been spent in San Francisco, longer even then my time in Boston where I spent the majority of the naughties.&lt;/li&gt;
+  &lt;li&gt;Transition from community-based work to software/tech. Shutting down the Transmission Project and Digital Arts Service Corps was hard. Software/Tech is fine.&lt;/li&gt;
+  &lt;li&gt;I have great appreciation for friends and colleagues who have introduce me to the body of work on ergonomics is software development. For example, DevOps, Extreme programming, TDD, and Christopher Alexander.&lt;/li&gt;
+  &lt;li&gt;Facilitation, Coaching and Sponsorship (continue). Still doing it.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Mon, 06 Jan 2020 03:23:00 +0000</pubDate>
+        <link>http://island94.org/2020/01/decade-in-review-2010-2019</link>
+        <guid isPermaLink="true">http://island94.org/2020/01/decade-in-review-2010-2019</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>The water never goes away</title>
+        <description>&lt;p&gt;From Ronan Farrow’s &lt;em&gt;Catch and Kill&lt;/em&gt;:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Perez said that she urged Sciorra to speak by describing her own experience of going public about her assault. “I told her, ‘I used to tread water for years. It’s fucking exhausting, and maybe speaking out, that’s your lifeboat. Grab on and get out,’” Perez recalled. “I said, ‘Honey, the water never goes away. But, after I went public, it became a puddle and I built a bridge over it, and one day you’re gonna get there, too.’”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;From Thomas Page McBee’s &lt;em&gt;Man Alive&lt;/em&gt;:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“Abandon all hope,” I’d written on a Post-it note, and I watched it move gently beneath the heat duct. I read it in some book. The idea was that hope misses the point: it’s either going to happen or not. You can’t make a new reality, only fashion something real from the one that you’ve got.&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        <pubDate>Mon, 16 Dec 2019 01:47:00 +0000</pubDate>
+        <link>http://island94.org/2019/12/the-water-never-goes-away</link>
+        <guid isPermaLink="true">http://island94.org/2019/12/the-water-never-goes-away</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>To care about AI</title>
+        <description>&lt;p&gt;From the endnotes of Ted Chiang’s &lt;em&gt;Exhalation&lt;/em&gt; on the short story “The lifecycle of softare objects”:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;I’ve read stories in which people argue that AIs deserve legal rights, but in focusing on the big philosophical question, there’s a mundane reality that these stories gloss over. It’s similar to the way movies always depict love in terms of grand romantic gestures when, over the long term, love also means working through money problems and picking dirty laundry off the floor. So while achieving legal rights for AIs would be a major step, another milestone that would be just as important is people putting real effort into their individual relationships with AIs.&lt;/p&gt;
+
+  &lt;p&gt;And even if we don’t care about them having legal rights, there’s still good reason to treat conscious machines with respect. You don’t have to believe that bomb-sniffing dogs deserve the right to vote to recognize that abusing them is a bad idea. Even if all you care about is how well they can detect bombs, it’s in your best interest that they be treated well. No matter whether we want AIs to fill the role of employees, lovers, or pets, I suspect they will do a better job if, during their development, there were people who cared about them.&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        <pubDate>Mon, 16 Dec 2019 01:39:00 +0000</pubDate>
+        <link>http://island94.org/2019/12/to-care-about-ai</link>
+        <guid isPermaLink="true">http://island94.org/2019/12/to-care-about-ai</guid>
+        
+        <category>artificial intelligence</category>
+        
+        <category>love</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Deterministic test data with Faker, FactoryBot, and RSpec</title>
+        <description>&lt;p&gt;I get a lot of joy from using &lt;a href=&quot;https://github.com/faker-ruby/faker&quot;&gt;Faker&lt;/a&gt; and &lt;a href=&quot;https://github.com/thoughtbot/factory_bot&quot;&gt;FactoryBot&lt;/a&gt; to efficiently generate real-world test data, but its randomness can be a liability when trying to debug complicated specs or when setting up systems that require repeatable data across RSpec test runs like &lt;a href=&quot;https://percy.io/&quot;&gt;Percy’s visual diffs&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Without deterministic test data, generating three new users with &lt;code class=&quot;highlighter-rouge&quot;&gt;3.times { puts Faker::Name.first_name }&lt;/code&gt; would result in &lt;code class=&quot;highlighter-rouge&quot;&gt;Danny, Solomon, Fabian&lt;/code&gt; when run once, then &lt;code class=&quot;highlighter-rouge&quot;&gt;Jordon, Shawn, Asa&lt;/code&gt; when run a second time, then &lt;code class=&quot;highlighter-rouge&quot;&gt;Bruce, Leonor, Paulette&lt;/code&gt; when run a third time.&lt;/p&gt;
+
+&lt;p&gt;With deterministic test data, I expect to always generate the same set of names no matter how many times the code is run.  Faker has &lt;a href=&quot;https://github.com/faker-ruby/faker#deterministic-random&quot;&gt;documented&lt;/a&gt; how to configure and seed the random number generator and this can be achieved with:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;times&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; 
+  &lt;span class=&quot;no&quot;&gt;Faker&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;random&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Random&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Faker&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;first_name&lt;/span&gt; 
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This script outputs &lt;code class=&quot;highlighter-rouge&quot;&gt;Zachery, Dawna, Desmond&lt;/code&gt; every single time it is run, meaning that it’s deterministic.&lt;/p&gt;
+
+&lt;p&gt;Faker’s deterministic configuration can be combined with a FactoryBot &lt;a href=&quot;https://github.com/thoughtbot/factory_bot/blob/master/GETTING_STARTED.md#sequences&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sequence&lt;/code&gt;&lt;/a&gt; to always get the same data every time a new factory instance is created. For example, here’s what a deterministic &lt;code class=&quot;highlighter-rouge&quot;&gt;User&lt;/code&gt; factory could look like:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# spec/factories/users.rb&lt;/span&gt;
+
+&lt;span class=&quot;no&quot;&gt;FactoryBot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;define&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;factory&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:user&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;sequence&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:first_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+      &lt;span class=&quot;no&quot;&gt;Faker&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;random&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Random&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;no&quot;&gt;Faker&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;first_name&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;sequence&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:last_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+      &lt;span class=&quot;no&quot;&gt;Faker&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;random&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Random&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;no&quot;&gt;Faker&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;last_name&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;email&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;first_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;parameterize&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;last_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;parameterize&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;@example.com&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;password&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'password123'&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Within every sequence, the Faker random number generator is  seeded with &lt;code class=&quot;highlighter-rouge&quot;&gt;Faker::Config.random = Random.new(n)&lt;/code&gt; , where &lt;code class=&quot;highlighter-rouge&quot;&gt;n&lt;/code&gt; is the integer generated by the sequence.&lt;/p&gt;
+
+&lt;p&gt;Unfortunately, just using a sequence isn’t completely sufficient when running tests in random order, or inserting new tests or rearranging the tests, as one would expect in an active codebase. FactoryBot sequences are global, meaning that they don’t reset by default between each and every test; a FactoryBot instance during one test run might use a different sequence number than a previous test run.&lt;/p&gt;
+
+&lt;p&gt;Therefore, it’s also necessary to rewind FactoryBot sequences after each RSpec example. Place this in your &lt;code class=&quot;highlighter-rouge&quot;&gt;spec/rails_helper.rb&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;spec/support&lt;/code&gt; directory:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# spec/support/factory_bot.rb&lt;/span&gt;
+
+&lt;span class=&quot;no&quot;&gt;RSpec&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;configure&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;after&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+    &lt;span class=&quot;no&quot;&gt;FactoryBot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;rewind_sequences&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;That’s all you need to combine Faker and FactoryBot to get deterministic test data in your RSpec tests. Have fun!&lt;/p&gt;
+</description>
+        <pubDate>Sat, 30 Nov 2019 19:33:00 +0000</pubDate>
+        <link>http://island94.org/2019/11/deterministic-test-data-with-faker-factorybot-and-rspec</link>
+        <guid isPermaLink="true">http://island94.org/2019/11/deterministic-test-data-with-faker-factorybot-and-rspec</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Because it helps them to release software</title>
+        <description>&lt;p&gt;I have been thinking a lot about the framing of a sentence in this piece on Agile. If it’s given that &lt;em&gt;software&lt;/em&gt; is the strategy, then it’s legitimate to focus on being better at releasing software.&lt;/p&gt;
+
+&lt;p&gt;From Graham Lee’s &lt;a href=&quot;https://www.sicpers.info/2019/10/the-value-of-the-things-on-the-left/&quot;&gt;The value of the things on the left&lt;/a&gt;:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;That software engineering department now has different management and is Agile. They have releases at least every month (they already released daily, though those releases were of minimal scope). They respond to change rather than follow a plan (they already did this, though through hefty “change control” procedures). They meet daily to discuss progress (they already did this).&lt;/p&gt;
+
+  &lt;p&gt;But, importantly, they do the things they do because it helps them release software, not because it helps them hit project milestones. The revolution really did land there.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+</description>
+        <pubDate>Sat, 30 Nov 2019 19:29:00 +0000</pubDate>
+        <link>http://island94.org/2019/11/because-it-helps-them-to-release-software</link>
+        <guid isPermaLink="true">http://island94.org/2019/11/because-it-helps-them-to-release-software</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>The Concrete Sumo - Ethics in Software Engineering Discussion Guide </title>
+        <description>&lt;p&gt;I prepared this discussion guide for Taft H. Broome, Jr’s &lt;a href=&quot;https://www.onlineethics.org/CMS/edu/instructessays/sumo.aspx&quot;&gt;
+The Concrete Sumo”&lt;/a&gt; and facilitated it two weeks ago for the software engineering team at Code for America.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;To prepare for the discussion, please read the following sections of paper, &lt;a href=&quot;https://www.onlineethics.org/CMS/edu/instructessays/sumo.aspx&quot;&gt;“The Concrete Sumo”&lt;/a&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Forward&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The Concrete Sumo&lt;/p&gt;
+
+    &lt;p&gt;Note: the paragraph beginning “In the Johnny-on-the-Spot, Tubby was the first to speak to me…” is particularly difficult because it begins with an unfamiliar colloquialism (“Johnny-on-the-Spot” meaning to be on-call, in the hot seat, put on the spot, or put on notice); names three characters who are not introduced until much later in the commentary (Tubby, Roebling, and Uncle Roy); and the protagonist is imagining the three characters giving him advice though they are not actually present. — Ben&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Heuristic: Uncle Roy, the Mutumin Kiri&lt;/li&gt;
+  &lt;li&gt;The Assigned World&lt;/li&gt;
+  &lt;li&gt;Afterword&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;These sections have been selected for brevity and focus. The paper has been &lt;a href=&quot;https://www.taylorfrancis.com/books/e/9781315256474/chapters/10.4324/9781315256474-56&quot;&gt;described&lt;/a&gt; by ethicist Michael Davis as an “informative story groaning under the weight of an interpretation it cannot bear.” Therefore, the reading and discussion will focus on the story and its application to software engineering ethics. — Ben&lt;/p&gt;
+
+&lt;h3 id=&quot;discussion-questions&quot;&gt;Discussion Questions&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;This is a paper about ethics. Generally, what do you think of when you think of “ethics”? What does it mean to you to act ethically or be ethical? &lt;/li&gt;
+  &lt;li&gt;In the paper, the author introduces the idea of “exigent circumstances”, described as situations that “are so complex as to deny engineers the reflection required to invoke ethical theories, and so novel as to discourage engineers from appealing to case studies.”
+    &lt;ul&gt;
+      &lt;li&gt;In the story of the Concrete Sumo, what is the exigent circumstances the author confronts?&lt;/li&gt;
+      &lt;li&gt;What similar situations have you had like this in your life or work?&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;The author speaks of a “scientific” decision defined as “with or without scientific certitude, but with the commitment of the parties to the situation”. 
+    &lt;ul&gt;
+      &lt;li&gt;In the story of the Concrete Sumo, what made the decision “scientific”? Who were the directly committed parties? Why do you think “commitment” is specifically called out?&lt;/li&gt;
+      &lt;li&gt;Thinking more broadly about engineering as a discipline and vocation, who is committed to engineers making good decisions? Within software engineering, what groups and organizations make up our “scientific” community? &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;The author introduces a practice (“praxistic”) to be used in exigent situations. Broadly that practice is to “think of an aged, highly mature person: a family member or some legendary character; someone who exhibited great wisdom and caring for others” and to “do what [they] would do.”
+    &lt;ul&gt;
+      &lt;li&gt;In the story, what people did the author imagine and act out? Who was the counter-example whose actions they rejected?&lt;/li&gt;
+      &lt;li&gt;Does the practice here seem familiar and in what ways? Do you have people, real or fictional, that you have sought, mentally, for advice? Are there situations where you have or would apply this?&lt;/li&gt;
+      &lt;li&gt;In the Afterword, the author speaks of the practice helping students pass an ethics exam. How does that make you feel?&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;The author goes to great lengths to assert not only that the imagined role model inspires a suitable action, but also that they are respected in their social context and communities, with attributes such as “wisdom”, “character” and “caring for others”. 
+    &lt;ul&gt;
+      &lt;li&gt;What cultural context did the author use in choosing Uncle Roy and rejecting Tubby? Is this familiar to you?&lt;/li&gt;
+      &lt;li&gt;What different social contexts, worlds, or communities, fictional or real, could guide you? How are they different and similar? Is breadth or depth of understanding better?&lt;/li&gt;
+      &lt;li&gt;As an engineer, how does the idea of being guided by an imagined or fictional character make you feel? As an engineer, do you think your education or experience has prepared you to think in this way?&lt;/li&gt;
+      &lt;li&gt;What are the ingredients necessary to further develop this practice both for yourself and engineering as a whole?&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;In “The Rhetoric” section (not required reading), the author writes “In Western ethics, the decision-maker is the subject, and the rightness or wrongness of his or her actions its predicate. Among the Nigerian Hausa, however, the community is the subject, and the decision-maker’s character the predicate.” 
+    &lt;ul&gt;
+      &lt;li&gt;What do you think the author means by making this comparison?&lt;/li&gt;
+      &lt;li&gt;How does it make you feel to shift from “the decision-maker and their decision” to “the community’s responsibility for the decision a person makes”?&lt;/li&gt;
+      &lt;li&gt;How many communities can a person be a part of? How can they overlap or diverge? How does intersectionality affect your thoughts about responsibility?&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Within software and technology, there are recognized leaders who have made large contributions to the field, but also have been called out for their gross personal beliefs and antisocial behavior. For example, Steve Jobs, Linus Torvalds, Richard Stallman, Uncle Bob Martin, etc. 
+    &lt;ul&gt;
+      &lt;li&gt;Thinking of the practice described in the paper, is it practical to separate people’s technical contributions from their character?&lt;/li&gt;
+      &lt;li&gt;Is it easy for you to imagine yourself acting in their skin? Why or why not?&lt;/li&gt;
+      &lt;li&gt;Thinking of the practice described in the paper, how might diversity and inclusion in our engineering communities help people to act ethically? &lt;/li&gt;
+      &lt;li&gt;What is our communities’ responsibility for creating the conditions in which people make ethical decisions? What can we reasonably expect?&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Bowen H. McCoy, in Harvard Business Review’s &lt;a href=&quot;https://hbr.org/1997/05/the-parable-of-the-sadhu&quot;&gt;“Parable of the Sadhu” &lt;/a&gt;describes the concept of “business” ethics. Business ethics “has to do with the authenticity and integrity of the enterprise. To be ethical is to follow the business as well as the cultural goals of the corporation, its owners, its employees, and its customers. Those who cannot serve the corporate vision are not authentic businesspeople and, therefore, are not ethical in the business sense.”
+    &lt;ul&gt;
+      &lt;li&gt;How is this similar to the Forward’s Vanderbilt quote “The public be damned! I work for my stockholders”?&lt;/li&gt;
+      &lt;li&gt;How is the context of “business” ethics defined? Who defines the visions and goals and what are they relative to?&lt;/li&gt;
+      &lt;li&gt;How is this “business” ethics similar to and different from the “scientific” engineering ethics we’ve been discussing? &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Facebook employees recently &lt;a href=&quot;https://www.nytimes.com/2019/10/28/technology/facebook-mark-zuckerberg-letter.html&quot;&gt;published a letter&lt;/a&gt; criticising the company’s lax fact-checking policies for political ads. After explaining the problems with the policy and suggesting alternatives, they closed their letter with “This is still our company.”
+    &lt;ul&gt;
+      &lt;li&gt;When thinking of Western and non-Western frames, what multiple interpretations could there be of that phrase? How does framing something as a “leadership” decision affect how we approach it compared to the idea of “community” responsibility?&lt;/li&gt;
+      &lt;li&gt;How is the idea of “scientific” decisions challenged in a “business” environment? How are the power dynamics different in a business than a community? How are they the same? Can they be wholly separated within the context of software engineering?&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Software engineering communities have frequently raised the idea of a &lt;a href=&quot;https://queue.acm.org/detail.cfm?id=1016991&quot;&gt;“Hippocratic Oath”&lt;/a&gt; to improve ethical conduct in software engineering and emerging fields such as Machine Learning and AI.
+    &lt;ul&gt;
+      &lt;li&gt;Given the reading, how applicable would such an oath be in exigent circumstances? &lt;/li&gt;
+      &lt;li&gt;Given the reading, what else would be necessary to make a Hippocratic Oath actionable and meaningful to engineers? How could existing software engineering communities better provide stories of such an oath’s usage by representative role models?&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;At the very end of the story, the foreman says “When it comes to rookie engineers, it is better to pay early, than to pay later.” 
+    &lt;ul&gt;
+      &lt;li&gt;Given all we have discussed, what could this mean? &lt;/li&gt;
+      &lt;li&gt;Who pays early? Later? What are the costs?&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;In what ways, if any, has this reading made you think you would act differently in the future?&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        <pubDate>Sat, 09 Nov 2019 20:38:00 +0000</pubDate>
+        <link>http://island94.org/2019/11/the-concrete-sumo-ethics-in-software-engineering-discussion-guide</link>
+        <guid isPermaLink="true">http://island94.org/2019/11/the-concrete-sumo-ethics-in-software-engineering-discussion-guide</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Public comments on Sunset housing</title>
+        <description>&lt;p&gt;Today I spoke in public comment before the San Francisco Planning Commission on a proposed 20-unit building in the Outer Sunset at &lt;a href=&quot;https://socketsite.com/archives/2018/01/plans-for-raising-the-roof-and-density-across-from-outerlands.html&quot;&gt;3945 Judah St.&lt;/a&gt;:&lt;/p&gt;
+
+&lt;blockquote&gt;
+
+  &lt;p&gt;Good afternoon, Commissioners.&lt;/p&gt;
+
+  &lt;p&gt;My name is Ben Sheldon. I have been a resident of the Outer Sunset for 8 years.&lt;/p&gt;
+
+  &lt;p&gt;I support this project.&lt;/p&gt;
+
+  &lt;p&gt;I live 4 blocks away from the proposed project. I live in a 4 story, 12 unit multi-family apartment building.&lt;/p&gt;
+
+  &lt;p&gt;My building is vibrant. It is home to senior citizens, families with young children, teachers, and working professionals like myself.&lt;/p&gt;
+
+  &lt;p&gt;We shop at local businesses. Eat at local restaurants. Attend local schools. We participate fully in the civic life of our neighborhood.&lt;/p&gt;
+
+  &lt;p&gt;Multi-family buildings. Dense. And large. Like my own, and the proposed project, are part of the character of our neighborhood.&lt;/p&gt;
+
+  &lt;p&gt;My building was built in 1928. It makes me sad. And at times angry. That a building like my own seemingly could not be built today.&lt;/p&gt;
+
+  &lt;p&gt;My building is not enough. It is not modern. It is not accessible for the very old or people with disabilities. It has lead and toxicity issues of concern for very young children.&lt;/p&gt;
+
+  &lt;p&gt;The neighborhood needs more buildings like my own. Better ones.&lt;/p&gt;
+
+  &lt;p&gt;Multi-family. Dense. Accessible. Modern. Vibrant.&lt;/p&gt;
+
+  &lt;p&gt;This project is equally an issue of inclusion as it is of character.&lt;/p&gt;
+
+  &lt;p&gt;I support this project.&lt;/p&gt;
+
+  &lt;p&gt;I urge you to support this project too.&lt;/p&gt;
+
+  &lt;p&gt;Thank you.&lt;/p&gt;
+
+&lt;/blockquote&gt;
+</description>
+        <pubDate>Fri, 08 Nov 2019 01:59:00 +0000</pubDate>
+        <link>http://island94.org/2019/11/public-comments-on-sunset-housing</link>
+        <guid isPermaLink="true">http://island94.org/2019/11/public-comments-on-sunset-housing</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Trust and safety</title>
+        <description>&lt;p&gt;When I heard &lt;a href=&quot;https://www.npr.org/2019/02/22/697152943/how-pinterest-jumped-into-the-fight-against-health-misinformation&quot;&gt;this on the radio&lt;/a&gt; I was impressed (it may be a low bar) with Pinterest’s Ifeoma Ozoma’s responses to NPR’s Audie Cornish:&lt;/p&gt;
+
+&lt;blockquote&gt;
+
+  &lt;p&gt;OZOMA: Our goal, really, is harm reduction. And so because we’re humble about our limitations and our own expertise here, we look to outside experts like the WHO, CDC and the American Academy of Pediatrics and their guidance on what’s harmful.&lt;/p&gt;
+
+  &lt;p&gt;CORNISH: Now, there are some critics of this move. Jennifer Granick of the ACLU told The Wall Street Journal that this is dangerous, that it’s essentially a secretive process, no real appeal. People are making very difficult subject calls when it comes to politics and culture and religion. What’s your response?&lt;/p&gt;
+
+  &lt;p&gt;OZOMA: So to that, we have clear and transparent community guidelines. And this is just one way of enforcing, like…&lt;/p&gt;
+
+  &lt;p&gt;CORNISH: Like buried in the terms and conditions or what do you mean by that?&lt;/p&gt;
+
+  &lt;p&gt;OZOMA: No. Nope. They’re clear in our community guidelines on our website. And we also, whenever we have a search that we’ve removed results for, we explain right in there in the search advisory why we removed it, and we link to those community guidelines. And we also have an appeals process for any content that’s taken down.&lt;/p&gt;
+
+  &lt;p&gt;CORNISH: Is this essentially censorship?&lt;/p&gt;
+
+  &lt;p&gt;OZOMA: For us, we don’t see it as that. There’s an enthusiasm gap between those who save harmful health misinformation and organizations like the CDC and WHO and American Academy of Pediatrics. And so because of that, you’re going to find more health misinformation than, say, journal articles on the virtues of vaccination or other science-based health interventions. We’ve taken the view that further sharing that harmful content through our search results isn’t in line with enforcing our community guidelines.&lt;/p&gt;
+
+  &lt;p&gt;CORNISH: Your title is public policy and social impact manager. None of those things are things we thought about when we thought about social media when it was first starting up, right? We called them platforms. They were just places we put things that we wanted to share. When do you think this mindset changed?&lt;/p&gt;
+
+  &lt;p&gt;OZOMA: We have had content policy and trust and safety teams since the beginning. And so safety has always been a consideration when you think about different types of harmful content, whether they’re illegal or not illegal. Safety has been top of mind and still is for every team across the company.&lt;/p&gt;
+
+&lt;/blockquote&gt;
+</description>
+        <pubDate>Thu, 17 Oct 2019 00:41:00 +0000</pubDate>
+        <link>http://island94.org/2019/10/trust-and-safety</link>
+        <guid isPermaLink="true">http://island94.org/2019/10/trust-and-safety</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Attention</title>
+        <description>&lt;p&gt;This zine, &lt;a href=&quot;https://hwcdn.libsyn.com/p/0/5/7/0573858d24462354/SSRZ_-_001_-_Your_Attention_Is_Sovereign.pdf?c_id=51790010&amp;amp;cs_id=51790010&amp;amp;expiration=1569249139&amp;amp;hwt=a94e3ed611a881118bfe3390567544fc&quot;&gt;Your Attention is Sovereign&lt;/a&gt;(PDF) by Jay Springett (via &lt;a href=&quot;https://www.gyford.com/phil/links/philgyford/ea561ea9a031/&quot;&gt;Phil Gyford&lt;/a&gt;) which is a collection of 6 essays:&lt;/p&gt;
+
+&lt;blockquote&gt;
+
+  &lt;p&gt;Your attention is sovereign.&lt;/p&gt;
+
+  &lt;p&gt;There are two things that should be addressed.&lt;/p&gt;
+
+  &lt;ol&gt;
+    &lt;li&gt;You, personally, get to decide where you put your attention.&lt;/li&gt;
+    &lt;li&gt;By acknowledging this fact you have to take full responsibility for where you have put your attention in the past, and where you will put it in the future.&lt;/li&gt;
+  &lt;/ol&gt;
+
+  &lt;p&gt;…&lt;/p&gt;
+
+  &lt;p&gt;I’ve been attempting to find mechanisms to remind myself that my attention is sovereign every single time I open an app on my phone. The only solution, has been to keep it in my pocket and not even try and open an app. Slowly slowly you begin to not bother pulling out your phone at all. If you are actually doing something, like reading a longread news article and feel the urge to check social media you have to think to yourself ‘Should I open twitter &lt;em&gt;again&lt;/em&gt; or should I keep doing what I was doing’.&lt;/p&gt;
+
+&lt;/blockquote&gt;
+
+&lt;p&gt;Maria Farrell’s &lt;a href=&quot;https://conversationalist.org/2019/09/13/feminism-explains-our-toxic-relationships-with-our-smartphones/&quot;&gt;This is your phone on feminism&lt;/a&gt; via &lt;a href=&quot;https://www.schneier.com/blog/archives/2019/09/a_feminist_take.html&quot;&gt;Bruce Schneier&lt;/a&gt;:&lt;/p&gt;
+
+&lt;blockquote&gt;
+
+  &lt;p&gt;Let’s face the truth. We are in an abusive relationship with our phones.&lt;/p&gt;
+
+  &lt;p&gt;Ask yourself the first three questions that UK non-profit Women’s Aid suggests to determine if you’re in an abusive relationship:&lt;/p&gt;
+
+  &lt;ul&gt;
+    &lt;li&gt;Has your partner tried to keep you from seeing your friends or family?&lt;/li&gt;
+    &lt;li&gt;Has your partner prevented you or made it hard for you to continue or start studying, or from going to work?&lt;/li&gt;
+    &lt;li&gt;Does your partner constantly check up on you or follow you?&lt;/li&gt;
+  &lt;/ul&gt;
+
+  &lt;p&gt;If you substitute ‘phone’ for ‘partner’, you could answer yes to each question. And then you’ll probably blame yourself.&lt;/p&gt;
+
+  &lt;p&gt;If this feels dangerously close to trivializing abuse and intimate partner violence, then stick with me just a minute more. What our smartphones and relationship abusers share is that they both exert power over us in a world shaped to tip the balance in their favour, and they both work really, really hard to obscure this fact and keep us confused and blaming ourselves. Here are some of the ways our unequal relationship with our smartphones is like an abusive relationship:&lt;/p&gt;
+
+  &lt;ul&gt;
+    &lt;li&gt;They isolate us from deeper, competing relationships in favour of superficial contact – ‘user engagement’ – that keeps their hold on us strong. Working with social media, they insidiously curate our social lives, manipulating us emotionally with dark patterns to keep us scrolling.&lt;/li&gt;
+    &lt;li&gt;They tell us the onus is on us to manage their behavior. It’s our job to tiptoe around them and limit their harms. Spending too much time on a literally-designed-to-be-behaviorally-addictive phone? They send company-approved messages about our online time, but ban from their stores the apps that would really cut our use. We just need to use willpower. We just need to be good enough to deserve them.&lt;/li&gt;
+    &lt;li&gt;They betray us, leaking data / spreading secrets. What we shared privately with them is suddenly public. Sometimes this destroys lives, but hey, we only have ourselves to blame. They fight nasty and under-handed, and are so, so sorry when they get caught that we’re meant to feel bad for them. But they never truly change, and each time we take them back, we grow weaker.&lt;/li&gt;
+    &lt;li&gt;They love-bomb us when we try to break away, piling on the free data or device upgrades, making us click through page after page of dark pattern, telling us no one understands us like they do, no one else sees everything we really are, no one else will want us.&lt;/li&gt;
+    &lt;li&gt;It’s impossible to just cut them off. They’ve wormed themselves into every part of our lives, making life without them unimaginable. And anyway, the relationship is complicated. There is love in it, or there once was. Surely we can get back to that if we just manage them the way they want us to?&lt;/li&gt;
+  &lt;/ul&gt;
+
+  &lt;p&gt;Nope. Our devices are basically gaslighting us. They tell us they work for and care about us, and if we just treat them right then we can learn to trust them. But all the evidence shows the opposite is true. This cognitive dissonance confuses and paralyses us. And look around. Everyone has a smartphone. So it’s probably not so bad, and anyway, that’s just how things work. Right?&lt;/p&gt;
+
+&lt;/blockquote&gt;
+</description>
+        <pubDate>Mon, 23 Sep 2019 14:00:00 +0000</pubDate>
+        <link>http://island94.org/2019/09/attention</link>
+        <guid isPermaLink="true">http://island94.org/2019/09/attention</guid>
+        
+        
+      </item>
+    
+  </channel>
+</rss>
