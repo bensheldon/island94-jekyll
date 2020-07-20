@@ -6,9 +6,64 @@
 </description>
     <link>http://island94.org/</link>
     <atom:link href="http://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 20 Jul 2020 21:10:31 +0000</pubDate>
-    <lastBuildDate>Mon, 20 Jul 2020 21:10:31 +0000</lastBuildDate>
+    <pubDate>Mon, 20 Jul 2020 21:13:35 +0000</pubDate>
+    <lastBuildDate>Mon, 20 Jul 2020 21:13:35 +0000</lastBuildDate>
     <generator>Jekyll v3.8.7</generator>
+    
+      <item>
+        <title>Introducing GoodJob 1.0, a new Postgres-based, multithreaded, ActiveJob backend for Ruby on Rails</title>
+        <description>&lt;p&gt;&lt;a href=&quot;https://github.com/bensheldon/good_job&quot;&gt;GoodJob&lt;/a&gt; is a new Postgres-based, multithreaded, second-generation ActiveJob backend for Ruby on Rails.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Inspired by Delayed::Job and Que, &lt;a href=&quot;https://github.com/bensheldon/good_job&quot;&gt;GoodJob&lt;/a&gt; is designed for maximum compatibility with Ruby on Rails, ActiveJob, and Postgres to be simple and performant for most workloads.&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Designed for ActiveJob.&lt;/strong&gt; Complete support for async, queues, delays, priorities, timeouts, and retries with near-zero configuration.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Built for Rails.&lt;/strong&gt; Fully adopts Ruby on Rails threading and code execution guidelines with Concurrent::Ruby.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Backed by Postgres.&lt;/strong&gt; Relies upon Postgres integrity and session-level Advisory Locks to provide run-once safety and stay within the limits of schema.rb.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;For most workloads.&lt;/strong&gt; Targets full-stack teams, economy-minded solo developers, and applications that enqueue less than 1-million jobs/day.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/bensheldon/good_job&quot;&gt;Visit Github for instructions on adding GoodJob to your Rails application&lt;/a&gt; , or read on for the story behind GoodJob.&lt;/p&gt;
+
+&lt;h3 id=&quot;a-second-generation-activejob-backend&quot;&gt;A “Second-generation” ActiveJob backend&lt;/h3&gt;
+&lt;p&gt;Why “second-generation*”? GoodJob is designed from the beginning to be an ActiveJob-backend in a conventional Ruby on Rails application.&lt;/p&gt;
+
+&lt;p&gt;First-generation ActiveJob backends, like Delayed::Job and Que, all predate ActiveJob and support non-Rails applications. First-generation ActiveJob backends are significantly more complex than GoodJob because they separately maintain a lot of functionality that comes with a conventional Rails installation (ActiveRecord, ActiveSupport, Concurrent::Ruby) and re-implement job lifecycle hooks so they can work apart from ActiveJob. I’ve observed that this can make them slow to keep up with major Rails changes. An impetus for GoodJob was reviewing the number of outages, blocked upgrades, and forks of first-generation backends I’ve managed during both major and minor Rails upgrades over the years.&lt;/p&gt;
+
+&lt;p&gt;As a second-generation ActiveJob backend, GoodJob can draft off of all the advances and solved problems of ActiveJob and Ruby on Rails. For example &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rescue_from&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;retry_on&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;discard_on&lt;/code&gt; are all implemented already by ActiveJob.&lt;/p&gt;
+
+&lt;p&gt;GoodJob is significantly thinner than first-generation backends, and over the long run hopefully easier to maintain and keep up with changes to Ruby on Rails. For example, GoodJob is currently ~600 lines of code, whereas Que is ~1,200 lines, and Delayed::Job is ~2,300 lines (2,000 for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;delayed_job&lt;/code&gt;, and an additional 300 for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;delayed_job_active_record&lt;/code&gt;).&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;*“Second generation” was coined for me by Daniel Lopez on &lt;a href=&quot;https://rubyonrails-link.slack.com/archives/C0GB80GRE/p1594860261410500&quot;&gt;Ruby on Rails Link Slack&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;postgres-based&quot;&gt;Postgres-based&lt;/h3&gt;
+&lt;p&gt;I love Postgres. Postgres offers a lot of features, has safety and integrity guarantees, and simply running fewer services (skipping Redis) means less complexity in development and production.&lt;/p&gt;
+
+&lt;p&gt;GoodJob builds atop ActiveRecord. It’s numbingly boring, in a good way.&lt;/p&gt;
+
+&lt;p&gt;GoodJob uses session-level Advisory Locks to provide run-once guarantees with relatively little performance implications for most workloads.&lt;/p&gt;
+
+&lt;p&gt;GoodJob’s session-level Advisory Lock implementation is perhaps the only “novel” aspect, that comes from my experience orchestrating complex web-driving of government systems (“the browser is the API”) for &lt;a href=&quot;https://codeforamerica.org/&quot;&gt;Code for America&lt;/a&gt; . GoodJob uses a Common Table Expression (CTE) to find, lock, and return the next workable job in a single query. Session-level Advisory Locks will gracefully relinquish that lock if interrupted, without having to maintain a transaction for the duration of the job.&lt;/p&gt;
+
+&lt;h3 id=&quot;multi-threaded&quot;&gt;Multi-threaded&lt;/h3&gt;
+&lt;p&gt;GoodJob uses &lt;a href=&quot;https://github.com/ruby-concurrency/concurrent-ruby&quot;&gt;Concurrent::Ruby&lt;/a&gt;  to scale and manage jobs across multiple threads. “&lt;em&gt;Concurrent Ruby makes one of the strongest thread-safety guarantees of any Ruby concurrency library”.&lt;/em&gt;  Ruby on Rails has adopted Concurrent Ruby, and GoodJob follows its lead and &lt;a href=&quot;https://guides.rubyonrails.org/threading_and_code_execution.html&quot;&gt;thread-execution and safety guidelines&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;In building GoodJob I leaned heavily on my positive experiences running Que, another multithreaded backend, on Heroku. Threads are great for balancing simplicity, economy, and performance for typical IO-bound workloads like heavy database queries, API requests, Selenium web-driving, or sending emails.&lt;/p&gt;
+
+&lt;p&gt;A feature that won’t be in GoodJob 1.0, but I hope to implement soon, is the ability to run the GoodJob scheduler inside the webserver process (“async mode”). This was a feature  &lt;a href=&quot;https://github.com/que-rb/que/issues/238#issuecomment-480648845&quot;&gt;withdrawn from Que&lt;/a&gt; , but I believe can be safely implemented with Concurrent Ruby. An async mode would offer even greater economy, for example, in Heroku’s constrained environment.&lt;/p&gt;
+
+&lt;h3 id=&quot;goodjob-is-right-for-me&quot;&gt;GoodJob is right for me&lt;/h3&gt;
+&lt;p&gt;GoodJob’s design is based directly on my experience in 2-pizza, full-stack teams, and as an economy-minded solo developer. GoodJob already powers  &lt;a href=&quot;https://dayoftheshirt.com/&quot;&gt;Day of the Shirt&lt;/a&gt; and &lt;a href=&quot;https://brompt.com/&quot;&gt;Brompt&lt;/a&gt; performing tens-of-thousands of real-world jobs a day.&lt;/p&gt;
+
+&lt;h3 id=&quot;is-goodjob-right-for-you&quot;&gt;Is GoodJob right for you?&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/bensheldon/good_job&quot;&gt;Try it out&lt;/a&gt;  and let me know.&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 20 Jul 2020 21:12:00 +0000</pubDate>
+        <link>http://island94.org/2020/07/introducing-goodjob-1-0-a-new-postgres-based-multithreaded-activejob-backend-for-ruby-on-rails</link>
+        <guid isPermaLink="true">http://island94.org/2020/07/introducing-goodjob-1-0-a-new-postgres-based-multithreaded-activejob-backend-for-ruby-on-rails</guid>
+        
+        
+      </item>
     
       <item>
         <title>Retail politics</title>
@@ -403,39 +458,6 @@ The Concrete Sumo”&lt;/a&gt; and facilitated it two weeks ago for the software
         <pubDate>Fri, 08 Nov 2019 01:59:00 +0000</pubDate>
         <link>http://island94.org/2019/11/public-comments-on-sunset-housing</link>
         <guid isPermaLink="true">http://island94.org/2019/11/public-comments-on-sunset-housing</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>Trust and safety</title>
-        <description>&lt;p&gt;When I heard &lt;a href=&quot;https://www.npr.org/2019/02/22/697152943/how-pinterest-jumped-into-the-fight-against-health-misinformation&quot;&gt;this on the radio&lt;/a&gt; I was impressed (it may be a low bar) with Pinterest’s Ifeoma Ozoma’s responses to NPR’s Audie Cornish:&lt;/p&gt;
-
-&lt;blockquote&gt;
-
-  &lt;p&gt;OZOMA: Our goal, really, is harm reduction. And so because we’re humble about our limitations and our own expertise here, we look to outside experts like the WHO, CDC and the American Academy of Pediatrics and their guidance on what’s harmful.&lt;/p&gt;
-
-  &lt;p&gt;CORNISH: Now, there are some critics of this move. Jennifer Granick of the ACLU told The Wall Street Journal that this is dangerous, that it’s essentially a secretive process, no real appeal. People are making very difficult subject calls when it comes to politics and culture and religion. What’s your response?&lt;/p&gt;
-
-  &lt;p&gt;OZOMA: So to that, we have clear and transparent community guidelines. And this is just one way of enforcing, like…&lt;/p&gt;
-
-  &lt;p&gt;CORNISH: Like buried in the terms and conditions or what do you mean by that?&lt;/p&gt;
-
-  &lt;p&gt;OZOMA: No. Nope. They’re clear in our community guidelines on our website. And we also, whenever we have a search that we’ve removed results for, we explain right in there in the search advisory why we removed it, and we link to those community guidelines. And we also have an appeals process for any content that’s taken down.&lt;/p&gt;
-
-  &lt;p&gt;CORNISH: Is this essentially censorship?&lt;/p&gt;
-
-  &lt;p&gt;OZOMA: For us, we don’t see it as that. There’s an enthusiasm gap between those who save harmful health misinformation and organizations like the CDC and WHO and American Academy of Pediatrics. And so because of that, you’re going to find more health misinformation than, say, journal articles on the virtues of vaccination or other science-based health interventions. We’ve taken the view that further sharing that harmful content through our search results isn’t in line with enforcing our community guidelines.&lt;/p&gt;
-
-  &lt;p&gt;CORNISH: Your title is public policy and social impact manager. None of those things are things we thought about when we thought about social media when it was first starting up, right? We called them platforms. They were just places we put things that we wanted to share. When do you think this mindset changed?&lt;/p&gt;
-
-  &lt;p&gt;OZOMA: We have had content policy and trust and safety teams since the beginning. And so safety has always been a consideration when you think about different types of harmful content, whether they’re illegal or not illegal. Safety has been top of mind and still is for every team across the company.&lt;/p&gt;
-
-&lt;/blockquote&gt;
-</description>
-        <pubDate>Thu, 17 Oct 2019 00:41:00 +0000</pubDate>
-        <link>http://island94.org/2019/10/trust-and-safety</link>
-        <guid isPermaLink="true">http://island94.org/2019/10/trust-and-safety</guid>
         
         
       </item>
