@@ -6,8 +6,8 @@
 </description>
     <link>http://island94.org/</link>
     <atom:link href="http://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 20 Jul 2020 21:13:55 +0000</pubDate>
-    <lastBuildDate>Mon, 20 Jul 2020 21:13:55 +0000</lastBuildDate>
+    <pubDate>Mon, 20 Jul 2020 21:14:58 +0000</pubDate>
+    <lastBuildDate>Mon, 20 Jul 2020 21:14:58 +0000</lastBuildDate>
     <generator>Jekyll v3.8.7</generator>
     
       <item>
@@ -56,11 +56,10 @@
 
 &lt;h3 id=&quot;is-goodjob-right-for-you&quot;&gt;Is GoodJob right for you?&lt;/h3&gt;
 &lt;p&gt;&lt;a href=&quot;https://github.com/bensheldon/good_job&quot;&gt;Try it out&lt;/a&gt;  and let me know.&lt;/p&gt;
-
 </description>
         <pubDate>Mon, 20 Jul 2020 21:12:00 +0000</pubDate>
-        <link>http://island94.org/2020/07/introducing-goodjob-1-0-a-new-postgres-based-multithreaded-activejob-backend-for-ruby-on-rails</link>
-        <guid isPermaLink="true">http://island94.org/2020/07/introducing-goodjob-1-0-a-new-postgres-based-multithreaded-activejob-backend-for-ruby-on-rails</guid>
+        <link>http://island94.org/2020/07/introducing-goodjob-1-0</link>
+        <guid isPermaLink="true">http://island94.org/2020/07/introducing-goodjob-1-0</guid>
         
         
       </item>
