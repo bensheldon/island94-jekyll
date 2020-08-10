@@ -6,9 +6,48 @@
 </description>
     <link>http://island94.org/</link>
     <atom:link href="http://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 20 Jul 2020 21:18:57 +0000</pubDate>
-    <lastBuildDate>Mon, 20 Jul 2020 21:18:57 +0000</lastBuildDate>
+    <pubDate>Mon, 10 Aug 2020 03:52:09 +0000</pubDate>
+    <lastBuildDate>Mon, 10 Aug 2020 03:52:09 +0000</lastBuildDate>
     <generator>Jekyll v3.8.7</generator>
+    
+      <item>
+        <title>GoodJob v1.1: async and improved documentation</title>
+        <description>&lt;p&gt;&lt;a href=&quot;https://github.com/bensheldon/good_job&quot;&gt;GoodJob&lt;/a&gt; version 1.1 has been released. GoodJob is a multithreaded, Postgres-based, ActiveJob backend for Ruby on Rails. If you’re new to GoodJob, read the &lt;a href=&quot;https://island94.org/2020/07/introducing-goodjob-1-0&quot;&gt;introductory blog post&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;GoodJob’s v1.1 release contains a new, economical execution mode called “async” to execute jobs within the webserver process with the same reliability as a separate job worker process.&lt;/p&gt;
+
+&lt;p&gt;This release also contains more in-depth documentation based on feedback and questions I’ve received since the v1.0 release.&lt;/p&gt;
+
+&lt;p&gt;Version 1.1 comes out 3 weeks after GoodJob v1.0. The initial release of GoodJob was featured on &lt;a href=&quot;https://rubyweekly.com/issues/511&quot;&gt;Ruby Weekly&lt;/a&gt;, &lt;a href=&quot;https://afreshcup.com/home/2020/07/30/double-shot-2651&quot;&gt;A Fresh Cup&lt;/a&gt;, &lt;a href=&quot;https://ruby.libhunt.com/newsletter/219&quot;&gt;Awesome Ruby&lt;/a&gt;, and was as high as #8 on &lt;a href=&quot;https://news.ycombinator.com/item?id=23928891&quot;&gt;Hacker News&lt;/a&gt;. GoodJob has since received nearly &lt;a href=&quot;https://github.com/bensheldon/good_job&quot;&gt;500 stars on Github&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;async-mode&quot;&gt;Async mode&lt;/h2&gt;
+&lt;p&gt;In addition to the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$ good_job&lt;/code&gt; executable, GoodJob now can execute jobs inside the webserver process itself. For light workloads and simple applications, combining web and worker into a single process is very economical, especially when running on Heroku’s free or hobby plans.&lt;/p&gt;
+
+&lt;p&gt;GoodJob’s async execution is compatible with Puma, in multithreaded (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RAILS_MAX_THREADS&lt;/code&gt;), multi-process (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;WEB_CONCURRENCY&lt;/code&gt;), and memory efficient &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;preload_app!&lt;/code&gt; configurations. GoodJob is built with Concurrent Ruby which offers excellent thread and process-forking safety guarantees. Read the &lt;a href=&quot;https://github.com/bensheldon/good_job#executing-jobs-async--in-process&quot;&gt;GoodJob async documentation&lt;/a&gt; for more details.&lt;/p&gt;
+
+&lt;p&gt;On a personal level, I’m very excited to have this feature in GoodJob. Async execution was &lt;em&gt;the&lt;/em&gt; compelling reason I had previously adopted Que, another Postgres-based backend, in multiple projects and I was heartbroken when &lt;a href=&quot;https://github.com/que-rb/que/issues/238#issuecomment-480648845&quot;&gt;Que dropped support for async execution&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;improved-documentation&quot;&gt;Improved documentation&lt;/h2&gt;
+&lt;p&gt;Since GoodJob was released 3 weeks ago, the documentation has been significantly expanded. It contains more code and examples for ensuring reliability and handling job errors. I’ve had dozens of people ask questions through &lt;a href=&quot;https://github.com/bensheldon/good_job/issues&quot;&gt;Github Issues&lt;/a&gt; and &lt;a href=&quot;https://www.rubyonrails.link&quot;&gt;Ruby on Rails Link Slack&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;upcoming&quot;&gt;Upcoming&lt;/h2&gt;
+&lt;p&gt;In the next release, v1.2, I plan to simplify the creation of multiple dedicated threadpools within a single process. The goal is to provide an economical solution to congestion when the execution of a number of slow, low-priority jobs (elephants) are being performed and there are no execution resources available for newly introduced fast, high priority jobs (mice) until the currently executing elephants complete.&lt;/p&gt;
+
+&lt;p&gt;A proposed configuration, for example:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--queues=mice:2,elephants:4&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;…would allocate 2 dedicated threads for jobs enqueued on the mice queue, and 4 threads for the elephants queue. Learn more in the &lt;a href=&quot;https://github.com/bensheldon/good_job/issues/45&quot;&gt;feature’s Github Issue&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;contribute&quot;&gt;Contribute&lt;/h2&gt;
+&lt;p&gt;GoodJob continues to be enjoyable to develop and build upon Rails’ ActiveJob and Concurrent Ruby. Contributions are welcomed: check out the &lt;a href=&quot;https://github.com/bensheldon/good_job/projects/1&quot;&gt;GoodJob Backlog&lt;/a&gt;, comment on or open a Github Issue, or make a Pull Request.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 10 Aug 2020 03:49:00 +0000</pubDate>
+        <link>http://island94.org/2020/08/goodjob-v1-1-async-and-improved-documentation</link>
+        <guid isPermaLink="true">http://island94.org/2020/08/goodjob-v1-1-async-and-improved-documentation</guid>
+        
+        
+      </item>
     
       <item>
         <title>Introducing GoodJob 1.0, a new Postgres-based, multithreaded, ActiveJob backend for Ruby on Rails</title>
@@ -417,51 +456,6 @@ The Concrete Sumo”&lt;/a&gt; and facilitated it two weeks ago for the software
         <pubDate>Sat, 09 Nov 2019 20:38:00 +0000</pubDate>
         <link>http://island94.org/2019/11/the-concrete-sumo-ethics-in-software-engineering-discussion-guide</link>
         <guid isPermaLink="true">http://island94.org/2019/11/the-concrete-sumo-ethics-in-software-engineering-discussion-guide</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>Public comments on Sunset housing</title>
-        <description>&lt;p&gt;Today I spoke in public comment before the San Francisco Planning Commission on a proposed 20-unit building in the Outer Sunset at &lt;a href=&quot;https://socketsite.com/archives/2018/01/plans-for-raising-the-roof-and-density-across-from-outerlands.html&quot;&gt;3945 Judah St.&lt;/a&gt;:&lt;/p&gt;
-
-&lt;blockquote&gt;
-
-  &lt;p&gt;Good afternoon, Commissioners.&lt;/p&gt;
-
-  &lt;p&gt;My name is Ben Sheldon. I have been a resident of the Outer Sunset for 8 years.&lt;/p&gt;
-
-  &lt;p&gt;I support this project.&lt;/p&gt;
-
-  &lt;p&gt;I live 4 blocks away from the proposed project. I live in a 4 story, 12 unit multi-family apartment building.&lt;/p&gt;
-
-  &lt;p&gt;My building is vibrant. It is home to senior citizens, families with young children, teachers, and working professionals like myself.&lt;/p&gt;
-
-  &lt;p&gt;We shop at local businesses. Eat at local restaurants. Attend local schools. We participate fully in the civic life of our neighborhood.&lt;/p&gt;
-
-  &lt;p&gt;Multi-family buildings. Dense. And large. Like my own, and the proposed project, are part of the character of our neighborhood.&lt;/p&gt;
-
-  &lt;p&gt;My building was built in 1928. It makes me sad. And at times angry. That a building like my own seemingly could not be built today.&lt;/p&gt;
-
-  &lt;p&gt;My building is not enough. It is not modern. It is not accessible for the very old or people with disabilities. It has lead and toxicity issues of concern for very young children.&lt;/p&gt;
-
-  &lt;p&gt;The neighborhood needs more buildings like my own. Better ones.&lt;/p&gt;
-
-  &lt;p&gt;Multi-family. Dense. Accessible. Modern. Vibrant.&lt;/p&gt;
-
-  &lt;p&gt;This project is equally an issue of inclusion as it is of character.&lt;/p&gt;
-
-  &lt;p&gt;I support this project.&lt;/p&gt;
-
-  &lt;p&gt;I urge you to support this project too.&lt;/p&gt;
-
-  &lt;p&gt;Thank you.&lt;/p&gt;
-
-&lt;/blockquote&gt;
-</description>
-        <pubDate>Fri, 08 Nov 2019 01:59:00 +0000</pubDate>
-        <link>http://island94.org/2019/11/public-comments-on-sunset-housing</link>
-        <guid isPermaLink="true">http://island94.org/2019/11/public-comments-on-sunset-housing</guid>
         
         
       </item>

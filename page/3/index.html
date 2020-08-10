@@ -91,6 +91,95 @@
 
   <header class="post-header">
     <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2019/02/weeknotes-february-17-2019">Weeknotes February 17, 2019</a>
+    </h1>
+    <p class="post-meta text-muted">
+      <time datetime="2019-02-19T15:32:00+00:00" itemprop="datePublished">February 19, 2019</time>
+      
+      
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>This week I created a <a href="https://github.com/bensheldon/panlexicon-rails/pull/212">Dockerized development environment for Panlexicon</a>. I find it’s forever a struggle to bridge the Docker-for-development and Docker-for-production workflows and configuration, but this is Docker-for-development.</p>
+
+<p>I’ve been working on “project planning as narrative”, having written out a long story about an accessibility project that has yet to kick off. Here’s an excerpt:</p>
+
+<blockquote>
+  <p>This led to a collaborative discussion that was also tinged with reasonable fear: how can our team ensure that we’re taking into account the newly collected design considerations? We knew that this would involve some new skills: screen-reading, keyboard navigation, low-vision simulation, and more.</p>
+
+  <p>It’s easiest to learn new skills when they’re grounded in practice, so we placed their usage within the context of our delivery pipeline:</p>
+
+  <ol>
+    <li>Design: Screen-reading, expanded awareness of content/action hierarchy, inclusive design patterns. [Design]</li>
+    <li>Prototyping: Expanded usability testing community. [Design, UX Research]</li>
+    <li>Development:  Inclusive design patterns, validation and automated testing. [Engineering]</li>
+    <li>QA and Acceptance: screen-reading, keyboard navigation, low-vision simulators. [Engineering, Product Management]</li>
+    <li>Support: expanded awareness [Client Success].</li>
+  </ol>
+</blockquote>
+
+<p>I was reminded of this long story about <a href="https://hackernoon.com/what-really-happened-with-vista-4ca7ffb5a1a">Windows Vista</a> via a <a href="https://www.highly.co/hl/gxpczO2Kh0EtlG">Highly highlight</a>. The thoughts from my notebook (that I then <a href="https://twitter.com/bensheldon/status/1095699532447268864">tweeted</a> about:</p>
+
+<blockquote>
+  <p>What would principles of continuous delivery look like if applied to project planning and management? What would be necessary for a project to live in a continuously deliverable state?</p>
+</blockquote>
+
+<p>I read another long article from <a href="https://itrevolution.com/understanding-job-burnout-christina-maslach/">Christina Maslach on Burnout</a>.</p>
+
+<blockquote>
+
+  <p>If there’s one image that I’m talking about today that I hope you remember, it’s this — we have found that the fit, the match, or the balance between a person and the job, is critical for burnout in six areas. They are not listed in order of importance. They’re listed in order of which one people think of first.</p>
+
+  <ul>
+    <li><strong>Workload</strong> is the one that everybody thinks of first. It must be they’re working too hard. They’re stressed out. The imbalance between too many demands, too few resources to get it done. But there are five other areas that turn out to be just as important.</li>
+    <li><strong>Control.</strong> In other words, how much autonomy you have in your work, how much choice, or discretion to figure out how to do it the best way or innovate in some way.</li>
+    <li><strong>Reward</strong>. People think of things like salary, benefits, perks, et cetera. We’re finding in the research that social reward is sometimes more important, that other people notice that they appreciate what you do and let you know that you’ve done something that’s really meaningful.</li>
+    <li><strong>Community.</strong> These are all the relationships that you have at work, with other colleagues, your boss, clients, whoever. Are those relationships functioning well? Are they supportive? Do you trust? Do you have ways of working out disagreements and figuring out how to move forward, work together well on teams, et cetera.</li>
+    <li><strong>Fairness.</strong> This turns out to be a very important one. Is whatever the policy is, whatever the practices are, here in this place, are they fairly administered in terms of who gets the opportunity? Are there glass ceilings, or discrimination, or other things that block people from moving forward when they should have that chance?</li>
+    <li><strong>Values</strong>. Which sometimes turns out to be one of the most important. This is meaning. This is why am I doing this. Why am I here? What do I care about? What is important to me, in terms of what I think is important for our society, the contributions I make, and so forth? With burnout, it’s not just about being exhausted and working too hard and being tired. It’s often that the spirit, the passion, the meaning is just getting beaten out of you, as opposed to being allowed to thrive and grow.</li>
+  </ul>
+
+  <p>These six areas offer entry points into what could we could be doing differently, that might actually create a better, healthier, improved workplace to support the things we want to achieve.</p>
+
+</blockquote>
+
+<p>I follow several blogs that are all-in on Event Sourcing; reading <a href="https://chriskiehl.com/article/event-sourcing-is-hard">“Event Sourcing is Hard”</a> was refreshing:</p>
+
+<blockquote>
+  <p><strong>What’s the take away here? Should I event source or not!?</strong></p>
+
+  <p>I think you can generally answer it with some alone time, deep introspection, and two questions:</p>
+
+  <ol>
+    <li>For which core problem is event sourcing the solution?</li>
+    <li>Is what you actually want just a plain old queue?</li>
+  </ol>
+
+  <p>If you can’t answer the first question concretely, or the justification involves vague hand-wavy ideas like “auditablity”, “flexibility,” or something about “read separation”: Don’t. Those are not problems exclusively solved by event sourcing. A good ol’ fashion history table gets you 80% of the value of a ledger with essentially none of the cost. It won’t have first class change semantics baked in, but those low-level details are mostly worthless anyway and can ultimately be derived at a later date if so required. Similarly CQRS doesn’t require event sourcing. You can have all the power of different projections without putting the ledger at the heart of your system.</p>
+
+  <p>The latter question is to weed out confused people like myself who thought the Ledgers would rule the world. Look at the interaction points of your systems. If you’re going full event sourcing, what events are actually going to be produced? Do those downstream systems care about those intermediate states, or will it just be noise that needs to be filtered out? If the end goal is just decoupled processes which communicate via something, event sourcing is not required. Put a queue between those two bad boys and start enjoying the good life.</p>
+</blockquote>
+
+<p>I was heartened to read this about <a href="https://digiday.com/media/seattle-times-empowering-reporters-drive-subscriber-growth/">“How the Seattle Times is empowering reporters to drive subscriber growth”</a>:</p>
+
+<blockquote>
+  <p>Over the past year, the news publisher, which grew its digital subscriber base 38 percent to 40,000 in 2018, has been trying to get small teams of reporters to think more entrepreneurially about driving subscriptions. It wants them to not just monitor which kinds of content visitors read on their way to paying but also to experiment with new content and packaging formats designed to keep readers engaged.</p>
+
+  <p>In 2017, the Times gave its newsroom staff access to a dashboard that showed reporters which stories they published were driving subscriptions. Next, the Times’ executive editor, Don Shelton, formed several teams, called mini-publishers, which paired editorial staffers with members of the paper’s digital audience, product and business intelligence teams to figure out what kinds of content the audience likes, how to make more of it, and so on.</p>
+</blockquote>
+
+  </div>
+
+</article>
+
+
+    <hr>
+  
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
       <a class="post-link" href="/2019/02/weeknotes-february-10-2018">Weeknotes - February 10, 2018</a>
     </h1>
     <p class="post-meta text-muted">
@@ -478,196 +567,6 @@
 <blockquote>
   <p>When he met Redelmeier, Danny was already running experiments on unhappiness in his Berkeley lab. He’d stick the bare arms of his subjects into buckets of ice water. Each subject was given two painful experiences. He’d then be asked which of the two experiences he’d most like to repeat. Funny things happened when you did this with people. Their memory of pain was different from their experience of it. They remembered moments of maximum pain, and they remembered, especially, how they felt the moment the pain ended. But they didn’t particularly remember the length of the painful experience. If you stuck people’s arms in ice buckets for three minutes but warmed the water just a bit for another minute or so before allowing them to flee the lab, they remembered the experience more fondly than if you stuck their arms in the bucket for three minutes and removed them at a moment of maximum misery. If you asked them to choose one experiment to repeat, they’d take the first session. That is, people preferred to endure more total pain so long as the experience ended on a more pleasant note.</p>
 </blockquote>
-
-  </div>
-
-</article>
-
-
-    <hr>
-  
-    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-
-  <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">
-      <a class="post-link" href="/2018/10/notes-from-priceonomics-workshop">Notes from Priceonomics Information Marketing Workshop</a>
-    </h1>
-    <p class="post-meta text-muted">
-      <time datetime="2018-10-21T00:00:00+00:00" itemprop="datePublished">October 21, 2018</time>
-      
-      
-    </p>
-  </header>
-
-  <div class="post-content" itemprop="articleBody">
-    <p>These are my notes from attending a full-day in-person Priceonomics Bootcamp; they now have an online <a href="https://priceonomics.teachable.com/p/priceonomics-content-marketing-bootcamp/">Priceonomics Content Marketing Bootcamp</a>.  Most of this is covered in their <a href="https://priceonomics.com/the-content-marketing-handbook/">The Content Marketing Handbook</a> or on their blog and operationalized through their <a href="https://stats.priceonomics.com/measure/dashboard/">Content Tracker</a>. It’s fantastic.</p>
-
-<h2 id="the-priceonomics-story">The Priceonomics Story:</h2>
-<ol>
-  <li>What they were doing at the time: had a business pricing stuff</li>
-  <li>Context at the time: OkCupid data blog was good</li>
-  <li>Tried to emulate what was going on: “We were better at writing about the business’s data than the doing the business.”</li>
-  <li>Found success and evolved: people liked it</li>
-</ol>
-
-<h2 id="information-marketing">Information Marketing</h2>
-<p>“Data content that spreads”</p>
-
-<p>Key questions:</p>
-<ul>
-  <li>What is interesting data that is a byproduct of your business?</li>
-  <li>What do you know that’s valuable to other people</li>
-</ul>
-
-<p>“You don’t necessarily need to do information marketing, that’s just what Priceonomics does”</p>
-
-<p>Alternatives to information marketing:</p>
-<ul>
-  <li>Story &lt;- <a href="https://www.wealthsimple.com/en-us/magazine">Wealthsimple</a> does this</li>
-  <li>Info &lt;- <a href="https://www.artsy.net/">Artsy</a> does this</li>
-</ul>
-
-<p><strong>Information Marketing helps reporters AND helps you.</strong></p>
-
-<p><img src="/uploads/2018-10/priceonomics_info_marketing.jpg" alt="Priceonomics Information Marketing Chart" /></p>
-
-<p>Two Information Marketing strategies:</p>
-<ol>
-  <li>Create content that is popular that leads to press hits that leads to inbound</li>
-  <li>Do not-massively popular content that converts highly</li>
-</ol>
-
-<p>“Have a clear idea, have a clear distribution plan, and it will work. It’s simpler than you think, but simultaneously easy to screw up.”</p>
-
-<p><strong>Information Marketing overcomes a common challenge:</strong> When you publish stories/info about your industry, what do you do with it because it doesn’t fit a media narrative of something to write about… that’s why data posts are easier to share.</p>
-
-<h2 id="writers-playbook">Writers Playbook:</h2>
-<ul>
-  <li><strong>“The Nugget”</strong>: What will someone say about this? can they verbalize it? how would they explain it to a friend. Why will someone share this? What will they say about it?</li>
-  <li>Maximize “shots on goal” by having something relevant to as many people as possible.
-    <ul>
-      <li>Top 100 List is better than a Top 10. More people can identify with something you have to say.</li>
-      <li>Giving a ranking gives people something to say, e.g. “my thing is 7th”.</li>
-    </ul>
-  </li>
-  <li>Write clearly, people only read topic sentences. <strong>You can’t say anything important in the middle of a paragraph.</strong></li>
-  <li>Title should get the point across, and not sound like the article will be boring. “You don’t have the credibility of the New Yorker to have an artsy or vague title”. Signal it’s quantitative and imply “there will be a ranking”. <a href="https://lendedu.com/top-posts/">lendedu</a> has good titles.</li>
-  <li>Don’t spend time on trying to explain “why”, just show the data. 3-5 charts, 800-1,000 words</li>
-  <li>
-    <ul>
-      <li><strong>A/B Testing Titles</strong>: Buy facebook ads with different titles and test clicks. For example “Unfortunate physics of mail urination” vs “Why can’t we design a splash proof toilet?”</li>
-    </ul>
-  </li>
-  <li><strong>People tend to link to data-driven studies because it’s hard to summarize.</strong></li>
-  <li><strong>The holy rail is having a report you update once a year or quarter</strong>. Example: Thumbtack small business confidence.</li>
-</ul>
-
-<h2 id="the-process">The Process:</h2>
-<p>Spend 40 hours on pulling together the data. Priceonomics takes 3 week for a full turnaround.</p>
-
-<ol>
-  <li>Prep -&gt; 1 hour. People already have the ideas, they just need to be scoped down and picked for ones that fit a template. <strong>Don’t start with a story, just get the data!</strong></li>
-  <li>Get the data -&gt; 1 week</li>
-  <li>Analyze the data -&gt; 2 weeks</li>
-  <li>Write -&gt; 1 week</li>
-  <li>Iterations -&gt; 1 week</li>
-  <li>Finishing touches -&gt; 1-2 days</li>
-</ol>
-
-<h2 id="distribution">Distribution</h2>
-<ul>
-  <li>Nothing happens until a critical mass of people see it.</li>
-  <li><strong>Anticipate where your content will be popular before you start writing.</strong> Supernodes: Hacker News, Reddit, Digg, Metafilter, Product Hunt, Next Draft, MediaRedef. Find niche supernodes for your vertical.</li>
-  <li><strong>THE BUMP</strong>. 1000 simultaneous people. leads to it being organically shared.</li>
-  <li>Journalists are the only channel you control.
-    <ul>
-      <li>Make a list of 50 journalists who would be interested in your data</li>
-      <li>Craft your pitch to them in a short email draft (don’t send it).  <strong>Write the journalist email draft before you write your article</strong></li>
-      <li>Start writing your article</li>
-      <li>Send the journalist a short, individualized message</li>
-      <li>It takes just one</li>
-      <li><strong>You’re the information provider</strong> It’s not news until an outlet covers you.</li>
-    </ul>
-  </li>
-  <li>How to do it:
-    <ol>
-      <li>Make list of 50 journalists who’d be interested in your article.</li>
-      <li>Craft your pitch to them in a short email</li>
-      <li>Start writing your article</li>
-      <li>Then send them a short individualized email.</li>
-      <li>It takes just one. Keep a list of everyone who has ever written about you. Send them a quick thanks.</li>
-    </ol>
-  </li>
-</ul>
-
-<blockquote>
-  <p>Subject: Buying data shows people purchase t-shirts when they wake up<br />
-Hi Sam,</p>
-
-  <p>I read your article about shirts.io last year</p>
-
-  <p>Just wanted to let you know Day of the Shirt just published some interesting data about when people shop for t-shirts:</p>
-
-  <p>[link to blog article]</p>
-
-  <p>Basically most people shop when they wake up. Thought you’d be interested.<br />
-Best,<br />
-Ben</p>
-</blockquote>
-
-<h2 id="data-studio-philosophy">Data Studio Philosophy:</h2>
-<ul>
-  <li>Our readers deserve never to be confused</li>
-  <li>It’s about the information, not the writing style</li>
-  <li>Focus on why someone would want to share this story</li>
-  <li>People love data. They love maps. They love charts. They love tables. We give people what they want.</li>
-</ul>
-
-<h2 id="article-templates">Article Templates:</h2>
-<p>These are also <a href="https://priceonomics.com/introducing-priceonomics-content-marketing/">published here</a> in more detail.</p>
-<ol>
-  <li>Geographic Variation: “who clicks on ads”</li>
-  <li>Trend related to the news: “trump bump”</li>
-  <li>Who does that? “the age people outgrow ikea”</li>
-  <li>Secret data about something people care about “cost of being a bridesmaid”</li>
-  <li>Data that you have that is valuable to business “does mentioning a famous client in an email convert better”</li>
-  <li>Rank stuff: “diverse universities”</li>
-  <li>Cost and price of stuff: “which cars have lowest maintenance cost”</li>
-</ol>
-
-<h2 id="non-obvious-learnings-about-writing">Non-obvious Learnings about writing</h2>
-<ul>
-  <li>People care more about cities than states</li>
-  <li>For rankings (geography, colleges) have a cutoff of top 100 cities (based on population) or top-ranked colleges</li>
-  <li>It’s about the information, not the process. You only need 1 short paragraph about your methodology, near the beginning.</li>
-  <li>The intro is paramount. You have to sell the article. You just have to get people excited. You don’t need to get into an elaborate explanation of who you are or why you’re writing it.</li>
-  <li>Don’t try to be funny, try to be clear.</li>
-  <li>Keep interpretation to a minimum. After writing a few of these style articles you’ll learn what is a PhD dissertation is and what is a 40-hour piece. Don’t make it a PhD dissertation.</li>
-  <li>Never apologize for what you didn’t do. Explain what you did do. Say how novel it is “this is the first time…”</li>
-  <li>The conclusion should re-emphasize your main point.</li>
-  <li>We don’t care about what other data is out there</li>
-</ul>
-
-<h2 id="editing">Editing</h2>
-<ul>
-  <li>Is this offensive?</li>
-  <li>Can anything be taken out of context</li>
-  <li>Typos matter less than misunderstandings/offending in massive distribution. Even offending 1% of people is huge.</li>
-  <li><strong>Make it possible for people who are responsible for the blog to succeed</strong></li>
-</ul>
-
-<h2 id="learnings-about-visualizing-data">Learnings about visualizing data</h2>
-<ul>
-  <li>Titles should be clear and enticing. Catchy title: “Ranking the countries that drink the most wine”. Boring subtitle: “Wine consumption in liters per capita in 2011”</li>
-  <li>Tables are fine, don’t need to be complicated or interactive. It’s nice have some variation though.</li>
-  <li>People love maps! And not because they convey information well.</li>
-  <li>Round your numbers sensible. Use commas, have empathy for your readers’ eyes</li>
-  <li>3-5 charts is the maximum before it gets boring</li>
-</ul>
-
-<h2 id="questions">Questions</h2>
-<p><strong>Should I be worried about other content on my blog?</strong> No one cares about you. Don’t worry about your other content or feel obligated to retool, edit or delete it. No one cares.</p>
-
 
   </div>
 
