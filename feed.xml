@@ -6,9 +6,63 @@
 </description>
     <link>http://island94.org/</link>
     <atom:link href="http://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 10 Aug 2020 03:52:09 +0000</pubDate>
-    <lastBuildDate>Mon, 10 Aug 2020 03:52:09 +0000</lastBuildDate>
+    <pubDate>Thu, 20 Aug 2020 04:00:49 +0000</pubDate>
+    <lastBuildDate>Thu, 20 Aug 2020 04:00:49 +0000</lastBuildDate>
     <generator>Jekyll v3.8.7</generator>
+    
+      <item>
+        <title>GoodJob v1.2: Multithreaded queue isolation and LISTEN/NOTIFY</title>
+        <description>&lt;p&gt;&lt;a href=&quot;https://github.com/bensheldon/good_job&quot;&gt;GoodJob&lt;/a&gt; version 1.2 has been released. GoodJob is a multithreaded, Postgres-based, ActiveJob backend for Ruby on Rails. If you’re new to GoodJob, read the &lt;a href=&quot;https://island94.org/2020/07/introducing-goodjob-1-0&quot;&gt;introductory blog post&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;GoodJob’s v1.2 release adds  multithreaded queue isolation for easier congestion management, and usage of Postgres LISTEN/NOTIFY to greatly reduce queue latency.&lt;/p&gt;
+
+&lt;p&gt;Version 1.2 comes out 2 weeks after GoodJob v1.1, and 5 weeks after GoodJob’s initial v1.0 release.&lt;/p&gt;
+
+&lt;h2 id=&quot;multithreaded-queue-isolation&quot;&gt;Multithreaded queue isolation&lt;/h2&gt;
+
+&lt;p&gt;GoodJob v1.2 adds multithreaded queue isolation for easier congestion management. Queue isolation ensures that slow, long-running jobs do not block the execution of higher priority jobs.&lt;/p&gt;
+
+&lt;p&gt;Achieving queue isolation has always been possible by running multiple processes, but GoodJob v1.2 makes it easy to configure multiple isolated thread-pools within a single process.&lt;/p&gt;
+
+&lt;p&gt;For example, to create a pool of 2 threads working from the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mice&lt;/code&gt; queue, and 1 thread working from the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;elephants&lt;/code&gt; queue:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;bundle &lt;span class=&quot;nb&quot;&gt;exec &lt;/span&gt;good_job &lt;span class=&quot;nt&quot;&gt;--queues&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;mice:2;elephants:1&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Or via an environment variable:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ GOOD_JOB_QUEUS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;mice:2;elephants:1&quot;&lt;/span&gt; bundle &lt;span class=&quot;nb&quot;&gt;exec &lt;/span&gt;good_job
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Additional examples and syntax:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--queues=*:2;mice,sparrows:1&lt;/code&gt; will create two thread-pools, one running jobs on any queue, and another dedicated to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mice&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sparrows&lt;/code&gt; queued jobs.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--queues=-elephants,whales:2;elephants,whales:1&lt;/code&gt; will create two thread-pools, one running jobs from any queue &lt;em&gt;except&lt;/em&gt; the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;elephants&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;whales&lt;/code&gt;, and another dedicated to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;elephants&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;whales&lt;/code&gt; queued jobs.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;listennotify&quot;&gt;LISTEN/NOTIFY&lt;/h2&gt;
+
+&lt;p&gt;GoodJob now uses Postgres LISTEN/NOTIFY to push newly enqueued jobs for immediate execution.  LISTEN/NOTIFY greatly reduces queue latency, the time between when a job is enqueued and execution begins.&lt;/p&gt;
+
+&lt;p&gt;LISTEN/NOTIFY works alongside GoodJob’s polling mechanism.  Together, jobs queued for immediate execution (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ExampleJob.perform_later&lt;/code&gt;) are executed immediately, while future scheduled jobs (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ExampleJob.set(wait: 1.hour).perform_later&lt;/code&gt;) are executed at (or near) their set time.&lt;/p&gt;
+
+&lt;h2 id=&quot;upcoming&quot;&gt;Upcoming&lt;/h2&gt;
+
+&lt;p&gt;In the next release, v1.3, I plan to include a simple web dashboard for inspecting job execution performance, and focus on improving GoodJob’s documentation.&lt;/p&gt;
+
+&lt;h2 id=&quot;contribute&quot;&gt;Contribute&lt;/h2&gt;
+
+&lt;p&gt;Code, documentation, and curiousity-based contributions are welcome! Check out the &lt;a href=&quot;https://github.com/bensheldon/good_job/projects/1&quot;&gt;GoodJob Backlog&lt;/a&gt;, comment on or open a Github Issue, or make a Pull Request.&lt;/p&gt;
+
+&lt;p&gt;I’ve also set up a &lt;a href=&quot;https://github.com/sponsors/bensheldon&quot;&gt;GitHub Sponsors Profile&lt;/a&gt; if you’re able to support me and GoodJob monetarily. It helps me stay in touch and send you project updates too.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 20 Aug 2020 03:51:00 +0000</pubDate>
+        <link>http://island94.org/2020/08/goodjob-v1-2-multithreaded-queue-isolation-and-listen-notify</link>
+        <guid isPermaLink="true">http://island94.org/2020/08/goodjob-v1-2-multithreaded-queue-isolation-and-listen-notify</guid>
+        
+        
+      </item>
     
       <item>
         <title>GoodJob v1.1: async and improved documentation</title>
@@ -351,111 +405,6 @@
         <pubDate>Sat, 30 Nov 2019 19:29:00 +0000</pubDate>
         <link>http://island94.org/2019/11/because-it-helps-them-to-release-software</link>
         <guid isPermaLink="true">http://island94.org/2019/11/because-it-helps-them-to-release-software</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>The Concrete Sumo - Ethics in Software Engineering Discussion Guide </title>
-        <description>&lt;p&gt;I prepared this discussion guide for Taft H. Broome, Jr’s &lt;a href=&quot;https://www.onlineethics.org/CMS/edu/instructessays/sumo.aspx&quot;&gt;
-The Concrete Sumo”&lt;/a&gt; and facilitated it two weeks ago for the software engineering team at Code for America.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;To prepare for the discussion, please read the following sections of paper, &lt;a href=&quot;https://www.onlineethics.org/CMS/edu/instructessays/sumo.aspx&quot;&gt;“The Concrete Sumo”&lt;/a&gt;:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Forward&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;The Concrete Sumo&lt;/p&gt;
-
-    &lt;p&gt;Note: the paragraph beginning “In the Johnny-on-the-Spot, Tubby was the first to speak to me…” is particularly difficult because it begins with an unfamiliar colloquialism (“Johnny-on-the-Spot” meaning to be on-call, in the hot seat, put on the spot, or put on notice); names three characters who are not introduced until much later in the commentary (Tubby, Roebling, and Uncle Roy); and the protagonist is imagining the three characters giving him advice though they are not actually present. — Ben&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Heuristic: Uncle Roy, the Mutumin Kiri&lt;/li&gt;
-  &lt;li&gt;The Assigned World&lt;/li&gt;
-  &lt;li&gt;Afterword&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;These sections have been selected for brevity and focus. The paper has been &lt;a href=&quot;https://www.taylorfrancis.com/books/e/9781315256474/chapters/10.4324/9781315256474-56&quot;&gt;described&lt;/a&gt; by ethicist Michael Davis as an “informative story groaning under the weight of an interpretation it cannot bear.” Therefore, the reading and discussion will focus on the story and its application to software engineering ethics. — Ben&lt;/p&gt;
-
-&lt;h3 id=&quot;discussion-questions&quot;&gt;Discussion Questions&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;This is a paper about ethics. Generally, what do you think of when you think of “ethics”? What does it mean to you to act ethically or be ethical? &lt;/li&gt;
-  &lt;li&gt;In the paper, the author introduces the idea of “exigent circumstances”, described as situations that “are so complex as to deny engineers the reflection required to invoke ethical theories, and so novel as to discourage engineers from appealing to case studies.”
-    &lt;ul&gt;
-      &lt;li&gt;In the story of the Concrete Sumo, what is the exigent circumstances the author confronts?&lt;/li&gt;
-      &lt;li&gt;What similar situations have you had like this in your life or work?&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;The author speaks of a “scientific” decision defined as “with or without scientific certitude, but with the commitment of the parties to the situation”. 
-    &lt;ul&gt;
-      &lt;li&gt;In the story of the Concrete Sumo, what made the decision “scientific”? Who were the directly committed parties? Why do you think “commitment” is specifically called out?&lt;/li&gt;
-      &lt;li&gt;Thinking more broadly about engineering as a discipline and vocation, who is committed to engineers making good decisions? Within software engineering, what groups and organizations make up our “scientific” community? &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;The author introduces a practice (“praxistic”) to be used in exigent situations. Broadly that practice is to “think of an aged, highly mature person: a family member or some legendary character; someone who exhibited great wisdom and caring for others” and to “do what [they] would do.”
-    &lt;ul&gt;
-      &lt;li&gt;In the story, what people did the author imagine and act out? Who was the counter-example whose actions they rejected?&lt;/li&gt;
-      &lt;li&gt;Does the practice here seem familiar and in what ways? Do you have people, real or fictional, that you have sought, mentally, for advice? Are there situations where you have or would apply this?&lt;/li&gt;
-      &lt;li&gt;In the Afterword, the author speaks of the practice helping students pass an ethics exam. How does that make you feel?&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;The author goes to great lengths to assert not only that the imagined role model inspires a suitable action, but also that they are respected in their social context and communities, with attributes such as “wisdom”, “character” and “caring for others”. 
-    &lt;ul&gt;
-      &lt;li&gt;What cultural context did the author use in choosing Uncle Roy and rejecting Tubby? Is this familiar to you?&lt;/li&gt;
-      &lt;li&gt;What different social contexts, worlds, or communities, fictional or real, could guide you? How are they different and similar? Is breadth or depth of understanding better?&lt;/li&gt;
-      &lt;li&gt;As an engineer, how does the idea of being guided by an imagined or fictional character make you feel? As an engineer, do you think your education or experience has prepared you to think in this way?&lt;/li&gt;
-      &lt;li&gt;What are the ingredients necessary to further develop this practice both for yourself and engineering as a whole?&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;In “The Rhetoric” section (not required reading), the author writes “In Western ethics, the decision-maker is the subject, and the rightness or wrongness of his or her actions its predicate. Among the Nigerian Hausa, however, the community is the subject, and the decision-maker’s character the predicate.” 
-    &lt;ul&gt;
-      &lt;li&gt;What do you think the author means by making this comparison?&lt;/li&gt;
-      &lt;li&gt;How does it make you feel to shift from “the decision-maker and their decision” to “the community’s responsibility for the decision a person makes”?&lt;/li&gt;
-      &lt;li&gt;How many communities can a person be a part of? How can they overlap or diverge? How does intersectionality affect your thoughts about responsibility?&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Within software and technology, there are recognized leaders who have made large contributions to the field, but also have been called out for their gross personal beliefs and antisocial behavior. For example, Steve Jobs, Linus Torvalds, Richard Stallman, Uncle Bob Martin, etc. 
-    &lt;ul&gt;
-      &lt;li&gt;Thinking of the practice described in the paper, is it practical to separate people’s technical contributions from their character?&lt;/li&gt;
-      &lt;li&gt;Is it easy for you to imagine yourself acting in their skin? Why or why not?&lt;/li&gt;
-      &lt;li&gt;Thinking of the practice described in the paper, how might diversity and inclusion in our engineering communities help people to act ethically? &lt;/li&gt;
-      &lt;li&gt;What is our communities’ responsibility for creating the conditions in which people make ethical decisions? What can we reasonably expect?&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Bowen H. McCoy, in Harvard Business Review’s &lt;a href=&quot;https://hbr.org/1997/05/the-parable-of-the-sadhu&quot;&gt;“Parable of the Sadhu” &lt;/a&gt;describes the concept of “business” ethics. Business ethics “has to do with the authenticity and integrity of the enterprise. To be ethical is to follow the business as well as the cultural goals of the corporation, its owners, its employees, and its customers. Those who cannot serve the corporate vision are not authentic businesspeople and, therefore, are not ethical in the business sense.”
-    &lt;ul&gt;
-      &lt;li&gt;How is this similar to the Forward’s Vanderbilt quote “The public be damned! I work for my stockholders”?&lt;/li&gt;
-      &lt;li&gt;How is the context of “business” ethics defined? Who defines the visions and goals and what are they relative to?&lt;/li&gt;
-      &lt;li&gt;How is this “business” ethics similar to and different from the “scientific” engineering ethics we’ve been discussing? &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Facebook employees recently &lt;a href=&quot;https://www.nytimes.com/2019/10/28/technology/facebook-mark-zuckerberg-letter.html&quot;&gt;published a letter&lt;/a&gt; criticising the company’s lax fact-checking policies for political ads. After explaining the problems with the policy and suggesting alternatives, they closed their letter with “This is still our company.”
-    &lt;ul&gt;
-      &lt;li&gt;When thinking of Western and non-Western frames, what multiple interpretations could there be of that phrase? How does framing something as a “leadership” decision affect how we approach it compared to the idea of “community” responsibility?&lt;/li&gt;
-      &lt;li&gt;How is the idea of “scientific” decisions challenged in a “business” environment? How are the power dynamics different in a business than a community? How are they the same? Can they be wholly separated within the context of software engineering?&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Software engineering communities have frequently raised the idea of a &lt;a href=&quot;https://queue.acm.org/detail.cfm?id=1016991&quot;&gt;“Hippocratic Oath”&lt;/a&gt; to improve ethical conduct in software engineering and emerging fields such as Machine Learning and AI.
-    &lt;ul&gt;
-      &lt;li&gt;Given the reading, how applicable would such an oath be in exigent circumstances? &lt;/li&gt;
-      &lt;li&gt;Given the reading, what else would be necessary to make a Hippocratic Oath actionable and meaningful to engineers? How could existing software engineering communities better provide stories of such an oath’s usage by representative role models?&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;At the very end of the story, the foreman says “When it comes to rookie engineers, it is better to pay early, than to pay later.” 
-    &lt;ul&gt;
-      &lt;li&gt;Given all we have discussed, what could this mean? &lt;/li&gt;
-      &lt;li&gt;Who pays early? Later? What are the costs?&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;In what ways, if any, has this reading made you think you would act differently in the future?&lt;/li&gt;
-&lt;/ul&gt;
-
-</description>
-        <pubDate>Sat, 09 Nov 2019 20:38:00 +0000</pubDate>
-        <link>http://island94.org/2019/11/the-concrete-sumo-ethics-in-software-engineering-discussion-guide</link>
-        <guid isPermaLink="true">http://island94.org/2019/11/the-concrete-sumo-ethics-in-software-engineering-discussion-guide</guid>
         
         
       </item>
