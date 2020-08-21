@@ -17,7 +17,7 @@ Peter Klausler's ["](http://klausler.com/cargo.html)** [Principles of the Americ
 
 > **II. Causality is selectable**
 >
-> ** All interconnection is apparent**
+> **All interconnection is apparent**
 >
 > **Otherwise, complicated explanations would be necessary.**
 >
@@ -25,7 +25,7 @@ Peter Klausler's ["](http://klausler.com/cargo.html)** [Principles of the Americ
 >
 > **A successful person's explanation of the means of his success is highly credible by the very fact of his success.**
 >
-> ** You can succeed by emulating the purported behavior of successful people**
+> **You can succeed by emulating the purported behavior of successful people**
 >
 > This is the key to the cargo cult. To enjoy the success of another, just mimic the rituals he claims to follow.
 >
