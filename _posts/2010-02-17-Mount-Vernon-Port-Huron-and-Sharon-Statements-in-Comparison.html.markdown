@@ -11,7 +11,7 @@ redirect_from:
 - "?p=1764"
 ---
 
-Apparently conservatives have a new statement named for Mount Vernon, George Washington's home. The new [_Mount Vernon Statement_](http://www.themountvernonstatement.com/) is modeled on the 1960s conservative [_Sharon Statement_](http://www.yaf.com/statement/) (named for William F. Buckley's home), though it's slightly ironic considering the _Sharon Statement_ was quite firm on state's rights and Washington was a Federalist. From comparing the statements, it appears that the conservatives have made their peace with the Federal government:
+Apparently conservatives have a new statement named for Mount Vernon, George Washington's home. The new [Mount Vernon Statement](http://www.themountvernonstatement.com/) is modeled on the 1960s conservative [_Sharon Statement_](http://www.yaf.com/statement/) (named for William F. Buckley's home), though it's slightly ironic considering the _Sharon Statement_ was quite firm on state's rights and Washington was a Federalist. From comparing the statements, it appears that the conservatives have made their peace with the Federal government:
 
 _Mount Vernon Statement:_
 
@@ -21,7 +21,7 @@ _Sharon Statement:_
 
 > THAT the genius of the Constitution - the division of powers - is summed up in the clause that reserves primacy to the several states, or to the people in those spheres not specifically delegated to the Federal government;
 
-And of course we need to compare that to the liberal _ [Port Huron Statement](http://www.campusactivism.org/server-new/uploads/porthuron.htm)_ (named for the SDS conference where it was written):
+And of course we need to compare that to the liberal _[Port Huron Statement](http://www.campusactivism.org/server-new/uploads/porthuron.htm)_ (named for the SDS conference where it was written):
 
 > How shall the "public sector" be made public, and not the arena of a ruling bureaucracy of "public servants"? By steadfast opposition to bureaucratic coagulation, and to definitions of human needs according to problems easiest for computers to solve. Second, the bureaucratic pileups must be at least minimized by local, regional, and national economic planning -- responding to the interconnection of public problems by comprehensive programs of solution. Third, and most important, by experiments in decentralization, based on the vision of man as master of his machines and his society.
 
