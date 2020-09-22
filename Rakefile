@@ -1,19 +1,20 @@
 desc 'Create a new post'
 task :post, [:title] do |t, args|
   title = args[:title]
-  post =  <<~HTML
-            ---
-            title: #{title}
-            date: #{Time.new.strftime('%Y-%m-%d %H:%M %Z')}
-            tags:
-            ---
-
-          HTML
+  content =  <<~MARKDOWN
+    ---
+    title: #{title}
+    date: #{Time.new.strftime('%Y-%m-%d %H:%M %Z')}
+    published: true
+    tags:
+    ---
+  MARKDOWN
 
   slug = title.gsub(' ','-').downcase
   filename = "#{Time.new.strftime('%Y-%m-%d')}-#{slug}.md"
   path = File.join("_posts", filename)
-  File.open(path, 'w') { |file| file.puts(post) }
+  File.open(path, 'w') { |file| file.puts(content) }
 
-  puts path
+  $stdout.puts "=== Generating post ==="
+  $stdout.puts path
 end
