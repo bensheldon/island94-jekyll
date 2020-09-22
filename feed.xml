@@ -6,19 +6,19 @@
 </description>
     <link>http://island94.org/</link>
     <atom:link href="http://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 22 Sep 2020 15:36:12 +0000</pubDate>
-    <lastBuildDate>Tue, 22 Sep 2020 15:36:12 +0000</lastBuildDate>
+    <pubDate>Tue, 22 Sep 2020 15:41:29 +0000</pubDate>
+    <lastBuildDate>Tue, 22 Sep 2020 15:41:29 +0000</lastBuildDate>
     <generator>Jekyll v3.8.7</generator>
     
       <item>
         <title>Respect our vendors</title>
         <description>&lt;p&gt;&lt;img src=&quot;/uploads/2020-09/costco_mission.jpg&quot; alt=&quot;Costco Values&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;“Respect our vendors” is foreign enough to me in software engineering that I  took this picture of Costco’s values. The opposite of respect, perhaps “contempt for vendors and tools”, seems endemic.&lt;/p&gt;
+&lt;p&gt;“Respect our vendors” is foreign enough to me in software engineering that I  took this picture of Costco’s values. The opposite of respect, perhaps “contempt for vendors and tools,” seems endemic.&lt;/p&gt;
 
-&lt;p&gt;At one job, memorably, a coworker was fired over it. Our engineering team had a shared email list that was used when setting up root accounts on various 3rd party services, including our primary infrastructure vendor for whom we were one of their largest customers.&lt;/p&gt;
+&lt;p&gt;At one job, memorably, a coworker was fired over it. Our engineering team had a shared email list used when setting up root accounts on various 3rd party services, including our primary infrastructure vendor for whom we were one of their largest customers.&lt;/p&gt;
 
-&lt;p&gt;The infrastructure vendor sent a Net-Promoter Score-like survey to our shared email list. Receiving this kind of marketing junk was common enough that I ignored it, but my colleague filled it out:&lt;/p&gt;
+&lt;p&gt;The infrastructure vendor sent a Net-Promoter Score-like survey to our shared email list. Receiving this kind of marketing junk was frequent enough that I ignored it, but my colleague filled it out:&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;On a scale of 1-10, how likely are you to recommend our service?: “1”&lt;/p&gt;
@@ -26,9 +26,9 @@
   &lt;p&gt;Why?: “I hate you.”&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;This survey response led to the vendor’s account executive making a frantic and fearful call to our leadership team, and the blowback leading to my coworkers termination. (This was not my colleague’s first warning; my team and I were also targets of their trolling and bullying.)&lt;/p&gt;
+&lt;p&gt;This survey response led to the vendor’s account executive making a frantic and fearful call to our leadership team. The blowback of that led to my coworkers’ termination. (This was not my colleague’s first warning; my team and I were also targets of their trolling and bullying.)&lt;/p&gt;
 
-&lt;p&gt;This is a funny story to reflect on, but it’s terribly toxic the multitude of things engineers will despise, wear on their sleeve, and eagerly share at the slightest opportunity, myself included.&lt;/p&gt;
+&lt;p&gt;This is a funny story to reflect on. And it’s terribly toxic the multitude of things engineers will despise, wear on their sleeve, and eagerly share at the slightest opportunity, myself included.&lt;/p&gt;
 </description>
         <pubDate>Tue, 22 Sep 2020 14:57:00 +0000</pubDate>
         <link>http://island94.org/2020/09/respect-our-vendors</link>
