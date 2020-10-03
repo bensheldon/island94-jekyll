@@ -6,9 +6,56 @@
 </description>
     <link>http://island94.org/</link>
     <atom:link href="http://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 22 Sep 2020 20:36:47 +0000</pubDate>
-    <lastBuildDate>Tue, 22 Sep 2020 20:36:47 +0000</lastBuildDate>
+    <pubDate>Sat, 03 Oct 2020 00:05:32 +0000</pubDate>
+    <lastBuildDate>Sat, 03 Oct 2020 00:05:32 +0000</lastBuildDate>
     <generator>Jekyll v3.8.7</generator>
+    
+      <item>
+        <title>Performance facilitators not supervisors</title>
+        <description>&lt;p&gt;Doublespeak from Pro-Publica’s &lt;a href=&quot;https://www.propublica.org/article/meet-the-customer-service-reps-for-disney-and-airbnb-who-have-to-pay-to-talk-to-you&quot;&gt;“Meet the Customer Service Reps for Disney and Airbnb Who Have to Pay to Talk to You”&lt;/a&gt;, via Pluralistic’s &lt;a href=&quot;https://pluralistic.net/2020/10/02/chickenized-by-arise/#arise&quot;&gt;ongoing chickenization coverage&lt;/a&gt;:&lt;/p&gt;
+
+&lt;blockquote&gt;
+
+  &lt;p&gt;Arise carefully monitors the language agents use to reinforce that it does not have an employment relationship with them. Stung by lawsuits that claimed Arise had actually employed agents but didn’t pay them fairly, Arise’s legal department has become a kind of word police, one former staffer told ProPublica.&lt;/p&gt;
+
+  &lt;p&gt;“You don’t schedule ‘hours,’ you schedule ‘intervals,’” the former staffer said. Agents were not to be addressed as “you,” but “your business.” They were not “working,” they were “servicing.” There were no “supervisors,” only “performance facilitators.” Agents were not “coached.” Rather, their services were “enhanced.”&lt;/p&gt;
+
+  &lt;p&gt;Once, an Arise manager, testifying in an arbitration hearing, was asked about meetings that performance facilitators have with agents. “They’re not meetings,” he said. “They’re informational sessions, or hosts.”&lt;/p&gt;
+
+  &lt;p&gt;In an internal announcement in 2012, Arise listed “new terminology” for eight terms to avoid “the misconception” that agents are Arise employees. The corporate link between Arise and the agents went from being called Virtual Services Corporations to Independent Businesses. Service Fees became Service Revenue. Central Operations became Support Operations.&lt;/p&gt;
+
+  &lt;p&gt;Arise seems particularly unable to settle on a term for the agents. Early on, the company called each a CyberAgent. Later came Arise Certified Professional. In 2012, that was changed to Client Support Professional. Nowadays, Arise’s website calls agents “onshore brand advocates or Service Partners.”&lt;/p&gt;
+
+  &lt;p&gt;“Arise-speak,” as one opposing attorney called it in legal proceedings, could be a wonder to behold. Client Support Professionals (CSPs) would work with Quality Assurance Performance Facilitators (QAPFs) in a Performance Enhancement Session (PES), or they might reach out to Chat Performance Facilitators or Escalation Performance Facilitators, and none would be an Arise employee, all would be independent contractors.&lt;/p&gt;
+
+&lt;/blockquote&gt;
+
+&lt;p&gt;And a disturbing exchange:&lt;/p&gt;
+
+&lt;blockquote&gt;
+
+  &lt;p&gt;Rice said he worked out of his bedroom, in his mother’s home, helping customers for Arise’s clients, including Barnes &amp;amp; Noble, Disney and Sears. While testifying, Rice referred to performance facilitators in the Arise network as supervisors. This elicited a challenge from a lawyer for Arise.&lt;/p&gt;
+
+  &lt;p&gt;“Where’d you get that term from, supervisor?” the lawyer asked.&lt;/p&gt;
+
+  &lt;p&gt;“Growing up in America,” Rice said. “That’s the term people use for people that are above you.”&lt;/p&gt;
+
+  &lt;p&gt;“… You never referred to them as supervisors while you were providing services, did you?”&lt;/p&gt;
+
+  &lt;p&gt;“Well, yeah,” Rice said.&lt;/p&gt;
+
+  &lt;p&gt;“You did? To who?”&lt;/p&gt;
+
+  &lt;p&gt;“Well, obviously I’m on the phone with a customer, I’m not going to say, ‘OK, let me go check my chat performance facilitator.’ Usually I just said, you know, ‘Let me just talk to my supervisor.’”&lt;/p&gt;
+
+&lt;/blockquote&gt;
+</description>
+        <pubDate>Fri, 02 Oct 2020 23:56:00 +0000</pubDate>
+        <link>http://island94.org/2020/10/performance-facilitators-not-supervisors</link>
+        <guid isPermaLink="true">http://island94.org/2020/10/performance-facilitators-not-supervisors</guid>
+        
+        
+      </item>
     
       <item>
         <title>Respect our vendors</title>
@@ -350,68 +397,6 @@
         <category>artificial intelligence</category>
         
         <category>love</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>Deterministic test data with Faker, FactoryBot, and RSpec</title>
-        <description>&lt;p&gt;I get a lot of joy from using &lt;a href=&quot;https://github.com/faker-ruby/faker&quot;&gt;Faker&lt;/a&gt; and &lt;a href=&quot;https://github.com/thoughtbot/factory_bot&quot;&gt;FactoryBot&lt;/a&gt; to efficiently generate real-world test data, but its randomness can be a liability when trying to debug complicated specs or when setting up systems that require repeatable data across RSpec test runs like &lt;a href=&quot;https://percy.io/&quot;&gt;Percy’s visual diffs&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Without deterministic test data, generating three new users with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;3.times { puts Faker::Name.first_name }&lt;/code&gt; would result in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Danny, Solomon, Fabian&lt;/code&gt; when run once, then &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Jordon, Shawn, Asa&lt;/code&gt; when run a second time, then &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Bruce, Leonor, Paulette&lt;/code&gt; when run a third time.&lt;/p&gt;
-
-&lt;p&gt;With deterministic test data, I expect to always generate the same set of names no matter how many times the code is run.  Faker has &lt;a href=&quot;https://github.com/faker-ruby/faker#deterministic-random&quot;&gt;documented&lt;/a&gt; how to configure and seed the random number generator and this can be achieved with:&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;times&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; 
-  &lt;span class=&quot;no&quot;&gt;Faker&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;random&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Random&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Faker&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;first_name&lt;/span&gt; 
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;This script outputs &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Zachery, Dawna, Desmond&lt;/code&gt; every single time it is run, meaning that it’s deterministic.&lt;/p&gt;
-
-&lt;p&gt;Faker’s deterministic configuration can be combined with a FactoryBot &lt;a href=&quot;https://github.com/thoughtbot/factory_bot/blob/master/GETTING_STARTED.md#sequences&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sequence&lt;/code&gt;&lt;/a&gt; to always get the same data every time a new factory instance is created. For example, here’s what a deterministic &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;User&lt;/code&gt; factory could look like:&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# spec/factories/users.rb&lt;/span&gt;
-
-&lt;span class=&quot;no&quot;&gt;FactoryBot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;define&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;factory&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:user&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;sequence&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:first_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-      &lt;span class=&quot;no&quot;&gt;Faker&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;random&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Random&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-      &lt;span class=&quot;no&quot;&gt;Faker&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;first_name&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-
-    &lt;span class=&quot;n&quot;&gt;sequence&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:last_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-      &lt;span class=&quot;no&quot;&gt;Faker&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;random&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Random&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-      &lt;span class=&quot;no&quot;&gt;Faker&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;last_name&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-
-    &lt;span class=&quot;n&quot;&gt;email&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;first_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;parameterize&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;last_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;parameterize&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;@example.com&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;password&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'password123'&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Within every sequence, the Faker random number generator is  seeded with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Faker::Config.random = Random.new(n)&lt;/code&gt; , where &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;n&lt;/code&gt; is the integer generated by the sequence.&lt;/p&gt;
-
-&lt;p&gt;Unfortunately, just using a sequence isn’t completely sufficient when running tests in random order, or inserting new tests or rearranging the tests, as one would expect in an active codebase. FactoryBot sequences are global, meaning that they don’t reset by default between each and every test; a FactoryBot instance during one test run might use a different sequence number than a previous test run.&lt;/p&gt;
-
-&lt;p&gt;Therefore, it’s also necessary to rewind FactoryBot sequences after each RSpec example. Place this in your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;spec/rails_helper.rb&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;spec/support&lt;/code&gt; directory:&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# spec/support/factory_bot.rb&lt;/span&gt;
-
-&lt;span class=&quot;no&quot;&gt;RSpec&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;configure&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;after&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
-    &lt;span class=&quot;no&quot;&gt;FactoryBot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;rewind_sequences&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;That’s all you need to combine Faker and FactoryBot to get deterministic test data in your RSpec tests. Have fun!&lt;/p&gt;
-</description>
-        <pubDate>Sat, 30 Nov 2019 19:33:00 +0000</pubDate>
-        <link>http://island94.org/2019/11/deterministic-test-data-with-faker-factorybot-and-rspec</link>
-        <guid isPermaLink="true">http://island94.org/2019/11/deterministic-test-data-with-faker-factorybot-and-rspec</guid>
         
         
       </item>
