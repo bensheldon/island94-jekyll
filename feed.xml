@@ -6,9 +6,38 @@
 </description>
     <link>http://island94.org/</link>
     <atom:link href="http://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 05 Oct 2020 18:43:29 +0000</pubDate>
-    <lastBuildDate>Mon, 05 Oct 2020 18:43:29 +0000</lastBuildDate>
+    <pubDate>Tue, 20 Oct 2020 01:36:04 +0000</pubDate>
+    <lastBuildDate>Tue, 20 Oct 2020 01:36:04 +0000</lastBuildDate>
     <generator>Jekyll v3.8.7</generator>
+    
+      <item>
+        <title>Centering Civic Tech</title>
+        <description>&lt;p&gt;From Cyd Harrell’s excellent &lt;a href=&quot;https://cydharrell.com/book/&quot;&gt;“A Civic Technoligists Practice Guide”&lt;/a&gt;, via a &lt;a href=&quot;https://twitter.com/bensheldon/status/1318348423012102144&quot;&gt;Twitter convo&lt;/a&gt;, reformatted by me:&lt;/p&gt;
+
+&lt;blockquote&gt;
+
+  &lt;p&gt;Because its goal is change, civic tech embodies an interesting split between demonstrating and operationalizing the potential of modern tech. I like to call these two branches showing what’s possible and doing what’s necessary. Many projects are a mix of the two, but they require different mindsets.&lt;/p&gt;
+
+  &lt;p&gt;“Showing what’s possible” is about speed, prototyping, design, public feedback, and data. These are often web projects because web tools are great for those purposes.&lt;/p&gt;
+
+  &lt;p&gt;“Doing what’s necessary,” on the other hand, is about shifting the underlying practices and systems: back-end systems, security, and procurement; hiring and team composition; even shifting budget priorities.”&lt;/p&gt;
+
+  &lt;p&gt;[…]&lt;/p&gt;
+
+  &lt;p&gt;But our job as civic technologists isn’t to be the hero of the stories we stumble into halfway through; it’s to understand and support the people who have already been in place doing the work, and who want to use tech to make improvements.&lt;/p&gt;
+
+&lt;/blockquote&gt;
+
+&lt;p&gt;They line up with Code for America’s pillars of “Show what’s possible”, “Help people do it themselves” and “Build a movement” (though the latter is rather more grandiose than &lt;em&gt;understand and support&lt;/em&gt;).&lt;/p&gt;
+
+&lt;p&gt;As we called these in my previous career, Service Delivery, Capacity Building, and &lt;a href=&quot;http://putsomegratitudeinyourattitude.com/About.html&quot;&gt;Roy Johnson&lt;/a&gt; (“Put some gratitude in your attitude!”).&lt;/p&gt;
+</description>
+        <pubDate>Tue, 20 Oct 2020 01:22:00 +0000</pubDate>
+        <link>http://island94.org/2020/10/centering-civic-tech</link>
+        <guid isPermaLink="true">http://island94.org/2020/10/centering-civic-tech</guid>
+        
+        
+      </item>
     
       <item>
         <title>GoodJob v1.3: Web dashboard and full documentation</title>
@@ -402,27 +431,6 @@
         <pubDate>Mon, 06 Jan 2020 03:23:00 +0000</pubDate>
         <link>http://island94.org/2020/01/decade-in-review-2010-2019</link>
         <guid isPermaLink="true">http://island94.org/2020/01/decade-in-review-2010-2019</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>The water never goes away</title>
-        <description>&lt;p&gt;From Ronan Farrow’s &lt;em&gt;Catch and Kill&lt;/em&gt;:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Perez said that she urged Sciorra to speak by describing her own experience of going public about her assault. “I told her, ‘I used to tread water for years. It’s fucking exhausting, and maybe speaking out, that’s your lifeboat. Grab on and get out,’” Perez recalled. “I said, ‘Honey, the water never goes away. But, after I went public, it became a puddle and I built a bridge over it, and one day you’re gonna get there, too.’”&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;From Thomas Page McBee’s &lt;em&gt;Man Alive&lt;/em&gt;:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;“Abandon all hope,” I’d written on a Post-it note, and I watched it move gently beneath the heat duct. I read it in some book. The idea was that hope misses the point: it’s either going to happen or not. You can’t make a new reality, only fashion something real from the one that you’ve got.&lt;/p&gt;
-&lt;/blockquote&gt;
-</description>
-        <pubDate>Mon, 16 Dec 2019 01:47:00 +0000</pubDate>
-        <link>http://island94.org/2019/12/the-water-never-goes-away</link>
-        <guid isPermaLink="true">http://island94.org/2019/12/the-water-never-goes-away</guid>
         
         
       </item>
