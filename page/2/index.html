@@ -76,7 +76,7 @@
       <li class="pager-prev"><a href="/"><span aria-hidden="true">&larr; </span>Newer</a></li>
     
 
-    <small class="pager-current text-muted">Page 2 of 58</small>
+    <small class="pager-current text-muted">Page 2 of 59</small>
 
     
       <li class="pager-next"><a href="/page/3/">Older<span aria-hidden="true"> &rarr;</span></a></li>
@@ -86,6 +86,79 @@
 
   
 
+  
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2020/07/engineering-operations-is-not-the-same-as-development">Engineering Operations is not the same as Development</a>
+    </h1>
+    <p class="post-meta text-muted">
+      <time datetime="2020-07-13T01:42:00+00:00" itemprop="datePublished">July 13, 2020</time>
+      
+      
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p><em>I wrote this memo several years ago when I joined GetCalFresh as the first outside engineering hire. An early focus of mine was helping the team move more confidently into an operational mindset: this memo reframes the teams existing values that drive development as values that also support operations. This also overlaps greatly with a talk I gave at Code for America’s 2018 Summit <a href="https://speakerdeck.com/bensheldon/keeping-users-at-the-forefront-while-scaling-services">“Keeping Users at the Forefront While Scaling Services”</a>.</em></p>
+
+<p>Over the past month GetCalFresh has tripled the number of food stamp applications we’re processing. We often talk about “build the right thing”, but I wanted to focus on what it means to “operate a thing safely”.</p>
+
+<h2 id="understanding-operational-failure">Understanding operational failure</h2>
+
+<p>GetCalFresh collects foodstamp applicant’s information via a series of webforms, and then submits that applicant information to the county to begin the foodstamp eligibility process.</p>
+
+<p>The website and webforms being offline or unavailable is <strong>bad</strong>.</p>
+
+<p>Failing to submit application information to the county in a timely manner is <strong>awful</strong>. Foodstamp benefits are prorated to the day that the client’s application arrives <em>at the county</em> before 5pm. Failing to deliver a clients application in a timely manner literally means less food on the table for a hungry family.</p>
+
+<p>Our system is operationally “safe” when it ensures that client information is transmitted to the county in a timely manner. Our system experiences an operational “failure” when information is not submitted in a timely manner. Our system has operational “risk” that degrades safety and is the potential for an operational failure.</p>
+
+<h2 id="risks-in-complicated-complex-and-chaotic-systems">Risks in complicated, complex and chaotic systems</h2>
+
+<p>Keeping a website online is complicated, but can be addressed with good practice. We use boring technologies: Ruby on Rails, SQL, AWS, that scale and respond predictably and are part of a mature ecosystem of monitoring tools and practice.</p>
+
+<p>Submitting client information to the county is complex and sometimes chaotic. Because county systems often have no API, we have a queue of jobworkers that use Selenium Webdriver to click through and type into a “virtualized” headless Firefox browser. Automating this leads to emergent and novel problems. Client data must be transformed into a series of scripted actions to be performed across multiple county webpages, with dynamic forms and data fields. The county websites may be offline or degraded, and occasionally their structure and content changes. Additional client documents may need to be faxed, emailed or uploaded to the county, and those systems can be degraded as well.</p>
+
+<p>Our applicants themselves can cause operational risks. As we target new populations and demographics (e.g. seniors, students, military families, homeless, low-literacy or non-English-speaking), we discover new usability issues and challenges in collecting and transforming data from our webforms into county systems. For example, different county systems have different optional and required fields and expect names and addresses to by sanitized and tokenized differently.</p>
+
+<p>In this system, we cannot reliably (or affordably, with time and resources) predict how this system will respond as it scales to new users or integrates with new counties.</p>
+
+<h2 id="creating-safety-with-staff-and-time">Creating safety with staff and time</h2>
+
+<p>We ensure that foodstamp applications are submitted in a timely manner through existing staff and dedicated time. Because we cannot reliably predict how our system scales or responds to changes, we have systems that alerts us to the risk of operational failure and engineers who are available to respond, remediate, and harden against similar circumstances in the future.</p>
+
+<p>Every day, engineers block out 4pm to 5pm as “Apps &amp; Docs”. We use this time to review any food stamp applications that failed our automated submission process to ensure the applications are submitted to the county by the daily deadline. Problems are documented and potential improvements are added to or reprioritized within the team’s backlog. We create safety by sometimes reaching out to clients for clarification or correction. In the event of an operational failure (we are not able to submit their application that day), we try to make things right; sometimes offering a gift card the client can use to purchase food.</p>
+
+<p>Examples of problems identified during our hour of Apps &amp; Docs:</p>
+
+<ul>
+  <li>Services not allowing multiple parallel sessions using the same credentials.</li>
+  <li>Inconsistent address tokenization for college campuses, military bases, PO boxes, and Private Mail Boxes</li>
+  <li>Frequency of people uploading iexplore.exe and notes.app instead of their intended document</li>
+  <li>Forms that do not allow non-ASCII characters</li>
+  <li>Forever optimizing headless Firefox, writing flexible and reliable Selenium scripts, and managing an increasing fleet of specialized jobworkers</li>
+</ul>
+
+<h2 id="trade-operational-risk-for-speed-of-learning">Trade operational risk for speed of learning</h2>
+<p>We can’t predict the exact operational issues we’ll experience during a given day, but by scheduling and protecting one hour per day for operational tasks, we can deliberately trade risk for flexibility. Flexibility comes because we can accept small risks by introducing incomplete or manual-intervention-required workflows into the system. We do not have to build for every edge case or automate every action. We can develop features faster and create more opportunities to learn with real users in a real operational environment. This is an operationalization of our engineering principle “don’t argue, ship”.</p>
+
+<h2 id="takeaways">Takeaways</h2>
+
+<ul>
+  <li><strong>Define operational failure</strong>: Leaving failure ambiguous can lead to fire-drills on every bad experience and exception, even if they may not have a material impact on business process or metrics. Defining service level objectives helps everyone self-organize, prioritize and understand the impact of their work.</li>
+  <li><strong>Operationalize operations</strong>: Unexpected things happen all the time, but merely saying “high priority interrupt” does not expose the actual cost of response and remediation. Blocking out explicit times and spaces helps measure, and thus manage, work that might otherwise be overlooked.</li>
+  <li><strong>Protect Developers’ time only so much</strong>: “Any improvement not made at the constraint is an illusion.” Approaching automation as an iterative and forever-incomplete process enables our team to move quickly in optimizing the system as a whole. When manual remediation is at risk of overflowing our time block, we dedicate time to greater automation; when we have perceived sufficient tolerances, we can push product features faster by manually tasking edge-cases.</li>
+  <li><strong>Operations is a practice</strong>: Product Design and Development principles and practice provide a strong foundation and an experienced team can greatly reduce the risk of technical and market failure… but they can’t eliminate it. Operations is a field and practice that can reinforce and elevate Product Design and Development.</li>
+</ul>
+
+  </div>
+
+</article>
+
+
+    <hr>
   
     <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
@@ -595,35 +668,6 @@ The Concrete Sumo”</a> and facilitated it two weeks ago for the software engin
 </article>
 
 
-    <hr>
-  
-    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-
-  <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">
-      <a class="post-link" href="/2019/07/truths-about-the-interpretation-of-falsehood-articles">Truths about the interpretation of falsehood articles</a>
-    </h1>
-    <p class="post-meta text-muted">
-      <time datetime="2019-07-14T15:44:00+00:00" itemprop="datePublished">July 14, 2019</time>
-      
-      
-    </p>
-  </header>
-
-  <div class="post-content" itemprop="articleBody">
-    <p>I enjoy “falsehood programmers believe” articles for the same reason as Graham Lee, who also points out that I shouldn’t assume others approach those articles (or any seemingly common structure) <a href="https://www.sicpers.info/2019/06/falsehoods-programmers-who-write-falsehoods-programmers-believe-articles-believe-about-programmers-who-read-falsehoods-programmers-believe-articles/">the same</a>:</p>
-
-<blockquote>
-  <p>As the sort of programmer who writes  <a href="https://www.sicpers.info/2017/12/falsehoods-programmers-believe-about-programming/">falsehoods programmers believe articles</a> , my belief is that interesting challenges to my beliefs will trigger some curiosity, and lead me to research the counterexamples and solutions. Or at least, to file away the fact that counterexamples exist until I need it, or am otherwise more motivated to learn about it.</p>
-
-  <p>But that motivation is not universal. The fact that I treat it as universal turns it into a falsehood I believe about readers of falsehoods articles. Complaints abound that falsehoods articles  <a href="https://lobste.rs/s/w5bgcu/falsehoods_programmers_believe_about#c_u2z1oi">do not lead directly</a>   <a href="https://lobste.rs/s/uo3tq7/falsehoods_programmers_believe_about#c_henud6">to fish on the plate</a> . Some readers want a clear breakdown from “thing you might think is true but isn’t true” to “Javascript you can paste in your project to account for it not being true”. These people are not well-served by falsehoods articles.</p>
-</blockquote>
-
-  </div>
-
-</article>
-
-
     
   
 
@@ -633,7 +677,7 @@ The Concrete Sumo”</a> and facilitated it two weeks ago for the software engin
       <li class="pager-prev"><a href="/"><span aria-hidden="true">&larr; </span>Newer</a></li>
     
 
-    <small class="pager-current text-muted">Page 2 of 58</small>
+    <small class="pager-current text-muted">Page 2 of 59</small>
 
     
       <li class="pager-next"><a href="/page/3/">Older<span aria-hidden="true"> &rarr;</span></a></li>
