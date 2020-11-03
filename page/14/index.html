@@ -142,22 +142,22 @@
  * Attach a class to linked images' parent anchors
  * e.g. a img =&gt; a.img img
  */</span>
-<span class="k">function</span> <span class="nf">give_linked_images_class</span><span class="p">(</span><span class="nv">$html</span><span class="p">,</span> <span class="nv">$id</span><span class="p">,</span> <span class="nv">$caption</span><span class="p">,</span> <span class="nv">$title</span><span class="p">,</span> <span class="nv">$align</span><span class="p">,</span> <span class="nv">$url</span><span class="p">,</span> <span class="nv">$size</span><span class="p">,</span> <span class="nv">$alt</span> <span class="o">=</span> <span class="s1">''</span> <span class="p">)</span> <span class="p">{</span>
+<span class="k">function</span> <span class="n">give_linked_images_class</span><span class="p">(</span><span class="nv">$html</span><span class="p">,</span> <span class="nv">$id</span><span class="p">,</span> <span class="nv">$caption</span><span class="p">,</span> <span class="nv">$title</span><span class="p">,</span> <span class="nv">$align</span><span class="p">,</span> <span class="nv">$url</span><span class="p">,</span> <span class="nv">$size</span><span class="p">,</span> <span class="nv">$alt</span> <span class="o">=</span> <span class="s1">''</span> <span class="p">)</span> <span class="p">{</span>
   <span class="c1">// Separate classes with spaces, e.g. 'img image-link'</span>
   <span class="nv">$classes</span> <span class="o">=</span> <span class="s1">'img'</span><span class="p">;</span>
 
   <span class="c1">// check if there are already classes assigned to the anchor</span>
   <span class="k">if</span> <span class="p">(</span> <span class="nb">preg_match</span><span class="p">(</span><span class="s1">'/&lt;a.*? class=".*?"&gt;/'</span><span class="p">,</span> <span class="nv">$html</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
-    <span class="nv">$html</span> <span class="o">=</span> <span class="nb">preg_replace</span><span class="p">(</span><span class="s1">'/(&lt;a.*? class=".*?)(".\?&gt;)/'</span><span class="p">,</span> <span class="s1">'$1 '</span> <span class="o">.</span> <span class="nv">$classes</span> <span class="o">.</span> <span class="s1">'$2'</span><span class="p">,</span> <span class="nv">$html</span><span class="p">);</span>
+    <span class="nv">$html</span> <span class="o">=</span> <span class="nb">preg_replace</span><span class="p">(</span><span class="s1">'/(&lt;a.*? class=".*?)(".\?&gt;)/'</span><span class="p">,</span> <span class="s1">'$1 '</span> <span class="mf">.</span> <span class="nv">$classes</span> <span class="mf">.</span> <span class="s1">'$2'</span><span class="p">,</span> <span class="nv">$html</span><span class="p">);</span>
   <span class="p">}</span>
   <span class="k">else</span> <span class="p">{</span>
-    <span class="nv">$html</span> <span class="o">=</span> <span class="nb">preg_replace</span><span class="p">(</span><span class="s1">'/(&lt;a.*?)&gt;/'</span><span class="p">,</span> <span class="s1">'$1 class="'</span> <span class="o">.</span> <span class="nv">$classes</span> <span class="o">.</span> <span class="s1">'" &gt;'</span><span class="p">,</span> <span class="nv">$html</span><span class="p">);</span>
+    <span class="nv">$html</span> <span class="o">=</span> <span class="nb">preg_replace</span><span class="p">(</span><span class="s1">'/(&lt;a.*?)&gt;/'</span><span class="p">,</span> <span class="s1">'$1 class="'</span> <span class="mf">.</span> <span class="nv">$classes</span> <span class="mf">.</span> <span class="s1">'" &gt;'</span><span class="p">,</span> <span class="nv">$html</span><span class="p">);</span>
   <span class="p">}</span>
 
   <span class="k">return</span> <span class="nv">$html</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="nx">add_filter</span><span class="p">(</span><span class="s1">'image_send_to_editor'</span><span class="p">,</span> <span class="s1">'give_linked_images_class'</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">);</span>
+<span class="nf">add_filter</span><span class="p">(</span><span class="s1">'image_send_to_editor'</span><span class="p">,</span> <span class="s1">'give_linked_images_class'</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">);</span>
 </code></pre></div></div>
 
 <p>The if/else could probably be done with a single regular expression, but I’m not <em>that</em> smart.</p>
