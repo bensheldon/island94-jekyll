@@ -8,7 +8,17 @@ layout: default
 <hr>
 
 <div class="well">
-  Discuss this with me on
-  <a href="https://twitter.com/{{site.twitter_username}}"><span class="fa fa-twitter"></span> Twitter</a>
-  or suggest a <a href="{{site.repository_url}}/blob/main/{{page.path}}"><span class="fa fa-github-alt"></span> change</a>.
+  <p>
+    Discuss this with me on <a href="https://twitter.com/{{site.twitter_username}}"><span class="fa fa-twitter"></span> Twitter</a>
+    or suggest a <a href="{{site.repository_url}}/blob/main/{{page.path}}"><span class="fa fa-github-alt"></span> change</a>.
+  </p>
+
+  <p>Related Posts:</p>
+
+  <ul>
+    {% for related_post in site.related_posts limit: 5 %}
+    <li><a href="{{related_post.url}}">{{related_post.title}}</a></li>
+    {% endfor %}
+  </ul>
 </div>
+

@@ -8,6 +8,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       # Dependencies
+      - name: Install GSL
+        run: sudo apt-get -y install libgsl-dev
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
       - name: Ruby gem cache
@@ -25,7 +27,7 @@ jobs:
           bundle install --jobs 4 --retry 3 --frozen && bundle clean
       # /Dependencies
       - name: Jekyll build
-        run: bundle exec jekyll build
+        run: bundle exec jekyll build --lsi
       - name: Run RSpec
         run: bundle exec rspec
       - name: Publish

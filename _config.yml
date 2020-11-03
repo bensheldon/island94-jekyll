@@ -16,6 +16,8 @@ twitter_username: bensheldon
 github_username:  bensheldon
 repository_url: https://github.com/bensheldon/island94-jekyll
 
+lsi: false
+
 permalink: "/:year/:month/:title"
 paginate: 10
 paginate_path: "/page/:num/"
@@ -41,7 +43,6 @@ exclude:
 
 plugins:
   - jekyll-coffeescript
-  - jekyll-feed
   - jekyll-paginate
   - jekyll-redirect-from
   - jekyll-sitemap
