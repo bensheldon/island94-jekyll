@@ -6,9 +6,54 @@
 </description>
     <link>http://island94.org/</link>
     <atom:link href="http://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 03 Nov 2020 19:30:05 +0000</pubDate>
-    <lastBuildDate>Tue, 03 Nov 2020 19:30:05 +0000</lastBuildDate>
+    <pubDate>Tue, 03 Nov 2020 19:43:27 +0000</pubDate>
+    <lastBuildDate>Tue, 03 Nov 2020 19:43:27 +0000</lastBuildDate>
     <generator>Jekyll v3.9.0</generator>
+    
+      
+      
+
+      <item>
+        <title>The five ideals explained</title>
+        <description>&lt;p&gt;I previously posted the &lt;a href=&quot;https://island94.org/2017/12/the-three-ways-explained&quot;&gt;The Three Ways&lt;/a&gt; from &lt;em&gt;The Phoenix Project&lt;/em&gt;. Here are &lt;a href=&quot;https://itrevolution.com/five-ideals-of-devops/&quot;&gt;the Five Ideals from &lt;em&gt;The Unicorn Project&lt;/em&gt;&lt;/a&gt;, by way of Gene Kim’s &lt;em&gt;IT Revolution&lt;/em&gt; blog:&lt;/p&gt;
+
+&lt;blockquote&gt;
+
+  &lt;p&gt;The First Ideal: Locality and Simplicity&lt;/p&gt;
+
+  &lt;p&gt;We need to design things so that we have locality in our systems and the organizations that build them. We need simplicity in everything we do. This ideal relates to the degree to which a development team can make local code changes in a single location without impacting various teams. The last place we want complexity is internally, whether it’s in our code, in our organization, or in our processes.&lt;/p&gt;
+
+  &lt;p&gt;The Second Ideal: Focus, Flow, and Joy&lt;/p&gt;
+
+  &lt;p&gt;The Second Ideal is all about how our daily work feels. Is our work marked by boredom and waiting for other people to get things done on our behalf? Do we blindly work on small pieces of the whole, only seeing the outcomes of our work during deployment when everything blows up, leading to firefighting, punishment, and burnout? Or do we work in small batches, ideally single-piece flow, getting fast and continual feedback on our work? These are the conditions that allow for focus and flow, challenge, learning, discovery, mastering our domain, and even joy. This is what being a developer means.&lt;/p&gt;
+
+  &lt;p&gt;The Third Ideal: Improvement of Daily Work&lt;/p&gt;
+
+  &lt;p&gt;The Third Ideal addresses paying down technical debt and improving architecture. When technical debt is treated as a priority and paid down and architecture is continuously improved and modernized, teams can work with flow, delivering better value sooner, safer, and happier. And the business ultimately wins when developers can deliver on enterprise performance goals.&lt;/p&gt;
+
+  &lt;p&gt;The Fourth Ideal: Psychological Safety&lt;/p&gt;
+
+  &lt;p&gt;Psychological safety is one of the top predictors of team performance. When team members feel safe to talk about problems, problems can not only be fixed but prevented. Solving problems requires honesty, and honesty requires an absence of fear. In knowledge work, psychological safety should be treated with the same importance as physical safety is in manufacturing.&lt;/p&gt;
+
+  &lt;p&gt;The Fifth Ideal: Customer Focus&lt;/p&gt;
+
+  &lt;p&gt;Customer focus relates to the difference between core and context as defined by Geoffrey Moore. Core is what customers are willing and able to pay for, the bread and butter of your business. Context is what they don’t care about, what it took to get them that product, including all the backend systems of an organization like HR and marketing and development. It’s critical to look at these Context systems as essential, as mission critical, and fund them appropriately. Context should never kill core.&lt;/p&gt;
+
+&lt;/blockquote&gt;
+
+        &lt;br&gt;&lt;br&gt;
+        &lt;hr&gt;
+        &lt;p&gt;
+          This post, &lt;em&gt;&lt;a href=&quot;http://island94.org/2020/11/the-five-ideals-explained&quot;&gt;The five ideals explained&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;http://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
+          Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
+        &lt;/p&gt;
+      </description>
+        <pubDate>Tue, 03 Nov 2020 19:38:00 +0000</pubDate>
+        <link>http://island94.org/2020/11/the-five-ideals-explained</link>
+        <guid isPermaLink="true">http://island94.org/2020/11/the-five-ideals-explained</guid>
+        
+        
+      </item>
     
       
       
@@ -436,37 +481,6 @@
         <pubDate>Mon, 20 Jul 2020 21:12:00 +0000</pubDate>
         <link>http://island94.org/2020/07/introducing-goodjob-1-0</link>
         <guid isPermaLink="true">http://island94.org/2020/07/introducing-goodjob-1-0</guid>
-        
-        
-      </item>
-    
-      
-      
-
-      <item>
-        <title>Retail politics</title>
-        <description>&lt;p&gt;I will quote anything that reinforces the necessity of showing up. From SF Weekly’s &lt;a href=&quot;https://archives.sfweekly.com/sanfrancisco/the-many-faces-of-leland-yee-a-politicians-calculated-rise-and-dramatic-fall/Content?oid=2949247&amp;amp;showFullText=true&quot;&gt;“The Many Faces of Leland Yee: A Politician’s Calculated Rise and Dramatic Fall”&lt;/a&gt; :&lt;/p&gt;
-
-&lt;blockquote&gt;
-
-  &lt;p&gt;Upon reflection, Yee’s principles may be ever-shifting and his policies may be decorative, but he found a way around this: by being omnipresent.&lt;/p&gt;
-
-  &lt;p&gt;He knew the name of every neighborhood stalwart from every neighborhood club; he cleaned hundreds of plates at hundreds of Chinatown banquets; he sat through countless community meetings, gathering hundreds of converts at a time: “In local politics,” says one longtime player, “a cup of coffee and a handshake can win you a friend for life.”&lt;/p&gt;
-
-  &lt;p&gt;Yee showed up at your kid’s bar mitzvah or high school graduation; he showed up at your community gathering; he showed up at your neighborhood bazaar — in short, he showed up. His staff returned your phone call. And he read your letters: A former associate says Yee never failed to leave the office at the end of a long day toting a thick stack of mail that he made a point of poring through. In insider jargon, this is known as “retail politics.” Few worked harder or did it better.&lt;/p&gt;
-
-&lt;/blockquote&gt;
-
-        &lt;br&gt;&lt;br&gt;
-        &lt;hr&gt;
-        &lt;p&gt;
-          This post, &lt;em&gt;&lt;a href=&quot;http://island94.org/2020/07/retail-politics&quot;&gt;Retail politics&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;http://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
-          Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
-        &lt;/p&gt;
-      </description>
-        <pubDate>Mon, 13 Jul 2020 02:16:00 +0000</pubDate>
-        <link>http://island94.org/2020/07/retail-politics</link>
-        <guid isPermaLink="true">http://island94.org/2020/07/retail-politics</guid>
         
         
       </item>
