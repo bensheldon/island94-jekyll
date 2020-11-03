@@ -1,4 +1,0 @@
-dependencies:
-  post:
-    - bundle exec jekyll build :
-        timeout: 500
