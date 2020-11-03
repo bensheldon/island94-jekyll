@@ -27,7 +27,7 @@ jobs:
           bundle install --jobs 4 --retry 3 --frozen && bundle clean
       # /Dependencies
       - name: Jekyll build
-        run: bundle exec jekyll build --lsi
+        run: bundle exec jekyll build --trace --profile --lsi
       - name: Run RSpec
         run: bundle exec rspec
       - name: Publish
