@@ -10,7 +10,7 @@ redirect_from:
 
 A subchapter on art from K.C. Cole's _Something incredibly wonderful happens: Frank Oppenheimer and the world he made up_.
 
-> ** A Matter of Urgency**
+> **A Matter of Urgency**
 >
 > _"It's through familiarity with the arts that I think we will make the kinds of changes that make life stay human."_
 >
