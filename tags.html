@@ -4,17 +4,34 @@ title: Tags
 permalink: /tags/
 ---
 
-{% assign sorted_tags = site.tags %}
-{% for tag in sorted_tags %}
-    {% assign tag_name = tag[0] %}
-    {% assign tag_posts = tag[1] %}
-    {% assign tag_slug = tag_name | replace:' ','_' %}
+{% capture concat_tags %}{% for tag in site.tags %}{{ tag | first | downcase }}#{{ tag | first }}{% unless forloop.last %},{% endunless %}{% endfor %}{% endcapture %}
+{% assign sorted_concat_tags = concat_tags | split:',' | sort %}
 
-    <h2 name="{{tag_slug}}">
+<ul class="list-unstyled list-columns">
+    {% for concat_tag in sorted_concat_tags %}
+        {% assign tag_values = concat_tag | split: '#' %}
+        {% assign tag_name = tag_values[1] %}
+        {% assign normalized_tag = tag_values[0] %}
+        {% assign tag_slug = normalized_tag | replace:' ','_' %}
+
+        <li><a href="#{{tag_slug}}">{{tag_name}}</a> ({{ site.tags[tag_name] | size }})</li>
+    {% endfor %}
+</ul>
+
+<hr>
+
+{% for concat_tag in sorted_concat_tags %}
+    {% assign tag_values = concat_tag | split: '#' %}
+    {% assign tag_name = tag_values[1] %}
+    {% assign normalized_tag = tag_values[0] %}
+    {% assign tag_slug = normalized_tag | replace:' ','_' %}
+
+    <h2 id="{{tag_slug}}">
         {{tag_name}}
         <small><a href="#{{tag_slug}}">#</a></small>
     </h2>
     <ul>
+        {% assign tag_posts = site.tags[tag_name] %}
         {% for tag_post in tag_posts %}
             <li><a href="{{tag_post.url}}">{{tag_post.title}}</a></li>
         {% endfor %}

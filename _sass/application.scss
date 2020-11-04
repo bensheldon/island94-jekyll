@@ -18,3 +18,7 @@ $navbar-default-bg: transparent;
 @import "vendor/bootstrap/bootstrap";
 @import "vendor/fontawesome/font-awesome";
 @import "posts";
+
+.list-columns {
+  column-count: 4;
+}
