@@ -8125,3 +8125,6 @@ button.close {
 
 .post-content img {
   max-width: 100%; }
+
+.list-columns {
+  column-count: 4; }
