@@ -91,6 +91,121 @@
 
   <header class="post-header">
     <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2010/02/Good-enough-data.html">Good enough data</a>
+    </h1>
+    <p class="post-meta text-muted">
+      <time datetime="2010-02-22T00:00:00+00:00" itemprop="datePublished">February 22, 2010</time>
+      
+       • Tagged ability, data, navigation, parsing, portfolio, and yawn
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p><img src="/uploads/2010-02-22-Good-enough-data/btop-map-combined-500x462.png" alt="" title="btop-map-combined" /></p>
+
+<p>I’ve been spending some time at work scraping data. Long story short: government transparency is not transparent when the only access they give you is a pile of poorly structured html. That’s better than government opacity but not past the level of frosted glass: titillating but unsatisfying. If your expected audience is pencil pushers, please release your data in a spreadsheet. <a href="http://transmissionproject.org/current/2009/11/ntia-broadband-access-data">That’s what I did</a>.</p>
+
+<p>Notes for nerds:</p>
+
+<p>**Regular Expressions vs. Parsing Engines: **I wrote a the first parser in Python with Regular Expressions, then rewrote it in BeautifulSoup (a Python parser). It took me about 2 hours to write it the first time with RegExp. It took me about 2 days to do it with BeautifulSoup. It’s slightly easier to maintain now, but you tell me which one is more semantically correct:</p>
+
+<p><code class="language-plaintext highlighter-rouge">project_title = re.search('&lt;tr&gt;&lt;td&gt;&lt;b&gt;Project&amp;nbsp;title&lt;/b&gt;&lt;/td&gt;&lt;td&gt;(.+)&lt;/td&gt;&lt;/tr&gt;', line)</code></p>
+
+<p>versus</p>
+
+<p><code class="language-plaintext highlighter-rouge">project_title = app.find(text="Project&amp;nbsp;title").parent.parent.nextSibling.string</code></p>
+
+<p>Yep, it’s written in 2-column tables with each row being a different data-set: the first column holds a key (if there is a key; sometimes there isn’t) and the second column being the data . With RegExp, I know exactly what I’m looking for. With the parser, I have to find the element in the tree, then traverse up, over and down (if there isn’t a key, I have to go up, up, over, over, over, down, over, down). The data itself is a big set of applications (about 2000+ total) and each application has about 15 different data-sets (some with keys, some just follow a consistent-ish pattern).</p>
+
+<p>Fortunately, I have an <a href="http://www.media-democracy.net/">appreciative audience</a> for my troubles and it lets me <a href="http://transmissionproject.org/current/2010/2/btop-applications-and-awards-by-state">draw pretty maps</a> like the ones above. Also  <a href="http://flowingdata.com/2009/11/12/how-to-make-a-us-county-thematic-map-using-free-tools/">done with Python</a> by parsing an SVG vector image.</p>
+
+<p><strong>Michigan boaters beware</strong>: there is now an isthmus between Mackinaw City and St. Ignace. Rather than rewrite the process for grouped-shapes—Michigan being in 2 parts—it was good enough to make Michigan 1. Hawaii somehow endured.</p>
+
+  </div>
+
+</article>
+
+
+    <hr>
+  
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2010/02/Cleaving-the-visual-experience.html">Cleaving the visual experience</a>
+    </h1>
+    <p class="post-meta text-muted">
+      <time datetime="2010-02-18T00:00:00+00:00" itemprop="datePublished">February 18, 2010</time>
+      
+       • Tagged cleaving, french, language, photography, and visuals
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>From Jacques Racière’s <em>The Future of the Image</em> (translated by Gregory Elliot):</p>
+
+<blockquote>
+  <p>The imprint of the thing, the naked identity of its alterity in place of its imitation, the wordless, senseless materiality of the visible instead of the figures of discourse–this is what is demanded by the contemporary celebration of the image or its nostalgic evocation: an immanent transcendence, a glorious essence of the image guaranteed by the very mode of its material production. Doubtless no one has expressed this view better than the Barthes of <em>Camera Lucida</em>, a work that ironically has become the bible of those who wish to think about photographic art, whereas it aims to show that photography is not an art. Against the dispersive multiplicity of the operations of art and games of signification, Barthes wants to assert the immediate alterity of the image—that is, in the strictest sense, the alterity of the One. He wants to establish a direct relationship between the indexical nature of the photographic image and the material way it affects us: the <em>punctum</em>, the immediate pathetic effect that he contrasts with the <em>studium</em>, or the information transmitted by the photograph and the meanings it receives. The <em>studium</em> makes the photograph a material to be decoded and explained. The <em>punctum</em> immediately strikes us with the affective power of the that was: that —i.e. the entity which was unquestionably in front of the aperture of the camera obscura, whose body has emitted radiation, captured and registered by the black chamber, which affects us here and now through the ‘carnal medium’ of light ‘like the delayed rays of a star.</p>
+</blockquote>
+
+<p>Fortunately, Racière repudiates a hierarchical distinction:</p>
+
+<blockquote>
+  <p>…the semiologist who read the encoded message of images and the theoretician of the <em>punctum</em> of the wordless image base themselves on the same principle: a principle of reversible equivalence between the silence of images and what they say. The former demonstrated that the image was in fact a vehicle for a silent discourse which endeavored to translate into sentences. The latter tells us that the image speaks to us precisely when it is silent, when it no longer transmits any message to us. Both conceive the image as speech which holds its tongue. The former mad its silence speak; the latter makes this silence the abolition of all chatter. But both play on the same inter-convertibility between two potentialities of the image: the image as raw, material presence and the image as discourse encoding a history.</p>
+</blockquote>
+
+  </div>
+
+</article>
+
+
+    <hr>
+  
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2010/02/Quality-of-life-mind-and-language.html">Quality of life, mind and language</a>
+    </h1>
+    <p class="post-meta text-muted">
+      <time datetime="2010-02-17T00:00:00+00:00" itemprop="datePublished">February 17, 2010</time>
+      
+       • Tagged definitions, language, and wordplay
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p><img src="/uploads/2010-02-17-Quality-of-life-mind-and-language/Definitions.png" alt="" title="Definitions" /></p>
+
+<p>From “Business of Design”, a section of David Barringer’s excellent book <em>There’s nothing funny about design</em>:</p>
+
+<blockquote>
+  <p><strong>Definitions</strong></p>
+
+  <p>Quality of life depends on quality of mind, which depends on quality of language. Heightened experience requires both practiced sensory perception and the vocabulary with which to render its significance to yourself and others.</p>
+
+  <p>To convey impressions of your own experience to others, you are often bound to language as the ﬂatbed truck for that conveyance, even when your experience is not linguistic or textual but visual, auditory, tactile, and olfactory.</p>
+
+  <p>To savor experience you must deﬁne experience, and definitions involve the abuse of words.</p>
+
+  <p>It is for future designers to convey odors that summarize a poem, sounds that describe the texture of a touch, and images that deﬁne an odor.</p>
+
+  <p>To enhance your perception, you must exercise your imagination. Expand the control room of your mind to include maps of the surrounding dimensions of experience, as measured and reduced by sight, sound smell, touch, etc. Construct these maps in leisure, with ﬁne concentration, to guide your judgments in times of haste and fury.</p>
+</blockquote>
+
+<p>I love that first paragraph for its similarity to previous musings on <a href="http://www.island94.org/2009/02/self-language-and-consciousness/">self, language and consciousness</a>.</p>
+
+  </div>
+
+</article>
+
+
+    <hr>
+  
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
       <a class="post-link" href="/2010/02/Mount-Vernon-Port-Huron-and-Sharon-Statements-in-Comparison.html">Mount Vernon, Port Huron and Sharon Statements in Comparison</a>
     </h1>
     <p class="post-meta text-muted">
@@ -412,101 +527,6 @@
 
   <div class="post-content" itemprop="articleBody">
     <p><img src="/uploads/2010-01-28-Hippostrophe/hippostrophe-500x500.png" alt="" title="hippostrophe" /></p>
-
-  </div>
-
-</article>
-
-
-    <hr>
-  
-    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-
-  <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">
-      <a class="post-link" href="/2010/01/Amperlamb.html">Amperlamb</a>
-    </h1>
-    <p class="post-meta text-muted">
-      <time datetime="2010-01-28T00:00:00+00:00" itemprop="datePublished">January 28, 2010</time>
-      
-       • Tagged animal, art, hippostrophe, and punctuation
-    </p>
-  </header>
-
-  <div class="post-content" itemprop="articleBody">
-    <p><img src="/uploads/2010-01-28-Amperlamb/amperlamb-500x500.png" alt="" title="amperlamb" /></p>
-
-  </div>
-
-</article>
-
-
-    <hr>
-  
-    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-
-  <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">
-      <a class="post-link" href="/2010/01/He-thinks-Im-working-on-parts-Im-working-on-concepts.html">He thinks I'm working on parts. I'm working on concepts.</a>
-    </h1>
-    <p class="post-meta text-muted">
-      <time datetime="2010-01-26T00:00:00+00:00" itemprop="datePublished">January 26, 2010</time>
-      
-       • Tagged culture, history, language, logic, rationality, science, and technology
-    </p>
-  </header>
-
-  <div class="post-content" itemprop="articleBody">
-    <p>The following quote is from <em>Zen and the Art of Motorcycle Maintenance</em> by Robert Pirsig. (The John mentioned is the protagonist’s buddy who wants to escape modern technological life via a motorcycle he deigns to tune-up):</p>
-
-<blockquote>
-  <p>Precision instruments are designed to achieve an <em>idea</em>, dimensional precision, whose perfection is impossible. There is no perfectly shaped part of the motorcycle and never will be, but when you come as close as these instruments take you, remarkable things happen, and you go ﬂying across the countryside under a power that would be called magic if it were not so completely rational in every way. It’s the understanding of this rational intellectual <em>idea</em> that’s fundamental. John looks at the motorcycle and he sees steel in various shapesand has negative feelings about these steel shapes and turns off the whole thing. I look at the shapes of the steel now and I see <em>ideas</em>. He thinks I’m working on <em>parts</em>. I’m working on <em>concepts</em>.</p>
-
-  <p>I was talking about these concepts yesterday when I said that a motorcycle can be divided according to its components and according to its functions. When I said that suddenly I created a set of boxes with the following arrangement:</p>
-
-  <p><img src="/uploads/2010-01-26-He-thinks-Im-working-on-parts-Im-working-on-concepts/zen-more-500x144.png" alt="" title="zen-more" /></p>
-
-  <p>And when I said the components may be subdivided into a power assembly and a running assembly, suddenly appear some more little boxes:</p>
-
-  <p><img src="/uploads/2010-01-26-He-thinks-Im-working-on-parts-Im-working-on-concepts/zen-500x183.png" alt="" title="zen" /></p>
-
-  <p>And you see that every time I made a further division, up came more boxes based on these divisions until I had a huge pyramid of boxes. Finally you see that while I was splitting the cycle up into ﬁner and ﬁner pieces, I was also building a structure.</p>
-
-  <p>This structure of concepts is formally called a hierarchy and since ancient times has been a basic structure for all Western knowledge. Kingdoms, empires, churches, armies have all been structured into hierarchies. Modern businesses are so structured. Tables of contents of reference material are so structured, mechanical assemblies, computer software, all scientiﬁc and technical knowledge is so structured—so much so that in some ﬁelds such as biology, the hierarchy of kingdom-phylum-class-order-family-genus-species is almost an icon.</p>
-
-  <p>The box “motorcycle” <em>contains</em> the boxes “components” and “functions.” The box “components” <em>contains</em> the boxes “power assembly” and “running assembly,” and so on. There are many other kinds of structures produced by other operators such as “causes” which produce long chain structures of the form, “A causes B which causes C which causes D,” and so on. A functional description of the motorcycle uses this structure. The operator’s “exists,” “equals,” and “implies” produce still other structures. These structures are normally interrelated in patterns and paths so complex and so enormous no one person can understand more than a small part of them in his lifetime. The overall name of these interrelated structures, the genus of which the hierarchy of containment and structure of causation are just species, is <em>system</em>. The motorcycle is a <em>system</em>. A <em>real</em> system.</p>
-
-  <p>To speak of certain government and establishment institutions as “the system” is to speak correctly, since these organizations are founded upon the same structural conceptual relationships as a motorcycle. They are sustained by structural relationships even when they have lost all other meaning and purpose. People arrive at a factory and perform a totally meaningless task from eight to ﬁve without question because the structure demands that it be that way. There’s no villain, no “mean guys’ who wants them to live meaningless lives, it’s just that the structure, the system demands it and no one is willing to take on the formidable task of changing the structure just because it is meaningless.</p>
-
-  <p>But to tear down a factory or to revolt against a government or to avoid repair of a motorcycle because it is a system is to attack effects rather than causes; and as long as the attack is upon effects only, no change is possible. The true system, the real system, is our present construction of systematic thought itself, rationality itself, and if a factory is torn down but the rationality which produced it is left standing, then that rationality will simply produce another factory. If a revolution destroys a systematic government, but the systematic patterns of thought that produced that government are left intact, then those patterns will repeat themselves in the succeeding government. There’s so much talk about the system. And so little understanding.</p>
-</blockquote>
-
-  </div>
-
-</article>
-
-
-    <hr>
-  
-    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-
-  <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">
-      <a class="post-link" href="/2010/01/Still-Ferrari-less.html">Still Ferrari-less</a>
-    </h1>
-    <p class="post-meta text-muted">
-      <time datetime="2010-01-22T00:00:00+00:00" itemprop="datePublished">January 22, 2010</time>
-      
-       • Tagged bullshit, compensation, philanthropy, and salary
-    </p>
-  </header>
-
-  <div class="post-content" itemprop="articleBody">
-    <blockquote>
-  <p>After all, there’s nothing quite like driving your Ferrari home to your 6,000 square foot mansion after a long, hard day of fighting for the cause.
-This is how Amy Bell ended a polemic (even by my standards) against exorbitant nonprofit executive compensation, published in Forbes in December as “ <a href="http://www.forbes.com/2009/12/17/nonprofits-biggest-salaries-personal-finance-millionaires.html">Nonprofit Millionaires</a>”. That was rebutted today in Forbes, by Betsy Brill (President of Strategic Philanthropy) in “ <a href="http://www.forbes.com/2010/01/21/brill-salary-ceo-philanthropy-intelligent-investing-nonprofit.html">Nonprofit CEOs Are Worth Every Dime</a>”: &gt; The _Chronicle _survey only reflects data from the 325 highest funded nonprofit organizations, and thus represents only .02% of the 1.5 million registered nonprofits operating in the U.S. To suggest that the 30 some nonprofit executives (among them hospital CEOs, NCAA coaches and university presidents) who were paid more than $1 million in 2008 represent the irresponsible management and greed of an entire sector might be laughable if it weren’t also potentially detrimental. By taking the survey data out of context, critics may cause donors to question–or even to pull back–their charitable giving at a time when nonprofits are struggling to meet an increased demand for services in the face of government cutbacks and dwindling private support.
-Bell’s criticism was published under “Philanthropy”, Brill’s response under “Intelligent Investing”.</p>
-</blockquote>
 
   </div>
 
