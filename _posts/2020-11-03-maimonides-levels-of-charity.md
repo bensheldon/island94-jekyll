@@ -1,7 +1,9 @@
 ---
 date: '2020-11-03 16:01 -0800'
-published: false
+published: true
 title: Maimonides' levels of charity
+tags:
+  - charity
 ---
 _This has been kicking around in my "to blog" bucket since July, 2008 when I had many more posts on Charity. I originally copied this from [judaism.about.com](http://judaism.about.com/od/beliefs/a/charity_nine.htm), and [Wikipedia](https://en.wikipedia.org/wiki/Tzedakah) has a version of these too._
 
