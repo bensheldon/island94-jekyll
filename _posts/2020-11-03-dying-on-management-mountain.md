@@ -1,6 +1,6 @@
 ---
 date: '2020-11-03 12:59 -0800'
-published: false
+published: true
 title: Dying on management mountain
 ---
 From _First, break all the rules_:
