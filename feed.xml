@@ -6,9 +6,56 @@
 </description>
     <link>http://island94.org/</link>
     <atom:link href="http://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 09 Nov 2020 01:35:26 +0000</pubDate>
-    <lastBuildDate>Mon, 09 Nov 2020 01:35:26 +0000</lastBuildDate>
+    <pubDate>Wed, 11 Nov 2020 15:40:48 +0000</pubDate>
+    <lastBuildDate>Wed, 11 Nov 2020 15:40:48 +0000</lastBuildDate>
     <generator>Jekyll v3.9.0</generator>
+    
+      
+      
+
+      <item>
+        <title>Maimonides' levels of charity</title>
+        <description>&lt;p&gt;&lt;em&gt;This has been kicking around in my “to blog” bucket since July, 2008 when I had many more posts on Charity. I originally copied this from &lt;a href=&quot;http://judaism.about.com/od/beliefs/a/charity_nine.htm&quot;&gt;judaism.about.com&lt;/a&gt;, and &lt;a href=&quot;https://en.wikipedia.org/wiki/Tzedakah&quot;&gt;Wikipedia&lt;/a&gt; has a version of these too.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Maimonides organized the different levels of tzedakah (charity) into a list from the least to the most honorable.&lt;/p&gt;
+
+&lt;blockquote&gt;
+
+  &lt;p&gt;8. When donations are given grudgingly.&lt;/p&gt;
+
+  &lt;p&gt;7. When one gives less than he should, but does so cheerfully.&lt;/p&gt;
+
+  &lt;p&gt;6. When one gives directly to the poor upon being asked.&lt;/p&gt;
+
+  &lt;p&gt;5. When one gives directly to the poor without being asked.&lt;/p&gt;
+
+  &lt;p&gt;4. When the recipient is aware of the donor’s identity, but the donor does not know the identity of the recipient.&lt;/p&gt;
+
+  &lt;p&gt;3. When the donor is aware of the recipient’s identity, but the recipient is unaware of the source.&lt;/p&gt;
+
+  &lt;p&gt;2. When the donor and recipient are unknown to each other.&lt;/p&gt;
+
+  &lt;p&gt;1. The highest form of charity is to help sustain a person before they become impoverished by offering a substantial gift in a dignified manner, or by extending a suitable loan, or by helping them find employment or establish themselves in business so as to make it unnecessary for them to become dependent on others.&lt;/p&gt;
+
+&lt;/blockquote&gt;
+
+&lt;p&gt;To be critical, 8 and 1 are most meaningful to me, and the gradations between the others aren’t particularly strong, though I think 4 and 3 could swap places.&lt;/p&gt;
+
+        &lt;br&gt;&lt;br&gt;
+        &lt;hr&gt;
+        &lt;p&gt;
+          This post, &lt;em&gt;&lt;a href=&quot;http://island94.org/2020/11/maimonides-levels-of-charity&quot;&gt;Maimonides' levels of charity&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;http://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
+          Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
+        &lt;/p&gt;
+      </description>
+        <pubDate>Wed, 04 Nov 2020 00:01:00 +0000</pubDate>
+        <link>http://island94.org/2020/11/maimonides-levels-of-charity</link>
+        <guid isPermaLink="true">http://island94.org/2020/11/maimonides-levels-of-charity</guid>
+        
+          <category>charity</category>
+        
+        
+      </item>
     
       
       
@@ -191,6 +238,20 @@
 
 &lt;/blockquote&gt;
 
+&lt;p&gt;And a shorter version that’s less engineer focused from &lt;a href=&quot;https://itrevolution.com/devops-a-primer/&quot;&gt;“DevOps: A Primer For The Business Leader”&lt;/a&gt;:&lt;/p&gt;
+
+&lt;blockquote&gt;
+
+  &lt;ul&gt;
+    &lt;li&gt;Locality and Simplicity: alleviate dependencies between teams and components.&lt;/li&gt;
+    &lt;li&gt;Focus, Flow, and Joy: the smooth flow of work that enables focus and joy.&lt;/li&gt;
+    &lt;li&gt;Improvement of Daily Work: continuously improve and pay down technical debt.&lt;/li&gt;
+    &lt;li&gt;Psychological Safety: a top predictor of team performance; enables improvement.&lt;/li&gt;
+    &lt;li&gt;Customer Focus: optimize for customer value, not for a role-based silo.&lt;/li&gt;
+  &lt;/ul&gt;
+
+&lt;/blockquote&gt;
+
         &lt;br&gt;&lt;br&gt;
         &lt;hr&gt;
         &lt;p&gt;
@@ -355,63 +416,6 @@
         <pubDate>Mon, 05 Oct 2020 18:24:00 +0000</pubDate>
         <link>http://island94.org/2020/10/goodjob-v1-3-web-dashboard-and-full-documentation</link>
         <guid isPermaLink="true">http://island94.org/2020/10/goodjob-v1-3-web-dashboard-and-full-documentation</guid>
-        
-        
-      </item>
-    
-      
-      
-
-      <item>
-        <title>Performance facilitators not supervisors</title>
-        <description>&lt;p&gt;Doublespeak from Pro-Publica’s &lt;a href=&quot;https://www.propublica.org/article/meet-the-customer-service-reps-for-disney-and-airbnb-who-have-to-pay-to-talk-to-you&quot;&gt;“Meet the Customer Service Reps for Disney and Airbnb Who Have to Pay to Talk to You”&lt;/a&gt;, via Pluralistic’s &lt;a href=&quot;https://pluralistic.net/2020/10/02/chickenized-by-arise/#arise&quot;&gt;ongoing chickenization coverage&lt;/a&gt;:&lt;/p&gt;
-
-&lt;blockquote&gt;
-
-  &lt;p&gt;Arise carefully monitors the language agents use to reinforce that it does not have an employment relationship with them. Stung by lawsuits that claimed Arise had actually employed agents but didn’t pay them fairly, Arise’s legal department has become a kind of word police, one former staffer told ProPublica.&lt;/p&gt;
-
-  &lt;p&gt;“You don’t schedule ‘hours,’ you schedule ‘intervals,’” the former staffer said. Agents were not to be addressed as “you,” but “your business.” They were not “working,” they were “servicing.” There were no “supervisors,” only “performance facilitators.” Agents were not “coached.” Rather, their services were “enhanced.”&lt;/p&gt;
-
-  &lt;p&gt;Once, an Arise manager, testifying in an arbitration hearing, was asked about meetings that performance facilitators have with agents. “They’re not meetings,” he said. “They’re informational sessions, or hosts.”&lt;/p&gt;
-
-  &lt;p&gt;In an internal announcement in 2012, Arise listed “new terminology” for eight terms to avoid “the misconception” that agents are Arise employees. The corporate link between Arise and the agents went from being called Virtual Services Corporations to Independent Businesses. Service Fees became Service Revenue. Central Operations became Support Operations.&lt;/p&gt;
-
-  &lt;p&gt;Arise seems particularly unable to settle on a term for the agents. Early on, the company called each a CyberAgent. Later came Arise Certified Professional. In 2012, that was changed to Client Support Professional. Nowadays, Arise’s website calls agents “onshore brand advocates or Service Partners.”&lt;/p&gt;
-
-  &lt;p&gt;“Arise-speak,” as one opposing attorney called it in legal proceedings, could be a wonder to behold. Client Support Professionals (CSPs) would work with Quality Assurance Performance Facilitators (QAPFs) in a Performance Enhancement Session (PES), or they might reach out to Chat Performance Facilitators or Escalation Performance Facilitators, and none would be an Arise employee, all would be independent contractors.&lt;/p&gt;
-
-&lt;/blockquote&gt;
-
-&lt;p&gt;And a disturbing exchange:&lt;/p&gt;
-
-&lt;blockquote&gt;
-
-  &lt;p&gt;Rice said he worked out of his bedroom, in his mother’s home, helping customers for Arise’s clients, including Barnes &amp;amp; Noble, Disney and Sears. While testifying, Rice referred to performance facilitators in the Arise network as supervisors. This elicited a challenge from a lawyer for Arise.&lt;/p&gt;
-
-  &lt;p&gt;“Where’d you get that term from, supervisor?” the lawyer asked.&lt;/p&gt;
-
-  &lt;p&gt;“Growing up in America,” Rice said. “That’s the term people use for people that are above you.”&lt;/p&gt;
-
-  &lt;p&gt;“… You never referred to them as supervisors while you were providing services, did you?”&lt;/p&gt;
-
-  &lt;p&gt;“Well, yeah,” Rice said.&lt;/p&gt;
-
-  &lt;p&gt;“You did? To who?”&lt;/p&gt;
-
-  &lt;p&gt;“Well, obviously I’m on the phone with a customer, I’m not going to say, ‘OK, let me go check my chat performance facilitator.’ Usually I just said, you know, ‘Let me just talk to my supervisor.’”&lt;/p&gt;
-
-&lt;/blockquote&gt;
-
-        &lt;br&gt;&lt;br&gt;
-        &lt;hr&gt;
-        &lt;p&gt;
-          This post, &lt;em&gt;&lt;a href=&quot;http://island94.org/2020/10/performance-facilitators-not-supervisors&quot;&gt;Performance facilitators not supervisors&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;http://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
-          Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
-        &lt;/p&gt;
-      </description>
-        <pubDate>Fri, 02 Oct 2020 23:56:00 +0000</pubDate>
-        <link>http://island94.org/2020/10/performance-facilitators-not-supervisors</link>
-        <guid isPermaLink="true">http://island94.org/2020/10/performance-facilitators-not-supervisors</guid>
         
         
       </item>

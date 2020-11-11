@@ -91,6 +91,80 @@
 
   <header class="post-header">
     <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2019/11/deterministic-test-data-with-faker-factorybot-and-rspec">Deterministic test data with Faker, FactoryBot, and RSpec</a>
+    </h1>
+    <p class="post-meta text-muted">
+      <time datetime="2019-11-30T19:33:00+00:00" itemprop="datePublished">November 30, 2019</time>
+      
+      
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>I get a lot of joy from using <a href="https://github.com/faker-ruby/faker">Faker</a> and <a href="https://github.com/thoughtbot/factory_bot">FactoryBot</a> to efficiently generate real-world test data, but its randomness can be a liability when trying to debug complicated specs or when setting up systems that require repeatable data across RSpec test runs like <a href="https://percy.io/">Percy’s visual diffs</a>.</p>
+
+<p>Without deterministic test data, generating three new users with <code class="language-plaintext highlighter-rouge">3.times { puts Faker::Name.first_name }</code> would result in <code class="language-plaintext highlighter-rouge">Danny, Solomon, Fabian</code> when run once, then <code class="language-plaintext highlighter-rouge">Jordon, Shawn, Asa</code> when run a second time, then <code class="language-plaintext highlighter-rouge">Bruce, Leonor, Paulette</code> when run a third time.</p>
+
+<p>With deterministic test data, I expect to always generate the same set of names no matter how many times the code is run.  Faker has <a href="https://github.com/faker-ruby/faker#deterministic-random">documented</a> how to configure and seed the random number generator and this can be achieved with:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">3</span><span class="p">.</span><span class="nf">times</span> <span class="k">do</span> <span class="o">|</span><span class="n">n</span><span class="o">|</span> 
+  <span class="no">Faker</span><span class="o">::</span><span class="no">Config</span><span class="p">.</span><span class="nf">random</span> <span class="o">=</span> <span class="no">Random</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+  <span class="nb">puts</span> <span class="no">Faker</span><span class="o">::</span><span class="no">Name</span><span class="p">.</span><span class="nf">first_name</span> 
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>This script outputs <code class="language-plaintext highlighter-rouge">Zachery, Dawna, Desmond</code> every single time it is run, meaning that it’s deterministic.</p>
+
+<p>Faker’s deterministic configuration can be combined with a FactoryBot <a href="https://github.com/thoughtbot/factory_bot/blob/master/GETTING_STARTED.md#sequences"><code class="language-plaintext highlighter-rouge">sequence</code></a> to always get the same data every time a new factory instance is created. For example, here’s what a deterministic <code class="language-plaintext highlighter-rouge">User</code> factory could look like:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># spec/factories/users.rb</span>
+
+<span class="no">FactoryBot</span><span class="p">.</span><span class="nf">define</span> <span class="k">do</span>
+  <span class="n">factory</span> <span class="ss">:user</span> <span class="k">do</span>
+    <span class="n">sequence</span><span class="p">(</span><span class="ss">:first_name</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">n</span><span class="o">|</span>
+      <span class="no">Faker</span><span class="o">::</span><span class="no">Config</span><span class="p">.</span><span class="nf">random</span> <span class="o">=</span> <span class="no">Random</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+      <span class="no">Faker</span><span class="o">::</span><span class="no">Name</span><span class="p">.</span><span class="nf">first_name</span>
+    <span class="k">end</span>
+
+    <span class="n">sequence</span><span class="p">(</span><span class="ss">:last_name</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">n</span><span class="o">|</span>
+      <span class="no">Faker</span><span class="o">::</span><span class="no">Config</span><span class="p">.</span><span class="nf">random</span> <span class="o">=</span> <span class="no">Random</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+      <span class="no">Faker</span><span class="o">::</span><span class="no">Name</span><span class="p">.</span><span class="nf">last_name</span>
+    <span class="k">end</span>
+
+    <span class="n">email</span> <span class="p">{</span> <span class="s2">"</span><span class="si">#{</span><span class="n">first_name</span><span class="p">.</span><span class="nf">parameterize</span><span class="si">}</span><span class="s2">.</span><span class="si">#{</span><span class="n">last_name</span><span class="p">.</span><span class="nf">parameterize</span><span class="si">}</span><span class="s2">@example.com"</span> <span class="p">}</span>
+    <span class="n">password</span> <span class="p">{</span> <span class="s1">'password123'</span> <span class="p">}</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>Within every sequence, the Faker random number generator is  seeded with <code class="language-plaintext highlighter-rouge">Faker::Config.random = Random.new(n)</code> , where <code class="language-plaintext highlighter-rouge">n</code> is the integer generated by the sequence.</p>
+
+<p>Unfortunately, just using a sequence isn’t completely sufficient when running tests in random order, or inserting new tests or rearranging the tests, as one would expect in an active codebase. FactoryBot sequences are global, meaning that they don’t reset by default between each and every test; a FactoryBot instance during one test run might use a different sequence number than a previous test run.</p>
+
+<p>Therefore, it’s also necessary to rewind FactoryBot sequences after each RSpec example. Place this in your <code class="language-plaintext highlighter-rouge">spec/rails_helper.rb</code> or <code class="language-plaintext highlighter-rouge">spec/support</code> directory:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># spec/support/factory_bot.rb</span>
+
+<span class="no">RSpec</span><span class="p">.</span><span class="nf">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
+  <span class="n">config</span><span class="p">.</span><span class="nf">after</span> <span class="k">do</span>
+    <span class="no">FactoryBot</span><span class="p">.</span><span class="nf">rewind_sequences</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>That’s all you need to combine Faker and FactoryBot to get deterministic test data in your RSpec tests. Have fun!</p>
+
+  </div>
+
+</article>
+
+
+    <hr>
+  
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
       <a class="post-link" href="/2019/11/because-it-helps-them-to-release-software">Because it helps them to release software</a>
     </h1>
     <p class="post-meta text-muted">
@@ -583,60 +657,6 @@ The Concrete Sumo”</a> and facilitated it two weeks ago for the software engin
     </tr>
   </tbody>
 </table>
-
-  </div>
-
-</article>
-
-
-    <hr>
-  
-    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-
-  <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">
-      <a class="post-link" href="/2019/04/quantitative-usability-assistive-technology-and-the-right-to-privacy">Quantitative usability, assistive technology, and the right to privacy</a>
-    </h1>
-    <p class="post-meta text-muted">
-      <time datetime="2019-04-25T14:39:00+00:00" itemprop="datePublished">April 25, 2019</time>
-      
-       • Tagged assistive technology and lighthouse labs
-    </p>
-  </header>
-
-  <div class="post-content" itemprop="articleBody">
-    <p>You have a <em>legal obligation</em> to produce an accessible website; these are some thoughts about what comes next.</p>
-
-<p>At <a href="http://lighthouse-sf.org/lighthouse-labs/">Lighthouse Labs</a> this month, there was a lively discussion on “Detecting accessibility events, a debate on the ethics and implications of this new feature from Apple” [<a href="https://www.applevis.com/blog/apple-assistive-technology-ios-macos-news/apple-shares-information-its-new-accessibility-events">article</a>]. I offered this in the pre-discussion email thread:</p>
-
-<blockquote>
-  <p>I wanted to share some perspective as a web developer: I would like to have aggregated analytics about what screen-readers are using my website (how many and which ones). Here’s why:</p>
-
-  <p>Within an agile process, once we achieve the baseline of WCAG/valid/passable/usable, the question becomes how do we make it even better and where do we start? Being able to point to analytics is useful for prioritization discussions about bottlenecks/friction. For example, on GetCalFresh.org, which has helped 700k people apply for food stamps, we can identify completion differences between, for example, English and Spanish-language users on particular parts of an application flow, and prioritize improvements based on frequency and severity. I don’t have the data to do that kind of prioritization for screen-readers, but I would like to.</p>
-</blockquote>
-
-<p>The Lighthouse Labs discussion brought up several dimensions of the issues:</p>
-
-<ul>
-  <li>People with disabilities are legally protected from discrimination, and have legal rights to privacy of their conditions and freedom from discrimination.</li>
-  <li>If the lived experience is a spectrum of “discrimination - inaccessibility - accommodation - accessibility - usability” (these are my words, imprecise), the majority of experience lives towards the left of that spectrum. Everyone has a story of being identified as a <em>low value / low priority</em> user.</li>
-  <li>Some people would like to be fully and accessibly served; others would like to remain apart; everyone wants individual agency in that decision. An example of this was some people saying “I want websites to be completely accessible” and others saying “I’m fine not experiencing advertising and junk”. This came up as “ghettoization”, but I have been thinking about it as the difference between exclusion and seclusion.</li>
-  <li>Differentiating between <em>accessibility</em>, <em>accommodation</em> and <em>discrimination</em> in digital products is important yet slippery. An example: Twitter’s native iOS client generally works with Voiceover (accessible), but used a separated streamlined UI for composing a tweet when the app detected that VoiceOver was in use (accommodation); when Twitter changed to 280 characters, they failed to update that sheet in a timely manner (discrimination). [<a href="https://theoutline.com/post/2458/there-are-still-some-people-on-twitter-who-don-t-have-280-characters?zd=1&amp;zi=zktxaedi">article</a>]</li>
-</ul>
-
-<p>When discussing this with a my data science coworker, she shared <a href="https://reallifemag.com/counting-the-countless/">“Counting the Countless: Why data science is a profound threat for queer people”</a> by Os Keyes:</p>
-
-<blockquote>
-  <p>So: trans existences are built around fluidity, contextuality, and autonomy, and administrative systems are fundamentally opposed to that. Attempts to negotiate and compromise with those systems (and the state that oversees them) tend to just legitimize the state, while leaving the most vulnerable among us out in the cold. This is important to keep in mind as we veer toward data science, because in many respects data science can be seen as an extension of those administrative logics: It’s gussied-up statistics, after all — the “science of the state.”</p>
-
-  <p>…perhaps a more accurate definition of data science would be:<em>The inhumane reduction of humanity down to what can be counted.</em></p>
-</blockquote>
-
-<p>Within the context of assistive technology, it is not a far leap between tracking screenreader usage and creating an implication of <em>a</em> disability and the segmentation that comes with it.</p>
-
-<p>These discussions have made me think a lot more about my own digital footprints. I frequently use VoiceOver to explore websites and mobile apps and I now wonder about the impact/risks of being tracked and weigh them against the benefits to my own design practice and discernment, of which quantitative analysis is a tool.</p>
-
-<p><em>If you have thoughts about this post, quantitative usability testing and advanced product management for assistive technology and disabilities, I’d love to chat. Tweet me at <a href="https://twitter.com/bensheldon">@bensheldon</a> or email me at <a href="mailto:bensheldon@gmail.com">bensheldon@gmail.com</a>.</em></p>
 
   </div>
 
