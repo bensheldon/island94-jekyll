@@ -28,3 +28,15 @@ The Fifth Ideal: Customer Focus
 Customer focus relates to the difference between core and context as defined by Geoffrey Moore. Core is what customers are willing and able to pay for, the bread and butter of your business. Context is what they don’t care about, what it took to get them that product, including all the backend systems of an organization like HR and marketing and development. It’s critical to look at these Context systems as essential, as mission critical, and fund them appropriately. Context should never kill core.
 
 </blockquote>
+
+And a shorter version that's less engineer focused from ["DevOps: A Primer For The Business Leader"](https://itrevolution.com/devops-a-primer/):
+
+<blockquote markdown="1">
+
+- Locality and Simplicity: alleviate dependencies between teams and components.
+- Focus, Flow, and Joy: the smooth flow of work that enables focus and joy.
+- Improvement of Daily Work: continuously improve and pay down technical debt.
+- Psychological Safety: a top predictor of team performance; enables improvement.
+- Customer Focus: optimize for customer value, not for a role-based silo.
+
+</blockquote>
