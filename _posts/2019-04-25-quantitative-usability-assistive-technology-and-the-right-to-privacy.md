@@ -8,7 +8,8 @@ tags:
 ---
 You have a _legal obligation_ to produce an accessible website; these are some thoughts about what comes next.
 
-At [Lighthouse Labs](http://lighthouse-sf.org/lighthouse-labs/) this month, there was a lively discussion on “Detecting accessibility events, a debate on the ethics and implications of this new feature from Apple” [[article](https://www.applevis.com/blog/apple-assistive-technology-ios-macos-news/apple-shares-information-its-new-accessibility-events)]. I offered this in the pre-discussion email thread:
+At [Lighthouse Labs](https://lighthouse-sf.org/lighthouse-labs/)
+ this month, there was a lively discussion on “Detecting accessibility events, a debate on the ethics and implications of this new feature from Apple” [[article](https://www.applevis.com/blog/apple-assistive-technology-ios-macos-news/apple-shares-information-its-new-accessibility-events)]. I offered this in the pre-discussion email thread:
 
 > I wanted to share some perspective as a web developer: I would like to have aggregated analytics about what screen-readers are using my website (how many and which ones). Here’s why:  
 >   
@@ -31,4 +32,5 @@ Within the context of assistive technology, it is not a far leap between trackin
 
 These discussions have made me think a lot more about my own digital footprints. I frequently use VoiceOver to explore websites and mobile apps and I now wonder about the impact/risks of being tracked and weigh them against the benefits to my own design practice and discernment, of which quantitative analysis is a tool.
 
-_If you have thoughts about this post, quantitative usability testing and advanced product management for assistive technology and disabilities, I’d love to chat. Tweet me at [@bensheldon](https://twitter.com/bensheldon) or email me at [bensheldon@gmail.com](mailto:bensheldon@gmail.com)._
+_If you have thoughts about this post, quantitative usability testing and advanced product management for assistive technology and disabilities, I’d love to chat. Tweet me at [@bensheldon](http://web.archive.org/web/20200723181116/https://twitter.com/bensheldon)
+ or email me at [bensheldon@gmail.com](mailto:bensheldon@gmail.com)._

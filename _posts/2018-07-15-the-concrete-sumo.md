@@ -4,7 +4,8 @@ date: '2018-07-15'
 tags: []
 ---
 
-This paper on ["The Concrete Sumo: Exigent Decision-Making in Engineering"](http://www.onlineethics.org/Education/instructessays/sumo.aspx#sumo) by Taft H. Broome, Jr. is a difficult read because it tells a story first, and then explains who the characters are; read it twice back-to-back.
+This paper on ["The Concrete Sumo: Exigent Decision-Making in Engineering"](http://web.archive.org/web/20180308083300/http://www.onlineethics.org:80/Education/instructessays/sumo.aspx)
+ by Taft H. Broome, Jr. is a difficult read because it tells a story first, and then explains who the characters are; read it twice back-to-back.
 
 > In the Johnny-on-the-Spot, Tubby was the first to speak to me: "No court in the land," he said, "would blame you for letting the sumo dump the concrete in the entrance way. Its not your fault that they left you alone on your first day!" Then, Roebling began to speak: "You are an engineer, and engineers sacrifice all for their responsibilities to the business of engineering!" Finally, Uncle Roy, the engineer after whom I had patterned my career, spoke to me: "This job belongs as much to you as to anyone else. So, you have a duty to either move this project along, or resign!"
 >  

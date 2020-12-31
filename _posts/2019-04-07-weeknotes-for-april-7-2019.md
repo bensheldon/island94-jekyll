@@ -31,7 +31,8 @@ From ["The Vision 2 and the Severing of Politics from Video Games"](https://www.
 
 > Taking those risks requires supporting structures that, in Pedercini’s view, the industry lacks. “The parallel with the film industry is useful,” he said. “A politically uncompromising film like ‘Sorry to Bother You’ became a blockbuster, but its production would not have been possible without Sundance and a whole supportive ecosystem.” Video games have no such ecosystem; as Yang put it, **the medium is in the process of reverse-engineering an art form from an entertainment business**. “We have to build the arts-and-culture platforms and the festival circuits,” Yang said. “We have to convince funding bodies and governments that games are worth more than their sales numbers.”
 
-Penelope Trunk’s ["Here’s the high-priced advice college applicants buy that doesn’t trigger the FBI"](http://blog.penelopetrunk.com/2019/03/14/heres-the-high-priced-advice-college-applicants-buy-that-doesnt-trigger-the-fbi/):
+Penelope Trunk’s ["Here’s the high-priced advice college applicants buy that doesn’t trigger the FBI"](https://blog.penelopetrunk.com/2019/03/14/heres-the-high-priced-advice-college-applicants-buy-that-doesnt-trigger-the-fbi/)
+:
 
 > …the workplace is just like college admissions. You learn the rules and use them to your advantage. So teach your kids when they’re young that the higher the stakes the game is, the more arcane the rules are. And the more arcane the rules, the more likely it is that you can find a backdoor route to the top. 
 > 

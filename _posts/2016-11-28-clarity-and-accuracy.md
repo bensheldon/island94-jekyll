@@ -7,7 +7,8 @@ tags:
 - language
 ---
 
-An excerpt from the essay ["Wrong—Again—About Plain Language"](http://www.ncsl.org/legislators-staff/legislative-staff/research-editorial-legal-and-committee-staff/lsss-wrong-again-about-plain-language.aspx) by Joseph Kimble; written in defense of Plain Language legislation and in response to an attacker:
+An excerpt from the essay ["Wrong—Again—About Plain Language"](https://www.ncsl.org/legislators-staff/legislative-staff/research-editorial-legal-and-committee-staff/lsss-wrong-again-about-plain-language.aspx)
+ by Joseph Kimble; written in defense of Plain Language legislation and in response to an attacker:
 
 > Advocates believe that “it is more important to be clear . . . than to be accurate.”
 >

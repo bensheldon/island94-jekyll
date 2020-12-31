@@ -9,7 +9,8 @@ GoodJob’s v1.1 release contains a new, economical execution mode called "async
 
 This release also contains more in-depth documentation based on feedback and questions I've received since the v1.0 release. 
 
-Version 1.1 comes out 3 weeks after GoodJob v1.0. The initial release of GoodJob was featured on [Ruby Weekly](https://rubyweekly.com/issues/511), [A Fresh Cup](https://afreshcup.com/home/2020/07/30/double-shot-2651), [Awesome Ruby](https://ruby.libhunt.com/newsletter/219), and was as high as #8 on [Hacker News](https://news.ycombinator.com/item?id=23928891). GoodJob has since received nearly [500 stars on Github](https://github.com/bensheldon/good_job). 
+Version 1.1 comes out 3 weeks after GoodJob v1.0. The initial release of GoodJob was featured on [Ruby Weekly](https://rubyweekly.com/issues/511), [A Fresh Cup](http://web.archive.org/web/20200810221115/https://afreshcup.com/home/2020/07/30/double-shot-2651)
+, [Awesome Ruby](https://ruby.libhunt.com/newsletter/219), and was as high as #8 on [Hacker News](https://news.ycombinator.com/item?id=23928891). GoodJob has since received nearly [500 stars on Github](https://github.com/bensheldon/good_job). 
 
 ## Async mode
 In addition to the `$ good_job` executable, GoodJob now can execute jobs inside the webserver process itself. For light workloads and simple applications, combining web and worker into a single process is very economical, especially when running on Heroku's free or hobby plans. 
