@@ -3,7 +3,8 @@ published: true
 title: Notes from Priceonomics Information Marketing Workshop
 ---
 
-These are my notes from attending a full-day in-person Priceonomics Bootcamp; they now have an online [Priceonomics Content Marketing Bootcamp](https://priceonomics.teachable.com/p/priceonomics-content-marketing-bootcamp/).  Most of this is covered in their [The Content Marketing Handbook](https://priceonomics.com/the-content-marketing-handbook/) or on their blog and operationalized through their [Content Tracker](https://stats.priceonomics.com/measure/dashboard/). It's fantastic.
+These are my notes from attending a full-day in-person Priceonomics Bootcamp; they now have an online [Priceonomics Content Marketing Bootcamp](https://priceonomics.teachable.com/p/priceonomics-content-marketing-bootcamp/).  Most of this is covered in their [The Content Marketing Handbook](https://priceonomics.com/the-content-marketing-handbook/) or on their blog and operationalized through their [Content Tracker](http://web.archive.org/web/20170515131419/https://stats.priceonomics.com/measure/dashboard/)
+. It's fantastic.
 
 ## The Priceonomics Story:  
 1. What they were doing at the time: had a business pricing stuff
