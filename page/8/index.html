@@ -91,6 +91,41 @@
 
   <header class="post-header">
     <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2014/10/universal-prefaces.html">Universal prefaces</a>
+    </h1>
+    <p class="post-meta text-muted">
+      <time datetime="2014-10-12T17:02:00+00:00" itemprop="datePublished">October 12, 2014</time>
+      
+      
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>From Sandi Metz’s <a href="http://www.sandimetz.com/blog/2014/9/9/shape-at-the-bottom-of-all-things">“The Shape at the Bottom of All Things”</a>:</p>
+
+<blockquote>
+  <p>I totally understand that this is a small example and that these techniques can feel like overkill for a problem of this size.  Perhaps they are; I wouldn’t resist if you insisted it were so.  However, there are bigger problems for which these techniques are the perfect solution and I rely on your ability to see the larger abstraction.  You can’t choose whether to use these techniques unless you know them and it’s much easier practice on a small example like this.</p>
+</blockquote>
+
+<p>From the Chapter 1 of Robert Martin’s <em><a href="http://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882">Clean Code</a></em>:</p>
+
+<blockquote>
+  <p>Consider this book a description of the <em>Object Mentor [the group of authors of this book] School of Clean Code</em>. The techniques and teachings within are the way that <em>we</em> practice <em>our</em> art. We are willing to claim that if you follow these teachings, you will enjoy the benefits that we have enjoyed, and you will learn to write code that is clean and proessional. But don’t make the mistake of thinking that we are somehow “right” in any absolute sense. There are other schools and other masters that have just as much claim to professionalism as we. It would behoove you to learn from them as well.</p>
+
+  <p>Indeed, many of the recommendations in this book are controversial. You will probably not agree with all of them. You might violently disagree with some of them. That’s fine. We can’t claim final authority. On the other hand, the recommendations in this book are things that we have thought long and hard about. We have learned them through decades of experience and repeated trial and error. So Whether you agree or disagree, it would be a shame if you did not see, and respect, our point of view.</p>
+</blockquote>
+
+  </div>
+
+</article>
+
+
+    <hr>
+  
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
       <a class="post-link" href="/2014/02/Rigorous-complaint.html">Rigorous complaint</a>
     </h1>
     <p class="post-meta text-muted">
@@ -554,45 +589,6 @@
 <p>…or maybe people just don’t like bamboo.</p>
 
 <p><img src="/uploads/2012-08/civicsgarden-result-600x408.png" alt="" title="civicsgarden-result" /></p>
-
-  </div>
-
-</article>
-
-
-    <hr>
-  
-    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-
-  <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">
-      <a class="post-link" href="/2012/07/Hard-data-on-the-status-of-Open311.html">Hard data on the status of Open311</a>
-    </h1>
-    <p class="post-meta text-muted">
-      <time datetime="2012-07-27T00:00:00+00:00" itemprop="datePublished">July 27, 2012</time>
-      
-       • Tagged analytics, data, navigation, and portfolio
-    </p>
-  </header>
-
-  <div class="post-content" itemprop="articleBody">
-    <p><img src="/uploads/2012-07/open311status.herokuapp-2-600x369.png" alt="" title="open311status.herokuapp-2" /></p>
-
-<p>With the recent announcement of <a href="http://codeforamerica.org/2012/07/12/hello-311-labs/">311 Labs</a> and Code for America’s recent <a href="http://codeforamerica.org/2012/07/23/open311-reality-check-how-usable-is-the-api-for-developers/">podcast featuring me</a> talking about my perspective on Open311, this write-up about <a href="http://open311status.herokuapp.com">Open311Status</a> is probably long overdue.</p>
-
-<p><a href="http://open311status.herokuapp.com">Open311Status</a>—still a work in progress–polls Open311 servers in 30 cities and aggregates configuration, performance and utilization statistics about those Open311 endpoints. I built Open311Status for two reasons: first, to provide a high-level view of how different endpoints are performing as a developer sanity check (“is my app broken or the server?”); and second, to provide some hard data to the anecdotes and experiences I’ve used in <a href="http://codeforamerica.org/2012-partners/chicago/">advising the City of Chicago</a> and others in how to improve Open311’s potential for positive impact in their cities and beyond.</p>
-
-<p>In designing Open311Status I took advantage of the huge benefit of the Open311: interoperability. By adopting the Open311 API for exposing civic data, cities are enabling civic developers like myself to build reusable tools and apps. To access data from 30 cities, Open311Status doesn’t need an adapter for each individual city, <a href="https://github.com/codeforamerica/open311status/blob/master/lib/endpoints.json">only a server URL</a> that it can expect to interact and deliver data in the same way as described by the <a href="http://wiki.open311.org/GeoReport_v2">Open311 API documentation</a>. Sure, there are some minor interoperability issues (for example, <a href="http://tracker.open311.org/ticket/95">Toronto doesn’t like datetimes submitted with milliseconds</a>), but these have been minor speed bumps for development, not major deal breakers.</p>
-
-<p>A major limiting factor in the utility of Open311 isn’t these minor technical issues, but in how the Open311 servers are configured. If Open311 is supposed to provide a rich API for developers to interact with there should be a broad number of categories (“types”) of requests that can be submitted, as well as a comprehensive listing of previously submitted requests that can be analyzed or dashboarded. Compare the Boston and Washington, D.C. Open311 implementations: Washington, D.C. currently provides 83 categories of service requests (from “Tree Inspection” to “Roadway Marking Maintenance”) while Boston only provides six. Washington, D.C. provides access to all requests regardless of whether they were entered via Open311, the 311 call center, or city work crews or departments; Boston only displays service requests made via the Open311 API. These configuration decisions have a huge impact on the comprehensiveness of the data and thus the potential applications third party developers can build on top of the Open311.</p>
-
-<p>If server configuration determines the potential for an innovative application, server performance determines whether such an app will be useable. Because a potential Open311 application will be heavily reliant upon a city’s Open311 server, the speed and robustness of that server will determine the responsiveness of the application. At the obvious extreme, if the server goes down, that app will probably be useless. If the server is functioning yet takes several seconds to respond to every request, the application and its users will experience significant slow-downs and frustration. As I’ve witnessed through Open311Status, usually about 10 percent of the servers take longer than one second to respond at any given time. That’s not a stable infrastructure for third party developers to build upon.</p>
-
-<p>Open311Status helps measure the distance between the potential of Open311 and the current reality. It’s cause to celebrate that here are 30 cities (and more to add to Open311Status) who have adopted both open data and open standards; this is hugely important progress! But there is still a lot of work to be done beyond the specification for Open311 to enable a rich and robust third party application developer ecosystem.</p>
-
-<p>Some technical details: <a href="http://open311status.herokuapp.com">Open311Status</a> is built on <a href="http://nodejs.org/">Node.js</a> with the <a href="http://expressjs.com/">Express</a> web framework and aggregates data in <a href="http://www.mongodb.org/">MongoDB</a> through the <a href="http://mongoosejs.com/">Mongoose</a> ORM. The application is single process and uses cron and async modules to poll the cities’ Open311 servers every five minutes. A fun/dumb feature is that individual service requests are streamed to the browser using <a href="http://socket.io/">Socket.io</a>, but because many servers publish service requests an hour (or more!) after they’ve been submitted, Open311Status streams the previous day’s service requests in “real time” as if they were today’s (or rather, “real time minus one day”). Tests are done with <a href="http://visionmedia.github.com/mocha/">Mocha</a> in BDD style with <a href="https://github.com/visionmedia/should.js">Should</a> using <a href="http://sinonjs.org/">Sinon</a> for mocks and stubs (though coverage could–always–be better). Open311Status is hosted on <a href="http://www.heroku.com/">Heroku</a>.</p>
-
-<p><em>This post is cross-posted from the <a href="http://codeforamerica.org/2012/07/27/hard-data-on-the-status-of-open311/">Code for America blog</a>.</em></p>
 
   </div>
 

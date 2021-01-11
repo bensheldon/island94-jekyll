@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>GoodJob 1.4: JRuby compatibility and more</title>
+  <meta name="description" content="GoodJob  version 1.4 is released. GoodJob is a multithreaded, Postgres-based, ActiveJob backend for Ruby on Rails. If you’re new to GoodJob, read the  introd...">
+
+  <link rel="stylesheet" href="/assets/stylesheets/main.css">
+  <script src="/assets/javascripts/main.js"></script>
+
+  <link rel="canonical" href="http://island94.org/2021/01/goodjob-1-4-jruby-compatibility-and-more">
+  <link rel="alternate" type="application/rss+xml" title="Island94.org" href="http://island94.org/feed.xml">
+
+  
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-870047-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+</head>
+
+
+  <body>
+
+    <nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-links" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">Island94.org</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="navbar-collapse-links">
+      <form id="search" class="navbar-form navbar-right" action="https://google.com/search" method="get">
+        <input class="form-control" name="q" type="hidden" value="site:island94.org">
+        <input class="search form-control" role="search" name="q" placeholder="Search with Google" aria-label="Search with Google" results="0" type="text">
+        <button class="sr-only" type="submit">Search</button>
+      </form>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li><a class="page-link" href="/about/">About</a></li>
+        <li><a class="page-link" href="/archives/">Archives</a></li>
+        <li><a class="page-link" href="/tags/">Tags</a></li>
+        <li><a href="/feed.xml"><span class="fa fa-rss"></span> RSS</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"
+          
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2021/01/goodjob-1-4-jruby-compatibility-and-more">GoodJob 1.4: JRuby compatibility and more</a>
+    </h1>
+    <p class="post-meta text-muted">
+      <time datetime="2021-01-11T04:12:00+00:00" itemprop="datePublished">January 11, 2021</time>
+      
+       • Tagged good_job
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p><a href="https://github.com/bensheldon/good_job">GoodJob</a>  version 1.4 is released. GoodJob is a multithreaded, Postgres-based, ActiveJob backend for Ruby on Rails. If you’re new to GoodJob, read the  <a href="https://island94.org/2020/07/introducing-goodjob-1-0">introductory blog post</a> .</p>
+
+<p>GoodJob’s v1.4 release adds support for:</p>
+
+<ul>
+  <li>JRuby</li>
+  <li>MRI 3.0</li>
+  <li>Rails 6.1</li>
+  <li>Postgres 12+</li>
+</ul>
+
+<p>And includes additional improvements to the Web Dashboard.</p>
+
+<p>Version 1.4’s release comes three months after v1.3 and five months after GoodJob’s initial v1.0 release.</p>
+
+<h2 id="jruby-compatibility">JRuby compatibility</h2>
+<p>GoodJob 1.4 adds compatibility for Ruby on Rails applications running under JRuby. GoodJob’s multithreading is built on top of <a href="https://github.com/ruby-concurrency/concurrent-ruby">ConcurrentRuby</a>, which provides consistent behavior and guarantees on all four of the main Ruby interpreters (MRI/CRuby, JRuby, Rubinius, TruffleRuby).</p>
+
+<p>A minor downside of JRuby is that JRuby’s database adapter, <a href="https://github.com/jruby/activerecord-jdbc-adapter"><code class="language-plaintext highlighter-rouge">activerecord-jdbc-adapter</code></a>, does not support Postgres LISTEN, which means GoodJob must rely on polling for new jobs under JRuby.</p>
+
+<h2 id="broader-compatibility-and-improvements">Broader compatibility and improvements</h2>
+<p>In addition to JRuby, GoodJob 1.4 adds compatibility for MRI 3.0, Rails 6.1, and Postgres 12+.</p>
+
+<p>GoodJob 1.4 also includes improved filtering for the Web Dashboard,.</p>
+
+<h2 id="whats-next">What’s next</h2>
+<p>The next version of GoodJob will add support for daemonization.</p>
+
+<h2 id="contribute">Contribute</h2>
+<p>Code, documentation, and curiosity-based contributions are welcome! Check out the  <a href="https://github.com/bensheldon/good_job/projects/1">GoodJob Backlog</a> , comment on or open a Github Issue, or make a Pull Request.</p>
+
+<p>I also have a  <a href="https://github.com/sponsors/bensheldon">GitHub Sponsors Profile</a>  if you’re able to support GoodJob and me monetarily. It helps me stay in touch and send you project updates too.</p>
+
+  </div>
+
+</article>
+
+
+<hr>
+
+<div class="well">
+  <p>
+    Discuss this with me on <a href="https://twitter.com/bensheldon"><span class="fa fa-twitter"></span> Twitter</a>
+    or suggest a <a href="https://github.com/bensheldon/island94-jekyll/blob/main/_posts/2021-01-10-goodjob-1-4-jruby-compatibility-and-more.md"><span class="fa fa-github-alt"></span> change</a>.
+  </p>
+
+  <p>Related Posts:</p>
+
+  <ul>
+    
+    <li><a href="/2020/10/goodjob-v1-3-web-dashboard-and-full-documentation">GoodJob v1.3: Web dashboard and full documentation</a></li>
+    
+    <li><a href="/2020/08/goodjob-v1-2-multithreaded-queue-isolation-and-listen-notify">GoodJob v1.2: Multithreaded queue isolation and LISTEN/NOTIFY</a></li>
+    
+    <li><a href="/2020/08/goodjob-v1-1-async-and-improved-documentation">GoodJob v1.1: async and improved documentation</a></li>
+    
+    <li><a href="/2020/07/introducing-goodjob-1-0">Introducing GoodJob 1.0, a new Postgres-based, multithreaded, ActiveJob backend for Ruby on Rails</a></li>
+    
+    <li><a href="/2012/12/A-gentle-conceptual-introduction-to-Nodejs.html">A gentle & conceptual introduction to Node.js</a></li>
+    
+  </ul>
+</div>
+
+
+        </div>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+</footer>
+
+
+  </body>
+
+</html>
