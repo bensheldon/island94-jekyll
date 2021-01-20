@@ -30,7 +30,7 @@ I made a custom override for Drupal 6.x's Upload.module's attachments table that
 To use it, unzip and drop the included folder into your active theme's directory (e.g. /sites/default/all/garland), it should take effect without any other modifications---though you may have to reset the theme cache (goto admin/build/themes and click save without making any other changes).
 
 [Click Here to Download (shiny\_upload.zip)](/uploads/2008-08-10-Drupal-theme-override-for-Uploadmodules-attachments-list/shiny_upload.zip)
- 
+
 Also, I don't know what the name is for these types of theme overrides: it's not a module, and it's not a whole theme. I [posted this](http://groups.drupal.org/node/13873) to a Drupal Group that, I think, calls them " [Themer Packs](http://groups.drupal.org/themer-pack-working-group)".
 
 The icon code is based on the CCK [filefield module](http://drupal.org/project/filefield)---but the current 6.0 version is kind've clunky and I wanted to port it to the core Upload module. The namespace is "shiny\_upload".

@@ -8,7 +8,7 @@ redirect_from:
 - "?p=1861"
 ---
 
-An exceprt from "Internment Camp: The Intern Economy and the Culture Trust (Interns Built the Pyramids)" by Jim Federick in [_The Baffler_](http://www.thebaffler.com/archive) ( [1997: Vol. 1, No. 9.](http://www.thebaffler.com/issue/33)) - mentioned by  [Henri Makembe](http://www.localpolitechs.com/) on the [Mission Based Massachusetts listserv](http://groups.yahoo.com/group/Mission-Based-Massachusetts/).
+An exceprt from "Internment Camp: The Intern Economy and the Culture Trust (Interns Built the Pyramids)" by Jim Federick in [_The Baffler_](http://www.thebaffler.com/archive) ( [1997: Vol. 1, No. 9.](http://www.thebaffler.com/issue/33)) - mentioned by  [Henri Makembe](http://www.localpolitechs.com/) on the [Mission Based Massachusetts listserv](http://groups.yahoo.com/group/Mission-Based-Massachusetts/).
 
 > **All Internships Lead to MTV**
 >

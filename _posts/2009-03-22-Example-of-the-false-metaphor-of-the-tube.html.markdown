@@ -32,6 +32,6 @@ I would say that a better explanation of how communications takes place is as fo
 
 6. Then you send it.
 
-Now I'm not saying that you need to do these as discrete steps all the time---human social evolution makes us incredibly efficient at doing these types of things without thinking ...most of the time. But those innate skills break down when talking with people of different cultures (or subcultures, e.g. liberals and conservatives or baby boomers and millenials) or life experience, you need to take into account the whole process _before _the message is sent.
+Now I'm not saying that you need to do these as discrete steps all the time---human social evolution makes us incredibly efficient at doing these types of things without thinking ...most of the time. But those innate skills break down when talking with people of different cultures (or subcultures, e.g. liberals and conservatives or baby boomers and millenials) or life experience, you need to take into account the whole process _before_ the message is sent.
 
 The key part in this is understanding---as best as possible---the receiver's worldview/nature.  This is why the key skills to communications are curiosity, observation, listening, understanding, and empathy---not to mention broad life experiences.  Which is not to say that effective communications requires touchy-feely feel-goodery: not at all.  In some situations being an asshole _is_ effective and efficient; in some situations it isn't. Being able to know the difference is the key for communicating effectively.

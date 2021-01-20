@@ -17,7 +17,7 @@ redirect_from:
 
 I have been collecting quotes for my Leadership class, and this one in particular made me think about my own creative process---or really any process that I can't do on autopilot.  The above quotation is actually in respect to organizations (_yawn_), but I think it closely related to my earlier [advice for youngish people](http://www.island94.org/2009/02/18-25-moving-from-becoming-to-being/).
 
-When I wrote about the difference between _becoming _and _being_ was characterizing them mostly in regards to external cues: as you get older, you are very seldom asked "what do you want to be when you grow up", nor are the resources to help you decide so readily available.  On an internal level though, you can be constantly re-imagining _who you are_ no matter your age.
+When I wrote about the difference between _becoming_ and _being_ was characterizing them mostly in regards to external cues: as you get older, you are very seldom asked "what do you want to be when you grow up", nor are the resources to help you decide so readily available.  On an internal level though, you can be constantly re-imagining _who you are_ no matter your age.
 
 In re-launching this blog a month ago, I rewrote my personal statement (that thing on the right-hand side with the hang-loose dude) to include "artist". I did that because I feel like a lot of the projects I envision (and involve myself in) involve a personal reflection of my identity and values.  And with many of those projects, they languish, frustrate and never get started---despite the grief the cause me before I even begin.  To be clear,  a project can be as simple as writing an introductory email to an interesting stranger or an all night jaunt of coding.
 

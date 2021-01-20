@@ -16,7 +16,7 @@ redirect_from:
 
 Annie Lynsen of [Smallact](http://www.smallact.com/blog/what-nonprofits-should-know-before-developing-a-mobile-app/) on the "Apple hates (nonprofit) innovation" kerfuffle:
 
-> This past week, it was revealed that  [Apple would no longer allow charities to take donations through iPhone apps](http://arstechnica.com/apple/news/2010/06/nonprofit-developer-apples-no-donation-policy-is-a-cop-out.ars). Their rationale is that they can’t verify the donations are actually going to the charity they claim to be going to, and while that seems logical on the face of things, it presents a major roadblock for nonprofits seeking to build their donor bases. So if your app’s primary purpose is to solicit donations, you may want to rethink your strategy, and consider creating something that encourages volunteering, activism, or awareness-building instead.
+> This past week, it was revealed that  [Apple would no longer allow charities to take donations through iPhone apps](http://arstechnica.com/apple/news/2010/06/nonprofit-developer-apples-no-donation-policy-is-a-cop-out.ars). Their rationale is that they can’t verify the donations are actually going to the charity they claim to be going to, and while that seems logical on the face of things, it presents a major roadblock for nonprofits seeking to build their donor bases. So if your app’s primary purpose is to solicit donations, you may want to rethink your strategy, and consider creating something that encourages volunteering, activism, or awareness-building instead.
 
 In that last sentence, you can replace "app" with nearly any other activity and it still is good advice.
 

@@ -33,4 +33,4 @@ Tony Roberts also connects the dots in a previous post entitled ["People’s Pow
 > - people’s capacity and intent can be amplified with ICTs
 > - equalising power & redistributing resources is a political project
 
-So to be clear, this isn't to argue that building apps is a waste of time, but that the capacity and intent needed to actually _change _the status quo first needs to be identified if not built---and building intent ultimately hinges on political questions that those in power (and those currently pushing public app development) may be loathe to address.
+So to be clear, this isn't to argue that building apps is a waste of time, but that the capacity and intent needed to actually _change_ the status quo first needs to be identified if not built---and building intent ultimately hinges on political questions that those in power (and those currently pushing public app development) may be loathe to address.
