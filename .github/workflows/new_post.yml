@@ -35,10 +35,11 @@ jobs:
           git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
 
           git add --all _posts/
-          git commit -m "New post: ${{ github.event.inputs.post_title }}"
+          git commit -m "Add post: ${{ github.event.inputs.post_title }}"
       - name: Create Pull Request
         id: create_pr
         uses: peter-evans/create-pull-request@v3
+        title: "Add post: ${{ github.event.inputs.post_title }}"
 
       - name: PR Details
         run: |

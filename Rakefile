@@ -1,5 +1,7 @@
 desc 'Create a new post'
 task :new_post, [:title, :body] do |_t, args|
+  ENV["TZ"] = 'America/Los_Angeles'
+
   title = args[:title] || ENV['POST_TITLE']
   body = args[:content] || ENV['POST_BODY']
 
