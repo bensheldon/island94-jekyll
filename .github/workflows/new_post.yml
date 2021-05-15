@@ -39,7 +39,8 @@ jobs:
       - name: Create Pull Request
         id: create_pr
         uses: peter-evans/create-pull-request@v3
-        title: "Add post: ${{ github.event.inputs.post_title }}"
+        with:
+          title: "Add post: ${{ github.event.inputs.post_title }}"
 
       - name: PR Details
         run: |
