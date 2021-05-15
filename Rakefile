@@ -1,13 +1,19 @@
 desc 'Create a new post'
-task :post, [:title] do |t, args|
-  title = args[:title]
-  content =  <<~MARKDOWN
+task :new_post, [:title, :body] do |_t, args|
+  title = args[:title] || ENV['POST_TITLE']
+  body = args[:content] || ENV['POST_BODY']
+
+  raise "Title cannot be empty" if title.nil?
+
+  content = <<~MARKDOWN
     ---
     title: #{title}
     date: #{Time.new.strftime('%Y-%m-%d %H:%M %Z')}
     published: true
     tags:
     ---
+
+    #{body}
   MARKDOWN
 
   slug = title.gsub(' ','-').downcase

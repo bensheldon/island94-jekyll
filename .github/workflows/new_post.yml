@@ -1,0 +1,39 @@
+name: New Post
+on:
+  workflow_dispatch:
+    inputs:
+      post_title:
+        description: 'Post Title'
+        required: true
+        default: ""
+      post_body:
+        description: 'Post Body'
+        required: false
+        default: ""
+jobs:
+  new_post:
+    name: Create new post and open PR
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      # Dependencies
+      - name: Install GSL
+        run: sudo apt-get -y install libgsl-dev
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+      - name: Generate new post
+        env:
+          POST_TITLE: ${{ github.event.inputs.post_title }}
+          POST_BODY: ${{ github.event.inputs.post_body }}
+        run: bundle exec rake new_post
+      - name: Create commit
+        run: |
+          git config user.name $GITHUB_ACTOR
+          git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
+
+          git commit -am "Create new post"
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
