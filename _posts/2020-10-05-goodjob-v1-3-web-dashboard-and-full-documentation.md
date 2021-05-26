@@ -13,7 +13,8 @@ Version 1.3's release comes five weeks after v1.2 and three months after GoodJob
 
 GoodJob has accepted contributions from 9 people total, and currently has 559 stars on Github. The project just passed 150 combined Issues and Pull Requests.
 
-I'm grateful for everyone who has reached out to me on [Ruby on Rails Link Slack (@bensheldon)](https://www.rubyonrails.link/) and [Twitter (@bensheldon)](http://web.archive.org/web/20200723181116/https://twitter.com/bensheldon)
+I'm grateful for everyone who has reached out to me on [Ruby on Rails Link Slack (@bensheldon)](https://www.rubyonrails.link/) and [Twitter (@bensheldon)](https://web.archive.org/web/20200723181116/https://twitter.com/bensheldon)
+
 🙏
 
 ## Mountable web dashboard
