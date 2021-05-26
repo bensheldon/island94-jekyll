@@ -3,7 +3,8 @@ date: '2019-01-27 12:55 -0800'
 published: true
 title: Having a creator's profile
 ---
-I recently responded to a question on [FounderCafe](https://www.foundercafe.com/) asking "How important is Founder’s Profile to be visible on website?"; this was my answer:
+I recently responded to a question on [FounderCafe](http://web.archive.org/web/20190111170912/https://www.foundercafe.com/)
+ asking "How important is Founder’s Profile to be visible on website?"; this was my answer:
 
 > I do think it can be helpful for a small business to have a brief personal narrative about who you are and why you’re creating the business. How you expose that story depends.
 > 

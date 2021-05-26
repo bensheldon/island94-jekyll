@@ -32,5 +32,6 @@ Within the context of assistive technology, it is not a far leap between trackin
 
 These discussions have made me think a lot more about my own digital footprints. I frequently use VoiceOver to explore websites and mobile apps and I now wonder about the impact/risks of being tracked and weigh them against the benefits to my own design practice and discernment, of which quantitative analysis is a tool.
 
-_If you have thoughts about this post, quantitative usability testing and advanced product management for assistive technology and disabilities, I’d love to chat. Tweet me at [@bensheldon](http://web.archive.org/web/20200723181116/https://twitter.com/bensheldon)
+_If you have thoughts about this post, quantitative usability testing and advanced product management for assistive technology and disabilities, I’d love to chat. Tweet me at [@bensheldon](https://web.archive.org/web/20200723181116/https://twitter.com/bensheldon)
+
  or email me at [bensheldon@gmail.com](mailto:bensheldon@gmail.com)._
