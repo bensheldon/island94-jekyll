@@ -4,12 +4,14 @@ published: true
 title: 'The Concrete Sumo - Ethics in Software Engineering Discussion Guide '
 ---
 I prepared this discussion guide for Taft H. Broome, Jr's [
-The Concrete Sumo"](http://web.archive.org/web/20171213030414/http://www.onlineethics.org:80/CMS/edu/instructessays/sumo.aspx)
+The Concrete Sumo"](https://web.archive.org/web/20171213030414/http://www.onlineethics.org:80/CMS/edu/instructessays/sumo.aspx)
+
  and facilitated it two weeks ago for the software engineering team at Code for America. 
 
 ---
 
-To prepare for the discussion, please read the following sections of paper, ["The Concrete Sumo"](http://web.archive.org/web/20171213030414/http://www.onlineethics.org:80/CMS/edu/instructessays/sumo.aspx)
+To prepare for the discussion, please read the following sections of paper, ["The Concrete Sumo"](https://web.archive.org/web/20171213030414/http://www.onlineethics.org:80/CMS/edu/instructessays/sumo.aspx)
+
 :
 
 - Forward
@@ -57,7 +59,8 @@ These sections have been selected for brevity and focus. The paper has been [des
 - Facebook employees recently [published a letter](https://www.nytimes.com/2019/10/28/technology/facebook-mark-zuckerberg-letter.html) criticising the company's lax fact-checking policies for political ads. After explaining the problems with the policy and suggesting alternatives, they closed their letter with "This is still our company."
   - When thinking of Western and non-Western frames, what multiple interpretations could there be of that phrase? How does framing something as a "leadership" decision affect how we approach it compared to the idea of "community" responsibility?
   - How is the idea of "scientific" decisions challenged in a "business" environment? How are the power dynamics different in a business than a community? How are they the same? Can they be wholly separated within the context of software engineering?
-- Software engineering communities have frequently raised the idea of a ["Hippocratic Oath"](http://web.archive.org/web/20190808133139/https://queue.acm.org/detail.cfm?id=1016991)
+- Software engineering communities have frequently raised the idea of a ["Hippocratic Oath"](https://web.archive.org/web/20190808133139/https://queue.acm.org/detail.cfm?id=1016991)
+
  to improve ethical conduct in software engineering and emerging fields such as Machine Learning and AI.
   - Given the reading, how applicable would such an oath be in exigent circumstances? 
   - Given the reading, what else would be necessary to make a Hippocratic Oath actionable and meaningful to engineers? How could existing software engineering communities better provide stories of such an oath's usage by representative role models?
