@@ -3,7 +3,8 @@ date: '2019-11-07 17:59 -0800'
 published: true
 title: Public comments on Sunset housing
 ---
-Today I spoke in public comment before the San Francisco Planning Commission on a proposed 20-unit building in the Outer Sunset at [3945 Judah St.](http://web.archive.org/web/20190615114256/https://socketsite.com/archives/2018/01/plans-for-raising-the-roof-and-density-across-from-outerlands.html)
+Today I spoke in public comment before the San Francisco Planning Commission on a proposed 20-unit building in the Outer Sunset at [3945 Judah St.](https://web.archive.org/web/20190615114256/https://socketsite.com/archives/2018/01/plans-for-raising-the-roof-and-density-across-from-outerlands.html)
+
 : 
 
 <blockquote markdown="1">

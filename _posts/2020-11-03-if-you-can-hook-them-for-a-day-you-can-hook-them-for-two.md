@@ -3,7 +3,8 @@ date: '2020-11-03 15:51 -0800'
 published: true
 title: 'If you can hook them for a day, you can hook them for two'
 ---
-I think this essay has come to mind more often than any other in the past decade of my work as a developer, and sometimes distressingly, in life. From Tim Rogers ["who killed videogames? (a ghost story)"](https://insertcredit.com/2011/09/22/who-killed-videogames-a-ghost-story/):
+I think this essay has come to mind more often than any other in the past decade of my work as a developer, and sometimes distressingly, in life. From Tim Rogers ["who killed videogames? (a ghost story)"](http://web.archive.org/web/20201111182117/https://insertcredit.com/2011/09/22/who-killed-videogames-a-ghost-story/)
+:
 
 <blockquote markdown="1">
 
