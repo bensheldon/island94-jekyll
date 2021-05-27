@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Is SecureRandom.choose the wrong name for generating randomized strings with Ruby?</title>
+  <meta name="description" content="I frequently need to generate a short, random string:">
+
+  <link rel="stylesheet" href="/assets/stylesheets/main.css">
+  <script src="/assets/javascripts/main.js"></script>
+
+  <link rel="canonical" href="http://island94.org/2021/05/is-securerandom.choose-the-wrong-name-for-generating-randomized-strings-with-ruby">
+  <link rel="alternate" type="application/rss+xml" title="Island94.org" href="http://island94.org/feed.xml">
+
+  
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-870047-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+</head>
+
+
+  <body>
+
+    <nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-links" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">Island94.org</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="navbar-collapse-links">
+      <form id="search" class="navbar-form navbar-right" action="https://google.com/search" method="get">
+        <input class="form-control" name="q" type="hidden" value="site:island94.org">
+        <input class="search form-control" role="search" name="q" placeholder="Search with Google" aria-label="Search with Google" results="0" type="text">
+        <button class="sr-only" type="submit">Search</button>
+      </form>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li><a class="page-link" href="/about/">About</a></li>
+        <li><a class="page-link" href="/archives/">Archives</a></li>
+        <li><a class="page-link" href="/tags/">Tags</a></li>
+        <li><a href="/feed.xml"><span class="fa fa-rss"></span> RSS</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"
+          
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2021/05/is-securerandom.choose-the-wrong-name-for-generating-randomized-strings-with-ruby">Is SecureRandom.choose the wrong name for generating randomized strings with Ruby?</a>
+    </h1>
+    <p class="post-meta text-muted">
+      <time datetime="2021-05-27T15:37:00+00:00" itemprop="datePublished">May 27, 2021</time>
+      
+      
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>I frequently need to generate a short, random string:</p>
+
+<ul>
+  <li>I need a non-numeric, non-enumerable url ID. e.g. <code class="language-plaintext highlighter-rouge">https://example.com/resources/TOKEN</code></li>
+  <li>I need to generate a short, human-readable random activation token and I don’t want it to contain similar-looking characters like <code class="language-plaintext highlighter-rouge">1I</code> or <code class="language-plaintext highlighter-rouge">O0</code></li>
+  <li>I want to do something fun with strings of emojis.</li>
+</ul>
+
+<p>I’ve been copy-pasting this snippet around for years:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">random_string</span><span class="p">(</span><span class="n">alphabet</span><span class="p">:,</span> <span class="n">length</span><span class="p">:)</span>
+  <span class="no">Array</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">length</span><span class="p">)</span> <span class="p">{</span> <span class="n">alphabet</span><span class="p">.</span><span class="nf">chars</span><span class="p">[</span><span class="nb">rand</span><span class="p">(</span><span class="n">alphabet</span><span class="p">.</span><span class="nf">chars</span><span class="p">.</span><span class="nf">size</span><span class="p">)]</span> <span class="p">}.</span><span class="nf">join</span>
+<span class="k">end</span>
+
+<span class="n">random_string</span><span class="p">(</span><span class="ss">alphabet: </span><span class="s2">"AaBbCc123"</span><span class="p">,</span> <span class="ss">length: </span><span class="mi">7</span><span class="p">)</span> 
+<span class="c1"># =&gt; "C113A11", "Abcc3B2", "33cabbC", etc.</span>
+
+<span class="n">random_string</span><span class="p">(</span><span class="ss">alphabet: </span><span class="s2">"😀😍🙃🤪😎"</span><span class="p">,</span> <span class="ss">length: </span><span class="mi">3</span><span class="p">)</span>
+<span class="c1"># =&gt; "😍😀😎", "😀🤪🤪", "🙃😎😀", etc.</span>
+</code></pre></div></div>
+
+<p>The gems <a href="https://github.com/norman/friendly_id"><code class="language-plaintext highlighter-rouge">friendly_id</code></a> and <a href="https://github.com/ryanb/uniquify"><code class="language-plaintext highlighter-rouge">uniquify</code></a> can do this too.</p>
+
+<p>There was recently a discussion on <a href="https://www.rubyonrails.link/">Ruby on Rails Link Slack</a> about generating random strings, and I went looking to see if there was a better implementation.</p>
+
+<p>I found <a href="https://github.com/ruby/ruby/blob/029169bc5b45d8ec783c19eaf713395b7983d16a/lib/securerandom.rb#L247-L291"><code class="language-plaintext highlighter-rouge">SecureRandom.choose</code></a>, which is built into the Ruby standard library, and as part of the <code class="language-plaintext highlighter-rouge">SecureRandom</code> module, should be fairly trustworthy. Looks perfect:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># SecureRandom.choose generates a string that randomly draws from a source array of characters.</span>
+<span class="c1">#</span>
+<span class="c1"># The argument _source_ specifies the array of characters from which to generate the string.</span>
+<span class="c1"># The argument _n_ specifies the length, in characters, of the string to be generated.</span>
+<span class="c1">#</span>
+<span class="c1"># The result may contain whatever characters are in the source array.</span>
+<span class="c1">#</span>
+<span class="c1">#   require 'securerandom'</span>
+<span class="c1">#</span>
+<span class="c1">#   SecureRandom.choose([*'l'..'r'], 16) #=&gt; "lmrqpoonmmlqlron"</span>
+<span class="c1">#   SecureRandom.choose([*'0'..'9'], 5)  #=&gt; "27309"</span>
+</code></pre></div></div>
+
+<p>…but there is a problem: <code class="language-plaintext highlighter-rouge">SecureRandom.choose</code> is a private method. The <code class="language-plaintext highlighter-rouge">choose</code> method is used to implement the public <code class="language-plaintext highlighter-rouge">SecureRandom.alphanumeric</code> method, but is not itself exposed publicly. I went back to the initial <a href="https://bugs.ruby-lang.org/issues/10849">feature request</a> and found the reason:</p>
+
+<blockquote>
+  <p>I feel the method name, SecureRandom.choose, doesn’t represent the behavior well.</p>
+</blockquote>
+
+<p>Fair enough. Until the name is figured out, I’ll still be using it:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'securerandom'</span>
+
+<span class="no">SecureRandom</span><span class="p">.</span><span class="nf">send</span> <span class="ss">:choose</span><span class="p">,</span> <span class="s2">"😀😍🙃🤪😎"</span><span class="p">.</span><span class="nf">chars</span><span class="p">,</span> <span class="mi">3</span>
+<span class="c1"># =&gt; "😍😎😍"</span>
+</code></pre></div></div>
+
+
+  </div>
+
+</article>
+
+
+<hr>
+
+<div class="well">
+  <p>
+    Discuss this with me on <a href="https://twitter.com/bensheldon"><span class="fa fa-twitter"></span> Twitter</a>
+    or suggest a <a href="https://github.com/bensheldon/island94-jekyll/blob/main/_posts/2021-05-27-is-securerandom.choose-the-wrong-name-for-generating-randomized-strings-with-ruby?.md"><span class="fa fa-github-alt"></span> change</a>.
+  </p>
+
+  <p>Related Posts:</p>
+
+  <ul>
+    
+    <li><a href="/2007/08/Geekout-Video-on-Maps-for-Cable-Access-TV.html">Geekout: Video on Maps for Cable Access TV</a></li>
+    
+    <li><a href="/2012/12/A-gentle-conceptual-introduction-to-Nodejs.html">A gentle & conceptual introduction to Node.js</a></li>
+    
+    <li><a href="/2007/08/Verb-to-do.html">Verb to do</a></li>
+    
+    <li><a href="/2008/11/Strengthening-Organizations-through-Community-Engagement.html">Strengthening Organizations through Community Engagement</a></li>
+    
+    <li><a href="/2010/02/A-temperance-of-words.html">A temperance of words</a></li>
+    
+  </ul>
+</div>
+
+
+        </div>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+</footer>
+
+
+  </body>
+
+</html>
