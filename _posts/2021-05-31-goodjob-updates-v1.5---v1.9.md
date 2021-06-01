@@ -14,7 +14,7 @@ _For further details on the following updates, check out GoodJob's [Changelog](h
 
 ### GoodJob v1.5: Web Dashboard and Rails.config
 
-GoodJob ships with a [web dashboard]() to display future, finished and errored jobs for easy inspection.  The Dashboard mounts as a self-contained Rails Engine.
+GoodJob ships with a [web dashboard](https://github.com/bensheldon/good_job#dashboard) to display future, finished and errored jobs for easy inspection.  The Dashboard mounts as a self-contained Rails Engine.
 
 GoodJob introduced a greater reliance on `Rails.application.config...` for improved autoloading compatibility. 
 
