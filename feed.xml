@@ -6,9 +6,66 @@
 </description>
     <link>http://island94.org/</link>
     <atom:link href="http://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 01 Jun 2021 03:14:25 +0000</pubDate>
-    <lastBuildDate>Tue, 01 Jun 2021 03:14:25 +0000</lastBuildDate>
+    <pubDate>Tue, 01 Jun 2021 03:21:09 +0000</pubDate>
+    <lastBuildDate>Tue, 01 Jun 2021 03:21:09 +0000</lastBuildDate>
     <generator>Jekyll v3.9.0</generator>
+    
+      
+      
+
+      <item>
+        <title></title>
+        <description>&lt;p&gt;This is a quick roundup of what’s new with GoodJob since the last update published for &lt;a href=&quot;https://island94.org/2021/01/goodjob-1-4-jruby-compatibility-and-more&quot;&gt;GoodJob v1.4&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;GoodJob (&lt;a href=&quot;https://github.com/bensheldon/good_job&quot;&gt;github&lt;/a&gt;) is a multithreaded, Postgres-based, ActiveJob backend for Ruby on Rails. If you’re new to GoodJob, read the  &lt;a href=&quot;https://island94.org/2020/07/introducing-goodjob-1-0&quot;&gt;introductory blog post&lt;/a&gt; .&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;For further details on the following updates, check out GoodJob’s &lt;a href=&quot;https://github.com/bensheldon/good_job/blob/main/CHANGELOG.md&quot;&gt;Changelog&lt;/a&gt; or &lt;a href=&quot;https://github.com/bensheldon/good_job/blob/main/README.md&quot;&gt;Readme&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;goodjob-v15-web-dashboard-and-configuration&quot;&gt;GoodJob v1.5: Web Dashboard and configuration&lt;/h3&gt;
+
+&lt;p&gt;GoodJob ships with a &lt;a href=&quot;https://github.com/bensheldon/good_job#dashboard&quot;&gt;web dashboard&lt;/a&gt; to display future, finished and errored jobs for easy inspection.  The Dashboard mounts as a self-contained Rails Engine.&lt;/p&gt;
+
+&lt;p&gt;GoodJob uses more &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Rails.application.config...&lt;/code&gt; for improved autoloading compatibility; deprecation notices have examples for updating configuration.&lt;/p&gt;
+
+&lt;h3 id=&quot;goodjob-v16-daemonize&quot;&gt;GoodJob v1.6: Daemonize&lt;/h3&gt;
+
+&lt;p&gt;GoodJob can run as a backgrounded daemon for folks who are still managing servers with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--daemonize&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;goodjob-v17-scheduled-job-cache&quot;&gt;GoodJob v1.7: Scheduled job cache&lt;/h3&gt;
+
+&lt;p&gt;GoodJob caches scheduled jobs (i.e. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ExampleJob.set(wait: 30.minutes).perform_later&lt;/code&gt;) for signifiantly improved latency without relying upon polling.&lt;/p&gt;
+
+&lt;h3 id=&quot;goodjob-v18-graceful-shutdown&quot;&gt;GoodJob v1.8: Graceful shutdown&lt;/h3&gt;
+
+&lt;p&gt;GoodJob added additional shutdown options, including &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GOOD_JOB_SHUTDOWN_TIMEOUT&lt;/code&gt; to allow jobs to finish before exiting.&lt;/p&gt;
+
+&lt;h3 id=&quot;goodjob-v19-async_server-mode&quot;&gt;GoodJob v1.9: async_server mode&lt;/h3&gt;
+
+&lt;p&gt;GoodJob added an additional &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;async&lt;/code&gt; execution mode to simplify the default configuration: running jobs as part of the web-process (and &lt;em&gt;not&lt;/em&gt; console, Rake commands, etc.)&lt;/p&gt;
+
+&lt;h3 id=&quot;upcoming-cron-and-concurrency-controls&quot;&gt;Upcoming: cron and concurrency controls&lt;/h3&gt;
+
+&lt;p&gt;GoodJob will add support for cron-style repeating jobs, and concurrency controls to ensure that only a specified number (1 or more) jobs are enqueued or performed at the same time.  I previously was opposed to extending ActiveJob’s interface, but &lt;a href=&quot;https://github.com/bensheldon/good_job/issues/255&quot;&gt;have changed my mind&lt;/a&gt;; it’s on!&lt;/p&gt;
+
+&lt;h3 id=&quot;contribute&quot;&gt;Contribute&lt;/h3&gt;
+
+&lt;p&gt;Code, documentation, and curiosity-based contributions are welcome! Check out the  &lt;a href=&quot;https://github.com/bensheldon/good_job/projects/1&quot;&gt;GoodJob Backlog&lt;/a&gt;, comment on or open a Github Issue, or make a Pull Request. &lt;strong&gt;Thank you!!!&lt;/strong&gt; to everyone who has contributed to GoodJob, including morgoth, tedhexaflow, weh, lauer, reczy, zealot128, gadimbaylisahil, Mr0grog, thilo, arku, sj26, jm96441, thedanbob, and joshmn.&lt;/p&gt;
+
+&lt;p&gt;I also have a &lt;a href=&quot;https://github.com/sponsors/bensheldon&quot;&gt;GitHub Sponsors Profile&lt;/a&gt; if you’re able to support GoodJob and me monetarily. It helps me stay in touch and send you project updates too.&lt;/p&gt;
+
+        &lt;br&gt;&lt;br&gt;
+        &lt;hr&gt;
+        &lt;p&gt;
+          This post, &lt;em&gt;&lt;a href=&quot;http://island94.org/2021/06/2021-05-31-goodjob-updates-v1.5-v1.9&quot;&gt;&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;http://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
+          Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
+        &lt;/p&gt;
+      </description>
+        <pubDate>Tue, 01 Jun 2021 03:21:09 +0000</pubDate>
+        <link>http://island94.org/2021/06/2021-05-31-goodjob-updates-v1.5-v1.9</link>
+        <guid isPermaLink="true">http://island94.org/2021/06/2021-05-31-goodjob-updates-v1.5-v1.9</guid>
+        
+        
+      </item>
     
       
       
@@ -424,39 +481,6 @@
         <pubDate>Tue, 03 Nov 2020 19:38:00 +0000</pubDate>
         <link>http://island94.org/2020/11/the-five-ideals-explained</link>
         <guid isPermaLink="true">http://island94.org/2020/11/the-five-ideals-explained</guid>
-        
-        
-      </item>
-    
-      
-      
-
-      <item>
-        <title>The furthest to go in efforts to reach their full humanity</title>
-        <description>&lt;p&gt;Tawana “Honeycomb” Petty writing in a &lt;a href=&quot;https://riverwisedetroit.org/article/mama-lila-cabbil-tribute-pushing-us-toward-deeper-thought-still/&quot;&gt;“Mama Lila Cabbil Tribute: Pushing Us Toward Deeper Thought, Still”&lt;/a&gt;, published in Riverwise Magazine.&lt;/p&gt;
-
-&lt;blockquote&gt;
-
-  &lt;p&gt;Through my organizing and teaching, I have asked that anti-racist circles step away from performative testimonials of privilege for whites and lack of privilege for Black and Brown people. I have asked that all allies move from ally-ship towards co-liberation, with the belief that we can only make systemic change if we understand our liberation is tied up with one another’s. My historical and current analysis of this moment pushes me to interrogate the notion that (most) white people “benefit” from their forced relationship with white supremacy.&lt;/p&gt;
-
-  &lt;p&gt;I have asked that white allies (aspiring co-liberators) seek to understand the impact that the myth of white superiority and the system of white supremacy has had on their own communities. I have asked them to deal with school shootings in their communities, opioid abuse, domestic violence, and rising incidents of suicide. I have asked them if they truly believe what they say when they testify to their privilege.&lt;/p&gt;
-
-  &lt;p&gt;For many, this way of thinking may not appear to answer the questions that plague Black and Brown people in America. However, I am of the mindset that a dehumanized being cannot see another as fully human. I am of the mindset that the white children who are shooting up schools have fallen victim to trying to live up to the myth of white superiority.&lt;/p&gt;
-
-  &lt;p&gt;White men, even in progressive circles, are taught they are superior to white women, Black women, and every other living being on the planet. What would it mean for the anti-racism movement to teach white men that they have the furthest to go in efforts to reach their full humanity? What would it look like if they don’t enter spaces acting inherently superior (privileged), but rather with a lot of work to do to shed the legacy of violence that comes with their perception of superiority?&lt;/p&gt;
-
-&lt;/blockquote&gt;
-
-        &lt;br&gt;&lt;br&gt;
-        &lt;hr&gt;
-        &lt;p&gt;
-          This post, &lt;em&gt;&lt;a href=&quot;http://island94.org/2020/10/the-furthest-to-go-in-efforts-to-reach-their-full-humanity&quot;&gt;The furthest to go in efforts to reach their full humanity&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;http://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
-          Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
-        &lt;/p&gt;
-      </description>
-        <pubDate>Wed, 28 Oct 2020 00:14:00 +0000</pubDate>
-        <link>http://island94.org/2020/10/the-furthest-to-go-in-efforts-to-reach-their-full-humanity</link>
-        <guid isPermaLink="true">http://island94.org/2020/10/the-furthest-to-go-in-efforts-to-reach-their-full-humanity</guid>
         
         
       </item>
