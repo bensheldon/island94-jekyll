@@ -1,5 +1,5 @@
 ---
-title: GoodJob Updates v1.5 - v1.9: Dashboard, daemonize, async_server, and graceful shutdowns
+title: "GoodJob Updates v1.5 - v1.9: Dashboard, daemonize, async_server, and graceful shutdowns"
 date: 2021-05-31 20:14 PDT
 published: true
 tags: 
