@@ -20,7 +20,8 @@ I’ve been attempting to find mechanisms to remind myself that my attention is 
 
 </blockquote>
 
-Maria Farrell's [This is your phone on feminism](https://conversationalist.org/2019/09/13/feminism-explains-our-toxic-relationships-with-our-smartphones/) via [Bruce Schneier](https://www.schneier.com/blog/archives/2019/09/a_feminist_take.html):
+Maria Farrell's [This is your phone on feminism](http://web.archive.org/web/20190920190137/https://conversationalist.org/2019/09/13/feminism-explains-our-toxic-relationships-with-our-smartphones/)
+ via [Bruce Schneier](https://www.schneier.com/blog/archives/2019/09/a_feminist_take.html):
 
 <blockquote markdown="1">
 
