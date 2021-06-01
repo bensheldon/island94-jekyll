@@ -12,19 +12,19 @@ GoodJob ([github](https://github.com/bensheldon/good_job)) is a multithreaded, P
 
 _For further details on the following updates, check out GoodJob's [Changelog](https://github.com/bensheldon/good_job/blob/main/CHANGELOG.md) or [Readme](https://github.com/bensheldon/good_job/blob/main/README.md)._
 
-### GoodJob v1.5: Web Dashboard and Rails.config
+### GoodJob v1.5: Web Dashboard and configuration
 
 GoodJob ships with a [web dashboard](https://github.com/bensheldon/good_job#dashboard) to display future, finished and errored jobs for easy inspection.  The Dashboard mounts as a self-contained Rails Engine.
 
-GoodJob introduced a greater reliance on `Rails.application.config...` for improved autoloading compatibility. 
+GoodJob uses more `Rails.application.config...` for improved autoloading compatibility; deprecation notices have examples for updating configuration.
 
 ### GoodJob v1.6: Daemonize
 
-GoodJob can run as a backgrounded daemon for folks who are still managing servers: `--daemonize`
+GoodJob can run as a backgrounded daemon for folks who are still managing servers with `--daemonize`.
 
 ### GoodJob v1.7: Scheduled job cache
 
-GoodJob caches scheduled jobs (`ExampleJob.set(wait: 30.minutes).perform_later`) for significantly reduced latency without relying upon polling. 
+GoodJob caches scheduled jobs (i.e. `ExampleJob.set(wait: 30.minutes).perform_later`) for signifiantly improved latency without relying upon polling. 
 
 ### GoodJob v1.8: Graceful shutdown
 
