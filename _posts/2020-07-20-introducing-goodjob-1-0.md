@@ -4,6 +4,8 @@ published: true
 title: >-
   Introducing GoodJob 1.0, a new Postgres-based, multithreaded, ActiveJob
   backend for Ruby on Rails
+tags:
+  - GoodJob
 ---
 [GoodJob](https://github.com/bensheldon/good_job) is a new Postgres-based, multithreaded, second-generation ActiveJob backend for Ruby on Rails. 
 
