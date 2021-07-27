@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Island94.org</title>
+  <meta name="description" content="">
+
+  <link rel="stylesheet" href="/assets/stylesheets/main.css">
+  <script src="/assets/javascripts/main.js"></script>
+
+  <link rel="canonical" href="http://island94.org/2021/07/2021-07-27-goodjob-whats-new-v1.12.0">
+  <link rel="alternate" type="application/rss+xml" title="Island94.org" href="http://island94.org/feed.xml">
+
+  
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-870047-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+</head>
+
+
+  <body>
+
+    <nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-links" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">Island94.org</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="navbar-collapse-links">
+      <form id="search" class="navbar-form navbar-right" action="https://google.com/search" method="get">
+        <input class="form-control" name="q" type="hidden" value="site:island94.org">
+        <input class="search form-control" role="search" name="q" placeholder="Search with Google" aria-label="Search with Google" results="0" type="text">
+        <button class="sr-only" type="submit">Search</button>
+      </form>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li><a class="page-link" href="/about/">About</a></li>
+        <li><a class="page-link" href="/archives/">Archives</a></li>
+        <li><a class="page-link" href="/tags/">Tags</a></li>
+        <li><a href="/feed.xml"><span class="fa fa-rss"></span> RSS</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"
+          
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2021/07/2021-07-27-goodjob-whats-new-v1.12.0"></a>
+    </h1>
+    <p class="post-meta text-muted">
+      <time datetime="2021-07-27T14:02:32+00:00" itemprop="datePublished">July 27, 2021</time>
+      
+      
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>This is a quick roundup of what’s new with GoodJob v1.12.0 since the last update published for <a href="https://island94.org/2021/01/goodjob-1-4-jruby-compatibility-and-more">GoodJob v1.9</a>.</p>
+
+<p>GoodJob ( <a href="https://github.com/bensheldon/good_job">github</a> ) is a multithreaded, Postgres-based, ActiveJob backend for Ruby on Rails. If you’re new to GoodJob, read the  <a href="https://island94.org/2020/07/introducing-goodjob-1-0">introductory blog post</a>.</p>
+
+<p><em>For further details on the following updates, check out GoodJob’s <a href="https://github.com/bensheldon/good_job/blob/main/CHANGELOG.md">Changelog</a> or <a href="https://github.com/bensheldon/good_job/blob/main/README.md">Readme</a>.</em></p>
+
+<h3 id="cron-like-replacement-for-repeatingrecurring-jobs">Cron-like replacement for repeating/recurring jobs</h3>
+
+<p>GoodJob now ships with a <a href="https://github.com/bensheldon/good_job#cron-style-repeatingrecurring-jobs">cron-like replacement for repeating/recurring jobs</a>. The cron-like process runs either via the CLI, or <code class="language-plaintext highlighter-rouge">async</code> within the web server process. Repeating jobs can be scheduled to the second, powered by the <a href="https://github.com/floraison/fugit">Fugit</a> gem. Here’s what the configuration looks like:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># config/environments/application.rb or a specific environment e.g. production.rb</span>
+
+<span class="c1"># Enable cron in this process; e.g. only run on the first Heroku worker process</span>
+<span class="n">config</span><span class="p">.</span><span class="nf">good_job</span><span class="p">.</span><span class="nf">enable_cron</span> <span class="o">=</span> <span class="no">ENV</span><span class="p">[</span><span class="s1">'DYNO'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'worker.1'</span> <span class="c1"># or `true` or via $GOOD_JOB_ENABLE_CRON</span>
+
+<span class="c1"># Configure cron with a hash that has a unique key for each recurring job</span>
+<span class="n">config</span><span class="p">.</span><span class="nf">good_job</span><span class="p">.</span><span class="nf">cron</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="c1"># Every 15 minutes, enqueue `ExampleJob.set(priority: -10).perform_later(52, name: "Alice")`</span>
+  <span class="ss">frequent_task: </span><span class="p">{</span> <span class="c1"># each recurring job must have a unique key</span>
+    <span class="ss">cron: </span><span class="s2">"*/15 * * * *"</span><span class="p">,</span> <span class="c1"># cron-style scheduling format by fugit gem</span>
+    <span class="ss">class: </span><span class="s2">"ExampleJob"</span><span class="p">,</span> <span class="c1"># reference the Job class with a string</span>
+    <span class="ss">args: </span><span class="p">[</span><span class="mi">42</span><span class="p">,</span> <span class="p">{</span> <span class="ss">name: </span><span class="s2">"Alice"</span> <span class="p">}],</span> <span class="c1"># arguments to pass; can also be a proc e.g. `-&gt; { { when: Time.now } }`</span>
+    <span class="ss">set: </span><span class="p">{</span> <span class="ss">priority: </span><span class="o">-</span><span class="mi">10</span> <span class="p">},</span> <span class="c1"># additional ActiveJob properties; can also be a lambda/proc e.g. `-&gt; { { priority: [1,2].sample } }`</span>
+    <span class="ss">description: </span><span class="s2">"Something helpful"</span><span class="p">,</span> <span class="c1"># optional description that appears in Dashboard (coming soon!)</span>
+  <span class="p">},</span>
+  <span class="ss">another_task: </span><span class="p">{</span>
+    <span class="ss">cron: </span><span class="s2">"0 0,12 * * *"</span><span class="p">,</span>
+    <span class="ss">class: </span><span class="s2">"AnotherJob"</span><span class="p">,</span>
+  <span class="p">},</span>
+  <span class="c1"># etc.</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="concurrency-controls">Concurrency controls</h3>
+
+<p>GoodJob now offers an <a href="https://github.com/bensheldon/good_job#activejob-concurrency">ActiveJob extension</a> to provide customizable limits on the number of jobs enqueued or executed concurrently. Rails might upstream it too. Here’s how to configure it:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># app/jobs/my_job.rb</span>
+<span class="k">class</span> <span class="nc">MyJob</span> <span class="o">&lt;</span> <span class="no">ApplicationJob</span>
+  <span class="kp">include</span> <span class="no">GoodJob</span><span class="o">::</span><span class="no">ActiveJobExtensions</span><span class="o">::</span><span class="no">Concurrency</span>
+
+  <span class="n">good_job_control_concurrency_with</span><span class="p">(</span>
+    <span class="c1"># Maximum number of jobs with the concurrency key to be concurrently enqueued</span>
+    <span class="ss">enqueue_limit: </span><span class="mi">2</span><span class="p">,</span>
+
+    <span class="c1"># Maximum number of jobs with the concurrency key to be concurrently performed</span>
+    <span class="ss">perform_limit: </span><span class="mi">1</span><span class="p">,</span>
+
+    <span class="c1"># A unique key to be globally locked against.</span>
+    <span class="c1"># Can be String or Lambda/Proc that is invoked in the context of the job.</span>
+    <span class="c1"># Note: Arguments passed to #perform_later must be accessed through `arguments` method.</span>
+    <span class="ss">key: </span><span class="o">-&gt;</span> <span class="p">{</span> <span class="s2">"Unique-</span><span class="si">#{</span><span class="n">arguments</span><span class="p">.</span><span class="nf">first</span><span class="si">}</span><span class="s2">"</span> <span class="p">}</span> <span class="c1">#  MyJob.perform_later("Alice") =&gt; "Unique-Alice"</span>
+  <span class="p">)</span>
+
+  <span class="k">def</span> <span class="nf">perform</span><span class="p">(</span><span class="n">first_name</span><span class="p">)</span>
+    <span class="c1"># do work</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<h3 id="dashboard-demo">Dashboard Demo</h3>
+
+<p>Don’t take my word for what a good job it is. Check out the new GoodJob Dashboard demo running on Heroku entirely within a single free dyno: https://goodjob-demo.herokuapp.com/</p>
+
+<h3 id="more-news">More news:</h3>
+
+<ul>
+  <li>Wojciech Wnętrzak aka <a href="https://github.com/morgoth">@morgoth</a> became a GoodJob maintainer.</li>
+  <li>Wrote up details of the <a href="https://github.com/bensheldon/good_job/issues/255">evolving development philosophy</a> behind GoodJob.</li>
+  <li>The Dashboard now allows removing jobs, with more actions coming soon.</li>
+</ul>
+
+<h3 id="contribute">Contribute</h3>
+
+<p>Code, documentation, and curiosity-based contributions are welcome! Check out the  <a href="https://github.com/bensheldon/good_job/projects/1">GoodJob Backlog</a> , comment on or open a Github Issue, or make a Pull Request.</p>
+
+<p>I also have a  <a href="https://github.com/sponsors/bensheldon">GitHub Sponsors Profile</a>  if you’re able to support GoodJob and me monetarily. It helps me stay in touch and send you project updates too.</p>
+
+
+  </div>
+
+</article>
+
+
+<hr>
+
+<div class="well">
+  <p>
+    Discuss this with me on <a href="https://twitter.com/bensheldon"><span class="fa fa-twitter"></span> Twitter</a>
+    or suggest a <a href="https://github.com/bensheldon/island94-jekyll/blob/main/_posts/2021-07-27-goodjob-whats-new-v1.12.0.md"><span class="fa fa-github-alt"></span> change</a>.
+  </p>
+
+  <p>Related Posts:</p>
+
+  <ul>
+    
+    <li><a href="/2021/06/goodjob-updates-v1.5-v1.9">GoodJob Updates v1.5 - v1.9: Dashboard, daemonize, async_server, and graceful shutdowns</a></li>
+    
+    <li><a href="/2020/08/goodjob-v1-1-async-and-improved-documentation">GoodJob v1.1: async and improved documentation</a></li>
+    
+    <li><a href="/2020/07/introducing-goodjob-1-0">Introducing GoodJob 1.0, a new Postgres-based, multithreaded, ActiveJob backend for Ruby on Rails</a></li>
+    
+    <li><a href="/2020/08/goodjob-v1-2-multithreaded-queue-isolation-and-listen-notify">GoodJob v1.2: Multithreaded queue isolation and LISTEN/NOTIFY</a></li>
+    
+    <li><a href="/2012/12/A-gentle-conceptual-introduction-to-Nodejs.html">A gentle & conceptual introduction to Node.js</a></li>
+    
+  </ul>
+</div>
+
+
+        </div>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+</footer>
+
+
+  </body>
+
+</html>

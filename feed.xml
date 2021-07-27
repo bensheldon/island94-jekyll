@@ -6,9 +6,107 @@
 </description>
     <link>http://island94.org/</link>
     <atom:link href="http://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 05 Jul 2021 17:25:19 +0000</pubDate>
-    <lastBuildDate>Mon, 05 Jul 2021 17:25:19 +0000</lastBuildDate>
+    <pubDate>Tue, 27 Jul 2021 14:02:32 +0000</pubDate>
+    <lastBuildDate>Tue, 27 Jul 2021 14:02:32 +0000</lastBuildDate>
     <generator>Jekyll v3.9.0</generator>
+    
+      
+      
+
+      <item>
+        <title></title>
+        <description>&lt;p&gt;This is a quick roundup of what’s new with GoodJob v1.12.0 since the last update published for &lt;a href=&quot;https://island94.org/2021/01/goodjob-1-4-jruby-compatibility-and-more&quot;&gt;GoodJob v1.9&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;GoodJob ( &lt;a href=&quot;https://github.com/bensheldon/good_job&quot;&gt;github&lt;/a&gt; ) is a multithreaded, Postgres-based, ActiveJob backend for Ruby on Rails. If you’re new to GoodJob, read the  &lt;a href=&quot;https://island94.org/2020/07/introducing-goodjob-1-0&quot;&gt;introductory blog post&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;For further details on the following updates, check out GoodJob’s &lt;a href=&quot;https://github.com/bensheldon/good_job/blob/main/CHANGELOG.md&quot;&gt;Changelog&lt;/a&gt; or &lt;a href=&quot;https://github.com/bensheldon/good_job/blob/main/README.md&quot;&gt;Readme&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;cron-like-replacement-for-repeatingrecurring-jobs&quot;&gt;Cron-like replacement for repeating/recurring jobs&lt;/h3&gt;
+
+&lt;p&gt;GoodJob now ships with a &lt;a href=&quot;https://github.com/bensheldon/good_job#cron-style-repeatingrecurring-jobs&quot;&gt;cron-like replacement for repeating/recurring jobs&lt;/a&gt;. The cron-like process runs either via the CLI, or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;async&lt;/code&gt; within the web server process. Repeating jobs can be scheduled to the second, powered by the &lt;a href=&quot;https://github.com/floraison/fugit&quot;&gt;Fugit&lt;/a&gt; gem. Here’s what the configuration looks like:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# config/environments/application.rb or a specific environment e.g. production.rb&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Enable cron in this process; e.g. only run on the first Heroku worker process&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;good_job&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;enable_cron&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ENV&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'DYNO'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'worker.1'&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# or `true` or via $GOOD_JOB_ENABLE_CRON&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Configure cron with a hash that has a unique key for each recurring job&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;good_job&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;cron&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;# Every 15 minutes, enqueue `ExampleJob.set(priority: -10).perform_later(52, name: &quot;Alice&quot;)`&lt;/span&gt;
+  &lt;span class=&quot;ss&quot;&gt;frequent_task: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# each recurring job must have a unique key&lt;/span&gt;
+    &lt;span class=&quot;ss&quot;&gt;cron: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;*/15 * * * *&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# cron-style scheduling format by fugit gem&lt;/span&gt;
+    &lt;span class=&quot;ss&quot;&gt;class: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ExampleJob&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# reference the Job class with a string&lt;/span&gt;
+    &lt;span class=&quot;ss&quot;&gt;args: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;42&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;name: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Alice&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}],&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# arguments to pass; can also be a proc e.g. `-&amp;gt; { { when: Time.now } }`&lt;/span&gt;
+    &lt;span class=&quot;ss&quot;&gt;set: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;priority: &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# additional ActiveJob properties; can also be a lambda/proc e.g. `-&amp;gt; { { priority: [1,2].sample } }`&lt;/span&gt;
+    &lt;span class=&quot;ss&quot;&gt;description: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Something helpful&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# optional description that appears in Dashboard (coming soon!)&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+  &lt;span class=&quot;ss&quot;&gt;another_task: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;ss&quot;&gt;cron: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;0 0,12 * * *&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;ss&quot;&gt;class: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;AnotherJob&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;# etc.&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;concurrency-controls&quot;&gt;Concurrency controls&lt;/h3&gt;
+
+&lt;p&gt;GoodJob now offers an &lt;a href=&quot;https://github.com/bensheldon/good_job#activejob-concurrency&quot;&gt;ActiveJob extension&lt;/a&gt; to provide customizable limits on the number of jobs enqueued or executed concurrently. Rails might upstream it too. Here’s how to configure it:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# app/jobs/my_job.rb&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MyJob&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ApplicationJob&lt;/span&gt;
+  &lt;span class=&quot;kp&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;GoodJob&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;ActiveJobExtensions&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Concurrency&lt;/span&gt;
+
+  &lt;span class=&quot;n&quot;&gt;good_job_control_concurrency_with&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# Maximum number of jobs with the concurrency key to be concurrently enqueued&lt;/span&gt;
+    &lt;span class=&quot;ss&quot;&gt;enqueue_limit: &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;# Maximum number of jobs with the concurrency key to be concurrently performed&lt;/span&gt;
+    &lt;span class=&quot;ss&quot;&gt;perform_limit: &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;# A unique key to be globally locked against.&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# Can be String or Lambda/Proc that is invoked in the context of the job.&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# Note: Arguments passed to #perform_later must be accessed through `arguments` method.&lt;/span&gt;
+    &lt;span class=&quot;ss&quot;&gt;key: &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Unique-&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arguments&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;first&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#  MyJob.perform_later(&quot;Alice&quot;) =&amp;gt; &quot;Unique-Alice&quot;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;perform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;first_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# do work&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;dashboard-demo&quot;&gt;Dashboard Demo&lt;/h3&gt;
+
+&lt;p&gt;Don’t take my word for what a good job it is. Check out the new GoodJob Dashboard demo running on Heroku entirely within a single free dyno: https://goodjob-demo.herokuapp.com/&lt;/p&gt;
+
+&lt;h3 id=&quot;more-news&quot;&gt;More news:&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Wojciech Wnętrzak aka &lt;a href=&quot;https://github.com/morgoth&quot;&gt;@morgoth&lt;/a&gt; became a GoodJob maintainer.&lt;/li&gt;
+  &lt;li&gt;Wrote up details of the &lt;a href=&quot;https://github.com/bensheldon/good_job/issues/255&quot;&gt;evolving development philosophy&lt;/a&gt; behind GoodJob.&lt;/li&gt;
+  &lt;li&gt;The Dashboard now allows removing jobs, with more actions coming soon.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;contribute&quot;&gt;Contribute&lt;/h3&gt;
+
+&lt;p&gt;Code, documentation, and curiosity-based contributions are welcome! Check out the  &lt;a href=&quot;https://github.com/bensheldon/good_job/projects/1&quot;&gt;GoodJob Backlog&lt;/a&gt; , comment on or open a Github Issue, or make a Pull Request.&lt;/p&gt;
+
+&lt;p&gt;I also have a  &lt;a href=&quot;https://github.com/sponsors/bensheldon&quot;&gt;GitHub Sponsors Profile&lt;/a&gt;  if you’re able to support GoodJob and me monetarily. It helps me stay in touch and send you project updates too.&lt;/p&gt;
+
+
+        &lt;br&gt;&lt;br&gt;
+        &lt;hr&gt;
+        &lt;p&gt;
+          This post, &lt;em&gt;&lt;a href=&quot;http://island94.org/2021/07/2021-07-27-goodjob-whats-new-v1.12.0&quot;&gt;&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;http://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
+          Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
+        &lt;/p&gt;
+      </description>
+        <pubDate>Tue, 27 Jul 2021 14:02:32 +0000</pubDate>
+        <link>http://island94.org/2021/07/2021-07-27-goodjob-whats-new-v1.12.0</link>
+        <guid isPermaLink="true">http://island94.org/2021/07/2021-07-27-goodjob-whats-new-v1.12.0</guid>
+        
+        
+      </item>
     
       
       
@@ -408,47 +506,6 @@
         <pubDate>Tue, 03 Nov 2020 20:44:00 +0000</pubDate>
         <link>http://island94.org/2020/11/triangular-eating</link>
         <guid isPermaLink="true">http://island94.org/2020/11/triangular-eating</guid>
-        
-        
-      </item>
-    
-      
-      
-
-      <item>
-        <title>Better by our own standards</title>
-        <description>&lt;p&gt;This book review in the New Yorker of &lt;a href=&quot;https://www.newyorker.com/magazine/2019/08/26/how-cultural-anthropologists-redefined-humanity&quot;&gt;Charles King’s “Gods of the Upper Air”&lt;/a&gt; has been kicking about my brain for a long while, especially in regards to the phrase “variations within groups are greater than variations between groups” concretely in my work on accessibility, diversity, equity and inclusion.&lt;/p&gt;
-
-&lt;blockquote&gt;
-
-  &lt;p&gt;The evidence proved, Boas said, “the plasticity of human types.” It also showed that variations within groups are greater than variations between groups.&lt;/p&gt;
-
-  &lt;p&gt;…&lt;/p&gt;
-
-  &lt;p&gt;Boas devoted his life to showing people that the science they were relying on was bad science. “He believed the world must be made safe for differences,” Ruth Benedict wrote when Boas died.&lt;/p&gt;
-
-  &lt;p&gt;…&lt;/p&gt;
-
-  &lt;p&gt;It’s true that Boas and Benedict spoke of “relativity,” and that at the end of “Patterns of Culture” Benedict refers to “coexisting and equally valid patterns of life which mankind has created for itself from the raw materials of existence.” But everything else in Benedict’s book contradicts the assertion that all cultures are “equally valid.” The whole point is to judge which practices, others’ or our own, seem to produce the kind of society we want. The anthropological mirror has a moral purpose.&lt;/p&gt;
-
-  &lt;p&gt;The term “culture” is responsible for some of the confusion. We think that to call something part of a group’s culture is to excuse it from judgment. We say, That’s just the lens through which people in that society view the world. It’s not for us to tell them what to think. Our ways are not better, only different. What it all boils down to (to paraphrase Montaigne) is: We wear pants; they do not. That would be relativism.&lt;/p&gt;
-
-  &lt;p&gt;But to say that a belief or a practice is culture-relative is not to place it beyond judgment. The whole force of Boasian anthropology is the demonstration that racial prejudice is cultural. The belief that some races are superior and some inferior is learned; it has no basis in biology. It is therefore subject to criticism.&lt;/p&gt;
-
-  &lt;p&gt;Boas spent his entire life telling people that intolerance is wrong. King says that cultural anthropology pushes us to expand our notion of the human. That may be so, but it has nothing to do with relativism. King’s anthropologists are prescriptivists. They are constantly telling us to unlearn one way of living in order to learn a way that is better by &lt;em&gt;our own standards&lt;/em&gt;.&lt;/p&gt;
-
-&lt;/blockquote&gt;
-
-        &lt;br&gt;&lt;br&gt;
-        &lt;hr&gt;
-        &lt;p&gt;
-          This post, &lt;em&gt;&lt;a href=&quot;http://island94.org/2020/11/better-by-our-own-standards&quot;&gt;Better by our own standards&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;http://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
-          Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
-        &lt;/p&gt;
-      </description>
-        <pubDate>Tue, 03 Nov 2020 19:55:00 +0000</pubDate>
-        <link>http://island94.org/2020/11/better-by-our-own-standards</link>
-        <guid isPermaLink="true">http://island94.org/2020/11/better-by-our-own-standards</guid>
         
         
       </item>
