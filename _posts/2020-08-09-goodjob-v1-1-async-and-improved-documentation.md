@@ -2,6 +2,8 @@
 date: '2020-08-09 20:49 -0700'
 published: true
 title: 'GoodJob v1.1: async and improved documentation'
+tags: 
+  - GoodJob
 ---
 [GoodJob](https://github.com/bensheldon/good_job) version 1.1 has been released. GoodJob is a multithreaded, Postgres-based, ActiveJob backend for Ruby on Rails. If you’re new to GoodJob, read the [introductory blog post](https://island94.org/2020/07/introducing-goodjob-1-0).
 
