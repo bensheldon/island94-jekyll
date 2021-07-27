@@ -2,6 +2,8 @@
 date: '2020-08-19 20:51 -0700'
 published: true
 title: 'GoodJob v1.2: Multithreaded queue isolation and LISTEN/NOTIFY'
+tags: 
+  - GoodJob
 ---
 [GoodJob](https://github.com/bensheldon/good_job) version 1.2 has been released. GoodJob is a multithreaded, Postgres-based, ActiveJob backend for Ruby on Rails. If you’re new to GoodJob, read the [introductory blog post](https://island94.org/2020/07/introducing-goodjob-1-0).
 
