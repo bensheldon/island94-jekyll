@@ -28,6 +28,6 @@ To that, I would add "Failure to recognize Union benefits/protections as an aspi
 
 Also, just in general, I get annoyed when the union workers aren't placed within the context of the community as a whole? What does your child's education mean in the context of a society where their work will have no value?
 
-**Update: **A comment by [Jen](http://jennyjeez.blogspot.com/) shared in Google Reader:
+**Update:** A comment by [Jen](http://jennyjeez.blogspot.com/) shared in Google Reader:
 
 > I would add, the idea that worker protections encourage mediocrity because people are removed from the "competitiveness" (i.e. fear) that easy firing gives. Job security doesn't cause lack of motivation; bad management does.
