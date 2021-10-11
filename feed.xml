@@ -6,9 +6,52 @@
 </description>
     <link>http://island94.org/</link>
     <atom:link href="http://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 14 Sep 2021 20:48:16 +0000</pubDate>
-    <lastBuildDate>Tue, 14 Sep 2021 20:48:16 +0000</lastBuildDate>
+    <pubDate>Mon, 11 Oct 2021 19:15:32 +0000</pubDate>
+    <lastBuildDate>Mon, 11 Oct 2021 19:15:32 +0000</lastBuildDate>
     <generator>Jekyll v3.9.0</generator>
+    
+      
+      
+
+      <item>
+        <title></title>
+        <description>&lt;p&gt;I was doing some research on introspecting Ruby on Rails database transactions for a &lt;a href=&quot;https://www.reddit.com/r/ruby/comments/q54515/comment/hg9dzdc/?utm_source=reddit&amp;amp;utm_medium=web2x&amp;amp;context=3&quot;&gt;Reddit thread&lt;/a&gt;, and came across this &lt;a href=&quot;https://github.com/rails/rails/pull/29333&quot;&gt;Rails PR&lt;/a&gt; that had some new Ruby behavior for me: detecting an early &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;return&lt;/code&gt; from a block.&lt;/p&gt;
+
+&lt;p&gt;Some background: A Ruby language feature, that can frequently surprise people, is that using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;return&lt;/code&gt; within a Ruby block will return not only from the block itself, but also from the block’s caller too. Using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;next&lt;/code&gt; is really the only truly safe way to interrupt a block early; even &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;break&lt;/code&gt; can be troublesome if the block is called by an enumerator. Also, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;next&lt;/code&gt; can take a return value too, just like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;return&lt;/code&gt; e.g. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;next my_value&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;I found the Rails PR interesting, because it has a method for detecting and warning on an early return. Here’s a simplified example:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;some_method&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;block&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;block&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;call&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;completed&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# won't be called if the block returns early&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;ensure&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;completed&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;ok&quot;&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;returned early&quot;&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;some_method&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; &quot;returned early&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;some_method&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;next&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; &quot;ok&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This works because the methods &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ensure&lt;/code&gt; block will always be called, even if &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;#some_method&lt;/code&gt; returns early. That was a novel implementation for me.&lt;/p&gt;
+
+
+        &lt;br&gt;&lt;br&gt;
+        &lt;hr&gt;
+        &lt;p&gt;
+          This post, &lt;em&gt;&lt;a href=&quot;http://island94.org/2021/10/2021-10-11-til-detecting-block-returns-in-ruby&quot;&gt;&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;http://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
+          Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
+        &lt;/p&gt;
+      </description>
+        <pubDate>Mon, 11 Oct 2021 19:15:32 +0000</pubDate>
+        <link>http://island94.org/2021/10/2021-10-11-til-detecting-block-returns-in-ruby</link>
+        <guid isPermaLink="true">http://island94.org/2021/10/2021-10-11-til-detecting-block-returns-in-ruby</guid>
+        
+        
+      </item>
     
       
       
@@ -482,37 +525,6 @@ Ben and Angelina&lt;/p&gt;
         <pubDate>Tue, 03 Nov 2020 23:51:00 +0000</pubDate>
         <link>http://island94.org/2020/11/if-you-can-hook-them-for-a-day-you-can-hook-them-for-two</link>
         <guid isPermaLink="true">http://island94.org/2020/11/if-you-can-hook-them-for-a-day-you-can-hook-them-for-two</guid>
-        
-        
-      </item>
-    
-      
-      
-
-      <item>
-        <title>Dying on management mountain</title>
-        <description>&lt;p&gt;From &lt;em&gt;First, break all the rules&lt;/em&gt;:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Managers were encouraged to focus on complex initiatives like reengineering or learning organizations, without spending time on the basics. The stages on the mountain reveal that if the employee doesn’t know what is expected of him as an individual (Base Camp), then you shouldn’t ask him to get excited about playing on a team (Camp 2). If he feels as though he is in the wrong role (Camp 1), don’t pander to him by telling him how important his innovative ideas are to the company’s reengineering efforts (Camp 3). If he doesn’t know what his manager thinks of him as an individual (Camp 1), don’t confuse him by challenging him to become part of the new “learning organization” (Camp 3). Don’t helicopter in at seventeen thousand feet, because sooner or later you and your people will die on the mountain.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;And a quote about performing the performance:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;A manager has got to remember that he is on stage every day. His people are watching him. Everything he does, everything he says, and the way he says it, sends off clues to his employees. These clues affect performance. So never forget you are on that stage.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-        &lt;br&gt;&lt;br&gt;
-        &lt;hr&gt;
-        &lt;p&gt;
-          This post, &lt;em&gt;&lt;a href=&quot;http://island94.org/2020/11/dying-on-management-mountain&quot;&gt;Dying on management mountain&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;http://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
-          Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
-        &lt;/p&gt;
-      </description>
-        <pubDate>Tue, 03 Nov 2020 20:59:00 +0000</pubDate>
-        <link>http://island94.org/2020/11/dying-on-management-mountain</link>
-        <guid isPermaLink="true">http://island94.org/2020/11/dying-on-management-mountain</guid>
         
         
       </item>
