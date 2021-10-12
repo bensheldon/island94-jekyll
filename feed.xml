@@ -6,8 +6,8 @@
 </description>
     <link>http://island94.org/</link>
     <atom:link href="http://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 11 Oct 2021 21:48:44 +0000</pubDate>
-    <lastBuildDate>Mon, 11 Oct 2021 21:48:44 +0000</lastBuildDate>
+    <pubDate>Tue, 12 Oct 2021 02:45:57 +0000</pubDate>
+    <lastBuildDate>Tue, 12 Oct 2021 02:45:57 +0000</lastBuildDate>
     <generator>Jekyll v3.9.0</generator>
     
       
@@ -46,7 +46,7 @@
           Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
         &lt;/p&gt;
       </description>
-        <pubDate>Mon, 11 Oct 2021 21:48:44 +0000</pubDate>
+        <pubDate>Tue, 12 Oct 2021 02:45:57 +0000</pubDate>
         <link>http://island94.org/2021/10/2021-10-11-til-detecting-block-returns-in-ruby</link>
         <guid isPermaLink="true">http://island94.org/2021/10/2021-10-11-til-detecting-block-returns-in-ruby</guid>
         
