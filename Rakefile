@@ -9,7 +9,7 @@ task :new_post, [:title, :body] do |_t, args|
 
   content = <<~MARKDOWN
     ---
-    title: #{title}
+    title: "#{title}"
     date: #{Time.new.strftime('%Y-%m-%d %H:%M %Z')}
     published: true
     tags:
