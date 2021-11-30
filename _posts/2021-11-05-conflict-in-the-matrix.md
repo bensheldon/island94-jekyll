@@ -7,7 +7,7 @@ tags:
 
 From Apenwarr's ["What do executives do, anyway?"](https://apenwarr.ca/log/20190926):
 
-<blockquote markdown=“1”>
+<blockquote markdown="1">
 
 To paraphrase the book [High Output Management, by Andy Grove], the job of an executive is: to define and enforce culture and values for their whole organization, and to ratify good decisions.
 
@@ -25,7 +25,7 @@ But... wait. If the decision is already made before the meeting, why do we need 
 
 From HBR's ["Problems of Matrix Organizations"](https://hbr.org/1978/05/problems-of-matrix-organizations):
 
-<blockquote markdown=“1”>
+<blockquote markdown="1">
 
 Another possible source of decision strangulation in matrix organizations occurs when managers frequently or constantly refer decisions up the dual chain of command. Seeing that one advantage of the conventional single chain of command is that two disagreeing peers can go to their shared boss for a resolution, managers unfamiliar with the matrix worry about this problem almost more than any other. They look at a matrix and realize that the nearest shared boss might be the CEO, who could be five or six echelons up. They realize that not too many problems can be pushed up to the CEO for resolution without creating the ultimate in information overload. So, they think, will not the inevitable disagreement lead to a tremendous pileup of unresolved conflict?
 
