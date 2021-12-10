@@ -1,5 +1,5 @@
 ---
-title: I'm burning dude... where do we go from here?
+title: "I'm burning dude... where do we go from here?"
 date: 2021-12-09 17:41 PST
 published: true
 tags:
