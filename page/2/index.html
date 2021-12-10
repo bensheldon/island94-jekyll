@@ -91,6 +91,60 @@
 
   <header class="post-header">
     <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2021/01/goodjob-1-4-jruby-compatibility-and-more">GoodJob 1.4: JRuby compatibility and more</a>
+    </h1>
+    <p class="post-meta text-muted">
+      <time datetime="2021-01-11T04:12:00+00:00" itemprop="datePublished">January 11, 2021</time>
+      
+       • Tagged GoodJob
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p><a href="https://github.com/bensheldon/good_job">GoodJob</a>  version 1.4 is released. GoodJob is a multithreaded, Postgres-based, ActiveJob backend for Ruby on Rails. If you’re new to GoodJob, read the  <a href="https://island94.org/2020/07/introducing-goodjob-1-0">introductory blog post</a> .</p>
+
+<p>GoodJob’s v1.4 release adds support for:</p>
+
+<ul>
+  <li>JRuby</li>
+  <li>MRI 3.0</li>
+  <li>Rails 6.1</li>
+  <li>Postgres 12+</li>
+</ul>
+
+<p>And includes additional improvements to the Web Dashboard.</p>
+
+<p>Version 1.4’s release comes three months after v1.3 and five months after GoodJob’s initial v1.0 release.</p>
+
+<h2 id="jruby-compatibility">JRuby compatibility</h2>
+<p>GoodJob 1.4 adds compatibility for Ruby on Rails applications running under JRuby. GoodJob’s multithreading is built on top of <a href="https://github.com/ruby-concurrency/concurrent-ruby">ConcurrentRuby</a>, which provides consistent behavior and guarantees on all four of the main Ruby interpreters (MRI/CRuby, JRuby, Rubinius, TruffleRuby).</p>
+
+<p>A minor downside of JRuby is that JRuby’s database adapter, <a href="https://github.com/jruby/activerecord-jdbc-adapter"><code class="language-plaintext highlighter-rouge">activerecord-jdbc-adapter</code></a>, does not support Postgres LISTEN, which means GoodJob must rely on polling for new jobs under JRuby.</p>
+
+<h2 id="broader-compatibility-and-improvements">Broader compatibility and improvements</h2>
+<p>In addition to JRuby, GoodJob 1.4 adds compatibility for MRI 3.0, Rails 6.1, and Postgres 12+.</p>
+
+<p>GoodJob 1.4 also includes improved filtering for the Web Dashboard,.</p>
+
+<h2 id="whats-next">What’s next</h2>
+<p>The next version of GoodJob will add support for daemonization.</p>
+
+<h2 id="contribute">Contribute</h2>
+<p>Code, documentation, and curiosity-based contributions are welcome! Check out the  <a href="https://github.com/bensheldon/good_job/projects/1">GoodJob Backlog</a> , comment on or open a Github Issue, or make a Pull Request.</p>
+
+<p>I also have a  <a href="https://github.com/sponsors/bensheldon">GitHub Sponsors Profile</a>  if you’re able to support GoodJob and me monetarily. It helps me stay in touch and send you project updates too.</p>
+
+  </div>
+
+</article>
+
+
+    <hr>
+  
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
       <a class="post-link" href="/2020/11/maimonides-levels-of-charity">Maimonides' levels of charity</a>
     </h1>
     <p class="post-meta text-muted">
@@ -449,67 +503,6 @@
 <p>They line up with Code for America’s pillars of “Show what’s possible”, “Help people do it themselves” and “Build a movement” (though the latter is rather more grandiose than <em>understand and support</em>).</p>
 
 <p>As we called these in my previous career, Direct Service, Capacity Building, and <a href="http://putsomegratitudeinyourattitude.com/About.html">Roy Johnson</a> (“Put some gratitude in your attitude!”).</p>
-
-  </div>
-
-</article>
-
-
-    <hr>
-  
-    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-
-  <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">
-      <a class="post-link" href="/2020/10/goodjob-v1-3-web-dashboard-and-full-documentation">GoodJob v1.3: Web dashboard and full documentation</a>
-    </h1>
-    <p class="post-meta text-muted">
-      <time datetime="2020-10-05T18:24:00+00:00" itemprop="datePublished">October 5, 2020</time>
-      
-       • Tagged GoodJob
-    </p>
-  </header>
-
-  <div class="post-content" itemprop="articleBody">
-    <p><a href="https://github.com/bensheldon/good_job">GoodJob</a> version 1.3 is released. GoodJob is a multithreaded, Postgres-based, ActiveJob backend for Ruby on Rails. If you’re new to GoodJob, read the <a href="https://island94.org/2020/07/introducing-goodjob-1-0">introductory blog post</a>.</p>
-
-<p>GoodJob’s v1.3 release adds a mountable Web Dashboard and improved README documentation and complete code-level YARD documentation.</p>
-
-<p>Version 1.3’s release comes five weeks after v1.2 and three months after GoodJob’s initial v1.0 release.</p>
-
-<h2 id="shoutouts-">Shoutouts 🙌</h2>
-
-<p>GoodJob has accepted contributions from 9 people total, and currently has 559 stars on Github. The project just passed 150 combined Issues and Pull Requests.</p>
-
-<p>I’m grateful for everyone who has reached out to me on <a href="https://www.rubyonrails.link/">Ruby on Rails Link Slack (@bensheldon)</a> and <a href="https://web.archive.org/web/20200723181116/https://twitter.com/bensheldon">Twitter (@bensheldon)</a></p>
-
-<p>🙏</p>
-
-<h2 id="mountable-web-dashboard">Mountable web dashboard</h2>
-
-<p>GoodJob v1.3 adds a web dashboard for exploring and visualizing job status and queue health.</p>
-
-<p><img src="/uploads/2020-10/good_job-dashboard-mvp.png" alt="GoodJob Dashboard MVP" /></p>
-
-<p>The web dashboard is implemented as an optional Rails::Engine and includes charts and lists of pending jobs.</p>
-
-<p>I expect the web dashboard to be a hot area of ongoing improvement. This initial release contains a minimum functional interface, a chart, and some necessities like keyset pagination. The dashboard is familiar to develop (Rails Controllers, ERB Views and ActiveRecord), and I’ve adopted Bootstrap CSS and Chartist to ease and speed development.</p>
-
-<h2 id="improved-documentation">Improved documentation</h2>
-
-<p>GoodJob’s README has been edited and rewritten for clarity and comprehensiveness, and GoodJob’s implementation code is now thoroughly documented with YARD.</p>
-
-<p>Good documentation is vital for open source projects like GoodJob. I worked with <a href="https://robbrackett.com/">Rob Brackett</a>, who consults on complex software and open source challenges.</p>
-
-<h2 id="upcoming">Upcoming</h2>
-
-<p>In the next release, v1.4, I plan to continue adding views and charts to the web dashboard and improving thread management.</p>
-
-<h2 id="contribute">Contribute</h2>
-
-<p>Code, documentation, and curiosity-based contributions are welcome! Check out the <a href="https://github.com/bensheldon/good_job/projects/1">GoodJob Backlog</a>, comment on or open a Github Issue, or make a Pull Request.</p>
-
-<p>I also have a <a href="https://github.com/sponsors/bensheldon">GitHub Sponsors Profile</a> if you’re able to support GoodJob and me monetarily. It helps me stay in touch and send you project updates too.</p>
 
   </div>
 

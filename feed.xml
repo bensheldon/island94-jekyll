@@ -6,9 +6,40 @@
 </description>
     <link>http://island94.org/</link>
     <atom:link href="http://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 30 Nov 2021 18:19:18 +0000</pubDate>
-    <lastBuildDate>Tue, 30 Nov 2021 18:19:18 +0000</lastBuildDate>
+    <pubDate>Fri, 10 Dec 2021 02:12:17 +0000</pubDate>
+    <lastBuildDate>Fri, 10 Dec 2021 02:12:17 +0000</lastBuildDate>
     <generator>Jekyll v3.9.0</generator>
+    
+      
+      
+
+      <item>
+        <title>Types of Corruption</title>
+        <description>&lt;p&gt;An interesting breakdown of types of corruption by &lt;a href=&quot;https://freakonomics.com/podcast/chinas-gilded-age/&quot;&gt;Yuen Yuen Ang on Freakonomics&lt;/a&gt;:&lt;/p&gt;
+
+&lt;blockquote&gt;
+
+  &lt;p&gt;I propose a typology of four types of corruption divided along two dimensions. First, whether the corruption involves elites or non-elites. And second, whether the corruption involves theft or exchange. So this intersection creates, first of all, corruption with theft, which I divide into petty theft and grand theft. Petty theft would be like extortion — a police officer who just stops you and robs you of $200. Grand theft would be embezzlement. Nigeria would be a classic case, billions of dollars siphoned out of a country. And then I distinguish between two types of transactional corruption. The first is what I call speed money, which is bribes paid to low- or medium-level officials in order to overcome red tape or delays or harassment. And then I have a fourth category called access money, which is privileges paid to powerful officials, not because you want to overcome red tape, but because you want to buy special deals from them.&lt;/p&gt;
+
+  &lt;p&gt;[…]&lt;/p&gt;
+
+  &lt;p&gt;I use the analogy of drugs because we know that all drugs are harmful, but they harm in different ways. Petty theft and grand theft are like toxic drugs, where if you take this drug, it’s definitely going to damage your health, you get no benefit from it… Speed money are like painkillers, so they help you to relieve a headache by overcoming red tape, but they don’t help you grow muscles fast. They don’t help you to grow your business. And access money are the steroids of capitalism, and steroids, we know, help you grow muscle fast. They help you perform superhuman feats. But they come with serious side effects that accumulate over time, and they only erupt in the event of a meltdown.&lt;/p&gt;
+
+&lt;/blockquote&gt;
+
+        &lt;br&gt;&lt;br&gt;
+        &lt;hr&gt;
+        &lt;p&gt;
+          This post, &lt;em&gt;&lt;a href=&quot;http://island94.org/2021/11/types-of-corruption&quot;&gt;Types of Corruption&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;http://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
+          Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
+        &lt;/p&gt;
+      </description>
+        <pubDate>Sun, 21 Nov 2021 22:33:00 +0000</pubDate>
+        <link>http://island94.org/2021/11/types-of-corruption</link>
+        <guid isPermaLink="true">http://island94.org/2021/11/types-of-corruption</guid>
+        
+        
+      </item>
     
       
       
@@ -473,60 +504,6 @@ Ben and Angelina&lt;/p&gt;
         <pubDate>Wed, 26 May 2021 15:15:00 +0000</pubDate>
         <link>http://island94.org/2021/05/generic-advice-for-managers</link>
         <guid isPermaLink="true">http://island94.org/2021/05/generic-advice-for-managers</guid>
-        
-        
-      </item>
-    
-      
-      
-
-      <item>
-        <title>GoodJob 1.4: JRuby compatibility and more</title>
-        <description>&lt;p&gt;&lt;a href=&quot;https://github.com/bensheldon/good_job&quot;&gt;GoodJob&lt;/a&gt;  version 1.4 is released. GoodJob is a multithreaded, Postgres-based, ActiveJob backend for Ruby on Rails. If you’re new to GoodJob, read the  &lt;a href=&quot;https://island94.org/2020/07/introducing-goodjob-1-0&quot;&gt;introductory blog post&lt;/a&gt; .&lt;/p&gt;
-
-&lt;p&gt;GoodJob’s v1.4 release adds support for:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;JRuby&lt;/li&gt;
-  &lt;li&gt;MRI 3.0&lt;/li&gt;
-  &lt;li&gt;Rails 6.1&lt;/li&gt;
-  &lt;li&gt;Postgres 12+&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;And includes additional improvements to the Web Dashboard.&lt;/p&gt;
-
-&lt;p&gt;Version 1.4’s release comes three months after v1.3 and five months after GoodJob’s initial v1.0 release.&lt;/p&gt;
-
-&lt;h2 id=&quot;jruby-compatibility&quot;&gt;JRuby compatibility&lt;/h2&gt;
-&lt;p&gt;GoodJob 1.4 adds compatibility for Ruby on Rails applications running under JRuby. GoodJob’s multithreading is built on top of &lt;a href=&quot;https://github.com/ruby-concurrency/concurrent-ruby&quot;&gt;ConcurrentRuby&lt;/a&gt;, which provides consistent behavior and guarantees on all four of the main Ruby interpreters (MRI/CRuby, JRuby, Rubinius, TruffleRuby).&lt;/p&gt;
-
-&lt;p&gt;A minor downside of JRuby is that JRuby’s database adapter, &lt;a href=&quot;https://github.com/jruby/activerecord-jdbc-adapter&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;activerecord-jdbc-adapter&lt;/code&gt;&lt;/a&gt;, does not support Postgres LISTEN, which means GoodJob must rely on polling for new jobs under JRuby.&lt;/p&gt;
-
-&lt;h2 id=&quot;broader-compatibility-and-improvements&quot;&gt;Broader compatibility and improvements&lt;/h2&gt;
-&lt;p&gt;In addition to JRuby, GoodJob 1.4 adds compatibility for MRI 3.0, Rails 6.1, and Postgres 12+.&lt;/p&gt;
-
-&lt;p&gt;GoodJob 1.4 also includes improved filtering for the Web Dashboard,.&lt;/p&gt;
-
-&lt;h2 id=&quot;whats-next&quot;&gt;What’s next&lt;/h2&gt;
-&lt;p&gt;The next version of GoodJob will add support for daemonization.&lt;/p&gt;
-
-&lt;h2 id=&quot;contribute&quot;&gt;Contribute&lt;/h2&gt;
-&lt;p&gt;Code, documentation, and curiosity-based contributions are welcome! Check out the  &lt;a href=&quot;https://github.com/bensheldon/good_job/projects/1&quot;&gt;GoodJob Backlog&lt;/a&gt; , comment on or open a Github Issue, or make a Pull Request.&lt;/p&gt;
-
-&lt;p&gt;I also have a  &lt;a href=&quot;https://github.com/sponsors/bensheldon&quot;&gt;GitHub Sponsors Profile&lt;/a&gt;  if you’re able to support GoodJob and me monetarily. It helps me stay in touch and send you project updates too.&lt;/p&gt;
-
-        &lt;br&gt;&lt;br&gt;
-        &lt;hr&gt;
-        &lt;p&gt;
-          This post, &lt;em&gt;&lt;a href=&quot;http://island94.org/2021/01/goodjob-1-4-jruby-compatibility-and-more&quot;&gt;GoodJob 1.4: JRuby compatibility and more&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;http://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
-          Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
-        &lt;/p&gt;
-      </description>
-        <pubDate>Mon, 11 Jan 2021 04:12:00 +0000</pubDate>
-        <link>http://island94.org/2021/01/goodjob-1-4-jruby-compatibility-and-more</link>
-        <guid isPermaLink="true">http://island94.org/2021/01/goodjob-1-4-jruby-compatibility-and-more</guid>
-        
-          <category>GoodJob</category>
         
         
       </item>
