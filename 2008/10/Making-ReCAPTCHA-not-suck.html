@@ -84,9 +84,9 @@
 
 <p>One of ReCaptcha’s problems is that the words are sometimes hard to read. To deal with that, I used this tip from a Stumbleupon developer in the comments of this post entitled <a href="http://a.wholelottanothing.org/2008/03/27/recaptchas-quality-is-going-down/">ReCAPTCHA’s quality is going down? </a>: putting a link to reload—Recaptcha.reload()—the CAPTCHA in the explanation. To do that, I pasted this into the Challenge Description setting on the CAPTCHA admin page:</p>
 
-<p><code class="language-plaintext highlighter-rouge">
-To prevent spam, please type the two words you see below separated by a space. &lt;a href="javascript:Recaptcha.reload();" title="Get a new set of words"&gt;Can't read the words?&lt;/a&gt;
-</code></p>
+<p>`
+To prevent spam, please type the two words you see below separated by a space. <a href="javascript:Recaptcha.reload();" title="Get a new set of words">Can’t read the words?</a>
+`</p>
 
 <p>I also used CSS to hide the fieldset border box and title from the comments to cut down on the cruft too.</p>
 
