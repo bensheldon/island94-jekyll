@@ -41,6 +41,8 @@ jobs:
         uses: peter-evans/create-pull-request@v3
         with:
           title: "Add post: ${{ github.event.inputs.post_title }}"
+          body: ""
+          branch-suffix: timestamp
 
       - name: PR Details
         run: |
