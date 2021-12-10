@@ -5,7 +5,7 @@ published: true
 tags:
 ---
 
-A really powerful conversation from Reveal's ["Mississippi Goddam Chapter 6: Mississippi Justice" (46:10)](https://revealnews.org/podcast/mississippi-goddam-chapter-6-mississippi-justice/) between reports Al Letson and Jonathan Jones:
+A powerful conversation from Reveal's ["Mississippi Goddam Chapter 6: Mississippi Justice" (46:10)](https://revealnews.org/podcast/mississippi-goddam-chapter-6-mississippi-justice/) between reporters Al Letson and Jonathan Jones:
 
 <blockquote markdown="1">
 
