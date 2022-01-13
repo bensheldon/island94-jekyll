@@ -6,9 +6,44 @@
 </description>
     <link>http://island94.org/</link>
     <atom:link href="http://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 13 Jan 2022 16:14:29 +0000</pubDate>
-    <lastBuildDate>Thu, 13 Jan 2022 16:14:29 +0000</lastBuildDate>
+    <pubDate>Thu, 13 Jan 2022 22:58:40 +0000</pubDate>
+    <lastBuildDate>Thu, 13 Jan 2022 22:58:40 +0000</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
+    
+      
+      
+
+      <item>
+        <title>Javascript is a management problem</title>
+        <description>&lt;p&gt;I have been on board with low/no javascript for a long time for a variety of observed and experienced reasons, and grasping around for a succinct explanation. Baldur Bjarnason captures it in &lt;a href=&quot;https://www.baldurbjarnason.com/2021/single-page-app-morality-play/&quot;&gt;“The Single-Page-App Morality Play”&lt;/a&gt;:&lt;/p&gt;
+
+&lt;blockquote&gt;
+
+  &lt;p&gt;&lt;em&gt;The problem is management.&lt;/em&gt;&lt;/p&gt;
+
+  &lt;p&gt;It is a management problem. Truly.&lt;/p&gt;
+
+  &lt;p&gt;The Multi-Page-App forces the team to narrow the scope to a level they can handle. It puts a hard limit on their technological aspirations. Mandating a traditional Multi-Page-App under the auspices of performance, accessibility, or Search-Engine-Optimisation is a face-saving way to force the hand of management to be more realistic about what their teams can accomplish. When we can accomplish the same by advocating for a specific Single-Page-App toolkit or framework, that’s what most of us nominally on the ‘Anti’ side do. I regularly advocate for Svelte when I think the team can handle its long term implications in terms of complexity. (That might change as Svelte adds more features.)&lt;/p&gt;
+
+  &lt;p&gt;The problem with Single-Page-App frameworks, even the ones like SvelteKit who could claim to be more Hybrid than just SPA, is that they are very, very eager to enable ‘scale’ of any sort. Features, app size, code complexity, integrations, etc. They are desperate to make sure that you can keep using their framework if you become a mythical ‘unicorn’ startup and your project grows into the next Facebook. So they put a lot of hard work into making sure that there is no upper limit to the scope of the app you can make with them.&lt;/p&gt;
+
+  &lt;p&gt;Which, when they present it as ‘scale’, sounds like a good thing. But it’s absolutely a bad thing when you’re in an industry that’s as mismanaged as ours. We can’t handle complexity. Having no upper limit to it is extremely bad.&lt;/p&gt;
+
+&lt;/blockquote&gt;
+
+        &lt;br&gt;&lt;br&gt;
+        &lt;hr&gt;
+        &lt;p&gt;
+          This post, &lt;em&gt;&lt;a href=&quot;http://island94.org/2022/01/javascript-is-a-management-problem&quot;&gt;Javascript is a management problem&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;http://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
+          Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
+        &lt;/p&gt;
+      </description>
+        <pubDate>Tue, 11 Jan 2022 19:17:00 +0000</pubDate>
+        <link>http://island94.org/2022/01/javascript-is-a-management-problem</link>
+        <guid isPermaLink="true">http://island94.org/2022/01/javascript-is-a-management-problem</guid>
+        
+        
+      </item>
     
       
       
@@ -470,80 +505,6 @@ Ben and Angelina&lt;/p&gt;
         <guid isPermaLink="true">http://island94.org/2021/06/goodjob-updates-v1.5-v1.9</guid>
         
           <category>GoodJob</category>
-        
-        
-      </item>
-    
-      
-      
-
-      <item>
-        <title>Is SecureRandom.choose the wrong name for generating randomized strings with Ruby?</title>
-        <description>&lt;p&gt;I frequently need to generate a short, random string:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;I need a non-numeric, non-enumerable url ID. e.g. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;https://example.com/resources/TOKEN&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;I need to generate a short, human-readable random activation token and I don’t want it to contain similar-looking characters like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1I&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;O0&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;I want to do something fun with strings of emojis.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;I’ve been copy-pasting this snippet around for years:&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;random_string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;alphabet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:)&lt;/span&gt;
-  &lt;span class=&quot;no&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;alphabet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;chars&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;rand&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;alphabet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;chars&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;join&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;random_string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;alphabet: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;AaBbCc123&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;length: &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; 
-&lt;span class=&quot;c1&quot;&gt;# =&amp;gt; &quot;C113A11&quot;, &quot;Abcc3B2&quot;, &quot;33cabbC&quot;, etc.&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;random_string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;alphabet: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;😀😍🙃🤪😎&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;length: &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# =&amp;gt; &quot;😍😀😎&quot;, &quot;😀🤪🤪&quot;, &quot;🙃😎😀&quot;, etc.&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;The gems &lt;a href=&quot;https://github.com/norman/friendly_id&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;friendly_id&lt;/code&gt;&lt;/a&gt; and &lt;a href=&quot;https://github.com/ryanb/uniquify&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;uniquify&lt;/code&gt;&lt;/a&gt; can do this too.&lt;/p&gt;
-
-&lt;p&gt;There was recently a discussion on &lt;a href=&quot;https://www.rubyonrails.link/&quot;&gt;Ruby on Rails Link Slack&lt;/a&gt; about generating random strings, and I went looking to see if there was a better implementation.&lt;/p&gt;
-
-&lt;p&gt;I found &lt;a href=&quot;https://github.com/ruby/ruby/blob/029169bc5b45d8ec783c19eaf713395b7983d16a/lib/securerandom.rb#L247-L291&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SecureRandom.choose&lt;/code&gt;&lt;/a&gt;, which is built into the Ruby standard library, and as part of the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SecureRandom&lt;/code&gt; module, should be fairly trustworthy. Looks perfect:&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# SecureRandom.choose generates a string that randomly draws from a source array of characters.&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# The argument _source_ specifies the array of characters from which to generate the string.&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# The argument _n_ specifies the length, in characters, of the string to be generated.&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# The result may contain whatever characters are in the source array.&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#   require 'securerandom'&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#   SecureRandom.choose([*'l'..'r'], 16) #=&amp;gt; &quot;lmrqpoonmmlqlron&quot;&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#   SecureRandom.choose([*'0'..'9'], 5)  #=&amp;gt; &quot;27309&quot;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;…but there is a problem: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SecureRandom.choose&lt;/code&gt; is a private method. The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;choose&lt;/code&gt; method is used to implement the public &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SecureRandom.alphanumeric&lt;/code&gt; method, but is not itself exposed publicly. I went back to the initial &lt;a href=&quot;https://bugs.ruby-lang.org/issues/10849&quot;&gt;feature request&lt;/a&gt; and found the reason:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;I feel the method name, SecureRandom.choose, doesn’t represent the behavior well.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Fair enough. Until the name is figured out, I’ll still be using it:&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'securerandom'&lt;/span&gt;
-
-&lt;span class=&quot;no&quot;&gt;SecureRandom&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;send&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:choose&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;😀😍🙃🤪😎&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;chars&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# =&amp;gt; &quot;😍😎😍&quot;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-
-        &lt;br&gt;&lt;br&gt;
-        &lt;hr&gt;
-        &lt;p&gt;
-          This post, &lt;em&gt;&lt;a href=&quot;http://island94.org/2021/05/is-securerandom.choose-the-wrong-name-for-generating-randomized-strings-with-ruby&quot;&gt;Is SecureRandom.choose the wrong name for generating randomized strings with Ruby?&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;http://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
-          Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
-        &lt;/p&gt;
-      </description>
-        <pubDate>Thu, 27 May 2021 15:37:00 +0000</pubDate>
-        <link>http://island94.org/2021/05/is-securerandom.choose-the-wrong-name-for-generating-randomized-strings-with-ruby</link>
-        <guid isPermaLink="true">http://island94.org/2021/05/is-securerandom.choose-the-wrong-name-for-generating-randomized-strings-with-ruby</guid>
         
         
       </item>
