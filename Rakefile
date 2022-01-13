@@ -16,6 +16,12 @@ task :new_post, [:title, :body] do |_t, args|
     ---
 
     #{body}
+    
+    <blockquote markdown="1">
+    
+    
+    
+    </blockquote>
   MARKDOWN
 
   slug = title.gsub(' ','-').downcase
