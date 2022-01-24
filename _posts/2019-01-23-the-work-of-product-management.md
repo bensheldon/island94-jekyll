@@ -3,9 +3,7 @@ date: '2019-01-23 07:45 -0800'
 published: true
 title: The work of product management
 ---
-From _[Escaping the Build Trap](https://web.archive.org/web/20190327231139/https://www.amazon.com/Escaping-Build-Trap-Effective-Management/dp/149197379X)
-
-_ by Melissa Perri:
+From _[Escaping the Build Trap](https://web.archive.org/web/20190327231139/https://www.amazon.com/Escaping-Build-Trap-Effective-Management/dp/149197379X)_ by Melissa Perri:
 
 <blockquote markdown="1">
   
