@@ -5,7 +5,7 @@ published: true
 tags:
 ---
 
-I learned that ActiveRecord would roll back transactions when inside an aborted theead. It's implemented right here, in ActiveRecord's [connection_adapters/abstract/transaction.rb](https://github.com/rails/rails/blob/3f13828392a4aea81184fa873c47cb2e53d295e9/activerecord/lib/active_record/connection_adapters/abstract/transaction.rb#L336-L342):
+I learned that ActiveRecord would roll back transactions when inside an aborted thread. It's implemented right here, in ActiveRecord's [connection_adapters/abstract/transaction.rb](https://github.com/rails/rails/blob/3f13828392a4aea81184fa873c47cb2e53d295e9/activerecord/lib/active_record/connection_adapters/abstract/transaction.rb#L336-L342):
 
 ```ruby
 def within_new_transaction
