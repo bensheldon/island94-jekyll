@@ -47,7 +47,7 @@ Huh. I did some Googling and found some [references to rollback behavior](https:
 I was still confused because I had never seen this behavior in GoodJob when building out the feature. But after much head-scratching, I realized that I hadn't followed [GoodJob's README instructions for integrating with Puma](https://github.com/bensheldon/good_job#execute-jobs-async--in-process), which ensures that GoodJob is gracefully shutdown before Ruby aborts threads at exit:
 
 ```ruby
-config/puma.rb
+# config/puma.rb
 
 on_worker_shutdown do
   GoodJob.shutdown
