@@ -6,8 +6,8 @@
 </description>
     <link>http://island94.org/</link>
     <atom:link href="http://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 08 Feb 2022 05:18:38 +0000</pubDate>
-    <lastBuildDate>Tue, 08 Feb 2022 05:18:38 +0000</lastBuildDate>
+    <pubDate>Tue, 08 Feb 2022 15:57:28 +0000</pubDate>
+    <lastBuildDate>Tue, 08 Feb 2022 15:57:28 +0000</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       
@@ -15,7 +15,7 @@
 
       <item>
         <title>TIL: ActiveRecord transactions roll back on Ruby Thread abort</title>
-        <description>&lt;p&gt;I learned that ActiveRecord would roll back transactions when inside an aborted theead. It’s implemented right here, in ActiveRecord’s &lt;a href=&quot;https://github.com/rails/rails/blob/3f13828392a4aea81184fa873c47cb2e53d295e9/activerecord/lib/active_record/connection_adapters/abstract/transaction.rb#L336-L342&quot;&gt;connection_adapters/abstract/transaction.rb&lt;/a&gt;:&lt;/p&gt;
+        <description>&lt;p&gt;I learned that ActiveRecord would roll back transactions when inside an aborted thread. It’s implemented right here, in ActiveRecord’s &lt;a href=&quot;https://github.com/rails/rails/blob/3f13828392a4aea81184fa873c47cb2e53d295e9/activerecord/lib/active_record/connection_adapters/abstract/transaction.rb#L336-L342&quot;&gt;connection_adapters/abstract/transaction.rb&lt;/a&gt;:&lt;/p&gt;
 
 &lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;within_new_transaction&lt;/span&gt;
   &lt;span class=&quot;c1&quot;&gt;# ...&lt;/span&gt;

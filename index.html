@@ -84,7 +84,7 @@
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p>I learned that ActiveRecord would roll back transactions when inside an aborted theead. It’s implemented right here, in ActiveRecord’s <a href="https://github.com/rails/rails/blob/3f13828392a4aea81184fa873c47cb2e53d295e9/activerecord/lib/active_record/connection_adapters/abstract/transaction.rb#L336-L342">connection_adapters/abstract/transaction.rb</a>:</p>
+    <p>I learned that ActiveRecord would roll back transactions when inside an aborted thread. It’s implemented right here, in ActiveRecord’s <a href="https://github.com/rails/rails/blob/3f13828392a4aea81184fa873c47cb2e53d295e9/activerecord/lib/active_record/connection_adapters/abstract/transaction.rb#L336-L342">connection_adapters/abstract/transaction.rb</a>:</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">within_new_transaction</span>
   <span class="c1"># ...</span>
