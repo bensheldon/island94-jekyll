@@ -6,8 +6,8 @@
 </description>
     <link>http://island94.org/</link>
     <atom:link href="http://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 08 Feb 2022 15:57:28 +0000</pubDate>
-    <lastBuildDate>Tue, 08 Feb 2022 15:57:28 +0000</lastBuildDate>
+    <pubDate>Tue, 08 Feb 2022 16:01:00 +0000</pubDate>
+    <lastBuildDate>Tue, 08 Feb 2022 16:01:00 +0000</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       
@@ -53,7 +53,7 @@ TRANSACTION (0.1ms)  ROLLBACK
 
 &lt;p&gt;I was still confused because I had never seen this behavior in GoodJob when building out the feature. But after much head-scratching, I realized that I hadn’t followed &lt;a href=&quot;https://github.com/bensheldon/good_job#execute-jobs-async--in-process&quot;&gt;GoodJob’s README instructions for integrating with Puma&lt;/a&gt;, which ensures that GoodJob is gracefully shutdown before Ruby aborts threads at exit:&lt;/p&gt;
 
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;puma&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;rb&lt;/span&gt;
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# config/puma.rb&lt;/span&gt;
 
 &lt;span class=&quot;n&quot;&gt;on_worker_shutdown&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
   &lt;span class=&quot;no&quot;&gt;GoodJob&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;shutdown&lt;/span&gt;

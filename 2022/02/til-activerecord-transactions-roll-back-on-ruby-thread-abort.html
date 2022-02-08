@@ -118,7 +118,7 @@ TRANSACTION (0.1ms)  ROLLBACK
 
 <p>I was still confused because I had never seen this behavior in GoodJob when building out the feature. But after much head-scratching, I realized that I hadn’t followed <a href="https://github.com/bensheldon/good_job#execute-jobs-async--in-process">GoodJob’s README instructions for integrating with Puma</a>, which ensures that GoodJob is gracefully shutdown before Ruby aborts threads at exit:</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">config</span><span class="o">/</span><span class="n">puma</span><span class="p">.</span><span class="nf">rb</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># config/puma.rb</span>
 
 <span class="n">on_worker_shutdown</span> <span class="k">do</span>
   <span class="no">GoodJob</span><span class="p">.</span><span class="nf">shutdown</span>
