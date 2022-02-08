@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>TIL: ActiveRecord transactions roll back on Ruby Thread abort</title>
+  <meta name="description" content="I learned that ActiveRecord would roll back transactions when inside an aborted theead. It’s implemented right here, in ActiveRecord’s connection_adapters/ab...">
+
+  <link rel="stylesheet" href="/assets/stylesheets/main.css">
+  <script src="/assets/javascripts/main.js"></script>
+
+  <link rel="canonical" href="http://island94.org/2022/02/til-activerecord-transactions-roll-back-on-ruby-thread-abort">
+  <link rel="alternate" type="application/rss+xml" title="Island94.org" href="http://island94.org/feed.xml">
+
+  
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-870047-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+</head>
+
+
+  <body>
+
+    <nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-links" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">Island94.org</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="navbar-collapse-links">
+      <form id="search" class="navbar-form navbar-right" action="https://google.com/search" method="get">
+        <input class="form-control" name="q" type="hidden" value="site:island94.org">
+        <input class="search form-control" role="search" name="q" placeholder="Search with Google" aria-label="Search with Google" results="0" type="text">
+        <button class="sr-only" type="submit">Search</button>
+      </form>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li><a class="page-link" href="/about/">About</a></li>
+        <li><a class="page-link" href="/archives/">Archives</a></li>
+        <li><a class="page-link" href="/tags/">Tags</a></li>
+        <li><a href="/feed.xml"><span class="fa fa-rss"></span> RSS</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"
+          
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2022/02/til-activerecord-transactions-roll-back-on-ruby-thread-abort">TIL: ActiveRecord transactions roll back on Ruby Thread abort</a>
+    </h1>
+    <p class="post-meta text-muted">
+      <time datetime="2022-02-08T03:54:00+00:00" itemprop="datePublished">February 8, 2022</time>
+      
+      
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>I learned that ActiveRecord would roll back transactions when inside an aborted theead. It’s implemented right here, in ActiveRecord’s <a href="https://github.com/rails/rails/blob/3f13828392a4aea81184fa873c47cb2e53d295e9/activerecord/lib/active_record/connection_adapters/abstract/transaction.rb#L336-L342">connection_adapters/abstract/transaction.rb</a>:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">within_new_transaction</span>
+  <span class="c1"># ...</span>
+<span class="k">ensure</span>
+  <span class="c1"># ...</span>
+  <span class="k">elsif</span> <span class="no">Thread</span><span class="p">.</span><span class="nf">current</span><span class="p">.</span><span class="nf">status</span> <span class="o">==</span> <span class="s2">"aborting"</span> <span class="o">||</span> <span class="p">(</span><span class="o">!</span><span class="n">completed</span> <span class="o">&amp;&amp;</span> <span class="n">transaction</span><span class="p">.</span><span class="nf">written</span><span class="p">)</span>
+    <span class="c1"># The transaction is still open but the block returned earlier.</span>
+    <span class="c1">#</span>
+    <span class="c1"># The block could return early because of a timeout or because the thread is aborting,</span>
+    <span class="c1"># so we are rolling back to make sure the timeout didn't caused the transaction to be</span>
+    <span class="c1"># committed incompletely.</span>
+    <span class="n">rollback_transaction</span>
+  <span class="c1"># ...</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>How did I end up here? I recently implemented a feature in GoodJob to track active processes in the database using ActiveRecord. These database queries occur in a background thread where I also use the same database connection for GoodJob’s Postgres LISTENing. It looks something like this (pseudocode):</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">Concurrent</span><span class="o">::</span><span class="no">Future</span><span class="p">.</span><span class="nf">execute</span> <span class="k">do</span>
+  <span class="n">process</span> <span class="o">=</span> <span class="no">Process</span><span class="p">.</span><span class="nf">create</span>
+  <span class="kp">loop</span> <span class="p">{</span> <span class="n">listen_for_notify</span> <span class="p">}</span>
+<span class="k">ensure</span>
+  <span class="n">process</span><span class="o">&amp;</span><span class="p">.</span><span class="nf">destroy!</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>While working on one of my Rails projects that use GoodJob (https://dayoftheshirt.com), I noticed that Process records were not cleaned up as I expected running when GoodJob async inside of Rails Server/Puma locally and exiting. Inspecting the logs, I saw this:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>TRANSACTION (0.1ms)  BEGIN
+GoodJob::Process Destroy (0.3ms)  DELETE FROM "good_job_processes" WHERE "good_job_processes"."id" = $1  [["id", "320de861-4c84-4f8c-ba3e-2e08a8ef0469"]]
+TRANSACTION (0.1ms)  ROLLBACK
+</code></pre></div></div>
+
+<p>Huh. I did some Googling and found some <a href="https://github.com/rails/rails/pull/40704#discussion_r532007113">references to rollback behavior</a>, and asked in the Rails Link Slack, but nobody knew. This caused me to dig in ActiveRecord, where I found the behavior implemented.</p>
+
+<p>I was still confused because I had never seen this behavior in GoodJob when building out the feature. But after much head-scratching, I realized that I hadn’t followed <a href="https://github.com/bensheldon/good_job#execute-jobs-async--in-process">GoodJob’s README instructions for integrating with Puma</a>, which ensures that GoodJob is gracefully shutdown before Ruby aborts threads at exit:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">config</span><span class="o">/</span><span class="n">puma</span><span class="p">.</span><span class="nf">rb</span>
+
+<span class="n">on_worker_shutdown</span> <span class="k">do</span>
+  <span class="no">GoodJob</span><span class="p">.</span><span class="nf">shutdown</span>
+<span class="k">end</span>
+
+<span class="no">MAIN_PID</span> <span class="o">=</span> <span class="no">Process</span><span class="p">.</span><span class="nf">pid</span>
+<span class="nb">at_exit</span> <span class="k">do</span>
+  <span class="no">GoodJob</span><span class="p">.</span><span class="nf">shutdown</span> <span class="k">if</span> <span class="no">Process</span><span class="p">.</span><span class="nf">pid</span> <span class="o">==</span> <span class="no">MAIN_PID</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>Mystery solved.</p>
+
+  </div>
+
+</article>
+
+
+<hr>
+
+<div class="well">
+  <p>
+    Discuss this with me on <a href="https://twitter.com/bensheldon"><span class="fa fa-twitter"></span> Twitter</a>
+    or suggest a <a href="https://github.com/bensheldon/island94-jekyll/blob/main/_posts/2022-02-07-til-activerecord-transactions-roll-back-on-ruby-thread-abort.md"><span class="fa fa-github-alt"></span> change</a>.
+  </p>
+
+  <p>Related Posts:</p>
+
+  <ul>
+    
+    <li><a href="/2020/07/introducing-goodjob-1-0">Introducing GoodJob 1.0, a new Postgres-based, multithreaded, ActiveJob backend for Ruby on Rails</a></li>
+    
+    <li><a href="/2012/12/A-gentle-conceptual-introduction-to-Nodejs.html">A gentle & conceptual introduction to Node.js</a></li>
+    
+    <li><a href="/2007/08/Geekout-Video-on-Maps-for-Cable-Access-TV.html">Geekout: Video on Maps for Cable Access TV</a></li>
+    
+    <li><a href="/2021/10/til-detecting-block-returns-in-ruby">TIL: Detecting block returns in Ruby</a></li>
+    
+    <li><a href="/2010/09/Making-language-of-meaning.html">Making language of meaning</a></li>
+    
+  </ul>
+</div>
+
+
+        </div>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+</footer>
+
+
+  </body>
+
+</html>
