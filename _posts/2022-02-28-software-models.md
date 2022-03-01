@@ -7,7 +7,7 @@ tags:
 
 Software design has been in my thoughts lately. Particularly _agile_ software design, in which the game is to re-design working software in response to changing business requirements in response to learnings from working software.
 
-1. I was recently talking to a colleague about what I call "Strict" Technical Debt, which is how Ward Cunningham originally defined it (not YAGNI or Skimping [according to Ron Jeffries](https://ronjeffries.com/articles/019-01ff/iter-yagni-skimp/)). [Dave Rupert pulls out](https://daverupert.com/2020/11/technical-debt-as-a-lack-of-understanding/) the following quote from Ward Cunningham:
+1. I was recently talking to a colleague about what I call "Strict" Technical Debt, which is how Ward Cunningham originally defined it (not YAGNI or Skimping [according to Ron Jeffries](https://ronjeffries.com/articles/019-01ff/iter-yagni-skimp/)). [Dave Rupert pulls out](https://daverupert.com/2020/11/technical-debt-as-a-lack-of-understanding/) the following quote from Ward Cunningham, as "Technical Debt as a lack of understanding":
 
 > “If you develop a program for a long period of time by only adding features but never reorganizing it to reflect your understanding of those features, then eventually that program simply does not contain any understanding and all efforts to work on it take longer and longer.” 
 
