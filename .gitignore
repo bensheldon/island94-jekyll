@@ -4,3 +4,5 @@ _site
 /vendor
 .DS_Store
 .jekyll-metadata
+.jekyll-cache
+Brewfile.lock.json
