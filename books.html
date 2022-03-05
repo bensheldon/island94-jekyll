@@ -1,0 +1,23 @@
+---
+layout: page
+title: Books
+permalink: /books/
+---
+
+{% for book in site.books %}
+  <h2>
+    <a class="post-link" href="{{ book.url | prepend: site.baseurl }}">
+      "{{ book.title }}" by {{ book.author }}
+    </a>
+  </h2>
+  <p>
+    {% if book.date %}<time datetime="{{ book.date | date_to_xmlschema }}" itemprop="datePublished">{{ book.date | date: "%B %-d, %Y" }}</time>{% endif %}
+    |
+    {% for star in (1..book.rating) %}★{% endfor %}
+  </p>
+
+  {{ book.content | markdownify }}
+
+  <hr>
+{% endfor %}
+

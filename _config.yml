@@ -32,6 +32,12 @@ defaults:
     values:
       layout: "post"
 
+collections:
+  books:
+    output: true
+    layout: book
+    permalink: "/:year/:month/:title"
+
 exclude:
   - Rakefile
   - scripts
