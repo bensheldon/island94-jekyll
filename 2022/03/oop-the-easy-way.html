@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>OOP the easy way</title>
+  <meta name="description" content="I came to this book with certain hopes that were left unfulfilled, but I read it in a few hours and enjoyed it.">
+
+  <link rel="stylesheet" href="/assets/stylesheets/main.css">
+  <script src="/assets/javascripts/main.js"></script>
+
+  <link rel="canonical" href="http://island94.org/2022/03/oop-the-easy-way">
+  <link rel="alternate" type="application/rss+xml" title="Island94.org" href="http://island94.org/feed.xml">
+
+  
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-870047-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+</head>
+
+
+  <body>
+
+    <nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-links" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">Island94.org</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="navbar-collapse-links">
+      <form id="search" class="navbar-form navbar-right" action="https://google.com/search" method="get">
+        <input class="form-control" name="q" type="hidden" value="site:island94.org">
+        <input class="search form-control" role="search" name="q" placeholder="Search with Google" aria-label="Search with Google" results="0" type="text">
+        <button class="sr-only" type="submit">Search</button>
+      </form>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li><a class="page-link" href="/about/">About</a></li>
+        <li><a class="page-link" href="/archives/">Archives</a></li>
+        <li><a class="page-link" href="/books/">Books</a></li>
+        <li><a class="page-link" href="/tags/">Tags</a></li>
+        <li><a href="/feed.xml"><span class="fa fa-rss"></span> RSS</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"
+          
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2022/03/oop-the-easy-way">
+        "OOP the easy way" by Graham Lee
+      </a>
+    </h1>
+    <p>
+      <time datetime="2022-03-05T17:18:00+00:00" itemprop="datePublished">March 5, 2022</time>
+      |
+      ★★★
+    </p>
+  </header>
+
+
+
+  <div class="post-content" itemprop="articleBody">
+    <p>I came to this book with certain hopes that were left unfulfilled, but I read it in a few hours and enjoyed it.</p>
+
+<p>Fulfilled: cuts to the core that Object Oriented Programming conceptually starts with sending messages to objects, and the internals of how those objects <em>respond</em> (methods, delegation, class hierarchies, etc.) is an implementation detail best deferred/ignored as long as possible. This was something I already agreed with in a sort of stubborn System 2 Thought Process (“no brain, think about it the other way”) when designing code, and it was lovely to have that reinforced as a thing to do.</p>
+
+<p>Unfulfilled: The human ergonomic benefits and <em>how to think</em> about objects in a deeper way than arguing the importance of the left part of the sentence (message sending) over the right (object/language implementation). This hope (for a better mental bicycle than “no brain…” ) came from the introduction:</p>
+
+<blockquote>
+  <p>Because OOP is supposed to be a paradigm, a pattern of thought, and if we want to adopt that paradigm then we have to see how different tools or techniques support, damage, or modify our thoughts.</p>
+</blockquote>
+
+<p>And the hope was reinforced by enjoyable ripostes like this:</p>
+
+<blockquote>
+  <p>A contributor to this objects-as-data approach seems to have been the attempt to square object-oriented programming with “Software Engineering”, a field of interest launched in 1968 that aimed to bring product design and construction skills to computer scientists by having very clever computer scientists think about what product design and construction might be like and not ask anybody.</p>
+</blockquote>
+
+<p>Yeah!</p>
+
+<p>An argument that I wanted explored more is that the aligning the way we think about the user-machine interface with the way we think about the programmer-implementation interface is ergonomic (building the muscles, deepening the mental groove):</p>
+
+<blockquote>
+  <p>It means relinquishing the traditional process-centered paradigm with the programmer-machine relationship at the center of the software universe in favor of a product-centered paradigm with the producer-consumer relationship at the center.</p>
+</blockquote>
+
+<p>And…</p>
+
+<blockquote>
+  <p>Behaviour-Driven Development marries the technical process of Test-Driven Development with the design concept of the ubiquitous language, by encouraging developers to collaborate with the rest of their team on defining statements of desired behaviour in the ubiquitous language and using those to drive the design and implementation of the objects in the solution domain. In that way, the statement of what the Goal Donor needs is also the statement of sufficiency and correctness - i.e. the description of the problem that needs solving is also the description of a working solution. This ends up looking tautological enough not to be surprising.</p>
+
+  <p>… The theme running through the above is that sufficiency is sufficient The theme running through the above is that sufficiency is sufficient. When an object has been identified as part of the solution to a problem, and contributes to that solution to the extent needed (even if for now that extent is “demonstrate that a solution is viable”), then it is ready to use. There is no <em>need</em> to situate the object in a taxonomy of inherited classes - but if that helps to solve the problem, then by all means do it. There is no <em>need</em> to show that various objects demonstrate a strict subtype relationship and can be used interchangeably, unless solving your problem requires that they be used interchangeably. There is no <em>need</em> for an object to make its data available to the rest of the program, unless the problem can be better solved (or cheaper solved, or some other desirable property) by doing so.</p>
+
+  <p>… Some amount of planning is always helpful, whether or not the plan turns out to be. The goal at every turn should be to understand how we get to <em>what we now want</em> from <em>what we have now</em>, not to <em>already have</em> that which <em>we will probably want sometime</em>. Maybe the easiest thing to do is to start afresh: so do that.</p>
+</blockquote>
+
+<p>I agree with a “just get on with it” argument <em>and</em> I’m seeking a deeper practice of metacognition than powering through.</p>
+
+<p>By the end, <em>OOP the easy way</em> argued for the need to <em>start</em> seeing if the true paradigm of OOP is actually any good, and that left me back where I started before the book. I wished it had done that work of “asking anybody” already.</p>
+
+<p>Hopes and wishes aside, it was an enjoyable technical read, mainly because it’s dishy, referring and discarding concepts by their progenitors name. This could be criticized as vagueness if one is not invested in learning the personalities involved (for example, a concept is breezily described as “Meyer-ish”), and that kept me moving forward.</p>
+
+  </div>
+
+</article>
+
+<hr>
+
+        </div>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+</footer>
+
+
+  </body>
+
+</html>
