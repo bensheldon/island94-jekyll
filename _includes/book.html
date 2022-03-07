@@ -3,17 +3,17 @@
 
     <h1 class="post-title" itemprop="name headline">
       <a class="post-link" href="{{ book.url | prepend: site.baseurl }}">
-        "{{ book.title }}" by {{ book.author }}
+        I read "{{ book.title }}" by {{ book.author }}
       </a>
     </h1>
     <p>
       {% if book.date %}<time datetime="{{ book.date | date_to_xmlschema }}" itemprop="datePublished">{{ book.date | date: "%B %-d, %Y" }}</time>{% endif %}
       |
+      Review
+      |
       {% for star in (1..book.rating) %}★{% endfor %}
     </p>
   </header>
-
-
 
   <div class="post-content" itemprop="articleBody">
     {{ book.content | markdownify }}
