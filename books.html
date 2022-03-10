@@ -1,23 +1,31 @@
 ---
 layout: page
-title: Books
+title: Books I've read
 permalink: /books/
 ---
+<table class="table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Read</th>
+      <th>Rating</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for book in site.books %}
+      <tr>
+        <td>
+          <a class="post-link" href="{{ book.url | prepend: site.baseurl }}">
+            {{ book.title }}
+          </a>
+        </td>
+        <td>{{ book.author }}</td>
+        <td><time>{{ book.date | date: "%Y-%m-%d" }}</time></td>
+        <td>{% for star in (1..book.rating) %}★{% endfor %}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
 
-{% for book in site.books %}
-  <h2>
-    <a class="post-link" href="{{ book.url | prepend: site.baseurl }}">
-      "{{ book.title }}" by {{ book.author }}
-    </a>
-  </h2>
-  <p>
-    {% if book.date %}<time datetime="{{ book.date | date_to_xmlschema }}" itemprop="datePublished">{{ book.date | date: "%B %-d, %Y" }}</time>{% endif %}
-    |
-    {% for star in (1..book.rating) %}★{% endfor %}
-  </p>
-
-  {{ book.content | markdownify }}
-
-  <hr>
-{% endfor %}
 

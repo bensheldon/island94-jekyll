@@ -1,0 +1,34 @@
+---
+layout: null
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>{{ site.title | xml_escape }} Book Reviews</title>
+    <description>{{ site.description | xml_escape }}</description>
+    <link>{{ "/books" | prepend: site.baseurl | prepend: site.url }}</link>
+    <atom:link href="{{ "/books.xml" | prepend: site.baseurl | prepend: site.url }}" rel="self" type="application/rss+xml"/>
+    <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
+    <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
+    <generator>Jekyll v{{ jekyll.version }}</generator>
+    {% for book in site.books limit:10 %}
+      {% assign link_url = post.url | prepend: site.baseurl | prepend: site.url %}
+      {% capture post_footer %}
+        <br><br>
+        <hr>
+        <p>
+          This book review for <em><a href="{{link_url}}">{{book.title}}</a></em>, is published on <a href="{{site.url | append: site.baseurl}}">{{ site.title }}</a>.
+          Tweet me at <a href="https://twitter.com/{{site.twitter_username}}">@{{site.twitter_username}}</a> to discuss it.
+        </p>
+      {% endcapture %}
+
+      <item>
+        <title>{{ "I read " | append: book.title | append: " by " | append: book.author | xml_escape }}</title>
+        <description>{{ book.content | markdownify | append: post_footer | xml_escape }}</description>
+        <pubDate>{{ book.date | date_to_rfc822 }}</pubDate>
+        <link>{{ link_url }}</link>
+        <guid isPermaLink="true">{{ link_url }}</guid>
+      </item>
+    {% endfor %}
+  </channel>
+</rss>
