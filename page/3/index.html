@@ -94,6 +94,39 @@
 
   <header class="post-header">
     <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2020/11/dying-on-management-mountain">Dying on management mountain</a>
+    </h1>
+    <p class="post-meta text-muted">
+      <time datetime="2020-11-03T20:59:00+00:00" itemprop="datePublished">November 3, 2020</time>
+      
+      
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>From <em>First, break all the rules</em>:</p>
+
+<blockquote>
+  <p>Managers were encouraged to focus on complex initiatives like reengineering or learning organizations, without spending time on the basics. The stages on the mountain reveal that if the employee doesn’t know what is expected of him as an individual (Base Camp), then you shouldn’t ask him to get excited about playing on a team (Camp 2). If he feels as though he is in the wrong role (Camp 1), don’t pander to him by telling him how important his innovative ideas are to the company’s reengineering efforts (Camp 3). If he doesn’t know what his manager thinks of him as an individual (Camp 1), don’t confuse him by challenging him to become part of the new “learning organization” (Camp 3). Don’t helicopter in at seventeen thousand feet, because sooner or later you and your people will die on the mountain.</p>
+</blockquote>
+
+<p>And a quote about performing the performance:</p>
+
+<blockquote>
+  <p>A manager has got to remember that he is on stage every day. His people are watching him. Everything he does, everything he says, and the way he says it, sends off clues to his employees. These clues affect performance. So never forget you are on that stage.</p>
+</blockquote>
+
+  </div>
+
+</article>
+
+
+    <hr>
+  
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
       <a class="post-link" href="/2020/11/triangular-eating">Triangular eating</a>
     </h1>
     <p class="post-meta text-muted">
@@ -485,72 +518,6 @@
 <p>This survey response led to the vendor’s account executive making a frantic and fearful call to our leadership team. The blowback of that led to my coworkers’ termination. (This was not my colleague’s first warning; my team and I were also targets of their trolling and bullying.)</p>
 
 <p>This is a funny story to reflect on. And it’s terribly toxic the multitude of things engineers will despise, wear on their sleeve, and eagerly share at the slightest opportunity, myself included.</p>
-
-  </div>
-
-</article>
-
-
-    <hr>
-  
-    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-
-  <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">
-      <a class="post-link" href="/2020/08/goodjob-v1-2-multithreaded-queue-isolation-and-listen-notify">GoodJob v1.2: Multithreaded queue isolation and LISTEN/NOTIFY</a>
-    </h1>
-    <p class="post-meta text-muted">
-      <time datetime="2020-08-20T03:51:00+00:00" itemprop="datePublished">August 20, 2020</time>
-      
-       • Tagged GoodJob
-    </p>
-  </header>
-
-  <div class="post-content" itemprop="articleBody">
-    <p><a href="https://github.com/bensheldon/good_job">GoodJob</a> version 1.2 has been released. GoodJob is a multithreaded, Postgres-based, ActiveJob backend for Ruby on Rails. If you’re new to GoodJob, read the <a href="https://island94.org/2020/07/introducing-goodjob-1-0">introductory blog post</a>.</p>
-
-<p>GoodJob’s v1.2 release adds  multithreaded queue isolation for easier congestion management, and usage of Postgres LISTEN/NOTIFY to greatly reduce queue latency.</p>
-
-<p>Version 1.2 comes out 2 weeks after GoodJob v1.1, and 5 weeks after GoodJob’s initial v1.0 release.</p>
-
-<h2 id="multithreaded-queue-isolation">Multithreaded queue isolation</h2>
-
-<p>GoodJob v1.2 adds multithreaded queue isolation for easier congestion management. Queue isolation ensures that slow, long-running jobs do not block the execution of higher priority jobs.</p>
-
-<p>Achieving queue isolation has always been possible by running multiple processes, but GoodJob v1.2 makes it easy to configure multiple isolated thread-pools within a single process.</p>
-
-<p>For example, to create a pool of 2 threads working from the <code class="language-plaintext highlighter-rouge">mice</code> queue, and 1 thread working from the <code class="language-plaintext highlighter-rouge">elephants</code> queue:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>bundle <span class="nb">exec </span>good_job <span class="nt">--queues</span><span class="o">=</span><span class="s2">"mice:2;elephants:1"</span>
-</code></pre></div></div>
-
-<p>Or via an environment variable:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ GOOD_JOB_QUEUS</span><span class="o">=</span><span class="s2">"mice:2;elephants:1"</span> bundle <span class="nb">exec </span>good_job
-</code></pre></div></div>
-
-<p>Additional examples and syntax:</p>
-
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">--queues=*:2;mice,sparrows:1</code> will create two thread-pools, one running jobs on any queue, and another dedicated to <code class="language-plaintext highlighter-rouge">mice</code> and <code class="language-plaintext highlighter-rouge">sparrows</code> queued jobs.</li>
-  <li><code class="language-plaintext highlighter-rouge">--queues=-elephants,whales:2;elephants,whales:1</code> will create two thread-pools, one running jobs from any queue <em>except</em> the <code class="language-plaintext highlighter-rouge">elephants</code> or <code class="language-plaintext highlighter-rouge">whales</code>, and another dedicated to <code class="language-plaintext highlighter-rouge">elephants</code> and <code class="language-plaintext highlighter-rouge">whales</code> queued jobs.</li>
-</ul>
-
-<h2 id="listennotify">LISTEN/NOTIFY</h2>
-
-<p>GoodJob now uses Postgres LISTEN/NOTIFY to push newly enqueued jobs for immediate execution.  LISTEN/NOTIFY greatly reduces queue latency, the time between when a job is enqueued and execution begins.</p>
-
-<p>LISTEN/NOTIFY works alongside GoodJob’s polling mechanism.  Together, jobs queued for immediate execution (<code class="language-plaintext highlighter-rouge">ExampleJob.perform_later</code>) are executed immediately, while future scheduled jobs (<code class="language-plaintext highlighter-rouge">ExampleJob.set(wait: 1.hour).perform_later</code>) are executed at (or near) their set time.</p>
-
-<h2 id="upcoming">Upcoming</h2>
-
-<p>In the next release, v1.3, I plan to include a simple web dashboard for inspecting job execution performance, and focus on improving GoodJob’s documentation.</p>
-
-<h2 id="contribute">Contribute</h2>
-
-<p>Code, documentation, and curiousity-based contributions are welcome! Check out the <a href="https://github.com/bensheldon/good_job/projects/1">GoodJob Backlog</a>, comment on or open a Github Issue, or make a Pull Request.</p>
-
-<p>I’ve also set up a <a href="https://github.com/sponsors/bensheldon">GitHub Sponsors Profile</a> if you’re able to support me and GoodJob monetarily. It helps me stay in touch and send you project updates too.</p>
 
   </div>
 
