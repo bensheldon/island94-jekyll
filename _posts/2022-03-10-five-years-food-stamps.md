@@ -9,7 +9,7 @@ _This reflection of my experience on GetCalFresh is dedicated to the memory of A
 
 ### Plus: We are the team; Extreme Programming are the values
 
-We are not the website. From the beginning, there was an opinionated directed emphasis on building healthy team norms and values. These principles and doctrines were from “Extreme Programming Explained”; the values were legible and strongly reinforced by team leadership. All of the things we have created (websites, text messaging, document processing, research) were outputs, but not the goal. There was a strong emphasis on “And the friends we made along the way.”
+We are not the website. From the beginning, there was an opinionated directed emphasis on building healthy team norms and values. These principles and doctrines were from “Extreme Programming Explained”; the values were legible and strongly reinforced by team leadership. All of the things we have created (websites, text messaging, document processing, research) were outputs not artifacts and never the goal. There was a strong emphasis on “And the friends we made along the way.”
 
 ### Plus: An experience of critical inspiration
 
