@@ -5,8 +5,6 @@ published: true
 tags:
 ---
 
-# 5 years on food stamps
-
 _This reflection of my experience on GetCalFresh is dedicated to the memory of Andrew Hyder who taught me a lot about living out and protecting team values every day._
 
 ### Plus: We are the team; Extreme Programming are the values
