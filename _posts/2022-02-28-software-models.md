@@ -5,7 +5,7 @@ published: true
 tags:
 ---
 
-<img src="uploads/2022-02/strict-technical-debt.jpg" alt="Stickynote drawing of a chart in which understanding of the business domain grows, and understanding of the modeling in code sinuisoidally approaches and departs from it.">
+<img src="/uploads/2022-02/strict-technical-debt.jpg" alt="Stickynote drawing of a chart in which understanding of the business domain grows, and understanding of the modeling in code sinuisoidally approaches and departs from it.">
 
 Software design has been in my thoughts lately. Particularly _agile_ software design, in which the game is to re-design working software in response to changing business requirements in response to learnings from working software.
 
