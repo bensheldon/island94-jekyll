@@ -36,3 +36,5 @@ The two bosses then appeal the problem up a level to their respective superiors 
 Often, conflict cannot be resolved; it can, however, be managed, which it must be if the matrix is to work. Any other course of action would represent management’s failure to comprehend the essential nature of the design.
 
 </blockquote>
+
+Lastly, [Alex Komoroske's deck on Slime Molds](https://komoroske.com/slime-mold/) is good.
