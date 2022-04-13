@@ -6,9 +6,50 @@
 </description>
     <link>http://island94.org/</link>
     <atom:link href="http://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 01 Apr 2022 17:10:30 +0000</pubDate>
-    <lastBuildDate>Fri, 01 Apr 2022 17:10:30 +0000</lastBuildDate>
+    <pubDate>Wed, 13 Apr 2022 17:31:21 +0000</pubDate>
+    <lastBuildDate>Wed, 13 Apr 2022 17:31:21 +0000</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
+    
+      
+      
+
+      <item>
+        <title>Working the problem</title>
+        <description>&lt;p&gt;From &lt;em&gt;An Astronauts Guide to Planet Earth&lt;/em&gt; by Chris Hadfield:&lt;/p&gt;
+
+&lt;blockquote&gt;
+
+  &lt;p&gt;Feeling ready to do something doesn’t mean feeling certain you’ll succeed, though of course that’s what you’re hoping to do. Truly being ready means understanding what could go wrong – and having a plan to deal with it. You could learn to scuba dive in a resort pool, for instance, and go on to have a wonderful first dive in the ocean even if you had no clue how to buddy breathe or what to do if you lost a flipper. But if conditions were less than ideal, you could find yourself in serious danger. In the ocean, things can go wrong in one breath, and the stakes are life and death. That’s why in order to get a scuba license you have to do a bunch of practice dives and learn how to deal with a whole set of problems and emergencies so that you’re really ready, not just ready in calm seas.&lt;/p&gt;
+
+  &lt;p&gt;For the same sort of reasons, trainers in the space program specialize in devising bad-news scenarios for us to act out, over and over again, in increasingly elaborate simulations. We practice what we’ll do if there’s engine trouble, a computer meltdown, an explosion. Being forced to confront the prospect of failure head-on – to study it, dissect it, tear apart all its components and consequences – really works. After a few years of doing that pretty much daily, you’ve forged the strongest possible armor to defend against fear: hard-won competence.&lt;/p&gt;
+
+  &lt;p&gt;Our training pushes us to develop a new set of instincts. Instead of reacting to danger with a fight-or-flight adrenaline rush, we’re trained to respond unemotionally by immediately prioritizing threats and methodically seeking to defuse them. We go from wanting to bolt for the exit to wanting to engage and understand what’s going wrong, then fix it.&lt;/p&gt;
+
+  &lt;p&gt;Early on during my last stay on the ISS, I was jolted to consciousness in the middle of the night: a loud horn was blaring. For a couple of seconds I was in a fog, trying to figure out what that unpleasant noise was. There were four of us in the American section of the Station then, and like prairie dogs, we all poked our heads up out of our sleep pods at the same time to look at the panel of emergency lights on the wall that tell us whether we should be concerned about depressurization, toxicity or some other potential fatal disaster. Suddenly all of us were wide awake. That deafening noise was the fire alarm.&lt;/p&gt;
+
+  &lt;p&gt;A fire is one of the most dangerous things that can happen in a spaceship because there’s nowhere to go; also, flames behave less predictably in weightlessness and are harder to extinguish. In my first year as an astronaut, I think my response to hearing the alarm would have been to grab an extinguisher and start fighting for my life, but over the past 21 years that instinct has been trained in, represented by three words: warn, gather, work.&lt;/p&gt;
+
+  &lt;p&gt;&lt;strong&gt;“Working the problem” is NASA-speak for descending one decision tree after another, methodically looking for a solution until you run out of oxygen.&lt;/strong&gt; &lt;strong&gt;We practice the “warn, gather, work” protocol for responding to fire alarms so frequently that it doesn’t just become second nature; it actually supplants our natural instincts. So when we heard the alarm on the Station, instead of rushing to don masks and arm ourselves with extinguishers, one astronaut calmly got on the intercom to warn that a fire alarm was going off – maybe the Russians couldn’t hear it in their module – while another went to the computer to see which smoke detector was going off. No one was moving in a leisurely fashion, but the response was one of focused curiosity; as though we were dealing with an abstract puzzle rather than an imminent threat to our survival. To an observer it might have looked a little bizarre, actually: no agitation, no barked commands, no haste.&lt;/strong&gt;&lt;/p&gt;
+
+  &lt;p&gt;The next step is the gather, so we joined the Russians in their part of the Station to start working on the problem. How serious was the threat? So far, all the signs were reassuring. We couldn’t smell smoke of see flames. Maybe one little wire had melted somewhere, or the detector was responding to dust. We talked to Mission Control in Houston and in Moscow, but as we investigated, checking the module where the detector had been triggered, it seemed more and more likely that we were dealing with a simple malfunction. Finally, everyone agreed that it had been a false alarm, and we headed back to our sleep stations. An hour later, when the fire alarm sounded again, we repeated the warn, gather, work protocol just as before. The response was similarly calm, though not perfunctory – possibly something had been slowly smoldering for the past hour. As it turned out, nothing had. The detector was a lemon, that’s all. I remember thinking, “That was a little like a sim, only better, because now I get to sleep.”&lt;/p&gt;
+
+  &lt;p&gt;I doubt anyone’s heart rate increased by more than a beat or two while we were dealing with those fire alarms, even during the first minutes when the threat of a raging inferno seemed most real. We felt competent to deal with whatever happened – a sense of confidence that comes directly from solid preparation. Nothing boosts confidence quite like simulating a disaster, engaging with it fully, both physically and intellectually, and realizing you have the ability to work the problem. Each time you manage to do that your comfort zone expands a little, so if you ever face that particular problem in real life, you’re able to think clearly.&lt;/p&gt;
+
+&lt;/blockquote&gt;
+
+        &lt;br&gt;&lt;br&gt;
+        &lt;hr&gt;
+        &lt;p&gt;
+          This post, &lt;em&gt;&lt;a href=&quot;http://island94.org/2022/03/working-the-problem&quot;&gt;Working the problem&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;http://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
+          Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
+        &lt;/p&gt;
+      </description>
+        <pubDate>Thu, 31 Mar 2022 23:11:00 +0000</pubDate>
+        <link>http://island94.org/2022/03/working-the-problem</link>
+        <guid isPermaLink="true">http://island94.org/2022/03/working-the-problem</guid>
+        
+        
+      </item>
     
       
       
@@ -451,37 +492,6 @@ TRANSACTION (0.1ms)  ROLLBACK
         <pubDate>Fri, 10 Dec 2021 01:41:00 +0000</pubDate>
         <link>http://island94.org/2021/12/i'm-burning-dude-where-do-we-go-from-here</link>
         <guid isPermaLink="true">http://island94.org/2021/12/i'm-burning-dude-where-do-we-go-from-here</guid>
-        
-        
-      </item>
-    
-      
-      
-
-      <item>
-        <title>Types of Corruption</title>
-        <description>&lt;p&gt;An interesting breakdown of types of corruption by &lt;a href=&quot;https://freakonomics.com/podcast/chinas-gilded-age/&quot;&gt;Yuen Yuen Ang on Freakonomics&lt;/a&gt;:&lt;/p&gt;
-
-&lt;blockquote&gt;
-
-  &lt;p&gt;I propose a typology of four types of corruption divided along two dimensions. First, whether the corruption involves elites or non-elites. And second, whether the corruption involves theft or exchange. So this intersection creates, first of all, corruption with theft, which I divide into petty theft and grand theft. Petty theft would be like extortion — a police officer who just stops you and robs you of $200. Grand theft would be embezzlement. Nigeria would be a classic case, billions of dollars siphoned out of a country. And then I distinguish between two types of transactional corruption. The first is what I call speed money, which is bribes paid to low- or medium-level officials in order to overcome red tape or delays or harassment. And then I have a fourth category called access money, which is privileges paid to powerful officials, not because you want to overcome red tape, but because you want to buy special deals from them.&lt;/p&gt;
-
-  &lt;p&gt;[…]&lt;/p&gt;
-
-  &lt;p&gt;I use the analogy of drugs because we know that all drugs are harmful, but they harm in different ways. Petty theft and grand theft are like toxic drugs, where if you take this drug, it’s definitely going to damage your health, you get no benefit from it… Speed money are like painkillers, so they help you to relieve a headache by overcoming red tape, but they don’t help you grow muscles fast. They don’t help you to grow your business. And access money are the steroids of capitalism, and steroids, we know, help you grow muscle fast. They help you perform superhuman feats. But they come with serious side effects that accumulate over time, and they only erupt in the event of a meltdown.&lt;/p&gt;
-
-&lt;/blockquote&gt;
-
-        &lt;br&gt;&lt;br&gt;
-        &lt;hr&gt;
-        &lt;p&gt;
-          This post, &lt;em&gt;&lt;a href=&quot;http://island94.org/2021/11/types-of-corruption&quot;&gt;Types of Corruption&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;http://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
-          Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
-        &lt;/p&gt;
-      </description>
-        <pubDate>Sun, 21 Nov 2021 22:33:00 +0000</pubDate>
-        <link>http://island94.org/2021/11/types-of-corruption</link>
-        <guid isPermaLink="true">http://island94.org/2021/11/types-of-corruption</guid>
         
         
       </item>

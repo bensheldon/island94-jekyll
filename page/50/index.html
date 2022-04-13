@@ -94,6 +94,74 @@
 
   <header class="post-header">
     <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2007/09/Setting-up-Octave-and-Gnuplot-on-Apple-Mac-OSX.html">Setting up Octave and Gnuplot on Apple Mac OSX</a>
+    </h1>
+    <p class="post-meta text-muted">
+      <time datetime="2007-09-07T00:00:00+00:00" itemprop="datePublished">September 7, 2007</time>
+      
+       • Tagged computations, geeking, and osx
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>I just started auditing a Mathematical Models in Biology class and Matlab is one of the requirements. I had relatively good experience with the free, open source alternative, <a href="http://www.gnu.org/software/octave/">Octave</a> back in college, but then I was running Linux, not OSX. It took me about an hour to figure out how to set it up (I was a little worried for a bit).</p>
+
+<ol>
+  <li>
+    <p>Download the Octave binary for OSX from <a href="http://sourceforge.net/projects/octave/files/Octave%20MacOSX%20Binary/2009-10-03%20binary%20of%20Octave%203.2.3/">Octaveforge</a>.</p>
+  </li>
+  <li>
+    <p>Install Octave and Gnuplot (in the extras folder). I just dragged them to /Applications (X11 is required for Gnuplot—should be found on OSX install disk)</p>
+  </li>
+  <li>
+    <p>If you are using OSX 10.6 (Snow Leopard) or 10.5.8+ you may need to perform some additional steps <a href="http://sourceforge.net/projects/octave/files//Octave%20MacOSX%20Binary/2009-10-03%20binary%20of%20Octave%203.2.3/README_OSX1065.txt/view">outlined here</a></p>
+  </li>
+  <li>
+    <p>Set the environment variable for gnuplot (Octave is supposed to do this automatically, but it didn’t for me): `</p>
+  </li>
+</ol>
+
+<p>sudo ln -s /Applications/GnuPlot.app/Contents/Resources/bin/gnuplot /usr/bin/gnuplot</p>
+
+<p>`</p>
+
+<p>(thanks for the help, <a href="http://island94.org/setting-octave-and-gnuplot-osx#comment-3654">Toby</a>)</p>
+
+<ol>
+  <li>
+    <p>Download and install (again in /Applications) <a href="http://sourceforge.net/projects/aquaterm/">Aquaterm</a> which will actually render the gnuplot graphs.</p>
+  </li>
+  <li>
+    <p>Within Gnuplot, set the renderer: “terminal aqua”</p>
+  </li>
+  <li>
+    <p>Try it out in Octave (I had to restart Octave and Gnuplot to get it all to work): `</p>
+  </li>
+</ol>
+
+<p>x = linspace(-pi, pi, 100);</p>
+
+<p>y = sin(x);</p>
+
+<p>plot(x, y);</p>
+
+<p>`</p>
+
+<p>Thank you: <a href="http://hpc.sourceforge.net/">High Performance Computing for Mac OS X</a>, <a href="http://wiki.octave.org/wiki.pl?MacOSXIntegration">the Octave Wiki</a> and Google for helping me find what I needed.</p>
+
+<p><em><strong>Update (January 24, 2010):</strong> updated the link in step #1 to the latest version of Octave. Added an additional step described by <a href="http://www.island94.org/2007/09/setting-up-octave-and-gnuplot-on-osx/#comment-80303">Zack in the comment</a>s (thanks!)</em></p>
+
+  </div>
+
+</article>
+
+
+    <hr>
+  
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
       <a class="post-link" href="/2007/09/Plagiarism.html">Plagiarism</a>
     </h1>
     <p class="post-meta text-muted">
@@ -1028,31 +1096,6 @@ From <a href="http://www.colonialmedical.com/product.php?productid=18752">Coloni
   <p><img src="http://www.college.ucla.edu/personnel/images/arrow2.gif" alt="" /> <a href="http://www.college.ucla.edu/personnel/jobdesc/funcverbs.asp#top">back to top</a></p>
 </blockquote>
 
-
-  </div>
-
-</article>
-
-
-    <hr>
-  
-    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-
-  <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">
-      <a class="post-link" href="/2007/08/Trustworthiness.html">Trustworthiness</a>
-    </h1>
-    <p class="post-meta text-muted">
-      <time datetime="2007-08-31T00:00:00+00:00" itemprop="datePublished">August 31, 2007</time>
-      
-       • Tagged algorithm, trust, and wikipedia
-    </p>
-  </header>
-
-  <div class="post-content" itemprop="articleBody">
-    <p>Just saw this <a href="http://trust.cse.ucsc.edu/">demo</a> of an algorithm that rates the trustworthiness of Wikipedia articles. It computes the “trust” of authors by how long their edits stick around, then applies that to articles. (via <a href="http://it.slashdot.org/it/07/08/31/0259224.shtml">Slashdot</a>)</p>
-
-<p>I wonder how it works on entries that are intentionally misleading, like the entry on <a href="http://en.wikipedia.org/wiki/Discordianism">Discordianism</a>.</p>
 
   </div>
 
