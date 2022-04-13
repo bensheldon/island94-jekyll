@@ -11,7 +11,7 @@ gem 'jekyll-compose'
 
 # for related_posts with --lsi
 gem 'classifier-reborn'
-gem 'gsl'
+gem 'gsl', github: 'SciRuby/rb-gsl', branch: 'master'
 
 group :development, :test do
   gem 'capybara'
