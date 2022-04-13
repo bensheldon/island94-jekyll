@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/SciRuby/rb-gsl.git
+  revision: 103a3e1941e220befd037e0f4289a82c551ae250
+  branch: master
+  specs:
+    gsl (2.1.0.3)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -20,7 +27,7 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     colorator (1.1.0)
-    concurrent-ruby (1.1.9)
+    concurrent-ruby (1.1.10)
     diff-lcs (1.5.0)
     em-websocket (0.5.3)
       eventmachine (>= 0.12.9)
@@ -30,11 +37,10 @@ GEM
     fast-stemmer (1.0.2)
     ffi (1.15.5)
     forwardable-extended (2.6.0)
-    gsl (2.1.0.3)
     http_parser.rb (0.8.0)
     i18n (1.10.0)
       concurrent-ruby (~> 1.0)
-    jekyll (4.2.1)
+    jekyll (4.2.2)
       addressable (~> 2.4)
       colorator (~> 1.0)
       em-websocket (~> 0.5)
@@ -63,7 +69,7 @@ GEM
       jekyll (>= 3.7, < 5.0)
     jekyll-watch (2.2.1)
       listen (~> 3.0)
-    kramdown (2.3.1)
+    kramdown (2.3.2)
       rexml
     kramdown-parser-gfm (1.1.0)
       kramdown (~> 2.0)
@@ -84,7 +90,7 @@ GEM
     pry (0.14.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
-    public_suffix (4.0.6)
+    public_suffix (4.0.7)
     racc (1.6.0)
     rack (1.6.13)
     rack-jekyll (0.5.0)
@@ -97,7 +103,7 @@ GEM
     rb-fsevent (0.11.1)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
-    regexp_parser (2.2.1)
+    regexp_parser (2.3.0)
     rexml (3.2.5)
     rouge (3.28.0)
     rspec (3.11.0)
@@ -109,7 +115,7 @@ GEM
     rspec-expectations (3.11.0)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.11.0)
-    rspec-mocks (3.11.0)
+    rspec-mocks (3.11.1)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.11.0)
     rspec-support (3.11.0)
@@ -128,7 +134,7 @@ PLATFORMS
 DEPENDENCIES
   capybara
   classifier-reborn
-  gsl
+  gsl!
   jekyll
   jekyll-coffeescript
   jekyll-compose
@@ -142,7 +148,7 @@ DEPENDENCIES
   rspec
 
 RUBY VERSION
-   ruby 2.7.5p203
+   ruby 3.1.2p20
 
 BUNDLED WITH
-   2.3.6
+   2.3.11
