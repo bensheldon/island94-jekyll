@@ -6,9 +6,9 @@
 </description>
     <link>http://island94.org/</link>
     <atom:link href="http://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 13 Apr 2022 17:33:52 +0000</pubDate>
-    <lastBuildDate>Wed, 13 Apr 2022 17:33:52 +0000</lastBuildDate>
-    <generator>Jekyll v4.2.1</generator>
+    <pubDate>Mon, 18 Apr 2022 15:29:33 +0000</pubDate>
+    <lastBuildDate>Mon, 18 Apr 2022 15:29:33 +0000</lastBuildDate>
+    <generator>Jekyll v4.2.2</generator>
     
       
       
@@ -332,7 +332,7 @@
     &lt;span class=&quot;c1&quot;&gt;# The transaction is still open but the block returned earlier.&lt;/span&gt;
     &lt;span class=&quot;c1&quot;&gt;#&lt;/span&gt;
     &lt;span class=&quot;c1&quot;&gt;# The block could return early because of a timeout or because the thread is aborting,&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;# so we are rolling back to make sure the timeout didn't caused the transaction to be&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# so we are rolling back to make sure the timeout didn&apos;t caused the transaction to be&lt;/span&gt;
     &lt;span class=&quot;c1&quot;&gt;# committed incompletely.&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;rollback_transaction&lt;/span&gt;
   &lt;span class=&quot;c1&quot;&gt;# ...&lt;/span&gt;
@@ -427,7 +427,7 @@ TRANSACTION (0.1ms)  ROLLBACK
       
 
       <item>
-        <title>I'm burning dude... where do we go from here?</title>
+        <title>I&apos;m burning dude... where do we go from here?</title>
         <description>&lt;p&gt;A powerful conversation from Reveal’s &lt;a href=&quot;https://revealnews.org/podcast/mississippi-goddam-chapter-6-mississippi-justice/&quot;&gt;“Mississippi Goddam Chapter 6: Mississippi Justice” (46:10)&lt;/a&gt; between reporters Al Letson and Jonathan Jones:&lt;/p&gt;
 
 &lt;blockquote&gt;
@@ -485,7 +485,7 @@ TRANSACTION (0.1ms)  ROLLBACK
         &lt;br&gt;&lt;br&gt;
         &lt;hr&gt;
         &lt;p&gt;
-          This post, &lt;em&gt;&lt;a href=&quot;http://island94.org/2021/12/i'm-burning-dude-where-do-we-go-from-here&quot;&gt;I'm burning dude... where do we go from here?&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;http://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
+          This post, &lt;em&gt;&lt;a href=&quot;http://island94.org/2021/12/i&apos;m-burning-dude-where-do-we-go-from-here&quot;&gt;I&apos;m burning dude... where do we go from here?&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;http://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
           Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
         &lt;/p&gt;
       </description>
