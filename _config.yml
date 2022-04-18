@@ -11,7 +11,7 @@ email: bensheldon@gmail.com
 description: > # this means to ignore newlines
   A Lost and Found
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://island94.org" # the base hostname & protocol for your site
+url: "https://island94.org" # the base hostname & protocol for your site
 twitter_username: bensheldon
 github_username:  bensheldon
 repository_url: https://github.com/bensheldon/island94-jekyll
