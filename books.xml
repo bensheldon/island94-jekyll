@@ -11,7 +11,8 @@ layout: null
     <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
     <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
     <generator>Jekyll v{{ jekyll.version }}</generator>
-    {% for book in site.books limit:10 %}
+    {% assign sorted_books = site.books | sort: 'date' | reverse %}
+    {% for book in sorted_books limit:10 %}
       {% assign link_url = post.url | prepend: site.baseurl | prepend: site.url %}
       {% capture post_footer %}
         <br><br>
