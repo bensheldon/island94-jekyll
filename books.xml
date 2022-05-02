@@ -6,147 +6,71 @@
 </description>
     <link>https://island94.org/books</link>
     <atom:link href="https://island94.org/books.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 18 Apr 2022 17:49:15 +0000</pubDate>
-    <lastBuildDate>Mon, 18 Apr 2022 17:49:15 +0000</lastBuildDate>
+    <pubDate>Mon, 02 May 2022 02:41:24 +0000</pubDate>
+    <lastBuildDate>Mon, 02 May 2022 02:41:24 +0000</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
-      
-      
-
-      <item>
-        <title>I read OOP the easy way by Graham Lee</title>
-        <description>&lt;p&gt;I came to this book with certain hopes that were left unfulfilled, but I read it in a few hours and enjoyed it.&lt;/p&gt;
-
-&lt;p&gt;Fulfilled: cuts to the core that Object Oriented Programming conceptually starts with sending messages to objects, and the internals of how those objects &lt;em&gt;respond&lt;/em&gt; (methods, delegation, class hierarchies, etc.) is an implementation detail best deferred/ignored as long as possible. This was something I already agreed with in a sort of stubborn System 2 Thought Process (“no brain, think about it the other way”) when designing code, and it was lovely to have that reinforced as a thing to do.&lt;/p&gt;
-
-&lt;p&gt;Unfulfilled: The human ergonomic benefits and &lt;em&gt;how to think&lt;/em&gt; about objects in a deeper way than arguing the importance of the left part of the sentence (message sending) over the right (object/language implementation). This hope (for a better mental bicycle than “no brain…” ) came from the introduction:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Because OOP is supposed to be a paradigm, a pattern of thought, and if we want to adopt that paradigm then we have to see how different tools or techniques support, damage, or modify our thoughts.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;And the hope was reinforced by enjoyable ripostes like this:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;A contributor to this objects-as-data approach seems to have been the attempt to square object-oriented programming with “Software Engineering”, a field of interest launched in 1968 that aimed to bring product design and construction skills to computer scientists by having very clever computer scientists think about what product design and construction might be like and not ask anybody.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Yeah!&lt;/p&gt;
-
-&lt;p&gt;An argument that I wanted explored more is that the aligning the way we think about the user-machine interface with the way we think about the programmer-implementation interface is ergonomic (building the muscles, deepening the mental groove):&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;It means relinquishing the traditional process-centered paradigm with the programmer-machine relationship at the center of the software universe in favor of a product-centered paradigm with the producer-consumer relationship at the center.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;And…&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Behaviour-Driven Development marries the technical process of Test-Driven Development with the design concept of the ubiquitous language, by encouraging developers to collaborate with the rest of their team on defining statements of desired behaviour in the ubiquitous language and using those to drive the design and implementation of the objects in the solution domain. In that way, the statement of what the Goal Donor needs is also the statement of sufficiency and correctness - i.e. the description of the problem that needs solving is also the description of a working solution. This ends up looking tautological enough not to be surprising.&lt;/p&gt;
-
-  &lt;p&gt;… The theme running through the above is that sufficiency is sufficient The theme running through the above is that sufficiency is sufficient. When an object has been identified as part of the solution to a problem, and contributes to that solution to the extent needed (even if for now that extent is “demonstrate that a solution is viable”), then it is ready to use. There is no &lt;em&gt;need&lt;/em&gt; to situate the object in a taxonomy of inherited classes - but if that helps to solve the problem, then by all means do it. There is no &lt;em&gt;need&lt;/em&gt; to show that various objects demonstrate a strict subtype relationship and can be used interchangeably, unless solving your problem requires that they be used interchangeably. There is no &lt;em&gt;need&lt;/em&gt; for an object to make its data available to the rest of the program, unless the problem can be better solved (or cheaper solved, or some other desirable property) by doing so.&lt;/p&gt;
-
-  &lt;p&gt;… Some amount of planning is always helpful, whether or not the plan turns out to be. The goal at every turn should be to understand how we get to &lt;em&gt;what we now want&lt;/em&gt; from &lt;em&gt;what we have now&lt;/em&gt;, not to &lt;em&gt;already have&lt;/em&gt; that which &lt;em&gt;we will probably want sometime&lt;/em&gt;. Maybe the easiest thing to do is to start afresh: so do that.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;I agree with a “just get on with it” argument &lt;em&gt;and&lt;/em&gt; I’m seeking a deeper practice of metacognition than powering through.&lt;/p&gt;
-
-&lt;p&gt;By the end, &lt;em&gt;OOP the easy way&lt;/em&gt; argued for the need to &lt;em&gt;start&lt;/em&gt; seeing if the true paradigm of OOP is actually any good, and that left me back where I started before the book. I wished it had done that work of “asking anybody” already.&lt;/p&gt;
-
-&lt;p&gt;Hopes and wishes aside, it was an enjoyable technical read, mainly because it’s dishy, referring and discarding concepts by their progenitors name. This could be criticized as vagueness if one is not invested in learning the personalities involved (for example, a concept is breezily described as “Meyer-ish”), and that kept me moving forward.&lt;/p&gt;
-
-        &lt;br&gt;&lt;br&gt;
-        &lt;hr&gt;
-        &lt;p&gt;
-          This book review for &lt;em&gt;&lt;a href=&quot;https://island94.org&quot;&gt;OOP the easy way&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
-          Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
-        &lt;/p&gt;
-      </description>
-        <pubDate>Sat, 05 Mar 2022 17:18:00 +0000</pubDate>
-        <link>https://island94.org</link>
-        <guid isPermaLink="true">https://island94.org</guid>
-      </item>
     
       
       
 
       <item>
-        <title>I read Bullshit Jobs by David Graeber</title>
-        <description>&lt;p&gt;Recommended by Rob, and part of a milieu that also included &lt;em&gt;The Real World of Technology&lt;/em&gt; and &lt;em&gt;Breaking Stuff at Work&lt;/em&gt; with a synthesis along the lines of “technology squeezes the lower-middle manager roles (sergeant/foreman), not the upper managers”. But that’s not what Bullshit Jobs is about.&lt;/p&gt;
+        <title>I read Recoding Gender by Janet Abbate</title>
+        <description>&lt;h1 id=&quot;recoding-gender&quot;&gt;Recoding gender&lt;/h1&gt;
+&lt;p&gt;I enjoyed the book. It’s a quick survey of early computing and software history, and the lens of gender makes a lot of it new.&lt;/p&gt;
 
-&lt;p&gt;Apart from the essay, the best part for me was a description of how we haven’t replaced the feudal system, just layered onto it.&lt;/p&gt;
-
-&lt;p&gt;It has some critical bits about open source being the fun bits done for free, and the paid job is unsatisfying duct taping it together. Which doesn’t track for my immediate experience (at least not what is blame on &lt;em&gt;open source&lt;/em&gt; specifically), but the lines between “analyst/integrator” and “engineer” is real mushy sometimes.&lt;/p&gt;
-
-&lt;p&gt;It’s a quick read, and I think is good contemporary cannon (aside: I wonder what Rushkoff is up to?). Besides briefly and self-consciously touching on UBI, it left me with an anxious “Yep!” that maybe didn’t need 350 pages to achieve.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;This is a powerful argument for human freedom. Most of us like to talk about freedom in the abstract, even claim that it’s the most important thing for anyone to fight or die for, but we don’t think a lot about what being free or practicing freedom might actually mean. The main point of this book was not to propose concrete policy prescriptions, but to start us thinking and arguing about what a genuine free society might actually be like.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;There was quite a bit about feminization of work:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;One might say that men will always take for themselves the kind of jobs one can tell stories about afterward, and try to assign women the kind you tell stories during.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;And distinctions between Michel Foucault’s power and domination (or Sarah Schulman’s conflict and abuse):&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;…unlike actual BDSM play, where there’s always a safe-word, when “normal” people fall into the same dynamic, there’s never such an easy way out. “You can’t say ‘orange’ to your boss.” It’s always occurred to me this insight is important and could even become the basis for a theory of social liberation.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-        &lt;br&gt;&lt;br&gt;
-        &lt;hr&gt;
-        &lt;p&gt;
-          This book review for &lt;em&gt;&lt;a href=&quot;https://island94.org&quot;&gt;Bullshit Jobs&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
-          Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
-        &lt;/p&gt;
-      </description>
-        <pubDate>Thu, 10 Mar 2022 22:20:00 +0000</pubDate>
-        <link>https://island94.org</link>
-        <guid isPermaLink="true">https://island94.org</guid>
-      </item>
-    
-      
-      
-
-      <item>
-        <title>I read Let the Record Show: A Political History of ACT UP New York, 1987-1993 by Sarah Schulman</title>
-        <description>&lt;p&gt;I discovered the &lt;a href=&quot;https://actupny.org/documents/documents.html&quot;&gt;ACT UP&lt;/a&gt; organization in the wake of Occupy, when I became friends with Michael Petrellis, who I met through my church.&lt;/p&gt;
-
-&lt;p&gt;This book is a wonderful approach to documenting an organizing: powerful, tragic, and practical.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;When preparing the ACT UP Oral History Project, Jim and I looked at two Holocaust archives for guidance. The Shoah Foundation, organized by Steven Spielberg, had a structure that did not fit our needs. Designed to counter Holocaust revisionism, in which people who did not commit the Holocaust deny that it ever occurred, the project had hundreds of interviewers focused on a list of predetermined questions. We felt that the interviews were designed to emphasize the moments of trauma, of oppression and atrocity. As important as this was, we were more intrigued by a small archive financed by the Fortunoff department store family that investigated who each person was before the Holocaust, and then how they were impacted by the turn of events. This approach really appealed to us for a number of reasons. The primary purpose of the ACT UP Oral History Project, and of this book, is not to look back with nostalgia, but rather to help contemporary and future activists learn from the past so that they can do more effective organizing in the present. We wanted to show, clearly, what we had witnessed in ACT UP: that people from all walks of life, working together, can change the world.&lt;/p&gt;
-
-  &lt;p&gt;…&lt;/p&gt;
-
-  &lt;p&gt;The story of access in ACT UP is the story of a collective that intended to do good, and actually did in fact truly make the world a better place. Inside those accomplishments are realities of a human dimension: people who do great things also do bad things, sometimes out of bias and supremacy, and sometimes out of vulnerability, fear of demise, the desire to live, or all of the above. And when white people, and men, do things out of bias and vulnerability, people with less access pay a price. Sometimes that price is stress, or being forced to strategize, or being blindsided as a way of life. Sometimes that price is exclusion from treatments, from participation in decision-making, or from the machine of power. Sometimes that means death, and sometimes that means long-term and systemic deprivation for the collective as well as the individual. When we evaluate how we have spent our lives, we have to look at our cumulative impact, not at the moments of failure or bad faith. Assessing this history is not a game of call-out. Instead, it is an effort to really understand and make clear how the AIDS rebellion succeeded, and to face where it failed, in order to be more conscious and deliberate, and therefore effective, today.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;This book contains a lot:&lt;/p&gt;
+&lt;p&gt;A few themes stuck out to me, from my standpoint of 2022:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;“Drive and commitment, invention and felicity, a focus on campaigns, and being effective are the components of movements that change the world.&lt;/li&gt;
-  &lt;li&gt;“A small, very crucial group of individuals had spent their time in ACT UP observing and analyzing the full range of meaning and impact of ACT UP as a whole, and developed organizational overviews, which permitted broad analysis, recognition of large tropes, and a grasp of strategic reach. But most often, ACT UP did not theorize itself…. Direct action was a concept by which theoretical discussion was not separate from action. Of course, individual ACT UPers were influenced by theory. A number of young video activists had studied in the Whitney Museum Studio Program. Many older activists came from highly theorized earlier radical movements, and some members, like Douglas Crimp, wrote theory. But on the floor of the Monday-night meeting, theory was never debated unless it was tied to creating actions, or to setting active campaigns. As Maxine Wolfe, one of ACT UP’s most influential leaders, would say, when planning and carrying out an action, “theory emerges” as a concrete result of actual decisions that are being made for real-life application. Instead of the Gramscian concept of “praxis,” which is the application of theory into practice, ACT UP first chose a practice—an action—and then evolved a theory necessary to make it work toward our larger goal of “direct action to end the AIDS crisis.” &lt;strong&gt;In this way campaigns were structured as a series of interconnected actions, designed to produce a larger outcome. ACT UP would never just do a demonstration, zap, or action to stand on its own. These public expressions were designed to build to the next step. That’s why every event had a sign-up sheet, or leaflets announcing further actions, and participants were informed of the next step in the series on any specific issue. Every action included a component of giving participants and observers something else to do. In this way, energy was not wasted, and events had purpose, as part of a larger schema. Not wasting energy, effort, or goodwill was essential to being effective in a movement of people who literally did not have time.”&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;“Gregg got together with Charles Stimson and Ortez Alderson, an activist from Chicago who had moved to New York to become an actor and who was working in Black gay theater with Assotto Saint. They decided to get together to “do a kind of activism that was not necessarily authorized by the large group.” They were annoyed by what they felt was a slow pace as ACT UP grappled to develop their perspective. They called themselves “MHA,” which actually didn’t stand for anything, but had flexible uses. For example, they used “Metropolitan Health Association” in order to get a meeting with Stephen Joseph, the health commissioner of New York City. At that time, Joseph was talking about various kinds of punitive measures against prostitutes. He had engaged in some “very panic-causing kinds of rhetoric” about the threat that people with AIDS, for whom he was considering internment and other repressive measures, caused to the general public, particularly around tuberculosis. MHA showed up. “We said, ‘We’re the Metropolitan Health Association.’ They said, ‘Please come in.’” They were in a large conference room with Stephen Joseph. It quickly became apparent, though, that MHA was not any kind of interborough health consortium. They started asking Joseph about the slow pace in the city’s response to AIDS. When Joseph realized that they were AIDS activists, Gregg and company were arrested and the story appeared in the press. At the next ACT UP meeting, Gregg remembers rising and saying, &lt;strong&gt;“Look, you can just do this. You don’t have to go to the large group to get authorization. In fact, it’s better that the large group is not involved with these kinds of actions because they don’t have to be held accountable. So you can just do stuff. ACT UP is just this place we all meet on a weekly basis to talk about strategy and prioritize issues.”&lt;/strong&gt; He remembered saying over and over again, You can just do this. Just go out and do this. And people were very enthusiastic. This happened at the same time that the concept of affinity groups, which were inherently autonomous from the larger body, was gaining more popularity in ACT UP.”&lt;/li&gt;
-  &lt;li&gt;“I remember having this kind of conscious realization that if you stood up and said exactly what you meant and didn’t trail off into some kind of rambling incoherence, which is often the style of many people in meetings, that actually your opinion would be respected or at least heard.”&lt;/li&gt;
-  &lt;li&gt;“The Media Committee’s job was to make sure the press covered the action. How do you get the press to pay attention? Ann laid out the fundamental points of doing media for a radical political movement: Well, first of all, you do plan an action that is interesting enough, that you think the press is going to care about it. But you have to woo the press. You have to find a way to get them there. Some of that is about writing a press release that you send to the press that’s interesting enough to make them look at it and say, Oh, I better go cover that—that’s going to be important or interesting or crazy, and will make good pictures and put wild people on television. But we also know that the press doesn’t generally read press releases, so don’t expect to get the press there, just by sending them a press release, because they’re going to throw it in the wastebasket, and you’re just going to have to do it all over again. So you have to call them. And you have to find the right person to speak to. So you have to know how to call a newspaper or television station and say—not ask to speak to a specific person, but say—I’m calling about this, who should I speak to? And let them tell you who to speak to. Then you have to know how to talk to that person, and how to present [the issue]. And you do it first by asking them questions, and saying, What do you know about this? What’s your opinion of such and such? Rather than just throwing something at them. And then, lead them into being interested about this, and say, Well, what you may not know is such and such. Or, We’re doing this, that you might find interesting, and sort of make them think it’s their idea to come do this, rather than haranguing them or lecturing them about—You should be there, and you should be covering this. That will make them sit home, guaranteed. Part of infiltrating the media’s messaging was through simple education, in the hopes of getting our message, and not the state’s, or the corporation’s, across. “The press was so stupid and so lazy, that they would come to every demonstration and ask one question: Why are you here? That was it. And they had no understanding of any issue, and no ability to ask questions about any issue. Ninety-five percent of any news story is what the reporter is saying. The sound bites are a very tiny part of any story. I would tell people, Watch the evening news, and time how much of a story is the reporter’s narration, and how much is the sound bite, and you’ll find that the sound bite is a very small portion of the story. So it’s far less important for you to come up with the right sound bite than it is for you to talk to the reporter before they do the story and educate them, so they will reflect your point of view in their narration.”…“And one of her well-known insights is that you’re not talking to the media, you’re talking through the media.”&lt;/li&gt;
-  &lt;li&gt;“Like many women in ACT UP, Anne-Christine came from the reproductive rights movement, which heavily influenced her perspective on AIDS activism. “I actually think it was the closest to the reproductive rights work, because it was the angriest. People in reproductive rights were really angry. I didn’t think the people in the peace movement were as angry at all. I thought that they were sort of morally high ground in the peace movement, but I don’t feel like there was the same direct stake. And I think with AIDS, it was such a direct thing, because people were terrified … Coming out of Haiti, where a lot of people had died and were dying, it felt much more urgent to me. And so it was compelling in that way”&lt;/li&gt;
-  &lt;li&gt;“There were two groups of people in ACT UP. There were the groups of people who thought that until they had AIDS, they thought that the government was out there, and working for them. And I went to an affinity group meeting with this guy, I don’t remember his name; and he said it, quite clear. And he was really serious. He said, I can’t believe that my government let me down. I had a good job, I had plenty of money. But when I got sick, the government let me down. I wasn’t getting the services, I got treated like a pariah. Then there was the other group—and it wasn’t only people of color; but there’s another group, I think it’s more of a class thing—who knew that the system stunk, and the system had been letting them down, for years … People with insurance were definitely feeling something different than people going in with Medicaid … There were people that socialized in ACT UP who would never, ever, in a million years, if it wasn’t that situation, even talk to each other on the street. “But I think that’s the thing that held the group together so long, and made it work. Even people you didn’t like in ACT UP, right—you would support them in some way, because you had the same issues … People were dying, it was urgent; a lot of people in the group were dying; and this was it. There was nowhere else to go but ACT UP. And I think some people came to ACT UP or they would have jumped out windows if they didn’t come to ACT UP, because it was also, in a way, some kind of therapy for people coming there. Whether you were rich or poor, that was one of the only places you could talk about your condition, your friend’s condition, whoever you were taking care of. That was the only place to talk about it. And I think that made an alliance that would have never happened anywhere else … And the anger was there. Everybody was pissed. They weren’t getting the services; most people were still treated like pariahs, in the beginning.”&lt;/li&gt;
-  &lt;li&gt;“And so César articulates for us that ACT UP and its relationships are, as Matt Brim notes, not just a model of activism but a model of making sense of the problem that activism is trying to address, and the problem that lingers in the lives of individuals, long after the activism creates some kind of positive permanent change. Activism is, consequentially, the process of making sense of one’s experience of the problem that collectively we have transformed. It creates order, demystifies, and allows an understanding of systems that otherwise feel overwhelming and unaddressable.”&lt;/li&gt;
+  &lt;li&gt;Contemporary development, and even agile (by other names) come from feminized sources.&lt;/li&gt;
+  &lt;li&gt;The distinctions between the activities of plugging, coding, programming, solving, planning, and training; and the roles of “Engineer”, or “Architect” or “Manager” which are largely gendered.&lt;/li&gt;
+  &lt;li&gt;The feminization of  “technical” work of interacting with business machines (e.g. a typewriter, photocopier, etc.) and the perceptual “de-skilling” of those roles despite them being, well, heavily technical.&lt;/li&gt;
+  &lt;li&gt;Programming productivity gains being gobbled up by increasing complexity…. Well, sometimes… because there is a perceptual emphasis on complex edge-cases rather than the needs of the “typical” business.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/NATO_Software_Engineering_Conferences&quot;&gt;Conference on Software Engineering sponsored by NATO and held in Garmisch, Germany on 7–11 October 1968&lt;/a&gt; was a big deal in the history of programming.&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;p&gt;Sure sounds like contemporary collaborative practices:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;[Elsie] Shutt’s [of Comp Inc.] approach was to organize her programmers in teams that collaboratively divided the work among themselves: “We would get together every week, everybody working on the project. One thing we had to learn to do was to take a job and to break it into pieces—meaningful pieces—and then we’d get together, talk about it, assign jobs.” She coached her programmers to be meticulous, which resulted in efficiencies for the company and a better product for the client. For example, she emphasized desk-checking, the practice of having programmers review each other’s code before running it on the computer. Although desk-checking was a fairly common practice in the 1950s, Shutt believed that she “emphasized it more than others did” because we were doing things that we broke up into more pieces than some people did.” Comp Inc. had no room for “egotistical” programmers who refused the share their code. Another key priority was “documenting it—well—so that someone else would be able to maintain it if they needed to.” Producing modular, well-documented code also made it easier for Comp Inc. to repurpose programs for subsequent clients, which saved on programming costs.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;…and Agile:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Women may have been uniquely situated to participate in these innovations because of their gendered role in the workplace. As working programmers—and as the staff members who stereotypically were asked to assist customers or in-house users—women had both the expertise to devise solutions and the incentive to make programming easier for experts and novices alike. And although women usually lacked the formal authority to impose workplace practices, this was unnecessary in a computer culture that left the choice of techniques largely up to programmers themselves.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;On productivity and the never-realized goal of getting rid of programming as a specialization:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;In many ways, the campaign for automatic programming was a rousing success: The new techniques were widely adopted, and as promised, they greatly reduced the time that was needed to produce programs and  transferred much tedious work from humans to machines. Many programmers took advantage of these new tools to improve the organization of that programs, creating a visible, logical structure that made code faster to produce and easier to maintain, reuse, and share. However, to the disappointment of some, the overall effect of compilers and associated tools was not to eliminate programming but to redefine it. Much of what had been included as an integral part of programming practice–tedious copying or recoding of subroutines, the need to be aware of machine design and physical memory configuration, and the use of machine codes-was no longer required. But the programmer still had to design and specify the higher-level structure of the program, tasks that proved too complex for most end-users. The new techniques also did nothing to automate the initial analysis of the problem–the task of modeling a real-world activity as an ordered flow of computable steps. Although this work could potentially be shifted from the programmer to a systems analyst, in either case it was a person and not the computer that performed it.&lt;/p&gt;
+
+  &lt;p&gt;To the extent that a factory-like version of automation failed to materialize, it vindicated programmers’ holistic view of their work as complex and creative. It also reflected a conscious decision by computer manufacturers and their customers to use automation to increase productivity and quality rather than to shrink the labor force. Managers asked programmers to tackle more ambitious projects or create more sophisticated user interfaces, expanding their demand for skilled labor to absorb the available supply. The ever increasing complexity of cutting-edge systems would soon lead to new calls for a reform of programming methods.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;An ongoing discussion about what happens.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The term software engineering has become common enough today that its provocative effect has been lost. Yet when the term was introduced at Garmisch, it was purely aspirational.  Rather than claiming to describe actual practices, the organizers named an ideal that did not yet exist. Nor was it obvious that engineering was the best model for programming. The computing literature of the 1960s is rife with competing metaphors, each or which was chosen to make a particular claim about the nature of programming. Some managers continued to view programming as creative art or craft—and in a positive sense, rather than as a problem to Be cured by imposing scientific rationality. In the academic community, computer science was often seen as a branch of mathematics, which had a higher intellectual status than engineering. The 1970 &lt;em&gt;On the Management&lt;/em&gt; of Computer Programming, a book that targeted a business audience, ignored the new term software engineering and preferred to use managerial skill as its ideal. Maurice Wilkes argued in 1976 that the term &lt;em&gt;engineering&lt;/em&gt; did not realistically represent the process of creating a large program. He suggested instead that “There are some analogies between writing a program and writing a treatise or a paper.” Computer industry writers invoked a host of other professions to emulate, including accounting (for its certification standards), medicine (for its skilled teamwork and strong professional societies), architecture (as a model for coherent design and precise specification), aviation (for its recognition of the dire consequences of failure), or even cooking (as a time sensitive production process).&lt;br /&gt;
+ …&lt;br /&gt;
+Given this gendered status hierarchy, some practitioners—women as well as men—may have believed that programmers would rise in stature by adopting the title of engineer. An unintended consequence of this move may have been to make programming and computer science less inviting to women, helping to explain the historical puzzle of why women took a leading role in the first wave of software improvements but become much less visible in the software engineering era.&lt;br /&gt;
+….&lt;br /&gt;
+“For instance, getting your requirements right initially; understanding the materials you’re working with.” Susan Graham, the daughter of a mechanical engineer, got her Ph.D. in computer science a few years after Garmisch and easily identified as a software engineer.  Referring to the process of checking the semantics of a programming language, Graham characterized engineering practice as trial-and-error: “You write a compiler, and then you do a lot of testing against real programs, and you try to see whether the right thing happens. And that’s why it’s engineer ing!” These examples demonstrate again the diverse meanings of engineering, as well as female practitioners ability to prioritize those aspects of engineering that matched their own needs, experiences, and values.&lt;br /&gt;
+…&lt;br /&gt;
+Some aspects of the software engineering ideal appealed directly to preferences that were widely expressed by women, such as the desire to create something that would improve users’ lives. Edward E. David of Bell Laboratories expressed this philosophy at Garmisch in 1968: “Software engineering and computing engineering have an extremely important and nice aspect to them, namely that people want to work on things that meet other people’s needs. They are not interested in working on abstractions entirely; they want to have an impact on the world.” Mary Shaw, who helped establish Carnegie Mellon University’s Software Engineering Institute in the 1980s, echoed this public service ethos in her own 1990 definition of engineering as solving “practical problems . . . in the service of mankind:”In her view, key aspects of an “engineering attitude” included “considering users” and realizing that design choices had to be made “for both technical and nontechnical reasons.’ Shaw’s emphasis  on users and on real-word, nontechnical factors fits well with the computer-as-a-tool orientation more common among women. &lt;strong&gt;Although Engineering as a profession has been highly masculine, engineering as a discipline or philosophy has had wider range of potential meaning.&lt;/strong&gt;&lt;br /&gt;
+… &lt;br /&gt;
+&lt;strong&gt;In at least three important senses, software engineering could be said to have failed.&lt;/strong&gt; First, because of the divergent approaches and priorities of academic theorists and industry practitioners, much research investment has been wasted. Second, to the extent that software engineering was meant to revolutionize labor practices by deskilling and disciplining programmers, imposing standardized research-based methods, or mandating licensing, it has not succeeded. Finally, software engineering never solved the problem that was its &lt;em&gt;raison d’etre&lt;/em&gt;—the software crisis. These failures call into question the notion that engineering is the most appropriate model for the programming profession.&lt;/p&gt;
+&lt;/blockquote&gt;
 
         &lt;br&gt;&lt;br&gt;
         &lt;hr&gt;
         &lt;p&gt;
-          This book review for &lt;em&gt;&lt;a href=&quot;https://island94.org&quot;&gt;Let the Record Show: A Political History of ACT UP New York, 1987-1993&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
+          This book review for &lt;em&gt;&lt;a href=&quot;https://island94.org&quot;&gt;Recoding Gender&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
           Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
         &lt;/p&gt;
       </description>
-        <pubDate>Sat, 19 Mar 2022 16:01:00 +0000</pubDate>
+        <pubDate>Mon, 18 Apr 2022 02:31:00 +0000</pubDate>
         <link>https://island94.org</link>
         <guid isPermaLink="true">https://island94.org</guid>
       </item>
@@ -250,62 +174,139 @@ Phil paused to survey the crowd. “My, it’s cold out here today! You can feel
       
 
       <item>
-        <title>I read Recoding Gender by Janet Abbate</title>
-        <description>&lt;h1 id=&quot;recoding-gender&quot;&gt;Recoding gender&lt;/h1&gt;
-&lt;p&gt;I enjoyed the book. It’s a quick survey of early computing and software history, and the lens of gender makes a lot of it new.&lt;/p&gt;
+        <title>I read Let the Record Show: A Political History of ACT UP New York, 1987-1993 by Sarah Schulman</title>
+        <description>&lt;p&gt;I discovered the &lt;a href=&quot;https://actupny.org/documents/documents.html&quot;&gt;ACT UP&lt;/a&gt; organization in the wake of Occupy, when I became friends with Michael Petrellis, who I met through my church.&lt;/p&gt;
 
-&lt;p&gt;A few themes stuck out to me, from my standpoint of 2022:&lt;/p&gt;
+&lt;p&gt;This book is a wonderful approach to documenting an organizing: powerful, tragic, and practical.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;When preparing the ACT UP Oral History Project, Jim and I looked at two Holocaust archives for guidance. The Shoah Foundation, organized by Steven Spielberg, had a structure that did not fit our needs. Designed to counter Holocaust revisionism, in which people who did not commit the Holocaust deny that it ever occurred, the project had hundreds of interviewers focused on a list of predetermined questions. We felt that the interviews were designed to emphasize the moments of trauma, of oppression and atrocity. As important as this was, we were more intrigued by a small archive financed by the Fortunoff department store family that investigated who each person was before the Holocaust, and then how they were impacted by the turn of events. This approach really appealed to us for a number of reasons. The primary purpose of the ACT UP Oral History Project, and of this book, is not to look back with nostalgia, but rather to help contemporary and future activists learn from the past so that they can do more effective organizing in the present. We wanted to show, clearly, what we had witnessed in ACT UP: that people from all walks of life, working together, can change the world.&lt;/p&gt;
+
+  &lt;p&gt;…&lt;/p&gt;
+
+  &lt;p&gt;The story of access in ACT UP is the story of a collective that intended to do good, and actually did in fact truly make the world a better place. Inside those accomplishments are realities of a human dimension: people who do great things also do bad things, sometimes out of bias and supremacy, and sometimes out of vulnerability, fear of demise, the desire to live, or all of the above. And when white people, and men, do things out of bias and vulnerability, people with less access pay a price. Sometimes that price is stress, or being forced to strategize, or being blindsided as a way of life. Sometimes that price is exclusion from treatments, from participation in decision-making, or from the machine of power. Sometimes that means death, and sometimes that means long-term and systemic deprivation for the collective as well as the individual. When we evaluate how we have spent our lives, we have to look at our cumulative impact, not at the moments of failure or bad faith. Assessing this history is not a game of call-out. Instead, it is an effort to really understand and make clear how the AIDS rebellion succeeded, and to face where it failed, in order to be more conscious and deliberate, and therefore effective, today.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;This book contains a lot:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Contemporary development, and even agile (by other names) come from feminized sources.&lt;/li&gt;
-  &lt;li&gt;The distinctions between the activities of plugging, coding, programming, solving, planning, and training; and the roles of “Engineer”, or “Architect” or “Manager” which are largely gendered.&lt;/li&gt;
-  &lt;li&gt;The feminization of  “technical” work of interacting with business machines (e.g. a typewriter, photocopier, etc.) and the perceptual “de-skilling” of those roles despite them being, well, heavily technical.&lt;/li&gt;
-  &lt;li&gt;Programming productivity gains being gobbled up by increasing complexity…. Well, sometimes… because there is a perceptual emphasis on complex edge-cases rather than the needs of the “typical” business.&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/NATO_Software_Engineering_Conferences&quot;&gt;Conference on Software Engineering sponsored by NATO and held in Garmisch, Germany on 7–11 October 1968&lt;/a&gt; was a big deal in the history of programming.&lt;/li&gt;
+  &lt;li&gt;“Drive and commitment, invention and felicity, a focus on campaigns, and being effective are the components of movements that change the world.&lt;/li&gt;
+  &lt;li&gt;“A small, very crucial group of individuals had spent their time in ACT UP observing and analyzing the full range of meaning and impact of ACT UP as a whole, and developed organizational overviews, which permitted broad analysis, recognition of large tropes, and a grasp of strategic reach. But most often, ACT UP did not theorize itself…. Direct action was a concept by which theoretical discussion was not separate from action. Of course, individual ACT UPers were influenced by theory. A number of young video activists had studied in the Whitney Museum Studio Program. Many older activists came from highly theorized earlier radical movements, and some members, like Douglas Crimp, wrote theory. But on the floor of the Monday-night meeting, theory was never debated unless it was tied to creating actions, or to setting active campaigns. As Maxine Wolfe, one of ACT UP’s most influential leaders, would say, when planning and carrying out an action, “theory emerges” as a concrete result of actual decisions that are being made for real-life application. Instead of the Gramscian concept of “praxis,” which is the application of theory into practice, ACT UP first chose a practice—an action—and then evolved a theory necessary to make it work toward our larger goal of “direct action to end the AIDS crisis.” &lt;strong&gt;In this way campaigns were structured as a series of interconnected actions, designed to produce a larger outcome. ACT UP would never just do a demonstration, zap, or action to stand on its own. These public expressions were designed to build to the next step. That’s why every event had a sign-up sheet, or leaflets announcing further actions, and participants were informed of the next step in the series on any specific issue. Every action included a component of giving participants and observers something else to do. In this way, energy was not wasted, and events had purpose, as part of a larger schema. Not wasting energy, effort, or goodwill was essential to being effective in a movement of people who literally did not have time.”&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;“Gregg got together with Charles Stimson and Ortez Alderson, an activist from Chicago who had moved to New York to become an actor and who was working in Black gay theater with Assotto Saint. They decided to get together to “do a kind of activism that was not necessarily authorized by the large group.” They were annoyed by what they felt was a slow pace as ACT UP grappled to develop their perspective. They called themselves “MHA,” which actually didn’t stand for anything, but had flexible uses. For example, they used “Metropolitan Health Association” in order to get a meeting with Stephen Joseph, the health commissioner of New York City. At that time, Joseph was talking about various kinds of punitive measures against prostitutes. He had engaged in some “very panic-causing kinds of rhetoric” about the threat that people with AIDS, for whom he was considering internment and other repressive measures, caused to the general public, particularly around tuberculosis. MHA showed up. “We said, ‘We’re the Metropolitan Health Association.’ They said, ‘Please come in.’” They were in a large conference room with Stephen Joseph. It quickly became apparent, though, that MHA was not any kind of interborough health consortium. They started asking Joseph about the slow pace in the city’s response to AIDS. When Joseph realized that they were AIDS activists, Gregg and company were arrested and the story appeared in the press. At the next ACT UP meeting, Gregg remembers rising and saying, &lt;strong&gt;“Look, you can just do this. You don’t have to go to the large group to get authorization. In fact, it’s better that the large group is not involved with these kinds of actions because they don’t have to be held accountable. So you can just do stuff. ACT UP is just this place we all meet on a weekly basis to talk about strategy and prioritize issues.”&lt;/strong&gt; He remembered saying over and over again, You can just do this. Just go out and do this. And people were very enthusiastic. This happened at the same time that the concept of affinity groups, which were inherently autonomous from the larger body, was gaining more popularity in ACT UP.”&lt;/li&gt;
+  &lt;li&gt;“I remember having this kind of conscious realization that if you stood up and said exactly what you meant and didn’t trail off into some kind of rambling incoherence, which is often the style of many people in meetings, that actually your opinion would be respected or at least heard.”&lt;/li&gt;
+  &lt;li&gt;“The Media Committee’s job was to make sure the press covered the action. How do you get the press to pay attention? Ann laid out the fundamental points of doing media for a radical political movement: Well, first of all, you do plan an action that is interesting enough, that you think the press is going to care about it. But you have to woo the press. You have to find a way to get them there. Some of that is about writing a press release that you send to the press that’s interesting enough to make them look at it and say, Oh, I better go cover that—that’s going to be important or interesting or crazy, and will make good pictures and put wild people on television. But we also know that the press doesn’t generally read press releases, so don’t expect to get the press there, just by sending them a press release, because they’re going to throw it in the wastebasket, and you’re just going to have to do it all over again. So you have to call them. And you have to find the right person to speak to. So you have to know how to call a newspaper or television station and say—not ask to speak to a specific person, but say—I’m calling about this, who should I speak to? And let them tell you who to speak to. Then you have to know how to talk to that person, and how to present [the issue]. And you do it first by asking them questions, and saying, What do you know about this? What’s your opinion of such and such? Rather than just throwing something at them. And then, lead them into being interested about this, and say, Well, what you may not know is such and such. Or, We’re doing this, that you might find interesting, and sort of make them think it’s their idea to come do this, rather than haranguing them or lecturing them about—You should be there, and you should be covering this. That will make them sit home, guaranteed. Part of infiltrating the media’s messaging was through simple education, in the hopes of getting our message, and not the state’s, or the corporation’s, across. “The press was so stupid and so lazy, that they would come to every demonstration and ask one question: Why are you here? That was it. And they had no understanding of any issue, and no ability to ask questions about any issue. Ninety-five percent of any news story is what the reporter is saying. The sound bites are a very tiny part of any story. I would tell people, Watch the evening news, and time how much of a story is the reporter’s narration, and how much is the sound bite, and you’ll find that the sound bite is a very small portion of the story. So it’s far less important for you to come up with the right sound bite than it is for you to talk to the reporter before they do the story and educate them, so they will reflect your point of view in their narration.”…“And one of her well-known insights is that you’re not talking to the media, you’re talking through the media.”&lt;/li&gt;
+  &lt;li&gt;“Like many women in ACT UP, Anne-Christine came from the reproductive rights movement, which heavily influenced her perspective on AIDS activism. “I actually think it was the closest to the reproductive rights work, because it was the angriest. People in reproductive rights were really angry. I didn’t think the people in the peace movement were as angry at all. I thought that they were sort of morally high ground in the peace movement, but I don’t feel like there was the same direct stake. And I think with AIDS, it was such a direct thing, because people were terrified … Coming out of Haiti, where a lot of people had died and were dying, it felt much more urgent to me. And so it was compelling in that way”&lt;/li&gt;
+  &lt;li&gt;“There were two groups of people in ACT UP. There were the groups of people who thought that until they had AIDS, they thought that the government was out there, and working for them. And I went to an affinity group meeting with this guy, I don’t remember his name; and he said it, quite clear. And he was really serious. He said, I can’t believe that my government let me down. I had a good job, I had plenty of money. But when I got sick, the government let me down. I wasn’t getting the services, I got treated like a pariah. Then there was the other group—and it wasn’t only people of color; but there’s another group, I think it’s more of a class thing—who knew that the system stunk, and the system had been letting them down, for years … People with insurance were definitely feeling something different than people going in with Medicaid … There were people that socialized in ACT UP who would never, ever, in a million years, if it wasn’t that situation, even talk to each other on the street. “But I think that’s the thing that held the group together so long, and made it work. Even people you didn’t like in ACT UP, right—you would support them in some way, because you had the same issues … People were dying, it was urgent; a lot of people in the group were dying; and this was it. There was nowhere else to go but ACT UP. And I think some people came to ACT UP or they would have jumped out windows if they didn’t come to ACT UP, because it was also, in a way, some kind of therapy for people coming there. Whether you were rich or poor, that was one of the only places you could talk about your condition, your friend’s condition, whoever you were taking care of. That was the only place to talk about it. And I think that made an alliance that would have never happened anywhere else … And the anger was there. Everybody was pissed. They weren’t getting the services; most people were still treated like pariahs, in the beginning.”&lt;/li&gt;
+  &lt;li&gt;“And so César articulates for us that ACT UP and its relationships are, as Matt Brim notes, not just a model of activism but a model of making sense of the problem that activism is trying to address, and the problem that lingers in the lives of individuals, long after the activism creates some kind of positive permanent change. Activism is, consequentially, the process of making sense of one’s experience of the problem that collectively we have transformed. It creates order, demystifies, and allows an understanding of systems that otherwise feel overwhelming and unaddressable.”&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;p&gt;Sure sounds like contemporary collaborative practices:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;[Elsie] Shutt’s [of Comp Inc.] approach was to organize her programmers in teams that collaboratively divided the work among themselves: “We would get together every week, everybody working on the project. One thing we had to learn to do was to take a job and to break it into pieces—meaningful pieces—and then we’d get together, talk about it, assign jobs.” She coached her programmers to be meticulous, which resulted in efficiencies for the company and a better product for the client. For example, she emphasized desk-checking, the practice of having programmers review each other’s code before running it on the computer. Although desk-checking was a fairly common practice in the 1950s, Shutt believed that she “emphasized it more than others did” because we were doing things that we broke up into more pieces than some people did.” Comp Inc. had no room for “egotistical” programmers who refused the share their code. Another key priority was “documenting it—well—so that someone else would be able to maintain it if they needed to.” Producing modular, well-documented code also made it easier for Comp Inc. to repurpose programs for subsequent clients, which saved on programming costs.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;…and Agile:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Women may have been uniquely situated to participate in these innovations because of their gendered role in the workplace. As working programmers—and as the staff members who stereotypically were asked to assist customers or in-house users—women had both the expertise to devise solutions and the incentive to make programming easier for experts and novices alike. And although women usually lacked the formal authority to impose workplace practices, this was unnecessary in a computer culture that left the choice of techniques largely up to programmers themselves.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;On productivity and the never-realized goal of getting rid of programming as a specialization:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;In many ways, the campaign for automatic programming was a rousing success: The new techniques were widely adopted, and as promised, they greatly reduced the time that was needed to produce programs and  transferred much tedious work from humans to machines. Many programmers took advantage of these new tools to improve the organization of that programs, creating a visible, logical structure that made code faster to produce and easier to maintain, reuse, and share. However, to the disappointment of some, the overall effect of compilers and associated tools was not to eliminate programming but to redefine it. Much of what had been included as an integral part of programming practice–tedious copying or recoding of subroutines, the need to be aware of machine design and physical memory configuration, and the use of machine codes-was no longer required. But the programmer still had to design and specify the higher-level structure of the program, tasks that proved too complex for most end-users. The new techniques also did nothing to automate the initial analysis of the problem–the task of modeling a real-world activity as an ordered flow of computable steps. Although this work could potentially be shifted from the programmer to a systems analyst, in either case it was a person and not the computer that performed it.&lt;/p&gt;
-
-  &lt;p&gt;To the extent that a factory-like version of automation failed to materialize, it vindicated programmers’ holistic view of their work as complex and creative. It also reflected a conscious decision by computer manufacturers and their customers to use automation to increase productivity and quality rather than to shrink the labor force. Managers asked programmers to tackle more ambitious projects or create more sophisticated user interfaces, expanding their demand for skilled labor to absorb the available supply. The ever increasing complexity of cutting-edge systems would soon lead to new calls for a reform of programming methods.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;An ongoing discussion about what happens.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;The term software engineering has become common enough today that its provocative effect has been lost. Yet when the term was introduced at Garmisch, it was purely aspirational.  Rather than claiming to describe actual practices, the organizers named an ideal that did not yet exist. Nor was it obvious that engineering was the best model for programming. The computing literature of the 1960s is rife with competing metaphors, each or which was chosen to make a particular claim about the nature of programming. Some managers continued to view programming as creative art or craft—and in a positive sense, rather than as a problem to Be cured by imposing scientific rationality. In the academic community, computer science was often seen as a branch of mathematics, which had a higher intellectual status than engineering. The 1970 &lt;em&gt;On the Management&lt;/em&gt; of Computer Programming, a book that targeted a business audience, ignored the new term software engineering and preferred to use managerial skill as its ideal. Maurice Wilkes argued in 1976 that the term &lt;em&gt;engineering&lt;/em&gt; did not realistically represent the process of creating a large program. He suggested instead that “There are some analogies between writing a program and writing a treatise or a paper.” Computer industry writers invoked a host of other professions to emulate, including accounting (for its certification standards), medicine (for its skilled teamwork and strong professional societies), architecture (as a model for coherent design and precise specification), aviation (for its recognition of the dire consequences of failure), or even cooking (as a time sensitive production process).&lt;br /&gt;
- …&lt;br /&gt;
-Given this gendered status hierarchy, some practitioners—women as well as men—may have believed that programmers would rise in stature by adopting the title of engineer. An unintended consequence of this move may have been to make programming and computer science less inviting to women, helping to explain the historical puzzle of why women took a leading role in the first wave of software improvements but become much less visible in the software engineering era.&lt;br /&gt;
-….&lt;br /&gt;
-“For instance, getting your requirements right initially; understanding the materials you’re working with.” Susan Graham, the daughter of a mechanical engineer, got her Ph.D. in computer science a few years after Garmisch and easily identified as a software engineer.  Referring to the process of checking the semantics of a programming language, Graham characterized engineering practice as trial-and-error: “You write a compiler, and then you do a lot of testing against real programs, and you try to see whether the right thing happens. And that’s why it’s engineer ing!” These examples demonstrate again the diverse meanings of engineering, as well as female practitioners ability to prioritize those aspects of engineering that matched their own needs, experiences, and values.&lt;br /&gt;
-…&lt;br /&gt;
-Some aspects of the software engineering ideal appealed directly to preferences that were widely expressed by women, such as the desire to create something that would improve users’ lives. Edward E. David of Bell Laboratories expressed this philosophy at Garmisch in 1968: “Software engineering and computing engineering have an extremely important and nice aspect to them, namely that people want to work on things that meet other people’s needs. They are not interested in working on abstractions entirely; they want to have an impact on the world.” Mary Shaw, who helped establish Carnegie Mellon University’s Software Engineering Institute in the 1980s, echoed this public service ethos in her own 1990 definition of engineering as solving “practical problems . . . in the service of mankind:”In her view, key aspects of an “engineering attitude” included “considering users” and realizing that design choices had to be made “for both technical and nontechnical reasons.’ Shaw’s emphasis  on users and on real-word, nontechnical factors fits well with the computer-as-a-tool orientation more common among women. &lt;strong&gt;Although Engineering as a profession has been highly masculine, engineering as a discipline or philosophy has had wider range of potential meaning.&lt;/strong&gt;&lt;br /&gt;
-… &lt;br /&gt;
-&lt;strong&gt;In at least three important senses, software engineering could be said to have failed.&lt;/strong&gt; First, because of the divergent approaches and priorities of academic theorists and industry practitioners, much research investment has been wasted. Second, to the extent that software engineering was meant to revolutionize labor practices by deskilling and disciplining programmers, imposing standardized research-based methods, or mandating licensing, it has not succeeded. Finally, software engineering never solved the problem that was its &lt;em&gt;raison d’etre&lt;/em&gt;—the software crisis. These failures call into question the notion that engineering is the most appropriate model for the programming profession.&lt;/p&gt;
-&lt;/blockquote&gt;
 
         &lt;br&gt;&lt;br&gt;
         &lt;hr&gt;
         &lt;p&gt;
-          This book review for &lt;em&gt;&lt;a href=&quot;https://island94.org&quot;&gt;Recoding Gender&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
+          This book review for &lt;em&gt;&lt;a href=&quot;https://island94.org&quot;&gt;Let the Record Show: A Political History of ACT UP New York, 1987-1993&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
           Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
         &lt;/p&gt;
       </description>
-        <pubDate>Mon, 18 Apr 2022 02:31:00 +0000</pubDate>
+        <pubDate>Sat, 19 Mar 2022 16:01:00 +0000</pubDate>
+        <link>https://island94.org</link>
+        <guid isPermaLink="true">https://island94.org</guid>
+      </item>
+    
+      
+      
+
+      <item>
+        <title>I read Bullshit Jobs by David Graeber</title>
+        <description>&lt;p&gt;Recommended by Rob, and part of a milieu that also included &lt;em&gt;The Real World of Technology&lt;/em&gt; and &lt;em&gt;Breaking Stuff at Work&lt;/em&gt; with a synthesis along the lines of “technology squeezes the lower-middle manager roles (sergeant/foreman), not the upper managers”. But that’s not what Bullshit Jobs is about.&lt;/p&gt;
+
+&lt;p&gt;Apart from the essay, the best part for me was a description of how we haven’t replaced the feudal system, just layered onto it.&lt;/p&gt;
+
+&lt;p&gt;It has some critical bits about open source being the fun bits done for free, and the paid job is unsatisfying duct taping it together. Which doesn’t track for my immediate experience (at least not what is blame on &lt;em&gt;open source&lt;/em&gt; specifically), but the lines between “analyst/integrator” and “engineer” is real mushy sometimes.&lt;/p&gt;
+
+&lt;p&gt;It’s a quick read, and I think is good contemporary cannon (aside: I wonder what Rushkoff is up to?). Besides briefly and self-consciously touching on UBI, it left me with an anxious “Yep!” that maybe didn’t need 350 pages to achieve.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;This is a powerful argument for human freedom. Most of us like to talk about freedom in the abstract, even claim that it’s the most important thing for anyone to fight or die for, but we don’t think a lot about what being free or practicing freedom might actually mean. The main point of this book was not to propose concrete policy prescriptions, but to start us thinking and arguing about what a genuine free society might actually be like.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;There was quite a bit about feminization of work:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;One might say that men will always take for themselves the kind of jobs one can tell stories about afterward, and try to assign women the kind you tell stories during.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;And distinctions between Michel Foucault’s power and domination (or Sarah Schulman’s conflict and abuse):&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;…unlike actual BDSM play, where there’s always a safe-word, when “normal” people fall into the same dynamic, there’s never such an easy way out. “You can’t say ‘orange’ to your boss.” It’s always occurred to me this insight is important and could even become the basis for a theory of social liberation.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+        &lt;br&gt;&lt;br&gt;
+        &lt;hr&gt;
+        &lt;p&gt;
+          This book review for &lt;em&gt;&lt;a href=&quot;https://island94.org&quot;&gt;Bullshit Jobs&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
+          Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
+        &lt;/p&gt;
+      </description>
+        <pubDate>Thu, 10 Mar 2022 22:20:00 +0000</pubDate>
+        <link>https://island94.org</link>
+        <guid isPermaLink="true">https://island94.org</guid>
+      </item>
+    
+      
+      
+
+      <item>
+        <title>I read OOP the easy way by Graham Lee</title>
+        <description>&lt;p&gt;I came to this book with certain hopes that were left unfulfilled, but I read it in a few hours and enjoyed it.&lt;/p&gt;
+
+&lt;p&gt;Fulfilled: cuts to the core that Object Oriented Programming conceptually starts with sending messages to objects, and the internals of how those objects &lt;em&gt;respond&lt;/em&gt; (methods, delegation, class hierarchies, etc.) is an implementation detail best deferred/ignored as long as possible. This was something I already agreed with in a sort of stubborn System 2 Thought Process (“no brain, think about it the other way”) when designing code, and it was lovely to have that reinforced as a thing to do.&lt;/p&gt;
+
+&lt;p&gt;Unfulfilled: The human ergonomic benefits and &lt;em&gt;how to think&lt;/em&gt; about objects in a deeper way than arguing the importance of the left part of the sentence (message sending) over the right (object/language implementation). This hope (for a better mental bicycle than “no brain…” ) came from the introduction:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Because OOP is supposed to be a paradigm, a pattern of thought, and if we want to adopt that paradigm then we have to see how different tools or techniques support, damage, or modify our thoughts.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;And the hope was reinforced by enjoyable ripostes like this:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;A contributor to this objects-as-data approach seems to have been the attempt to square object-oriented programming with “Software Engineering”, a field of interest launched in 1968 that aimed to bring product design and construction skills to computer scientists by having very clever computer scientists think about what product design and construction might be like and not ask anybody.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Yeah!&lt;/p&gt;
+
+&lt;p&gt;An argument that I wanted explored more is that the aligning the way we think about the user-machine interface with the way we think about the programmer-implementation interface is ergonomic (building the muscles, deepening the mental groove):&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;It means relinquishing the traditional process-centered paradigm with the programmer-machine relationship at the center of the software universe in favor of a product-centered paradigm with the producer-consumer relationship at the center.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;And…&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Behaviour-Driven Development marries the technical process of Test-Driven Development with the design concept of the ubiquitous language, by encouraging developers to collaborate with the rest of their team on defining statements of desired behaviour in the ubiquitous language and using those to drive the design and implementation of the objects in the solution domain. In that way, the statement of what the Goal Donor needs is also the statement of sufficiency and correctness - i.e. the description of the problem that needs solving is also the description of a working solution. This ends up looking tautological enough not to be surprising.&lt;/p&gt;
+
+  &lt;p&gt;… The theme running through the above is that sufficiency is sufficient The theme running through the above is that sufficiency is sufficient. When an object has been identified as part of the solution to a problem, and contributes to that solution to the extent needed (even if for now that extent is “demonstrate that a solution is viable”), then it is ready to use. There is no &lt;em&gt;need&lt;/em&gt; to situate the object in a taxonomy of inherited classes - but if that helps to solve the problem, then by all means do it. There is no &lt;em&gt;need&lt;/em&gt; to show that various objects demonstrate a strict subtype relationship and can be used interchangeably, unless solving your problem requires that they be used interchangeably. There is no &lt;em&gt;need&lt;/em&gt; for an object to make its data available to the rest of the program, unless the problem can be better solved (or cheaper solved, or some other desirable property) by doing so.&lt;/p&gt;
+
+  &lt;p&gt;… Some amount of planning is always helpful, whether or not the plan turns out to be. The goal at every turn should be to understand how we get to &lt;em&gt;what we now want&lt;/em&gt; from &lt;em&gt;what we have now&lt;/em&gt;, not to &lt;em&gt;already have&lt;/em&gt; that which &lt;em&gt;we will probably want sometime&lt;/em&gt;. Maybe the easiest thing to do is to start afresh: so do that.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;I agree with a “just get on with it” argument &lt;em&gt;and&lt;/em&gt; I’m seeking a deeper practice of metacognition than powering through.&lt;/p&gt;
+
+&lt;p&gt;By the end, &lt;em&gt;OOP the easy way&lt;/em&gt; argued for the need to &lt;em&gt;start&lt;/em&gt; seeing if the true paradigm of OOP is actually any good, and that left me back where I started before the book. I wished it had done that work of “asking anybody” already.&lt;/p&gt;
+
+&lt;p&gt;Hopes and wishes aside, it was an enjoyable technical read, mainly because it’s dishy, referring and discarding concepts by their progenitors name. This could be criticized as vagueness if one is not invested in learning the personalities involved (for example, a concept is breezily described as “Meyer-ish”), and that kept me moving forward.&lt;/p&gt;
+
+        &lt;br&gt;&lt;br&gt;
+        &lt;hr&gt;
+        &lt;p&gt;
+          This book review for &lt;em&gt;&lt;a href=&quot;https://island94.org&quot;&gt;OOP the easy way&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
+          Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
+        &lt;/p&gt;
+      </description>
+        <pubDate>Sat, 05 Mar 2022 17:18:00 +0000</pubDate>
         <link>https://island94.org</link>
         <guid isPermaLink="true">https://island94.org</guid>
       </item>
