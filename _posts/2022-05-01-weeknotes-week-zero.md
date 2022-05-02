@@ -6,7 +6,7 @@ tags:
 - weeknotes
 ---
 
-I started a new job this week at GitHub, managing their Ruby Architecture team. I love the team's mission:
+I started a new job midweek this week at GitHub, managing their Ruby Architecture team. I love the team's mission:
 
 > Making it easy for our engineers to create, deliver, and operate best-of-class Ruby and Rails applications, and sharing the best of it with the world.
 
