@@ -13,7 +13,8 @@ permalink: /books/
     </tr>
   </thead>
   <tbody>
-    {% for book in site.books %}
+    {% assign sorted_books = site.books | sort: 'date' | reverse %}
+    {% for book in sorted_books %}
       <tr>
         <td>
           <a class="post-link" href="{{ book.url | prepend: site.baseurl }}">

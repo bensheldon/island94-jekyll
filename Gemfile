@@ -19,4 +19,5 @@ group :development, :test do
   gem 'rake'
   gem 'rack-jekyll'
   gem 'rspec'
+  gem 'webrick'
 end
