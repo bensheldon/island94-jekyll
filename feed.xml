@@ -6,9 +6,52 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 02 May 2022 02:41:24 +0000</pubDate>
-    <lastBuildDate>Mon, 02 May 2022 02:41:24 +0000</lastBuildDate>
+    <pubDate>Mon, 02 May 2022 03:13:14 +0000</pubDate>
+    <lastBuildDate>Mon, 02 May 2022 03:13:14 +0000</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
+    
+      
+      
+
+      <item>
+        <title>Weeknotes: Week 0</title>
+        <description>&lt;p&gt;I started a new job midweek this week at GitHub, managing their Ruby Architecture team. I love the team’s mission:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Making it easy for our engineers to create, deliver, and operate best-of-class Ruby and Rails applications, and sharing the best of it with the world.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;I also took about 2.5 weeks in between leaving Code for America and starting this job, so I’m feeling fresh and ready for several weeks of official onboarding, and several months of growing into the role.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Something I learned&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;GitHub is heavily into written documentation. &lt;a href=&quot;https://ben.balter.com/2014/10/07/expose-process-through-urls/&quot;&gt;“If it doesn’t have a URL, it didn’t happen.”&lt;/a&gt;. And not just cross-referencing, but emoting and emoji-ing, and being, well, &lt;em&gt;extra&lt;/em&gt;. Writing and communication has been reinforced &lt;em&gt;a lot&lt;/em&gt; during onboarding, more even than the content itself. Which makes sense: if you understand how the organization communicates, you can seek answers independently.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Something I was inspired by&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Despite formal onboarding being my number one focus, I’ve been having casual 1:1s with my team. They’re great! I’ve been inspired by the nuance and understanding they bring to the work. On its own, being a service team is &lt;em&gt;hard&lt;/em&gt;, and corporate open source is &lt;em&gt;hard&lt;/em&gt;. I’ve found myself heavily nodding along hearing them discuss the challenges of moving people forward. It’s brought to surface a few thoughts and memories:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Of being a frontend lead at Pantheon and the challenges of getting platform-team resources to build up to the outcome and vision we all agreed on, but that had some uncomfortable zigs and zags to get there. A case of make the change easy (which &lt;em&gt;can be hard&lt;/em&gt;), then make the easy change.&lt;/li&gt;
+  &lt;li&gt;My falling out of the Drupal ecosystem as it developed more in line with the needs of full-service agencies than of solo devs and configurers like myself. As one of my colleagues admitted this week, our developers aren’t running “rails new” a whole lot and that’s something to be mindful of how it shapes the contributions.&lt;/li&gt;
+  &lt;li&gt;“If you’re leading and no one is following, you’re just out for a walk.”&lt;/li&gt;
+&lt;/ul&gt;
+
+        &lt;br&gt;&lt;br&gt;
+        &lt;hr&gt;
+        &lt;p&gt;
+          This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2022/05/weeknotes-week-zero&quot;&gt;Weeknotes: Week 0&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
+          Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
+        &lt;/p&gt;
+      </description>
+        <pubDate>Mon, 02 May 2022 02:41:00 +0000</pubDate>
+        <link>https://island94.org/2022/05/weeknotes-week-zero</link>
+        <guid isPermaLink="true">https://island94.org/2022/05/weeknotes-week-zero</guid>
+        
+          <category>weeknotes</category>
+        
+        
+      </item>
     
       
       
@@ -419,79 +462,6 @@ TRANSACTION (0.1ms)  ROLLBACK
         <pubDate>Tue, 11 Jan 2022 19:17:00 +0000</pubDate>
         <link>https://island94.org/2022/01/javascript-is-a-management-problem</link>
         <guid isPermaLink="true">https://island94.org/2022/01/javascript-is-a-management-problem</guid>
-        
-        
-      </item>
-    
-      
-      
-
-      <item>
-        <title>I&apos;m burning dude... where do we go from here?</title>
-        <description>&lt;p&gt;A powerful conversation from Reveal’s &lt;a href=&quot;https://revealnews.org/podcast/mississippi-goddam-chapter-6-mississippi-justice/&quot;&gt;“Mississippi Goddam Chapter 6: Mississippi Justice” (46:10)&lt;/a&gt; between reporters Al Letson and Jonathan Jones:&lt;/p&gt;
-
-&lt;blockquote&gt;
-
-  &lt;p&gt;&lt;strong&gt;Al Letson&lt;/strong&gt;&lt;/p&gt;
-
-  &lt;p&gt;After the interview, I was still thinking about everything Curley said. JJ and I walked back to our car mostly in silence, but on the ride back, we talked about it.&lt;/p&gt;
-
-  &lt;p&gt;Okay, so, what did you think about the interview with Curley?&lt;/p&gt;
-
-  &lt;p&gt;&lt;strong&gt;Jonathan Jones&lt;/strong&gt;&lt;/p&gt;
-
-  &lt;p&gt;It was good. It was slightly pessimistic at the end of it.&lt;/p&gt;
-
-  &lt;p&gt;&lt;strong&gt;Al Letson&lt;/strong&gt;&lt;/p&gt;
-
-  &lt;p&gt;That’s kind of what I wanted to talk to you about though, is that like, I am just really tired of people asking Black folks to have hope, and to make people feel better about the American situation, when everything in our history tells us that that is not the case. And I especially am uncomfortable with it when we are asking people who are doing the work, like Curley Clark is out there doing the work to try to make this world a more just place. And I, in the work that I choose to do, I’m trying to make the world a better place in it. And in the work that you do, it’s the same reason. We’re both driven to the work that we do and the cases that we look at and pick, because we want this place to be more just for everybody. And so, but the idea that somehow or another, Black folks are supposed to have hope, and Black folks are not supposed to be pessimistic. It just feels yucky to me, because it’s like asking us to look at all the history of what’s happened in this country and kind of ignore it.&lt;/p&gt;
-
-  &lt;p&gt;&lt;strong&gt;Jonathan Jones&lt;/strong&gt;&lt;/p&gt;
-
-  &lt;p&gt;No, but I don’t disagree with you. I think that’s a misunderstanding of what I was asking. I wasn’t fishing for Black folk to fight.&lt;/p&gt;
-
-  &lt;p&gt;&lt;strong&gt;Al Letson&lt;/strong&gt;&lt;/p&gt;
-
-  &lt;p&gt;No, I don’t think you were. That’s not what I’m saying. I’m not saying that you were telling me…&lt;/p&gt;
-
-  &lt;p&gt;&lt;strong&gt;Jonathan Jones&lt;/strong&gt;&lt;/p&gt;
-
-  &lt;p&gt;Well, let me just… I mean, I am thinking about, I want to inspire. I want to… I don’t want to be an activist, but I hope our journalism helps to make this better world. And in investigative reporting, we do a great job of finding bad guys. We don’t do a very good job about solutions.&lt;/p&gt;
-
-  &lt;p&gt;&lt;strong&gt;Al Letson&lt;/strong&gt;&lt;/p&gt;
-
-  &lt;p&gt;I think we look at it in two different ways, in the sense of, we’re both shooting for the same goal. And I want to be really clear that I didn’t think that you were telling Curley Clark to work harder. I felt like you were asking Curley, and by extension me, why don’t we have hope, and where’s the hope? And my point is that the history of this country tells me, no, no, I can’t do that anymore.&lt;/p&gt;
-
-  &lt;p&gt;And I would say that, I think it’s beautiful that you want to inspire people. I do. I love that about you. And in certain ways, I do want to do work that inspires people, but really at this point in my life and where I am, I don’t want to inspire people, I want to infuriate people. I want to make work that make people burn so hard that they feel like this injustice is wrong, and they want to go out, and they want to tear it all down.&lt;/p&gt;
-
-  &lt;p&gt;And I know that we’re talking about the same thing, but we’re talking about it in different ways, right? I know that you want to do the exact same thing, that you want to inspire people for this, to this higher cause. And I think that that is useful and smart, but also, I think, just like in series that we’re working on, I couldn’t do this without you, and you couldn’t do this without me, and the inspiration is definitely necessary, but fuck, man, I got so much anger.&lt;/p&gt;
-
-  &lt;p&gt;I got so much anger, and I’m so tired of hiding it, and I’m so tired of pretending that it’s not there, and I’m so tired of this idea that… This shit really chokes me up a little bit. I’m just, I’m sick of it, man. I’m sick of it, And it makes… I want to… I’m burning, dude. And that’s why I’m doing this work, is because I’m seeing how the world is, and it’s not just Mississippi. It’s all, it’s the entire country. You see how it’s happening, and I don’t have hope, but what I do have is this rage, and it’s burning in me. And that’s what I hope that we do. I hope that we people off so bad at that they create change from that fire.&lt;/p&gt;
-
-  &lt;p&gt;&lt;strong&gt;Jonathan Jones&lt;/strong&gt;&lt;/p&gt;
-
-  &lt;p&gt;And that seems very real, and I completely affirm that. I think maybe I would have, maybe I should have phrased the question a little bit better, because that answer that you gave would have been the answer. I guess my point was, where do we go from here? It can be from anger and raw rage, and outrage at injustice. It’s just, where do we go from here? And I don’t want to have a… I’m not trying to do a hokey fairytale at all.&lt;/p&gt;
-
-  &lt;p&gt;&lt;strong&gt;Al Letson&lt;/strong&gt;&lt;/p&gt;
-
-  &lt;p&gt;Right, right.&lt;/p&gt;
-
-  &lt;p&gt;&lt;strong&gt;Jonathan Jones&lt;/strong&gt;&lt;/p&gt;
-
-  &lt;p&gt;And it’s… it’s hard.&lt;/p&gt;
-
-&lt;/blockquote&gt;
-
-        &lt;br&gt;&lt;br&gt;
-        &lt;hr&gt;
-        &lt;p&gt;
-          This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2021/12/i&apos;m-burning-dude-where-do-we-go-from-here&quot;&gt;I&apos;m burning dude... where do we go from here?&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
-          Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
-        &lt;/p&gt;
-      </description>
-        <pubDate>Fri, 10 Dec 2021 01:41:00 +0000</pubDate>
-        <link>https://island94.org/2021/12/i'm-burning-dude-where-do-we-go-from-here</link>
-        <guid isPermaLink="true">https://island94.org/2021/12/i'm-burning-dude-where-do-we-go-from-here</guid>
         
         
       </item>
