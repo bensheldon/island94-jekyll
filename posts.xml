@@ -1,0 +1,508 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Island94.org</title>
+    <description>A Lost and Found
+</description>
+    <link>https://island94.org/</link>
+    <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sun, 19 Jun 2022 19:06:18 +0000</pubDate>
+    <lastBuildDate>Sun, 19 Jun 2022 19:06:18 +0000</lastBuildDate>
+    <generator>Jekyll v4.2.2</generator>
+    
+    
+      
+
+
+
+
+<item>
+  <title>Worknotes: Week 5</title>
+  <description>&lt;p&gt;I just had my 1-month anniversary. The new job feels…. normal 🤷‍♀️ It’s 1:1s and sensemaking (dot-connecting, aligning, stortytelling) and gently holding and sharing and developing opinions about how people should collaborate in the worksplace and &lt;em&gt;engineering&lt;/em&gt; the infrastructure that supports that. I dunno, given that I’m still working from home, it’s all still people stuff just different people. One of those &lt;a href=&quot;variations within groups are greater than variations between groups&quot;&gt;Boasian&lt;/a&gt; “variations within groups are greater than variations between groups” things. People are great!&lt;/p&gt;
+
+&lt;h2 id=&quot;something-im-inspired-by&quot;&gt;Something I’m inspired by&lt;/h2&gt;
+
+&lt;p&gt;I’ve observed a lot of reinforcement of goals and values. I’ve been impressed seeing my team jump on an issue and not just say “I can help” but also “Our team’s purpose is to help.” Or seeing my Director hop in a comment and not just say “Great work” but also “This is a great example of our group’s charter”.&lt;/p&gt;
+
+&lt;p&gt;I think the majority of the feedback a manager should be giving is shining a spotlight on the things someone is already doing that are good and meaningful, and I’ve been inspired to see that in action from others.&lt;/p&gt;
+
+&lt;h2 id=&quot;something-im-thinking-about&quot;&gt;Something I’m thinking about&lt;/h2&gt;
+
+&lt;p&gt;I’ve been working through Lara Hogan’s &lt;a href=&quot;https://larahogan.me/blog/first-one-on-one-questions/&quot;&gt;“Questions for our first 1:1”&lt;/a&gt;, which is part of my personal manager runbook.&lt;/p&gt;
+
+&lt;p&gt;The question “How do you prefer to receive recognition?” gets spicy answers!  I’m managing a very high level team and the answers closely line up with my own high-level friends and high-level former coworkers and myself: people are &lt;em&gt;uncomfortable&lt;/em&gt; with recognition.&lt;/p&gt;
+
+&lt;p&gt;Which is… a not unreasonable reaction. In the words of a close friend “This is total shit, but… thanks, I’m glad you like it.”  When I think about my own reaction, I attribute it to navigating a lot of intersecting supremacy cultures (conscious and unconscious) which are complicated: perfectionism, humbleness, &lt;a href=&quot;http://transmissionproject.org/current/2011/4/honest-practice-how-the-public-sector-can-look-at-itself-new-article-in-resources.html&quot;&gt;honest practice&lt;/a&gt;, a desire to recognize all contributors (which has its own recursive sympathy).&lt;/p&gt;
+
+&lt;p&gt;I get it. I think about how much self-work I’ve done in my own life to reply to “I like your X” with simply “Thanks!” (and not “oh, and I like your..” or “oh, it’s not that great”).&lt;/p&gt;
+
+&lt;h2 id=&quot;whats-next&quot;&gt;What’s next&lt;/h2&gt;
+&lt;p&gt;Two quarterly activities are upcoming that I’m excited to be organizing for the first time: engineering rotations and OKR setting. I’m sure I’ll learn a lot.&lt;/p&gt;
+
+  &lt;br&gt;&lt;br&gt;
+  &lt;hr&gt;
+  &lt;p&gt;
+    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2022/05/worknotes-week-5&quot;&gt;Worknotes: Week 5&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
+    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
+  &lt;/p&gt;
+</description>
+  <pubDate>Mon, 30 May 2022 20:31:00 +0000</pubDate>
+  <link>https://island94.org/2022/05/worknotes-week-5</link>
+  <guid isPermaLink="true">https://island94.org/2022/05/worknotes-week-5</guid>
+  
+    <category>worknotes</category>
+  
+  
+</item>
+
+    
+      
+
+
+
+
+<item>
+  <title>Weeknotes: Week 0</title>
+  <description>&lt;p&gt;I started a new job midweek this week at GitHub, managing their Ruby Architecture team. I love the team’s mission:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Making it easy for our engineers to create, deliver, and operate best-of-class Ruby and Rails applications, and sharing the best of it with the world.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;I also took about 2.5 weeks in between leaving Code for America and starting this job, so I’m feeling fresh and ready for several weeks of official onboarding, and several months of growing into the role.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Something I learned&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;GitHub is heavily into written documentation. &lt;a href=&quot;https://ben.balter.com/2014/10/07/expose-process-through-urls/&quot;&gt;“If it doesn’t have a URL, it didn’t happen.”&lt;/a&gt;. And not just cross-referencing, but emoting and emoji-ing, and being, well, &lt;em&gt;extra&lt;/em&gt;. Writing and communication has been reinforced &lt;em&gt;a lot&lt;/em&gt; during onboarding, more even than the content itself. Which makes sense: if you understand how the organization communicates, you can seek answers independently.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Something I was inspired by&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Despite formal onboarding being my number one focus, I’ve been having casual 1:1s with my team. They’re great! I’ve been inspired by the nuance and understanding they bring to the work. On its own, being a service team is &lt;em&gt;hard&lt;/em&gt;, and corporate open source is &lt;em&gt;hard&lt;/em&gt;. I’ve found myself heavily nodding along hearing them discuss the challenges of moving people forward. It’s brought to surface a few thoughts and memories:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Of being a frontend lead at Pantheon and the challenges of getting platform-team resources to build up to the outcome and vision we all agreed on, but that had some uncomfortable zigs and zags to get there. A case of make the change easy (which &lt;em&gt;can be hard&lt;/em&gt;), then make the easy change.&lt;/li&gt;
+  &lt;li&gt;My falling out of the Drupal ecosystem as it developed more in line with the needs of full-service agencies than of solo devs and configurers like myself. As one of my colleagues admitted this week, our developers aren’t running “rails new” a whole lot and that’s something to be mindful of how it shapes the contributions.&lt;/li&gt;
+  &lt;li&gt;“If you’re leading and no one is following, you’re just out for a walk.”&lt;/li&gt;
+&lt;/ul&gt;
+
+  &lt;br&gt;&lt;br&gt;
+  &lt;hr&gt;
+  &lt;p&gt;
+    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2022/05/weeknotes-week-zero&quot;&gt;Weeknotes: Week 0&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
+    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
+  &lt;/p&gt;
+</description>
+  <pubDate>Mon, 02 May 2022 02:41:00 +0000</pubDate>
+  <link>https://island94.org/2022/05/weeknotes-week-zero</link>
+  <guid isPermaLink="true">https://island94.org/2022/05/weeknotes-week-zero</guid>
+  
+    <category>weeknotes</category>
+  
+  
+</item>
+
+    
+      
+
+
+
+
+<item>
+  <title>Working the problem</title>
+  <description>&lt;p&gt;From &lt;em&gt;An Astronauts Guide to Planet Earth&lt;/em&gt; by Chris Hadfield:&lt;/p&gt;
+
+&lt;blockquote&gt;
+
+  &lt;p&gt;Feeling ready to do something doesn’t mean feeling certain you’ll succeed, though of course that’s what you’re hoping to do. Truly being ready means understanding what could go wrong – and having a plan to deal with it. You could learn to scuba dive in a resort pool, for instance, and go on to have a wonderful first dive in the ocean even if you had no clue how to buddy breathe or what to do if you lost a flipper. But if conditions were less than ideal, you could find yourself in serious danger. In the ocean, things can go wrong in one breath, and the stakes are life and death. That’s why in order to get a scuba license you have to do a bunch of practice dives and learn how to deal with a whole set of problems and emergencies so that you’re really ready, not just ready in calm seas.&lt;/p&gt;
+
+  &lt;p&gt;For the same sort of reasons, trainers in the space program specialize in devising bad-news scenarios for us to act out, over and over again, in increasingly elaborate simulations. We practice what we’ll do if there’s engine trouble, a computer meltdown, an explosion. Being forced to confront the prospect of failure head-on – to study it, dissect it, tear apart all its components and consequences – really works. After a few years of doing that pretty much daily, you’ve forged the strongest possible armor to defend against fear: hard-won competence.&lt;/p&gt;
+
+  &lt;p&gt;Our training pushes us to develop a new set of instincts. Instead of reacting to danger with a fight-or-flight adrenaline rush, we’re trained to respond unemotionally by immediately prioritizing threats and methodically seeking to defuse them. We go from wanting to bolt for the exit to wanting to engage and understand what’s going wrong, then fix it.&lt;/p&gt;
+
+  &lt;p&gt;Early on during my last stay on the ISS, I was jolted to consciousness in the middle of the night: a loud horn was blaring. For a couple of seconds I was in a fog, trying to figure out what that unpleasant noise was. There were four of us in the American section of the Station then, and like prairie dogs, we all poked our heads up out of our sleep pods at the same time to look at the panel of emergency lights on the wall that tell us whether we should be concerned about depressurization, toxicity or some other potential fatal disaster. Suddenly all of us were wide awake. That deafening noise was the fire alarm.&lt;/p&gt;
+
+  &lt;p&gt;A fire is one of the most dangerous things that can happen in a spaceship because there’s nowhere to go; also, flames behave less predictably in weightlessness and are harder to extinguish. In my first year as an astronaut, I think my response to hearing the alarm would have been to grab an extinguisher and start fighting for my life, but over the past 21 years that instinct has been trained in, represented by three words: warn, gather, work.&lt;/p&gt;
+
+  &lt;p&gt;&lt;strong&gt;“Working the problem” is NASA-speak for descending one decision tree after another, methodically looking for a solution until you run out of oxygen.&lt;/strong&gt; &lt;strong&gt;We practice the “warn, gather, work” protocol for responding to fire alarms so frequently that it doesn’t just become second nature; it actually supplants our natural instincts. So when we heard the alarm on the Station, instead of rushing to don masks and arm ourselves with extinguishers, one astronaut calmly got on the intercom to warn that a fire alarm was going off – maybe the Russians couldn’t hear it in their module – while another went to the computer to see which smoke detector was going off. No one was moving in a leisurely fashion, but the response was one of focused curiosity; as though we were dealing with an abstract puzzle rather than an imminent threat to our survival. To an observer it might have looked a little bizarre, actually: no agitation, no barked commands, no haste.&lt;/strong&gt;&lt;/p&gt;
+
+  &lt;p&gt;The next step is the gather, so we joined the Russians in their part of the Station to start working on the problem. How serious was the threat? So far, all the signs were reassuring. We couldn’t smell smoke of see flames. Maybe one little wire had melted somewhere, or the detector was responding to dust. We talked to Mission Control in Houston and in Moscow, but as we investigated, checking the module where the detector had been triggered, it seemed more and more likely that we were dealing with a simple malfunction. Finally, everyone agreed that it had been a false alarm, and we headed back to our sleep stations. An hour later, when the fire alarm sounded again, we repeated the warn, gather, work protocol just as before. The response was similarly calm, though not perfunctory – possibly something had been slowly smoldering for the past hour. As it turned out, nothing had. The detector was a lemon, that’s all. I remember thinking, “That was a little like a sim, only better, because now I get to sleep.”&lt;/p&gt;
+
+  &lt;p&gt;I doubt anyone’s heart rate increased by more than a beat or two while we were dealing with those fire alarms, even during the first minutes when the threat of a raging inferno seemed most real. We felt competent to deal with whatever happened – a sense of confidence that comes directly from solid preparation. Nothing boosts confidence quite like simulating a disaster, engaging with it fully, both physically and intellectually, and realizing you have the ability to work the problem. Each time you manage to do that your comfort zone expands a little, so if you ever face that particular problem in real life, you’re able to think clearly.&lt;/p&gt;
+
+&lt;/blockquote&gt;
+
+  &lt;br&gt;&lt;br&gt;
+  &lt;hr&gt;
+  &lt;p&gt;
+    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2022/03/working-the-problem&quot;&gt;Working the problem&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
+    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
+  &lt;/p&gt;
+</description>
+  <pubDate>Thu, 31 Mar 2022 23:11:00 +0000</pubDate>
+  <link>https://island94.org/2022/03/working-the-problem</link>
+  <guid isPermaLink="true">https://island94.org/2022/03/working-the-problem</guid>
+  
+  
+</item>
+
+    
+      
+
+
+
+
+<item>
+  <title>Sense-making list-making</title>
+  <description>&lt;p&gt;From the &lt;a href=&quot;https://tymbals.com/splash/metacryptoverse.html&quot;&gt;“The MetaCryptoVerse”&lt;/a&gt;, which triggered my oft-observation that civic tech too-frequently regresses to resource directories (lists of services):&lt;/p&gt;
+
+&lt;blockquote&gt;
+
+  &lt;p&gt;…what happens when our institutions become just lists. Lists scattered across a network of databases.&lt;/p&gt;
+
+  &lt;p&gt;You see we are attune to the idea of data disrupting paper. What we are not attune to is this idea of data disrupting space. Or more accurately how information architecture is disrupting architecture. Banks become lists, manifest as a collection ATMs, PC and smartphones. Office blocks become lists manifest as web pages and mobile apps. Hospitals become lists manifest as patent records and augmented beds. Government agencies become lists manifest as web pages and pdfs. Libraries become Google. Which is to say they become lists. Our clubs and churches or more accurately our communal meeting places become Facebook pages. Which is to say they become lists. Our shops become lists. Be they Amazonian or iTuna. Or schools and colleges become Moocs. Which is to say they become lists.&lt;/p&gt;
+
+  &lt;p&gt;Now these are ideas. Conceptual models. Thought experiments. Dare I say TEDs? worth exploring. What happens when our world evolves from the bucket list to a bucket full of lists?&lt;/p&gt;
+
+  &lt;p&gt;What would this new architecture look like? How do we interact with these new spaces? And what are the types of games we will be playing to occupy our days? What is it like to live life as an endless fractal narrative? What will be the sum of our days? The sum of experiences in this brave new world? Of life lived as a bucket full of lists. Virtual or otherwise. Just how will these lists shape our behaviour? Regulate our emotions? Facilitate our transaction? Engineer our experiences? Provoke our responses? Design our Desires? Juxtapose our inner tensions? Manipulate our self image? Game our expectations?&lt;/p&gt;
+
+  &lt;p&gt;We discovered these are conversations worth having… with others.&lt;/p&gt;
+
+&lt;/blockquote&gt;
+
+  &lt;br&gt;&lt;br&gt;
+  &lt;hr&gt;
+  &lt;p&gt;
+    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2022/03/sense-making-list-making&quot;&gt;Sense-making list-making&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
+    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
+  &lt;/p&gt;
+</description>
+  <pubDate>Sat, 19 Mar 2022 16:03:00 +0000</pubDate>
+  <link>https://island94.org/2022/03/sense-making-list-making</link>
+  <guid isPermaLink="true">https://island94.org/2022/03/sense-making-list-making</guid>
+  
+  
+</item>
+
+    
+      
+
+
+
+
+<item>
+  <title>Five years on food stamps</title>
+  <description>&lt;p&gt;&lt;em&gt;This reflection of my experience on GetCalFresh is dedicated to the memory of Andrew Hyder who taught me a lot about living out and protecting team values every day.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;plus-we-are-the-team-extreme-programming-are-the-values&quot;&gt;Plus: We are the team; Extreme Programming are the values&lt;/h3&gt;
+
+&lt;p&gt;We are not the website. From the beginning, there was an opinionated directed emphasis on building healthy team norms and values. These principles and doctrines were from “Extreme Programming Explained”; the values were legible and strongly reinforced by team leadership. All of the things we have created (websites, text messaging, document processing, research) were outputs not artifacts and never the goal. There was a strong emphasis on “And the friends we made along the way.”&lt;/p&gt;
+
+&lt;h3 id=&quot;plus-an-experience-of-critical-inspiration&quot;&gt;Plus: An experience of critical inspiration&lt;/h3&gt;
+
+&lt;p&gt;This was always an exercise in pattern matching what we were trying to achieve in the benefits space to Bay Area tech ecosystem structures and practices. Early debates of products and services, jobs to be done, design principles, disruption (“making the status quo untenable”), leverage, and the thing itself we were building: a funnel-based, outreach machine that disintermediated the benefits process. It was a practical act of constructive criticism of the tech and tech culture around us that recognized mastery of existing forms before we inevitably depart and transcend them (“shuhari”).&lt;/p&gt;
+
+&lt;h3 id=&quot;plus-incremental-growth-is-a-hell-of-a-drug&quot;&gt;Plus: Incremental growth is a hell of a drug&lt;/h3&gt;
+
+&lt;p&gt;A growth engine, an “engine that eats barriers”. It demonstrated that a line that went “up and to the right” could itself pay the organizational story tax. While we celebrated partnership wins, there was a focus on growing client outreach unbounded (“permissionless”). As software engineers, we were achieving the Agile principle that working software, in the hands of users, was the primary measure of progress.&lt;/p&gt;
+
+&lt;p&gt;58 counties was an incremental goal, that was out of reach but attainable, which made planning and decision making tangible, though not easy. It helped align the team and gave direction to planning out the next steps and necessities.&lt;/p&gt;
+
+&lt;h3 id=&quot;delta-maintain-client-success-as-the-centerpole-during-growth&quot;&gt;Delta: Maintain Client Success as the centerpole during growth&lt;/h3&gt;
+
+&lt;p&gt;I think of “scaling” entailing both size and health. Early on, “Client Success” was the unifying intention of everyone (“close the participation gap”). Everyone was exhorted to use their whole selves to help clients receive benefits. I remember being mindblowingly told “you have their phone number, call them” when I observed clients hit technical or process barriers; I did, again and again. Technology was in the truest sense an extension of our embodied capacity to help.&lt;/p&gt;
+
+&lt;p&gt;As time went on the client success function became less of a critical inspiration, and instead came to feel closer to the status quo: handling the overwhelming externalities of the service, rather than the service being the multiplier of our puny human abilities. I feel a responsibility to help balance “we don’t need to help ourselves” with “put on your oxygen mask before helping others”; and “leave a seam” with “a stitch in time saves nine”.&lt;/p&gt;
+
+&lt;p&gt;And “success” felt narrowed with a refocusing towards “Systems Change” and the subjectless “Build with”. My desires for lighting escalation paths (“click here to talk to a supervisor; a director; your state representative; the FBI”), and consciousness-raising (“20k people in your county also had their benefits denied this month too”) remain unfulfilled.&lt;/p&gt;
+
+&lt;h3 id=&quot;plus-small-teams-can-do-big-things&quot;&gt;Plus: Small teams can do big things&lt;/h3&gt;
+
+&lt;p&gt;From me starting as the first outside hire, to me rolling off the team, we helped more than 8M people receive $5.3B in benefits. And the team continues on without me: I feel missed, unnecessary, and proud of both. Small, directed (North Star: “close the participation gap”; Mission: “use the principles and practices of the digital age to improve how the government serves the American public &lt;em&gt;and how the public improves government&lt;/em&gt;”) teams, can do things together that far exceed the capacity of any one individual, and also outperform teams multiples of their size. It has been an amazing journey.&lt;/p&gt;
+
+  &lt;br&gt;&lt;br&gt;
+  &lt;hr&gt;
+  &lt;p&gt;
+    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2022/03/five-years-food-stamps&quot;&gt;Five years on food stamps&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
+    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
+  &lt;/p&gt;
+</description>
+  <pubDate>Fri, 11 Mar 2022 00:21:00 +0000</pubDate>
+  <link>https://island94.org/2022/03/five-years-food-stamps</link>
+  <guid isPermaLink="true">https://island94.org/2022/03/five-years-food-stamps</guid>
+  
+  
+</item>
+
+    
+      
+
+
+
+
+<item>
+  <title>Over-rapported</title>
+  <description>&lt;p&gt;I have thought and referenced a theme from this Foreign Affairs piece &lt;a href=&quot;https://archive.is/TMGq7&quot;&gt;“Why America Can’t Build Allied Armies”&lt;/a&gt; quite a bit:&lt;/p&gt;
+
+&lt;blockquote&gt;
+
+  &lt;p&gt;U.S. military advisers are taught to prioritize their relationships with their counterparts, as “trust and confidence define how well the advisor will be able to influence the foreign security force.”&lt;/p&gt;
+
+  &lt;p&gt;Many U.S. military advisers come to view interpersonal rapport with partners—once a tool presumed to increase influence and shape partner behavior—as the very goal of advising. When persuasion fails, advisers are instructed to avoid any steps that might jeopardize the relationship.&lt;/p&gt;
+
+  &lt;p&gt;…The military is aiming to minimize bureaucratic headache and implement the standard operating procedures it can sustain, even if those procedures are untethered from its own theory of victory.&lt;/p&gt;
+
+&lt;/blockquote&gt;
+
+  &lt;br&gt;&lt;br&gt;
+  &lt;hr&gt;
+  &lt;p&gt;
+    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2022/03/over-rapported&quot;&gt;Over-rapported&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
+    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
+  &lt;/p&gt;
+</description>
+  <pubDate>Thu, 10 Mar 2022 17:17:00 +0000</pubDate>
+  <link>https://island94.org/2022/03/over-rapported</link>
+  <guid isPermaLink="true">https://island94.org/2022/03/over-rapported</guid>
+  
+  
+</item>
+
+    
+      
+
+
+
+
+<item>
+  <title>Software models</title>
+  <description>&lt;p&gt;&lt;img src=&quot;/uploads/2022-02/strict-technical-debt.jpg&quot; alt=&quot;Stickynote drawing of a chart in which understanding of the business domain grows, and understanding of the modeling in code sinuisoidally approaches and departs from it.&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Software design has been in my thoughts lately. Particularly &lt;em&gt;agile&lt;/em&gt; software design, in which the game is to re-design working software in response to changing business requirements in response to learnings from working software.&lt;/p&gt;
+
+&lt;p&gt;1. I was recently talking to a colleague about what I call “Strict” Technical Debt, which is how Ward Cunningham originally defined it (not YAGNI or Skimping &lt;a href=&quot;https://ronjeffries.com/articles/019-01ff/iter-yagni-skimp/&quot;&gt;according to Ron Jeffries&lt;/a&gt;). &lt;a href=&quot;https://daverupert.com/2020/11/technical-debt-as-a-lack-of-understanding/&quot;&gt;Dave Rupert pulls out&lt;/a&gt; the following quote from Ward Cunningham, as “Technical Debt as a lack of understanding”:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“If you develop a program for a long period of time by only adding features but never reorganizing it to reflect your understanding of those features, then eventually that program simply does not contain any understanding and all efforts to work on it take longer and longer.”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;2. This sentence from SICPER’s &lt;a href=&quot;https://www.sicpers.info/2022/02/aphorism-considered-harmful/&quot;&gt;“Aphorism Considered Harmful”&lt;/a&gt; about the phrase “Make it work, make it right, make it fast”:&lt;/p&gt;
+
+&lt;blockquote&gt;
+
+  &lt;p&gt;So actually it looks like I had the wrong idea all this time: you don’t somehow make working software then correct software then fast software, you make working software and some inputs into that are the abstractions in the interfaces you design and the performance they permit in use.&lt;/p&gt;
+
+&lt;/blockquote&gt;
+
+&lt;p&gt;Or as I interpret it: make it functional, then make the software design be an appropriate representation and model of the business/problem domain, and then make it appropriate/ergonomic for future developers to use or maintain.&lt;/p&gt;
+
+&lt;p&gt;3. I left this comment on Jason Swett’s &lt;a href=&quot;https://www.codewithjason.com/duplication-cheaper-wrong-abstraction/&quot;&gt;“Why I don’t buy “duplication is cheaper than the wrong abstraction”&lt;/a&gt;:&lt;/p&gt;
+
+&lt;blockquote&gt;
+
+  &lt;p&gt;…The statement I use is “code duplication is better than the wrong business abstraction”.&lt;/p&gt;
+
+  &lt;p&gt;A lot of these statements/concepts come out of Agile, Object-Oriented Programming, and Extreme Programming recognize that there are two things evolving unevenly: the understanding of the business domain, and then laggingly, the development of the code that models the understanding of the business domain.&lt;/p&gt;
+
+  &lt;p&gt;A better expansion here as I understand the concept would be “duplication of code is acceptable if the proposed extraction/abstraction does not meaningfully model the current understanding of the business domain”.&lt;/p&gt;
+
+  &lt;p&gt;The power of the statement, as I use it (and as I see these things go from Agile/OOPS/XP) is to push someone to get closer to the business domain (and the user) in their thinking/proposals/justifications and as a counterweight to DRY. The problem with these things is when they get imposed as a criticism, rather than the starting place of a conversation.&lt;/p&gt;
+
+  &lt;p&gt;I think you give solid advice:&lt;/p&gt;
+
+  &lt;blockquote&gt;
+    &lt;p&gt;Don’t try to make one thing act like two things. Instead, separate it into two things. If you feel reluctant to modify someone else’s code, ask why that is.&lt;/p&gt;
+  &lt;/blockquote&gt;
+
+&lt;/blockquote&gt;
+
+  &lt;br&gt;&lt;br&gt;
+  &lt;hr&gt;
+  &lt;p&gt;
+    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2022/03/software-models&quot;&gt;Software models&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
+    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
+  &lt;/p&gt;
+</description>
+  <pubDate>Tue, 01 Mar 2022 01:32:00 +0000</pubDate>
+  <link>https://island94.org/2022/03/software-models</link>
+  <guid isPermaLink="true">https://island94.org/2022/03/software-models</guid>
+  
+  
+</item>
+
+    
+      
+
+
+
+
+<item>
+  <title>It asks you to be interactive</title>
+  <description>&lt;p&gt;From the introduction to Sarah Schulman’s &lt;em&gt;Conflict Is Not Abuse: Overstating Harm, Community Responsibility, and the Duty of Repair&lt;/em&gt;:&lt;/p&gt;
+
+&lt;blockquote&gt;
+
+  &lt;p&gt;Nan Alamilla Boyd helped me to understand that my lack of academic training makes me literally “undisciplined.” This news was very freeing, and a gift I wish I had been handed decades before. I now am able to ask you to read this book the way you would watch a play: not to emerge saying, “The play is right!” but rather to observe that the play reveals human nuance, contradiction, limitation, joy, connection, and the tragedy of separation. That the playwright’s own humanity is also an example of these unavoidable flaws. These chapters are not homogenous. As a creative writer I have long understood that form should be an organic expression of the feelings at the core of the piece. Each chapter here serves a different function and that is represented in its tone, genre, style, and form. Some are journalistic, some analytical, some are speculative, others abstract, some are only feelings. As a novelist, I know that it is the cumulative juxtaposition that reveals the story. This is not a book to be agreed with, an exhibition of evidence or display of proof. It is instead designed for engaged and dynamic interactive collective thinking where some ideas will resonate, others will be rejected, and still others will provoke the readers to produce new knowledge themselves. Like authentic, conscious relationships, truly progressive communities, responsible citizenship, and real friendship, and like the peace-making that all these require, it asks you to be interactive.&lt;/p&gt;
+
+&lt;/blockquote&gt;
+
+&lt;p&gt;And:&lt;/p&gt;
+
+&lt;blockquote&gt;
+
+  &lt;p&gt;“Differentiating between Power Struggle and Power Over,” Hodes explained, “is the difference between Conflict and Abuse.” Abuse is Power Over and Conflict is Power Struggle.&lt;/p&gt;
+
+  &lt;p&gt;[…]&lt;/p&gt;
+
+  &lt;p&gt;What we have instead is a devolved definition of personal responsibility, which constructs avoidance as a right regardless of the harm it does to others. This negative standard persuades some people to feel that being uncomfortable signals that they are being Abused, because they don’t have the option of describing themselves as Conflicted. So asking a distressed person if they are unsafe, or rather, uncomfortable, angry, or hurt provides them with an alternative idea that might fit better with their actual experience. It not only elicits helpful information, but encourages the individual to start to think about themselves in a more adult, complex, and responsible manner.&lt;/p&gt;
+
+  &lt;p&gt;[…]&lt;/p&gt;
+
+  &lt;p&gt;Lesson: never, ever decide that you know who someone is, what they did, their objective, context or goal, how they feel or what they know, until you ask them. And not asking means a direct investment in not understanding the truth.&lt;/p&gt;
+
+&lt;/blockquote&gt;
+
+&lt;p&gt;And:&lt;/p&gt;
+
+&lt;blockquote&gt;
+
+  &lt;p&gt;“Mainstream Domestic Violence advocacy,” Hodes said in a correspondence later that year, “is committed to assuming that the victim is telling the truth, and any exploration around that trope is met with heavy resistance. Historically, that makes sense for a host of reasons. But this analysis is not about disbelieving, it’s about pinpointing where the problem lies.” One of Hodes’ many valuable suggestions is to lower the bar for what must happen in a person’s life for their suffering to be acknowledged. “The current paradigm is encouraging all of us to think we are in abusive relationships,” Hodes explained. “And if you are not in an abusive relationship, you don’t deserve help. Being ‘abused’ is what makes you ‘eligible.’ But everyone deserves help when they reach out for it.” This is a strikingly humane idea: that the collapse of Conflict and Abuse is partly the result of a punitive standard in which people are made desperate, yet ineligible, for compassion. This is a non-cynical reading of a human condition in which people who have suffered in the past, or find themselves implicated in situations in which they are afraid to be accountable, fear that within their group acknowledging some responsibility will mean being denied their need to be heard and cared for. So they fall back on the accusation of Abuse to guarantee that they will not be questioned in a way that confirms these fears.&lt;/p&gt;
+
+&lt;/blockquote&gt;
+
+  &lt;br&gt;&lt;br&gt;
+  &lt;hr&gt;
+  &lt;p&gt;
+    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2022/02/it-asks-you-to-be-interactive&quot;&gt;It asks you to be interactive&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
+    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
+  &lt;/p&gt;
+</description>
+  <pubDate>Tue, 15 Feb 2022 18:55:00 +0000</pubDate>
+  <link>https://island94.org/2022/02/it-asks-you-to-be-interactive</link>
+  <guid isPermaLink="true">https://island94.org/2022/02/it-asks-you-to-be-interactive</guid>
+  
+  
+</item>
+
+    
+      
+
+
+
+
+<item>
+  <title>Even if the answers are messy and provisional</title>
+  <description>&lt;p&gt;I liked this (email) conversation between Willa Glickman of NYRB and English professor Anahid Nersessian in &lt;a href=&quot;https://www.nybooks.com/daily/2022/01/08/late-romanticism/&quot;&gt;“Late Romanticism”&lt;/a&gt;:&lt;/p&gt;
+
+&lt;blockquote&gt;
+
+  &lt;p&gt;Perhaps understandably for a scholar with an interest in utopia, if less expectedly for a scholar of criticism, Nersessian believes in the importance of pressing forward with new visions rather than just critiquing existing ideas and systems. “I think lots of people believe the world right now is pretty bad—politically, ecologically—and that capitalism is responsible for a very large part of the situation. But being against capitalism doesn’t entail being for anything else,” she said:&lt;/p&gt;
+
+  &lt;blockquote&gt;
+    &lt;p&gt;It’s all very well to say “capitalism turns us into commodities, that’s degrading, human beings shouldn’t be degraded.” But how should we be treated, and how should we live? What would love and sex—among other things, like health care or having a job—look like in a good world? It’s important to take the risk of answering those questions, even if the answers are messy and provisional.&lt;/p&gt;
+  &lt;/blockquote&gt;
+
+&lt;/blockquote&gt;
+
+&lt;p&gt;And:&lt;/p&gt;
+
+&lt;blockquote&gt;
+
+  &lt;p&gt;I wondered how she dealt with the complex relationship between literature and history in her own work—as she argues in her essay in the Review, relying on novels to understand the past can distort one’s vision of it. “It’s very tempting to use literature to confirm a hypothesis you already have about the world. For better and for worse, though, fictional texts don’t always give us good information about reality,” she explained:&lt;/p&gt;
+
+  &lt;blockquote&gt;
+    &lt;p&gt;Another danger can be to lean too hard on canonical literature that tells an “official” story about what life or people or relationships were like in such-and-such a time. If you ask a classicist, they’ll tell you that Plato—a member of an elite, all-male, free, and politically enfranchised class—is not your best informant for how the vast majority of ancient Athenians were living their lives, having sex, or negotiating intimacy.&lt;/p&gt;
+  &lt;/blockquote&gt;
+
+&lt;/blockquote&gt;
+
+  &lt;br&gt;&lt;br&gt;
+  &lt;hr&gt;
+  &lt;p&gt;
+    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2022/02/even-if-the-answers-are-messy-and-provisional&quot;&gt;Even if the answers are messy and provisional&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
+    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
+  &lt;/p&gt;
+</description>
+  <pubDate>Tue, 08 Feb 2022 05:08:00 +0000</pubDate>
+  <link>https://island94.org/2022/02/even-if-the-answers-are-messy-and-provisional</link>
+  <guid isPermaLink="true">https://island94.org/2022/02/even-if-the-answers-are-messy-and-provisional</guid>
+  
+  
+</item>
+
+    
+      
+
+
+
+
+<item>
+  <title>TIL: ActiveRecord transactions roll back on Ruby Thread abort</title>
+  <description>&lt;p&gt;I learned that ActiveRecord would roll back transactions when inside an aborted thread. It’s implemented right here, in ActiveRecord’s &lt;a href=&quot;https://github.com/rails/rails/blob/3f13828392a4aea81184fa873c47cb2e53d295e9/activerecord/lib/active_record/connection_adapters/abstract/transaction.rb#L336-L342&quot;&gt;connection_adapters/abstract/transaction.rb&lt;/a&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;within_new_transaction&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;# ...&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;ensure&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;# ...&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;elsif&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Thread&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;current&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;status&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;aborting&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;completed&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;transaction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;written&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# The transaction is still open but the block returned earlier.&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;#&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# The block could return early because of a timeout or because the thread is aborting,&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# so we are rolling back to make sure the timeout didn&apos;t caused the transaction to be&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# committed incompletely.&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;rollback_transaction&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;# ...&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;How did I end up here? I recently implemented a feature in GoodJob to track active processes in the database using ActiveRecord. These database queries occur in a background thread where I also use the same database connection for GoodJob’s Postgres LISTENing. It looks something like this (pseudocode):&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;no&quot;&gt;Concurrent&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Future&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;execute&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;process&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Process&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;create&lt;/span&gt;
+  &lt;span class=&quot;kp&quot;&gt;loop&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;listen_for_notify&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;ensure&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;process&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;destroy!&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;While working on one of my Rails projects that use GoodJob (https://dayoftheshirt.com), I noticed that Process records were not cleaned up as I expected running when GoodJob async inside of Rails Server/Puma locally and exiting. Inspecting the logs, I saw this:&lt;/p&gt;
+
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;TRANSACTION (0.1ms)  BEGIN
+GoodJob::Process Destroy (0.3ms)  DELETE FROM &quot;good_job_processes&quot; WHERE &quot;good_job_processes&quot;.&quot;id&quot; = $1  [[&quot;id&quot;, &quot;320de861-4c84-4f8c-ba3e-2e08a8ef0469&quot;]]
+TRANSACTION (0.1ms)  ROLLBACK
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Huh. I did some Googling and found some &lt;a href=&quot;https://github.com/rails/rails/pull/40704#discussion_r532007113&quot;&gt;references to rollback behavior&lt;/a&gt;, and asked in the Rails Link Slack, but nobody knew. This caused me to dig in ActiveRecord, where I found the behavior implemented.&lt;/p&gt;
+
+&lt;p&gt;I was still confused because I had never seen this behavior in GoodJob when building out the feature. But after much head-scratching, I realized that I hadn’t followed &lt;a href=&quot;https://github.com/bensheldon/good_job#execute-jobs-async--in-process&quot;&gt;GoodJob’s README instructions for integrating with Puma&lt;/a&gt;, which ensures that GoodJob is gracefully shutdown before Ruby aborts threads at exit:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# config/puma.rb&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;on_worker_shutdown&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+  &lt;span class=&quot;no&quot;&gt;GoodJob&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;shutdown&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;no&quot;&gt;MAIN_PID&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Process&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;pid&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;at_exit&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+  &lt;span class=&quot;no&quot;&gt;GoodJob&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;shutdown&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Process&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;pid&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;MAIN_PID&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Mystery solved.&lt;/p&gt;
+
+  &lt;br&gt;&lt;br&gt;
+  &lt;hr&gt;
+  &lt;p&gt;
+    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2022/02/til-activerecord-transactions-roll-back-on-ruby-thread-abort&quot;&gt;TIL: ActiveRecord transactions roll back on Ruby Thread abort&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
+    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
+  &lt;/p&gt;
+</description>
+  <pubDate>Tue, 08 Feb 2022 03:54:00 +0000</pubDate>
+  <link>https://island94.org/2022/02/til-activerecord-transactions-roll-back-on-ruby-thread-abort</link>
+  <guid isPermaLink="true">https://island94.org/2022/02/til-activerecord-transactions-roll-back-on-ruby-thread-abort</guid>
+  
+  
+</item>
+
+    
+  </channel>
+</rss>
