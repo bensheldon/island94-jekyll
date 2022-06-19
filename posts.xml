@@ -4,16 +4,16 @@ layout: null
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>{{ site.title | xml_escape }} Book Reviews</title>
+    <title>{{ site.title | xml_escape }}</title>
     <description>{{ site.description | xml_escape }}</description>
-    <link>{{ "/books" | prepend: site.baseurl | prepend: site.url }}</link>
-    <atom:link href="{{ "/books.xml" | prepend: site.baseurl | prepend: site.url }}" rel="self" type="application/rss+xml"/>
+    <link>{{ site.url }}{{ site.baseurl }}/</link>
+    <atom:link href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" rel="self" type="application/rss+xml"/>
     <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
     <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
     <generator>Jekyll v{{ jekyll.version }}</generator>
-    {% assign books = site.books | sort: 'date' | reverse %}
-    {% for book in books limit:10 %}
-      {% include book.xml book=book %}
+    {% assign posts = site.posts | sort: 'date' | reverse %}
+    {% for post in posts limit: 10 %}
+      {% include post.xml post=post %}
     {% endfor %}
   </channel>
 </rss>
