@@ -37,8 +37,6 @@ desc 'Create a new book review'
 task :new_book, [:title, :author, :link, :rating, :review] do |_t, args|
   ENV["TZ"] = 'America/Los_Angeles'
 
-
-
   title = args[:title] || ENV['BOOK_TITLE']
   author = args[:author] || ENV['BOOK_AUTHOR']
   link = args[:link] || ENV['BOOK_LINK']
