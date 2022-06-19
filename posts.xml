@@ -6,10 +6,57 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 19 Jun 2022 23:10:33 +0000</pubDate>
-    <lastBuildDate>Sun, 19 Jun 2022 23:10:33 +0000</lastBuildDate>
+    <pubDate>Sun, 19 Jun 2022 23:17:15 +0000</pubDate>
+    <lastBuildDate>Sun, 19 Jun 2022 23:17:15 +0000</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
+    
+      
+
+
+
+
+<item>
+  <title>Laws of Spacecraft and Software</title>
+  <description>&lt;p&gt;Lots of similarities between &lt;a href=&quot;https://spacecraft.ssl.umd.edu/akins_laws.html&quot;&gt;Akin’s Laws of Spacecraft Design&lt;/a&gt; and software management:&lt;/p&gt;
+
+&lt;blockquote&gt;
+
+  &lt;ol&gt;
+    &lt;li&gt;
+      &lt;p&gt;In nature, the optimum is almost always in the middle somewhere. Distrust assertions that the optimum is at an extreme point.&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;p&gt;(Shea’s Law) The ability to improve a design occurs primarily at the interfaces. This is also the prime location for screwing it up.&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;p&gt;A bad design with a good presentation is doomed eventually. A good design with a bad presentation is doomed immediately.&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;p&gt;Capabilities drive requirements, regardless of what the systems engineering textbooks say.&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;p&gt;If there’s not a flight program, there’s no money.
+  If there is a flight program, there’s no time.&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+
+&lt;/blockquote&gt;
+
+  &lt;br&gt;&lt;br&gt;
+  &lt;hr&gt;
+  &lt;p&gt;
+    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2022/06/laws-of-spacecraft-and-software&quot;&gt;Laws of Spacecraft and Software&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
+    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
+  &lt;/p&gt;
+</description>
+  <pubDate>Sun, 19 Jun 2022 23:08:00 +0000</pubDate>
+  <link>https://island94.org/2022/06/laws-of-spacecraft-and-software</link>
+  <guid isPermaLink="true">https://island94.org/2022/06/laws-of-spacecraft-and-software</guid>
+  
+  
+</item>
+
     
       
 
@@ -425,80 +472,6 @@
   <pubDate>Tue, 08 Feb 2022 05:08:00 +0000</pubDate>
   <link>https://island94.org/2022/02/even-if-the-answers-are-messy-and-provisional</link>
   <guid isPermaLink="true">https://island94.org/2022/02/even-if-the-answers-are-messy-and-provisional</guid>
-  
-  
-</item>
-
-    
-      
-
-
-
-
-<item>
-  <title>TIL: ActiveRecord transactions roll back on Ruby Thread abort</title>
-  <description>&lt;p&gt;I learned that ActiveRecord would roll back transactions when inside an aborted thread. It’s implemented right here, in ActiveRecord’s &lt;a href=&quot;https://github.com/rails/rails/blob/3f13828392a4aea81184fa873c47cb2e53d295e9/activerecord/lib/active_record/connection_adapters/abstract/transaction.rb#L336-L342&quot;&gt;connection_adapters/abstract/transaction.rb&lt;/a&gt;:&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;within_new_transaction&lt;/span&gt;
-  &lt;span class=&quot;c1&quot;&gt;# ...&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;ensure&lt;/span&gt;
-  &lt;span class=&quot;c1&quot;&gt;# ...&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;elsif&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Thread&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;current&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;status&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;aborting&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;completed&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;transaction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;written&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;# The transaction is still open but the block returned earlier.&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;#&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;# The block could return early because of a timeout or because the thread is aborting,&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;# so we are rolling back to make sure the timeout didn&apos;t caused the transaction to be&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;# committed incompletely.&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;rollback_transaction&lt;/span&gt;
-  &lt;span class=&quot;c1&quot;&gt;# ...&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;How did I end up here? I recently implemented a feature in GoodJob to track active processes in the database using ActiveRecord. These database queries occur in a background thread where I also use the same database connection for GoodJob’s Postgres LISTENing. It looks something like this (pseudocode):&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;no&quot;&gt;Concurrent&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Future&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;execute&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;process&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Process&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;create&lt;/span&gt;
-  &lt;span class=&quot;kp&quot;&gt;loop&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;listen_for_notify&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;ensure&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;process&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;destroy!&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;While working on one of my Rails projects that use GoodJob (https://dayoftheshirt.com), I noticed that Process records were not cleaned up as I expected running when GoodJob async inside of Rails Server/Puma locally and exiting. Inspecting the logs, I saw this:&lt;/p&gt;
-
-&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;TRANSACTION (0.1ms)  BEGIN
-GoodJob::Process Destroy (0.3ms)  DELETE FROM &quot;good_job_processes&quot; WHERE &quot;good_job_processes&quot;.&quot;id&quot; = $1  [[&quot;id&quot;, &quot;320de861-4c84-4f8c-ba3e-2e08a8ef0469&quot;]]
-TRANSACTION (0.1ms)  ROLLBACK
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Huh. I did some Googling and found some &lt;a href=&quot;https://github.com/rails/rails/pull/40704#discussion_r532007113&quot;&gt;references to rollback behavior&lt;/a&gt;, and asked in the Rails Link Slack, but nobody knew. This caused me to dig in ActiveRecord, where I found the behavior implemented.&lt;/p&gt;
-
-&lt;p&gt;I was still confused because I had never seen this behavior in GoodJob when building out the feature. But after much head-scratching, I realized that I hadn’t followed &lt;a href=&quot;https://github.com/bensheldon/good_job#execute-jobs-async--in-process&quot;&gt;GoodJob’s README instructions for integrating with Puma&lt;/a&gt;, which ensures that GoodJob is gracefully shutdown before Ruby aborts threads at exit:&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# config/puma.rb&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;on_worker_shutdown&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
-  &lt;span class=&quot;no&quot;&gt;GoodJob&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;shutdown&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-
-&lt;span class=&quot;no&quot;&gt;MAIN_PID&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Process&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;pid&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;at_exit&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
-  &lt;span class=&quot;no&quot;&gt;GoodJob&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;shutdown&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Process&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;pid&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;MAIN_PID&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Mystery solved.&lt;/p&gt;
-
-  &lt;br&gt;&lt;br&gt;
-  &lt;hr&gt;
-  &lt;p&gt;
-    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2022/02/til-activerecord-transactions-roll-back-on-ruby-thread-abort&quot;&gt;TIL: ActiveRecord transactions roll back on Ruby Thread abort&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
-    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
-  &lt;/p&gt;
-</description>
-  <pubDate>Tue, 08 Feb 2022 03:54:00 +0000</pubDate>
-  <link>https://island94.org/2022/02/til-activerecord-transactions-roll-back-on-ruby-thread-abort</link>
-  <guid isPermaLink="true">https://island94.org/2022/02/til-activerecord-transactions-roll-back-on-ruby-thread-abort</guid>
   
   
 </item>

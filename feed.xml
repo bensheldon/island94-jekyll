@@ -6,10 +6,59 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 19 Jun 2022 23:10:33 +0000</pubDate>
-    <lastBuildDate>Sun, 19 Jun 2022 23:10:33 +0000</lastBuildDate>
+    <pubDate>Sun, 19 Jun 2022 23:17:15 +0000</pubDate>
+    <lastBuildDate>Sun, 19 Jun 2022 23:17:15 +0000</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
+    
+      
+        
+
+
+
+
+<item>
+  <title>Laws of Spacecraft and Software</title>
+  <description>&lt;p&gt;Lots of similarities between &lt;a href=&quot;https://spacecraft.ssl.umd.edu/akins_laws.html&quot;&gt;Akin’s Laws of Spacecraft Design&lt;/a&gt; and software management:&lt;/p&gt;
+
+&lt;blockquote&gt;
+
+  &lt;ol&gt;
+    &lt;li&gt;
+      &lt;p&gt;In nature, the optimum is almost always in the middle somewhere. Distrust assertions that the optimum is at an extreme point.&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;p&gt;(Shea’s Law) The ability to improve a design occurs primarily at the interfaces. This is also the prime location for screwing it up.&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;p&gt;A bad design with a good presentation is doomed eventually. A good design with a bad presentation is doomed immediately.&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;p&gt;Capabilities drive requirements, regardless of what the systems engineering textbooks say.&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;p&gt;If there’s not a flight program, there’s no money.
+  If there is a flight program, there’s no time.&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+
+&lt;/blockquote&gt;
+
+  &lt;br&gt;&lt;br&gt;
+  &lt;hr&gt;
+  &lt;p&gt;
+    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2022/06/laws-of-spacecraft-and-software&quot;&gt;Laws of Spacecraft and Software&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
+    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
+  &lt;/p&gt;
+</description>
+  <pubDate>Sun, 19 Jun 2022 23:08:00 +0000</pubDate>
+  <link>https://island94.org/2022/06/laws-of-spacecraft-and-software</link>
+  <guid isPermaLink="true">https://island94.org/2022/06/laws-of-spacecraft-and-software</guid>
+  
+  
+</item>
+
+      
     
       
         
@@ -490,55 +539,6 @@ Phil paused to survey the crowd. “My, it’s cold out here today! You can feel
   <guid isPermaLink="true">https://island94.org/2022/03/five-years-food-stamps</guid>
   
   
-</item>
-
-      
-    
-      
-        
-
-
-
-
-
-
-<item>
-  <title>I read &quot;Bullshit Jobs&quot; by David Graeber</title>
-  <description>&lt;p&gt;Recommended by Rob, and part of a milieu that also included &lt;em&gt;The Real World of Technology&lt;/em&gt; and &lt;em&gt;Breaking Stuff at Work&lt;/em&gt; with a synthesis along the lines of “technology squeezes the lower-middle manager roles (sergeant/foreman), not the upper managers”. But that’s not what Bullshit Jobs is about.&lt;/p&gt;
-
-&lt;p&gt;Apart from the essay, the best part for me was a description of how we haven’t replaced the feudal system, just layered onto it.&lt;/p&gt;
-
-&lt;p&gt;It has some critical bits about open source being the fun bits done for free, and the paid job is unsatisfying duct taping it together. Which doesn’t track for my immediate experience (at least not what is blame on &lt;em&gt;open source&lt;/em&gt; specifically), but the lines between “analyst/integrator” and “engineer” is real mushy sometimes.&lt;/p&gt;
-
-&lt;p&gt;It’s a quick read, and I think is good contemporary cannon (aside: I wonder what Rushkoff is up to?). Besides briefly and self-consciously touching on UBI, it left me with an anxious “Yep!” that maybe didn’t need 350 pages to achieve.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;This is a powerful argument for human freedom. Most of us like to talk about freedom in the abstract, even claim that it’s the most important thing for anyone to fight or die for, but we don’t think a lot about what being free or practicing freedom might actually mean. The main point of this book was not to propose concrete policy prescriptions, but to start us thinking and arguing about what a genuine free society might actually be like.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;There was quite a bit about feminization of work:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;One might say that men will always take for themselves the kind of jobs one can tell stories about afterward, and try to assign women the kind you tell stories during.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;And distinctions between Michel Foucault’s power and domination (or Sarah Schulman’s conflict and abuse):&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;…unlike actual BDSM play, where there’s always a safe-word, when “normal” people fall into the same dynamic, there’s never such an easy way out. “You can’t say ‘orange’ to your boss.” It’s always occurred to me this insight is important and could even become the basis for a theory of social liberation.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-  &lt;br&gt;&lt;br&gt;
-  &lt;hr&gt;
-  &lt;p&gt;
-    This book review for &lt;em&gt;&lt;a href=&quot;https://island94.org/2022/03/bullshit-jobs&quot;&gt;Bullshit Jobs&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
-    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
-  &lt;/p&gt;
-</description>
-  <pubDate>Thu, 10 Mar 2022 22:20:00 +0000</pubDate>
-  <link>https://island94.org/2022/03/bullshit-jobs</link>
-  <guid isPermaLink="true">https://island94.org/2022/03/bullshit-jobs</guid>
 </item>
 
       
