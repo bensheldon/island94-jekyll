@@ -6,8 +6,8 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 19 Jun 2022 23:17:15 +0000</pubDate>
-    <lastBuildDate>Sun, 19 Jun 2022 23:17:15 +0000</lastBuildDate>
+    <pubDate>Sun, 19 Jun 2022 23:17:51 +0000</pubDate>
+    <lastBuildDate>Sun, 19 Jun 2022 23:17:51 +0000</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
     
@@ -19,7 +19,7 @@
 
 <item>
   <title>Laws of Spacecraft and Software</title>
-  <description>&lt;p&gt;Lots of similarities between &lt;a href=&quot;https://spacecraft.ssl.umd.edu/akins_laws.html&quot;&gt;Akin’s Laws of Spacecraft Design&lt;/a&gt; and software management:&lt;/p&gt;
+  <description>&lt;p&gt;Lots of similarities between &lt;a href=&quot;https://spacecraft.ssl.umd.edu/akins_laws.html&quot;&gt;Akin’s Laws of Spacecraft Design&lt;/a&gt; and software management; via AJ’s weekly email:&lt;/p&gt;
 
 &lt;blockquote&gt;
 
@@ -35,6 +35,9 @@
     &lt;/li&gt;
     &lt;li&gt;
       &lt;p&gt;Capabilities drive requirements, regardless of what the systems engineering textbooks say.&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;p&gt;(McBryan’s Law) You can’t make it better until you make it work.&lt;/p&gt;
     &lt;/li&gt;
     &lt;li&gt;
       &lt;p&gt;If there’s not a flight program, there’s no money.
