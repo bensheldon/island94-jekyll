@@ -5,7 +5,7 @@ published: true
 tags:
 ---
 
-Lots of similarities between [Akin's Laws of Spacecraft Design](https://spacecraft.ssl.umd.edu/akins_laws.html) and software management:
+Lots of similarities between [Akin's Laws of Spacecraft Design](https://spacecraft.ssl.umd.edu/akins_laws.html) and software management; via AJ's weekly email:
 
 <blockquote markdown="1">
 
@@ -16,6 +16,8 @@ Lots of similarities between [Akin's Laws of Spacecraft Design](https://spacecra
 20. A bad design with a good presentation is doomed eventually. A good design with a bad presentation is doomed immediately.
 
 38. Capabilities drive requirements, regardless of what the systems engineering textbooks say.
+
+40. (McBryan's Law) You can't make it better until you make it work.
 
 42. If there's not a flight program, there's no money.
       If there is a flight program, there's no time.
