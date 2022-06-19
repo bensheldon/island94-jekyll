@@ -39,13 +39,18 @@ collections:
     permalink: "/:year/:month/:title"
 
 exclude:
-  - Rakefile
-  - scripts
-  - spec
-  - vendor # for building anywhere that installs gems into vendor
   - .github
   - .idea
+  - .editorconfig
+  - .gitignore
+  - .ruby-version
+  - Brewfile*
   - Gemfile*
+  - Rakefile
+  - README.md
+  - scripts
+  - spec
+  - vendor
 
 plugins:
   - jekyll-coffeescript
@@ -63,6 +68,8 @@ kramdown:
   input: GFM # Enable GitHub Flavored Markdown (fenced code blocks)
   hard_wrap: false
 highlighter: rouge
+redirect_from:
+  json: false
 
 # Prose.io
 prose:
