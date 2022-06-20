@@ -28,9 +28,9 @@ Today was overcast but everyone was in good spirits. So though we had only medio
 
 **Gallops Island**: Named for Harbor Pilot John Gallop, this island was farmed for much of the 18th and 19th century. When family and friends came to visit from off-island, they would bring with them rabbits for the children. These rabbits, doing what rabbits do, multiplied, and today the island is overrun by longtails. I suspect that they rabbits were actually brought to be eaten rather than as gifts but perhaps the Captain was giving us the G-rated tour.
 
-[ ![Cargo at Boston Harbor's Outer Berth](http://farm1.static.flickr.com/64/187700535_3f3fb04e6d.jpg) ](http://www.flickr.com/photos/bensheldon/187700535/ "Photo Sharing")
+[ ![Cargo at Boston Harbor's Outer Berth](http://farm1.static.flickr.com/64/187700535_3f3fb04e6d.jpg) ](https://www.flickr.com/photos/bensheldon/187700535/ "Photo Sharing")
 
 The photo above is Boston Harbor's outer berth just south of Deer Island. Ships will offload a portion of their cargo here for a shallower draft. This enables the ship to enter Boston Harbor at anytime, as opposed to waiting until high tide.
 
-For tourist info on the Boston Harbor Islands visit the [Visitor's Guide](http://www.bostonislands.org/) and for more nutty info read [this article](http://www.bizjournals.com/boston/stories/2002/07/01/focus2.html).
+For tourist info on the Boston Harbor Islands visit the [Visitor's Guide](https://web.archive.org/web/20060712152158/http://www.bostonislands.org:80/) and for more nutty info read [this article](https://www.bizjournals.com/boston/stories/2002/07/01/focus2.html).
 

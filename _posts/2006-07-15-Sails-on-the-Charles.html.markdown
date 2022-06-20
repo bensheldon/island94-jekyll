@@ -14,4 +14,4 @@ redirect_from:
 - "?p=70"
 ---
 
-[ ![Sailboats on the Charles](http://static.flickr.com/56/190136661_feffbb45b3.jpg) ](http://www.flickr.com/photos/bensheldon/190136661/ "Photo Sharing")
+[ ![Sailboats on the Charles](http://static.flickr.com/56/190136661_feffbb45b3.jpg) ](https://www.flickr.com/photos/bensheldon/190136661/ "Photo Sharing")

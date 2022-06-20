@@ -10,7 +10,7 @@ redirect_from:
 - "?p=15"
 ---
 
-This is an example of my googlemap module that I extended from [this module](http://drupal.org/node/29091) by [bjornarneson](http://choirgeek.com/).
+This is an example of my googlemap module that I extended from [this module](http://drupal.org/node/29091) by [bjornarneson](https://choirgeek.com/).
 
 It creates map points through parsing local RSS feeds that Drupal produces. Normally these feeds only contain the last 15 posts, but I hacked together a helper module (fullfeed.module) that uses taxonomy.module urls (with cool term parsing) but adds _all_ content in the term (or terms) to the feed.
 

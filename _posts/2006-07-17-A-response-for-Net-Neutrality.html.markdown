@@ -13,7 +13,7 @@ redirect_from:
 - "?p=74"
 ---
 
-This morning a coworker placed an article from the July 2006 edition of Communications Engineering and Design Magazine entitled ["Net neutrality legislation--my take on it"](http://www.cedmagazine.com/article/CA6348436.html) by Jeffrey Krauss, President of Telecommunications and Technology Policy.
+This morning a coworker placed an article from the July 2006 edition of Communications Engineering and Design Magazine entitled ["Net neutrality legislation--my take on it"](https://web.archive.org/web/20061030130703/http://www1.cedmagazine.com/article/CA6348436.html) by Jeffrey Krauss, President of Telecommunications and Technology Policy.
 
 Net Neutrality is an important issue; pending legislation and changing business practices have the potential to dramatically change how we use the Internet. Below I have responded to some of the points Mr. Krauss brought up in the article.
 

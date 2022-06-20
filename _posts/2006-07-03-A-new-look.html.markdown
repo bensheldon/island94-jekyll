@@ -25,7 +25,7 @@ First off, I really wanted to better separate posts of a personal nature, from t
 
 Secondly, Drupal's the standard interface is beautiful and intuitive, but when a couple thousand websites start using it, it has become a little rusty. Much of my time in designing Drupal sites is making sure it _doesn't_ look like Drupal.
 
-Lastly, I really wanted to fool around with some soft gradients and big bubbly icons. I've been pulling from the [Open Clip Art Library](http://openclipart.org) for the most part and using Inkscape and Gimpshop for editing.
+Lastly, I really wanted to fool around with some soft gradients and big bubbly icons. I've been pulling from the [Open Clip Art Library](https://openclipart.org/) for the most part and using Inkscape and Gimpshop for editing.
 
 I hope that my new theme is both easy to use and beautiful. At the moment, I've pretty much given up on Internet Explorer compatibility. Maybe something to do later, but frankly, I am a little tired of dealing with its nonstandard quirks.
 
