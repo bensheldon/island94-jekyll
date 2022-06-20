@@ -15,11 +15,11 @@ redirect_from:
 - "?p=30"
 ---
 
-[ ![](http://farm1.static.flickr.com/52/115055650_4e87ffadf4.jpg) ](http://www.flickr.com/photos/atomicworkshop/115055650/)
+[ ![](http://farm1.static.flickr.com/52/115055650_4e87ffadf4.jpg) ](https://www.flickr.com/photos/atomicworkshop/115055650/)
 
-[ ![](http://farm1.static.flickr.com/38/115054845_9f6bf03a4a.jpg) ](http://www.flickr.com/photos/atomicworkshop/115054845/)
+[ ![](http://farm1.static.flickr.com/38/115054845_9f6bf03a4a.jpg) ](https://www.flickr.com/photos/atomicworkshop/115054845/)
 
-I was over at my pal Dean’s place in Jamaica Plain today. In addition to lots of semi-expired foodstuffs he snags from behind the Co-Op next door, he also has the screens and materials for t-shirt printing. Previously I had been helping him up in Lowell filming some promos for his [Democracy Player](http://getdemocracy.com) channel, “Telemusicvision”:http://telemusicvision.com; today we were putting stuff on t-shirts.
+I was over at my pal Dean’s place in Jamaica Plain today. In addition to lots of semi-expired foodstuffs he snags from behind the Co-Op next door, he also has the screens and materials for t-shirt printing. Previously I had been helping him up in Lowell filming some promos for his [Democracy Player](https://web.archive.org/web/20060321152358/http://www.getdemocracy.com/) channel, “Telemusicvision”:http://telemusicvision.com; today we were putting stuff on t-shirts.
 
 The design I decided to print was one of the doodles I had done a week or so ago for the [DigitalBicycle Project](http://Digitalbicycle.com) while waiting for Jessica to get done with her homework .
 
@@ -32,7 +32,7 @@ The process basically was:
 
 3. Scrape this emulsion concoction on the screen very thinly, but enough to fill in the mesh. Let dry a few hours in Dean’s oven—it wasn’t turned on, just a good out of the way place.
 
-4. Print the design out onto a transparency. It has to be monotone-mesh doesn’t do gradients. I tried to get to those little halftone circles like Lichtenstein, but Adobe Illustrator was having none of it-I had designed the thing in [Inkscape](http://inkscape.org), my preferred drawing program and was working off a PNG.
+4. Print the design out onto a transparency. It has to be monotone-mesh doesn’t do gradients. I tried to get to those little halftone circles like Lichtenstein, but Adobe Illustrator was having none of it-I had designed the thing in [Inkscape](https://inkscape.org/), my preferred drawing program and was working off a PNG.
 
 5. Get the (now) dried emulsion convered screen. It is photosensitive—not sensitive like photographic paper, but just don’t point a spotlight at it.
 
