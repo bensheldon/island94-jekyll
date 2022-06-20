@@ -14,6 +14,6 @@ redirect_from:
 - "?p=26"
 ---
 
-[ ![](http://static.flickr.com/37/75385133_ca3abb0010_m.jpg) ](http://www.flickr.com/photos/atomicworkshop/75385133/)
+[ ![](http://static.flickr.com/37/75385133_ca3abb0010_m.jpg) ](https://www.flickr.com/photos/atomicworkshop/75385133/)
 
 Desensitized to all the brightdangle and claptrap for purchase in the stores these days, I am mesmorized by the things people throw out and _can_ throw out; this piano carcass being no exception.
