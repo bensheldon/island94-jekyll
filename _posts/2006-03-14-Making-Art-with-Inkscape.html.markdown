@@ -18,7 +18,7 @@ redirect_from:
 - "?p=63"
 ---
 
-Lately I've been spending more time than I should with a great free/open source software illustration program: [Inkscape](http://inkscape.org).
+Lately I've been spending more time than I should with a great free/open source software illustration program: [Inkscape](https://inkscape.org/).
 
 Before I get to far into an explanation of the fun and wonder I have with Inkscape let me make a little caveat. I've used Adobe Illustrator in the past and never liked it much; I admit though that I never really knew how to use it well.
 
