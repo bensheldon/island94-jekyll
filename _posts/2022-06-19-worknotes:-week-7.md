@@ -14,6 +14,7 @@ I am making good pace at completing my Engineering Manager bingo card. So far I 
 - Participated in the candidate interview loop, though not yet as a hiring manager 
 
 ### Something I'm inspired by
+
 Writing OKRs with my team, boss, grandboss, and peer managers has been really, really, nice.
 
 - My team has been open within the OKR writing process, and creative, and participatory. I fumbled a bit trying to design an async but consensus Enthusiasm/Complexity matrix, but it's been a great resource for me to understand the backlog and the team's interests.
