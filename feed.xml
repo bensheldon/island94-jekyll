@@ -6,10 +6,64 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 04 Jul 2022 19:21:46 +0000</pubDate>
-    <lastBuildDate>Mon, 04 Jul 2022 19:21:46 +0000</lastBuildDate>
+    <pubDate>Wed, 13 Jul 2022 05:01:00 +0000</pubDate>
+    <lastBuildDate>Wed, 13 Jul 2022 05:01:00 +0000</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
+    
+      
+        
+
+
+
+
+<item>
+  <title>We&apos;re all just people here, even platforms</title>
+  <description>&lt;p&gt;In &lt;a href=&quot;https://speakerdeck.com/bensheldon/bridging-people-and-benefits-systems&quot;&gt;my presentation of how my small engineering team helped deliver food stamps to millions of Californians&lt;/a&gt;, I talked about a common pathology of engineers: a desire to build the equivalent of thousand-year clocks that will run self-contained without human intervention. You see it crop up in different forms, the good ways of “working yourself out of a job” and the bad ways of platinum plating and astronaut architects.&lt;/p&gt;
+
+&lt;p&gt;And I’ve become become aware of that pathology affecting how engineers perceive the labor of &lt;em&gt;other people&lt;/em&gt;: they don’t, not the people part. And that’s bad.&lt;/p&gt;
+
+&lt;p&gt;To be fair, not seeing the people isn’t just an engineering pathology. We talk about products, and services, and value, and how&lt;a href=&quot;https://www.buzzfeednews.com/article/tedchiang/the-real-danger-to-civilization-isnt-ai-its-runaway#.spxyjARZP&quot;&gt; capitalist corporations are simply slow AI&lt;/a&gt;. And I’ve been working with a leadership coach and spending a fair bit of time contemplating what it means to do something larger than myself but within the realm of human endeavour.  So please go with me here.&lt;/p&gt;
+
+&lt;p&gt;Platforms.  I’ve spent a fair bit of my career working on X-as-a-Platform. Which is the idea that it’s a &lt;em&gt;good thing&lt;/em&gt; if the things in our lives become analogous to vending machines, or FedEx status pages: we press the button on the machine, and we get what we want, and if not now, then the machine will tell us exactly when.&lt;/p&gt;
+
+&lt;p&gt;But this idea of platforms, the machine, break down when the machine… breaks down, or just changes. When the &lt;em&gt;good&lt;/em&gt; sandwich cookies are out, or they get replaced with the &lt;em&gt;bad&lt;/em&gt; sandwich cookies, or when there are no sandwich cookies at all because it’s Tuesday morning and deliveries normally happen on Monday and Monday was a holiday. Then we’re confronted with a reality: you, and I, and the people who stock the machine, and build the machine, and the people who make the decisions about what to stock it with, or when, and how, and why….&lt;/p&gt;
+
+&lt;p&gt;We are all simply harried, overworked bags of dirty water that are winging it and doing our best balancing conflicting business needs, and complicated lives and health and families and concerns and motivations completely unrelated to the &lt;em&gt;good&lt;/em&gt; sandwich cookies and your obtaining them. I’m sorry.&lt;/p&gt;
+
+&lt;p&gt;We can agree: it sure would be nice if the machine had the sandwich cookies you wanted.&lt;/p&gt;
+
+&lt;p&gt;Or not: my agreement could also be the pathology talking. The machine is not the human endeavor here… though my sympathy for your situation (and our shared pathology) could be.&lt;/p&gt;
+
+&lt;p&gt;This particular line of thought was triggered by reading this passage from James Bennet’s &lt;a href=&quot;https://www.b-list.org/weblog/2022/jul/11/pypi/&quot;&gt;“Yes, I have opinions on your open source contributions”&lt;/a&gt;  about some drama going on around the situation of the people who run the PyPI Python package repository wanting to add additional security requirements on the people who publish packages to said repository to protect the people who download packages from said repository and thus reduce support demand on said repository maintainers by preventing packages from being compromised (analogus some drama is playing out in my world of Ruby too):&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;If you believe nobody has the right to ”demand” an open-source maintainer do something or abide by some policy or restriction, then that ends the argument in more ways than people are appreciating. If you just want to say “nobody can demand I do this”, then OK, but you also can’t demand PyPI — which is an open-source project, too — do any particular thing or abide by any particular policy you’d like, which more or less removes any grounds you might have had to criticize their account security approach. They don’t owe you anything and don’t have to do what you want them to do, the end.&lt;/p&gt;
+
+  &lt;p&gt;But a lot of people in comment threads are trying really hard to figure out a way to impose requirements and standards on PyPI’s maintainers but not on anyone else, which then contradicts the “it’s open-source, you can’t demand anyone do anything” basis of the whole argument. Somewhat amusing are people who try to argue that PyPI has a lot more power to affect people and so should be restricted more, which is an equally good argument for imposing on people who maintain major packages.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;And there’s a lot more.&lt;/p&gt;
+
+&lt;p&gt;To follow my thread of before, there’s a lot of demanding going on that the people, who are inseparable from the package repository, be vending machines. And what, to me, sounds like a fair and reasonable counterpoint being that people are not vending machines. And we should go with that.&lt;/p&gt;
+
+  &lt;br&gt;&lt;br&gt;
+  &lt;hr&gt;
+  &lt;p&gt;
+    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2022/07/were-all-just-people-here-even-platforms&quot;&gt;We&apos;re all just people here, even platforms&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
+    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
+  &lt;/p&gt;
+</description>
+  <pubDate>Wed, 13 Jul 2022 04:54:00 +0000</pubDate>
+  <link>https://island94.org/2022/07/were-all-just-people-here-even-platforms</link>
+  <guid isPermaLink="true">https://island94.org/2022/07/were-all-just-people-here-even-platforms</guid>
+  
+    <category>thoughts</category>
+  
+  
+</item>
+
+      
     
       
         
@@ -543,46 +597,6 @@ Phil paused to survey the crowd. “My, it’s cold out here today! You can feel
   <pubDate>Thu, 31 Mar 2022 23:11:00 +0000</pubDate>
   <link>https://island94.org/2022/03/working-the-problem</link>
   <guid isPermaLink="true">https://island94.org/2022/03/working-the-problem</guid>
-  
-  
-</item>
-
-      
-    
-      
-        
-
-
-
-
-<item>
-  <title>Sense-making list-making</title>
-  <description>&lt;p&gt;From the &lt;a href=&quot;https://tymbals.com/splash/metacryptoverse.html&quot;&gt;“The MetaCryptoVerse”&lt;/a&gt;, which triggered my oft-observation that civic tech too-frequently regresses to resource directories (lists of services):&lt;/p&gt;
-
-&lt;blockquote&gt;
-
-  &lt;p&gt;…what happens when our institutions become just lists. Lists scattered across a network of databases.&lt;/p&gt;
-
-  &lt;p&gt;You see we are attune to the idea of data disrupting paper. What we are not attune to is this idea of data disrupting space. Or more accurately how information architecture is disrupting architecture. Banks become lists, manifest as a collection ATMs, PC and smartphones. Office blocks become lists manifest as web pages and mobile apps. Hospitals become lists manifest as patent records and augmented beds. Government agencies become lists manifest as web pages and pdfs. Libraries become Google. Which is to say they become lists. Our clubs and churches or more accurately our communal meeting places become Facebook pages. Which is to say they become lists. Our shops become lists. Be they Amazonian or iTuna. Or schools and colleges become Moocs. Which is to say they become lists.&lt;/p&gt;
-
-  &lt;p&gt;Now these are ideas. Conceptual models. Thought experiments. Dare I say TEDs? worth exploring. What happens when our world evolves from the bucket list to a bucket full of lists?&lt;/p&gt;
-
-  &lt;p&gt;What would this new architecture look like? How do we interact with these new spaces? And what are the types of games we will be playing to occupy our days? What is it like to live life as an endless fractal narrative? What will be the sum of our days? The sum of experiences in this brave new world? Of life lived as a bucket full of lists. Virtual or otherwise. Just how will these lists shape our behaviour? Regulate our emotions? Facilitate our transaction? Engineer our experiences? Provoke our responses? Design our Desires? Juxtapose our inner tensions? Manipulate our self image? Game our expectations?&lt;/p&gt;
-
-  &lt;p&gt;We discovered these are conversations worth having… with others.&lt;/p&gt;
-
-&lt;/blockquote&gt;
-
-  &lt;br&gt;&lt;br&gt;
-  &lt;hr&gt;
-  &lt;p&gt;
-    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2022/03/sense-making-list-making&quot;&gt;Sense-making list-making&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
-    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
-  &lt;/p&gt;
-</description>
-  <pubDate>Sat, 19 Mar 2022 16:03:00 +0000</pubDate>
-  <link>https://island94.org/2022/03/sense-making-list-making</link>
-  <guid isPermaLink="true">https://island94.org/2022/03/sense-making-list-making</guid>
   
   
 </item>
