@@ -5,7 +5,6 @@ published: true
 tags: ["thoughts"]
 ---
 
-# We're all just people here, even platforms
 In [my presentation of how my small engineering team helped deliver food stamps to millions of Californians](https://speakerdeck.com/bensheldon/bridging-people-and-benefits-systems), I talked about a common pathology of engineers: a desire to build the equivalent of thousand-year clocks that will run self-contained without human intervention. You see it crop up in different forms, the good ways of "working yourself out of a job" and the bad ways of platinum plating and astronaut architects.
 
 And I've become become aware of that pathology affecting how engineers perceive the labor of _other people_: they don't, not the people part. And that's bad.
