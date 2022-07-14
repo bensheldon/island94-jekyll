@@ -92,7 +92,7 @@ Alex Yule, another Code for America Fellow, and an actual experienced cartograph
 
 **NACIS**
 
-The NACIS (North American Cartographic Information Society) conference was October 17-19, 2012 in Portland, Oregon. Alex and Rob and I had gotten an AirBnB and I mostly remember us doing a lot of last-minute implementing. Alex built a really nice Postgres Adapter plugin and Rob was reimplementing Cascadenik ("CSS for Maps) somewhere between Javascript and Cairo; there was a deep-dive into blitting. We presented at a breakout called "Slippy Maps".
+The NACIS (North American Cartographic Information Society) conference was October 17-19, 2012 in Portland, Oregon. Alex and Rob and I had gotten an AirBnB and I mostly remember us doing a lot of last-minute implementing. Alex built a really nice Postgres Adapter plugin and Rob was reimplementing Cascadenik ("CSS for Maps") somewhere between Javascript and Cairo; there was a deep-dive into blitting. We presented at a breakout called "Slippy Maps".
 
 Afterwards, I remember riding BART back from the airport when we arrived home in San Francisco. I was talking with a maybe-a-big-deal person from the map-tech community, and they asked me something pointed like "But how much did **you** _really_ contribute to NodeTiles?" I said something like "It was a team effort" and then it got really quiet. In hindsight that was probably a job interview. And also fuck that, it _was_ a team effort.
 
