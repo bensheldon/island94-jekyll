@@ -6,10 +6,152 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 13 Jul 2022 05:17:26 +0000</pubDate>
-    <lastBuildDate>Wed, 13 Jul 2022 05:17:26 +0000</lastBuildDate>
+    <pubDate>Thu, 14 Jul 2022 22:15:24 +0000</pubDate>
+    <lastBuildDate>Thu, 14 Jul 2022 22:15:24 +0000</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
+    
+      
+        
+
+
+
+
+<item>
+  <title>&quot;What the fuck are you talking about?&quot;: The story of NodeTiles</title>
+  <description>&lt;p&gt;&lt;img src=&quot;/uploads/2022-07/nodetiles.png&quot; alt=&quot;NodeTiles&apos; trippy demo image that says &amp;quot;NODTILES&amp;quot; written across a map ofthe globe&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;I recently lost access to my 10-year old Code for America email address when I changed jobs. I tried to preserve some of the good stuff and this is one story.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;During my time as a Code for America Fellow in 2012, I created a Javascript-based slippy map tile renderer called &lt;a href=&quot;https://github.com/nodetiles/nodetiles-core&quot;&gt;NodeTiles&lt;/a&gt; (kinda sorta like Mapnik). Several colleagues helped vastly expand it, we presented at NACIS, and I know of at least one successful company that is still powered by forked version of it today.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Jessica&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;During our Fellowship, Jessica Lord gave a tech talk on building custom map tiles and first introduced me to TileMill. I couldn’t find a record in my email of when that happened, but know she planted this seed 🌱&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Tom&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;On April 25, 2012, I sent this email to Tom Carden:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;This week I came across a gist of yours and eventually made my way to nodemap while researching how to generate server-side map tiles. Thank you so much for putting those pieces together; they’re fantastic! I matched your code with node-canvas-heroku to get it running in the cloud and it’s pretty fantastic:&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;http://morning-spring-2292.herokuapp.com/&quot;&gt;http://morning-spring-2292.herokuapp.com/&lt;/a&gt;&lt;/p&gt;
+
+  &lt;p&gt;Anyways, just wanted to send you a big thanks for the code and inspiration. I’m working on building a node-based utfgrid renderer to bootstrap an entire wax interaction layer… all without Mapnik (though maybe I should just work on packaging that for Heroku).&lt;/p&gt;
+
+  &lt;p&gt;Cheers,
+Ben&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Tom gave some helpful advice and caveat emptor about JS performance and data caching. He continued to follow up with node-canvas and cairo suggestions for getting stuff running on Heroku. Tom ended up being a Code for America mentor for a different project and he was the source of us using the Toner map style in demos and also a nice leaflet clustering plugin.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Rob&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Rob Brackett was the first person I explained what I was doing to create a tile render in Javascript. His reaction to my explanation was “What the fuck are you talking about?” Rob is one of my best friends, and I don’t remember how I explained what would become Nodeiles initially, but I’m sure it took 20 minutes and was a non-linear train of thought.&lt;/p&gt;
+
+&lt;p&gt;On May 2, 2012, I sent this email to “Fuzz”, Code for America’s random-nerdsnipe list:&lt;/p&gt;
+
+&lt;blockquote&gt;
+
+  &lt;p&gt;Last week Rob and I built a heroku-compatible map-tile renderer (and UTFGrid generator) that can quickly (and with low bandwidth/client-processing) serve interactive maps and markers comprising tens of thousands of points and polygons—and unlike TileMill, the final map can be connected to a live database and updated on-the-fly. It’s kind’ve badass.&lt;/p&gt;
+
+  &lt;p&gt;Here are 2 examples:&lt;/p&gt;
+
+  &lt;ol&gt;
+    &lt;li&gt;
+      &lt;p&gt;Static map of San Francisco streets and Parks: 
+ &lt;a href=&quot;http://morning-spring-2292.herokuapp.com/&quot;&gt;http://morning-spring-2292.herokuapp.com/&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;p&gt;Map of all ~1.5k Occupy sites worldwide (I did this in about 15min, so it’s a little clunky):
+ &lt;a href=&quot;http://occupy-map.herokuapp.com/&quot;&gt;http://occupy-map.herokuapp.com/&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+
+  &lt;p&gt;In terms of why it’s badass (from less to more geeky):&lt;/p&gt;
+
+  &lt;ol&gt;
+    &lt;li&gt;It’s fast. Nothing is rendered in the browser, instead all of the tiles are rendered and streamed to the browser as PNGs.&lt;/li&gt;
+    &lt;li&gt;It’s small. No shapefiles are sent to the browser. Each Map (the entire initial pageload) is less than 500kb.&lt;/li&gt;
+    &lt;li&gt;It can do dynamic data. TileMill makes beautiful maps, but once you export them to MapBox (or your own mbtile server), you can’t change them. This can be hooked up to a live database (right now it parses geojson).&lt;/li&gt;
+    &lt;li&gt;It runs on Heroku. It uses node-canvas (not Mapnik) so it is fast, lightweight and has few dependencies.&lt;/li&gt;
+    &lt;li&gt;It renders UTFGrids, which can provide mouse-hovers and other straightforward UI stuff that most maps don’t (way less clicky)&lt;/li&gt;
+    &lt;li&gt;It’s not a tileserver, it’s a tile &lt;em&gt;renderer&lt;/em&gt;. Seriously, all those maptiles are being generated on on-the-fly (we should probably cache them, but hey, this is bleeding edge)&lt;/li&gt;
+    &lt;li&gt;It’s nodejs and all the code is on Github:  &lt;a href=&quot;https://github.com/bensheldon/nodetiles&quot;&gt;https://github.com/bensheldon/nodetiles&lt;/a&gt;  &lt;/li&gt;
+  &lt;/ol&gt;
+
+  &lt;p&gt;I’m still working on it, so if you have a big dataset that you’ve had trouble mapping before, let me know since I’m looking for more/better use cases.&lt;/p&gt;
+
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;Prashant&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Prashant Singh, another Code for America fellow, was excited about the project and gave me lots of feedback. Prashant was using my project to generate large static maps from the commandline, and he gave some feedback on his experience doing similar work with Mapnik. Prashant and two other Fellows, Alicia Rouault and Matt Hampel, would subsequently build a business on top of it.&lt;/p&gt;
+
+&lt;p&gt;On June 5, 2012 I sent this email to Eric Gunderson at Mapbox:&lt;/p&gt;
+
+&lt;blockquote&gt;
+
+  &lt;p&gt;I haven’t done a big writeup yet. I’m hoping to submit to NACIS for their October conference, but I’m still trying to clean up the code, modularize it, and write tests and documentation.&lt;/p&gt;
+
+  &lt;p&gt;General backstory: I had been playing around a lot with TileMill and Mapnik and trying to programmatically generate map tiles; at CfA we have a lot of big, dynamic data and I was trying to set up an automated tile renderer. Then I came across a Tom Carden project where he was use Node-Canvas to render tiles… and then I discovered a node-canvas module that would run on Heroku… and by that point I was in love with the idea of a low-dependency (compared to mapnik) on-the-fly tile rendering implementation.&lt;/p&gt;
+
+  &lt;p&gt;From there, I wanted to see how close I could get to a full-blown TileJSON implementation. I had my coworker Rob Brackett write me a Javascript UTFGrid implementation and I hooked that up to the tile rasterizer. And bam. It’s clunky as hell, and sort’ve slow (it’s rendering an entire shapefile then cropping it down for every tile rather than spatially indexing the features), but I think it has potential. &lt;/p&gt;
+
+  &lt;p&gt;I think the next step (in addition to cleanup and documentation) is loading up some OSM metro data and actually seeing how the performance compares to Mapnik. Also, while I can’t foresee implementing something like Cascadenik, node-canvas gives you direct access to the graphics renderer and it might be useful for creating boutique maps with graphical flourishes that Mapnik hasn’t implemented… and of course for creating layers with dynamic data.&lt;/p&gt;
+
+  &lt;p&gt;Let me know if you have any specific questions or ideas you’d like me to try to implement or use as demos. Thanks for the interest!&lt;/p&gt;
+
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;Alex&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Alex Yule, another Code for America Fellow, and an actual experienced cartographer, was also interested. Alex would build a proper database adapter layer and the actual spatial indexing functionality that all of my previous emails yolo. Alex joined Rob and my presentation proposal at NACIS. This was our abstract:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;NodeTiles: Joyful Map Tile Rendering with Node.js&lt;/strong&gt;&lt;/p&gt;
+
+  &lt;p&gt;Mapnik has become the de facto open-source standard for rendering map tiles. While Mapnik is extremely powerful, it can be difficult to set up and deploy. We present NodeTiles, a lightweight, JavaScript-based, open-source map tile renderer that is easy to deploy, use, and extend. Built to support applications with dynamic data, NodeTiles offers an accessible and cloud-friendly alternative to Mapnik. While still in early-stage development, features on the road-map include styling with the CSS-based Carto language for compatibility with MapBox TileMill, UTFGrid generation for client-side interactivity, and data adaptors for PostGIS and Shapefiles.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;NACIS&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;The NACIS (North American Cartographic Information Society) conference was October 17-19, 2012 in Portland, Oregon. Alex and Rob and I had gotten an AirBnB and I mostly remember us doing a lot of last-minute implementing. Alex built a really nice Postgres Adapter plugin and Rob was reimplementing Cascadenik (“CSS for Maps”) somewhere between Javascript and Cairo; there was a deep-dive into blitting. We presented at a breakout called “Slippy Maps”.&lt;/p&gt;
+
+&lt;p&gt;Afterwards, I remember riding BART back from the airport when we arrived home in San Francisco. I was talking with a maybe-a-big-deal person from the map-tech community, and they asked me something pointed like “But how much did &lt;strong&gt;you&lt;/strong&gt; &lt;em&gt;really&lt;/em&gt; contribute to NodeTiles?” I said something like “It was a team effort” and then it got really quiet. In hindsight that was probably a job interview. And also fuck that, it &lt;em&gt;was&lt;/em&gt; a team effort.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;That’s it&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;During Fall of 2012 Code for America Fellowship was ending and interviewing as an inexperienced engineer is freaking hard (and also incredibly dumb, but those are different stories). So I mostly put down NodeTiles. And also:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Going from something that’s a tech demo to something understandable (“What the fuck are you talking about”) and usable by outsiders is hard.&lt;/li&gt;
+  &lt;li&gt;The sheer difficulty of spatial work. That dumb NodeTiles logo took me hours just to get the tooling together to just like, draw straight lines on a globe to say “NODETILES”.&lt;/li&gt;
+  &lt;li&gt;Maps are a commodity, and also if you need to dynamically map a billion+ polyons (I’ve been informed that today there is Postgres MVT) &lt;em&gt;and&lt;/em&gt; you need a pipeline for auth and anti-scrape and billing and raster and…. well, god bless you.&lt;/li&gt;
+  &lt;li&gt;I leaned into some questionable architectural decisions to make NodeTiles more Javascripty, splitting up the front and backends, and modularizing all the different pieces into their own packages. In hindsight that was a lot of valueless work that only introduced friction into building the tool and delivering the value. That’s on me; never forget.&lt;/li&gt;
+  &lt;li&gt;Given that this is an email-based retrospective, I will admit I found some emails from kinda big deals like Stamen that I didn’t respond to. I dunno why I didn’t respond; probably burnout. If that was you, it wasn’t personal, and I’m happy with the path I’ve taken, and I hope you are too 🤗&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;NodeTiles is &lt;a href=&quot;https://github.com/nodetiles&quot;&gt;still up on GitHub&lt;/a&gt;. If you can get node-canvas linking to cairo (memories of this seems like a fever dream), NodeTiles is really cool. Maybe you’ll do something neat with Nodetiles ❤️&lt;/p&gt;
+
+  &lt;br&gt;&lt;br&gt;
+  &lt;hr&gt;
+  &lt;p&gt;
+    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2022/07/what-the-fuck-are-you-talking-about-the-story-of-nodetiles&quot;&gt;&quot;What the fuck are you talking about?&quot;: The story of NodeTiles&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
+    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
+  &lt;/p&gt;
+</description>
+  <pubDate>Thu, 14 Jul 2022 05:31:00 +0000</pubDate>
+  <link>https://island94.org/2022/07/what-the-fuck-are-you-talking-about-the-story-of-nodetiles</link>
+  <guid isPermaLink="true">https://island94.org/2022/07/what-the-fuck-are-you-talking-about-the-story-of-nodetiles</guid>
+  
+    <category>maps</category>
+  
+  
+</item>
+
+      
     
       
         
@@ -553,52 +695,6 @@ Phil paused to survey the crowd. “My, it’s cold out here today! You can feel
   <pubDate>Wed, 13 Apr 2022 17:32:00 +0000</pubDate>
   <link>https://island94.org/2022/04/science-in-the-capital</link>
   <guid isPermaLink="true">https://island94.org/2022/04/science-in-the-capital</guid>
-</item>
-
-      
-    
-      
-        
-
-
-
-
-<item>
-  <title>Working the problem</title>
-  <description>&lt;p&gt;From &lt;em&gt;An Astronauts Guide to Planet Earth&lt;/em&gt; by Chris Hadfield:&lt;/p&gt;
-
-&lt;blockquote&gt;
-
-  &lt;p&gt;Feeling ready to do something doesn’t mean feeling certain you’ll succeed, though of course that’s what you’re hoping to do. Truly being ready means understanding what could go wrong – and having a plan to deal with it. You could learn to scuba dive in a resort pool, for instance, and go on to have a wonderful first dive in the ocean even if you had no clue how to buddy breathe or what to do if you lost a flipper. But if conditions were less than ideal, you could find yourself in serious danger. In the ocean, things can go wrong in one breath, and the stakes are life and death. That’s why in order to get a scuba license you have to do a bunch of practice dives and learn how to deal with a whole set of problems and emergencies so that you’re really ready, not just ready in calm seas.&lt;/p&gt;
-
-  &lt;p&gt;For the same sort of reasons, trainers in the space program specialize in devising bad-news scenarios for us to act out, over and over again, in increasingly elaborate simulations. We practice what we’ll do if there’s engine trouble, a computer meltdown, an explosion. Being forced to confront the prospect of failure head-on – to study it, dissect it, tear apart all its components and consequences – really works. After a few years of doing that pretty much daily, you’ve forged the strongest possible armor to defend against fear: hard-won competence.&lt;/p&gt;
-
-  &lt;p&gt;Our training pushes us to develop a new set of instincts. Instead of reacting to danger with a fight-or-flight adrenaline rush, we’re trained to respond unemotionally by immediately prioritizing threats and methodically seeking to defuse them. We go from wanting to bolt for the exit to wanting to engage and understand what’s going wrong, then fix it.&lt;/p&gt;
-
-  &lt;p&gt;Early on during my last stay on the ISS, I was jolted to consciousness in the middle of the night: a loud horn was blaring. For a couple of seconds I was in a fog, trying to figure out what that unpleasant noise was. There were four of us in the American section of the Station then, and like prairie dogs, we all poked our heads up out of our sleep pods at the same time to look at the panel of emergency lights on the wall that tell us whether we should be concerned about depressurization, toxicity or some other potential fatal disaster. Suddenly all of us were wide awake. That deafening noise was the fire alarm.&lt;/p&gt;
-
-  &lt;p&gt;A fire is one of the most dangerous things that can happen in a spaceship because there’s nowhere to go; also, flames behave less predictably in weightlessness and are harder to extinguish. In my first year as an astronaut, I think my response to hearing the alarm would have been to grab an extinguisher and start fighting for my life, but over the past 21 years that instinct has been trained in, represented by three words: warn, gather, work.&lt;/p&gt;
-
-  &lt;p&gt;&lt;strong&gt;“Working the problem” is NASA-speak for descending one decision tree after another, methodically looking for a solution until you run out of oxygen.&lt;/strong&gt; &lt;strong&gt;We practice the “warn, gather, work” protocol for responding to fire alarms so frequently that it doesn’t just become second nature; it actually supplants our natural instincts. So when we heard the alarm on the Station, instead of rushing to don masks and arm ourselves with extinguishers, one astronaut calmly got on the intercom to warn that a fire alarm was going off – maybe the Russians couldn’t hear it in their module – while another went to the computer to see which smoke detector was going off. No one was moving in a leisurely fashion, but the response was one of focused curiosity; as though we were dealing with an abstract puzzle rather than an imminent threat to our survival. To an observer it might have looked a little bizarre, actually: no agitation, no barked commands, no haste.&lt;/strong&gt;&lt;/p&gt;
-
-  &lt;p&gt;The next step is the gather, so we joined the Russians in their part of the Station to start working on the problem. How serious was the threat? So far, all the signs were reassuring. We couldn’t smell smoke of see flames. Maybe one little wire had melted somewhere, or the detector was responding to dust. We talked to Mission Control in Houston and in Moscow, but as we investigated, checking the module where the detector had been triggered, it seemed more and more likely that we were dealing with a simple malfunction. Finally, everyone agreed that it had been a false alarm, and we headed back to our sleep stations. An hour later, when the fire alarm sounded again, we repeated the warn, gather, work protocol just as before. The response was similarly calm, though not perfunctory – possibly something had been slowly smoldering for the past hour. As it turned out, nothing had. The detector was a lemon, that’s all. I remember thinking, “That was a little like a sim, only better, because now I get to sleep.”&lt;/p&gt;
-
-  &lt;p&gt;I doubt anyone’s heart rate increased by more than a beat or two while we were dealing with those fire alarms, even during the first minutes when the threat of a raging inferno seemed most real. We felt competent to deal with whatever happened – a sense of confidence that comes directly from solid preparation. Nothing boosts confidence quite like simulating a disaster, engaging with it fully, both physically and intellectually, and realizing you have the ability to work the problem. Each time you manage to do that your comfort zone expands a little, so if you ever face that particular problem in real life, you’re able to think clearly.&lt;/p&gt;
-
-&lt;/blockquote&gt;
-
-  &lt;br&gt;&lt;br&gt;
-  &lt;hr&gt;
-  &lt;p&gt;
-    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2022/03/working-the-problem&quot;&gt;Working the problem&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
-    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
-  &lt;/p&gt;
-</description>
-  <pubDate>Thu, 31 Mar 2022 23:11:00 +0000</pubDate>
-  <link>https://island94.org/2022/03/working-the-problem</link>
-  <guid isPermaLink="true">https://island94.org/2022/03/working-the-problem</guid>
-  
-  
 </item>
 
       
