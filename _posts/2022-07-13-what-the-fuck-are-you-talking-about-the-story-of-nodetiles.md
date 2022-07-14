@@ -80,14 +80,14 @@ Let me know if you have any specific questions or ideas you'd like me to try to 
 
 **Alex**
 
-Alex Yule, another Code for America Fellow, and an actual experienced cartographer, was also interested. Alex joined Rob and my presentation proposal at NACIS. This was our abstract:
+Alex Yule, another Code for America Fellow, and an actual experienced cartographer, was also interested. Alex would build a proper database adapter layer and the actual spatial indexing functionality that all of my previous emails yolo. Alex joined Rob and my presentation proposal at NACIS. This was our abstract:
 
 > **NodeTiles: Joyful Map Tile Rendering with Node.js**
 > Mapnik has become the de facto open-source standard for rendering map tiles. While Mapnik is extremely powerful, it can be difficult to set up and deploy. We present NodeTiles, a lightweight, JavaScript-based, open-source map tile renderer that is easy to deploy, use, and extend. Built to support applications with dynamic data, NodeTiles offers an accessible and cloud-friendly alternative to Mapnik. While still in early-stage development, features on the road-map include styling with the CSS-based Carto language for compatibility with MapBox TileMill, UTFGrid generation for client-side interactivity, and data adaptors for PostGIS and Shapefiles.
 
 **NACIS**
 
-The NACIS (North American Cartographic Information Society) conference was October 17-19, 2012 in Portland, Oregon. Alex and Rob and I had gotten an AirBnB and I mostly remember us doing a lot of last-minute implementing. Alex built a really nice Postgres Adapter plugin, and Rob was reimplementing Cascadenik ("CSS for Maps) somewhere between Javascript and Cairo; I remember a deep-dive into blitting. We presented at a breakout called "Slippy Maps".
+The NACIS (North American Cartographic Information Society) conference was October 17-19, 2012 in Portland, Oregon. Alex and Rob and I had gotten an AirBnB and I mostly remember us doing a lot of last-minute implementing. Alex built a really nice Postgres Adapter plugin and Rob was reimplementing Cascadenik ("CSS for Maps) somewhere between Javascript and Cairo; I remember a deep-dive into blitting. We presented at a breakout called "Slippy Maps".
  
 I remember riding BART back from the airport when we arrived back in San Francisco. I was talking with a maybe-a-big-deal person from the maptech community, and they asked me something pointed like "But how much did you *really* contribute to Nodetiles?" I said, and truly believe "It was a team effort" and then it got really quiet. In retrospect that was probably a job interview, and also fuck that, it was a team effort.
 
