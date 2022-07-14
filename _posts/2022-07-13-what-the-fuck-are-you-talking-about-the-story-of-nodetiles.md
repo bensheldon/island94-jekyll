@@ -66,7 +66,7 @@ I'm still working on it, so if you have a big dataset that you've had trouble ma
 
 Prashant Singh, another Code for America fellow, was excited about the project and gave me lots of feedback. Prashant was using my project to generate large static maps from the commandline, and he gave some feedback on his experience doing similar work with Mapnik. Prashant and two other Fellows, Alicia Rouault and Matt Hampel, would subsequently build a business on top of it.
 
-On June 5, 2012 I sent this email to Eric Gunderson at Mapbox:
+On June 5, 2012 I sent this email to Eric Gundersen at Mapbox:
 
 <blockquote markdown="1">
 
