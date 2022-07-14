@@ -7,7 +7,7 @@ tags:
 
 
 
-_I recently lost access to my 10-year old Code for America email address when I changed jobs. I wanted to preserve some of the good stufgf and this is one story._
+_I recently lost access to my 10-year old Code for America email address when I changed jobs. I tried to preserve some of the good stuff and this is one story._
 
 During my time as a Code for America Fellow in 2012, I created a Javascript-based slippy map tile rendered called Nodetiles (kinda sorta like Mapnik).  I had several colleagues vastly expand it, we presented at NACIS, and I know of at least one successful company that is still powered by forked version of it today. 
 
