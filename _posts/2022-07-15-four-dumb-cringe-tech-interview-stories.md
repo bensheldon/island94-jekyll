@@ -39,7 +39,7 @@ I got a face-to-face interview with a company that I'll vaguely describe as "a s
 
 I was declined. I want to admit that I did mostly fail a different part of the technical interview: it was a whiteboarding exercise along the lines of "solve this problem using only pipes". I think _everything_ may have been built with pipes, but it was Javascript in 2012, so I probably should have known how to do it to be qualified.
 
-Side-note: Huge props and respect that the company successfully socialized and operationalized a core company value. Even if I think it's dumb.
+Sidenote: Huge props and respect that the company successfully socialized and operationalized a core company value. Even if I think it's dumb.
 
 **"Focused on the code"**
 
@@ -53,7 +53,9 @@ And then there was a question, like "Ben, I know that you've been a manager in t
 
 I replied saying something like "I'm happy being an IC. And I think a strength is my flexibility to help where it's needed. If that's what you and the business and the team eventually need, I'd feel confident and comfortable stepping into that role again." 
 
-*That was the wrong answer for them.* I was declined. I received a reply later saying they wanted someone "focused on the code." This is one time when I do wonder if I should have like, followed up and clarified my message, but interviewing is like bizarro-world dating so who knows.
+*That was the wrong answer for them.*  I was declined. I received a reply later saying they wanted someone "focused on the code." This is one time when I do wonder if I should have like, followed up and clarified my message, but interviewing is like bizarro-world dating so who knows. 
+
+Sidenote: If you're reading this as flat advice, you _should_ follow-up, because the worst that will happen is they'll say "still a no".
 
 **"Should we go back in there?"**
 
