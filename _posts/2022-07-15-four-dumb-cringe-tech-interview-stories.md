@@ -6,7 +6,7 @@ tags:
 ---
 
 
-In my previous write-up about NodeTiles, I said that I had dumb interview stories. Here they are.
+In my previous write-up about NodeTiles, I said that I had dumb interview stories to share. Here they are.
 
 **"Oh yeah, me too."**
 
