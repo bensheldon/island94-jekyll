@@ -27,7 +27,7 @@ _Ded._ I was declined. I'll never know if that was a trick question, or like the
 
 **"Code is our craft"**
 
-It was 2012, and my Code for America Fellowship was coming to an end. Having moved earlier moved from Boston to the Bay Area for the fellowship, I retooled my resume to downplay my 10-year career of "community media and technology leadership" and instead highlight my "web applications and freelance software development" experience, I was trying to land my first official Software Engineering job.
+It was 2012, and my Code for America Fellowship was coming to an end. Having moved the previous year from Boston to the Bay Area for the fellowship, I now retooled my resume to downplay my 10-year career of "community media and technology leadership" and instead highlight my "web applications and freelance software development" experience. I was trying to land my first official Software Engineering job.
 
 There were a number of companies in Code for America's orbit, so multiple fellows were interviewing at the same place. Us fellows were more collegial than competitive, so there was lots of helpful backchanneling and suggestions and level-setting that some of the jobs were faintly ridiculous, but sure, why not. It was the Bay Area in 2012.
 
