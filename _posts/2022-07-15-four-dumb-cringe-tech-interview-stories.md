@@ -48,7 +48,7 @@ I was courted. I was reached out to over LinkedIn by someone I had only known _o
 
 And there was a standard interview too. We talked about developing high-performant, early-adopter, power-user consumer interfaces, and our shared history and respect for Ruby and Rails and Javascript. We pair programmed on a problem, and I think I was nailing it.
 
-And then there was a question, like "Ben, I know that you've been a manager in the past, and you're currently a leading a team. Is that something you really want to do in your next job?"
+And then there was a question, like "Ben, I know that you've been a manager in the past, and you're currently leading a team. Is that something you really want to do in your next job?"
 
 I replied saying something like "I'm happy being an IC. And I think a strength is my flexibility to help where it's needed. If that's what you and the business and the team eventually need, I'd feel confident and comfortable stepping into that role again." 
 
