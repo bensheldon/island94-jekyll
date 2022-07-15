@@ -62,9 +62,8 @@ In this story I was one of two technical interviewers, along with a hiring manag
 
 We were debriefing after a week of interviewing candidates. There were two finalists. None of this may have actually mattered, or everything mattered, but I want to paint the picture. Both engineering candidates were women; we were all men along with the entire engineering team of 15 or so; not great! 
 
-Candidate 1 was very outgoing, had a ton of analogous Bay Area tech experience, lots in common to talk about... and did not pass our technical interviews.
-
-Candidate 2 was a kinda awkward, their experience was weakly adjacent sorta kinda... and they totally aced the technical interviews, like finished in half the time then schooled us. Which made it even more awkward because we're all awkward engineers truly and now we had like 30 minutes of dead time to fill trying to chitchat. I heard something similar happened in the manager interviews: the candidate answered *too* succinctly.
+- Candidate 1 was very outgoing, had a ton of analogous Bay Area tech experience, lots in common to talk about... and did not pass our technical interviews.
+- Candidate 2 was a kinda awkward, their experience was weakly adjacent sorta kinda... and they totally aced the technical interviews, like finished in half the time then schooled us. Which made it even more awkward because we're all awkward engineers truly and now we had like 30 minutes of dead time to fill trying to chitchat. I heard something similar happened in the manager interviews: the candidate answered *too* succinctly.
 
 Ok, so the debrief. We went around the table, shared our experiences. *And Management wanted to hire Candidate 1*, the candidate that didn't pass our technical interviews. For real! But this is business, and we have to be collegial, and they're the managers, so my other engineering colleague and I disagreed and committed and rolled our eyes but left the meeting like *yep, this is business, we're all business here.*
 
