@@ -6,10 +6,122 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 14 Jul 2022 23:16:03 +0000</pubDate>
-    <lastBuildDate>Thu, 14 Jul 2022 23:16:03 +0000</lastBuildDate>
+    <pubDate>Fri, 15 Jul 2022 18:00:18 +0000</pubDate>
+    <lastBuildDate>Fri, 15 Jul 2022 18:00:18 +0000</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
+    
+      
+        
+
+
+
+
+<item>
+  <title>Four dumb-cringe tech interview stories</title>
+  <description>&lt;p&gt;In my previous write-up about NodeTiles, I said that I had dumb interview stories to share. They are also cringe. Here they are.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;“Oh yeah, me too.”&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;I failed my very first professional job interview.&lt;/p&gt;
+
+&lt;p&gt;I was 21 and it was 2004. It was my last year at the University of California, Santa Barbara. I was graduating early, in three years, with a BS in Math Sciences, with Honors, and I was looking at Summer internships as something to do because the last credit course I needed was only offered at the tail-end of Summer quarter, right before my AmeriCorps*VISTA service began in Boston. I had never done a college internship before, mainly out of ignorance of their importance; this would be my first (and only) attempt at landing one.&lt;/p&gt;
+
+&lt;p&gt;UCSB is gorgeous, it’s on the beach; it is a bare-shouldered, sunny, surfy beach town. I was boring. Yes, I surfed and swam and sailed and hiked and ballroom danced and tended a community garden and worked on my 1973 Porsche 914 through Santa Barbara High School’s vocational auto-shop. But I wore a lot of cargo shorts, I didn’t drink or party, and I mainly loaded up on math and writing courses and worked in the campus library’s Map and Imagery Lab pulling and shelving topos and ortho photos. Santa Barbara!&lt;/p&gt;
+
+&lt;p&gt;My internship interview was with a local military contractor that was creating sensor fusion software. I thought it was pretty cool because it was maps and spatial and lined up with my honors research project, using statistical sensing methods to probe physical topologies, albeit of knotted proteins, not the Middle East. Also, I had not yet untangled for myself the distinctions between patriotic service and imperial militarism. I was 21 and it was 2004.&lt;/p&gt;
+
+&lt;p&gt;I don’t remember a lot of the details of the interview. There was a primary interviewer who was maybe a year or two graduated from UCSB himself. He walked me around between cubicles I was given the chance to briefly chat with various people, including the CEO. At the end, we sat down for more formal chatting, and he said something like:&lt;/p&gt;
+
+&lt;p&gt;“You know, we don’t like to work very hard around here. Do you?”&lt;/p&gt;
+
+&lt;p&gt;And me, just trying to fit in, was like “Oh yeah, me too. I try to take it easy.”&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Ded.&lt;/em&gt; I was declined. I’ll never know if that was a trick question, or like they knew I was not actually a good fit. But it was fine. I took another writing class.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;“Code is our craft”&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;It was 2012, and my Code for America Fellowship was coming to an end. Having moved the previous year from Boston to the Bay Area for the fellowship, I now retooled my resume to downplay my 10-year career of “community media and technology leadership” and instead highlight my “web applications and freelance software development” experience. I was trying to land my first official Software Engineering job.&lt;/p&gt;
+
+&lt;p&gt;There were a number of companies in Code for America’s orbit, so multiple fellows were interviewing at the same place. Us fellows were more collegial than competitive, so there was lots of helpful backchanneling and suggestions and level-setting that some of the jobs were faintly ridiculous, but sure, why not. It was the Bay Area in 2012.&lt;/p&gt;
+
+&lt;p&gt;I got a face-to-face interview with a company that I’ll vaguely describe as “a social network for baristas”.  It was a Javascript company. There was a tech-screener project I apparently passed, so I came into the office. I can say this, with more hindsight and experience: there were some red flags.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;I was introduced to the lead engineer and we chatted for a minute. I asked them something like “How do you see the business growing? I mean, where do you think the value lies in the product?” &lt;em&gt;This was the wrong question for them.&lt;/em&gt; The lead engineer explained that “Code is our craft” and that well, who knows what the future will bring, but they want people who really are interested in the &lt;em&gt;software.&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;One portion of the interview was reviewing my tech screener project. There was one part of the screener where I was unsure of the situationally &lt;em&gt;best&lt;/em&gt; way to accomplish it, so I did the most direct unoptimized way and left some comments about different optimizations and their pros/cons. I was asked about why I hadn’t just picked one, and I explained that I wanted to treat this like real life and talk through it with a more experienced colleague who could represent the actual business needs and not prematurely optimize at the expense of readability and openness to change. &lt;em&gt;That was the wrong answer for them.&lt;/em&gt; They explained that “Code is our craft” and they’d expect me to make the best call on my own.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I was declined. I want to admit that I did mostly fail a different part of the technical interview: it was a whiteboarding exercise along the lines of “solve this problem using only pipes”. I think &lt;em&gt;everything&lt;/em&gt; may have been built with pipes, but it was Javascript in 2012, so I probably should have known how to do it to be qualified.&lt;/p&gt;
+
+&lt;p&gt;Sidenote: Huge props and respect that the company successfully socialized and operationalized a core company value. Even if I think it’s dumb.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;“Focused on the code”&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;This was 2016, my professional circumstances were different, and I want to assert that I had become a real catch of an engineer. I was leading a fullstack web UI and CLI team at a B2B platform-infrastructure startup, and also moonlight solopreneuring a successful consumer web and cross-platform mobile native app too. Professionally, maybe, kind of, a big deal 💅&lt;/p&gt;
+
+&lt;p&gt;I was courted. I was reached out to over LinkedIn by someone I had only known &lt;em&gt;of&lt;/em&gt; to that point. We got coffee and walked around San Francisco and they shared their vision. They invited me, and several other engineers, some of who I also knew &lt;em&gt;of&lt;/em&gt; to a fancy private dinner. It was nice.&lt;/p&gt;
+
+&lt;p&gt;And there was a standard interview too. We talked about developing high-performant, early-adopter, power-user consumer interfaces, and our shared history and respect for Ruby and Rails and Javascript. We pair programmed on a problem, and I think I was nailing it.&lt;/p&gt;
+
+&lt;p&gt;And then there was a question, like “Ben, I know that you’ve been a manager in the past, and you’re currently a leading a team. Is that something you really want to do in your next job?”&lt;/p&gt;
+
+&lt;p&gt;I replied saying something like “I’m happy being an IC. And I think a strength is my flexibility to help where it’s needed. If that’s what you and the business and the team eventually need, I’d feel confident and comfortable stepping into that role again.”&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;That was the wrong answer for them.&lt;/em&gt;  I was declined. I received a reply later saying they wanted someone “focused on the code.” This is one time when I do wonder if I should have like, followed up and clarified my message, but interviewing is like bizarro-world dating so who knows.&lt;/p&gt;
+
+&lt;p&gt;Sidenote: If you’re reading this as flat advice, you &lt;em&gt;should&lt;/em&gt; follow-up, because the worst that will happen is they’ll say “still a no”.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;“Should we go back in there?”&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;In this story I was one of two technical interviewers, along with a hiring manager and the director of engineering.&lt;/p&gt;
+
+&lt;p&gt;We were debriefing after a week of interviewing candidates. There were two finalists. None of this may have actually mattered, or everything mattered, but I want to paint the picture. Both engineering candidates were women; we were all men along with the entire engineering team of 15 or so; not great!&lt;/p&gt;
+
+&lt;p&gt;Candidate 1 was very outgoing, had a ton of analogous Bay Area tech experience, lots in common to talk about… and did not pass our technical interviews.&lt;/p&gt;
+
+&lt;p&gt;Candidate 2 was a kinda awkward, their experience was weakly adjacent sorta kinda… and they totally aced the technical interviews, like finished in half the time then schooled us. Which made it even more awkward because we’re all awkward engineers truly and now we had like 30 minutes of dead time to fill trying to chitchat. I heard something similar happened in the manager interviews: the candidate answered &lt;em&gt;too&lt;/em&gt; succinctly.&lt;/p&gt;
+
+&lt;p&gt;Ok, so the debrief. We went around the table, shared our experiences. &lt;em&gt;And Management wanted to hire Candidate 1&lt;/em&gt;, the candidate that didn’t pass our technical interviews. For real! But this is business, and we have to be collegial, and they’re the managers, so my other engineering colleague and I disagreed and committed and rolled our eyes but left the meeting like &lt;em&gt;yep, this is business, we’re all business here.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;And we were walking down the hallway back to our desks and we both said to each other at the same time “What the fuck was that?”&lt;/p&gt;
+
+&lt;p&gt;“Should we go back in there?”&lt;/p&gt;
+
+&lt;p&gt;“That wasn’t right.”&lt;/p&gt;
+
+&lt;p&gt;So we kind of treaded water out in the hall for a minute, and worked up the courage to… gently go back and knock on the conference room door and politely ask if we could say one more thing.&lt;/p&gt;
+
+&lt;p&gt;“We should hire Candidate 2.” Seriously.&lt;/p&gt;
+
+&lt;p&gt;To management’s credit, they listened and I think correctly read that we were distressed and this wasn’t just our standard grumpy-engineer bikeshedding bit. Management agreed to make an offer to Candidate 2. Mission accomplished.&lt;/p&gt;
+
+&lt;p&gt;Ok, so I want to say there are two possible futures here:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;We hire Candidate 2, and they are a solid if unremarkable engineer. They do good work, meet and occassionally exceed expectations, and are an incremental contributor like everyone else in pushing out our startup’s runway toward some brighter future and shared equity event.&lt;/li&gt;
+  &lt;li&gt;We hire Candidate 2, and they are an absolute-based 100x engineer. They frankly save the company in my mind, bulldozing through any problem you throw their way with a nonchalant “alrighty then”. They exhaust the backlog leading them to entirely rewrite the product &lt;em&gt;twice over&lt;/em&gt; better/faster/more-maintainably as a distraction while the backlog is rebuilt then they plow through it again.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;It does not matter which future actually happened (though one of them definitely did!), because they were qualified, capable, and if we removed the fucking bias of our otherwise reasonably designed interview loop, the best candidate in our pool.&lt;/p&gt;
+
+&lt;p&gt;In the previous story when I played the role as befuddled candidate I was like “I dunno, bizarro dating”; but if you are ever in the position as an interviewer and there are some bogus soft-no’s or bogus soft-yes’s, speak the fuck up and use your power to the extent you safely can. Seriously, you can do this, &lt;em&gt;even in business.&lt;/em&gt;&lt;/p&gt;
+
+  &lt;br&gt;&lt;br&gt;
+  &lt;hr&gt;
+  &lt;p&gt;
+    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2022/07/four-dumb-cringe-tech-interview-stories&quot;&gt;Four dumb-cringe tech interview stories&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
+    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
+  &lt;/p&gt;
+</description>
+  <pubDate>Fri, 15 Jul 2022 17:14:00 +0000</pubDate>
+  <link>https://island94.org/2022/07/four-dumb-cringe-tech-interview-stories</link>
+  <guid isPermaLink="true">https://island94.org/2022/07/four-dumb-cringe-tech-interview-stories</guid>
+  
+  
+</item>
+
+      
     
       
         
@@ -593,108 +705,6 @@ Some aspects of the software engineering ideal appealed directly to preferences 
   <pubDate>Mon, 18 Apr 2022 02:31:00 +0000</pubDate>
   <link>https://island94.org/2022/04/recoding-gender</link>
   <guid isPermaLink="true">https://island94.org/2022/04/recoding-gender</guid>
-</item>
-
-      
-    
-      
-        
-
-
-
-
-
-
-<item>
-  <title>I read &quot;Science in the Capital&quot; by Kim Stanley Robinson</title>
-  <description>&lt;p&gt;The series is 3 books:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;em&gt;Forty Signs of Rain&lt;/em&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;Fifty Degrees Below&lt;/em&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;Sixty Days and Counting&lt;/em&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;It was subsequently re-edited into a single edition (&lt;em&gt;Green Earth&lt;/em&gt;), but I read the originals. They have all the components of a KSR book:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Someone is smacked in the face&lt;/li&gt;
-  &lt;li&gt;The last third of the book/series includes a travelogue of terraforming&lt;/li&gt;
-  &lt;li&gt;Buddhism&lt;/li&gt;
-  &lt;li&gt;Humanity rendered (and pondering) their place as a primates-out-of-forest/fish-out-of-water in a technology-based society.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;And some uniquely nice and interesting things&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Child characters. I found them the most interesting, especially toddler Joe. Older Nick is pretty boring and unmotivated (in the literary sense) in stark contrast to &lt;em&gt;Aurora&lt;/em&gt;’s Devi.&lt;/li&gt;
-  &lt;li&gt;Contemporary setting (which does have its problems, like suggesting fictional nano-rods instead of actual CRISPR). This is mainly why I gave it 4 stars; it’s fairly unique as a KSR book goes.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;A main theme is “an excess of reason is itself a form of madness” with the various characters navigating contemporary rationalism (politics, bureaucracy, venture science, healthcare, courtship, family) within the constraints of their character’s authentic selves.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;“We are animals. Animals whose wisdom has extended so far as to tell us we are mortal creatures. We die. For fifty thousand years we have known this. Much of our mental energy is spent avoiding this knowledge. We do not like to think of it. Then again, we know now that even the cosmos is mortal. Reality is mortal. All things change ceaselessly. Nothing remains the same in time. Nothing can be held on to. The question then becomes, what do we &lt;em&gt;do&lt;/em&gt; with this knowledge? How do we live with it? How do we make sense of it?”&lt;/p&gt;
-
-  &lt;p&gt;Well—indeed. Frank leaned forward, piqued, wondering what Drepung would tell them the old man had said next. That gravelly low voice, growling through its incomprehensible sounds—it was strange to think it was expressing such meanings. Frank suddenly wanted to know what he was saying.&lt;/p&gt;
-
-  &lt;p&gt;“One of the scientific terms for compassion,” Drepung said, looking around the ceiling as if for the word, “…  you say, ‘altruism.’ This is a question in your animal studies. Does true altruism exist, and is it a good adaptation? Does compassion work, in other words? You have done studies that suggest altruism is the best adaptive strategy, if seen from the group context. This then becomes a kind of … admonishment. To practice compassion in order to successfully evolve—this, coming from your science, which claims to be descriptive only! Only describing what has worked to make us what we are. But in Buddhism we have always said, if you want to help others, practice compassion; if you want to help yourself, practice compassion. Now science adds, if you want to help your species, practice compassion.”&lt;/p&gt;
-
-  &lt;p&gt;This got a laugh, and Frank also chuckled. He started to think about it in terms of prisoners’ dilemma strategies; it was an invocation for all to make the always generous move, for maximum group return, indeed maximum individual return.… Thus he missed what Drepung said next, absorbed in something more like a feeling than a thought: &lt;em&gt;If only I could believe in something, no doubt it would be a relief&lt;/em&gt;. All his rationality, all his acid skepticism; suddenly it was hard not to feel that it was really just some kind of disorder.&lt;/p&gt;
-
-  &lt;p&gt;And at that very moment Rudra Cakrin looked right at him, him alone in all the audience, and Drepung said, “An excess of reason is itself a form of madness.”&lt;/p&gt;
-
-  &lt;p&gt;Frank sat back in his seat. What had the question been? Rerunning his short-term memory, he could not find it.&lt;/p&gt;
-
-  &lt;p&gt;Now he was lost to the conversation again. His flesh was tingling, as if he were a bell that had been struck.&lt;/p&gt;
-
-  &lt;p&gt;“The experience of enlightenment can be sudden.”&lt;/p&gt;
-
-  &lt;p&gt;He didn’t hear that, not consciously.&lt;/p&gt;
-
-  &lt;p&gt;“The scattered parts of consciousness occasionally assemble at once into a whole pattern.”&lt;/p&gt;
-
-  &lt;p&gt;He didn’t hear that either, as he was lost in thought. All his certainties were trembling. He thought, an excess of reason itself a form of madness—it’s the story of my life. And the old man &lt;em&gt;knew&lt;/em&gt;.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;The biggest problem with the book is that one of the main characters is super creepy. And it goes on too long. I think the latter is fixed in the edited Green Planet edition, but I dunno about the former.  Fortunately he doesn’t act on it:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Now he was considering acting in accordance with his beliefs. Something else he had heard the Khembalis say at the Quiblers, this time Drepung: If you don’t act on it, it wasn’t a true feeling. … One can always just walk away. The Dalai Lama had said that for sure. Things you don’t like, things you think are wrong, you can always just walk away. You will be happier. Love and compassion are necessities, not luxuries. Without them humanity cannot survive. But compassion is not just a feeling. You have to act.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;And if you make it to the third book, you’re treated to some good liberal head-canon in the newly elected President’s inauguration speech:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;“Fellow Americans,” he said, pacing his speech to the reverb of the loudspeakers, “you have entrusted me with the job of president during a difficult time. The crisis we face now, of abrupt climate change and crippling damage to the biosphere, is a very dangerous one, to be sure. But we are not at war with anyone, and in fact we face a challenge that all humanity has to meet together. On this podium, Franklin Roosevelt said, ‘This generation has a rendezvous with destiny.’ Now it’s true again. We are the generation that has to deal with the profound destruction that will be caused by the global warming that has already been set in motion. The potential disruption of the natural order is so great that scientists warn of a mass extinction event. Losses on that scale would endanger all humanity, and so we cannot fail to address the threat. The lives of our children, and all their descendants, depend on us doing so.&lt;/p&gt;
-
-  &lt;p&gt;“So, like FDR and his generation, we have to face the great challenge of our time. We have to use our government to organize a total social response to the problem. That took courage then, and we will need courage now. In the years since we used our government to help get us out of the Great Depression, it has sometimes been fashionable to belittle the American government as some kind of foreign burden laid on us. That attitude is nothing more than an attack on American history, deliberately designed to shift power away from the American people. I want us to remember how Abraham Lincoln said it: ‘that government of the people, by the people, and for the people shall not perish from this&lt;/p&gt;
-
-  &lt;p&gt;Earth.’ This is the crucial concept of American democracy—that government expresses what the majority of us would like to do as a society. It’s us. We do it to us and for us. I believe this reminder is so important that I intend to add the defining phrase ‘of the people, by the people, and for the people’ every time I use the word ‘government,’ and I intend to do all I can to make that phrase be a true description. It will make me even more long-winded than I was before, but I am willing to pay that price, and you are going to have to pay it with me.&lt;/p&gt;
-
-  &lt;p&gt;“So, this winter, with your approval and support, I intend to instruct my team in the executive branch of government of the people, by the people, and for the people, to initiate a series of federal actions and changes designed to meet the problem of global climate change head-on. We will deal with it as a society working together, and working with the rest of the world. It’s a global project, and so I will go to the United Nations and tell them that the United States is ready to join the international effort. We will also help the under-developed world to develop using clean technology, so that all the good aspects of development will not be drowned in its bad side effects—often literally drowned. In our own country, meanwhile, we will do all it takes to shift to clean technologies as quickly as possible.”
-Phil paused to survey the crowd. “My, it’s cold out here today! You can feel right now, right down to the bone, that what I am saying is true. We’re out in the cold, and we need to change the way we do things. And it’s not just a technological problem, having to do with our machinery alone. The devastation of the biosphere is also a result of there being too many human beings for the planet to support over the long haul. If the human population continues to increase as it has risen in the past, all progress we might make will be overwhelmed.&lt;/p&gt;
-
-  &lt;p&gt;“But what is very striking to observe is that everywhere on this Earth where good standards of justice prevail, the rate of reproduction is about at the replacement rate. While wherever justice, and the full array of rights as described in the UN Declaration of Human Rights, is somehow denied to some portion of the population, especially to women and children, the rate of reproduction either balloons to unsustainably rapid growth rates, or crashes outright. Now you can argue all you want about why this correlation exists, but the correlation itself is striking and undeniable. So this is one of those situations in which what we do for good in one area, helps us again in another. It is a positive feedback loop with the most profound implications. Consider: for the sake of climate stabilization, there must be population stabilization; and for there to be population stabilization, &lt;em&gt;justice must prevail.&lt;/em&gt; Every person on the planet must live with the full array of human rights that all nations have already ascribed to when signing the UN Charter. When we achieve that, at that point, and at that point only, we will begin to reproduce at a sustainable rate.&lt;/p&gt;
-
-  &lt;p&gt;“To help that to happen, I intend to make sure that the United States joins the global justice project &lt;em&gt;fully, unequivocally,&lt;/em&gt; and &lt;em&gt;without any double standards&lt;/em&gt;. This means accepting the jurisdiction of the International Criminal Court, and the jurisdiction of the World Court in the Hague. It means abiding by all the clauses of the UN Charter and the Geneva Conventions, which after all we have already signed. It means supporting UN peacekeeping forces, and supporting the general concept of the UN as the body through which international conflicts get resolved. It means supporting the World Health Organization in all its reproductive rights and population reduction efforts. It means supporting women’s education and women’s rights everywhere, even in cultures where men’s tyrannies are claimed to be some sort of tradition. All these commitments on our part will be crucial if we are serious about building a sustainable world. There are three legs to this effort, folks: technology, environment, and social justice. None of the three can be neglected.&lt;/p&gt;
-
-  &lt;p&gt;“So, some of what we do may look a little unconventional at first. And it may look more than a little threatening to those few who have been trying, in effect, to buy our government of the people, by the people, and for the people, and use it to line their own pockets while the world goes smash. But you know what? Those people need to change too. They’re out in the cold the same as the rest of us. So we will proceed, and hope those opposed come to see the good in it.&lt;/p&gt;
-
-  &lt;p&gt;“Ultimately we will be exploring all peaceful means to initiate positive changes in our systems, in order to hand on to the generations to come a world that is as beautiful and bountiful as the one we were born into. We are only the temporary stewards of a mighty trust, which includes the lives of all the future generations to come. We are responsible to our children and theirs. What we do now will reveal much about our character and our values as a people. We have to rise to the occasion, and I think we can and will. I am going to throw myself into the effort wholeheartedly and with a feeling of high excitement, as if beginning a long journey over stormy seas.”&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-  &lt;br&gt;&lt;br&gt;
-  &lt;hr&gt;
-  &lt;p&gt;
-    This book review for &lt;em&gt;&lt;a href=&quot;https://island94.org/2022/04/science-in-the-capital&quot;&gt;Science in the Capital&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
-    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
-  &lt;/p&gt;
-</description>
-  <pubDate>Wed, 13 Apr 2022 17:32:00 +0000</pubDate>
-  <link>https://island94.org/2022/04/science-in-the-capital</link>
-  <guid isPermaLink="true">https://island94.org/2022/04/science-in-the-capital</guid>
 </item>
 
       
