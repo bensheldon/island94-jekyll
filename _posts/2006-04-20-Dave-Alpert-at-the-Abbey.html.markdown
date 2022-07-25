@@ -23,7 +23,7 @@ I was up at the Abbey Lounge last night in Somerville checking out [Dave Alpert]
 
 I ended up recording the performance on my cheap, iPod fool-you-once-knockoff, defunct Japanese company’s mp3 benchwarmer. It’s got a crappy built-in mic I used, and a line-in that probably isn’t worth a decent microphone that I don’t have anyway.
 
-Any audio crappiness is the mic and my poor mastering skills, not Dave or the free, open source multi-track audio editor [Audacity](http://audacity.sourceforge.net/) that I used to clean and split the tracks.
+Any audio crappiness is the mic and my poor mastering skills, not Dave or the free, open source multi-track audio editor [Audacity](https://web.archive.org/web/20060420030132/http://audacity.sourceforge.net:80/?) that I used to clean and split the tracks.
 
 _A couple tracks from the show:_
 

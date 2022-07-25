@@ -27,5 +27,5 @@ Now I'm not sure what these guy's are doing with their chickens, but frankly the
 
 I made some tacos tonight (eggs, grated carrot and some sliced red pepper on top) and was greeted to the doubly-yolked surprise. Though honestly, the surprise has worn off since this has been going on for weeks with multiple cartons of eggs. Now it's just foreboding.
 
-+Update: Checkout [this blog entry](http://www.ranablog.com/archives/000331.php) from Notes on an Eclectic Mind about what double yolks may signify.+
++Update: Checkout [this blog entry](https://web.archive.org/web/20060704220344/http://www.ranablog.com:80/archives/000331.php) from Notes on an Eclectic Mind about what double yolks may signify.+
 
