@@ -6,10 +6,70 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 25 Jul 2022 14:39:05 +0000</pubDate>
-    <lastBuildDate>Mon, 25 Jul 2022 14:39:05 +0000</lastBuildDate>
+    <pubDate>Tue, 26 Jul 2022 21:24:48 +0000</pubDate>
+    <lastBuildDate>Tue, 26 Jul 2022 21:24:48 +0000</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
+    
+      
+        
+
+
+
+
+<item>
+  <title>Hate and sarcasm</title>
+  <description>&lt;p&gt;Two things I read recently were commentary on forcefully-weak communications.&lt;/p&gt;
+
+&lt;p&gt;The first, from a &lt;a href=&quot;https://www.reddit.com/r/rails/comments/w63efc/comment/ihc9it8/&quot;&gt;r/rails thread&lt;/a&gt; in which the poster wrote “I hate React as it’s not using MVC pattern and It’s not organised + I hate JS.” A response:&lt;/p&gt;
+
+&lt;blockquote&gt;
+
+  &lt;p&gt;You mentioned that you’re looking for junior positions which implies that you’re relatively new to the industry and have limited programming experience. Despite this, it seems that you’ve developed a lot of strong opinions.&lt;/p&gt;
+
+  &lt;p&gt;There’s nothing wrong with having strong opinions and some of the best engineers are very opinionated. However, one of the biggest things you learn as you gain more experience is that you don’t know what you don’t know and that while forming opinions is important, one should understand why we may form certain opinions and whether those reasons are actually valid enough to hold those opinions strongly enough.&lt;/p&gt;
+
+  &lt;p&gt;For example, you say that you hate JS. Hate is a very strong word for junior developers. Why do you hate JS? Is the hate that you have for the language actually for the language itself or rather code that you’ve written in it? If you’ve been forced to work on an awful codebase, then the language itself isn’t to blame.&lt;/p&gt;
+
+  &lt;p&gt;You mentioned that you hate React as it’s not using MVC pattern. What is it about the MVC pattern that you like? There’s a lot of advantages with the MVC approach, but other approaches also have merit. As you gain more real-world experience, you’ll realize that there are many ways to do things and each approach has its own merits/disadvantages. You mentioned that React is not organized, but React is not a framework - it’s a library. You can organize it however you want which can be a double-edge sword if you’re inexperienced. Any disorganized React project is not React’s fault nor is it a fault of JS.&lt;/p&gt;
+
+  &lt;p&gt;Unlike React, Rails is a framework and a very opinionated one. It can be beginner friendly as things will just work out of the box as a lot of decisions have already been made for you. However, it can also be difficult for beginners to level up as Ruby is a lot less explicit and a lot of the behind the scenes magic can be very confusing to figure out why things work the way they do. There is also a lot more ways to write your code in Ruby which means there’s a lot more syntaxes and patterns you may need to be aware of to be competent. (e.g., there’s only a certain number of ways to write a loop in Python but a multitudes of ways in Ruby). This flexibility may seem like a blessing to be able to write expressive and elegant code, but for beginners, it can make the process of leveling up a lot more work.&lt;/p&gt;
+
+  &lt;p&gt;You should be open to the possibility that you may also not end up loving Ruby when it actually comes to working on production code. Many of us here love Ruby, but it should be stated that there’s a difference between tinkering and using Ruby for toy-projects and maintaining a Rails app. Also, Rails does not make JS go away. You may find yourself writing plenty of JS in Rails to get the desired UX on the frontend.&lt;/p&gt;
+
+  &lt;p&gt;At the end of the day, I do love Ruby and there are plenty of Rails opportunities in the market so I do think it’s worth learning. But if you want to pursue Rails, you should jump in with both eyes open. You may find that your criticisms of JS &amp;amp; React may not actually be as valid and be specific to the projects that you worked on. If there are a lot more opportunities for you in JS/React than Ruby/Rails, it may be worth continuing down that former path.&lt;/p&gt;
+
+&lt;/blockquote&gt;
+
+&lt;p&gt;And Andrew Bosworth &lt;a href=&quot;https://liveboz.substack.com/p/on-sarcasm&quot;&gt;“On Sarcasm”&lt;/a&gt;:&lt;/p&gt;
+
+&lt;blockquote&gt;
+
+  &lt;p&gt;At first being sarcastic was incredibly satisfying. Whereas previously I might have made an earnest argument or asked a question, I now seemed to be able to jump right to the part where the group appreciated me and my contribution. What is even more impressive is it required very little thought to execute. I could often get a positive reaction even on topics I knew almost nothing about.&lt;/p&gt;
+
+  &lt;p&gt;It was when I noticed this last point that I decided that sarcasm was not for me.&lt;/p&gt;
+
+  &lt;p&gt;Sarcasm “works” because it alludes to a critique without ever actually making it. It shifts the burden of substantiating the criticism as an exercise for the audience and further suggests that if they don’t already understand it then they are deficient. Making a critique implicit is an unassailable rhetorical position. The most socially acceptable response for the group is to go along with it, as you have given them nothing specific to challenge. And if someone does challenge it you can simply demur and say it was “just a joke.”&lt;/p&gt;
+
+  &lt;p&gt;Sarcasm does nothing to advance our understanding of the world around us or help us improve it.&lt;/p&gt;
+
+&lt;/blockquote&gt;
+
+  &lt;br&gt;&lt;br&gt;
+  &lt;hr&gt;
+  &lt;p&gt;
+    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2022/07/hate-and-sarcasm&quot;&gt;Hate and sarcasm&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
+    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
+  &lt;/p&gt;
+</description>
+  <pubDate>Tue, 26 Jul 2022 19:02:00 +0000</pubDate>
+  <link>https://island94.org/2022/07/hate-and-sarcasm</link>
+  <guid isPermaLink="true">https://island94.org/2022/07/hate-and-sarcasm</guid>
+  
+  
+</item>
+
+      
     
       
         
@@ -635,77 +695,6 @@ Ben&lt;/p&gt;
     <category>weeknotes</category>
   
   
-</item>
-
-      
-    
-      
-        
-
-
-
-
-
-
-<item>
-  <title>I read &quot;Recoding Gender&quot; by Janet Abbate</title>
-  <description>&lt;h1 id=&quot;recoding-gender&quot;&gt;Recoding gender&lt;/h1&gt;
-&lt;p&gt;I enjoyed the book. It’s a quick survey of early computing and software history, and the lens of gender makes a lot of it new.&lt;/p&gt;
-
-&lt;p&gt;A few themes stuck out to me, from my standpoint of 2022:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Contemporary development, and even agile (by other names) come from feminized sources.&lt;/li&gt;
-  &lt;li&gt;The distinctions between the activities of plugging, coding, programming, solving, planning, and training; and the roles of “Engineer”, or “Architect” or “Manager” which are largely gendered.&lt;/li&gt;
-  &lt;li&gt;The feminization of  “technical” work of interacting with business machines (e.g. a typewriter, photocopier, etc.) and the perceptual “de-skilling” of those roles despite them being, well, heavily technical.&lt;/li&gt;
-  &lt;li&gt;Programming productivity gains being gobbled up by increasing complexity…. Well, sometimes… because there is a perceptual emphasis on complex edge-cases rather than the needs of the “typical” business.&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/NATO_Software_Engineering_Conferences&quot;&gt;Conference on Software Engineering sponsored by NATO and held in Garmisch, Germany on 7–11 October 1968&lt;/a&gt; was a big deal in the history of programming.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Sure sounds like contemporary collaborative practices:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;[Elsie] Shutt’s [of Comp Inc.] approach was to organize her programmers in teams that collaboratively divided the work among themselves: “We would get together every week, everybody working on the project. One thing we had to learn to do was to take a job and to break it into pieces—meaningful pieces—and then we’d get together, talk about it, assign jobs.” She coached her programmers to be meticulous, which resulted in efficiencies for the company and a better product for the client. For example, she emphasized desk-checking, the practice of having programmers review each other’s code before running it on the computer. Although desk-checking was a fairly common practice in the 1950s, Shutt believed that she “emphasized it more than others did” because we were doing things that we broke up into more pieces than some people did.” Comp Inc. had no room for “egotistical” programmers who refused the share their code. Another key priority was “documenting it—well—so that someone else would be able to maintain it if they needed to.” Producing modular, well-documented code also made it easier for Comp Inc. to repurpose programs for subsequent clients, which saved on programming costs.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;…and Agile:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Women may have been uniquely situated to participate in these innovations because of their gendered role in the workplace. As working programmers—and as the staff members who stereotypically were asked to assist customers or in-house users—women had both the expertise to devise solutions and the incentive to make programming easier for experts and novices alike. And although women usually lacked the formal authority to impose workplace practices, this was unnecessary in a computer culture that left the choice of techniques largely up to programmers themselves.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;On productivity and the never-realized goal of getting rid of programming as a specialization:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;In many ways, the campaign for automatic programming was a rousing success: The new techniques were widely adopted, and as promised, they greatly reduced the time that was needed to produce programs and  transferred much tedious work from humans to machines. Many programmers took advantage of these new tools to improve the organization of that programs, creating a visible, logical structure that made code faster to produce and easier to maintain, reuse, and share. However, to the disappointment of some, the overall effect of compilers and associated tools was not to eliminate programming but to redefine it. Much of what had been included as an integral part of programming practice–tedious copying or recoding of subroutines, the need to be aware of machine design and physical memory configuration, and the use of machine codes-was no longer required. But the programmer still had to design and specify the higher-level structure of the program, tasks that proved too complex for most end-users. The new techniques also did nothing to automate the initial analysis of the problem–the task of modeling a real-world activity as an ordered flow of computable steps. Although this work could potentially be shifted from the programmer to a systems analyst, in either case it was a person and not the computer that performed it.&lt;/p&gt;
-
-  &lt;p&gt;To the extent that a factory-like version of automation failed to materialize, it vindicated programmers’ holistic view of their work as complex and creative. It also reflected a conscious decision by computer manufacturers and their customers to use automation to increase productivity and quality rather than to shrink the labor force. Managers asked programmers to tackle more ambitious projects or create more sophisticated user interfaces, expanding their demand for skilled labor to absorb the available supply. The ever increasing complexity of cutting-edge systems would soon lead to new calls for a reform of programming methods.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;An ongoing discussion about what happens.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;The term software engineering has become common enough today that its provocative effect has been lost. Yet when the term was introduced at Garmisch, it was purely aspirational.  Rather than claiming to describe actual practices, the organizers named an ideal that did not yet exist. Nor was it obvious that engineering was the best model for programming. The computing literature of the 1960s is rife with competing metaphors, each or which was chosen to make a particular claim about the nature of programming. Some managers continued to view programming as creative art or craft—and in a positive sense, rather than as a problem to Be cured by imposing scientific rationality. In the academic community, computer science was often seen as a branch of mathematics, which had a higher intellectual status than engineering. The 1970 &lt;em&gt;On the Management&lt;/em&gt; of Computer Programming, a book that targeted a business audience, ignored the new term software engineering and preferred to use managerial skill as its ideal. Maurice Wilkes argued in 1976 that the term &lt;em&gt;engineering&lt;/em&gt; did not realistically represent the process of creating a large program. He suggested instead that “There are some analogies between writing a program and writing a treatise or a paper.” Computer industry writers invoked a host of other professions to emulate, including accounting (for its certification standards), medicine (for its skilled teamwork and strong professional societies), architecture (as a model for coherent design and precise specification), aviation (for its recognition of the dire consequences of failure), or even cooking (as a time sensitive production process).&lt;br /&gt;
- …&lt;br /&gt;
-Given this gendered status hierarchy, some practitioners—women as well as men—may have believed that programmers would rise in stature by adopting the title of engineer. An unintended consequence of this move may have been to make programming and computer science less inviting to women, helping to explain the historical puzzle of why women took a leading role in the first wave of software improvements but become much less visible in the software engineering era.&lt;br /&gt;
-….&lt;br /&gt;
-“For instance, getting your requirements right initially; understanding the materials you’re working with.” Susan Graham, the daughter of a mechanical engineer, got her Ph.D. in computer science a few years after Garmisch and easily identified as a software engineer.  Referring to the process of checking the semantics of a programming language, Graham characterized engineering practice as trial-and-error: “You write a compiler, and then you do a lot of testing against real programs, and you try to see whether the right thing happens. And that’s why it’s engineer ing!” These examples demonstrate again the diverse meanings of engineering, as well as female practitioners ability to prioritize those aspects of engineering that matched their own needs, experiences, and values.&lt;br /&gt;
-…&lt;br /&gt;
-Some aspects of the software engineering ideal appealed directly to preferences that were widely expressed by women, such as the desire to create something that would improve users’ lives. Edward E. David of Bell Laboratories expressed this philosophy at Garmisch in 1968: “Software engineering and computing engineering have an extremely important and nice aspect to them, namely that people want to work on things that meet other people’s needs. They are not interested in working on abstractions entirely; they want to have an impact on the world.” Mary Shaw, who helped establish Carnegie Mellon University’s Software Engineering Institute in the 1980s, echoed this public service ethos in her own 1990 definition of engineering as solving “practical problems . . . in the service of mankind:”In her view, key aspects of an “engineering attitude” included “considering users” and realizing that design choices had to be made “for both technical and nontechnical reasons.’ Shaw’s emphasis  on users and on real-word, nontechnical factors fits well with the computer-as-a-tool orientation more common among women. &lt;strong&gt;Although Engineering as a profession has been highly masculine, engineering as a discipline or philosophy has had wider range of potential meaning.&lt;/strong&gt;&lt;br /&gt;
-… &lt;br /&gt;
-&lt;strong&gt;In at least three important senses, software engineering could be said to have failed.&lt;/strong&gt; First, because of the divergent approaches and priorities of academic theorists and industry practitioners, much research investment has been wasted. Second, to the extent that software engineering was meant to revolutionize labor practices by deskilling and disciplining programmers, imposing standardized research-based methods, or mandating licensing, it has not succeeded. Finally, software engineering never solved the problem that was its &lt;em&gt;raison d’etre&lt;/em&gt;—the software crisis. These failures call into question the notion that engineering is the most appropriate model for the programming profession.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-  &lt;br&gt;&lt;br&gt;
-  &lt;hr&gt;
-  &lt;p&gt;
-    This book review for &lt;em&gt;&lt;a href=&quot;https://island94.org/2022/04/recoding-gender&quot;&gt;Recoding Gender&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
-    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
-  &lt;/p&gt;
-</description>
-  <pubDate>Mon, 18 Apr 2022 02:31:00 +0000</pubDate>
-  <link>https://island94.org/2022/04/recoding-gender</link>
-  <guid isPermaLink="true">https://island94.org/2022/04/recoding-gender</guid>
 </item>
 
       

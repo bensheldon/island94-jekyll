@@ -6,10 +6,68 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 25 Jul 2022 14:39:05 +0000</pubDate>
-    <lastBuildDate>Mon, 25 Jul 2022 14:39:05 +0000</lastBuildDate>
+    <pubDate>Tue, 26 Jul 2022 21:24:48 +0000</pubDate>
+    <lastBuildDate>Tue, 26 Jul 2022 21:24:48 +0000</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
+    
+      
+
+
+
+
+<item>
+  <title>Hate and sarcasm</title>
+  <description>&lt;p&gt;Two things I read recently were commentary on forcefully-weak communications.&lt;/p&gt;
+
+&lt;p&gt;The first, from a &lt;a href=&quot;https://www.reddit.com/r/rails/comments/w63efc/comment/ihc9it8/&quot;&gt;r/rails thread&lt;/a&gt; in which the poster wrote “I hate React as it’s not using MVC pattern and It’s not organised + I hate JS.” A response:&lt;/p&gt;
+
+&lt;blockquote&gt;
+
+  &lt;p&gt;You mentioned that you’re looking for junior positions which implies that you’re relatively new to the industry and have limited programming experience. Despite this, it seems that you’ve developed a lot of strong opinions.&lt;/p&gt;
+
+  &lt;p&gt;There’s nothing wrong with having strong opinions and some of the best engineers are very opinionated. However, one of the biggest things you learn as you gain more experience is that you don’t know what you don’t know and that while forming opinions is important, one should understand why we may form certain opinions and whether those reasons are actually valid enough to hold those opinions strongly enough.&lt;/p&gt;
+
+  &lt;p&gt;For example, you say that you hate JS. Hate is a very strong word for junior developers. Why do you hate JS? Is the hate that you have for the language actually for the language itself or rather code that you’ve written in it? If you’ve been forced to work on an awful codebase, then the language itself isn’t to blame.&lt;/p&gt;
+
+  &lt;p&gt;You mentioned that you hate React as it’s not using MVC pattern. What is it about the MVC pattern that you like? There’s a lot of advantages with the MVC approach, but other approaches also have merit. As you gain more real-world experience, you’ll realize that there are many ways to do things and each approach has its own merits/disadvantages. You mentioned that React is not organized, but React is not a framework - it’s a library. You can organize it however you want which can be a double-edge sword if you’re inexperienced. Any disorganized React project is not React’s fault nor is it a fault of JS.&lt;/p&gt;
+
+  &lt;p&gt;Unlike React, Rails is a framework and a very opinionated one. It can be beginner friendly as things will just work out of the box as a lot of decisions have already been made for you. However, it can also be difficult for beginners to level up as Ruby is a lot less explicit and a lot of the behind the scenes magic can be very confusing to figure out why things work the way they do. There is also a lot more ways to write your code in Ruby which means there’s a lot more syntaxes and patterns you may need to be aware of to be competent. (e.g., there’s only a certain number of ways to write a loop in Python but a multitudes of ways in Ruby). This flexibility may seem like a blessing to be able to write expressive and elegant code, but for beginners, it can make the process of leveling up a lot more work.&lt;/p&gt;
+
+  &lt;p&gt;You should be open to the possibility that you may also not end up loving Ruby when it actually comes to working on production code. Many of us here love Ruby, but it should be stated that there’s a difference between tinkering and using Ruby for toy-projects and maintaining a Rails app. Also, Rails does not make JS go away. You may find yourself writing plenty of JS in Rails to get the desired UX on the frontend.&lt;/p&gt;
+
+  &lt;p&gt;At the end of the day, I do love Ruby and there are plenty of Rails opportunities in the market so I do think it’s worth learning. But if you want to pursue Rails, you should jump in with both eyes open. You may find that your criticisms of JS &amp;amp; React may not actually be as valid and be specific to the projects that you worked on. If there are a lot more opportunities for you in JS/React than Ruby/Rails, it may be worth continuing down that former path.&lt;/p&gt;
+
+&lt;/blockquote&gt;
+
+&lt;p&gt;And Andrew Bosworth &lt;a href=&quot;https://liveboz.substack.com/p/on-sarcasm&quot;&gt;“On Sarcasm”&lt;/a&gt;:&lt;/p&gt;
+
+&lt;blockquote&gt;
+
+  &lt;p&gt;At first being sarcastic was incredibly satisfying. Whereas previously I might have made an earnest argument or asked a question, I now seemed to be able to jump right to the part where the group appreciated me and my contribution. What is even more impressive is it required very little thought to execute. I could often get a positive reaction even on topics I knew almost nothing about.&lt;/p&gt;
+
+  &lt;p&gt;It was when I noticed this last point that I decided that sarcasm was not for me.&lt;/p&gt;
+
+  &lt;p&gt;Sarcasm “works” because it alludes to a critique without ever actually making it. It shifts the burden of substantiating the criticism as an exercise for the audience and further suggests that if they don’t already understand it then they are deficient. Making a critique implicit is an unassailable rhetorical position. The most socially acceptable response for the group is to go along with it, as you have given them nothing specific to challenge. And if someone does challenge it you can simply demur and say it was “just a joke.”&lt;/p&gt;
+
+  &lt;p&gt;Sarcasm does nothing to advance our understanding of the world around us or help us improve it.&lt;/p&gt;
+
+&lt;/blockquote&gt;
+
+  &lt;br&gt;&lt;br&gt;
+  &lt;hr&gt;
+  &lt;p&gt;
+    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2022/07/hate-and-sarcasm&quot;&gt;Hate and sarcasm&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
+    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
+  &lt;/p&gt;
+</description>
+  <pubDate>Tue, 26 Jul 2022 19:02:00 +0000</pubDate>
+  <link>https://island94.org/2022/07/hate-and-sarcasm</link>
+  <guid isPermaLink="true">https://island94.org/2022/07/hate-and-sarcasm</guid>
+  
+  
+</item>
+
     
       
 
@@ -622,56 +680,6 @@ Ben&lt;/p&gt;
   <pubDate>Sat, 19 Mar 2022 16:03:00 +0000</pubDate>
   <link>https://island94.org/2022/03/sense-making-list-making</link>
   <guid isPermaLink="true">https://island94.org/2022/03/sense-making-list-making</guid>
-  
-  
-</item>
-
-    
-      
-
-
-
-
-<item>
-  <title>Five years on food stamps</title>
-  <description>&lt;p&gt;&lt;em&gt;This reflection of my experience on GetCalFresh is dedicated to the memory of Andrew Hyder who taught me a lot about living out and protecting team values every day.&lt;/em&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;plus-we-are-the-team-extreme-programming-are-the-values&quot;&gt;Plus: We are the team; Extreme Programming are the values&lt;/h3&gt;
-
-&lt;p&gt;We are not the website. From the beginning, there was an opinionated directed emphasis on building healthy team norms and values. These principles and doctrines were from “Extreme Programming Explained”; the values were legible and strongly reinforced by team leadership. All of the things we have created (websites, text messaging, document processing, research) were outputs not artifacts and never the goal. There was a strong emphasis on “And the friends we made along the way.”&lt;/p&gt;
-
-&lt;h3 id=&quot;plus-an-experience-of-critical-inspiration&quot;&gt;Plus: An experience of critical inspiration&lt;/h3&gt;
-
-&lt;p&gt;This was always an exercise in pattern matching what we were trying to achieve in the benefits space to Bay Area tech ecosystem structures and practices. Early debates of products and services, jobs to be done, design principles, disruption (“making the status quo untenable”), leverage, and the thing itself we were building: a funnel-based, outreach machine that disintermediated the benefits process. It was a practical act of constructive criticism of the tech and tech culture around us that recognized mastery of existing forms before we inevitably depart and transcend them (“shuhari”).&lt;/p&gt;
-
-&lt;h3 id=&quot;plus-incremental-growth-is-a-hell-of-a-drug&quot;&gt;Plus: Incremental growth is a hell of a drug&lt;/h3&gt;
-
-&lt;p&gt;A growth engine, an “engine that eats barriers”. It demonstrated that a line that went “up and to the right” could itself pay the organizational story tax. While we celebrated partnership wins, there was a focus on growing client outreach unbounded (“permissionless”). As software engineers, we were achieving the Agile principle that working software, in the hands of users, was the primary measure of progress.&lt;/p&gt;
-
-&lt;p&gt;58 counties was an incremental goal, that was out of reach but attainable, which made planning and decision making tangible, though not easy. It helped align the team and gave direction to planning out the next steps and necessities.&lt;/p&gt;
-
-&lt;h3 id=&quot;delta-maintain-client-success-as-the-centerpole-during-growth&quot;&gt;Delta: Maintain Client Success as the centerpole during growth&lt;/h3&gt;
-
-&lt;p&gt;I think of “scaling” entailing both size and health. Early on, “Client Success” was the unifying intention of everyone (“close the participation gap”). Everyone was exhorted to use their whole selves to help clients receive benefits. I remember being mindblowingly told “you have their phone number, call them” when I observed clients hit technical or process barriers; I did, again and again. Technology was in the truest sense an extension of our embodied capacity to help.&lt;/p&gt;
-
-&lt;p&gt;As time went on the client success function became less of a critical inspiration, and instead came to feel closer to the status quo: handling the overwhelming externalities of the service, rather than the service being the multiplier of our puny human abilities. I feel a responsibility to help balance “we don’t need to help ourselves” with “put on your oxygen mask before helping others”; and “leave a seam” with “a stitch in time saves nine”.&lt;/p&gt;
-
-&lt;p&gt;And “success” felt narrowed with a refocusing towards “Systems Change” and the subjectless “Build with”. My desires for lighting escalation paths (“click here to talk to a supervisor; a director; your state representative; the FBI”), and consciousness-raising (“20k people in your county also had their benefits denied this month too”) remain unfulfilled.&lt;/p&gt;
-
-&lt;h3 id=&quot;plus-small-teams-can-do-big-things&quot;&gt;Plus: Small teams can do big things&lt;/h3&gt;
-
-&lt;p&gt;From me starting as the first outside hire, to me rolling off the team, we helped more than 8M people receive $5.3B in benefits. And the team continues on without me: I feel missed, unnecessary, and proud of both. Small, directed (North Star: “close the participation gap”; Mission: “use the principles and practices of the digital age to improve how the government serves the American public &lt;em&gt;and how the public improves government&lt;/em&gt;”) teams, can do things together that far exceed the capacity of any one individual, and also outperform teams multiples of their size. It has been an amazing journey.&lt;/p&gt;
-
-  &lt;br&gt;&lt;br&gt;
-  &lt;hr&gt;
-  &lt;p&gt;
-    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2022/03/five-years-food-stamps&quot;&gt;Five years on food stamps&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
-    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
-  &lt;/p&gt;
-</description>
-  <pubDate>Fri, 11 Mar 2022 00:21:00 +0000</pubDate>
-  <link>https://island94.org/2022/03/five-years-food-stamps</link>
-  <guid isPermaLink="true">https://island94.org/2022/03/five-years-food-stamps</guid>
   
   
 </item>
