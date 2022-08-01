@@ -34,7 +34,7 @@ Cable Access needs to embrace the internet, but it can't do so as an end. As gro
 
 **Cable Access needs flexibility**. Cable Access should not become Internet Access, it must become _Media Access_.
 
-Moving towards that vision is difficult. The current state of Cable Access isn't much of much of a state at all; it's a series of thousands of isolated fiefdoms, linked together by nearly lone virtue that they took advantage of the same [legislation](http://en.wikipedia.org/wiki/1984_Cable_Franchise_Policy_and_Communications_Act). A bad analogy: the First Amendment allows freedom of religion; that doesn't mean that the church in your town talks to the one in mine. Nobody even knows where all of them are, and our [attempts find them](http://mappingaccess.com) aren't yielding spectacular results.
+Moving towards that vision is difficult. The current state of Cable Access isn't much of much of a state at all; it's a series of thousands of isolated fiefdoms, linked together by nearly lone virtue that they took advantage of the same [legislation](http://en.wikipedia.org/wiki/1984_Cable_Franchise_Policy_and_Communications_Act). A bad analogy: the First Amendment allows freedom of religion; that doesn't mean that the church in your town talks to the one in mine. Nobody even knows where all of them are, and our [attempts find them](https://web.archive.org/web/20070819093518/http://www.mappingaccess.com/) aren't yielding spectacular results.
 
 But I also believe that that individualism and independence of stations and communities is a strength for the ideals of access. Communities should be able to choose the tools and technologies that best serve their members: television, internet or beyond.
 
