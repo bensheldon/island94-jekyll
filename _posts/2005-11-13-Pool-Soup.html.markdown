@@ -17,7 +17,7 @@ redirect_from:
 - "?p=6"
 ---
 
-[ ![](2005-11-13-Pool-Soup/poolsoupthumb.png) ](2005-11-13-Pool-Soup/poolsoup.mp4)
+[![](/uploads/2005/poolsoupthumb.png)](/uploads/2005/poolsoup.mp4)
 
 **Length:** 41 seconds
 **Music:** [Josh Cook – Fishin’ Blues](http://www.archive.org/audio/audio-details-db.php?collection=opensource_audio&collectionid=FishinBlues) [Internet Archive]
