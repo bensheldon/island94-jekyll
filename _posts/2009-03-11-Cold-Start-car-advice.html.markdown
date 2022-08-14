@@ -14,6 +14,6 @@ A quote from a Slashdot story on a new fast charge/discharge lithium battery:
 >
 > ...
 >
-> Just to illustrate battery self heating -** if you ever get stranded in extreme cold because your battery doesn't have the power available to turn the engine over, just turn on the headlights for a while. It's a medium load but will heat the battery from the inside due to internal resistance and make the battery better able to start the car. This really works.**
+> Just to illustrate battery self heating - **if you ever get stranded in extreme cold because your battery doesn't have the power available to turn the engine over, just turn on the headlights for a while. It's a medium load but will heat the battery from the inside due to internal resistance and make the battery better able to start the car. This really works.**
 
 My dad also has a story of a his school teacher in Alaska keeping a Coleman stove underneath their Volkswagen Bug and rushing out to tend to it between periods
