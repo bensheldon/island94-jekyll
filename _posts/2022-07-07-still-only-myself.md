@@ -2,7 +2,7 @@
 title: "Still only myself"
 date: 2022-08-14 16:18 PDT
 published: true
-tags:
+tags: [life]
 ---
 
 Two quotes about the experience of life. The first from NYT's Magazine ["I’ve Always Struggled With My Weight. Losing It Didn’t Mean Winning.
