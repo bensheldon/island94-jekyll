@@ -454,7 +454,7 @@ function cambridge_mediamap_map() {
   <span class="c1">//unfortunately Gmap.module doesn't have this setting</span>
   <span class="k">if</span> <span class="p">(</span><span class="k">isset</span><span class="p">(</span><span class="nv">$form</span><span class="p">[</span><span class="s1">'coordinates'</span><span class="p">]))</span> <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nf">user_access</span><span class="p">(</span><span class="s1">'modify node data'</span><span class="p">))</span> <span class="p">{</span>
-      <span class="nb">unset</span><span class="p">(</span><span class="nv">$form</span><span class="p">[</span><span class="s1">'coordinates'</span><span class="p">]);</span>
+      <span class="k">unset</span><span class="p">(</span><span class="nv">$form</span><span class="p">[</span><span class="s1">'coordinates'</span><span class="p">]);</span>
     <span class="p">}</span>
   <span class="p">}</span>
   <span class="c1">// Make a copy of the type to shorten up the code</span>
