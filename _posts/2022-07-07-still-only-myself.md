@@ -1,6 +1,6 @@
 ---
 title: "Still only myself"
-date: 2022-07-07 09:18 PDT
+date: 2022-08-14 16:18 PDT
 published: true
 tags:
 ---
