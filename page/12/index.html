@@ -103,6 +103,47 @@
     <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
     <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2012/07/Hard-data-on-the-status-of-Open311.html">Hard data on the status of Open311</a>
+    </h1>
+    <p class="post-meta text-muted">
+      <time datetime="2012-07-27T00:00:00+00:00" itemprop="datePublished">July 27, 2012</time>
+      
+      
+        
+        
+        • Tagged <a href="/tags/#analytics" >analytics</a>, <a href="/tags/#data" >data</a>, <a href="/tags/#navigation" >navigation</a>, and <a href="/tags/#portfolio" >portfolio</a>
+      
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p><img src="/uploads/2012-07/open311status.herokuapp-2-600x369.png" alt="" title="open311status.herokuapp-2" /></p>
+
+<p>With the recent announcement of <a href="http://codeforamerica.org/2012/07/12/hello-311-labs/">311 Labs</a> and Code for America’s recent <a href="http://codeforamerica.org/2012/07/23/open311-reality-check-how-usable-is-the-api-for-developers/">podcast featuring me</a> talking about my perspective on Open311, this write-up about <a href="http://open311status.herokuapp.com">Open311Status</a> is probably long overdue.</p>
+
+<p><a href="http://open311status.herokuapp.com">Open311Status</a>—still a work in progress–polls Open311 servers in 30 cities and aggregates configuration, performance and utilization statistics about those Open311 endpoints. I built Open311Status for two reasons: first, to provide a high-level view of how different endpoints are performing as a developer sanity check (“is my app broken or the server?”); and second, to provide some hard data to the anecdotes and experiences I’ve used in <a href="http://codeforamerica.org/2012-partners/chicago/">advising the City of Chicago</a> and others in how to improve Open311’s potential for positive impact in their cities and beyond.</p>
+
+<p>In designing Open311Status I took advantage of the huge benefit of the Open311: interoperability. By adopting the Open311 API for exposing civic data, cities are enabling civic developers like myself to build reusable tools and apps. To access data from 30 cities, Open311Status doesn’t need an adapter for each individual city, <a href="https://github.com/codeforamerica/open311status/blob/master/lib/endpoints.json">only a server URL</a> that it can expect to interact and deliver data in the same way as described by the <a href="http://wiki.open311.org/GeoReport_v2">Open311 API documentation</a>. Sure, there are some minor interoperability issues (for example, <a href="http://tracker.open311.org/ticket/95">Toronto doesn’t like datetimes submitted with milliseconds</a>), but these have been minor speed bumps for development, not major deal breakers.</p>
+
+<p>A major limiting factor in the utility of Open311 isn’t these minor technical issues, but in how the Open311 servers are configured. If Open311 is supposed to provide a rich API for developers to interact with there should be a broad number of categories (“types”) of requests that can be submitted, as well as a comprehensive listing of previously submitted requests that can be analyzed or dashboarded. Compare the Boston and Washington, D.C. Open311 implementations: Washington, D.C. currently provides 83 categories of service requests (from “Tree Inspection” to “Roadway Marking Maintenance”) while Boston only provides six. Washington, D.C. provides access to all requests regardless of whether they were entered via Open311, the 311 call center, or city work crews or departments; Boston only displays service requests made via the Open311 API. These configuration decisions have a huge impact on the comprehensiveness of the data and thus the potential applications third party developers can build on top of the Open311.</p>
+
+<p>If server configuration determines the potential for an innovative application, server performance determines whether such an app will be useable. Because a potential Open311 application will be heavily reliant upon a city’s Open311 server, the speed and robustness of that server will determine the responsiveness of the application. At the obvious extreme, if the server goes down, that app will probably be useless. If the server is functioning yet takes several seconds to respond to every request, the application and its users will experience significant slow-downs and frustration. As I’ve witnessed through Open311Status, usually about 10 percent of the servers take longer than one second to respond at any given time. That’s not a stable infrastructure for third party developers to build upon.</p>
+
+<p>Open311Status helps measure the distance between the potential of Open311 and the current reality. It’s cause to celebrate that here are 30 cities (and more to add to Open311Status) who have adopted both open data and open standards; this is hugely important progress! But there is still a lot of work to be done beyond the specification for Open311 to enable a rich and robust third party application developer ecosystem.</p>
+
+<p>Some technical details: <a href="http://open311status.herokuapp.com">Open311Status</a> is built on <a href="http://nodejs.org/">Node.js</a> with the <a href="http://expressjs.com/">Express</a> web framework and aggregates data in <a href="http://www.mongodb.org/">MongoDB</a> through the <a href="http://mongoosejs.com/">Mongoose</a> ORM. The application is single process and uses cron and async modules to poll the cities’ Open311 servers every five minutes. A fun/dumb feature is that individual service requests are streamed to the browser using <a href="http://socket.io/">Socket.io</a>, but because many servers publish service requests an hour (or more!) after they’ve been submitted, Open311Status streams the previous day’s service requests in “real time” as if they were today’s (or rather, “real time minus one day”). Tests are done with <a href="http://visionmedia.github.com/mocha/">Mocha</a> in BDD style with <a href="https://github.com/visionmedia/should.js">Should</a> using <a href="http://sinonjs.org/">Sinon</a> for mocks and stubs (though coverage could–always–be better). Open311Status is hosted on <a href="http://www.heroku.com/">Heroku</a>.</p>
+
+<p><em>This post is cross-posted from the <a href="http://codeforamerica.org/2012/07/27/hard-data-on-the-status-of-open311/">Code for America blog</a>.</em></p>
+
+  </div>
+</article>
+
+
+    <hr>
+  
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
       <a class="post-link" href="/2012/04/A-Commonplace-Book.html">A Commonplace Book</a>
     </h1>
     <p class="post-meta text-muted">
@@ -456,55 +497,6 @@
   <p>Dickson’s argument is that the symbolism of armaments, or of cathedrals, is largely invented by the ruling groups within society as a means of controlling the mass of the people. Thus Dickson sees the building of the cathedrals as a way in which the Church could extend its influence over craftsmen, artisans, and I would add, merchants.</p>
 
   <p>There is much truth in this, but to present such political aspects of a creative technological movement as the whole of the picture seems wrong. From the viewpoint of the architects and stone masons who built the cathedrals, the work was something that carried conviction because of its symbolic meanings, whether concerning the New Jerusalem, the glory of God or the prestige of their own home town. It was these things which fired the imagination and sparked the immense burst of artistic and technology creativity which the cathedrals represent. We need to understand the reality of the symbolism, and not just its political uses, if we wish to understand the ideals and objectives which give rise to discovery and invention in technology. So I do not agree with Dickson that ‘technological development is essentially a political process’. It is partly a political process, but at the point where creativity and invention occur, it is the values and ideals of individuals that matter, and personal appreciations of ‘quality’ or fitness for purpose. The convictions and sensitivity of the technologist have a validity beyond just the social environment which shapes them, important though that is.</p>
-</blockquote>
-
-  </div>
-</article>
-
-
-    <hr>
-  
-    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">
-      <a class="post-link" href="/2011/10/The-prevailing-worldview-of-the-present.html">The prevailing worldview of the present</a>
-    </h1>
-    <p class="post-meta text-muted">
-      <time datetime="2011-10-26T00:00:00+00:00" itemprop="datePublished">October 26, 2011</time>
-      
-      
-        
-        
-        • Tagged <a href="/tags/#analysis" >analysis</a>, <a href="/tags/#criticism" >criticism</a>, <a href="/tags/#history" >history</a>, <a href="/tags/#ideology" >ideology</a>, and <a href="/tags/#religion" >religion</a>
-      
-    </p>
-  </header>
-
-  <div class="post-content" itemprop="articleBody">
-    <p>From the preface to <em>The Vision of Islam</em> by Sachiko Murata and William C. Chittick:</p>
-
-<blockquote>
-  <p>In this book we try to pry open the door to the Islamic universe. We are not interested in evaluating Islam from within those dominant perspectives of modern scholarship that make various contemporary modes of self-understanding the basis for judging the subject. Instead, we want to portray Islam from the perspective of those great Muslims of the past who established the major modes of Koranic interpretation and Islamic understanding.</p>
-
-  <p>This is not to say that we will simply translate passages from the classical texts in the manner of an anthology. The classical texts ask too much from beginning readers. They were not written for people coming from another cultural milieu. Rather, they were written for people who thought more or less the same way the authors did and who shared the same world view. Moreover, as a general rule they were written for those with advanced intellectual training, a type of training that is seldom offered in our graduate schools, much less on the undergraduate level.</p>
-
-  <p>The classical texts did not play the same role as contemporary textbooks, which attempt to explain everything in a relatively elementary format. On the contrary, they were usually written to present a position in a broad intellectual context. Frequently the texts would present only the outline of the argument—the rest was supplied orally by the teacher. Students did not borrow these books from the library and return them the following week. They would often copy the text for themselves (by hand, of course), and spend several months or years studying it word by word with a master. We ourselves have attended sessions in which classical texts were being studied in the Islamic World, and we can attest to how easily a good teacher can choose a word or a sentence and draw out endless meaning from it.</p>
-
-  <p>[…]</p>
-
-  <p>We are perfectly aware that many contemporary Muslims are tired of what they consider outdated material: they would like to discard their intellectual heritage and replace it with truly “scientific” endeavors, such as sociology. By claiming that the Islamic intellectual heritage is superfluous and that the Koran is sufficient, such people have surrendered to the spirit of the times. Those who ignore the interpretations of the past are forced to interpret their text in light of the prevailing world view of the present. This is a far different enterprise than that pursued by the great authorities, who interpreted their present in the light of a grand tradition and who never fell prey to the up-to-date—that most obsolescent of all abstractions.</p>
-
-  <p>The introductory texts on Islam that we have encountered devote a relatively small proportion of space to the Muslim understanding of reality. The reader is always told that the Koran is of primary importance and that Muslims have certain beliefs about God and the afterlife, but seldom do the authors of these works make more than a cursory attempt to explain what this means in actuality. Usually the reader encounters a short history of Islamic thought that makes Muslim intellectuals appear a bit foolish for apparently spending a great amount of time discussing irrelevant issues. More sympathetic authors try to explain that these issues were important in their historical context. Rarely is it suggested that these issues are just as important for the contemporary world as they were for the past, and that they are constantly being discussed today in our own culture, though with different terminology.</p>
-
-  <p>We like to think that the Islamic tradition provides many examples of great answers to great questions. The questions are those that all human beings are forced to ask at one time or another, even if contemporary intellectual predispositions tend to dismiss them as irrelevant or immature or unanswerable or self-deconstructing. We have in mind the great whys and whats that five-year-olds have the good sense to ask—though they soon learn to keep quiet in order to avoid the ridicule of their elders. Why are we here? What is the meaning of life? Where did we live before we were born? Where do we go after we die? Where did the world come from? Where does God come from? What are angels? Why is the world full of evil? What are devils? If God is good, why did he create Satan? Why does God allow good people to suffer? How can a merciful God predestine people to hell? Why do I have to go through all this?</p>
-
-  <p>Texts on Islam often tell the reader, in extremely cursory fashion, what Muslim thinkers have concluded about such issues; what they do not address is the universe of discourse that informs Islamic thinking and allows the conclusions to make sense. Studies usually highlight the differences of opinion; what they do not clarify is that the logic of either/or is not always at work. Perspectives differ in accordance with differing interpretations of the sources, and the perspectives do not necessarily exclude each other. We are told that people took sides, for example, on free will and predestination. But any careful reading of a variety of texts will show that the common intuition was that the true situation is neither/nor, or both/and. The extreme positions were often formulated as intellectual exercises to be struck down by the thinker himself, if not by his followers.</p>
-
-  <p>[…]</p>
-
-  <p>Readers need to be warned at the outset that this book is not designed to provide the “historical acts.” In the last section of the book, we will say something about the Islamic view of history. That will help explain why the concerns of the modern critical study of history are not our concerns. To write history, after all, is to read meaning into the events of the past on the basis of contemporary views of reality. The events themselves cannot make sense until they are filtered through the human lens. If the Koran and the Islamic tradition are read in terms of contemporary scholarly opinions or ideologies, their significance for the Islamic tradition is necessarily lost to sight.</p>
-
-  <p>Naturally, we as authors have our own lenses. In fact, some people may criticize us for trying to find Islam’s vision of itself within the Islamic intellectual tradition in general and the Sufi tradition in particular. But it is precisely these perspectives within Islam that provide the most self-conscious reflections on the nature of the tradition. If we did not take seriously the Muslim intellectuals’ own understanding of their religion, we would have to replace it with the perspectives of modern Western intellectuals. Then we would be reading the tradition through critical methodologies that have developed within Western universities. But why should an alien perspective be preferable to an indigenous perspective that has survived the test of time? It does not make sense to us to employ a methodology that happens to be in vogue at the moment and to ignore the resources of an intellectual tradition that is still alive after a thousand-year history.</p>
 </blockquote>
 
   </div>

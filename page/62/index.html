@@ -103,6 +103,47 @@
     <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
     <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2005/11/Content-Map.html">Content Map</a>
+    </h1>
+    <p class="post-meta text-muted">
+      <time datetime="2005-11-26T00:00:00+00:00" itemprop="datePublished">November 26, 2005</time>
+      
+      
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>This is an example of my googlemap module that I extended from <a href="http://drupal.org/node/29091">this module</a> by <a href="https://choirgeek.com/">bjornarneson</a>.</p>
+
+<p>It creates map points through parsing local RSS feeds that Drupal produces. Normally these feeds only contain the last 15 posts, but I hacked together a helper module (fullfeed.module) that uses taxonomy.module urls (with cool term parsing) but adds <em>all</em> content in the term (or terms) to the feed.</p>
+
+<p>With each feed I can define a custom marker (.png files I created and uploaded). The markers are all default size and shadow—this is limiting, but it’s a PITA to modify it.</p>
+
+<p>The workflow for this is relatively easy. Pure latitude and longitude data is inputed via location.module—I grab it from maps.google.com because I couldn’t get the geocoding from an address to work, though many of my nodes are from random places and this is much more accurate. I have a vocabulary setup just for mapped nodes (photos, videos, random thoughts, etc), and use these as my feeds. Custom icons I created and FTPed in, though you could just use upload.module and attach them to your map node.</p>
+
+<p>It currently does not support lines, though I am definitely planning on adding them. but I don’t have a good idea of workflow though, considering there is not a standard RSS element and am not sure if it’s going to be too hard to either…</p>
+
+<p>The module now supports lines as a nodeapi hook (like location.module adds lat/long). Each feed can set a custom line color. I don’t know workflow yet whether to keep it like this, or have color on a per-node basis.</p>
+
+<p>There is still the line issue of:</p>
+
+<ul>
+  <li>define a new namespace (I have no clue on how to do this)</li>
+  <li>coopt an existing but unused element and pray we don’t break anything</li>
+  <li>parse a static xml file that would somehow be specified in a node</li>
+</ul>
+
+<p>Lastly, there is an issue with posting more than one map on a page (it breaks). This is because every map sets things in the header, and I’m not sure what is the best way to make sure that they only post the important stuff <em>once</em> when there is a list of them.</p>
+
+  </div>
+</article>
+
+
+    <hr>
+  
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
       <a class="post-link" href="/2005/11/23rd-BirthdayThanksgiving-Spectacular-Part-1.html">23rd Birthday/Thanksgiving Spectacular, Part 1</a>
     </h1>
     <p class="post-meta text-muted">
