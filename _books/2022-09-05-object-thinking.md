@@ -6,17 +6,20 @@ rating: 4
 date: 2022-09-05 13:23 PDT
 published: true
 layout: book
-tags:
+tags: [software, "Object Oriented Programming"]
 ---
+
 I'm looking for a book that helps align the practice of software development with the rest of my life, In the sense of a humanistic neural plasticity, an approach that harmonizes rather than hegemonizes (or ignores) the rest of my life. 
 
 <blockquote markdown="1">
+
 This book is based on the following beliefs:
 
 * Agility, especially in the form of extreme programming, is essential if the software development profession, and industry, are to improve themselves.
 * XP offers a way to create "better developers" to improve the intrinsic abilities of human beings to develop software for use by other human beings—a way to produce "master" developers.
 * XP cannot be understood, and those practicing XP will not realize the full potential of the approach, until they understand object thinking and the shared historical and philosophical roots of both object thinking and XP core values and practices.
 * In particular, programmers and technical developers will fail to realize the full potential of XP-based development without a thorough understanding of object orientation—the "object thinking" promised by the title of this book.
+
 </blockquote>
 
 I initially found this book searching for "Sapir-Whorf" on the O'Reilly Bookshelf. To the extent that it approaches things humanistically, this is it:
