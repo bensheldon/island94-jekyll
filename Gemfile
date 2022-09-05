@@ -17,7 +17,7 @@ group :development, :test do
   gem 'capybara'
   gem 'pry'
   gem 'rake'
-  gem 'rack-jekyll'
+  gem 'rack-jekyll', github: 'adaoraul/rack-jekyll'
   gem 'rspec'
   gem 'webrick'
 end

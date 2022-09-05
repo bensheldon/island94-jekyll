@@ -13,21 +13,10 @@ jobs:
       # Dependencies
       - name: Install GSL
         run: sudo apt-get -y install libgsl-dev
-      - name: Setup Ruby
+      - name: "Ruby: Install Ruby"
         uses: ruby/setup-ruby@v1
-      - name: Ruby gem cache
-        uses: actions/cache@v1
         with:
-          path: vendor/bundle
-          key: v1-${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
-          restore-keys: |
-            v1-${{ runner.os }}-gems-
-      - name: Install gems
-        run: |
-          gem install bundler -v $(grep -A 1 "BUNDLED WITH" Gemfile.lock | tail -1 | tr -d " ")
-          bundle config path vendor/bundle
-          bundle config --local build.sassc --disable-march-tune-native # https://github.com/sass/sassc-ruby/issues/146
-          bundle install --jobs 4 --retry 3 --frozen && bundle clean
+          bundler-cache: true
       # /Dependencies
       - name: Jekyll build
         run: bundle exec jekyll build --trace --profile --lsi
