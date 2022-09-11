@@ -6,8 +6,8 @@
 </description>
     <link>https://island94.org/books</link>
     <atom:link href="https://island94.org/books.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 05 Sep 2022 21:08:58 +0000</pubDate>
-    <lastBuildDate>Mon, 05 Sep 2022 21:08:58 +0000</lastBuildDate>
+    <pubDate>Sun, 11 Sep 2022 15:21:16 +0000</pubDate>
+    <lastBuildDate>Sun, 11 Sep 2022 15:21:16 +0000</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
     
@@ -455,7 +455,7 @@ Phil paused to survey the crowd. “My, it’s cold out here today! You can feel
 &lt;blockquote&gt;
   &lt;p&gt;Behaviour-Driven Development marries the technical process of Test-Driven Development with the design concept of the ubiquitous language, by encouraging developers to collaborate with the rest of their team on defining statements of desired behaviour in the ubiquitous language and using those to drive the design and implementation of the objects in the solution domain. In that way, the statement of what the Goal Donor needs is also the statement of sufficiency and correctness - i.e. the description of the problem that needs solving is also the description of a working solution. This ends up looking tautological enough not to be surprising.&lt;/p&gt;
 
-  &lt;p&gt;… The theme running through the above is that sufficiency is sufficient The theme running through the above is that sufficiency is sufficient. When an object has been identified as part of the solution to a problem, and contributes to that solution to the extent needed (even if for now that extent is “demonstrate that a solution is viable”), then it is ready to use. There is no &lt;em&gt;need&lt;/em&gt; to situate the object in a taxonomy of inherited classes - but if that helps to solve the problem, then by all means do it. There is no &lt;em&gt;need&lt;/em&gt; to show that various objects demonstrate a strict subtype relationship and can be used interchangeably, unless solving your problem requires that they be used interchangeably. There is no &lt;em&gt;need&lt;/em&gt; for an object to make its data available to the rest of the program, unless the problem can be better solved (or cheaper solved, or some other desirable property) by doing so.&lt;/p&gt;
+  &lt;p&gt;… The theme running through the above is that sufficiency is sufficient. When an object has been identified as part of the solution to a problem, and contributes to that solution to the extent needed (even if for now that extent is “demonstrate that a solution is viable”), then it is ready to use. There is no &lt;em&gt;need&lt;/em&gt; to situate the object in a taxonomy of inherited classes - but if that helps to solve the problem, then by all means do it. There is no &lt;em&gt;need&lt;/em&gt; to show that various objects demonstrate a strict subtype relationship and can be used interchangeably, unless solving your problem requires that they be used interchangeably. There is no &lt;em&gt;need&lt;/em&gt; for an object to make its data available to the rest of the program, unless the problem can be better solved (or cheaper solved, or some other desirable property) by doing so.&lt;/p&gt;
 
   &lt;p&gt;… Some amount of planning is always helpful, whether or not the plan turns out to be. The goal at every turn should be to understand how we get to &lt;em&gt;what we now want&lt;/em&gt; from &lt;em&gt;what we have now&lt;/em&gt;, not to &lt;em&gt;already have&lt;/em&gt; that which &lt;em&gt;we will probably want sometime&lt;/em&gt;. Maybe the easiest thing to do is to start afresh: so do that.&lt;/p&gt;
 &lt;/blockquote&gt;
