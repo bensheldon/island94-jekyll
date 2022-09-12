@@ -2,6 +2,7 @@
 title: A form from my favorites
 date: '2011-03-17'
 tags:
+- brompt
 - Drupal
 - human-interface
 - pride
