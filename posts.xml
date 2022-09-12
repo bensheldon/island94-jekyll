@@ -6,10 +6,54 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 12 Sep 2022 16:06:28 +0000</pubDate>
-    <lastBuildDate>Mon, 12 Sep 2022 16:06:28 +0000</lastBuildDate>
+    <pubDate>Mon, 12 Sep 2022 17:57:41 +0000</pubDate>
+    <lastBuildDate>Mon, 12 Sep 2022 17:57:41 +0000</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
+    
+      
+
+
+
+
+<item>
+  <title>Reflections on Brompt, 2022</title>
+  <description>&lt;p&gt;In response to a &lt;a href=&quot;&quot;&gt;r/advancedentrepreneur&lt;/a&gt; thread, I wrote up some reflections on Brompt in response to “How well did this project do?”:&lt;/p&gt;
+
+&lt;p&gt;https://www.reddit.com/r/advancedentrepreneur/comments/x7slzl/comment/inhx3vo/?context=3&lt;/p&gt;
+
+&lt;blockquote&gt;
+
+  &lt;p&gt;Not well. I dunno how much help this is, but my thoughts about the experience are:&lt;/p&gt;
+
+  &lt;p&gt;People who are already inconsistently posting likely aren’t searching for a solution. It would be better to target overachievers who want to get to the next level, than lift up underachievers to just ok. Nagging people doesn’t work on it’s own.&lt;/p&gt;
+
+  &lt;p&gt;I think “post daily/regularly” isn’t much of a goal. I think it would be better to tap into the actual outcome they want (“top influencer”, “alternative income stream”) and then help pave that path within your service, of which regularly posting is just one “goal” or step on the staircase.&lt;/p&gt;
+
+  &lt;p&gt;I originally built Brompt back in the mid 2000s when it was a lot easier to attract early adopters. I never monetized it (it was a hobby project that I used in my portfolio to further my regular career). If I was doing it over again, I’d have never built it and probably would have focused on figuring out acquisition (e.g. spend a couple hundred bucks on Facebook ads; focus on a hands-on concierge service, figure out what it is at the intersection of what people are searching to do and are willing to pay for).&lt;/p&gt;
+
+  &lt;p&gt;Also, the space is incredibly saturated and it’s tough to get visibility. I’ve used Crowdfire before (i found it extremely difficult to use). Also done a lot with Priceonomics model. And there are some other Twitter tools that I wanted to highlight for you… but I literally can’t remember their name and have spent a good 30 minutes trying to Google and can’t find them. So like, that’s not a good environment to build in.&lt;/p&gt;
+
+  &lt;p&gt;Edit: it was https://ilo.so/&lt;/p&gt;
+
+&lt;/blockquote&gt;
+
+  &lt;br&gt;&lt;br&gt;
+  &lt;hr&gt;
+  &lt;p&gt;
+    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2022/09/reflections-on-brompt-2022&quot;&gt;Reflections on Brompt, 2022&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
+    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
+  &lt;/p&gt;
+</description>
+  <pubDate>Mon, 12 Sep 2022 14:57:00 +0000</pubDate>
+  <link>https://island94.org/2022/09/reflections-on-brompt-2022</link>
+  <guid isPermaLink="true">https://island94.org/2022/09/reflections-on-brompt-2022</guid>
+  
+    <category>brompt</category>
+  
+  
+</item>
+
     
       
 
@@ -632,52 +676,6 @@ Ben&lt;/p&gt;
   <guid isPermaLink="true">https://island94.org/2022/05/worknotes-week-5</guid>
   
     <category>worknotes</category>
-  
-  
-</item>
-
-    
-      
-
-
-
-
-<item>
-  <title>Weeknotes: Week 0</title>
-  <description>&lt;p&gt;I started a new job midweek this week at GitHub, managing their Ruby Architecture team. I love the team’s mission:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Making it easy for our engineers to create, deliver, and operate best-of-class Ruby and Rails applications, and sharing the best of it with the world.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;I also took about 2.5 weeks in between leaving Code for America and starting this job, so I’m feeling fresh and ready for several weeks of official onboarding, and several months of growing into the role.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Something I learned&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;GitHub is heavily into written documentation. &lt;a href=&quot;https://ben.balter.com/2014/10/07/expose-process-through-urls/&quot;&gt;“If it doesn’t have a URL, it didn’t happen.”&lt;/a&gt;. And not just cross-referencing, but emoting and emoji-ing, and being, well, &lt;em&gt;extra&lt;/em&gt;. Writing and communication has been reinforced &lt;em&gt;a lot&lt;/em&gt; during onboarding, more even than the content itself. Which makes sense: if you understand how the organization communicates, you can seek answers independently.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Something I was inspired by&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Despite formal onboarding being my number one focus, I’ve been having casual 1:1s with my team. They’re great! I’ve been inspired by the nuance and understanding they bring to the work. On its own, being a service team is &lt;em&gt;hard&lt;/em&gt;, and corporate open source is &lt;em&gt;hard&lt;/em&gt;. I’ve found myself heavily nodding along hearing them discuss the challenges of moving people forward. It’s brought to surface a few thoughts and memories:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Of being a frontend lead at Pantheon and the challenges of getting platform-team resources to build up to the outcome and vision we all agreed on, but that had some uncomfortable zigs and zags to get there. A case of make the change easy (which &lt;em&gt;can be hard&lt;/em&gt;), then make the easy change.&lt;/li&gt;
-  &lt;li&gt;My falling out of the Drupal ecosystem as it developed more in line with the needs of full-service agencies than of solo devs and configurers like myself. As one of my colleagues admitted this week, our developers aren’t running “rails new” a whole lot and that’s something to be mindful of how it shapes the contributions.&lt;/li&gt;
-  &lt;li&gt;“If you’re leading and no one is following, you’re just out for a walk.”&lt;/li&gt;
-&lt;/ul&gt;
-
-  &lt;br&gt;&lt;br&gt;
-  &lt;hr&gt;
-  &lt;p&gt;
-    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2022/05/weeknotes-week-zero&quot;&gt;Weeknotes: Week 0&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
-    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
-  &lt;/p&gt;
-</description>
-  <pubDate>Mon, 02 May 2022 02:41:00 +0000</pubDate>
-  <link>https://island94.org/2022/05/weeknotes-week-zero</link>
-  <guid isPermaLink="true">https://island94.org/2022/05/weeknotes-week-zero</guid>
-  
-    <category>weeknotes</category>
   
   
 </item>

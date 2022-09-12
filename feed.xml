@@ -6,10 +6,56 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 12 Sep 2022 16:06:28 +0000</pubDate>
-    <lastBuildDate>Mon, 12 Sep 2022 16:06:28 +0000</lastBuildDate>
+    <pubDate>Mon, 12 Sep 2022 17:57:41 +0000</pubDate>
+    <lastBuildDate>Mon, 12 Sep 2022 17:57:41 +0000</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
+    
+      
+        
+
+
+
+
+<item>
+  <title>Reflections on Brompt, 2022</title>
+  <description>&lt;p&gt;In response to a &lt;a href=&quot;&quot;&gt;r/advancedentrepreneur&lt;/a&gt; thread, I wrote up some reflections on Brompt in response to “How well did this project do?”:&lt;/p&gt;
+
+&lt;p&gt;https://www.reddit.com/r/advancedentrepreneur/comments/x7slzl/comment/inhx3vo/?context=3&lt;/p&gt;
+
+&lt;blockquote&gt;
+
+  &lt;p&gt;Not well. I dunno how much help this is, but my thoughts about the experience are:&lt;/p&gt;
+
+  &lt;p&gt;People who are already inconsistently posting likely aren’t searching for a solution. It would be better to target overachievers who want to get to the next level, than lift up underachievers to just ok. Nagging people doesn’t work on it’s own.&lt;/p&gt;
+
+  &lt;p&gt;I think “post daily/regularly” isn’t much of a goal. I think it would be better to tap into the actual outcome they want (“top influencer”, “alternative income stream”) and then help pave that path within your service, of which regularly posting is just one “goal” or step on the staircase.&lt;/p&gt;
+
+  &lt;p&gt;I originally built Brompt back in the mid 2000s when it was a lot easier to attract early adopters. I never monetized it (it was a hobby project that I used in my portfolio to further my regular career). If I was doing it over again, I’d have never built it and probably would have focused on figuring out acquisition (e.g. spend a couple hundred bucks on Facebook ads; focus on a hands-on concierge service, figure out what it is at the intersection of what people are searching to do and are willing to pay for).&lt;/p&gt;
+
+  &lt;p&gt;Also, the space is incredibly saturated and it’s tough to get visibility. I’ve used Crowdfire before (i found it extremely difficult to use). Also done a lot with Priceonomics model. And there are some other Twitter tools that I wanted to highlight for you… but I literally can’t remember their name and have spent a good 30 minutes trying to Google and can’t find them. So like, that’s not a good environment to build in.&lt;/p&gt;
+
+  &lt;p&gt;Edit: it was https://ilo.so/&lt;/p&gt;
+
+&lt;/blockquote&gt;
+
+  &lt;br&gt;&lt;br&gt;
+  &lt;hr&gt;
+  &lt;p&gt;
+    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2022/09/reflections-on-brompt-2022&quot;&gt;Reflections on Brompt, 2022&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
+    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
+  &lt;/p&gt;
+</description>
+  <pubDate>Mon, 12 Sep 2022 14:57:00 +0000</pubDate>
+  <link>https://island94.org/2022/09/reflections-on-brompt-2022</link>
+  <guid isPermaLink="true">https://island94.org/2022/09/reflections-on-brompt-2022</guid>
+  
+    <category>brompt</category>
+  
+  
+</item>
+
+      
     
       
         
@@ -673,58 +719,6 @@ Ben&lt;/p&gt;
   <pubDate>Sun, 19 Jun 2022 23:19:00 +0000</pubDate>
   <link>https://island94.org/2022/06/programmed-inequality-how-britain-discarded-women-technologists-and-lost-its-edge-in-computing</link>
   <guid isPermaLink="true">https://island94.org/2022/06/programmed-inequality-how-britain-discarded-women-technologists-and-lost-its-edge-in-computing</guid>
-</item>
-
-      
-    
-      
-        
-
-
-
-
-<item>
-  <title>Laws of Spacecraft and Software</title>
-  <description>&lt;p&gt;Lots of similarities between &lt;a href=&quot;https://spacecraft.ssl.umd.edu/akins_laws.html&quot;&gt;Akin’s Laws of Spacecraft Design&lt;/a&gt; and software management; via AJ’s weekly email:&lt;/p&gt;
-
-&lt;blockquote&gt;
-
-  &lt;ol&gt;
-    &lt;li&gt;
-      &lt;p&gt;In nature, the optimum is almost always in the middle somewhere. Distrust assertions that the optimum is at an extreme point.&lt;/p&gt;
-    &lt;/li&gt;
-    &lt;li&gt;
-      &lt;p&gt;(Shea’s Law) The ability to improve a design occurs primarily at the interfaces. This is also the prime location for screwing it up.&lt;/p&gt;
-    &lt;/li&gt;
-    &lt;li&gt;
-      &lt;p&gt;A bad design with a good presentation is doomed eventually. A good design with a bad presentation is doomed immediately.&lt;/p&gt;
-    &lt;/li&gt;
-    &lt;li&gt;
-      &lt;p&gt;Capabilities drive requirements, regardless of what the systems engineering textbooks say.&lt;/p&gt;
-    &lt;/li&gt;
-    &lt;li&gt;
-      &lt;p&gt;(McBryan’s Law) You can’t make it better until you make it work.&lt;/p&gt;
-    &lt;/li&gt;
-    &lt;li&gt;
-      &lt;p&gt;If there’s not a flight program, there’s no money.
-  If there is a flight program, there’s no time.&lt;/p&gt;
-    &lt;/li&gt;
-  &lt;/ol&gt;
-
-&lt;/blockquote&gt;
-
-  &lt;br&gt;&lt;br&gt;
-  &lt;hr&gt;
-  &lt;p&gt;
-    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2022/06/laws-of-spacecraft-and-software&quot;&gt;Laws of Spacecraft and Software&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
-    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
-  &lt;/p&gt;
-</description>
-  <pubDate>Sun, 19 Jun 2022 23:08:00 +0000</pubDate>
-  <link>https://island94.org/2022/06/laws-of-spacecraft-and-software</link>
-  <guid isPermaLink="true">https://island94.org/2022/06/laws-of-spacecraft-and-software</guid>
-  
-  
 </item>
 
       
