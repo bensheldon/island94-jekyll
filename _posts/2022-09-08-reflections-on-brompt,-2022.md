@@ -2,7 +2,7 @@
 title: "Reflections on Brompt, 2022"
 date: 2022-09-14 07:57 PDT
 published: true
-tags:
+tags: [brompt]
 ---
 In response to a [r/advancedentrepreneur]() thread, I wrote up some reflections on Brompt in response to "How well did this project do?":
 
