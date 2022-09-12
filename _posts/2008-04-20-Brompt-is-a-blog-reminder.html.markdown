@@ -7,6 +7,7 @@ tags:
 - project
 - Web 2.0
 - webdesign
+- brompt
 wp:post_type: post
 redirect_from:
 - node/216
