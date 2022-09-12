@@ -1355,7 +1355,7 @@
   
     "2011-03-a-form-from-my-favorites-html": {
       "title": "A form from my favorites",
-      "tags": ["Drupal","human-interface","pride","webdesign"],
+      "tags": ["brompt","Drupal","human-interface","pride","webdesign"],
       "content": "Above is the signup form from Brompt, the blog reminder service I built a few years ago for undisciplined bloggers like myself. I’m very proud of this form: it’s clear, it contextualizes the data being requested within the functionality of the application, and it drives people to action.  There are a few areas for improvement: asking for your RSS feed rather than your blog’s URL is a bit roundabout (autodetection is still in the feature parking lot) and it could use a little explanation at the top in case you bypassed the front page’s explanation of the service.  Another reason I’m proud of this form is that it was built using Drupal’s Forms API—and Drupal uses awful, unintuitive forms like they were going out of style.",
       "url": "/2011/03/A-form-from-my-favorites.html"
     }
@@ -3579,7 +3579,7 @@
   
     "2008-04-brompt-is-a-blog-reminder-html": {
       "title": "Brompt is a blog reminder",
-      "tags": ["navigation","portfolio","project","Web 2.0","webdesign"],
+      "tags": ["navigation","portfolio","project","Web 2.0","webdesign","brompt"],
       "content": "Two weeks ago I launched a new website at Brompt.com. It’s a web-based service for unreliable bloggers (like myself) that sends you an email if you haven’t posted to your blog in a while. It’s sort’ve like HassleMe except Brompt actively scans your blogs RSS feed to only send reminders when you’re lax (as opposed to just sending you a reminder every so often).  It’s very practical, but I also think Brompt is really interesting conceptually too. Everyone talks about RSS as just a means to aggregating content, but there is so much other interesting metadata in an RSS feed too.  Right now the site is just the barebones service, but I’m planning on adding some statistics and such so you can track your unreliability. It’s a fun project with a lot of possibilities.",
       "url": "/2008/04/Brompt-is-a-blog-reminder.html"
     }
