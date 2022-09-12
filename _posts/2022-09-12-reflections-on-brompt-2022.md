@@ -1,6 +1,6 @@
 ---
 title: "Reflections on Brompt, 2022"
-date: 2022-09-14 07:57 PDT
+date: 2022-09-12 07:57 PDT
 published: true
 tags: [brompt]
 ---
