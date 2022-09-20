@@ -103,6 +103,39 @@
     <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
     <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2010/08/P-NP-and-Panlexicon.html">P, NP and Panlexicon</a>
+    </h1>
+    <p class="post-meta text-muted">
+      <time datetime="2010-08-29T00:00:00+00:00" itemprop="datePublished">August 29, 2010</time>
+      
+      
+        
+        
+        • Tagged <a href="/tags/#math" >math</a> and <a href="/tags/#panlexicon" >panlexicon</a>
+      
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>This week I updated <a href="http://panlexicon.com">Panlexicon</a>’s Word of the Day for Twitter’s new authentication API requirements, squeaking in just under the August 30 deadline. Panlexicon has been updated <a href="http://twitter.com/panlexicon">tweeting a unique word every day</a> for nearly a year and a half now.</p>
+
+<p>Also contemporary is <a href="http://rjlipton.wordpress.com/2010/08/08/a-proof-that-p-is-not-equal-to-np/">P ≠ NP</a> and generating Panlexicon’s daily tweet is an example of both Polynomial (P) and Non-Polynomial (NP) Time operations. Panlexicon’s uniqueness comes from exploration and discovery; when thinking about how to bring Panlexicon to Twitter, ensuring those values came through lead to an interesting computational problem.</p>
+
+<p>For every Word of the Day Panlexicon tweets, it also includes a number of related words. Any word of the day could have hundreds of related words, but the difficulty is in maximizing the number of related words to share in the tweet while still staying within Twitter’s 140 character limit. The more related words I can fit into the tweet, and the more diverse those words are, the more explorational it is and the more likely you will discover something interesting or fun by reading it.</p>
+
+<p>Generating Panlexicon’s Word of the Day Twitter message is an NP-type problem. There are millions of potential solutions that stay within the 140 character limit, but only a few of them are optimal: fitting as many related words into the tweet as possible, while still having a diverse distribution of words lengths. There is no easy way to figure out those optimal solutions without a lot of computational muscle. At the same time <em>checking</em> if the tweet as a whole is less than 140 characters is an N-type problem: it’s just a simple matter of counting up the characters.</p>
+
+<p>So that’s just one example of the mathematical problems Panlexicon faces. Of course, the algorithm I actually use to write Panlexicon’s Word of the Day on Twitter is by no means fully optimizing, but by keeping the broader computational context in mind, I can fake it reasonably well.</p>
+
+  </div>
+</article>
+
+
+    <hr>
+  
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
       <a class="post-link" href="/2010/08/Social-Media-Strategy-and-the-Dodo-Bird-Effect.html">Social Media Strategy and the Dodo Bird Effect</a>
     </h1>
     <p class="post-meta text-muted">
@@ -445,51 +478,6 @@
   <p>a. Taxonomy is often employed synonymously (e.g., by Mayr) with systematics (and/or classification): “The terms systematics and taxonomy are considered by me as approximately synonymous…[; i]n America…[,] the term taxonomy seems to be preferred…[; i]n the rest of the world…[,] the term systematics seems to be more widely used” (Mayr 1942/1982: 6n.1).</p>
 
   <p>b. And, as for the importance of systematics: “It is the basic task of the systematist to break up the almost unlimited and confusing diversity of individuals in nature into easily recognizable groups, to work out the significant characters of these units, and to find constant differences between similar ones. Furthermore, [(s)]he must provide these units with ‘scientific’ names which will facilitate their subsequent recognition by workers throughout the world…. Even this ‘lowest’ task of the systematist is of tremendous scientific importance. The entire geological chronology hinges on the correct identification of the fossil key species. No scientific ecological survey should be carried out without the most painstaking identification of all the species of ecological significance. Even the experimental biologist has learned to appreciate the necessity for sound, solid identification work” (Mayr 1942/1982: 9).</p>
-</blockquote>
-
-  </div>
-</article>
-
-
-    <hr>
-  
-    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">
-      <a class="post-link" href="/2010/06/Fierce-editing.html">Fierce editing</a>
-    </h1>
-    <p class="post-meta text-muted">
-      <time datetime="2010-06-14T00:00:00+00:00" itemprop="datePublished">June 14, 2010</time>
-      
-      
-        
-        
-        • Tagged <a href="/tags/#analysis" >analysis</a>, <a href="/tags/#editing" >editing</a>, and <a href="/tags/#writing" >writing</a>
-      
-    </p>
-  </header>
-
-  <div class="post-content" itemprop="articleBody">
-    <p>Peter Elbow on the editorial act, from <em>Writing without teachers</em> (1973):</p>
-
-<blockquote>
-  <p>The essence of editing is <em>easy come easy go</em>. Unless you can really say to yourself, “What the hell. There’s plenty more where that came from, let’s throw it away,” you can’t really edit. You have to be a big spender. Not tightass.</p>
-</blockquote>
-
-<p>More…</p>
-
-<blockquote>
-  <p>You can’t be a good, ruthless editor unless you are a messy, rich producer. But you can’t be really fecund as a producer unless you know you’ll be able to go at it with a ruthless knife.</p>
-</blockquote>
-
-<p>More…</p>
-
-<blockquote>
-  <p>Editing must be cut-throat. You must wade in with teeth gritted. Cut away flesh and leave only bone. Learn to say things with a relationship instead of words. If you have to make introductions or transitions, you have things in the wrong order. If they were in the right order they wouldn’t need introductions or transitions. Force yourself to leave out all subsidiaries and then, by brute force, you will have to rearrange the essentials into their proper order.</p>
-
-  <p>Every word omitted keeps another reader with you. Every word retained saps strength from the others. Think of throwing away not as negative—not as crumpling up sheets of paper in helplessness and rage—but as a positive, creative, generative act. Learn to play the role of the sculptor pulling off layers of stone with his chisel to reveal the figure beneath. Leaving things out makes the backbone or structure show better.</p>
-
-  <p>Try to <em>feel</em> the act of strength in the act of cutting: as you draw the pencil through the line or paragraph or whole page, it is a clenching of teeth to make a point stick out more, hit home harder. Conversely, try to feel that when you write in a mush, foggy, wordy way, you must be trying to cover something up: message-emasculation or self-emasculation. You must be afraid of your strength. Taking away words lets a loud voice stick out. Does it scare you? More words will cover it up with static. It is no accident that timid people are often wordy. Saying nothing takes guts. If you want to say nothing and not be noticed, you have to be wordy.</p>
 </blockquote>
 
   </div>

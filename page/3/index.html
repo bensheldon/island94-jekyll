@@ -103,6 +103,41 @@
     <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
     <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2022/01/javascript-is-a-management-problem">Javascript is a management problem</a>
+    </h1>
+    <p class="post-meta text-muted">
+      <time datetime="2022-01-11T19:17:00+00:00" itemprop="datePublished">January 11, 2022</time>
+      
+      
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>I have been on board with low/no javascript for a long time for a variety of observed and experienced reasons, and grasping around for a succinct explanation. Baldur Bjarnason captures it in <a href="https://www.baldurbjarnason.com/2021/single-page-app-morality-play/">“The Single-Page-App Morality Play”</a>:</p>
+
+<blockquote>
+
+  <p><em>The problem is management.</em></p>
+
+  <p>It is a management problem. Truly.</p>
+
+  <p>The Multi-Page-App forces the team to narrow the scope to a level they can handle. It puts a hard limit on their technological aspirations. Mandating a traditional Multi-Page-App under the auspices of performance, accessibility, or Search-Engine-Optimisation is a face-saving way to force the hand of management to be more realistic about what their teams can accomplish. When we can accomplish the same by advocating for a specific Single-Page-App toolkit or framework, that’s what most of us nominally on the ‘Anti’ side do. I regularly advocate for Svelte when I think the team can handle its long term implications in terms of complexity. (That might change as Svelte adds more features.)</p>
+
+  <p>The problem with Single-Page-App frameworks, even the ones like SvelteKit who could claim to be more Hybrid than just SPA, is that they are very, very eager to enable ‘scale’ of any sort. Features, app size, code complexity, integrations, etc. They are desperate to make sure that you can keep using their framework if you become a mythical ‘unicorn’ startup and your project grows into the next Facebook. So they put a lot of hard work into making sure that there is no upper limit to the scope of the app you can make with them.</p>
+
+  <p>Which, when they present it as ‘scale’, sounds like a good thing. But it’s absolutely a bad thing when you’re in an industry that’s as mismanaged as ours. We can’t handle complexity. Having no upper limit to it is extremely bad.</p>
+
+</blockquote>
+
+  </div>
+</article>
+
+
+    <hr>
+  
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
       <a class="post-link" href="/2021/12/i'm-burning-dude-where-do-we-go-from-here">I'm burning dude... where do we go from here?</a>
     </h1>
     <p class="post-meta text-muted">
@@ -563,80 +598,6 @@ Ben and Angelina</p>
 <p>Code, documentation, and curiosity-based contributions are welcome! Check out the  <a href="https://github.com/bensheldon/good_job/projects/1">GoodJob Backlog</a>, comment on or open a Github Issue, or make a Pull Request. <strong>Thank you!!!</strong> to everyone who has contributed to GoodJob, including morgoth, tedhexaflow, weh, lauer, reczy, zealot128, gadimbaylisahil, Mr0grog, thilo, arku, sj26, jm96441, thedanbob, and joshmn.</p>
 
 <p>I also have a <a href="https://github.com/sponsors/bensheldon">GitHub Sponsors Profile</a> if you’re able to support GoodJob and me monetarily. It helps me stay in touch and send you project updates too.</p>
-
-  </div>
-</article>
-
-
-    <hr>
-  
-    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">
-      <a class="post-link" href="/2021/05/is-securerandom.choose-the-wrong-name-for-generating-randomized-strings-with-ruby">Is SecureRandom.choose the wrong name for generating randomized strings with Ruby?</a>
-    </h1>
-    <p class="post-meta text-muted">
-      <time datetime="2021-05-27T15:37:00+00:00" itemprop="datePublished">May 27, 2021</time>
-      
-      
-    </p>
-  </header>
-
-  <div class="post-content" itemprop="articleBody">
-    <p>I frequently need to generate a short, random string:</p>
-
-<ul>
-  <li>I need a non-numeric, non-enumerable url ID. e.g. <code class="language-plaintext highlighter-rouge">https://example.com/resources/TOKEN</code></li>
-  <li>I need to generate a short, human-readable random activation token and I don’t want it to contain similar-looking characters like <code class="language-plaintext highlighter-rouge">1I</code> or <code class="language-plaintext highlighter-rouge">O0</code></li>
-  <li>I want to do something fun with strings of emojis.</li>
-</ul>
-
-<p>I’ve been copy-pasting this snippet around for years:</p>
-
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">random_string</span><span class="p">(</span><span class="n">alphabet</span><span class="p">:,</span> <span class="n">length</span><span class="p">:)</span>
-  <span class="no">Array</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">length</span><span class="p">)</span> <span class="p">{</span> <span class="n">alphabet</span><span class="p">.</span><span class="nf">chars</span><span class="p">[</span><span class="nb">rand</span><span class="p">(</span><span class="n">alphabet</span><span class="p">.</span><span class="nf">chars</span><span class="p">.</span><span class="nf">size</span><span class="p">)]</span> <span class="p">}.</span><span class="nf">join</span>
-<span class="k">end</span>
-
-<span class="n">random_string</span><span class="p">(</span><span class="ss">alphabet: </span><span class="s2">"AaBbCc123"</span><span class="p">,</span> <span class="ss">length: </span><span class="mi">7</span><span class="p">)</span> 
-<span class="c1"># =&gt; "C113A11", "Abcc3B2", "33cabbC", etc.</span>
-
-<span class="n">random_string</span><span class="p">(</span><span class="ss">alphabet: </span><span class="s2">"😀😍🙃🤪😎"</span><span class="p">,</span> <span class="ss">length: </span><span class="mi">3</span><span class="p">)</span>
-<span class="c1"># =&gt; "😍😀😎", "😀🤪🤪", "🙃😎😀", etc.</span>
-</code></pre></div></div>
-
-<p>The gems <a href="https://github.com/norman/friendly_id"><code class="language-plaintext highlighter-rouge">friendly_id</code></a> and <a href="https://github.com/ryanb/uniquify"><code class="language-plaintext highlighter-rouge">uniquify</code></a> can do this too.</p>
-
-<p>There was recently a discussion on <a href="https://www.rubyonrails.link/">Ruby on Rails Link Slack</a> about generating random strings, and I went looking to see if there was a better implementation.</p>
-
-<p>I found <a href="https://github.com/ruby/ruby/blob/029169bc5b45d8ec783c19eaf713395b7983d16a/lib/securerandom.rb#L247-L291"><code class="language-plaintext highlighter-rouge">SecureRandom.choose</code></a>, which is built into the Ruby standard library, and as part of the <code class="language-plaintext highlighter-rouge">SecureRandom</code> module, should be fairly trustworthy. Looks perfect:</p>
-
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># SecureRandom.choose generates a string that randomly draws from a source array of characters.</span>
-<span class="c1">#</span>
-<span class="c1"># The argument _source_ specifies the array of characters from which to generate the string.</span>
-<span class="c1"># The argument _n_ specifies the length, in characters, of the string to be generated.</span>
-<span class="c1">#</span>
-<span class="c1"># The result may contain whatever characters are in the source array.</span>
-<span class="c1">#</span>
-<span class="c1">#   require 'securerandom'</span>
-<span class="c1">#</span>
-<span class="c1">#   SecureRandom.choose([*'l'..'r'], 16) #=&gt; "lmrqpoonmmlqlron"</span>
-<span class="c1">#   SecureRandom.choose([*'0'..'9'], 5)  #=&gt; "27309"</span>
-</code></pre></div></div>
-
-<p>…but there is a problem: <code class="language-plaintext highlighter-rouge">SecureRandom.choose</code> is a private method. The <code class="language-plaintext highlighter-rouge">choose</code> method is used to implement the public <code class="language-plaintext highlighter-rouge">SecureRandom.alphanumeric</code> method, but is not itself exposed publicly. I went back to the initial <a href="https://bugs.ruby-lang.org/issues/10849">feature request</a> and found the reason:</p>
-
-<blockquote>
-  <p>I feel the method name, SecureRandom.choose, doesn’t represent the behavior well.</p>
-</blockquote>
-
-<p>Fair enough. Until the name is figured out, I’ll still be using it:</p>
-
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'securerandom'</span>
-
-<span class="no">SecureRandom</span><span class="p">.</span><span class="nf">send</span> <span class="ss">:choose</span><span class="p">,</span> <span class="s2">"😀😍🙃🤪😎"</span><span class="p">.</span><span class="nf">chars</span><span class="p">,</span> <span class="mi">3</span>
-<span class="c1"># =&gt; "😍😎😍"</span>
-</code></pre></div></div>
-
 
   </div>
 </article>
