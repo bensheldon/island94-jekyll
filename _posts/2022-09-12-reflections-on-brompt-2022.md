@@ -4,7 +4,7 @@ date: 2022-09-12 07:57 PDT
 published: true
 tags: [brompt]
 ---
-In response to a [r/advancedentrepreneur](https://www.reddit.com/r/advancedentrepreneur/comments/x7slzl/comment/inhx3vo/?context=3) thread, I wrote up some reflections on Brompt in response to "How well did this project do?":
+In response to a [r/advancedentrepreneur](https://www.reddit.com/r/advancedentrepreneur/comments/x7slzl/comment/inhx3vo/?context=3) thread, I wrote up some reflections on [Brompt](https://brompt.com) in response to "How well did this project do?":
 
 <blockquote markdown="1">
 
