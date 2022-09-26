@@ -19,7 +19,7 @@ This is a [Milk Street recipe](https://www.177milkstreet.com/recipes/persian-sty
 * 1.5 cups basmati rice
 * 1/4 teaspoon saffron threads
 * 2 tablespoons boiling water
-* 12 ounces boneless skinless chicken thighs
+* 12 ounces boneless skinless chicken thighs. I think this would also work with seitan or tempeh just mix a bit more oil in.
 * 1 lemon, for juice and zest
 * 2 garlic cloves
 * 0.5 cups whole milk greek yogurt
