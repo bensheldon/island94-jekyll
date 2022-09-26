@@ -1,0 +1,11 @@
+{% if tags.size > 0 %}
+  {% assign formatted_tags = '' | split:':' %}
+  {% for tag in post.tags %}
+    {% capture tag_html %}
+      <a href="/tags/#{{ tag | replace:' ','_'}}">{{tag}}</a>
+    {% endcapture %}
+    {% assign tag_html = tag_html | strip %}
+    {% assign formatted_tags = formatted_tags | push: tag_html %}
+  {% endfor %}
+  • Tagged {{ formatted_tags | array_to_sentence_string }}
+{% endif %}

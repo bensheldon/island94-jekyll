@@ -6,6 +6,7 @@
   {% for document in documents %}
     "{{ document.url | slugify }}": {
       "title": {{ document.title | jsonify }},
+      "published": {{ document.date | date: "%B %-d, %Y" | jsonify }},
       "tags": {{ document.tags | jsonify }},
       "content": {{ document.content | strip_html | newline_to_br | strip_newlines | replace: '<br />', ' ' | strip | jsonify }},
       "url": {{ document.url | jsonify }}
