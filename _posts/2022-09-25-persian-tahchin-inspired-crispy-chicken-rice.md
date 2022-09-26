@@ -50,7 +50,7 @@ This is a [Milk Street recipe](https://www.177milkstreet.com/recipes/persian-sty
 - '**Zest the lemon** resulting in about 3 teaspoons of lemon zest, to be divided between the chicken and the yogurt sauce. Put the rest of the lemon aside to be wedged later.
 - **Grate the garlic**
 - **Trim the chicken thighs** into 1 to 1.5 inch pieces and in a medium bowl **combine the chicken with 1 tbsp of oil, 1 teaspoon lemon zest, and garlic** Salt and pepper it.
-- **Separate the egg yolk** (discard the white) and  **mix the egg yolk, yogurt, remaining 2 teaspoons of lemon zest, and saffron water** in a bowl large enough to eventually hold the rice too. Salt and pepper it. Whisk to combine well.
+- **Separate the egg yolk** (discard the white) and  **mix the yogurt, egg yolk, remaining 2 teaspoons of lemon zest, and saffron water** in a bowl large enough to eventually hold the rice too. Salt and pepper it. Whisk to combine well.
 
 ### Cooking
 
