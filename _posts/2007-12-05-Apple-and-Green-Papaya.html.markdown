@@ -13,4 +13,4 @@ redirect_from:
 - "?p=185"
 ---
 
-After writing my last post about salsa, it made me think that grating green apple and green papaya together, along with a hint of lemon juice, would be good. Maybe sunflower seeds too, or almonds (pine nuts?)
+After writing [my last post about salsa](https://island94.org/2007/12/Cribbed-Apple-Salsa.html), it made me think that grating green apple and green papaya together, along with a hint of lemon juice, would be good. Maybe sunflower seeds too, or almonds (pine nuts?)
