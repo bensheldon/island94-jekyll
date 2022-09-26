@@ -12,6 +12,7 @@
       for (const result of results) {
         const item = store[result.ref];
         output += '<a href="' + item.url + '"><h3>' + item.title + '</h3></a>';
+        output += '<p class="post-meta text-muted">' + item.published + '</p>';
         output += '<p>' + item.content.substring(0, RESULT_SIZE) + '...</p>';
       }
 
@@ -47,6 +48,7 @@
         this.add({
           'id': key,
           'title': item.title,
+          'published': item.published,
           'tags': item.tags,
           'content': item.content
         });
