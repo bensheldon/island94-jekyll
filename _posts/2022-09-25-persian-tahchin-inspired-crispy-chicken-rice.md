@@ -5,16 +5,17 @@ published: true
 tags: [recipe]
 ---
 
+![Tahchin](/uploads/2022-09/tahchin.jpg)
 
-This is a [Milk Street recipe](https://www.177milkstreet.com/recipes/persian-style-baked-saffron-rice-chicken), but because I detest their instructional design, I redesigned it here.  I like it because:
+This is a [Milk Street recipe](https://www.177milkstreet.com/recipes/persian-style-baked-saffron-rice-chicken), but because I detest their instructional design, I redesigned it here.  I like this dish because:
 
-- It can be made with ingredients from Trader Joes.
+- It can be made with ingredients from Trader Joe's.
 - It has currants.
 - Crispy, buttery starch is great.
 - It's resilient; the second time I made it with indirect heat on a propane bbq grill because my oven was on the fritz. Still great. Also I've tried brown basmati rice, tried doubling the eggs, tripled the garlic, I'm not measuring the butter and currents. Still great.
 
 
-### Ingredients 
+### Ingredients
 
 * 1.5 cups basmati rice
 * 1/4 teaspoon saffron threads
@@ -39,7 +40,7 @@ This is a [Milk Street recipe](https://www.177milkstreet.com/recipes/persian-sty
 
 ### To begin
 
-- **Place the oven rack at lowest position** and **preheat the oven to 400 degrees** 
+- **Place the oven rack at lowest position** and **preheat the oven to 400 degrees**
 - **Prepare a large pot of salted boiling water** to cook the rice.
 - Thoroughly **oil your pie plate**.
 -
@@ -57,7 +58,7 @@ This is a [Milk Street recipe](https://www.177milkstreet.com/recipes/persian-sty
 - **Add the rice to the pot of salted boiling water** and cook for 5 minutes until par-boiled; the rice will still be slightly crunchy.  Drain the rice.
 - **Mix the par-boiled rice with the yogurt mixture** and stir to combine.
 - Add about **1/3 of the rice mixture to the bottom of the pie plate,** pressing it into an even layer on the bottom and halfway up the sides.
-- **Mix the currants and the yogurt-chicken mixture into the remaining rice and yogurt mixture** and then **transfer the mixture to the pie dish.** Do not compact or press the rice, but do distribute it evenly. 
+- **Mix the currants and the yogurt-chicken mixture into the remaining rice and yogurt mixture** and then **transfer the mixture to the pie dish.** Do not compact or press the rice, but do distribute it evenly.
 - **Drizzle the melted butter over the rice mixture.**
 - **Tightly cover the pie dish with foil** and **bake for 1 hour covered.**
 
@@ -65,7 +66,7 @@ This is a [Milk Street recipe](https://www.177milkstreet.com/recipes/persian-sty
 
 - **Chop the parsley** and reserve for serving.
 - **Chop the pistachios** and reserve for serving.
-- **Slice the lemon** into wedges for personal squeezing. 
+- **Slice the lemon** into wedges for personal squeezing.
 
 ### After baking for 1 hour
 
