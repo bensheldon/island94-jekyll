@@ -15,7 +15,7 @@ redirect_from:
 
 One of my favorite haunts in Boston is Delux in the South End---mostly because a successive series of my friends have worked there.
 
-One of their best dishes is the Quesadillas, which are made so in part by the salsa. I've been working to deconstruct it, so this is what I think is in it:
+One of their best dishes is the Quesadillas, which are made so in part by the fruit salsa. I've been working to deconstruct it, so this is what I think is in it:
 
 (this isn't proportional)
 
