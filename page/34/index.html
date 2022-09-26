@@ -89,7 +89,7 @@
       <li class="pager-prev"><a href="/page/33/"><span aria-hidden="true">&larr; </span>Newer</a></li>
     
 
-    <small class="pager-current text-muted">Page 34 of 62</small>
+    <small class="pager-current text-muted">Page 34 of 63</small>
 
     
       <li class="pager-next"><a href="/page/35/">Older<span aria-hidden="true"> &rarr;</span></a></li>
@@ -103,16 +103,45 @@
     <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
     <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2009/08/Drupal-Adding-a-geocoding-failure-message-to-Location-Module.html">Drupal: Adding a geocoding failure message to Location Module</a>
+    </h1>
+    <p class="post-meta text-muted">
+      <time datetime="2009-08-13T00:00:00+00:00" itemprop="datePublished">August 13, 2009</time>
+      
+      
+
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>One of the coolest pieces of Drupal is how simple it is to quickly enter a street address and have it show up on a dynamic map on your website using <a href="http://drupal.org/project/location">Location</a> and <a href="http://drupal.org/project/gmap">GMap</a> modules. To make it happen, a lot of stuff goes on behind the scenes. Unfortunately, in typical Drupal fashion, when something goes wrong, you aren’t provided much information to fix it.</p>
+
+<p>A big issue if you’re having regular users enter information into your website is <em>malformed</em> addresses that can’t be automatically converted into latitude/longitude coordinates (geocoding) for display on a map. Out of the box, the Location module doesn’t give you a warning if it’s unable to geocode an address. On my website <a href="http://mappingaccess.org">MappingAccess.org</a>–a community maintained directory of Cable Access Television stations—I average about an email a week from a visitor saying “I added my station but it’s not showing up on the map”. Usually it’s a simple matter of using a PO Box or wacky abbreviation, but the website itself should be telling them there is a problem, not me.</p>
+
+<p>So I whipped up a simple module that checks everytime a new station is submitted to see if the address was properly geocoded. If not, it displays a message with some tips on how to correct the issue.</p>
+
+<p><img src="/uploads/2009-08-13-Drupal-Adding-a-geocoding-failure-message-to-Location-Module/Picture-3-500x136.png" alt="Geocode Warning Message" title="Geocode Warning Message" /></p>
+
+<p>You can download the module for Drupal 6.x by <a href="/uploads/2009-08-13-Drupal-Adding-a-geocoding-failure-message-to-Location-Module/geocode_warn.zip"><strong>clicking here</strong></a><strong>.</strong></p>
+
+<p>To be nitpicky, I’d rather the message show up during the validation stage—before the node is submitted—with the option to say “Please edit the address or press submit again to publish with the understanding that it will not show up on the map.” Unfortunately, in Drupal 6 you <a href="http://drupal.org/node/241364">can’t make changes to node form during the validation stage</a>—which I would use to set a flag in a hidden form element so that the validation message only gets triggered once. The current implementation calls a drupal_set_message in hook_nodeapi’s insert/update operations. It can be enabled on a per-content-type basis (on the Content Type Configuration screen).</p>
+
+  </div>
+</article>
+
+
+    <hr>
+  
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
       <a class="post-link" href="/2009/08/Religion-and-individualism.html">Religion and individualism</a>
     </h1>
     <p class="post-meta text-muted">
       <time datetime="2009-08-10T00:00:00+00:00" itemprop="datePublished">August 10, 2009</time>
       
       
-        
-        
-        • Tagged <a href="/tags/#god" >god</a>, <a href="/tags/#individualism" >individualism</a>, <a href="/tags/#islam" >islam</a>, <a href="/tags/#philosophy" >philosophy</a>, and <a href="/tags/#religion" >religion</a>
-      
+
     </p>
   </header>
 
@@ -141,10 +170,7 @@
       <time datetime="2009-08-10T00:00:00+00:00" itemprop="datePublished">August 10, 2009</time>
       
       
-        
-        
-        • Tagged <a href="/tags/#brands" >brands</a>, <a href="/tags/#consumerism" >consumerism</a>, <a href="/tags/#economics" >economics</a>, <a href="/tags/#marketing" >marketing</a>, <a href="/tags/#media" >media</a>, <a href="/tags/#nonprofit" >nonprofit</a>, <a href="/tags/#politics" >politics</a>, and <a href="/tags/#save-the-world" >save-the-world</a>
-      
+
     </p>
   </header>
 
@@ -174,10 +200,7 @@
       <time datetime="2009-08-09T00:00:00+00:00" itemprop="datePublished">August 9, 2009</time>
       
       
-        
-        
-        • Tagged <a href="/tags/#counterculture" >counterculture</a>, <a href="/tags/#cybernetics" >cybernetics</a>, <a href="/tags/#economics" >economics</a>, <a href="/tags/#hippies" >hippies</a>, <a href="/tags/#history" >history</a>, <a href="/tags/#liberalism" >liberalism</a>, and <a href="/tags/#politics" >politics</a>
-      
+
     </p>
   </header>
 
@@ -233,10 +256,7 @@
       <time datetime="2009-08-07T00:00:00+00:00" itemprop="datePublished">August 7, 2009</time>
       
       
-        
-        
-        • Tagged <a href="/tags/#history" >history</a>, <a href="/tags/#marketing" >marketing</a>, <a href="/tags/#psychology" >psychology</a>, and <a href="/tags/#wealth" >wealth</a>
-      
+
     </p>
   </header>
 
@@ -270,10 +290,7 @@
       <time datetime="2009-07-27T00:00:00+00:00" itemprop="datePublished">July 27, 2009</time>
       
       
-        
-        
-        • Tagged <a href="/tags/#cool" >cool</a>, <a href="/tags/#hip" >hip</a>, <a href="/tags/#humanity" >humanity</a>, <a href="/tags/#management" >management</a>, <a href="/tags/#people" >people</a>, <a href="/tags/#percussion" >percussion</a>, <a href="/tags/#time" >time</a>, <a href="/tags/#time-management" >time-management</a>, and <a href="/tags/#trendsetting" >trendsetting</a>
-      
+
     </p>
   </header>
 
@@ -319,10 +336,7 @@
       <time datetime="2009-07-14T00:00:00+00:00" itemprop="datePublished">July 14, 2009</time>
       
       
-        
-        
-        • Tagged <a href="/tags/#communications" >communications</a>, <a href="/tags/#media" >media</a>, <a href="/tags/#politics" >politics</a>, <a href="/tags/#systemic-change" >systemic-change</a>, and <a href="/tags/#technology" >technology</a>
-      
+
     </p>
   </header>
 
@@ -380,10 +394,7 @@
       <time datetime="2009-07-12T00:00:00+00:00" itemprop="datePublished">July 12, 2009</time>
       
       
-        
-        
-        • Tagged <a href="/tags/#americana" >americana</a>, <a href="/tags/#art" >art</a>, <a href="/tags/#dreams" >dreams</a>, <a href="/tags/#freedom-from-fear" >freedom-from-fear</a>, <a href="/tags/#freedom-from-want" >freedom-from-want</a>, <a href="/tags/#freedom-of-religion" >freedom-of-religion</a>, <a href="/tags/#freedom-of-speech" >freedom-of-speech</a>, <a href="/tags/#museum" >museum</a>, <a href="/tags/#pluralism" >pluralism</a>, and <a href="/tags/#politics" >politics</a>
-      
+
     </p>
   </header>
 
@@ -413,10 +424,7 @@
       <time datetime="2009-07-06T00:00:00+00:00" itemprop="datePublished">July 6, 2009</time>
       
       
-        
-        
-        • Tagged <a href="/tags/#advice" >advice</a>, <a href="/tags/#cognitive-bias" >cognitive-bias</a>, <a href="/tags/#cognitive_dissonance" >cognitive dissonance</a>, <a href="/tags/#land-speed-velocity" >land-speed-velocity</a>, and <a href="/tags/#monkeys" >monkeys</a>
-      
+
     </p>
   </header>
 
@@ -450,10 +458,7 @@
       <time datetime="2009-07-05T00:00:00+00:00" itemprop="datePublished">July 5, 2009</time>
       
       
-        
-        
-        • Tagged <a href="/tags/#conservative" >conservative</a>, <a href="/tags/#definition" >definition</a>, <a href="/tags/#politics" >politics</a>, <a href="/tags/#progressive" >progressive</a>, and <a href="/tags/#rhetoric" >rhetoric</a>
-      
+
     </p>
   </header>
 
@@ -475,37 +480,6 @@
 </article>
 
 
-    <hr>
-  
-    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">
-      <a class="post-link" href="/2009/07/Clarity-of-hindsight-law-vs-policy.html">Clarity of hindsight: law vs. policy</a>
-    </h1>
-    <p class="post-meta text-muted">
-      <time datetime="2009-07-05T00:00:00+00:00" itemprop="datePublished">July 5, 2009</time>
-      
-      
-        
-        
-        • Tagged <a href="/tags/#legalism" >legalism</a>, <a href="/tags/#outcome" >outcome</a>, <a href="/tags/#process" >process</a>, and <a href="/tags/#screwed" >screwed</a>
-      
-    </p>
-  </header>
-
-  <div class="post-content" itemprop="articleBody">
-    <p>Donald Rumsfield admitted that chucking the Geneva Conventions (and 50 years of military policy) came out of a <a href="http://tpmmuckraker.talkingpointsmemo.com/2009/07/rumsfeld_on_abandoning_geneva_all_of_a_sudden_it_w.php?ref=fpb">bad process</a>:</p>
-
-<blockquote>
-  <p>As he explained in an interview in late 2008, policies were developing so fast in the weeks after the September 11 attacks that he did not follow his own normal procedures. “All of a sudden, it was just all happening, and the general counsel’s office in the Pentagon had the lead,” he said. “It never registered in my mind in this particular instance–it did in almost every other case–that these issues ought to be in a policy development or management posture. Looking back at it now, I have a feeling that was a mistake. In retrospect, it would have been better to take all of those issues and put them in the hands of policy or management.”</p>
-</blockquote>
-
-<p>They went the legal route (“the law isn’t clearly against us”) rather than the policy/management path (“how fully are we screwed if we do this?”). And, if that administration was as biblical as they claimed to be, they should have figured it out: even when following The Law, God is still a mean dude.</p>
-
-  </div>
-</article>
-
-
     
   
 
@@ -515,7 +489,7 @@
       <li class="pager-prev"><a href="/page/33/"><span aria-hidden="true">&larr; </span>Newer</a></li>
     
 
-    <small class="pager-current text-muted">Page 34 of 62</small>
+    <small class="pager-current text-muted">Page 34 of 63</small>
 
     
       <li class="pager-next"><a href="/page/35/">Older<span aria-hidden="true"> &rarr;</span></a></li>
