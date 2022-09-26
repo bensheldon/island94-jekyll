@@ -10,8 +10,9 @@ This is a [Milk Street recipe](https://www.177milkstreet.com/recipes/persian-sty
 
 - It can be made with ingredients from Trader Joes.
 - It has currants.
-- It's resilient; the second time I made it with indirect heat on a propane bbq grill because my oven was on the fritz. Still great. Also I've tried brown basmati rice, tried doubling the eggs, never measure very well. Still great.
 - Crispy, buttery starch is great.
+- It's resilient; the second time I made it with indirect heat on a propane bbq grill because my oven was on the fritz. Still great. Also I've tried brown basmati rice, tried doubling the eggs, tripled the garlic, I'm not measuring the butter and currents. Still great.
+
 
 ### Ingredients 
 
