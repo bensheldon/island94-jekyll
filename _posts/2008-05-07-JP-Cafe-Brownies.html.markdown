@@ -18,13 +18,13 @@ The cafe down the corner from my house makes the best brownies and I've been wan
 
 In regard to the amounts below: they were given to me in grams, and I did some loose conversions since I don't have a scale.
 
-3-1/3 C (760g) Butter
-1-2/3 Lb (910g) Chocolate
-12 Eggs
-2 Tsp Vanilla
-2-1/2 C (560g) Sugar
-3-1/3 C (420g) Flour
-2 Tsp Salt
+- 3-1/3 C (760g) Butter
+- 1-2/3 Lb (910g) Chocolate
+- 12 Eggs
+- 2 Tsp Vanilla
+- 2-1/2 C (560g) Sugar
+- 3-1/3 C (420g) Flour
+- 2 Tsp Salt
 
 18" X 24" Pan (makes 24 Brownies)
 
