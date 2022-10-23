@@ -2,7 +2,7 @@
 title: "Worknotes - October 22, 2022"
 date: 2022-10-23 14:22 PDT
 published: true
-tags:
+tags: [worknotes, weeknotes]
 ---
 
 - During my absence, my team was reorganized and I moved under a new director and from developer experience to the product development organization. It's been exciting (new people, new relationships, new opportunities) and also tiring (new people, new relationships, new opportunities). My team was an odd duck in the old structure, and less-so but still odd in the new structure. My verdict is out if that's an improvement. I think it can be sometimes be easier to stick out hugely instead of subtly: it's called whackamole, not whackagiraffe.
