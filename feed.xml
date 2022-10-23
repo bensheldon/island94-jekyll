@@ -6,10 +6,62 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 23 Oct 2022 17:40:03 +0000</pubDate>
-    <lastBuildDate>Sun, 23 Oct 2022 17:40:03 +0000</lastBuildDate>
+    <pubDate>Sun, 23 Oct 2022 21:22:05 +0000</pubDate>
+    <lastBuildDate>Sun, 23 Oct 2022 21:22:05 +0000</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
+    
+      
+        
+
+
+
+
+<item>
+  <title>Impenetrable legal language</title>
+  <description>&lt;p&gt;From the paper &lt;a href=&quot;https://mollicaf.github.io/publication/martinez-2021-what/&quot;&gt;“What did I sign? A study of the impenetrability of legalese in contracts”&lt;/a&gt; via &lt;a href=&quot;https://labnotes.org/weekend-reading-any-desk-is-a-standing-desk-if-youre-short-enough/&quot;&gt;Assaf Arkin’s Labnotes&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The description of “Center-embedded clauses” was particularly interesting to me in regards to plain language.&lt;/p&gt;
+
+&lt;blockquote&gt;
+
+  &lt;p&gt;Each legalese text was drafted to contain the following language properties that have been identified as difficult to process and common to legal texts:&lt;/p&gt;
+
+  &lt;p&gt;(a) Low-frequency legal terms – Words that are infrequently used in everyday speech provide processing difficulties for readers relative to higher-frequency synonyms (Marks, Doctorow, &amp;amp; Wittrock, 1974). Legal texts are laden with “archaic words” such as aforesaid, herein, and to wit (P. Tiersma, 2008), which have been shown to be frequently misunderstood by laypeople (e.g. P. M. Tiersma, 1993). Each legalese text was constructed to contain several instances of legal jargon, which were replaced with high-frequency synonyms in the plain-English versions.&lt;/p&gt;
+
+  &lt;p&gt;(b) Center-embedded clauses – Center-embedded structures have long been observed to pose processing difficulties on a reader (Miller &amp;amp; Chomsky, 1963; Gibson, 1998; Pinker, 2003). The tendency for lawyers to “embed” legal jargon “in convoluted syntax” has been observed not only to be prevalent in legal texts but as a potential badge of honor for those who wish to “talk like a lawyer” and be accepted by their profession (P. Tiersma, 2008). Each legalese text was constructed to contain multiple center-embedded clauses (“Artist and Tour, said parties being hereinafter referred as…”), which were written as separate sentences in the corresponding plain-English version.&lt;/p&gt;
+
+  &lt;p&gt;(c) Passive-voice structures – Relative to their active-voice counterparts, passive-voice structures are acquired later by children (Baldie, 1976), and may continue to pose difficulties for adults (Ferreira, 2003). Gozdz-Roszkowski (2011) found passive structures to be more prevalent in contracts relative to other legal and non-legal genres (such as newspapers). Our legalese texts each contained multiple passive-voice structures (“This agreement has been formed by the parties”), which we converted into active-voice structures in the corresponding plain-English versions.&lt;/p&gt;
+
+  &lt;p&gt;(d) Capitalization – Non-standard capitalization is ubiquitous in provisions such as warranty disclaimers and limitations of liability, which “must be conspicuous” in order to be legally upheld (American Law Institute and National Conference of Commissioners on Uniform State Laws, 2002). Arbel and Toler (2020) found that most standard form agreements used by major companies contain a provision in all-caps. Although the use of all-caps provisions is ostensibly for the benefit of the reader, evidence suggests that they do not aid comprehension (Arbel &amp;amp; Toler, 2020). Here we included at least one chunk of all-capitalized text in each legalese passage (“THE WARRANTY IS HEREBY DISCLAIMED”), which was replaced with standard capitalization in the simple version.&lt;/p&gt;
+
+  &lt;p&gt;From the set of legalese materials, each passage was encoded in terms of legally relevant propositions. From these propositions, each passage was then translated into a “plain-English” version, which differed only with respect to the four surface properties described above, resulting in 24 total passages.&lt;/p&gt;
+
+  &lt;p&gt;For each contract pair, 12-15 comprehension questions were drafted. The questions were multiple choice with four options. These questions both targeted comprehension of specific important legal propositions, as well as more general understanding of the legal content. To reduce a response bias for a given register, we controlled the overlap in form between contract excerpt and comprehension question. Both types of comprehension question were drafted in a “neutral” register. Passive/active structures were replaced by nominalizations. For example, “shipment of the goods on the part of merchant” instead of “the goods were shipped by merchant” or “merchant shipped the goods”). High or low frequency synonyms were replaced with a third synonym (e.g. “renter” instead of “lessee” or “tenant”).&lt;/p&gt;
+
+&lt;/blockquote&gt;
+
+  &lt;br&gt;&lt;br&gt;
+  &lt;hr&gt;
+  &lt;p&gt;
+    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2022/10/impenetrable-legal-language&quot;&gt;Impenetrable legal language&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
+    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
+  &lt;/p&gt;
+</description>
+  <pubDate>Sun, 23 Oct 2022 17:40:00 +0000</pubDate>
+  <link>https://island94.org/2022/10/impenetrable-legal-language</link>
+  <guid isPermaLink="true">https://island94.org/2022/10/impenetrable-legal-language</guid>
+  
+    <category>language</category>
+  
+    <category>writing</category>
+  
+    <category>plan language</category>
+  
+  
+</item>
+
+      
     
       
         
@@ -667,60 +719,6 @@ Ben&lt;/p&gt;
   <guid isPermaLink="true">https://island94.org/2022/07/what-the-fuck-are-you-talking-about-the-story-of-nodetiles</guid>
   
     <category>maps</category>
-  
-  
-</item>
-
-      
-    
-      
-        
-
-
-
-
-<item>
-  <title>We&apos;re all just people here, even platforms</title>
-  <description>&lt;p&gt;In &lt;a href=&quot;https://speakerdeck.com/bensheldon/bridging-people-and-benefits-systems&quot;&gt;my presentation of how my small engineering team helped deliver food stamps to millions of Californians&lt;/a&gt;, I talked about a common pathology of engineers: a desire to build the equivalent of thousand-year clocks that will run self-contained without human intervention. You see it crop up in different forms, the good ways of “working yourself out of a job” and the bad ways of platinum plating and astronaut architects.&lt;/p&gt;
-
-&lt;p&gt;And I’ve become become aware of that pathology affecting how engineers perceive the labor of &lt;em&gt;other people&lt;/em&gt;: they don’t, not the people part. And that’s bad.&lt;/p&gt;
-
-&lt;p&gt;To be fair, not seeing the people isn’t just an engineering pathology. We talk about products, and services, and value, and how&lt;a href=&quot;https://www.buzzfeednews.com/article/tedchiang/the-real-danger-to-civilization-isnt-ai-its-runaway#.spxyjARZP&quot;&gt; capitalist corporations are simply slow AI&lt;/a&gt;. And I’ve been working with a leadership coach and spending a fair bit of time contemplating what it means to do something larger than myself but within the realm of human endeavour.  So please go with me here.&lt;/p&gt;
-
-&lt;p&gt;Platforms.  I’ve spent a lot of my career working on X-as-a-Platform. Which is the idea that it’s a &lt;em&gt;good thing&lt;/em&gt; if the things in our lives become analogous to vending machines, or FedEx status pages: we press the button on the machine, and we get what we want, and if not now, then the machine will tell us exactly when.&lt;/p&gt;
-
-&lt;p&gt;But this idea of platforms, the machine, break down when the machine… breaks down, or just changes. When the &lt;em&gt;good&lt;/em&gt; sandwich cookies are out, or they get replaced with the &lt;em&gt;bad&lt;/em&gt; sandwich cookies, or when there are no sandwich cookies at all because it’s Tuesday morning and deliveries normally happen on Monday and Monday was a holiday. Then we’re confronted with a reality: you, and I, and the people who stock the machine, and build the machine, and the people who make the decisions about what to stock it with, or when, and how, and why….&lt;/p&gt;
-
-&lt;p&gt;We are all simply harried, overworked bags of dirty water that are winging it and doing our best balancing conflicting business needs, and complicated lives and health and families and concerns and motivations completely unrelated to the &lt;em&gt;good&lt;/em&gt; sandwich cookies and your obtaining them. I’m sorry.&lt;/p&gt;
-
-&lt;p&gt;We can agree: it sure would be nice if the machine had the sandwich cookies you wanted.&lt;/p&gt;
-
-&lt;p&gt;Or not: my agreement could also be the pathology talking. The machine is not the human endeavor here… though my sympathy for your situation (and our shared pathology) could be.&lt;/p&gt;
-
-&lt;p&gt;This particular line of thought was triggered by reading this passage from James Bennet’s &lt;a href=&quot;https://www.b-list.org/weblog/2022/jul/11/pypi/&quot;&gt;“Yes, I have opinions on your open source contributions”&lt;/a&gt;  about some drama going on around the situation of the people who run the PyPI Python package repository wanting to add additional security requirements on the people who publish packages to said repository to protect the people who download packages from said repository and thus reduce support demand on said repository maintainers by preventing packages from being compromised (analogus some drama is playing out in my world of Ruby too):&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;If you believe nobody has the right to ”demand” an open-source maintainer do something or abide by some policy or restriction, then that ends the argument in more ways than people are appreciating. If you just want to say “nobody can demand I do this”, then OK, but you also can’t demand PyPI — which is an open-source project, too — do any particular thing or abide by any particular policy you’d like, which more or less removes any grounds you might have had to criticize their account security approach. They don’t owe you anything and don’t have to do what you want them to do, the end.&lt;/p&gt;
-
-  &lt;p&gt;But a lot of people in comment threads are trying really hard to figure out a way to impose requirements and standards on PyPI’s maintainers but not on anyone else, which then contradicts the “it’s open-source, you can’t demand anyone do anything” basis of the whole argument. Somewhat amusing are people who try to argue that PyPI has a lot more power to affect people and so should be restricted more, which is an equally good argument for imposing on people who maintain major packages.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;And there’s a lot more.&lt;/p&gt;
-
-&lt;p&gt;To follow my thread of before, there’s a lot of demanding going on that the people, who are inseparable from the package repository, be vending machines. And what, to me, sounds like a fair and reasonable counterpoint being that people are not vending machines. And we should go with that.&lt;/p&gt;
-
-  &lt;br&gt;&lt;br&gt;
-  &lt;hr&gt;
-  &lt;p&gt;
-    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2022/07/were-all-just-people-here-even-platforms&quot;&gt;We&apos;re all just people here, even platforms&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
-    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
-  &lt;/p&gt;
-</description>
-  <pubDate>Wed, 13 Jul 2022 04:54:00 +0000</pubDate>
-  <link>https://island94.org/2022/07/were-all-just-people-here-even-platforms</link>
-  <guid isPermaLink="true">https://island94.org/2022/07/were-all-just-people-here-even-platforms</guid>
-  
-    <category>thoughts</category>
   
   
 </item>
