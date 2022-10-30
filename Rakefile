@@ -1,18 +1,21 @@
+require 'rubygems'
+require 'bundler/setup'
+require 'active_support'
+require 'active_support/all'
+
 desc 'Create a new post'
 task :new_post, [:title, :body] do |_t, args|
   ENV["TZ"] = 'America/Los_Angeles'
 
-  title = args[:title] || ENV['POST_TITLE']
+  title = args[:title] || ENV['POST_TITLE'] || raise("Title cannot be empty")
   body = args[:content] || ENV['POST_BODY']
-
-  raise "Title cannot be empty" if title.nil?
 
   content = <<~MARKDOWN
     ---
-    title: "#{title}"
+    title: #{title.to_json}
     date: #{Time.new.strftime('%Y-%m-%d %H:%M %Z')}
     published: true
-    tags:
+    tags: []
     ---
 
     #{body}
@@ -24,10 +27,9 @@ task :new_post, [:title, :body] do |_t, args|
     </blockquote>
   MARKDOWN
 
-  slug = title.gsub(' ','-').downcase
-  filename = "#{Time.new.strftime('%Y-%m-%d')}-#{slug}.md"
+  filename = "#{Time.new.strftime('%Y-%m-%d')}-#{title.parameterize}.md"
   path = File.join("_posts", filename)
-  File.open(path, 'w') { |file| file.puts(content) }
+  File.write(path, content)
 
   $stdout.puts "=== Generating post ==="
   $stdout.puts path
@@ -47,14 +49,14 @@ task :new_book, [:title, :author, :link, :rating, :review] do |_t, args|
 
   content = <<~MARKDOWN
     ---
-    title: "#{title}"
+    title: #{title.to_json}
     author: "#{author}"
     link: "#{link}"
     rating: #{rating}
     date: #{Time.new.strftime('%Y-%m-%d %H:%M %Z')}
     published: true
     layout: book
-    tags:
+    tags: []
     ---
 
     #{review}
@@ -66,10 +68,9 @@ task :new_book, [:title, :author, :link, :rating, :review] do |_t, args|
     </blockquote>
   MARKDOWN
 
-  slug = title.gsub(' ','-').downcase
-  filename = "#{Time.new.strftime('%Y-%m-%d')}-#{slug}.md"
+  filename = "#{Time.new.strftime('%Y-%m-%d')}-#{title.parameterize}.md"
   path = File.join("_books", filename)
-  File.open(path, 'w') { |file| file.puts(content) }
+  File.write(path, content)
 
   $stdout.puts "=== Generating book review ==="
   $stdout.puts path

@@ -5,11 +5,11 @@ on:
       post_title:
         description: 'Post Title'
         required: true
-        default: ""
+        type: string
       post_body:
         description: 'Post Body'
         required: false
-        default: ""
+        type: string
 jobs:
   new_post:
     name: Create new post and open PR

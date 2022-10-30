@@ -17,6 +17,11 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
+    activesupport (7.0.4)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
+      i18n (>= 1.6, < 2)
+      minitest (>= 5.1)
+      tzinfo (~> 2.0)
     addressable (2.8.1)
       public_suffix (>= 2.0.2, < 6.0)
     capybara (3.37.1)
@@ -92,6 +97,7 @@ GEM
     method_source (1.0.0)
     mini_mime (1.1.2)
     mini_portile2 (2.8.0)
+    minitest (5.16.3)
     nokogiri (1.13.9)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
@@ -130,6 +136,8 @@ GEM
       ffi (~> 1.9)
     terminal-table (2.0.0)
       unicode-display_width (~> 1.1, >= 1.1.1)
+    tzinfo (2.0.5)
+      concurrent-ruby (~> 1.0)
     unicode-display_width (1.8.0)
     webrick (1.7.0)
     xpath (3.2.0)
@@ -139,6 +147,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activesupport
   capybara
   classifier-reborn
   gsl!

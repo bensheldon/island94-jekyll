@@ -5,23 +5,23 @@ on:
       book_title:
         description: 'Title'
         required: true
-        default: ""
+        type: string
       book_author:
         description: 'Author'
         required: false
-        default: ""
+        type: string
       book_link:
         description: 'Link'
         required: false
-        default: ""
+        type: string
       book_rating:
         description: 'Rating'
         required: false
-        default: ""
+        type: string
       book_review:
         description: 'Review'
         required: false
-        default: ""
+        type: string
 jobs:
   new_book_review:
     name: Create new book review and open PR
@@ -43,7 +43,6 @@ jobs:
           BOOK_LINK: ${{ github.event.inputs.book_link }}
           BOOK_RATING: ${{ github.event.inputs.book_rating }}
           BOOK_REVIEW: ${{ github.event.inputs.book_review }}
-
         run: bundle exec rake new_book
       - name: Create commit
         run: |
