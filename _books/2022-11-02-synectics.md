@@ -38,9 +38,9 @@ How do you choose? Lots of bias here:
 
 2. Attitude of Assistance: Because some characteristics of a candidate can’t be identified from conversation alone, the interview includes taking a walk in the woods, inviting the candidate to participate in a project on the property (pipe is being laid or a little bridge is being built over a stream, or a new timber is being fitted to the bam); in the evening the candidate meets with the Synectors for a cook-out. If his attitude of assistance has not revealed itself before, the cook-out preparation is used as the ultimate test. In general there are three kinds of response to this activity:
   
-    a. The candidate sits and watches the fire being laid.
-    b. The candidate asks if he can help.
-    c. The candidate observes what is needed and supplies it.
+    1. The candidate sits and watches the fire being laid.
+    2. The candidate asks if he can help.
+    3. The candidate observes what is needed and supplies it.
 
     Building a fire is such a universal function, known to everyone, that it serves as an excellent test of assistance attitude. Obviously, for the purpose of Synectics, a man who sees how he can help and does it is the most acceptable. Part of the fire making technique is to make sure that there is not enough kindling on the spot so as to guarantee ample opportunity for the candidate to reveal himself.
 
