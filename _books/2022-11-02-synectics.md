@@ -37,7 +37,7 @@ How do you choose? Lots of bias here:
 1. Metaphoric Capacity: The candidate’s language is carefully watched for signs of metaphor and analogy as described by the operational mechanisms: Personal Analogy, Symbolic Analogy, Direct Analogy, and Fantasy Analogy. The candidate is encouraged to speak metaphorically...
 
 2. Attitude of Assistance: Because some characteristics of a candidate can’t be identified from conversation alone, the interview includes taking a walk in the woods, inviting the candidate to participate in a project on the property (pipe is being laid or a little bridge is being built over a stream, or a new timber is being fitted to the bam); in the evening the candidate meets with the Synectors for a cook-out. If his attitude of assistance has not revealed itself before, the cook-out preparation is used as the ultimate test. In general there are three kinds of response to this activity:
-  
+
     1. The candidate sits and watches the fire being laid.
     2. The candidate asks if he can help.
     3. The candidate observes what is needed and supplies it.
