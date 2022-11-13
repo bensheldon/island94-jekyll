@@ -6,10 +6,81 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 07 Nov 2022 15:30:32 +0000</pubDate>
-    <lastBuildDate>Mon, 07 Nov 2022 15:30:32 +0000</lastBuildDate>
+    <pubDate>Sun, 13 Nov 2022 22:50:13 +0000</pubDate>
+    <lastBuildDate>Sun, 13 Nov 2022 22:50:13 +0000</lastBuildDate>
     <generator>Jekyll v4.3.1</generator>
     
+    
+      
+        
+
+
+
+
+<item>
+  <title>Worknotes: November 13, 2022</title>
+  <description>&lt;p&gt;Let’s go!&lt;/p&gt;
+
+&lt;h2 id=&quot;universe&quot;&gt;Universe&lt;/h2&gt;
+
+&lt;p&gt;This past week was GitHub Universe. Local SF Hubbers were invited to volunteer and I did: I worked the info booth and the swag shop. It was nice meeting lots of other local Hubbers that don’t regularly frequent the office.&lt;/p&gt;
+
+&lt;h2 id=&quot;performance-review-season&quot;&gt;Performance Review Season&lt;/h2&gt;
+
+&lt;p&gt;It’s here again. As a manager, I have a template for how I like to receive self-reflections that I’ve been dragging around with me for the past 15 (?!) years.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Laundry list all of your projects, contributions, and accomplishments during the time period [if this seems difficult, have some sympathy for your manager]&lt;/li&gt;
+  &lt;li&gt;What future growth areas (lined up in phrases from the Career Ladder) would you like to focus on developing?&lt;/li&gt;
+  &lt;li&gt;What specific project/work opportunities exist (or you’d like to create) that would help you develop the growth areas you described in the previous question? (or you would really, really want to work on).&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;And then it’s a matter of trying to shoe-horn those questions into the invariably slightly different organizational template. I wrote up a big document for my reports.&lt;/p&gt;
+
+&lt;p&gt;Here’s what I drafted for myself on the opportunities question:&lt;/p&gt;
+
+&lt;blockquote&gt;
+
+  &lt;p&gt;Improve predictability of team output. I would like to better develop a proactive ability to predict team output. Two focuses:&lt;/p&gt;
+
+  &lt;ul&gt;
+    &lt;li&gt;&lt;strong&gt;Tactical Planning&lt;/strong&gt;: Improving my short/medium-term project management skills to improve how work is defined, broken down, and scheduled with target dates.&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;Strategic Planning&lt;/strong&gt;: Planning and championing high-impact projects that would be engaging for both the team and engineering leadership.&lt;/li&gt;
+  &lt;/ul&gt;
+
+  &lt;p&gt;The end result of this, in addition to expanding impact, is growing the Ruby Architecture team and ensuring there is sufficient capacity (and buffers) for our core Areas of Responsibility.&lt;/p&gt;
+
+  &lt;p&gt;&lt;strong&gt;Further develop “out”-ward communication.&lt;/strong&gt; Improve my ability to brief and influence across teams and leadership at GitHub. Particularly focused on reinforcing the position and importance of Ruby and Rails within GitHub.&lt;/p&gt;
+
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;what-is-platform&quot;&gt;What is “Platform”&lt;/h2&gt;
+
+&lt;p&gt;In my new department, UI &amp;amp; Monolith Platform, all of my sibling teams are platform, but look very different. We’ve been working on a document to share with the rest of the Engineering team about what we would say we do here. As part of that, I’ve been thinking about Maturity Models as an explanation for why our teams look so different. Some teams are early, where they’re still focused on adoption and “fit”, and other teams, like mine, that are so mature that I think our internal consumers are not always fully aware that they’re using the platform we’ve built with huge intention.&lt;/p&gt;
+
+&lt;h2 id=&quot;a-universal-playbook&quot;&gt;A universal playbook&lt;/h2&gt;
+
+&lt;p&gt;The past week at Universe, continually responding to the question “oh, what do you do?”, has helped me reflect on what I’m working towards. And realizing it feels like the same playbook I’ve run at other jobs. Lots more to it than this, but man, write your end-to-end tests people.&lt;/p&gt;
+
+  &lt;br&gt;&lt;br&gt;
+  &lt;hr&gt;
+  &lt;p&gt;
+    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2022/11/worknotes-november-13-2022&quot;&gt;Worknotes: November 13, 2022&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
+    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
+  &lt;/p&gt;
+</description>
+  <pubDate>Sun, 13 Nov 2022 20:13:00 +0000</pubDate>
+  <link>https://island94.org/2022/11/worknotes-november-13-2022</link>
+  <guid isPermaLink="true">https://island94.org/2022/11/worknotes-november-13-2022</guid>
+  
+    <category>weeknotes</category>
+  
+    <category>worknotes</category>
+  
+  
+</item>
+
+      
     
       
         
@@ -557,57 +628,6 @@
   <guid isPermaLink="true">https://island94.org/2022/08/weeknotes-aug-29-2022</guid>
   
     <category>weeknotes</category>
-  
-  
-</item>
-
-      
-    
-      
-        
-
-
-
-
-<item>
-  <title>Still only myself</title>
-  <description>&lt;p&gt;Two quotes about the experience of life. The first from NYT’s Magazine &lt;a href=&quot;https://www.nytimes.com/2022/05/11/magazine/weight-loss-pandemic.html&quot;&gt;“I’ve Always Struggled With My Weight. Losing It Didn’t Mean Winning.
-“&lt;/a&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-
-  &lt;p&gt;Suddenly, I was slim. It was, by any measure, an incredible weight-loss success story. Even my great friend Alan texted about how good I looked. (“Did I say that?” he wrote, with a facepalm emoji, when I reminded him of the time he squeezed my love handles. “Sam, I was very inappropriate. But I still think it’s funny.”) I had achieved the great transformation — I had turned myself into the “AFTER” photo.&lt;/p&gt;
-
-  &lt;p&gt;And now that we have that out of the way, I can tell you what I consider the most interesting thing about my weight-loss journey, a secret that you will never see in any banner ad. As the months passed, as I stuck with my healthful habits and got used to my new trim body, as the line on my Noom weight graph stayed low, I felt something amazing: I felt pretty much exactly as I had always felt my whole entire life. I was, after all that change, still only myself. My big epiphany, if I could put it into words, would be something like: “So what?”&lt;/p&gt;
-
-&lt;/blockquote&gt;
-
-&lt;p&gt;And the second from Gawker’s &lt;a href=&quot;https://www.gawker.com/culture/failure-to-cope-under-capitalism&quot;&gt;‘Failure to cope “Under capitalism”’&lt;/a&gt; (newlines added by me for emphasis):&lt;/p&gt;
-
-&lt;blockquote&gt;
-
-  &lt;p&gt;[Anne Helen] Petersen’s most acute insight is perhaps in identifying a link between relentlessly optimized childhoods designed to prevent downward mobility, and the professionally competent but profoundly enervated millennials overwhelmed by the prospect of canceling plans, of keeping plans, of cooking food, of texting their mothers. I think she is correct.&lt;/p&gt;
-
-  &lt;p&gt;I think it’s possible that for many, considering the shape of your life and then living it with vigor is so difficult because it cannot be externally validated. Unlike education and work, it offers no socially obvious meritocratic path. The moments where, like sourdough, it proves, are largely invisible — in cooking, in walking, corresponding with a friend, in chatting with a neighbor or registering to give blood. They cannot be tallied up and put on a resume. They are never “finished.” The progress you make is spiraling rather than linear; circling steadily, slowly, around your weak points, taking two steps forward and one step back, building habits so slowly that only in retrospect can you see your life become different than it was. And there is no one who can tell you that you did it right.&lt;/p&gt;
-
-  &lt;p&gt;But this is not the condition of life under capitalism, this is life itself. And it is a sad irony that though the fear of life may be produced by class imperatives within capitalism, the impulse to restrict it to a problem of capitalism is itself part of the same fearful rejection of the task of living.&lt;/p&gt;
-
-&lt;/blockquote&gt;
-
-&lt;p&gt;Which also reminds me of an aside from a Bruno book, whose authorship is an American author writing about contemporary Southern France, that the French are tryhards even when contributing to a weekly dinner at home with their friends.&lt;/p&gt;
-
-  &lt;br&gt;&lt;br&gt;
-  &lt;hr&gt;
-  &lt;p&gt;
-    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2022/08/still-only-myself&quot;&gt;Still only myself&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
-    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
-  &lt;/p&gt;
-</description>
-  <pubDate>Sun, 14 Aug 2022 23:18:00 +0000</pubDate>
-  <link>https://island94.org/2022/08/still-only-myself</link>
-  <guid isPermaLink="true">https://island94.org/2022/08/still-only-myself</guid>
-  
-    <category>life</category>
   
   
 </item>

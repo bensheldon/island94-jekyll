@@ -105,6 +105,54 @@
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
     <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2021/10/til-detecting-block-returns-in-ruby">TIL: Detecting block returns in Ruby</a>
+    </h1>
+    <p class="post-meta text-muted">
+      <time datetime="2021-10-11T19:01:00+00:00" itemprop="datePublished">October 11, 2021</time>
+      
+      
+
+
+
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>I was doing some research on introspecting Ruby on Rails database transactions for a <a href="https://www.reddit.com/r/ruby/comments/q54515/comment/hg9dzdc/?utm_source=reddit&amp;utm_medium=web2x&amp;context=3">Reddit thread</a>, and came across this <a href="https://github.com/rails/rails/pull/29333">Rails PR</a> that had some new Ruby behavior for me: detecting an early <code class="language-plaintext highlighter-rouge">return</code> from a block.</p>
+
+<p>Some background: A Ruby language feature, that can frequently surprise people, is that using <code class="language-plaintext highlighter-rouge">return</code> within a Ruby block will return not only from the block itself, but also from the block’s caller too. Using <code class="language-plaintext highlighter-rouge">next</code> is really the only truly safe way to interrupt a block early; even <code class="language-plaintext highlighter-rouge">break</code> can be troublesome if the block is called by an enumerator. Also, <code class="language-plaintext highlighter-rouge">next</code> can take a return value too, just like <code class="language-plaintext highlighter-rouge">return</code> e.g. <code class="language-plaintext highlighter-rouge">next my_value</code>.</p>
+
+<p>I found the Rails PR interesting, because it has a method for detecting and warning on an early return. Here’s a simplified example:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">some_method</span><span class="p">(</span><span class="o">&amp;</span><span class="n">block</span><span class="p">)</span>
+  <span class="n">block</span><span class="p">.</span><span class="nf">call</span>
+  <span class="n">completed</span> <span class="o">=</span> <span class="kp">true</span> <span class="c1"># won't be called if the block returns early</span>
+<span class="k">ensure</span>
+  <span class="k">if</span> <span class="n">completed</span>
+    <span class="nb">puts</span> <span class="s2">"ok"</span>
+  <span class="k">else</span>
+    <span class="nb">puts</span> <span class="s2">"returned early"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="n">some_method</span> <span class="p">{</span> <span class="k">return</span> <span class="p">}</span> <span class="c1"># =&gt; "returned early"</span>
+<span class="n">some_method</span> <span class="p">{</span> <span class="k">next</span> <span class="p">}</span> <span class="c1"># =&gt; "ok"</span>
+</code></pre></div></div>
+
+<p>This works because the methods <code class="language-plaintext highlighter-rouge">ensure</code> block will always be called, even if <code class="language-plaintext highlighter-rouge">#some_method</code> returns early. That was a novel implementation for me.</p>
+
+
+  </div>
+</article>
+
+
+    <hr>
+  
+    
+
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
       <a class="post-link" href="/2021/09/home-buyer-letter">Home buyer letter</a>
     </h1>
     <p class="post-meta text-muted">
@@ -629,42 +677,6 @@ Ben and Angelina</p>
 
   <p>…It’s a compulsion trap.</p>
 
-</blockquote>
-
-  </div>
-</article>
-
-
-    <hr>
-  
-    
-
-<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">
-      <a class="post-link" href="/2020/11/dying-on-management-mountain">Dying on management mountain</a>
-    </h1>
-    <p class="post-meta text-muted">
-      <time datetime="2020-11-03T20:59:00+00:00" itemprop="datePublished">November 3, 2020</time>
-      
-      
-
-
-
-    </p>
-  </header>
-
-  <div class="post-content" itemprop="articleBody">
-    <p>From <em>First, break all the rules</em>:</p>
-
-<blockquote>
-  <p>Managers were encouraged to focus on complex initiatives like reengineering or learning organizations, without spending time on the basics. The stages on the mountain reveal that if the employee doesn’t know what is expected of him as an individual (Base Camp), then you shouldn’t ask him to get excited about playing on a team (Camp 2). If he feels as though he is in the wrong role (Camp 1), don’t pander to him by telling him how important his innovative ideas are to the company’s reengineering efforts (Camp 3). If he doesn’t know what his manager thinks of him as an individual (Camp 1), don’t confuse him by challenging him to become part of the new “learning organization” (Camp 3). Don’t helicopter in at seventeen thousand feet, because sooner or later you and your people will die on the mountain.</p>
-</blockquote>
-
-<p>And a quote about performing the performance:</p>
-
-<blockquote>
-  <p>A manager has got to remember that he is on stage every day. His people are watching him. Everything he does, everything he says, and the way he says it, sends off clues to his employees. These clues affect performance. So never forget you are on that stage.</p>
 </blockquote>
 
   </div>

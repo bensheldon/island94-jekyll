@@ -6,10 +6,79 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 07 Nov 2022 15:30:32 +0000</pubDate>
-    <lastBuildDate>Mon, 07 Nov 2022 15:30:32 +0000</lastBuildDate>
+    <pubDate>Sun, 13 Nov 2022 22:50:13 +0000</pubDate>
+    <lastBuildDate>Sun, 13 Nov 2022 22:50:13 +0000</lastBuildDate>
     <generator>Jekyll v4.3.1</generator>
     
+    
+      
+
+
+
+
+<item>
+  <title>Worknotes: November 13, 2022</title>
+  <description>&lt;p&gt;Let’s go!&lt;/p&gt;
+
+&lt;h2 id=&quot;universe&quot;&gt;Universe&lt;/h2&gt;
+
+&lt;p&gt;This past week was GitHub Universe. Local SF Hubbers were invited to volunteer and I did: I worked the info booth and the swag shop. It was nice meeting lots of other local Hubbers that don’t regularly frequent the office.&lt;/p&gt;
+
+&lt;h2 id=&quot;performance-review-season&quot;&gt;Performance Review Season&lt;/h2&gt;
+
+&lt;p&gt;It’s here again. As a manager, I have a template for how I like to receive self-reflections that I’ve been dragging around with me for the past 15 (?!) years.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Laundry list all of your projects, contributions, and accomplishments during the time period [if this seems difficult, have some sympathy for your manager]&lt;/li&gt;
+  &lt;li&gt;What future growth areas (lined up in phrases from the Career Ladder) would you like to focus on developing?&lt;/li&gt;
+  &lt;li&gt;What specific project/work opportunities exist (or you’d like to create) that would help you develop the growth areas you described in the previous question? (or you would really, really want to work on).&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;And then it’s a matter of trying to shoe-horn those questions into the invariably slightly different organizational template. I wrote up a big document for my reports.&lt;/p&gt;
+
+&lt;p&gt;Here’s what I drafted for myself on the opportunities question:&lt;/p&gt;
+
+&lt;blockquote&gt;
+
+  &lt;p&gt;Improve predictability of team output. I would like to better develop a proactive ability to predict team output. Two focuses:&lt;/p&gt;
+
+  &lt;ul&gt;
+    &lt;li&gt;&lt;strong&gt;Tactical Planning&lt;/strong&gt;: Improving my short/medium-term project management skills to improve how work is defined, broken down, and scheduled with target dates.&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;Strategic Planning&lt;/strong&gt;: Planning and championing high-impact projects that would be engaging for both the team and engineering leadership.&lt;/li&gt;
+  &lt;/ul&gt;
+
+  &lt;p&gt;The end result of this, in addition to expanding impact, is growing the Ruby Architecture team and ensuring there is sufficient capacity (and buffers) for our core Areas of Responsibility.&lt;/p&gt;
+
+  &lt;p&gt;&lt;strong&gt;Further develop “out”-ward communication.&lt;/strong&gt; Improve my ability to brief and influence across teams and leadership at GitHub. Particularly focused on reinforcing the position and importance of Ruby and Rails within GitHub.&lt;/p&gt;
+
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;what-is-platform&quot;&gt;What is “Platform”&lt;/h2&gt;
+
+&lt;p&gt;In my new department, UI &amp;amp; Monolith Platform, all of my sibling teams are platform, but look very different. We’ve been working on a document to share with the rest of the Engineering team about what we would say we do here. As part of that, I’ve been thinking about Maturity Models as an explanation for why our teams look so different. Some teams are early, where they’re still focused on adoption and “fit”, and other teams, like mine, that are so mature that I think our internal consumers are not always fully aware that they’re using the platform we’ve built with huge intention.&lt;/p&gt;
+
+&lt;h2 id=&quot;a-universal-playbook&quot;&gt;A universal playbook&lt;/h2&gt;
+
+&lt;p&gt;The past week at Universe, continually responding to the question “oh, what do you do?”, has helped me reflect on what I’m working towards. And realizing it feels like the same playbook I’ve run at other jobs. Lots more to it than this, but man, write your end-to-end tests people.&lt;/p&gt;
+
+  &lt;br&gt;&lt;br&gt;
+  &lt;hr&gt;
+  &lt;p&gt;
+    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2022/11/worknotes-november-13-2022&quot;&gt;Worknotes: November 13, 2022&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
+    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
+  &lt;/p&gt;
+</description>
+  <pubDate>Sun, 13 Nov 2022 20:13:00 +0000</pubDate>
+  <link>https://island94.org/2022/11/worknotes-november-13-2022</link>
+  <guid isPermaLink="true">https://island94.org/2022/11/worknotes-november-13-2022</guid>
+  
+    <category>weeknotes</category>
+  
+    <category>worknotes</category>
+  
+  
+</item>
+
     
       
 
@@ -457,117 +526,6 @@
   <pubDate>Tue, 26 Jul 2022 19:02:00 +0000</pubDate>
   <link>https://island94.org/2022/07/hate-and-sarcasm</link>
   <guid isPermaLink="true">https://island94.org/2022/07/hate-and-sarcasm</guid>
-  
-  
-</item>
-
-    
-      
-
-
-
-
-<item>
-  <title>Four dumb-cringe tech interview stories</title>
-  <description>&lt;p&gt;In my previous write-up about NodeTiles, I said that I had dumb interview stories to share. They are also cringe. Here they are.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;“Oh yeah, me too.”&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;I failed my very first professional job interview.&lt;/p&gt;
-
-&lt;p&gt;I was 21 and it was 2004. It was my last year at the University of California, Santa Barbara. I was graduating early, in three years, with a BS in Math Sciences, with Honors, and I was looking at Summer internships as something to do because the last credit course I needed was only offered at the tail-end of Summer quarter, right before my AmeriCorps*VISTA service began in Boston. I had never done a college internship before, mainly out of ignorance of their importance; this would be my first (and only) attempt at landing one.&lt;/p&gt;
-
-&lt;p&gt;UCSB is gorgeous, it’s on the beach; it is a bare-shouldered, sunny, surfy beach town. I was boring. Yes, I surfed and swam and sailed and hiked and ballroom danced and tended a community garden and worked on my 1973 Porsche 914 through Santa Barbara High School’s vocational auto-shop. But I wore a lot of cargo shorts, I didn’t drink or party, and I mainly loaded up on math and writing courses and worked in the campus library’s Map and Imagery Lab pulling and shelving topos and ortho photos. Santa Barbara!&lt;/p&gt;
-
-&lt;p&gt;My internship interview was with a local military contractor that was creating sensor fusion software. I thought it was pretty cool because it was maps and spatial and lined up with my honors research project, using statistical sensing methods to probe physical topologies, albeit of knotted proteins, not the Middle East. Also, I had not yet untangled for myself the distinctions between patriotic service and imperial militarism. I was 21 and it was 2004.&lt;/p&gt;
-
-&lt;p&gt;I don’t remember a lot of the details of the interview. There was a primary interviewer who was maybe a year or two graduated from UCSB himself. He walked me around between cubicles I was given the chance to briefly chat with various people, including the CEO. At the end, we sat down for more formal chatting, and he said something like:&lt;/p&gt;
-
-&lt;p&gt;“You know, we don’t like to work very hard around here. Do you?”&lt;/p&gt;
-
-&lt;p&gt;And me, just trying to fit in, was like “Oh yeah, me too. I try to take it easy.”&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Ded.&lt;/em&gt; I was declined. I’ll never know if that was a trick question, or like they knew I was not actually a good fit. But it was fine. I took another writing class.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;“Code is our craft”&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;It was 2012, and my Code for America Fellowship was coming to an end. Having moved the previous year from Boston to the Bay Area for the fellowship, I now retooled my resume to downplay my decade-ish career of “community media and technology leadership” and instead highlight my “web applications and freelance software development” experience. I was trying to land my first official Software Engineering job.&lt;/p&gt;
-
-&lt;p&gt;There were a number of companies in Code for America’s orbit, so multiple fellows were interviewing at the same place. Us fellows were more collegial than competitive, so there was lots of helpful backchanneling and suggestions and level-setting that some of the jobs were faintly ridiculous, but sure, why not. It was the Bay Area in 2012.&lt;/p&gt;
-
-&lt;p&gt;I got a face-to-face interview with a company that I’ll vaguely describe as “a social network for baristas”.  It was a Javascript company. There was a tech-screener project I apparently passed, so I came into the office. I can say this, with more hindsight and experience: there were some red flags.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;I was introduced to the lead engineer and we chatted for a minute. I asked them something like “How do you see the business growing? I mean, where do you think the value lies in the product?” &lt;em&gt;This was the wrong question for them.&lt;/em&gt; The lead engineer explained that “Code is our craft” and that well, who knows what the future will bring, but they want people who really are interested in the &lt;em&gt;software.&lt;/em&gt;&lt;/li&gt;
-  &lt;li&gt;One portion of the interview was reviewing my tech screener project. There was one part of the screener where I was unsure of the situationally &lt;em&gt;best&lt;/em&gt; way to accomplish it, so I did the most direct unoptimized way and left some comments about different optimizations and their pros/cons. I was asked about why I hadn’t just picked one, and I explained that I wanted to treat this like real life and talk through it with a more experienced colleague who could represent the actual business needs and not prematurely optimize at the expense of readability and openness to change. &lt;em&gt;That was the wrong answer for them.&lt;/em&gt; They explained that “Code is our craft” and they’d expect me to make the best call on my own.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;I was declined. I want to admit that I did mostly fail a different part of the technical interview: it was a whiteboarding exercise along the lines of “solve this problem using only pipes”. I think &lt;em&gt;everything&lt;/em&gt; may have been built with pipes, but it was Javascript in 2012, so I probably should have known how to do it to be qualified.&lt;/p&gt;
-
-&lt;p&gt;Sidenote: Huge props and respect that the company successfully socialized and operationalized a core company value. Even if I think it’s dumb.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;“Focused on the code”&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;This was 2016, my professional circumstances were different, and I want to assert that I had become a real catch of an engineer. I was leading a fullstack web UI and CLI team at a B2B platform-infrastructure startup, and also moonlight solopreneuring a successful consumer web and cross-platform mobile native app too. Professionally, maybe, kind of, a big deal 💅&lt;/p&gt;
-
-&lt;p&gt;I was courted. I was reached out to over LinkedIn by someone I had only known &lt;em&gt;of&lt;/em&gt; to that point. We got coffee and walked around San Francisco and they shared their vision. They invited me, and several other engineers, some of who I also knew &lt;em&gt;of&lt;/em&gt; to a fancy private dinner. It was nice.&lt;/p&gt;
-
-&lt;p&gt;And there was a standard interview too. We talked about developing high-performant, early-adopter, power-user consumer interfaces, and our shared history and respect for Ruby and Rails and Javascript. We pair programmed on a problem, and I think I was nailing it.&lt;/p&gt;
-
-&lt;p&gt;And then there was a question, like “Ben, I know that you’ve been a manager in the past, and you’re currently leading a team. Is that something you really want to do in your next job?”&lt;/p&gt;
-
-&lt;p&gt;I replied saying something like “I’m happy being an IC. And I think a strength is my flexibility to help where it’s needed. If that’s what you and the business and the team eventually need, I’d feel confident and comfortable stepping into that role again.”&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;That was the wrong answer for them.&lt;/em&gt;  I was declined. I received a reply later saying they wanted someone “focused on the code.” This is one time when I do wonder if I should have like, followed up and clarified my message, but interviewing is like bizarro-world dating so who knows.&lt;/p&gt;
-
-&lt;p&gt;Sidenote: If you’re reading this as flat advice, you &lt;em&gt;should&lt;/em&gt; follow-up, because the worst that will happen is they’ll say “still a no”.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;“Should we go back in there?”&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;In this story I was one of two technical interviewers, along with a hiring manager and the director of engineering.&lt;/p&gt;
-
-&lt;p&gt;We were debriefing after a week of interviewing candidates. There were two finalists. None of this may have actually mattered, or everything mattered, but I want to paint the picture. Both engineering candidates were women; we were all men along with the entire engineering team of 15 or so; not great!&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Candidate 1 was very outgoing, had a ton of analogous Bay Area tech experience, lots in common to talk about… and did not pass our technical interviews.&lt;/li&gt;
-  &lt;li&gt;Candidate 2 was a kinda awkward, their experience was weakly adjacent sorta kinda… and they totally aced the technical interviews, like finished in half the time then schooled us. Which made it even more awkward because we’re all awkward engineers truly and now we had like 30 minutes of dead time to fill trying to chitchat. I heard something similar happened in the manager interviews: the candidate answered &lt;em&gt;too&lt;/em&gt; succinctly.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Ok, so the debrief. We went around the table, shared our experiences. &lt;em&gt;And Management wanted to hire Candidate 1&lt;/em&gt;, the candidate that didn’t pass our technical interviews. For real! But this is business, and we have to be collegial, and they’re the managers, so my other engineering colleague and I disagreed and committed and rolled our eyes but left the meeting like &lt;em&gt;yep, this is business, we’re all business here.&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;And we were walking down the hallway back to our desks and we both said to each other at the same time “What the fuck was that?”&lt;/p&gt;
-
-&lt;p&gt;“Should we go back in there?”&lt;/p&gt;
-
-&lt;p&gt;“That wasn’t right.”&lt;/p&gt;
-
-&lt;p&gt;So we kind of treaded water out in the hall for a minute, and worked up the courage to… gently go back and knock on the conference room door and politely ask if we could say one more thing.&lt;/p&gt;
-
-&lt;p&gt;“We should hire Candidate 2.” Seriously.&lt;/p&gt;
-
-&lt;p&gt;To management’s credit, they listened and I think correctly read that we were distressed and this wasn’t just our standard grumpy-engineer bikeshedding bit. Management agreed to make an offer to Candidate 2. Mission accomplished.&lt;/p&gt;
-
-&lt;p&gt;Ok, so I want to say there are two possible futures here:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;We hire Candidate 2, and they are a solid if unremarkable engineer. They do good work, meet and occassionally exceed expectations, and are an incremental contributor like everyone else in pushing out our startup’s runway toward some brighter future and shared equity event.&lt;/li&gt;
-  &lt;li&gt;We hire Candidate 2, and they are an absolute-based 100x engineer. They frankly save the company in my mind, bulldozing through any problem you throw their way with a nonchalant “alrighty then”. They exhaust the backlog leading them to entirely rewrite the product &lt;em&gt;twice over&lt;/em&gt; better/faster/more-maintainably as a distraction while the backlog is rebuilt then they plow through it again.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;It does not matter which future actually happened (though one of them definitely did!), because they were qualified, capable, and if we removed the fucking bias of our otherwise reasonably designed interview loop, the best candidate in our pool.&lt;/p&gt;
-
-&lt;p&gt;In the previous story when I played the role as befuddled candidate I was like “I dunno, bizarro dating”; but if you are ever in the position as an interviewer and there are some bogus soft-no’s or bogus soft-yes’s, speak the fuck up and use your power to the extent you safely can. Seriously, you can do this, &lt;em&gt;even in business.&lt;/em&gt;&lt;/p&gt;
-
-  &lt;br&gt;&lt;br&gt;
-  &lt;hr&gt;
-  &lt;p&gt;
-    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2022/07/four-dumb-cringe-tech-interview-stories&quot;&gt;Four dumb-cringe tech interview stories&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
-    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
-  &lt;/p&gt;
-</description>
-  <pubDate>Fri, 15 Jul 2022 17:14:00 +0000</pubDate>
-  <link>https://island94.org/2022/07/four-dumb-cringe-tech-interview-stories</link>
-  <guid isPermaLink="true">https://island94.org/2022/07/four-dumb-cringe-tech-interview-stories</guid>
   
   
 </item>
