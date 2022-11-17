@@ -13,7 +13,7 @@ I played a lot of Sim Earth as a kid. It had a mode called Daisyworld based on t
 
 > proposes that living organisms interact with their inorganic surroundings on  Earth to form a synergistic and self-regulating, complex system that helps to maintain and perpetuate the conditions for life on the planet.
 
-In Sim Earth’s Daisyworld, that was simulated by populating the Earth with different shades of flower. Darker flowers survived at lower temperatures and absorbed sunlight, warming their immediate environment; lighter flowers survived at warmer temperatures and reflecting sunlight, cooling their immediate environment. Running the simulation would, eventually, usually, lead to a dynamically changing, but still steady-state environment; in [Conway terminoloy](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life#Examples_of_patterns): still lifes and oscillators.
+In Sim Earth's Daisyworld, that was simulated by populating the Earth with different shades of flower. Darker flowers survived at lower temperatures and absorbed sunlight, warming their immediate environment; lighter flowers survived at warmer temperatures and reflecting sunlight, cooling their immediate environment. Running the simulation would, eventually, usually, lead to a dynamically changing, but still steady-state environment; in [Conway terminoloy](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life#Examples_of_patterns): still lifes and oscillators.
 
 Usually your Earth found a steady state, unless:
 
@@ -26,11 +26,11 @@ Usually your Earth found and could recover a steady state! That's [homeostasis](
 > Homeostasis is brought about by a natural resistance to change when already in the optimal conditions, and equilibrium is maintained by many regulatory mechanisms: it is thought to be the central motivation for all organic action.
 
 ## Terroir
-From Vicki Boykis’s  [“The Art of the Long Goodbye”](https://vicki.substack.com/p/the-art-of-the-long-goodbye) :
+From Vicki Boykis's  [“The Art of the Long Goodbye”](https://vicki.substack.com/p/the-art-of-the-long-goodbye) :
 
 > A few years ago, I read the Southern Reach trilogy, by Jeff Van Der Meer….
 >
-> One of the main concepts of the books is the idea of a terroir, a self-contained natural environment that shapes everything inside of it. Usually when we talk about a terroir we’re referring to wine: a wine from a given region tastes like wine from that given region should taste because of the grapes and the soil and the way the sunlight hits that particular spot. Since I left my last job, I’ve been thinking a lot about the idea of terroir as it relates to the workplace.
+> One of the main concepts of the books is the idea of a terroir, a self-contained natural environment that shapes everything inside of it. Usually when we talk about a terroir we're referring to wine: a wine from a given region tastes like wine from that given region should taste because of the grapes and the soil and the way the sunlight hits that particular spot. Since I left my last job, I've been thinking a lot about the idea of terroir as it relates to the workplace.
 >
 > Every workplace, like every Tolstoyan family, is unique in its own way. When we start a job, we enter that terroir with the intent to shape it. But in turn, we are also shaped by it.
 
@@ -52,13 +52,13 @@ A team is never static. People were leaving, we were hiring, teams were forming 
 
 Will Larson writes about this idea of a ["Values Oasis"](https://lethain.com/values-oasis/):
 
-> A few years ago, I heard an apocryphal story about Sheryl Sandberg’s departure from Google to Facebook. In the story she apologizes to her team at Google because she’d sheltered them too much from Google’s politics and hadn’t prepared them to succeed once she stopped running interference. The story ends with her entire team struggling and eventually leaving after her departure. I don’t know if the story is true, but it’s an excellent summary of the Values Oasis trap, where a leader uses their personal capital to create a non-conforming environment within an wider organization.
+> A few years ago, I heard an apocryphal story about Sheryl Sandberg's departure from Google to Facebook. In the story she apologizes to her team at Google because she'd sheltered them too much from Google's politics and hadn't prepared them to succeed once she stopped running interference. The story ends with her entire team struggling and eventually leaving after her departure. I don't know if the story is true, but it's an excellent summary of the Values Oasis trap, where a leader uses their personal capital to create a non-conforming environment within an wider organization.
 
 ## Garden
 
 The relationship between people and environment is a problematic metaphor.
 
-I was a member of the Boston Pubic Garden’s Rose Brigade for number of years, taking care of the roses. The Boston Public Garden's style is Western, specimen, ornamental: large, well-spaced bushes with well-defined blooms. They’re gorgeous. And.
+I was a member of the Boston Pubic Garden's Rose Brigade for number of years, taking care of the roses. The Boston Public Garden's style is Western, specimen, ornamental: large, well-spaced bushes with well-defined blooms. They're gorgeous. And.
 
 There's a lot of waste. Trimming, dead-heading, opening up, clearing leaf drops. A lot of waste.
 
@@ -66,7 +66,7 @@ There is a trope, [Cincinnatus](https://tvtropes.org/pmwiki/pmwiki.php/Main/Cinc
 
 I'm reminded of Nirgal's (spoiler!) fated ecopoetic basin in KSR's [_Blue Mars_](https://www.goodreads.com/book/show/77504.Blue_Mars):
 
-> Nirgal wandered the basin after storms, looking to see what had blown in. Usually it was only a load of icy dust, but once he found an unplanted clutch of pale blue Jacob’s ladders, tucked between the splits in a breadloaf rock. Check the botanicals to see how it might interact with what was already there. Ten percent of introduced species survived, then ten percent of those became pests; that was invasion biology’s ten-ten rule, Yoshi said, almost the first rule of the discipline. “Ten meaning five to twenty of course.”
+> Nirgal wandered the basin after storms, looking to see what had blown in. Usually it was only a load of icy dust, but once he found an unplanted clutch of pale blue Jacob's ladders, tucked between the splits in a breadloaf rock. Check the botanicals to see how it might interact with what was already there. Ten percent of introduced species survived, then ten percent of those became pests; that was invasion biology's ten-ten rule, Yoshi said, almost the first rule of the discipline. “Ten meaning five to twenty of course.”
 
 And close it out with a quote from [_Seeing like a State_](https://www.goodreads.com/book/show/20186.Seeing_Like_a_State):
 
