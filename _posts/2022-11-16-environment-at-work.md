@@ -62,12 +62,12 @@ I was a member of the Boston Pubic Garden's Rose Brigade for number of years, ta
 
 There's a lot of waste. Trimming, dead-heading, opening up, clearing leaf drops. A lot of waste.
 
-There is a trope, [Cincinnatus](https://tvtropes.org/pmwiki/pmwiki.php/Main/Cincinnatus), in which the tyrant/general/magnate retires (or desires to retire, after the present crisis, of course) to tend garden. I think it usually appears to soften them: _see the can be gentle too._ But I dunno, gardens aren't gentle. There's a lot of centering the gardener, and a lot of will to be exercised in a garden. Other people aren't plants, don't take it too far.
+There is a trope, [Cincinnatus](https://tvtropes.org/pmwiki/pmwiki.php/Main/Cincinnatus), in which the tyrant/general/magnate retires (or desires to retire, after the present crisis, of course) to tend garden. I think it usually appears to soften them: _see they can be gentle too._ But I dunno, gardens aren't gentle. There's a lot of centering the gardener, and a lot of will to be exercised in a garden. Other people aren't plants, don't take it too far.
 
 I'm reminded of Nirgal's (spoiler!) fated ecopoetic basin in KSR's [_Blue Mars_](https://www.goodreads.com/book/show/77504.Blue_Mars):
 
 > Nirgal wandered the basin after storms, looking to see what had blown in. Usually it was only a load of icy dust, but once he found an unplanted clutch of pale blue Jacob's ladders, tucked between the splits in a breadloaf rock. Check the botanicals to see how it might interact with what was already there. Ten percent of introduced species survived, then ten percent of those became pests; that was invasion biology's ten-ten rule, Yoshi said, almost the first rule of the discipline. “Ten meaning five to twenty of course.”
 
-And close it out with a quote from [_Seeing like a State_](https://www.goodreads.com/book/show/20186.Seeing_Like_a_State):
+And close on it out with a quote from [_Seeing like a State_](https://www.goodreads.com/book/show/20186.Seeing_Like_a_State):
 
 > Contemporary development schemes… require the creation of state spaces where the government can reconfigure the society and economy of those who are to be “developed.” The transformation of peripheral nonstate spaces into state spaces by the modern, developmentalist nation-state is ubiquitous and, for the inhabitants of such spaces, frequently traumatic.
