@@ -1,6 +1,6 @@
-require_relative 'spec_helper'
+require_relative '../spec_helper'
 
-describe 'Site' do
+RSpec.describe 'Site' do
   it 'renders index.html' do
     visit '/index.html'
     expect(page.status_code).to eq 200

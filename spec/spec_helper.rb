@@ -1,11 +1,19 @@
 require 'bundler/setup'
 require 'capybara/rspec'
+require 'capybara/cuprite'
+require 'lanyon'
 require 'pry'
-require 'rack/jekyll'
+require 'webrick'
 
-# https://stackoverflow.com/a/52507221/241735
-jekyll = Rack::Jekyll.new(force_build: ENV.fetch('JEKYLL_FORCE_BUILD', false), auto: true)
-Capybara.app = jekyll
 RSpec.configure do |config|
   config.include Capybara::DSL
+
+  Capybara.register_driver(:cuprite) do |app|
+    Capybara::Cuprite::Driver.new(app, window_size: [1200, 800], inspector: ENV['INSPECTOR'])
+  end
+
+  Capybara.server = :webrick
+  Capybara.default_driver = :rack_test
+  Capybara.javascript_driver = :cuprite
+  Capybara.app = Lanyon.application(skip_build: ENV.fetch('JEKYLL_SKIP_BUILD', true))
 end

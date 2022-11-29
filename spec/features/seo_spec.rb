@@ -1,6 +1,6 @@
-require_relative 'spec_helper'
+require_relative '../spec_helper'
 
-describe 'SEO' do
+RSpec.describe 'SEO' do
   context 'when on frontpage' do
     it 'does not include robots meta tag' do
       visit '/'
@@ -17,9 +17,6 @@ describe 'SEO' do
         click_link
       end
 
-      # workaround because clean urls don't work
-      visit current_path + '.html'
-
       expect(page.text).to include 'Island94.org'
       expect(page).not_to have_css 'meta[name="robots"]',
                                    visible: false
@@ -27,7 +24,7 @@ describe 'SEO' do
   end
 
   context 'when on archive page' do
-    it 'includes robots meta page' do
+    it 'includes robots noindex,nofollow meta tag' do
       visit '/page/2/'
 
       expect(page).to have_css 'meta[name="robots"][content="noindex, follow"]',
@@ -36,6 +33,7 @@ describe 'SEO' do
   end
 
   context 'sitemap' do
+    # Not compatible with latest versions of jekyll-sitemap plugin
     xit 'does not include archive pages' do
       visit 'sitemap.xml'
 
