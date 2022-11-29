@@ -6,7 +6,7 @@
   <hr>
   <p>
     This post, <em><a href="{{link_url}}">{{post.title}}</a></em>, is published on <a href="{{site.url | append: site.baseurl}}">{{ site.title }}</a>.
-    Tweet me at <a href="https://twitter.com/{{site.twitter_username}}">@{{site.twitter_username}}</a> to discuss it.
+    Say hello on <a href="https://ruby.social/@bensheldon">Mastodon</a> or <a href="https://twitter.com/bensheldon">Twitter</a> to discuss it.
   </p>
 {% endcapture %}
 
