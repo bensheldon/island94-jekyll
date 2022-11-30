@@ -16,9 +16,11 @@ gem 'gsl', github: 'SciRuby/rb-gsl', branch: 'master'
 
 group :development, :test do
   gem 'capybara'
+  gem 'cuprite'
   gem 'pry'
   gem 'rake'
-  gem 'rack-jekyll', github: 'adaoraul/rack-jekyll'
+  gem 'rack', '~> 2.0'
+  gem 'lanyon'
   gem 'rspec'
   gem 'webrick'
 end

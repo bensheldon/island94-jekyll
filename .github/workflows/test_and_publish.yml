@@ -21,7 +21,9 @@ jobs:
       - name: Jekyll build
         run: bundle exec jekyll build --trace --profile --lsi
       - name: Run RSpec
-        run: bundle exec rspec
+        env:
+          JEKYLL_SKIP_BUILD: true
+        run: bundle exec rspec --format documentation
       - name: Publish
         if: github.ref == 'refs/heads/main'
         uses: peaceiris/actions-gh-pages@v3
