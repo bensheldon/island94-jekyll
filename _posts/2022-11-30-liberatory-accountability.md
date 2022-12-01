@@ -5,7 +5,7 @@ published: true
 tags: []
 ---
 
-From Lee Shreve's ["Is Punishment 'Carceral Logic'?"](https://theanarchistlibrary.org/library/lee-shevek-is-punishment-carceral-logic):
+From Lee Shevek's ["Is Punishment 'Carceral Logic'?"](https://theanarchistlibrary.org/library/lee-shevek-is-punishment-carceral-logic):
 
 <blockquote markdown="1">
 
