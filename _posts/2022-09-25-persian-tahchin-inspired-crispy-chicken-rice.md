@@ -14,7 +14,6 @@ This is a [Milk Street recipe](https://www.177milkstreet.com/recipes/persian-sty
 - Crispy, buttery starch is great.
 - It's resilient; the second time I made it with indirect heat on a propane bbq grill because my oven was on the fritz. Still great. Also I've tried brown basmati rice, tried doubling the eggs, tripled the garlic, I'm not measuring the butter and currents. Still great.
 
-
 ### Ingredients
 
 * 1.5 cups basmati rice
@@ -43,7 +42,7 @@ This is a [Milk Street recipe](https://www.177milkstreet.com/recipes/persian-sty
 - **Place the oven rack at lowest position** and **preheat the oven to 400 degrees**
 - **Prepare a large pot of salted boiling water** to cook the rice.
 - Thoroughly **oil your pie plate**.
--
+
 ### Prep the ingredients
 
 - **Melt the butter** and set aside.
