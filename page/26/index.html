@@ -37,62 +37,55 @@
 
   <body>
 
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-2">
   <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-links" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="/">Island94.org</a>
-    </div>
+    <a class="navbar-brand" href="/">Island94.org</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <li class="nav-item"><a class="nav-link " href="/about/">About</a></li>
+      <li class="nav-item"><a class="nav-link " href="/archives/">Archives</a></li>
+      <li class="nav-item"><a class="nav-link " href="/books/">Books</a></li>
+      <li class="nav-item"><a class="nav-link " href="/tags/">Tags</a></li>
 
-    <div class="collapse navbar-collapse" id="navbar-collapse-links">
-      <form id="search" class="navbar-form navbar-right" action="/search" method="get">
-        <input id="search-box" class="search form-control" role="search" name="q" placeholder="Search" aria-label="Search" results="0" type="text">
-        <button class="sr-only" type="submit">Search</button>
-      </form>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Feeds <span class="fa fa-rss"></span>
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <li><a href="/feed.xml" class="dropdown-item">Everything RSS <span class="fa fa-rss"></span></a></li>
+          <li><a href="/posts.xml" class="dropdown-item">Posts RSS <span class="fa fa-rss"></span></a></li>
+          <li><a href="/books.xml" class="dropdown-item">Books RSS <span class="fa fa-rss"></span></a></li>
+        </ul>
+      </li>
+    </ul>
 
-      <ul class="nav navbar-nav navbar-right">
-        <li><a class="page-link" href="/about/">About</a></li>
-        <li><a class="page-link" href="/archives/">Archives</a></li>
-        <li><a class="page-link" href="/books/">Books</a></li>
-        <li><a class="page-link" href="/tags/">Tags</a></li>
-
-        <li role="presentation" class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-            Feeds
-            <span class="fa fa-rss"></span>
-          </a>
-          <ul class="dropdown-menu">
-            <li><a href="/feed.xml">Everything RSS <span class="fa fa-rss"></span></a></li>
-            <li><a href="/posts.xml">Posts RSS <span class="fa fa-rss"></span></a></li>
-            <li><a href="/books.xml">Books RSS <span class="fa fa-rss"></span></a></li>
-          </ul>
-        </li>
-      </ul>
-    </div>
+    <form id="search" class="d-flex" action="/search" method="get">
+      <input id="search-box" class="form-control search" role="search" name="q" placeholder="Search" aria-label="Search" results="0" type="text">
+      <button class="sr-only" type="submit">Search</button>
+    </form>
+  </div>
   </div>
 </nav>
 
 
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-          <div class="home">
+    <div class="container container-body">
+      <div class="home">
   
-    <nav>
-  <ul class="pager">
+    <hr>
+
+<nav aria-label="Page navigation">
+  <ul class="pagination justify-content-center">
     
-      <li class="pager-prev"><a href="/page/25/"><span aria-hidden="true">&larr; </span>Newer</a></li>
+      <li class="page-item"><a href="/page/25/" class="page-link"><span aria-hidden="true">&larr; </span>Newer</a></li>
     
 
-    <small class="pager-current text-muted">Page 26 of 63</small>
+    <li class="page-item"><span class="page-link active">Page 26 of 63</span></li>
 
     
-      <li class="pager-next"><a href="/page/27/">Older<span aria-hidden="true"> &rarr;</span></a></li>
+      <li class="page-item"><a href="/page/27/" class="page-link">Older<span aria-hidden="true"> &rarr;</span></a></li>
     
   </ul>
 </nav>
@@ -639,24 +632,24 @@
     
   
 
-  <nav>
-  <ul class="pager">
+  <hr>
+
+<nav aria-label="Page navigation">
+  <ul class="pagination justify-content-center">
     
-      <li class="pager-prev"><a href="/page/25/"><span aria-hidden="true">&larr; </span>Newer</a></li>
+      <li class="page-item"><a href="/page/25/" class="page-link"><span aria-hidden="true">&larr; </span>Newer</a></li>
     
 
-    <small class="pager-current text-muted">Page 26 of 63</small>
+    <li class="page-item"><span class="page-link active">Page 26 of 63</span></li>
 
     
-      <li class="pager-next"><a href="/page/27/">Older<span aria-hidden="true"> &rarr;</span></a></li>
+      <li class="page-item"><a href="/page/27/" class="page-link">Older<span aria-hidden="true"> &rarr;</span></a></li>
     
   </ul>
 </nav>
 
 </div>
 
-        </div>
-      </div>
     </div>
 
     <footer class="site-footer">
