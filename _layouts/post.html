@@ -5,18 +5,20 @@ layout: default
 {% assign post = page %}
 {% include post.html post=post %}
 
-<div class="well">
-  <p>
-    Discuss this with me on <a href="https://twitter.com/{{site.twitter_username}}"><span class="fa fa-twitter"></span> Twitter</a>
-    or suggest a <a href="{{site.repository_url}}/blob/main/{{post.path}}"><span class="fa fa-github-alt"></span> change</a>.
-  </p>
+<div class="card my-4 text-dark bg-light">
+  <div class="card-body">
+    <p>
+      Discuss this with me on <a href="https://twitter.com/{{site.twitter_username}}"><span class="fa fa-twitter"></span> Twitter</a>
+      or suggest a <a href="{{site.repository_url}}/blob/main/{{post.path}}"><span class="fa fa-github-alt"></span> change</a>.
+    </p>
 
-  <p>Related Posts:</p>
+    <p>Related Posts:</p>
 
-  <ul>
-    {% for related_post in site.related_posts limit: 5 %}
-    <li><a href="{{related_post.url}}">{{related_post.title}}</a></li>
-    {% endfor %}
-  </ul>
+    <ul>
+      {% for related_post in site.related_posts limit: 5 %}
+      <li><a href="{{related_post.url}}">{{related_post.title}}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
 </div>
 

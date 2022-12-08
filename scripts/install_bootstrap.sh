@@ -1,21 +1,22 @@
-export VERSION=3.3.6
+export VERSION=5.2.3
 
 # Clean slate
 rm bootstrap.tar.gz
-rm -rf bootstrap-sass-`echo $VERSION`
+rm bootstrap.zip
+rm -rf bootstrap-${VERSION}
+
 # Cleanup source directories
 rm -rf _sass/vendor/bootstrap
-rm -rf assets/javascripts/vendor/bootstrap.min.js
+rm -rf assets/javascripts/vendor/bootstrap.bundle.min.js
 rm -rf assets/fonts/bootstrap
 
-curl -o bootstrap.tar.gz https://codeload.github.com/twbs/bootstrap-sass/tar.gz/v`echo $VERSION`
-tar -xzvf bootstrap.tar.gz
+curl -L https://github.com/twbs/bootstrap/archive/v${VERSION}.zip -o bootstrap.zip
+unzip bootstrap.zip
 
 # Copy assets to proper place
-mv bootstrap-sass-`echo $VERSION`/assets/stylesheets _sass/vendor/bootstrap
-mv bootstrap-sass-`echo $VERSION`/assets/fonts/bootstrap assets/fonts/bootstrap
-mv bootstrap-sass-`echo $VERSION`/assets/javascripts/bootstrap.min.js assets/javascripts/vendor/bootstrap.min.js
+mv bootstrap-${VERSION}/scss _sass/vendor/bootstrap
+mv bootstrap-${VERSION}/dist/js/bootstrap.bundle.min.js assets/javascripts/vendor/bootstrap.bundle.min.js
 
 # Cleanup
-rm bootstrap.tar.gz
-rm -rf bootstrap-sass-`echo $VERSION`
+rm bootstrap.zip
+rm -rf bootstrap-${VERSION}

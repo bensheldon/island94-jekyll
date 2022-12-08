@@ -110,7 +110,7 @@
 
       for (const result of searchResults) {
         const item = searchIndex[result.ref];
-        output += '<a href="' + item.url + '"><h3>' + item.title + '</h3></a>';
+        output += '<a href="' + item.url + '"><h2>' + item.title + '</h2></a>';
         output += '<p class="post-meta text-muted">' + item.published + '</p>';
 
         let blurb = createSearchResultBlurb(searchQuery, item.content);

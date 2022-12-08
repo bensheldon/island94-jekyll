@@ -1,23 +1,28 @@
-// Font Awesome
+//// Font Awesome
 $fa-font-path: "../fonts/fontawesome";
 
-// Bootstrap
-$font-size-base: 19px;
-$line-height-base: 31 / 19;
-$headings-font-weight: 700;
-$blockquote-font-size: $font-size-base;
 
-$navbar-height: 70px;
-$navbar-default-bg: transparent;
-.navbar-brand {
-  color: black;
-  font-weight: 700;
-}
 
 @import "vendor/syntax-highlighting";
 @import "vendor/bootstrap/bootstrap";
 @import "vendor/fontawesome/font-awesome";
 @import "posts";
+
+.navbar-brand {
+  color: black;
+  font-weight: 700;
+}
+
+.container-body {
+  max-width: 40em;
+}
+
+blockquote {
+  padding-left: 1em;
+  margin-right: 1em;
+  font-size: inherit;
+  border-left: 0.5em solid #eeeeee;
+}
 
 .list-columns {
   column-count: 4;
