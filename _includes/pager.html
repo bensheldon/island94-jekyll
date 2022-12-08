@@ -1,17 +1,20 @@
-<nav>
-  <ul class="pager">
+<hr>
+
+<nav aria-label="Page navigation">
+  <ul class="pagination justify-content-center">
     {% if paginator.previous_page %}
-      <li class="pager-prev"><a href="{{ paginator.previous_page_path }}"><span aria-hidden="true">&larr; </span>Newer</a></li>
+      <li class="page-item"><a href="{{ paginator.previous_page_path }}" class="page-link"><span aria-hidden="true">&larr; </span>Newer</a></li>
     {% else %}
-      <li class="pager-prev disabled"><span><span aria-hidden="true">&larr; </span>Newer</span></li>
+      <li class="page-item disabled"><a href="#" class="page-link" tabindex="-1" aria-disabled="true"><span aria-hidden="true">&larr; </span>Newer</a></li>
     {% endif %}
 
-    <small class="pager-current text-muted">Page {{ paginator.page }} of {{ paginator.total_pages }}</small>
+    <li class="page-item"><span class="page-link active">Page {{ paginator.page }} of {{ paginator.total_pages }}</span></li>
 
     {% if paginator.next_page %}
-      <li class="pager-next"><a href="{{ paginator.next_page_path }}">Older<span aria-hidden="true"> &rarr;</span></a></li>
+      <li class="page-item"><a href="{{ paginator.next_page_path }}" class="page-link">Older<span aria-hidden="true"> &rarr;</span></a></li>
     {% else %}
-      <li class="pager-next disabled"><span>Older<span aria-hidden="true"> &rarr;</span></span></li>
+    <li class="page-item disabled"><a href="#" class="page-link" tabindex="-1" aria-disabled="true">Older<span aria-hidden="true"> &rarr;</span></a></li>
+    >
     {% endif %}
   </ul>
 </nav>
