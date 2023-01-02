@@ -19,7 +19,7 @@ group :development, :test do
   gem 'cuprite'
   gem 'pry'
   gem 'rake'
-  gem 'rack', '~> 2.0'
+  gem 'rack', '~> 2.2'
   gem 'lanyon'
   gem 'rspec'
   gem 'webrick'
