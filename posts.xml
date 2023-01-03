@@ -6,10 +6,39 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 03 Jan 2023 01:20:17 +0000</pubDate>
-    <lastBuildDate>Tue, 03 Jan 2023 01:20:17 +0000</lastBuildDate>
+    <pubDate>Tue, 03 Jan 2023 01:47:17 +0000</pubDate>
+    <lastBuildDate>Tue, 03 Jan 2023 01:47:17 +0000</lastBuildDate>
     <generator>Jekyll v4.3.1</generator>
     
+    
+      
+
+
+
+
+<item>
+  <title>2022 in review</title>
+  <description>&lt;ul&gt;
+  &lt;li&gt;Family: My mom passed away; first parent to go. Of a plus, we spent a lot of time with my brother and his young family. We had to cancel a big family trip to Europe, but hope to make up with a trip in 2023.&lt;/li&gt;
+  &lt;li&gt;Community: Turned 40 this year; celebrated 11 years in SF; coming up on 3 years on Nob Hill. Things feel good. We were approved as a foster/adopt Resource Family, but with everything that happened with my mom, we haven’t yet begun hosting children yet. I’m going into year three of strategic planning committee at St. Francis.&lt;/li&gt;
+  &lt;li&gt;Work: Started at GitHub after five years at Code for America. Still feels a bit like a dream that I get to continue to do what I want technically (Ruby and Rails) while also working with good people. I’ve continued to work with my leadership coach, which has been nice continuity.&lt;/li&gt;
+  &lt;li&gt;Projects &amp;amp; Consulting: It’s now been 10 years since I registered as a small business in SF, which I did when I first started earning money with Day of the Shirt and doing various consulting jobs. GoodJob is floating along, and become a small source of GitHub Sponsors funds. The other constellation of projects continued in maintenance: Brompt, Panlexicon, etc.&lt;/li&gt;
+&lt;/ul&gt;
+
+  &lt;br&gt;&lt;br&gt;
+  &lt;hr&gt;
+  &lt;p&gt;
+    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2023/01/2022-in-review&quot;&gt;2022 in review&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
+    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
+  &lt;/p&gt;
+</description>
+  <pubDate>Tue, 03 Jan 2023 01:19:00 +0000</pubDate>
+  <link>https://island94.org/2023/01/2022-in-review</link>
+  <guid isPermaLink="true">https://island94.org/2023/01/2022-in-review</guid>
+  
+  
+</item>
+
     
       
 
@@ -557,37 +586,6 @@
   <guid isPermaLink="true">https://island94.org/2022/09/reflections-on-brompt-2022</guid>
   
     <category>brompt</category>
-  
-  
-</item>
-
-    
-      
-
-
-
-
-<item>
-  <title>Weeknotes: Aug 29, 2022</title>
-  <description>&lt;ul&gt;
-  &lt;li&gt;My mom entered hospice this past weekend. Medicare’s hospice benefits are pretty great, given the circumstances; American healthcare gets progressively better til you die. My mom has a story of &lt;em&gt;her&lt;/em&gt; mom, in the 1990s, unsuccesfully convincing my mom of the benefits of single-payer healthcare. My mom says it took until herself going on Medicare to understand. With hospice, you call your caseworker and say “Can the nurse please bring over some blue chux next time?” and that’s all.&lt;/li&gt;
-  &lt;li&gt;Angelina and I had originally planned to attend a big family trip to Germany and Amsterdam;  we are in Santa Barbara, the American Riveria, instead. YMCA membership portability is the best.&lt;/li&gt;
-  &lt;li&gt;I think many shared human experiences are of long boredom punctuated by short excitement or terror. Per the former, I finally &lt;a href=&quot;https://github.com/bensheldon/island94-jekyll/pull/120&quot;&gt;added on-site search with lunr.js&lt;/a&gt; to this blog; no more Google.&lt;/li&gt;
-  &lt;li&gt;I’m currently reading &lt;em&gt;Moral Mazes&lt;/em&gt;. From my personal experience reading &lt;em&gt;Bad Blood&lt;/em&gt; and &lt;em&gt;Super Pumped&lt;/em&gt;, and starting yet not finishing a whole bunch of other non-fiction: I can only handle terrible business books that have no thesis or advice other than gratitude for not being there. I have a bunch of other book reviews to catch up on.&lt;/li&gt;
-&lt;/ul&gt;
-
-  &lt;br&gt;&lt;br&gt;
-  &lt;hr&gt;
-  &lt;p&gt;
-    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2022/08/weeknotes-aug-29-2022&quot;&gt;Weeknotes: Aug 29, 2022&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
-    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
-  &lt;/p&gt;
-</description>
-  <pubDate>Tue, 30 Aug 2022 01:07:00 +0000</pubDate>
-  <link>https://island94.org/2022/08/weeknotes-aug-29-2022</link>
-  <guid isPermaLink="true">https://island94.org/2022/08/weeknotes-aug-29-2022</guid>
-  
-    <category>weeknotes</category>
   
   
 </item>
