@@ -5,7 +5,7 @@ published: true
 tags:
 ---
 
-I have thought and referenced a theme from this Foreign Affairs piece ["Why America Can’t Build Allied Armies"](https://archive.is/TMGq7) quite a bit (highlighting mine):
+I have thought and referenced a theme from this Foreign Affairs piece on Afghanistan ["Why America Can’t Build Allied Armies"](https://archive.is/TMGq7) quite a bit (highlighting mine):
 
 <blockquote markdown="1">
 
