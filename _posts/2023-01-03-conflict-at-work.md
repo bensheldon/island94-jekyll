@@ -5,7 +5,7 @@ published: true
 tags: []
 ---
 
-I had a conversation with a coworker today that reminded me (again!) of this [Foreign Affairs essay](https://island94.org/2022/03/over-rapported). It was about receiving feedback that seemed to focus on minimizing interpersonal conflict over things like achieving goals and strategy and impact; it felt familiar.
+- I had a conversation with a coworker today that reminded me (again!) of this [Foreign Affairs essay](https://island94.org/2022/03/over-rapported). It was about receiving feedback that seemed to focus on minimizing interpersonal conflict over things like achieving goals and strategy and impact; it felt familiar.
 - I've had coworkers and executives in other jobs that were like "people need to be more comfortable with conflict". I've also been screamed at in a postmortem at a different job. So like, my feelings are mixed. Like are we talking about the absence of psychological safety, or too much of it? I dunno, I could never draw out specifics. I'm now thinking it was actually about the previous bullet point. 
 - [Schulman](https://island94.org/2022/02/it-asks-you-to-be-interactive) makes the point that you're either in a relationship with someone, or you aren't. 
 - I read this [Harper's essay about working at Wired UK](https://harpers.org/archive/2023/01/exit-technologists-libertarianism/) by Hari Kunzru with the line: 
