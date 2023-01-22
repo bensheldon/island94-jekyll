@@ -6,10 +6,79 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 18 Jan 2023 20:55:32 +0000</pubDate>
-    <lastBuildDate>Wed, 18 Jan 2023 20:55:32 +0000</lastBuildDate>
+    <pubDate>Sun, 22 Jan 2023 18:28:59 +0000</pubDate>
+    <lastBuildDate>Sun, 22 Jan 2023 18:28:59 +0000</lastBuildDate>
     <generator>Jekyll v4.3.1</generator>
     
+    
+      
+
+
+
+
+<item>
+  <title>How GoodJob&apos;s Cron does distributed locks</title>
+  <description>&lt;p&gt;&lt;a href=&quot;https://github.com/bensheldon/good_job&quot;&gt;GoodJob&lt;/a&gt; is a multithreaded, Postgres-based, ActiveJob backend for Ruby on Rails. GoodJob has many features that take it beyond ActiveJob. One such feature is &lt;a href=&quot;https://github.com/bensheldon/good_job/blob/994ecff5323bf0337e10464841128fda100750e6/README.md#cron-style-repeatingrecurring-jobs&quot;&gt;cron-like functionality&lt;/a&gt; that allows scheduling repeated jobs on a fixed schedule.&lt;/p&gt;
+
+&lt;p&gt;This post is a brief technical story of how GoodJob prevents duplicated cron jobs from running in a multi-process, distributed environment.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;This is all true as of GoodJob’s current version, 3.7.4.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;briefly-how-goodjobs-cron-works&quot;&gt;Briefly, how GoodJob’s cron works&lt;/h3&gt;
+
+&lt;p&gt;GoodJob heavily leans on &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Concurrent::Ruby&lt;/code&gt; high-level primitives, and the cron implementation is no different. &lt;a href=&quot;https://github.com/bensheldon/good_job/blob/994ecff5323bf0337e10464841128fda100750e6/lib/good_job/cron_manager.rb&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GoodJob::CronManager&lt;/code&gt;&lt;/a&gt; accepts a fixed hash of schedule configuration and feeds them into &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Concurrent::ScheduledTask&lt;/code&gt;s, which then trigger &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;perform_later&lt;/code&gt; on the job classes at the prescribed times.&lt;/p&gt;
+
+&lt;p&gt;A locking strategy is necessary. GoodJob can be running across multiple processes, across numerous isolated servers or containers, in one application. GoodJob should guarantee that at the scheduled time, only a single scheduled job is enqueued.&lt;/p&gt;
+
+&lt;h3 id=&quot;initially-advisory-locks&quot;&gt;Initially, advisory locks&lt;/h3&gt;
+
+&lt;p&gt;When &lt;a href=&quot;https://github.com/bensheldon/good_job/pull/297&quot;&gt;GoodJob’s cron feature was first introduced in version 1.12&lt;/a&gt;, Cron used an existing feature of GoodJob: &lt;a href=&quot;https://github.com/bensheldon/good_job/blob/994ecff5323bf0337e10464841128fda100750e6/README.md#activejob-concurrency&quot;&gt;Concurrency Control&lt;/a&gt;. Concurrency Control places limits on how many jobs can be enqueued or performed at the same time.&lt;/p&gt;
+
+&lt;p&gt;Concurrency Control works by assigning jobs a “key” which is simply a queryable string. Before enqueuing jobs, GoodJob will count how many job records already exist with that same key and prevent the action if the count exceeds the configured limit. GoodJob uses advisory locks to avoid race conditions during this accounting phase.&lt;/p&gt;
+
+&lt;p&gt;There were some downsides to using Concurrency Control for Cron.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;It was a burden on developers. Concurrency Control extends &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ActiveJob::Base&lt;/code&gt; and required the developer to configure Concurrency Control rules separately from the Cron configuration.&lt;/li&gt;
+  &lt;li&gt;It wasn’t very performant. Concurrency Control’s design is &lt;em&gt;optimistic&lt;/em&gt; and works best when collisions are rare or infrequent. But a large, clock-synchronized formation of GoodJob processes is a &lt;em&gt;pessimistic&lt;/em&gt; concurrency scenario, and it could take several seconds of advisory locking and unlocking across all the processes to insert a single job.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;then-a-unique-index&quot;&gt;Then, a unique index&lt;/h3&gt;
+
+&lt;p&gt;GoodJob v2.5.0 &lt;a href=&quot;https://github.com/bensheldon/good_job/pull/423&quot;&gt;changed the cron locking strategy&lt;/a&gt;. Instead of using Concurrency Control’s advisory locks, GoodJob uses a unique compound index to prevent the same cron job from being enqueued/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;INSERT&lt;/code&gt;ed into the database multiple times.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;In addition to the existing &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cron_key&lt;/code&gt; column in job records, the change added a new timestamp column, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cron_at&lt;/code&gt; to  store when the cron job is enqueued.&lt;/li&gt;
+  &lt;li&gt;Added a unique index on &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[cron_key, cron_at]&lt;/code&gt; to ensure that only one job is inserted for the given key and time.&lt;/li&gt;
+  &lt;li&gt;Handled the expected &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ActiveRecord::RecordNotUnique&lt;/code&gt; when multiple cron processes try to enqueue the same cron job simultaneously and the unique index prevents the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;INSERT&lt;/code&gt; from taking place&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Now, when a thundering herd of GoodJob processes tries to enqueue the same cron job at the same time, the database uses its unique index constraint to prevent multiple job records from being created. Great!&lt;/p&gt;
+
+&lt;h3 id=&quot;does-it-do-a-good-job&quot;&gt;Does it do a good job?&lt;/h3&gt;
+
+&lt;p&gt;Yes! I’ve received lots of positive feedback in the year+ since GoodJob’s cron moved to a unique index locking strategy. From the application perspective, there’s much less enqueueing latency using a unique index than when using advisory locks. And from the developer’s perspective, it does &lt;em&gt;just work&lt;/em&gt; without additional configuration beyond the schedule.&lt;/p&gt;
+
+&lt;p&gt;Using a unique index does require preserving the job records for a bit after the jobs have been performed. Otherwise, poor clock synchronization across processes could lead to a duplicate job being inserted again if the job has already been performed and removed from the table/index. Fortunately, preserving job records should not be too burdensome because GoodJob will &lt;a href=&quot;https://github.com/bensheldon/good_job/blob/994ecff5323bf0337e10464841128fda100750e6/README.md#monitor-and-preserve-worked-jobs&quot;&gt;automatically clean them up&lt;/a&gt; too.&lt;/p&gt;
+
+&lt;p&gt;Lastly, one goal of writing this is the hope/fear that a Database Administrator will tell me this is a terrible strategy and provide a better one. Until that happens, I have confidence GoodJob’s cron is good. &lt;a href=&quot;https://github.com/bensheldon/good_job/discussions/806&quot;&gt;I’d love your feedback!&lt;/a&gt;&lt;/p&gt;
+
+  &lt;br&gt;&lt;br&gt;
+  &lt;hr&gt;
+  &lt;p&gt;
+    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2023/01/how-goodjob-s-cron-does-distributed-locks&quot;&gt;How GoodJob&apos;s Cron does distributed locks&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
+    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
+  &lt;/p&gt;
+</description>
+  <pubDate>Sun, 22 Jan 2023 18:18:00 +0000</pubDate>
+  <link>https://island94.org/2023/01/how-goodjob-s-cron-does-distributed-locks</link>
+  <guid isPermaLink="true">https://island94.org/2023/01/how-goodjob-s-cron-does-distributed-locks</guid>
+  
+    <category>GoodJob</category>
+  
+  
+</item>
+
     
       
 
@@ -547,46 +616,6 @@
   <guid isPermaLink="true">https://island94.org/2022/09/persian-tahchin-inspired-crispy-chicken-rice</guid>
   
     <category>recipe</category>
-  
-  
-</item>
-
-    
-      
-
-
-
-
-<item>
-  <title>Weeknotes: September 19, 2022</title>
-  <description>&lt;ul&gt;
-  &lt;li&gt;My mom, Susan, Sue, passed away at her home last Tuesday morning. Her wishes were that people recognize her life through donations to the &lt;a href=&quot;https://donate.foodbanksbc.org/&quot;&gt;Santa Barbara Food Bank&lt;/a&gt; and &lt;a href=&quot;https://support.savethechildren.org/&quot;&gt;Save the Children&lt;/a&gt;. My brother and I are figuring out everything else; email me at bensheldon@gmail.com if you’d like to stay updated.&lt;/li&gt;
-  &lt;li&gt;Having spent the last 5 weeks with my mom, her doctors’ ongoing prognoses that she “has days” was incorrect for quite a while until it wasn’t. We got to the zoo and the Botanic Gardens together. I enjoyed flustering the hospice nurse over the phone by passing along their questions directly, like “hey mom, how &lt;em&gt;are&lt;/em&gt; your bowels?” and the nurse’s response of “oh, oh, I didn’t realize she was awake”. To her doctor’s surprise the day before she passed, what would be my mom’s last meal: taquitos.&lt;/li&gt;
-  &lt;li&gt;I learned the stories behind all the butts in my mom’s nude paintings. And that, though my mom wouldn’t have the opportunity to exercise it, California has an &lt;a href=&quot;cdph.ca.gov/Programs/CHSI/Pages/End-of-Life-Option-Act-.aspx&quot;&gt;End of Life Option&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;I’m grateful for my family, friends, and colleagues who have been gracious and supportive. Both to those I’ve told, and those who are yet to find out. Thank you.&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;I wrote this biography as part of a family history for Mr. Harris’s 10th grade humanities class in 1999 (&lt;em&gt;“fabulous photos, good layout! A”&lt;/em&gt;)&lt;/p&gt;
-
-    &lt;blockquote&gt;
-      &lt;p&gt;Born in 1947 (though when interviewed maintained it was 1964), and grew up in the era of McCarthyism, bomb shelters, Elvis, Sputnik, Rock and Roll, and the Beatles. That got her through high school. Then she finished the sixties with a bachelors in painting from California College of the Arts and her masters in Library Science at UC Berkeley. Her first library job was in charge of the Art and Architecture collection at San Jose State. She met my father in Library school and got married in 1971. She quit her job to get married and moved to Alaska where she was in charge of the largest medical library in State of Alaska. She did that for two years and then they moved to Ithaca New York, where she was a library outreach consultant for a five county public library system. At the end of that period she had my brother, and moved to California. I was born four years after, and later she became very active in the Friends of the Poway Library, working on getting a new library in Poway. After divorcing she drew on her experiences as a volunteer and paid substitute in school libraries and decided to become a school librarian which necessitated getting both a teaching credential and a library media teachers credential, which she will finish next year.&lt;/p&gt;
-    &lt;/blockquote&gt;
-
-    &lt;p&gt;&lt;img src=&quot;/uploads/2022-09/sue.jpg&quot; alt=&quot;Sue&quot; /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-  &lt;br&gt;&lt;br&gt;
-  &lt;hr&gt;
-  &lt;p&gt;
-    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2022/09/weeknotes-september-19-2022&quot;&gt;Weeknotes: September 19, 2022&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
-    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
-  &lt;/p&gt;
-</description>
-  <pubDate>Tue, 20 Sep 2022 03:50:00 +0000</pubDate>
-  <link>https://island94.org/2022/09/weeknotes-september-19-2022</link>
-  <guid isPermaLink="true">https://island94.org/2022/09/weeknotes-september-19-2022</guid>
-  
-    <category>weeknotes</category>
   
   
 </item>

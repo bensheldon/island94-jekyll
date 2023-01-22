@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>How GoodJob's Cron does distributed locks</title>
+  <meta name="description" content="GoodJob is a multithreaded, Postgres-based, ActiveJob backend for Ruby on Rails. GoodJob has many features that take it beyond ActiveJob. One such feature is...">
+
+  <link rel="stylesheet" href="/assets/stylesheets/main.css">
+  <script src="/assets/javascripts/main.js"></script>
+
+  <link rel="canonical" href="https://island94.org/2023/01/how-goodjob-s-cron-does-distributed-locks">
+
+  <link rel="alternate" type="application/rss+xml" title="Island94.org Posts" href="https://island94.org/feed.xml">
+  <link rel="alternate" type="application/rss+xml" title="Island94.org Book Reviews" href="https://island94.org/books.xml">
+
+  
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-870047-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+</head>
+
+
+  <body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-2 flex-column">
+  <div class="container">
+    <a class="navbar-brand" href="/">Island94.org</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link " href="/about/">About</a></li>
+        <li class="nav-item"><a class="nav-link " href="/archives/">Archives</a></li>
+        <li class="nav-item"><a class="nav-link " href="/books/">Books</a></li>
+        <li class="nav-item"><a class="nav-link " href="/tags/">Tags</a></li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Feeds <span class="fa fa-rss"></span>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a href="/feed.xml" class="dropdown-item">Everything RSS <span class="fa fa-rss"></span></a></li>
+            <li><a href="/posts.xml" class="dropdown-item">Posts RSS <span class="fa fa-rss"></span></a></li>
+            <li><a href="/books.xml" class="dropdown-item">Books RSS <span class="fa fa-rss"></span></a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <form id="search" class="d-flex" action="/search" method="get">
+        <input id="search-box" class="form-control search" role="search" name="q" placeholder="Search" aria-label="Search" results="0" type="text">
+        <button class="sr-only" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+  <div class="container">
+    <div class="text-muted fst-italic">
+      — Ben Sheldon's personal blog and <a href="/2012/04/A-Commonplace-Book.html">commonplace book</a>.
+    </div>
+  </div>
+</nav>
+
+
+    <div class="container container-body">
+      
+
+
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2023/01/how-goodjob-s-cron-does-distributed-locks">How GoodJob's Cron does distributed locks</a>
+    </h1>
+    <p class="post-meta text-muted">
+      <time datetime="2023-01-22T18:18:00+00:00" itemprop="datePublished">January 22, 2023</time>
+      
+      
+
+
+  
+
+  
+
+  • Tagged <a href="/tags/#GoodJob">GoodJob</a>
+
+
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p><a href="https://github.com/bensheldon/good_job">GoodJob</a> is a multithreaded, Postgres-based, ActiveJob backend for Ruby on Rails. GoodJob has many features that take it beyond ActiveJob. One such feature is <a href="https://github.com/bensheldon/good_job/blob/994ecff5323bf0337e10464841128fda100750e6/README.md#cron-style-repeatingrecurring-jobs">cron-like functionality</a> that allows scheduling repeated jobs on a fixed schedule.</p>
+
+<p>This post is a brief technical story of how GoodJob prevents duplicated cron jobs from running in a multi-process, distributed environment.</p>
+
+<p><em>This is all true as of GoodJob’s current version, 3.7.4.</em></p>
+
+<h3 id="briefly-how-goodjobs-cron-works">Briefly, how GoodJob’s cron works</h3>
+
+<p>GoodJob heavily leans on <code class="language-plaintext highlighter-rouge">Concurrent::Ruby</code> high-level primitives, and the cron implementation is no different. <a href="https://github.com/bensheldon/good_job/blob/994ecff5323bf0337e10464841128fda100750e6/lib/good_job/cron_manager.rb"><code class="language-plaintext highlighter-rouge">GoodJob::CronManager</code></a> accepts a fixed hash of schedule configuration and feeds them into <code class="language-plaintext highlighter-rouge">Concurrent::ScheduledTask</code>s, which then trigger <code class="language-plaintext highlighter-rouge">perform_later</code> on the job classes at the prescribed times.</p>
+
+<p>A locking strategy is necessary. GoodJob can be running across multiple processes, across numerous isolated servers or containers, in one application. GoodJob should guarantee that at the scheduled time, only a single scheduled job is enqueued.</p>
+
+<h3 id="initially-advisory-locks">Initially, advisory locks</h3>
+
+<p>When <a href="https://github.com/bensheldon/good_job/pull/297">GoodJob’s cron feature was first introduced in version 1.12</a>, Cron used an existing feature of GoodJob: <a href="https://github.com/bensheldon/good_job/blob/994ecff5323bf0337e10464841128fda100750e6/README.md#activejob-concurrency">Concurrency Control</a>. Concurrency Control places limits on how many jobs can be enqueued or performed at the same time.</p>
+
+<p>Concurrency Control works by assigning jobs a “key” which is simply a queryable string. Before enqueuing jobs, GoodJob will count how many job records already exist with that same key and prevent the action if the count exceeds the configured limit. GoodJob uses advisory locks to avoid race conditions during this accounting phase.</p>
+
+<p>There were some downsides to using Concurrency Control for Cron.</p>
+
+<ul>
+  <li>It was a burden on developers. Concurrency Control extends <code class="language-plaintext highlighter-rouge">ActiveJob::Base</code> and required the developer to configure Concurrency Control rules separately from the Cron configuration.</li>
+  <li>It wasn’t very performant. Concurrency Control’s design is <em>optimistic</em> and works best when collisions are rare or infrequent. But a large, clock-synchronized formation of GoodJob processes is a <em>pessimistic</em> concurrency scenario, and it could take several seconds of advisory locking and unlocking across all the processes to insert a single job.</li>
+</ul>
+
+<h3 id="then-a-unique-index">Then, a unique index</h3>
+
+<p>GoodJob v2.5.0 <a href="https://github.com/bensheldon/good_job/pull/423">changed the cron locking strategy</a>. Instead of using Concurrency Control’s advisory locks, GoodJob uses a unique compound index to prevent the same cron job from being enqueued/<code class="language-plaintext highlighter-rouge">INSERT</code>ed into the database multiple times.</p>
+
+<ul>
+  <li>In addition to the existing <code class="language-plaintext highlighter-rouge">cron_key</code> column in job records, the change added a new timestamp column, <code class="language-plaintext highlighter-rouge">cron_at</code> to  store when the cron job is enqueued.</li>
+  <li>Added a unique index on <code class="language-plaintext highlighter-rouge">[cron_key, cron_at]</code> to ensure that only one job is inserted for the given key and time.</li>
+  <li>Handled the expected <code class="language-plaintext highlighter-rouge">ActiveRecord::RecordNotUnique</code> when multiple cron processes try to enqueue the same cron job simultaneously and the unique index prevents the <code class="language-plaintext highlighter-rouge">INSERT</code> from taking place</li>
+</ul>
+
+<p>Now, when a thundering herd of GoodJob processes tries to enqueue the same cron job at the same time, the database uses its unique index constraint to prevent multiple job records from being created. Great!</p>
+
+<h3 id="does-it-do-a-good-job">Does it do a good job?</h3>
+
+<p>Yes! I’ve received lots of positive feedback in the year+ since GoodJob’s cron moved to a unique index locking strategy. From the application perspective, there’s much less enqueueing latency using a unique index than when using advisory locks. And from the developer’s perspective, it does <em>just work</em> without additional configuration beyond the schedule.</p>
+
+<p>Using a unique index does require preserving the job records for a bit after the jobs have been performed. Otherwise, poor clock synchronization across processes could lead to a duplicate job being inserted again if the job has already been performed and removed from the table/index. Fortunately, preserving job records should not be too burdensome because GoodJob will <a href="https://github.com/bensheldon/good_job/blob/994ecff5323bf0337e10464841128fda100750e6/README.md#monitor-and-preserve-worked-jobs">automatically clean them up</a> too.</p>
+
+<p>Lastly, one goal of writing this is the hope/fear that a Database Administrator will tell me this is a terrible strategy and provide a better one. Until that happens, I have confidence GoodJob’s cron is good. <a href="https://github.com/bensheldon/good_job/discussions/806">I’d love your feedback!</a></p>
+
+  </div>
+</article>
+
+
+<div class="card my-4 text-dark bg-light">
+  <div class="card-body">
+    <p>
+      Discuss this with me on <a href="https://twitter.com/bensheldon"><span class="fa fa-twitter"></span> Twitter</a>
+      or suggest a <a href="https://github.com/bensheldon/island94-jekyll/blob/main/_posts/2023-01-22-how-goodjob-s-cron-does-distributed-locks.md"><span class="fa fa-github-alt"></span> change</a>.
+    </p>
+
+    <p>Related Posts:</p>
+
+    <ul>
+      
+      <li><a href="/2020/07/introducing-goodjob-1-0">Introducing GoodJob 1.0, a new Postgres-based, multithreaded, ActiveJob backend for Ruby on Rails</a></li>
+      
+      <li><a href="/2012/12/A-gentle-conceptual-introduction-to-Nodejs.html">A gentle & conceptual introduction to Node.js</a></li>
+      
+      <li><a href="/2007/08/Geekout-Video-on-Maps-for-Cable-Access-TV.html">Geekout: Video on Maps for Cable Access TV</a></li>
+      
+      <li><a href="/2021/07/goodjob-whats-new-v1.12.0">GoodJob, what's new: Cron, concurrency controls, and a dashboard demo (v1.12.0)</a></li>
+      
+      <li><a href="/2007/08/Verb-to-do.html">Verb to do</a></li>
+      
+    </ul>
+  </div>
+</div>
+
+
+    </div>
+
+    <footer class="site-footer">
+
+</footer>
+
+
+  </body>
+
+</html>
