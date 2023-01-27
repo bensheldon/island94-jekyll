@@ -6,10 +6,87 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 27 Jan 2023 00:51:13 +0000</pubDate>
-    <lastBuildDate>Fri, 27 Jan 2023 00:51:13 +0000</lastBuildDate>
+    <pubDate>Fri, 27 Jan 2023 01:14:51 +0000</pubDate>
+    <lastBuildDate>Fri, 27 Jan 2023 01:14:51 +0000</lastBuildDate>
     <generator>Jekyll v4.3.2</generator>
     
+    
+      
+
+
+
+
+<item>
+  <title>Framing open source contributions at work</title>
+  <description>&lt;p&gt;Excerpts from the excellent RailsConf 2022 keynote: &lt;a href=&quot;https://www.youtube.com/watch?v=MbqJzACF-54&quot;&gt;The Success of Ruby on Rails by Eileen Uchitelle&lt;/a&gt; [reformatted from the transcript]:&lt;/p&gt;
+
+&lt;blockquote&gt;
+
+  &lt;p&gt;Upgrading is one of the easiest ways to find an area of Rails that can benefit from your contributions.  Fixing an issue in a recent release has a high likelihood of being merged.&lt;/p&gt;
+
+  &lt;p&gt;Running off Rails Main is another way to find contributions to Rails.  If you don’t want to run your Main in production,   you could run it in a separate CI build.  Shopify, GitHub and Basecamp run it.&lt;/p&gt;
+
+  &lt;p&gt;Running off Main may be harder than running off a release because features and bug fixes are  a little in flux sometimes. If you are running  off of Main, a feature added to the Main branch could be removed without deprecation. This is a worthwhile risk to take on because it lowers the overall risk of an upgrade.  When you run off Main, you’re less likely to fall behind upgrading because it becomes  part of your weekly or monthly maintenance.  Upgrading becomes routine, second nature rather  than novel and scary. Changes are easy to isolate. It’s just slightly less polished. Like I  said, I still think it’s pretty stable.&lt;/p&gt;
+
+  &lt;p&gt;Another way to find places to contribute  is look at your own applications.&lt;/p&gt;
+
+  &lt;ul&gt;
+    &lt;li&gt;Do you have monkey patches on Rails code  that are fixes bugs or changing behavior?   Instead of leaving them there, upstream  the fix and delete the monkey patch.&lt;/li&gt;
+    &lt;li&gt;Is there infrastructure level code that  doesn’t really pertain to your product?   It’s possible this could be a great addition to  Rails. When I wrote the database in Rails, it came from GitHub’s monolith. It made perfect sense  because it was getting in the way of upgrades,  didn’t expose any intellectual property, had  nothing to do with your product features and&lt;br /&gt;
+something many applications could benefit from.&lt;/li&gt;
+    &lt;li&gt;Lastly and most importantly, keep showing up.&lt;/li&gt;
+  &lt;/ul&gt;
+
+  &lt;p&gt;… Ultimately,  if more companies treated the framework as an extension of the application, it would  result in higher resilience and stability. Investment in Rails ensures your foundation will not crumble under the weight of your application. Treating it as an unimportant part of your application is a mistake and many, many leaders make this mistake.&lt;/p&gt;
+
+  &lt;p&gt;…leaders see funding open source risky is because they don’t actually  understand the work. … Often, leaders worry if there’s a team work in open source, other teams are going to be jealous or resentful that that team is doing “fun” work. …&lt;/p&gt;
+
+  &lt;p&gt;Maintainers need to make changes, deal with security incidents and also handle criticism from many people. Maintaining and contributing to open source requires a different skill set than product work. That doesn’t make it any less essential.&lt;/p&gt;
+
+  &lt;p&gt;…Many product companies don’t  like words like “research” and “experimental.”  They can imply work without goals. Use words like  “investment.” And demonstrate the direct value will bring. Make sure it is measurable and will  make the application and product more successful. A great example of measurable work is  a change that improves performance. If you can tie contributions to direct customer improvements, it’s easier to show leadership.&lt;/p&gt;
+
+  &lt;p&gt;…As I started contributing more and more  and pealing back the layers of Rails, the impact is limitless. I started looking at how applications stretched  the boundaries of what Rails was meant to do.&lt;/p&gt;
+
+  &lt;p&gt;…Ultimately, I want you to contribute to Rails because it’s going to enable you to build a better company and product. The benefits of investing in Rails go far beyond improving the framework.&lt;/p&gt;
+
+  &lt;p&gt;Investing in Rails will build up the skills of your engineering team. They will developer better communication skills, learn to navigate criticism,  debugging skills and how the framework functions.  It will teach engineers about the inner-workings and catch bugs.&lt;/p&gt;
+
+  &lt;p&gt;Monkey patching is far more dangerous than I think most realize. They break  with upgrades and cause security incidents.  When you write a monkey patch, you maintain a portion of Rails code. Wouldn’t it have been   better to patch it upstream rather than taking on that risk and responsibility.&lt;/p&gt;
+
+  &lt;p&gt;It will give your engineering team the skills  they need to make better technical decisions. You’re ensuring that Rails benefits your application and the company for the long-term.&lt;/p&gt;
+
+  &lt;p&gt;…Contributing to Rails is only &lt;em&gt;not&lt;/em&gt; essential if you don’t care about the direction the framework is headed in. We should be contributing  because we care about the changes.&lt;/p&gt;
+
+  &lt;p&gt;We want to ensure our apps are upgradeable, performant and stable.&lt;/p&gt;
+
+  &lt;p&gt;Investment in Rails also means you won’t have to rewrite your application a few years because Rails no longer supports what you need. When you fail  to invest in your tools, you end up being unable to upgrade. Your engineering team is miserable.  The codebase is a mess and writing features is impossible. You’re forced into a rewrite, your  engineers want to write Rails and you can no longer let them do that. You have to build a  bunch of features before you site falls over.&lt;/p&gt;
+
+  &lt;p&gt;It’s not Rails’ fault you made  the decision to invest elsewhere.&lt;/p&gt;
+
+  &lt;p&gt;If you build contributing into your culture, the  benefits are clear:&lt;/p&gt;
+
+  &lt;ul&gt;
+    &lt;li&gt;Your engineering teams’ skills will improve. Rails will evolve with your  application because you’re helping decide how it needs to change.&lt;/li&gt;
+    &lt;li&gt;Your application will be  more resilient because there’s low tech debt and your foundation is stable. Active investment  prevents your application from degrading.&lt;/li&gt;
+    &lt;li&gt;Building a team to invest in Rails is  proactive. Rewriting an application is reactive. Which one do you think is better for business in the long run?&lt;/li&gt;
+  &lt;/ul&gt;
+
+&lt;/blockquote&gt;
+
+  &lt;br&gt;&lt;br&gt;
+  &lt;hr&gt;
+  &lt;p&gt;
+    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2023/01/framing-open-source-contributions-at-work&quot;&gt;Framing open source contributions at work&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
+    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
+  &lt;/p&gt;
+</description>
+  <pubDate>Fri, 27 Jan 2023 00:51:00 +0000</pubDate>
+  <link>https://island94.org/2023/01/framing-open-source-contributions-at-work</link>
+  <guid isPermaLink="true">https://island94.org/2023/01/framing-open-source-contributions-at-work</guid>
+  
+  
+</item>
+
     
       
 
@@ -508,114 +585,6 @@
     <category>writing</category>
   
     <category>plan language</category>
-  
-  
-</item>
-
-    
-      
-
-
-
-
-<item>
-  <title>Persian Tahchin-inspired crispy chicken rice</title>
-  <description>&lt;p&gt;&lt;img src=&quot;/uploads/2022-09/tahchin.jpg&quot; alt=&quot;Tahchin&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;This is a &lt;a href=&quot;https://www.177milkstreet.com/recipes/persian-style-baked-saffron-rice-chicken&quot;&gt;Milk Street recipe&lt;/a&gt;, but because I detest their instructional design, I redesigned it here.  I like this dish because:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;It can be made with ingredients from Trader Joe’s.&lt;/li&gt;
-  &lt;li&gt;It has currants.&lt;/li&gt;
-  &lt;li&gt;Crispy, buttery starch is great.&lt;/li&gt;
-  &lt;li&gt;It’s resilient; the second time I made it with indirect heat on a propane bbq grill because my oven was on the fritz. Still great. Also I’ve tried brown basmati rice, tried doubling the eggs, tripled the garlic, I’m not measuring the butter and currents. Still great.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;ingredients&quot;&gt;Ingredients&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;1.5 cups basmati rice&lt;/li&gt;
-  &lt;li&gt;1/4 teaspoon saffron threads&lt;/li&gt;
-  &lt;li&gt;2 tablespoons boiling water&lt;/li&gt;
-  &lt;li&gt;12 ounces boneless skinless chicken thighs. I think this would also work with seitan or tempeh just mix a bit more oil in.&lt;/li&gt;
-  &lt;li&gt;1 lemon, for juice and zest&lt;/li&gt;
-  &lt;li&gt;2 garlic cloves&lt;/li&gt;
-  &lt;li&gt;0.5 cups whole milk greek yogurt&lt;/li&gt;
-  &lt;li&gt;1 large egg (yolk only)&lt;/li&gt;
-  &lt;li&gt;3 tablespoons dried currants&lt;/li&gt;
-  &lt;li&gt;2 tablespoons salted butter, melted&lt;/li&gt;
-  &lt;li&gt;Parsley, to garnish&lt;/li&gt;
-  &lt;li&gt;Roasted Pistachios, to garnish&lt;/li&gt;
-  &lt;li&gt;Olive oil&lt;/li&gt;
-  &lt;li&gt;Salt and pepper&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;A pie plate.&lt;/strong&gt; Milk Street spends a paragraph saying why glass is best (you can see the browning), but I’ve been doing ceramic and it’s fine.&lt;/p&gt;
-
-&lt;h3 id=&quot;30-minutes-to-12-hours-ahead&quot;&gt;30 minutes to 12 hours ahead&lt;/h3&gt;
-
-&lt;p&gt;&lt;strong&gt;Soak the rice.&lt;/strong&gt; Place the rice in a bowl with enough water to cover by 1 inch and let rest at room temperature for at least 30 minutes or up to 12 hours. Drain and rinse the rice again.&lt;/p&gt;
-
-&lt;h3 id=&quot;to-begin&quot;&gt;To begin&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Place the oven rack at lowest position&lt;/strong&gt; and &lt;strong&gt;preheat the oven to 400 degrees&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Prepare a large pot of salted boiling water&lt;/strong&gt; to cook the rice.&lt;/li&gt;
-  &lt;li&gt;Thoroughly &lt;strong&gt;oil your pie plate&lt;/strong&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;prep-the-ingredients&quot;&gt;Prep the ingredients&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Melt the butter&lt;/strong&gt; and set aside.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Crumble the saffron threads&lt;/strong&gt; and &lt;strong&gt;soak the saffron in 2 tablespoons of boiling water&lt;/strong&gt; in a small bowl. Set aside.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Zest the lemon&lt;/strong&gt; resulting in about 3 teaspoons of lemon zest, to be divided between the chicken and the yogurt sauce. Put the rest of the lemon aside to be wedged later.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Grate the garlic&lt;/strong&gt;.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Trim the chicken thighs&lt;/strong&gt; into 1 to 1.5 inch pieces and in a medium bowl &lt;strong&gt;combine the chicken with 1 tbsp of oil, 1 teaspoon lemon zest, and garlic&lt;/strong&gt; Salt and pepper it.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Separate the egg yolk&lt;/strong&gt; (discard the white) and  &lt;strong&gt;mix the yogurt, egg yolk, remaining 2 teaspoons of lemon zest, and saffron water&lt;/strong&gt; in a bowl large enough to eventually hold the rice too. Salt and pepper it. Whisk to combine well.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;cooking&quot;&gt;Cooking&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Add the rice to the pot of salted boiling water&lt;/strong&gt; and cook for 5 minutes until par-boiled; the rice will still be slightly crunchy.  Drain the rice.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Mix the par-boiled rice with the yogurt mixture&lt;/strong&gt; and stir to combine.&lt;/li&gt;
-  &lt;li&gt;Add about &lt;strong&gt;1/3 of the rice mixture to the bottom of the pie plate,&lt;/strong&gt; pressing it into an even layer on the bottom and halfway up the sides.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Mix the currants and the yogurt-chicken mixture into the remaining rice and yogurt mixture&lt;/strong&gt; and then &lt;strong&gt;transfer the mixture to the pie dish.&lt;/strong&gt; Do not compact or press the rice, but do distribute it evenly.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Drizzle the melted butter over the rice mixture.&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Tightly cover the pie dish with foil&lt;/strong&gt; and &lt;strong&gt;bake for 1 hour covered.&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;while-it-bakes-clean-up-and-prepare&quot;&gt;While it bakes, clean up and prepare&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Chop the parsley&lt;/strong&gt; and reserve for serving.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Chop the pistachios&lt;/strong&gt; and reserve for serving.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Slice the lemon&lt;/strong&gt; into wedges for personal squeezing.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;after-baking-for-1-hour&quot;&gt;After baking for 1 hour&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Remove the foil&lt;/strong&gt; and then uncovered, &lt;strong&gt;bake for an additional 10 minutes&lt;/strong&gt; until the bottom is golden brown.&lt;/li&gt;
-  &lt;li&gt;Remove from the oven and &lt;strong&gt;rest for about 5 minutes&lt;/strong&gt;.&lt;/li&gt;
-  &lt;li&gt;Run a knife or spatula around the edge to loosen the rice from the pie plate, then &lt;strong&gt;invert onto a serving plate&lt;/strong&gt;.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Sprinkle with the parsley and pistachios&lt;/strong&gt; and serve with the &lt;strong&gt;lemon wedges on the side&lt;/strong&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
-
-  &lt;br&gt;&lt;br&gt;
-  &lt;hr&gt;
-  &lt;p&gt;
-    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2022/09/persian-tahchin-inspired-crispy-chicken-rice&quot;&gt;Persian Tahchin-inspired crispy chicken rice&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
-    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
-  &lt;/p&gt;
-</description>
-  <pubDate>Mon, 26 Sep 2022 01:17:00 +0000</pubDate>
-  <link>https://island94.org/2022/09/persian-tahchin-inspired-crispy-chicken-rice</link>
-  <guid isPermaLink="true">https://island94.org/2022/09/persian-tahchin-inspired-crispy-chicken-rice</guid>
-  
-    <category>recipe</category>
   
   
 </item>
