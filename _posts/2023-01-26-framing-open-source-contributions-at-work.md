@@ -1,5 +1,5 @@
 ---
-title: "Framing open source contributions for work"
+title: "Framing open source contributions at work"
 date: 2023-01-26 16:51 PST
 published: true
 tags: []
