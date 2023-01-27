@@ -18,17 +18,17 @@ Running off Main may be harder than running off a release because features and b
 Another way to find places to contribute  is look at your own applications. 
 
 - Do you have monkey patches on Rails code  that are fixes bugs or changing behavior?   Instead of leaving them there, upstream  the fix and delete the monkey patch.   
-- Is there infrastructure level code that  doesn’t really pertain to your product?   It’s possible this could be a great addition to  Rails. When I wrote the database in Rails, it came from GitHub’s monolith. It made perfect sense  because it was getting in the way of upgrades,  didn’t expose any intellectual property, had  nothing to do with your product features and  
+- Is there infrastructure level code that  doesn’t really pertain to your product? It’s possible this could be a great addition to  Rails. When I wrote the database in Rails, it came from GitHub’s monolith. It made perfect sense  because it was getting in the way of upgrades, didn’t expose any intellectual property, had  nothing to do with your product features and  
 something many applications could benefit from. 
 - Lastly and most importantly, keep showing up.  
 
 … Ultimately,  if more companies treated the framework as an extension of the application, it would  result in higher resilience and stability. Investment in Rails ensures your foundation will not crumble under the weight of your application. Treating it as an unimportant part of your application is a mistake and many, many leaders make this mistake.
 
-…leaders see funding open source risky is because they don’t actually  understand the work. … Often, leaders worry if there’s a team work in open source, other teams are going to be jealous or resentful that that team is doing “fun” work. …
+…leaders see funding open source risky is because they don’t actually  understand the work. … Often, leaders worry if there’s a team working in open source, other teams are going to be jealous or resentful that that team is doing “fun” work. …
 
 Maintainers need to make changes, deal with security incidents and also handle criticism from many people. Maintaining and contributing to open source requires a different skill set than product work. That doesn’t make it any less essential.  
 
-…Many product companies don’t  like words like “research” and “experimental.”  They can imply work without goals. Use words like  “investment.” And demonstrate the direct value will bring. Make sure it is measurable and will  make the application and product more successful. A great example of measurable work is  a change that improves performance. If you can tie contributions to direct customer improvements, it’s easier to show leadership.
+…Many product companies don’t like words like “research” and “experimental.”  They can imply work without goals. Use words like  “investment.” And demonstrate the direct value will bring. Make sure it is measurable and will  make the application and product more successful. A great example of measurable work is  a change that improves performance. If you can tie contributions to direct customer improvements, it’s easier to show leadership.
 
 …As I started contributing more and more  and pealing back the layers of Rails, the impact is limitless. I started looking at how applications stretched  the boundaries of what Rails was meant to do.
 
