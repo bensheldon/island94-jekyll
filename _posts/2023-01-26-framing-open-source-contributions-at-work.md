@@ -44,14 +44,16 @@ It will give your engineering team the skills  they need to make better technica
 
 We want to ensure our apps are upgradeable, performant and stable. 
 
-Investment in Rails also means you won’t have to rewrite your application a few years because Rails no longer supports what you need. When you fail  to invest in your tools, you end up being unable to upgrade. Your engineering team is miserable.  The codebase is a mess and writing features is impossible. You’re forced into a rewrite, your  engineers want to write Rails and you can no longer let them do that. You have to build a  bunch of features before you site falls over.  
+Investment in Rails also means you won’t have to rewrite your application in a few years because Rails no longer supports what you need. When you fail  to invest in your tools, you end up being unable to upgrade. Your engineering team is miserable. The codebase is a mess and writing features is impossible. You’re forced into a rewrite, your engineers want to write Rails and you can no longer let them do that. You have to build a bunch of features before you site falls over.  
 
 It’s not Rails’ fault you made  the decision to invest elsewhere.  
 
-If you build contributing into your culture, the  benefits are clear:
+If you build contributing into your culture, the benefits are clear:
 
-- Your engineering teams’ skills will improve. Rails will evolve with your  application because you’re helping decide how it needs to change. 
+- Your engineering teams’ skills will improve. 
+- Rails will evolve with your  application because you’re helping decide how it needs to change. 
 - Your application will be  more resilient because there’s low tech debt and your foundation is stable. Active investment  prevents your application from degrading.  
-- Building a team to invest in Rails is  proactive. Rewriting an application is reactive. Which one do you think is better for business in the long run?
+
+Building a team to invest in Rails is  proactive. Rewriting an application is reactive. Which one do you think is better for business in the long run?
 
 </blockquote>
