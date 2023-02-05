@@ -84,6 +84,104 @@
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
     <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2023/02/introducing-goodjob-bulk-and-batch">Introducing GoodJob Bulk and Batch</a>
+    </h1>
+    <p class="post-meta text-muted">
+      <time datetime="2023-02-05T22:37:00+00:00" itemprop="datePublished">February 5, 2023</time>
+      
+      
+
+
+  
+
+  
+
+  • Tagged <a href="/tags/#GoodJob">GoodJob</a>
+
+
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>GoodJob is a multithreaded, Postgres-based, ActiveJob backend for Ruby on Rails. I recently released two new features:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">GoodJob::Bulk</code> to optimize enqueuing large numbers of jobs (released in GoodJob v3.9)</li>
+  <li><code class="language-plaintext highlighter-rouge">GoodJob::Batch</code> to coordinate parallelized sets of jobs (released in GoodJob v3.10)</li>
+</ul>
+
+<p>Big thanks to @julik, @mollerhoj, @v2kovac, @danielwestendorf, @jrochkind, @mperham and others for your help and counsel!</p>
+
+<h3 id="bulk-enqueue">Bulk enqueue</h3>
+
+<p><a href="https://github.com/bensheldon/good_job#bulk-enqueue">GoodJob’s Bulk-enqueue functionality</a> can buffer and enqueue multiple jobs at once, using a single INSERT statement. This can be more performant when enqueuing a large number of jobs.</p>
+
+<p>I was inspired by a discussion within a Rails pull request to implement <a href="https://github.com/rails/rails/pull/46603"><code class="language-plaintext highlighter-rouge">perform_all_later</code> within Active Job</a>. I wanted to both support the way most people enqueue Active Job jobs with <code class="language-plaintext highlighter-rouge">perform_later</code> and also <a href="https://github.com/rails/rails/pull/43434">encourage people to work directly with Active Job instances too</a>.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># perform_later within a block</span>
+<span class="n">active_jobs</span> <span class="o">=</span> <span class="no">GoodJob</span><span class="o">::</span><span class="no">Bulk</span><span class="p">.</span><span class="nf">enqueue</span> <span class="k">do</span>
+  <span class="no">MyJob</span><span class="p">.</span><span class="nf">perform_later</span>
+  <span class="no">AnotherJob</span><span class="p">.</span><span class="nf">perform_later</span>
+<span class="k">end</span>
+<span class="c1"># or with Active Job instances</span>
+<span class="n">active_jobs</span> <span class="o">=</span> <span class="p">[</span><span class="no">MyJob</span><span class="p">.</span><span class="nf">new</span><span class="p">,</span> <span class="no">AnotherJob</span><span class="p">.</span><span class="nf">new</span><span class="p">]</span>
+<span class="no">GoodJob</span><span class="o">::</span><span class="no">Bulk</span><span class="p">.</span><span class="nf">enqueue</span><span class="p">(</span><span class="n">active_jobs</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Releasing Bulk functionality was a two-step: I initially implemented it while working on Batch functionality, and then with @julik’s initiative and help, we extracted and polished it to be used on its own.</p>
+
+<h3 id="batches">Batches</h3>
+
+<p><a href="https://github.com/bensheldon/good_job#batches">GoodJob’s Batch functionality</a> coordinates parallelized sets of jobs. The ability to coordinate a set of jobs, and run callbacks during lifecycle events, has been a highly demanded feature. Most people who talked to me about job batches were familiar with <a href="https://sidekiq.org/products/pro.html">Sidekiq Pro</a> ‘s <a href="https://github.com/mperham/sidekiq/wiki/Batches]">batch functionality</a>, which I didn’t want to simply recreate (Sidekiq Pro is excellent!). So I’ve been collecting use cases and thinking about what’s most in the spirit of Rails, Active Job, and Postgres:</p>
+
+<ul>
+  <li>Batches are mutable, database-backed objects with foreign-key relationships to sets of job records.</li>
+  <li>Batches have  <code class="language-plaintext highlighter-rouge">properties</code> which use Active Job’s serializer, so they can contain and rehydrate any GlobalID object, like Active Record models.</li>
+  <li>Batches have callbacks, which are themselves Active Job jobs</li>
+</ul>
+
+<p>Here’s a simple example:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">GoodJob</span><span class="o">::</span><span class="no">Batch</span><span class="p">.</span><span class="nf">enqueue</span><span class="p">(</span><span class="ss">on_finish: </span><span class="no">MyBatchCallbackJob</span><span class="p">,</span> <span class="ss">user: </span><span class="n">current_user</span><span class="p">)</span> <span class="k">do</span>
+  <span class="no">MyJob</span><span class="p">.</span><span class="nf">perform_later</span>
+  <span class="no">OtherJob</span><span class="p">.</span><span class="nf">perform_later</span>
+<span class="k">end</span>
+
+<span class="c1"># When these jobs have finished, it will enqueue your `MyBatchCallbackJob.perform_later(batch, options)`</span>
+<span class="k">class</span> <span class="nc">MyBatchCallbackJob</span> <span class="o">&lt;</span> <span class="no">ApplicationJob</span>
+  <span class="c1"># Callback jobs must accept a `batch` and `params` argument</span>
+  <span class="k">def</span> <span class="nf">perform</span><span class="p">(</span><span class="n">batch</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
+    <span class="c1"># The batch object will contain the Batch's properties, which are mutable</span>
+    <span class="n">batch</span><span class="p">.</span><span class="nf">properties</span><span class="p">[</span><span class="ss">:user</span><span class="p">]</span> <span class="c1"># =&gt; &lt;User id: 1, ...&gt;</span>
+    <span class="c1"># Params is a hash containing additional context (more may be added in the future)</span>
+    <span class="n">params</span><span class="p">[</span><span class="ss">:event</span><span class="p">]</span> <span class="c1"># =&gt; :finish, :success, :discard</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>There’s more depth and examples in the <a href="https://github.com/bensheldon/good_job#batches">GoodJob Batch documentation</a>.</p>
+
+<h3 id="please-help">Please help!</h3>
+
+<p>Batches are definitely a work in progress, and I’d love your feedback:</p>
+
+<ul>
+  <li>What is the Batch functionality missing? Tell me your use cases.</li>
+  <li>Help improve the <a href="https://goodjob-demo.herokuapp.com/good_job/jobs">Web Dashboard UI</a> (it’s rough but functional!)</li>
+  <li>Find bugs! I’m sure there are some edge cases I overlooked.</li>
+</ul>
+
+  </div>
+</article>
+
+
+    <hr>
+  
+    
+
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
       <a class="post-link" href="/2023/01/framing-open-source-contributions-at-work">Framing open source contributions at work</a>
     </h1>
     <p class="post-meta text-muted">
@@ -633,58 +731,6 @@ something many applications could benefit from.</li>
   <li>Performance Review Season is kicking off again. I’m eligible. It feels like no time has passed but this week is my 6 month anniversary at GitHub! It’s still fun.</li>
   <li>With my leadership coach, we’ve been talking about <a href="https://www.goodreads.com/en/book/show/279812.Moral_Mazes">Moral Mazes</a>, which led to <a href="https://slatestarcodex.com/2014/07/30/meditations-on-moloch/">Meditations on Moloch</a>. The overall theme, and I’ve now been working with the coach for three (!) years is (my words): taking action authentically. And then exploring different shapes of that. <a href="https://en.wikipedia.org/wiki/Ikigai">Ikigai</a>.</li>
 </ul>
-
-  </div>
-</article>
-
-
-    <hr>
-  
-    
-
-<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">
-      <a class="post-link" href="/2022/10/impenetrable-legal-language">Impenetrable legal language</a>
-    </h1>
-    <p class="post-meta text-muted">
-      <time datetime="2022-10-23T17:40:00+00:00" itemprop="datePublished">October 23, 2022</time>
-      
-      
-
-
-  
-
-  
-
-  • Tagged <a href="/tags/#language">language</a>, <a href="/tags/#writing">writing</a>, and <a href="/tags/#plan_language">plan language</a>
-
-
-    </p>
-  </header>
-
-  <div class="post-content" itemprop="articleBody">
-    <p>From the paper <a href="https://mollicaf.github.io/publication/martinez-2021-what/">“What did I sign? A study of the impenetrability of legalese in contracts”</a> via <a href="https://labnotes.org/weekend-reading-any-desk-is-a-standing-desk-if-youre-short-enough/">Assaf Arkin’s Labnotes</a>.</p>
-
-<p>The description of “Center-embedded clauses” was particularly interesting to me in regards to plain language.</p>
-
-<blockquote>
-
-  <p>Each legalese text was drafted to contain the following language properties that have been identified as difficult to process and common to legal texts:</p>
-
-  <p>(a) Low-frequency legal terms – Words that are infrequently used in everyday speech provide processing difficulties for readers relative to higher-frequency synonyms (Marks, Doctorow, &amp; Wittrock, 1974). Legal texts are laden with “archaic words” such as aforesaid, herein, and to wit (P. Tiersma, 2008), which have been shown to be frequently misunderstood by laypeople (e.g. P. M. Tiersma, 1993). Each legalese text was constructed to contain several instances of legal jargon, which were replaced with high-frequency synonyms in the plain-English versions.</p>
-
-  <p>(b) Center-embedded clauses – Center-embedded structures have long been observed to pose processing difficulties on a reader (Miller &amp; Chomsky, 1963; Gibson, 1998; Pinker, 2003). The tendency for lawyers to “embed” legal jargon “in convoluted syntax” has been observed not only to be prevalent in legal texts but as a potential badge of honor for those who wish to “talk like a lawyer” and be accepted by their profession (P. Tiersma, 2008). Each legalese text was constructed to contain multiple center-embedded clauses (“Artist and Tour, said parties being hereinafter referred as…”), which were written as separate sentences in the corresponding plain-English version.</p>
-
-  <p>(c) Passive-voice structures – Relative to their active-voice counterparts, passive-voice structures are acquired later by children (Baldie, 1976), and may continue to pose difficulties for adults (Ferreira, 2003). Gozdz-Roszkowski (2011) found passive structures to be more prevalent in contracts relative to other legal and non-legal genres (such as newspapers). Our legalese texts each contained multiple passive-voice structures (“This agreement has been formed by the parties”), which we converted into active-voice structures in the corresponding plain-English versions.</p>
-
-  <p>(d) Capitalization – Non-standard capitalization is ubiquitous in provisions such as warranty disclaimers and limitations of liability, which “must be conspicuous” in order to be legally upheld (American Law Institute and National Conference of Commissioners on Uniform State Laws, 2002). Arbel and Toler (2020) found that most standard form agreements used by major companies contain a provision in all-caps. Although the use of all-caps provisions is ostensibly for the benefit of the reader, evidence suggests that they do not aid comprehension (Arbel &amp; Toler, 2020). Here we included at least one chunk of all-capitalized text in each legalese passage (“THE WARRANTY IS HEREBY DISCLAIMED”), which was replaced with standard capitalization in the simple version.</p>
-
-  <p>From the set of legalese materials, each passage was encoded in terms of legally relevant propositions. From these propositions, each passage was then translated into a “plain-English” version, which differed only with respect to the four surface properties described above, resulting in 24 total passages.</p>
-
-  <p>For each contract pair, 12-15 comprehension questions were drafted. The questions were multiple choice with four options. These questions both targeted comprehension of specific important legal propositions, as well as more general understanding of the legal content. To reduce a response bias for a given register, we controlled the overlap in form between contract excerpt and comprehension question. Both types of comprehension question were drafted in a “neutral” register. Passive/active structures were replaced by nominalizations. For example, “shipment of the goods on the part of merchant” instead of “the goods were shipped by merchant” or “merchant shipped the goods”). High or low frequency synonyms were replaced with a third synonym (e.g. “renter” instead of “lessee” or “tenant”).</p>
-
-</blockquote>
 
   </div>
 </article>

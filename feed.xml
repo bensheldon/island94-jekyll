@@ -6,10 +6,104 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 05 Feb 2023 22:36:28 +0000</pubDate>
-    <lastBuildDate>Sun, 05 Feb 2023 22:36:28 +0000</lastBuildDate>
+    <pubDate>Sun, 05 Feb 2023 22:54:58 +0000</pubDate>
+    <lastBuildDate>Sun, 05 Feb 2023 22:54:58 +0000</lastBuildDate>
     <generator>Jekyll v4.3.2</generator>
     
+    
+      
+        
+
+
+
+
+<item>
+  <title>Introducing GoodJob Bulk and Batch</title>
+  <description>&lt;p&gt;GoodJob is a multithreaded, Postgres-based, ActiveJob backend for Ruby on Rails. I recently released two new features:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GoodJob::Bulk&lt;/code&gt; to optimize enqueuing large numbers of jobs (released in GoodJob v3.9)&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GoodJob::Batch&lt;/code&gt; to coordinate parallelized sets of jobs (released in GoodJob v3.10)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Big thanks to @julik, @mollerhoj, @v2kovac, @danielwestendorf, @jrochkind, @mperham and others for your help and counsel!&lt;/p&gt;
+
+&lt;h3 id=&quot;bulk-enqueue&quot;&gt;Bulk enqueue&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/bensheldon/good_job#bulk-enqueue&quot;&gt;GoodJob’s Bulk-enqueue functionality&lt;/a&gt; can buffer and enqueue multiple jobs at once, using a single INSERT statement. This can be more performant when enqueuing a large number of jobs.&lt;/p&gt;
+
+&lt;p&gt;I was inspired by a discussion within a Rails pull request to implement &lt;a href=&quot;https://github.com/rails/rails/pull/46603&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;perform_all_later&lt;/code&gt; within Active Job&lt;/a&gt;. I wanted to both support the way most people enqueue Active Job jobs with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;perform_later&lt;/code&gt; and also &lt;a href=&quot;https://github.com/rails/rails/pull/43434&quot;&gt;encourage people to work directly with Active Job instances too&lt;/a&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# perform_later within a block&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;active_jobs&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;GoodJob&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Bulk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;enqueue&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+  &lt;span class=&quot;no&quot;&gt;MyJob&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;perform_later&lt;/span&gt;
+  &lt;span class=&quot;no&quot;&gt;AnotherJob&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;perform_later&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# or with Active Job instances&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;active_jobs&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;MyJob&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;AnotherJob&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;GoodJob&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Bulk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;enqueue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;active_jobs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Releasing Bulk functionality was a two-step: I initially implemented it while working on Batch functionality, and then with @julik’s initiative and help, we extracted and polished it to be used on its own.&lt;/p&gt;
+
+&lt;h3 id=&quot;batches&quot;&gt;Batches&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/bensheldon/good_job#batches&quot;&gt;GoodJob’s Batch functionality&lt;/a&gt; coordinates parallelized sets of jobs. The ability to coordinate a set of jobs, and run callbacks during lifecycle events, has been a highly demanded feature. Most people who talked to me about job batches were familiar with &lt;a href=&quot;https://sidekiq.org/products/pro.html&quot;&gt;Sidekiq Pro&lt;/a&gt; ‘s &lt;a href=&quot;https://github.com/mperham/sidekiq/wiki/Batches]&quot;&gt;batch functionality&lt;/a&gt;, which I didn’t want to simply recreate (Sidekiq Pro is excellent!). So I’ve been collecting use cases and thinking about what’s most in the spirit of Rails, Active Job, and Postgres:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Batches are mutable, database-backed objects with foreign-key relationships to sets of job records.&lt;/li&gt;
+  &lt;li&gt;Batches have  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;properties&lt;/code&gt; which use Active Job’s serializer, so they can contain and rehydrate any GlobalID object, like Active Record models.&lt;/li&gt;
+  &lt;li&gt;Batches have callbacks, which are themselves Active Job jobs&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Here’s a simple example:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;no&quot;&gt;GoodJob&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Batch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;enqueue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;on_finish: &lt;/span&gt;&lt;span class=&quot;no&quot;&gt;MyBatchCallbackJob&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;user: &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;current_user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+  &lt;span class=&quot;no&quot;&gt;MyJob&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;perform_later&lt;/span&gt;
+  &lt;span class=&quot;no&quot;&gt;OtherJob&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;perform_later&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# When these jobs have finished, it will enqueue your `MyBatchCallbackJob.perform_later(batch, options)`&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MyBatchCallbackJob&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ApplicationJob&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;# Callback jobs must accept a `batch` and `params` argument&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;perform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;batch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# The batch object will contain the Batch&apos;s properties, which are mutable&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;batch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;properties&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; &amp;lt;User id: 1, ...&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# Params is a hash containing additional context (more may be added in the future)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; :finish, :success, :discard&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;There’s more depth and examples in the &lt;a href=&quot;https://github.com/bensheldon/good_job#batches&quot;&gt;GoodJob Batch documentation&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;please-help&quot;&gt;Please help!&lt;/h3&gt;
+
+&lt;p&gt;Batches are definitely a work in progress, and I’d love your feedback:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;What is the Batch functionality missing? Tell me your use cases.&lt;/li&gt;
+  &lt;li&gt;Help improve the &lt;a href=&quot;https://goodjob-demo.herokuapp.com/good_job/jobs&quot;&gt;Web Dashboard UI&lt;/a&gt; (it’s rough but functional!)&lt;/li&gt;
+  &lt;li&gt;Find bugs! I’m sure there are some edge cases I overlooked.&lt;/li&gt;
+&lt;/ul&gt;
+
+  &lt;br&gt;&lt;br&gt;
+  &lt;hr&gt;
+  &lt;p&gt;
+    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2023/02/introducing-goodjob-bulk-and-batch&quot;&gt;Introducing GoodJob Bulk and Batch&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
+    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
+  &lt;/p&gt;
+</description>
+  <pubDate>Sun, 05 Feb 2023 22:37:00 +0000</pubDate>
+  <link>https://island94.org/2023/02/introducing-goodjob-bulk-and-batch</link>
+  <guid isPermaLink="true">https://island94.org/2023/02/introducing-goodjob-bulk-and-batch</guid>
+  
+    <category>GoodJob</category>
+  
+  
+</item>
+
+      
     
       
         
@@ -642,43 +736,6 @@ something many applications could benefit from.&lt;/li&gt;
     <category>education</category>
   
     <category>learning</category>
-  
-  
-</item>
-
-      
-    
-      
-        
-
-
-
-
-<item>
-  <title>Worknotes - October 23, 2022</title>
-  <description>&lt;ul&gt;
-  &lt;li&gt;During my absence, my team was reorganized and I moved under a new director and from developer experience to the product development organization. It’s been exciting (new people, new relationships, new opportunities) and also tiring (new people, new relationships, new opportunities). My team was an odd duck in the old structure, and less-so but still odd in the new structure. My verdict is out if that’s an improvement. I think it can be sometimes be easier to stick out hugely instead of subtly: it’s called whackamole, not whackagiraffe.&lt;/li&gt;
-  &lt;li&gt;My team, Ruby Architecture, moved from “Build &amp;amp; Test” within DX, to “UI and Monolith Platform” within Core Productivity. In my old group I was figuring out collaborations with the testing and CI platform. With the new group, we’re figuring out how to better explain “platforms” ourselves. I see a lot of “Shifting Left” in my future and I’m here for it.&lt;/li&gt;
-  &lt;li&gt;“A feeling you don’t act upon isn’t real.” I’ve picked up this quote from nearly every Kim Stanley Robinson novel I’ve read. I shared it with a few of my reports this week; I’ve been (gently, I hope!) pushing people to share feedback more actively outside the team.&lt;/li&gt;
-  &lt;li&gt;“It’s ok to be mad, it’s not ok to be mean”. Angelina and I had dinner this week with family friends who have a 10-year old and they’ve been a resource during our foster parenting journey. This phrase came up and I have been thinking about this as a better alternative to “Assume good intent.” I’m a big fan of Non-Violent Communication and it fits right in there.&lt;/li&gt;
-  &lt;li&gt;Performance Review Season is kicking off again. I’m eligible. It feels like no time has passed but this week is my 6 month anniversary at GitHub! It’s still fun.&lt;/li&gt;
-  &lt;li&gt;With my leadership coach, we’ve been talking about &lt;a href=&quot;https://www.goodreads.com/en/book/show/279812.Moral_Mazes&quot;&gt;Moral Mazes&lt;/a&gt;, which led to &lt;a href=&quot;https://slatestarcodex.com/2014/07/30/meditations-on-moloch/&quot;&gt;Meditations on Moloch&lt;/a&gt;. The overall theme, and I’ve now been working with the coach for three (!) years is (my words): taking action authentically. And then exploring different shapes of that. &lt;a href=&quot;https://en.wikipedia.org/wiki/Ikigai&quot;&gt;Ikigai&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
-  &lt;br&gt;&lt;br&gt;
-  &lt;hr&gt;
-  &lt;p&gt;
-    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2022/10/worknotes-october-23-2022&quot;&gt;Worknotes - October 23, 2022&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
-    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
-  &lt;/p&gt;
-</description>
-  <pubDate>Sun, 23 Oct 2022 21:22:00 +0000</pubDate>
-  <link>https://island94.org/2022/10/worknotes-october-23-2022</link>
-  <guid isPermaLink="true">https://island94.org/2022/10/worknotes-october-23-2022</guid>
-  
-    <category>worknotes</category>
-  
-    <category>weeknotes</category>
   
   
 </item>

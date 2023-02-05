@@ -6,10 +6,102 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 05 Feb 2023 22:36:28 +0000</pubDate>
-    <lastBuildDate>Sun, 05 Feb 2023 22:36:28 +0000</lastBuildDate>
+    <pubDate>Sun, 05 Feb 2023 22:54:58 +0000</pubDate>
+    <lastBuildDate>Sun, 05 Feb 2023 22:54:58 +0000</lastBuildDate>
     <generator>Jekyll v4.3.2</generator>
     
+    
+      
+
+
+
+
+<item>
+  <title>Introducing GoodJob Bulk and Batch</title>
+  <description>&lt;p&gt;GoodJob is a multithreaded, Postgres-based, ActiveJob backend for Ruby on Rails. I recently released two new features:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GoodJob::Bulk&lt;/code&gt; to optimize enqueuing large numbers of jobs (released in GoodJob v3.9)&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GoodJob::Batch&lt;/code&gt; to coordinate parallelized sets of jobs (released in GoodJob v3.10)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Big thanks to @julik, @mollerhoj, @v2kovac, @danielwestendorf, @jrochkind, @mperham and others for your help and counsel!&lt;/p&gt;
+
+&lt;h3 id=&quot;bulk-enqueue&quot;&gt;Bulk enqueue&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/bensheldon/good_job#bulk-enqueue&quot;&gt;GoodJob’s Bulk-enqueue functionality&lt;/a&gt; can buffer and enqueue multiple jobs at once, using a single INSERT statement. This can be more performant when enqueuing a large number of jobs.&lt;/p&gt;
+
+&lt;p&gt;I was inspired by a discussion within a Rails pull request to implement &lt;a href=&quot;https://github.com/rails/rails/pull/46603&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;perform_all_later&lt;/code&gt; within Active Job&lt;/a&gt;. I wanted to both support the way most people enqueue Active Job jobs with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;perform_later&lt;/code&gt; and also &lt;a href=&quot;https://github.com/rails/rails/pull/43434&quot;&gt;encourage people to work directly with Active Job instances too&lt;/a&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# perform_later within a block&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;active_jobs&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;GoodJob&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Bulk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;enqueue&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+  &lt;span class=&quot;no&quot;&gt;MyJob&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;perform_later&lt;/span&gt;
+  &lt;span class=&quot;no&quot;&gt;AnotherJob&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;perform_later&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# or with Active Job instances&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;active_jobs&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;MyJob&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;AnotherJob&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;GoodJob&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Bulk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;enqueue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;active_jobs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Releasing Bulk functionality was a two-step: I initially implemented it while working on Batch functionality, and then with @julik’s initiative and help, we extracted and polished it to be used on its own.&lt;/p&gt;
+
+&lt;h3 id=&quot;batches&quot;&gt;Batches&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/bensheldon/good_job#batches&quot;&gt;GoodJob’s Batch functionality&lt;/a&gt; coordinates parallelized sets of jobs. The ability to coordinate a set of jobs, and run callbacks during lifecycle events, has been a highly demanded feature. Most people who talked to me about job batches were familiar with &lt;a href=&quot;https://sidekiq.org/products/pro.html&quot;&gt;Sidekiq Pro&lt;/a&gt; ‘s &lt;a href=&quot;https://github.com/mperham/sidekiq/wiki/Batches]&quot;&gt;batch functionality&lt;/a&gt;, which I didn’t want to simply recreate (Sidekiq Pro is excellent!). So I’ve been collecting use cases and thinking about what’s most in the spirit of Rails, Active Job, and Postgres:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Batches are mutable, database-backed objects with foreign-key relationships to sets of job records.&lt;/li&gt;
+  &lt;li&gt;Batches have  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;properties&lt;/code&gt; which use Active Job’s serializer, so they can contain and rehydrate any GlobalID object, like Active Record models.&lt;/li&gt;
+  &lt;li&gt;Batches have callbacks, which are themselves Active Job jobs&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Here’s a simple example:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;no&quot;&gt;GoodJob&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Batch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;enqueue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;on_finish: &lt;/span&gt;&lt;span class=&quot;no&quot;&gt;MyBatchCallbackJob&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;user: &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;current_user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+  &lt;span class=&quot;no&quot;&gt;MyJob&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;perform_later&lt;/span&gt;
+  &lt;span class=&quot;no&quot;&gt;OtherJob&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;perform_later&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# When these jobs have finished, it will enqueue your `MyBatchCallbackJob.perform_later(batch, options)`&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MyBatchCallbackJob&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ApplicationJob&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;# Callback jobs must accept a `batch` and `params` argument&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;perform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;batch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# The batch object will contain the Batch&apos;s properties, which are mutable&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;batch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;properties&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; &amp;lt;User id: 1, ...&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# Params is a hash containing additional context (more may be added in the future)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; :finish, :success, :discard&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;There’s more depth and examples in the &lt;a href=&quot;https://github.com/bensheldon/good_job#batches&quot;&gt;GoodJob Batch documentation&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;please-help&quot;&gt;Please help!&lt;/h3&gt;
+
+&lt;p&gt;Batches are definitely a work in progress, and I’d love your feedback:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;What is the Batch functionality missing? Tell me your use cases.&lt;/li&gt;
+  &lt;li&gt;Help improve the &lt;a href=&quot;https://goodjob-demo.herokuapp.com/good_job/jobs&quot;&gt;Web Dashboard UI&lt;/a&gt; (it’s rough but functional!)&lt;/li&gt;
+  &lt;li&gt;Find bugs! I’m sure there are some edge cases I overlooked.&lt;/li&gt;
+&lt;/ul&gt;
+
+  &lt;br&gt;&lt;br&gt;
+  &lt;hr&gt;
+  &lt;p&gt;
+    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2023/02/introducing-goodjob-bulk-and-batch&quot;&gt;Introducing GoodJob Bulk and Batch&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
+    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
+  &lt;/p&gt;
+</description>
+  <pubDate>Sun, 05 Feb 2023 22:37:00 +0000</pubDate>
+  <link>https://island94.org/2023/02/introducing-goodjob-bulk-and-batch</link>
+  <guid isPermaLink="true">https://island94.org/2023/02/introducing-goodjob-bulk-and-batch</guid>
+  
+    <category>GoodJob</category>
+  
+  
+</item>
+
     
       
 
@@ -537,56 +629,6 @@ something many applications could benefit from.&lt;/li&gt;
     <category>worknotes</category>
   
     <category>weeknotes</category>
-  
-  
-</item>
-
-    
-      
-
-
-
-
-<item>
-  <title>Impenetrable legal language</title>
-  <description>&lt;p&gt;From the paper &lt;a href=&quot;https://mollicaf.github.io/publication/martinez-2021-what/&quot;&gt;“What did I sign? A study of the impenetrability of legalese in contracts”&lt;/a&gt; via &lt;a href=&quot;https://labnotes.org/weekend-reading-any-desk-is-a-standing-desk-if-youre-short-enough/&quot;&gt;Assaf Arkin’s Labnotes&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;The description of “Center-embedded clauses” was particularly interesting to me in regards to plain language.&lt;/p&gt;
-
-&lt;blockquote&gt;
-
-  &lt;p&gt;Each legalese text was drafted to contain the following language properties that have been identified as difficult to process and common to legal texts:&lt;/p&gt;
-
-  &lt;p&gt;(a) Low-frequency legal terms – Words that are infrequently used in everyday speech provide processing difficulties for readers relative to higher-frequency synonyms (Marks, Doctorow, &amp;amp; Wittrock, 1974). Legal texts are laden with “archaic words” such as aforesaid, herein, and to wit (P. Tiersma, 2008), which have been shown to be frequently misunderstood by laypeople (e.g. P. M. Tiersma, 1993). Each legalese text was constructed to contain several instances of legal jargon, which were replaced with high-frequency synonyms in the plain-English versions.&lt;/p&gt;
-
-  &lt;p&gt;(b) Center-embedded clauses – Center-embedded structures have long been observed to pose processing difficulties on a reader (Miller &amp;amp; Chomsky, 1963; Gibson, 1998; Pinker, 2003). The tendency for lawyers to “embed” legal jargon “in convoluted syntax” has been observed not only to be prevalent in legal texts but as a potential badge of honor for those who wish to “talk like a lawyer” and be accepted by their profession (P. Tiersma, 2008). Each legalese text was constructed to contain multiple center-embedded clauses (“Artist and Tour, said parties being hereinafter referred as…”), which were written as separate sentences in the corresponding plain-English version.&lt;/p&gt;
-
-  &lt;p&gt;(c) Passive-voice structures – Relative to their active-voice counterparts, passive-voice structures are acquired later by children (Baldie, 1976), and may continue to pose difficulties for adults (Ferreira, 2003). Gozdz-Roszkowski (2011) found passive structures to be more prevalent in contracts relative to other legal and non-legal genres (such as newspapers). Our legalese texts each contained multiple passive-voice structures (“This agreement has been formed by the parties”), which we converted into active-voice structures in the corresponding plain-English versions.&lt;/p&gt;
-
-  &lt;p&gt;(d) Capitalization – Non-standard capitalization is ubiquitous in provisions such as warranty disclaimers and limitations of liability, which “must be conspicuous” in order to be legally upheld (American Law Institute and National Conference of Commissioners on Uniform State Laws, 2002). Arbel and Toler (2020) found that most standard form agreements used by major companies contain a provision in all-caps. Although the use of all-caps provisions is ostensibly for the benefit of the reader, evidence suggests that they do not aid comprehension (Arbel &amp;amp; Toler, 2020). Here we included at least one chunk of all-capitalized text in each legalese passage (“THE WARRANTY IS HEREBY DISCLAIMED”), which was replaced with standard capitalization in the simple version.&lt;/p&gt;
-
-  &lt;p&gt;From the set of legalese materials, each passage was encoded in terms of legally relevant propositions. From these propositions, each passage was then translated into a “plain-English” version, which differed only with respect to the four surface properties described above, resulting in 24 total passages.&lt;/p&gt;
-
-  &lt;p&gt;For each contract pair, 12-15 comprehension questions were drafted. The questions were multiple choice with four options. These questions both targeted comprehension of specific important legal propositions, as well as more general understanding of the legal content. To reduce a response bias for a given register, we controlled the overlap in form between contract excerpt and comprehension question. Both types of comprehension question were drafted in a “neutral” register. Passive/active structures were replaced by nominalizations. For example, “shipment of the goods on the part of merchant” instead of “the goods were shipped by merchant” or “merchant shipped the goods”). High or low frequency synonyms were replaced with a third synonym (e.g. “renter” instead of “lessee” or “tenant”).&lt;/p&gt;
-
-&lt;/blockquote&gt;
-
-  &lt;br&gt;&lt;br&gt;
-  &lt;hr&gt;
-  &lt;p&gt;
-    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2022/10/impenetrable-legal-language&quot;&gt;Impenetrable legal language&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
-    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
-  &lt;/p&gt;
-</description>
-  <pubDate>Sun, 23 Oct 2022 17:40:00 +0000</pubDate>
-  <link>https://island94.org/2022/10/impenetrable-legal-language</link>
-  <guid isPermaLink="true">https://island94.org/2022/10/impenetrable-legal-language</guid>
-  
-    <category>language</category>
-  
-    <category>writing</category>
-  
-    <category>plan language</category>
   
   
 </item>
