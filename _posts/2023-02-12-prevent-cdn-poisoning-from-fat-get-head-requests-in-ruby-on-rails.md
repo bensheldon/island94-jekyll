@@ -18,6 +18,7 @@ For example, you have a `/search` endpoint:
 - `GET /search` shows a landing page with some explanatory content
 - `GET /search?q=foo` shows the search results for "foo".
 - Here's what a Fat Request looks like:
+
     ```
     GET /search     <== the url for the landing page
 
