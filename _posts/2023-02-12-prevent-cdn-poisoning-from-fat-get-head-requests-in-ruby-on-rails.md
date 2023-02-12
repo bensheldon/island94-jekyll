@@ -9,7 +9,7 @@ There are many different flavors of [web cache poisoning discovered by Security 
 
 **What is a Fat GET/HEAD Request?** A GET or HEAD request is "fat" when it has a request body. It's unexpected! Typically one sees a request body with a POST or PUT request because the body contains form data. The HTTP specification says that including a request body with GET or HEAD requests is [_undefined_](https://stackoverflow.com/a/983458). You can do it, and it's up to the application to figure out what that means. Sometimes it's bad!
 
-You can get a sense of the applications that intentionally support Fat Requests (and how grumpy it makes people) by reading through this [Postman issue](https://github.com/postmanlabs/postman-app-support/issues/131).  
+You can get a sense of the applications that intentionally support Fat Requests (and how grumpy it makes some people) by reading through this [Postman issue](https://github.com/postmanlabs/postman-app-support/issues/131).  
 
 **Fat Requests can lead to CDN and cache poisoning in Rails.** CDNs and caching web proxies (like Varnish) are frequently configured to cache the response from a GET or HEAD request based solely on the request's URL and not the contents of the request body (they don't cache POSTs or PUTs at all). If an application isn't deliberately handling the request body, it may cause unexpected content to be cached and served.
 
