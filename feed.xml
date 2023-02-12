@@ -6,10 +6,135 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 06 Feb 2023 15:02:46 +0000</pubDate>
-    <lastBuildDate>Mon, 06 Feb 2023 15:02:46 +0000</lastBuildDate>
+    <pubDate>Sun, 12 Feb 2023 21:32:10 +0000</pubDate>
+    <lastBuildDate>Sun, 12 Feb 2023 21:32:10 +0000</lastBuildDate>
     <generator>Jekyll v4.3.2</generator>
     
+    
+      
+        
+
+
+
+
+<item>
+  <title>Prevent CDN poisoning from Fat GET/HEAD Requests in Ruby on Rails</title>
+  <description>&lt;p&gt;There are many different flavors of &lt;a href=&quot;https://portswigger.net/research/web-cache-entanglement&quot;&gt;web cache poisoning discovered by Security Researcher James Kettle&lt;/a&gt;. Read on for an explanation of one I’ve run across…&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;What is a Fat GET/HEAD Request?&lt;/strong&gt; A GET or HEAD request is “fat” when it has a request body. It’s weird! Typically one sees a request body with a POST or PUT request because the body contains form data. The HTTP specification says that including a request body with GET or HEAD requests is &lt;a href=&quot;https://stackoverflow.com/a/983458&quot;&gt;&lt;em&gt;undefined&lt;/em&gt;&lt;/a&gt;. You can do it, and it’s up to the application to figure out what that means. Sometimes it’s bad!&lt;/p&gt;
+
+&lt;p&gt;You can get a sense of the applications that intentionally support Fat Requests (and how grumpy it makes people) by reading through this &lt;a href=&quot;https://github.com/postmanlabs/postman-app-support/issues/131&quot;&gt;Postman issue&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Fat Requests can lead to CDN and cache poisoning in Rails.&lt;/strong&gt; CDNs and caching web proxies (like Varnish) are frequently configured to cache the response from a GET or HEAD request based solely on the request’s URL and not the contents of the request body (they don’t cache POSTs or PUTs at all). If an application isn’t deliberately handling the request body, it may cause unexpected content to be cached and served.&lt;/p&gt;
+
+&lt;p&gt;For example, you have a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/search&lt;/code&gt; endpoint:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GET /search&lt;/code&gt; shows a landing page with some explanatory content&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GET /search?q=foo&lt;/code&gt; shows the search results for “foo”.&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Here’s what a Fat Request looks like:&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  GET /search     &amp;lt;== the url for the landing page
+
+  q=verybadstuff  &amp;lt;== oh, but with a request body
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;In a Rails Controller, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;parameters&lt;/code&gt; (alias &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;params&lt;/code&gt;) merges query parameters (that’s the URL values) with request parameters (that’s the body values) into a single data structure. If your controller uses &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;params[:q]&lt;/code&gt; to determine whether to show the landing page or the search results, it’s possible that when someone sends that Fat Request, your CDN may cache and subsequently serve the results for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;verybadstuff&lt;/code&gt; every time someone visits the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/search&lt;/code&gt; landing page. That’s bad!&lt;/p&gt;
+
+&lt;p&gt;Here’s how to Curl it:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl &lt;span class=&quot;nt&quot;&gt;-XGET&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-H&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Content-Type: application/x-www-form-urlencoded&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;q=verybadstuff&quot;&lt;/span&gt; http://localhost:3000/search
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Here are 3 ways to fix it…&lt;/p&gt;
+
+&lt;h2 id=&quot;solution-1-fix-at-the-cdn&quot;&gt;Solution #1: Fix at the CDN&lt;/h2&gt;
+
+&lt;p&gt;The most straightforward place to fix this should be at the caching layer, but it’s not always easy.&lt;/p&gt;
+
+&lt;p&gt;With Cloudflare, you could rewrite the GET request’s &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Content-Type&lt;/code&gt; header if it is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;application/x-www-form-urlencoded&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;multipart/form-data&lt;/code&gt;. Or use a Cloudflare Worker to drop the request body.&lt;/p&gt;
+
+&lt;p&gt;Varnish makes it easy to drop the request body for any GET request.&lt;/p&gt;
+
+&lt;p&gt;Other CDNs or proxies may be easier or more difficult. It depends!&lt;/p&gt;
+
+&lt;h2 id=&quot;solution-2-deliberately-use-query_parameters&quot;&gt;Solution #2: Deliberately use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;query_parameters&lt;/code&gt;&lt;/h2&gt;
+
+&lt;p&gt;Rails provides three different methods for accessing parameters:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;query_parameters&lt;/code&gt; for the values in the request URL&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;request_parameters&lt;/code&gt; ) for the values in the request body&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;parameters&lt;/code&gt; (alias &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;params&lt;/code&gt;) for the problematic combination of them both. Values in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;query_parameters&lt;/code&gt; take precedence over values in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;request_parameters&lt;/code&gt; when they are merged together.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Developers could be diligent and make sure to only use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;query_parameters&lt;/code&gt; in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;#index&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;#show&lt;/code&gt; , or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;get&lt;/code&gt; routed actions. Here’s an example from the &lt;a href=&quot;https://github.com/git/git-scm.com/issues/1551&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git-scm&lt;/code&gt; project&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;solution-3-patch-rails&quot;&gt;Solution #3: Patch Rails&lt;/h2&gt;
+
+&lt;p&gt;Changes were &lt;a href=&quot;https://github.com/rails/rails/issues/39974&quot;&gt;proposed in Rails&lt;/a&gt; to not have &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;parameters&lt;/code&gt; merge in the body values for GET and HEAD requests; it was rejected because it’s more a problem with the upstream cache than it is with Rails.&lt;/p&gt;
+
+&lt;p&gt;You can patch your own version of Rails. Here’s an example that patches the method in &lt;a href=&quot;https://github.com/rails/rails/blob/21a3b52ba0b7d94b4903e02b6ac537a7d1d1c817/actionpack/lib/action_dispatch/http/parameters.rb#L49-L63&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ActionDispatch::Request&lt;/code&gt;&lt;/a&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# config/initializers/sanitize_fat_requests.rb&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;module&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;SanitizeFatRequests&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;parameters&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;params&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;get_header&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;action_dispatch.request.parameters&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;params&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;get?&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;head?&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;params&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;query_parameters&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;dup&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;merge!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path_parameters&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;set_header&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;action_dispatch.request.parameters&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;super&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;alias&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:params&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:parameters&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;no&quot;&gt;ActionDispatch&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;SanitizeFatRequests&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Some RSpec tests to verify this&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;rails_helper&apos;&lt;/span&gt;
+
+&lt;span class=&quot;no&quot;&gt;RSpec&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;describe&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;SanitizeFatRequests&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;type: :request&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;it&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;does not merge body params in GET requests&apos;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;get&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;/search&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;headers: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;CONTENT_TYPE&apos;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;application/x-www-form-urlencoded&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;env: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;rack.input&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;StringIO&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;q=verybadstuff&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;# verify that the request is correctly shaped because&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# the test helpers don&apos;t expect this kind of request&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;request_parameters&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;eq&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;q&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;verybadstuff&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;parameters&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;eq&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;action&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;panlexicon&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;controller&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;search&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;# the behavioral expectation &lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;not_to&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;verybadstuff&quot;&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+
+  &lt;br&gt;&lt;br&gt;
+  &lt;hr&gt;
+  &lt;p&gt;
+    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2023/02/prevent-cdn-poisoning-from-fat-get-head-requests-in-ruby-on-rails&quot;&gt;Prevent CDN poisoning from Fat GET/HEAD Requests in Ruby on Rails&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
+    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
+  &lt;/p&gt;
+</description>
+  <pubDate>Sun, 12 Feb 2023 20:32:00 +0000</pubDate>
+  <link>https://island94.org/2023/02/prevent-cdn-poisoning-from-fat-get-head-requests-in-ruby-on-rails</link>
+  <guid isPermaLink="true">https://island94.org/2023/02/prevent-cdn-poisoning-from-fat-get-head-requests-in-ruby-on-rails</guid>
+  
+    <category>rails</category>
+  
+  
+</item>
+
+      
     
       
         
@@ -696,48 +821,6 @@ something many applications could benefit from.&lt;/li&gt;
   <pubDate>Thu, 03 Nov 2022 01:26:00 +0000</pubDate>
   <link>https://island94.org/2022/11/synectics</link>
   <guid isPermaLink="true">https://island94.org/2022/11/synectics</guid>
-</item>
-
-      
-    
-      
-        
-
-
-
-
-<item>
-  <title>Productive Struggle</title>
-  <description>&lt;p&gt;From Logic #17, in &lt;a href=&quot;https://logicmag.io/home/the-edtech-gold-rush/&quot;&gt;“The Edtech Gold Rush”&lt;/a&gt; by Kevin Miller (emphasis mine):&lt;/p&gt;
-
-&lt;blockquote&gt;
-
-  &lt;p&gt;One of the companies, Imagine Learning, distinguished itself by claiming that, on their platform, students could demonstrate their knowledge of English language and literature by “com-posing a rap song or creating a TikTok.” Some students seemed intrigued. Others groaned over their laptops. Yet another edtech firm was promising to uplift marginalized students by filling the classroom with the kind of entertainment media they consumed at home.&lt;/p&gt;
-
-  &lt;p&gt;Such products can make educational content more accessible, especially at home, but they cannot actually address academic shortcomings any more than pen and paper. &lt;strong&gt;This is because learning happens through what educators call “productive struggle,” not merely the consumption of educational content. Productive struggle is the profession’s term for problem-solving at a level that is difficult for a student, but possible with effort and limited assistance. Educators refer to this magical window of learning as the “zone of proximal development.” Any education technology that is able to employ entertainment to transcend the difficulty inherent in learning ceases to be educational.&lt;/strong&gt;&lt;/p&gt;
-
-  &lt;p&gt;But even if such a technology is able to elicit productive struggle among students, it still runs up against a deeper challenge: pov-erty. The real reason that students have difficulty in the classroom is not due to the lack of thoughtful UX design, but because the trauma and instability wrought by the material circumstances of their home and community make engaging in productive struggle difficult. This does not mean that edtech products are useless. But they are not able to address the core cause of educational inequality any more than traditional instruction.&lt;/p&gt;
-
-  &lt;p&gt;The recent growth in school funding from Covid relief measures gives educators a long-overdue opportunity to confront the material roots of educational inequality. But this influx of public money also represents a potential payday for a fast-growing edtech sector. The edtech market in the US is expected to grow to about $60 billion by 2026, according to an estimate from Global Industry Analysts, more than doubling its 2021 valuation and drastically outpacing the growth of the education sector as a whole. At a moment when governments are committing real resources to public education, companies touting disruptive digital approaches see a gold rush. They plan to win lucrative contracts by promising to solve a problem they can’t possibly solve.&lt;/p&gt;
-
-&lt;/blockquote&gt;
-
-  &lt;br&gt;&lt;br&gt;
-  &lt;hr&gt;
-  &lt;p&gt;
-    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2022/10/productive-struggle&quot;&gt;Productive Struggle&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
-    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
-  &lt;/p&gt;
-</description>
-  <pubDate>Sun, 30 Oct 2022 21:34:00 +0000</pubDate>
-  <link>https://island94.org/2022/10/productive-struggle</link>
-  <guid isPermaLink="true">https://island94.org/2022/10/productive-struggle</guid>
-  
-    <category>education</category>
-  
-    <category>learning</category>
-  
-  
 </item>
 
       
