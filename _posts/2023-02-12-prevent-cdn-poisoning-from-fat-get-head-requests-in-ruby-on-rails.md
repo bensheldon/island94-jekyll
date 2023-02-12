@@ -49,7 +49,7 @@ Rails provides three different methods for accessing parameters:
 
 - `query_parameters` for the values in the request URL
 - `request_parameters` ) for the values in the request body
-- `parameters` (or `params`) for the problematic combination of them both. Values in `query_parameters` take precedence over values in `request_parameters` when they are merged together. 
+- `parameters` (alias `params`) for the problematic combination of them both. Values in `query_parameters` take precedence over values in `request_parameters` when they are merged together. 
 
 Developers could be diligent and make sure to only use `query_parameters` in `#index` or `#show` , or `get` routed actions. Here’s an example from the [`git-scm` project](https://github.com/git/git-scm.com/issues/1551).
 
