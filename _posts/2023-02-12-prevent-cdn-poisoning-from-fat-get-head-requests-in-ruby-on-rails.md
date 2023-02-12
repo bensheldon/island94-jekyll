@@ -14,6 +14,7 @@ You can get a sense of the applications that intentionally support Fat Requests 
 **Fat Requests can lead to CDN and cache poisoning in Rails.** CDNs and caching web proxies (like Varnish) are frequently configured to cache the response from a GET or HEAD request based solely on the request's URL and not the contents of the request body (they don't cache POSTs or PUTs at all). If an application isn't deliberately handling the request body, it may cause unexpected content to be cached and served.
 
 For example, you have a `/search` endpoint:
+
 - `GET /search` shows a landing page with some explanatory content
 - `GET /search?q=foo` shows the search results for "foo".
 - Here's what a Fat Request looks like:
