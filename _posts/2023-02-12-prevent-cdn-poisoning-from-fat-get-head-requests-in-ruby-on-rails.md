@@ -25,7 +25,7 @@ For example, you have a `/search` endpoint:
     q=verybadstuff  <== oh, but with a request body
     ```
 
-In a Rails Controller, `parameters` (alias `params`) merges query parameters (that's the URL values) with request parameters (that's the body values) into a single data structure. If your controller uses `params[:q]` to determine whether to show the landing page or the search results, it's possible that when someone sends that Fat Request, your CDN may cache and subsequently serve the results for `verybadstuff` every time someone visits the `/search` landing page. That's bad!
+In a Rails Controller, `parameters` (alias `params`) merges query parameters (that's the URL values) with request parameters (that's the body values) into a single data structure. If your controller uses the presence of `params[:q]` to determine whether to show the landing page or the search results, it's possible that when someone sends that Fat Request, your CDN may cache and subsequently serve the results for `verybadstuff` every time someone visits the `/search` landing page. That's bad!
 
 Here's how to Curl it:
 
