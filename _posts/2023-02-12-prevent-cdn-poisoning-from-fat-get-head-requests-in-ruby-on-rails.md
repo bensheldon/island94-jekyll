@@ -7,7 +7,7 @@ tags: [rails]
 
 There are many different flavors of [web cache poisoning discovered by Security Researcher James Kettle](https://portswigger.net/research/web-cache-entanglement). Read on for an explanation of one I've run across…
 
-**What is a Fat GET/HEAD Request?** A GET or HEAD request is "fat" when it has a request body. It's weird! Typically one sees a request body with a POST or PUT request because the body contains form data. The HTTP specification says that including a request body with GET or HEAD requests is [_undefined_](https://stackoverflow.com/a/983458). You can do it, and it's up to the application to figure out what that means. Sometimes it's bad!
+**What is a Fat GET/HEAD Request?** A GET or HEAD request is "fat" when it has a request body. It's unexpected! Typically one sees a request body with a POST or PUT request because the body contains form data. The HTTP specification says that including a request body with GET or HEAD requests is [_undefined_](https://stackoverflow.com/a/983458). You can do it, and it's up to the application to figure out what that means. Sometimes it's bad!
 
 You can get a sense of the applications that intentionally support Fat Requests (and how grumpy it makes people) by reading through this [Postman issue](https://github.com/postmanlabs/postman-app-support/issues/131).  
 
