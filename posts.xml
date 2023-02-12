@@ -6,8 +6,8 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 12 Feb 2023 21:32:10 +0000</pubDate>
-    <lastBuildDate>Sun, 12 Feb 2023 21:32:10 +0000</lastBuildDate>
+    <pubDate>Sun, 12 Feb 2023 21:44:00 +0000</pubDate>
+    <lastBuildDate>Sun, 12 Feb 2023 21:44:00 +0000</lastBuildDate>
     <generator>Jekyll v4.3.2</generator>
     
     
@@ -20,9 +20,9 @@
   <title>Prevent CDN poisoning from Fat GET/HEAD Requests in Ruby on Rails</title>
   <description>&lt;p&gt;There are many different flavors of &lt;a href=&quot;https://portswigger.net/research/web-cache-entanglement&quot;&gt;web cache poisoning discovered by Security Researcher James Kettle&lt;/a&gt;. Read on for an explanation of one I’ve run across…&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;What is a Fat GET/HEAD Request?&lt;/strong&gt; A GET or HEAD request is “fat” when it has a request body. It’s weird! Typically one sees a request body with a POST or PUT request because the body contains form data. The HTTP specification says that including a request body with GET or HEAD requests is &lt;a href=&quot;https://stackoverflow.com/a/983458&quot;&gt;&lt;em&gt;undefined&lt;/em&gt;&lt;/a&gt;. You can do it, and it’s up to the application to figure out what that means. Sometimes it’s bad!&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;What is a Fat GET/HEAD Request?&lt;/strong&gt; A GET or HEAD request is “fat” when it has a request body. It’s unexpected! Typically one sees a request body with a POST or PUT request because the body contains form data. The HTTP specification says that including a request body with GET or HEAD requests is &lt;a href=&quot;https://stackoverflow.com/a/983458&quot;&gt;&lt;em&gt;undefined&lt;/em&gt;&lt;/a&gt;. You can do it, and it’s up to the application to figure out what that means. Sometimes it’s bad!&lt;/p&gt;
 
-&lt;p&gt;You can get a sense of the applications that intentionally support Fat Requests (and how grumpy it makes people) by reading through this &lt;a href=&quot;https://github.com/postmanlabs/postman-app-support/issues/131&quot;&gt;Postman issue&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;You can get a sense of the applications that intentionally support Fat Requests (and how grumpy it makes some people) by reading through this &lt;a href=&quot;https://github.com/postmanlabs/postman-app-support/issues/131&quot;&gt;Postman issue&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Fat Requests can lead to CDN and cache poisoning in Rails.&lt;/strong&gt; CDNs and caching web proxies (like Varnish) are frequently configured to cache the response from a GET or HEAD request based solely on the request’s URL and not the contents of the request body (they don’t cache POSTs or PUTs at all). If an application isn’t deliberately handling the request body, it may cause unexpected content to be cached and served.&lt;/p&gt;
 
@@ -41,7 +41,7 @@
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;In a Rails Controller, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;parameters&lt;/code&gt; (alias &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;params&lt;/code&gt;) merges query parameters (that’s the URL values) with request parameters (that’s the body values) into a single data structure. If your controller uses &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;params[:q]&lt;/code&gt; to determine whether to show the landing page or the search results, it’s possible that when someone sends that Fat Request, your CDN may cache and subsequently serve the results for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;verybadstuff&lt;/code&gt; every time someone visits the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/search&lt;/code&gt; landing page. That’s bad!&lt;/p&gt;
+&lt;p&gt;In a Rails Controller, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;parameters&lt;/code&gt; (alias &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;params&lt;/code&gt;) merges query parameters (that’s the URL values) with request parameters (that’s the body values) into a single data structure. If your controller uses the presence of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;params[:q]&lt;/code&gt; to determine whether to show the landing page or the search results, it’s possible that when someone sends that Fat Request, your CDN may cache and subsequently serve the results for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;verybadstuff&lt;/code&gt; every time someone visits the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/search&lt;/code&gt; landing page. That’s bad!&lt;/p&gt;
 
 &lt;p&gt;Here’s how to Curl it:&lt;/p&gt;
 
