@@ -6,8 +6,8 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 12 Feb 2023 21:44:00 +0000</pubDate>
-    <lastBuildDate>Sun, 12 Feb 2023 21:44:00 +0000</lastBuildDate>
+    <pubDate>Mon, 13 Feb 2023 02:12:39 +0000</pubDate>
+    <lastBuildDate>Mon, 13 Feb 2023 02:12:39 +0000</lastBuildDate>
     <generator>Jekyll v4.3.2</generator>
     
     
@@ -59,6 +59,8 @@
 &lt;p&gt;Varnish makes it easy to drop the request body for any GET request.&lt;/p&gt;
 
 &lt;p&gt;Other CDNs or proxies may be easier or more difficult. It depends!&lt;/p&gt;
+
+&lt;p&gt;Update via &lt;a href=&quot;https://github.com/Mr0grog&quot;&gt;Mr0grog&lt;/a&gt;: AWS Cloudfront returns a &lt;a href=&quot;https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#RequestCustom-get-body&quot;&gt;403 by default&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h2 id=&quot;solution-2-deliberately-use-query_parameters&quot;&gt;Solution #2: Deliberately use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;query_parameters&lt;/code&gt;&lt;/h2&gt;
 
