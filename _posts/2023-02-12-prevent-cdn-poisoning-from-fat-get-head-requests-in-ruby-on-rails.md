@@ -45,6 +45,8 @@ Varnish makes it easy to drop the request body for any GET request.
 
 Other CDNs or proxies may be easier or more difficult. It depends!
 
+Update via [Mr0grog](https://github.com/Mr0grog): AWS Cloudfront returns a [403 by default](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#RequestCustom-get-body). 
+
 ## Solution #2: Deliberately use `query_parameters`
 
 Rails provides three different methods for accessing parameters:
