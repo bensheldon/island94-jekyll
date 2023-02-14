@@ -49,7 +49,3 @@ class MyDecree
   end
 end
 ```
-
-
-
-</blockquote>
