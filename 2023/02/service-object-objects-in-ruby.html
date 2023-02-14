@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Service Object Objects in Ruby</title>
+  <meta name="description" content="For anyone that follows me on social media, I’ll sometimes get into a Coplien-esque funk of “I don’t wanna write Classes. I want to write Objects!”. I don’t ...">
+
+  <link rel="stylesheet" href="/assets/stylesheets/main.css">
+  <script src="/assets/javascripts/main.js"></script>
+
+  <link rel="canonical" href="https://island94.org/2023/02/service-object-objects-in-ruby">
+
+  <link rel="alternate" type="application/rss+xml" title="Island94.org Posts" href="https://island94.org/feed.xml">
+  <link rel="alternate" type="application/rss+xml" title="Island94.org Book Reviews" href="https://island94.org/books.xml">
+
+  
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-870047-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+</head>
+
+
+  <body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-2 flex-column">
+  <div class="container">
+    <a class="navbar-brand" href="/">Island94.org</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link " href="/about/">About</a></li>
+        <li class="nav-item"><a class="nav-link " href="/archives/">Archives</a></li>
+        <li class="nav-item"><a class="nav-link " href="/books/">Books</a></li>
+        <li class="nav-item"><a class="nav-link " href="/tags/">Tags</a></li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Feeds <span class="fa fa-rss"></span>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a href="/feed.xml" class="dropdown-item">Everything RSS <span class="fa fa-rss"></span></a></li>
+            <li><a href="/posts.xml" class="dropdown-item">Posts RSS <span class="fa fa-rss"></span></a></li>
+            <li><a href="/books.xml" class="dropdown-item">Books RSS <span class="fa fa-rss"></span></a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <form id="search" class="d-flex" action="/search" method="get">
+        <input id="search-box" class="form-control search" role="search" name="q" placeholder="Search" aria-label="Search" results="0" type="text">
+        <button class="sr-only" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+  <div class="container">
+    <div class="text-muted fst-italic">
+      — Ben Sheldon's personal blog and <a href="/2012/04/A-Commonplace-Book.html">commonplace book</a>.
+    </div>
+  </div>
+</nav>
+
+
+    <div class="container container-body">
+      
+
+
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2023/02/service-object-objects-in-ruby">Service Object Objects in Ruby</a>
+    </h1>
+    <p class="post-meta text-muted">
+      <time datetime="2023-02-14T16:18:00+00:00" itemprop="datePublished">February 14, 2023</time>
+      
+      
+
+
+  
+
+  
+
+  • Tagged <a href="/tags/#Ruby">Ruby</a>
+
+
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>For anyone that follows me on social media, I’ll sometimes get into a <a href="https://deprogrammaticaipsum.com/james-coplien/">Coplien</a>-esque funk of “I don’t wanna write Classes. I want to write <em>Objects</em>!”. I don’t want to negotiate an industrial-relations policy for instances of Person in the current scope. I want to imagine the joy and misery Alice and Bob going to experience working together right now.</p>
+
+<p>I was thinking of that recently when <a href="https://www.reddit.com/r/ruby/comments/10sooyr/comment/j74j5qw/?utm_source=reddit&amp;utm_medium=web2x&amp;context=3">commenting on Reddit</a> about Caleb Hearth’s <a href="https://calebhearth.com/decree">“The Decree Design Pattern”</a>. Which ended up in the superset of these two thoughts:</p>
+
+<ul>
+  <li>heck yeah! if it’s globally distinct it should be globally referenceable</li>
+  <li>oh, oh no, I don’t like looking at <em>that</em> particular Ruby code</li>
+</ul>
+
+<p>This was my comment to try to personally come to terms with those thoughts, iteratively:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># a consistent callable</span>
+<span class="n">my_decree</span> <span class="o">=</span> <span class="o">-&gt;</span> <span class="p">{</span> <span class="n">do_something</span> <span class="p">}</span>
+
+<span class="c1"># ok, but globally scoped</span>
+<span class="no">MY_DECREE</span> <span class="o">=</span> <span class="o">-&gt;</span> <span class="p">{</span> <span class="n">do_something</span> <span class="p">}</span>
+
+<span class="c1"># ok, but without the shouty all-caps</span>
+<span class="k">module</span> <span class="nn">MyDecree</span>
+  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">call</span> 
+    <span class="n">do_something</span> 
+  <span class="k">end</span> 
+<span class="k">end</span>
+
+<span class="c1"># ok, but what about when it gets really complex</span>
+<span class="k">class</span> <span class="nc">MyDecree</span> 
+  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">call</span><span class="p">(</span><span class="n">variable</span><span class="p">)</span>
+    <span class="n">new</span><span class="p">(</span><span class="n">variable</span><span class="p">).</span><span class="nf">call</span> 
+  <span class="k">end</span>
+  
+  <span class="k">def</span> <span class="nf">new</span><span class="p">(</span><span class="n">variable</span><span class="p">)</span>
+    <span class="vi">@variable</span> <span class="o">=</span> <span class="n">variable</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">call</span>
+    <span class="n">do_something</span>
+    <span class="n">do_something_else</span><span class="p">(</span><span class="vi">@variable</span><span class="p">)</span>
+    <span class="n">do_even_more</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">do_even_more</span>
+    <span class="c1"># something really complicated....</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>From the outside, <em>object</em> perspective, these are all have the same interchangeable interface (<code class="language-plaintext highlighter-rouge">.call</code>), and except for the first one, accessible everywhere. That’s great, from my perspective! Though I guess it’s a pretty short blog post to say:</p>
+
+<ul>
+  <li>Decrees are globally discrete and call-able objects</li>
+  <li>The implementation is up to you!</li>
+</ul>
+
+<p>Unfortunately, the moment the internals come into play, it gets messy. But I don’t think that should take away from the external perspective.</p>
+
+
+  </div>
+</article>
+
+
+<div class="card my-4 text-dark bg-light">
+  <div class="card-body">
+    <p>
+      Discuss this with me on <a href="https://twitter.com/bensheldon"><span class="fa fa-twitter"></span> Twitter</a>
+      or suggest a <a href="https://github.com/bensheldon/island94-jekyll/blob/main/_posts/2023-02-14-service-object-objects-in-ruby.md"><span class="fa fa-github-alt"></span> change</a>.
+    </p>
+
+    <p>Related Posts:</p>
+
+    <ul>
+      
+      <li><a href="/2022/07/four-dumb-cringe-tech-interview-stories">Four dumb-cringe tech interview stories</a></li>
+      
+      <li><a href="/2022/07/what-the-fuck-are-you-talking-about-the-story-of-nodetiles">"What the fuck are you talking about?": The story of NodeTiles</a></li>
+      
+      <li><a href="/2010/09/Making-language-of-meaning.html">Making language of meaning</a></li>
+      
+      <li><a href="/2019/02/weeknotes-february-17-2019">Weeknotes February 17, 2019</a></li>
+      
+      <li><a href="/2012/12/A-gentle-conceptual-introduction-to-Nodejs.html">A gentle & conceptual introduction to Node.js</a></li>
+      
+    </ul>
+  </div>
+</div>
+
+
+    </div>
+
+    <footer class="site-footer">
+
+</footer>
+
+
+  </body>
+
+</html>
