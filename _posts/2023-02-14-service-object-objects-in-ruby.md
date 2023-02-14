@@ -9,7 +9,7 @@ For anyone that follows me on social media, I'll sometimes get into a [Coplien](
 
 I was thinking of that recently when [commenting on Reddit](https://www.reddit.com/r/ruby/comments/10sooyr/comment/j74j5qw/?utm_source=reddit&utm_medium=web2x&context=3) about Caleb Hearth's ["The Decree Design Pattern"](https://calebhearth.com/decree). Which ended up in the superset of these two thoughts:
 
-- heck yeah! if it's globally unique and distinct it should be globally recallable
+- heck yeah! if it's globally distinct it should be globally referenceable
 - oh, oh no, I don't like looking at _that_ particular Ruby code
 
 This was my comment to try to personally come to terms with those thoughts, iteratively:
