@@ -49,3 +49,15 @@ class MyDecree
   end
 end
 ```
+
+From the outside, _object_ perspective, these are all have the same interchangeable interface (`.call`), and except for the first one, accessible everywhere. That's great, from my perspective! Though I guess it's a pretty short blog post to say:
+
+- Decrees are globally discrete and call-able objects
+- The implementation is up to you!
+
+Unfortunately, the moment the internals come into play, it gets messy. But I don't think that should take away from the external perspective.
+
+
+
+
+
