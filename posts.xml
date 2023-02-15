@@ -6,8 +6,8 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 14 Feb 2023 20:29:23 +0000</pubDate>
-    <lastBuildDate>Tue, 14 Feb 2023 20:29:23 +0000</lastBuildDate>
+    <pubDate>Wed, 15 Feb 2023 02:11:00 +0000</pubDate>
+    <lastBuildDate>Wed, 15 Feb 2023 02:11:00 +0000</lastBuildDate>
     <generator>Jekyll v4.3.2</generator>
     
     
@@ -18,7 +18,7 @@
 
 <item>
   <title>Service Object Objects in Ruby</title>
-  <description>&lt;p&gt;For anyone that follows me on social media, I’ll sometimes get into a &lt;a href=&quot;https://deprogrammaticaipsum.com/james-coplien/&quot;&gt;Coplien&lt;/a&gt;-esque funk of “I don’t wanna write Classes. I want to write &lt;em&gt;Objects&lt;/em&gt;!”. I don’t want to negotiate an industrial-relations policy for instances of Person in the current scope. I want to imagine the joy and misery Alice and Bob going to experience working together right now.&lt;/p&gt;
+  <description>&lt;p&gt;For anyone that follows me on social media, I’ll sometimes get into a &lt;a href=&quot;https://deprogrammaticaipsum.com/james-coplien/&quot;&gt;Coplien&lt;/a&gt;-esque funk of “I don’t wanna write Classes. I want to write &lt;em&gt;Objects&lt;/em&gt;!”. I don’t want to negotiate an industrial-relations policy for instances of Person in the current scope. I want to imagine the joy and misery Alice and Bob will experience working together right now.&lt;/p&gt;
 
 &lt;p&gt;I was thinking of that recently when &lt;a href=&quot;https://www.reddit.com/r/ruby/comments/10sooyr/comment/j74j5qw/?utm_source=reddit&amp;amp;utm_medium=web2x&amp;amp;context=3&quot;&gt;commenting on Reddit&lt;/a&gt; about Caleb Hearth’s &lt;a href=&quot;https://calebhearth.com/decree&quot;&gt;“The Decree Design Pattern”&lt;/a&gt;. Which ended up in the superset of these two thoughts:&lt;/p&gt;
 
