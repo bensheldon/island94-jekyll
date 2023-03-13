@@ -6,10 +6,44 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 13 Mar 2023 00:26:33 +0000</pubDate>
-    <lastBuildDate>Mon, 13 Mar 2023 00:26:33 +0000</lastBuildDate>
+    <pubDate>Mon, 13 Mar 2023 01:02:09 +0000</pubDate>
+    <lastBuildDate>Mon, 13 Mar 2023 01:02:09 +0000</lastBuildDate>
     <generator>Jekyll v4.3.2</generator>
     
+    
+      
+
+
+
+
+<item>
+  <title>Recently, March 12, 2023</title>
+  <description>&lt;ul&gt;
+  &lt;li&gt;Work has been complicated, recently. &lt;a href=&quot;https://techcrunch.com/2023/02/09/github-lays-off-10-and-goes-fully-remote/&quot;&gt;Layoffs, as a general idea&lt;/a&gt;, were announced a month ago; it was the same week I came down with a bad cold. I’ve been fairly low energy since and have had trouble differentiating the two. I’m supremely proud and confident that my team is doing the most important work possible. We’ll see!&lt;/li&gt;
+  &lt;li&gt;The week prior to all of this, my dad came to visit and stay with us. Having an easier time hosting family was one of our goals in getting a 2nd bedroom. Success.&lt;/li&gt;
+  &lt;li&gt;Wow, it’s nearly been a year since I left my last job. I’ve had a number of former colleagues asking for help in leaving, in addition to talking with folks being pushed out: I was surprised to see Code for America finally kill Brigades, and really &lt;a href=&quot;https://statescoop.com/code-for-america-local-brigades-ending/&quot;&gt;twist the knife too&lt;/a&gt; by forcing groups to rename themselves.&lt;/li&gt;
+  &lt;li&gt;GoodJob is great! I’ve been thinking about &lt;a href=&quot;https://github.com/bensheldon/good_job/discussions/831&quot;&gt;replacing Advisory Locks&lt;/a&gt; with a lock strategy that’s more compatible with PgBouncer. But that will probably be a 2-year project at least of incrementally crabwalking towards that goal while avoiding breaking changes. &lt;a href=&quot;https://github.com/rubygems/rubygems.org/pull/3533&quot;&gt;Rubygems.org just adopted GoodJob&lt;/a&gt;; I am humbled.&lt;/li&gt;
+  &lt;li&gt;On other projects, I’ve been trying to lower costs. My S3 data-transfer bill went from $10 to $50 a month, which I’m not happy about; scrapers are the worst 🤷‍♀️ I’ve also been experimenting with Dokku for packing some smaller projects (paying $15 once rather than $12 per app), though the VM locked up once on a Saturday night and I had to reboot it and this is exactly why I don’t want to manage my own servers.&lt;/li&gt;
+  &lt;li&gt;My brother and I have been planning a Celebration of Life for my mom.&lt;/li&gt;
+  &lt;li&gt;I’m so happy to finally be back on Daylight Savings Time.&lt;/li&gt;
+&lt;/ul&gt;
+
+  &lt;br&gt;&lt;br&gt;
+  &lt;hr&gt;
+  &lt;p&gt;
+    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2023/03/recently-march-12-2023&quot;&gt;Recently, March 12, 2023&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
+    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
+  &lt;/p&gt;
+</description>
+  <pubDate>Mon, 13 Mar 2023 00:26:00 +0000</pubDate>
+  <link>https://island94.org/2023/03/recently-march-12-2023</link>
+  <guid isPermaLink="true">https://island94.org/2023/03/recently-march-12-2023</guid>
+  
+    <category>weeknotes</category>
+  
+  
+</item>
+
     
       
 
@@ -613,115 +647,6 @@ something many applications could benefit from.&lt;/li&gt;
   <pubDate>Thu, 01 Dec 2022 01:50:00 +0000</pubDate>
   <link>https://island94.org/2022/12/liberatory-accountability</link>
   <guid isPermaLink="true">https://island94.org/2022/12/liberatory-accountability</guid>
-  
-  
-</item>
-
-    
-      
-
-
-
-
-<item>
-  <title>Environment, at work</title>
-  <description>&lt;p&gt;&lt;img src=&quot;/uploads/2022-11/simearth-daisyworld.png&quot; alt=&quot;Screenshot of Sim Earth&apos;s Daisyworld&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;gaia&quot;&gt;Gaia&lt;/h2&gt;
-
-&lt;p&gt;I played a lot of Sim Earth as a kid. It had a mode called Daisyworld based on the &lt;a href=&quot;https://en.wikipedia.org/wiki/Gaia_hypothesis&quot;&gt;“Gaia Hypothesis”&lt;/a&gt;:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;proposes that living organisms interact with their inorganic surroundings on  Earth to form a synergistic and self-regulating, complex system that helps to maintain and perpetuate the conditions for life on the planet.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;In Sim Earth’s Daisyworld, that was simulated by populating the Earth with different shades of flower. Darker flowers survived at lower temperatures and absorbed sunlight, warming their immediate environment; lighter flowers survived at warmer temperatures and reflecting sunlight, cooling their immediate environment. Running the simulation would, eventually, usually, lead to a dynamically changing, but still steady-state environment; in &lt;a href=&quot;https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life#Examples_of_patterns&quot;&gt;Conway terminoloy&lt;/a&gt;: still lifes and oscillators.&lt;/p&gt;
-
-&lt;p&gt;Usually your Earth found a steady state, unless:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;geographical barriers prevented regulating changes from spreading, like mountain ranges or island archipelagos; or&lt;/li&gt;
-  &lt;li&gt;disasters like volcanoes or meteors significantly disrupted the environment before the flowers could adapt and moderate it; or&lt;/li&gt;
-  &lt;li&gt;you plopped some bunnies or herbivores that ate the flowers, because the Gaia mode didn’t lock-out the other Sim Earth tools. Sandboxes!&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Usually your Earth found and could recover a steady state! That’s &lt;a href=&quot;https://en.wikipedia.org/wiki/Homeostasis&quot;&gt;homeostasis&lt;/a&gt;:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Homeostasis is brought about by a natural resistance to change when already in the optimal conditions, and equilibrium is maintained by many regulatory mechanisms: it is thought to be the central motivation for all organic action.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;terroir&quot;&gt;Terroir&lt;/h2&gt;
-&lt;p&gt;From Vicki Boykis’s  &lt;a href=&quot;https://vicki.substack.com/p/the-art-of-the-long-goodbye&quot;&gt;“The Art of the Long Goodbye”&lt;/a&gt; :&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;A few years ago, I read the Southern Reach trilogy, by Jeff Van Der Meer….&lt;/p&gt;
-
-  &lt;p&gt;One of the main concepts of the books is the idea of a terroir, a self-contained natural environment that shapes everything inside of it. Usually when we talk about a terroir we’re referring to wine: a wine from a given region tastes like wine from that given region should taste because of the grapes and the soil and the way the sunlight hits that particular spot. Since I left my last job, I’ve been thinking a lot about the idea of terroir as it relates to the workplace.&lt;/p&gt;
-
-  &lt;p&gt;Every workplace, like every Tolstoyan family, is unique in its own way. When we start a job, we enter that terroir with the intent to shape it. But in turn, we are also shaped by it.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;landrace&quot;&gt;Landrace&lt;/h2&gt;
-
-&lt;p&gt;A &lt;a href=&quot;https://en.wikipedia.org/wiki/Landrace&quot;&gt;landrace&lt;/a&gt; is:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;a domesticated, locally adapted, traditional variety of a species of animal or plant that has developed over time, through adaptation to its natural and cultural environment of agriculture and pastoralism, and due to isolation from other populations of the species.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;As I’m now in the land of big companies, it’s very common to hear someone described as “from Amazon” or “from Microsoft” and like, I know what they mean!&lt;/p&gt;
-
-&lt;p&gt;One of my challenges as an engineering leader during the pandemic was this: how much do we adapt our values and practices to be inclusive to the current fucked-all-over situation while preserving what made us, as an engineering organization, us. I think my results were mixed.&lt;/p&gt;
-
-&lt;p&gt;An example: pair programming. We were a lot of people from Pivotal labs (there it is!) with a strong belief in Extreme Programming: shared ownership, an active-closeness to the users of our software, and closeness to each other through frequent pair programming. And we went from largely in-person pairing, to remote pairing. I find pair programming to be exhausting in the best of circumstances, and the ongoing pandemic didn’t help. So we adapted our values and practices, and de-emphasized pairing and went from an expectation of “most of the time” to “a tool that’s available some of the time”. It was a stretch (aide: it wasn’t just pairing that got stretched either, the whole XP thing)&lt;/p&gt;
-
-&lt;p&gt;A team is never static. People were leaving, we were hiring, teams were forming and reforming. It was tenuous for everyone, to test out the limits of inclusion and identity. And as an engineering leader, it led to a lot of tough conversations about  &lt;em&gt;how… we… work… together&lt;/em&gt;. It was hard; I think we lost that cultivar.&lt;/p&gt;
-
-&lt;h2 id=&quot;oasis&quot;&gt;Oasis&lt;/h2&gt;
-
-&lt;p&gt;Will Larson writes about this idea of a &lt;a href=&quot;https://lethain.com/values-oasis/&quot;&gt;“Values Oasis”&lt;/a&gt;:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;A few years ago, I heard an apocryphal story about Sheryl Sandberg’s departure from Google to Facebook. In the story she apologizes to her team at Google because she’d sheltered them too much from Google’s politics and hadn’t prepared them to succeed once she stopped running interference. The story ends with her entire team struggling and eventually leaving after her departure. I don’t know if the story is true, but it’s an excellent summary of the Values Oasis trap, where a leader uses their personal capital to create a non-conforming environment within an wider organization.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;garden&quot;&gt;Garden&lt;/h2&gt;
-
-&lt;p&gt;The relationship between people and environment is a problematic metaphor.&lt;/p&gt;
-
-&lt;p&gt;I was a member of the Boston Pubic Garden’s Rose Brigade for number of years, taking care of the roses. The Boston Public Garden’s style is Western, specimen, ornamental: large, well-spaced bushes with well-defined blooms. They’re gorgeous. And.&lt;/p&gt;
-
-&lt;p&gt;There’s a lot of waste. Trimming, dead-heading, opening up, clearing leaf drops. A lot of waste.&lt;/p&gt;
-
-&lt;p&gt;There is a trope, &lt;a href=&quot;https://tvtropes.org/pmwiki/pmwiki.php/Main/Cincinnatus&quot;&gt;Cincinnatus&lt;/a&gt;, in which the tyrant/general/magnate retires (or desires to retire, after the present crisis, of course) to tend garden. I think it usually appears to soften them: &lt;em&gt;see they can be gentle too.&lt;/em&gt; But I dunno, gardens aren’t gentle. There’s a lot of centering the gardener, and a lot of will to be exercised in a garden. Other people aren’t plants, don’t take it too far.&lt;/p&gt;
-
-&lt;p&gt;I’m reminded of Nirgal’s (spoiler!) fated ecopoetic basin in KSR’s &lt;a href=&quot;https://www.goodreads.com/book/show/77504.Blue_Mars&quot;&gt;&lt;em&gt;Blue Mars&lt;/em&gt;&lt;/a&gt;:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Nirgal wandered the basin after storms, looking to see what had blown in. Usually it was only a load of icy dust, but once he found an unplanted clutch of pale blue Jacob’s ladders, tucked between the splits in a breadloaf rock. Check the botanicals to see how it might interact with what was already there. Ten percent of introduced species survived, then ten percent of those became pests; that was invasion biology’s ten-ten rule, Yoshi said, almost the first rule of the discipline. “Ten meaning five to twenty of course.”&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;And close on it out with a quote from &lt;a href=&quot;https://www.goodreads.com/book/show/20186.Seeing_Like_a_State&quot;&gt;&lt;em&gt;Seeing like a State&lt;/em&gt;&lt;/a&gt;:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Contemporary development schemes… require the creation of state spaces where the government can reconfigure the society and economy of those who are to be “developed.” The transformation of peripheral nonstate spaces into state spaces by the modern, developmentalist nation-state is ubiquitous and, for the inhabitants of such spaces, frequently traumatic.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-  &lt;br&gt;&lt;br&gt;
-  &lt;hr&gt;
-  &lt;p&gt;
-    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2022/11/environment-at-work&quot;&gt;Environment, at work&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
-    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
-  &lt;/p&gt;
-</description>
-  <pubDate>Wed, 16 Nov 2022 20:14:00 +0000</pubDate>
-  <link>https://island94.org/2022/11/environment-at-work</link>
-  <guid isPermaLink="true">https://island94.org/2022/11/environment-at-work</guid>
-  
-    <category>terroir</category>
-  
-    <category>work</category>
   
   
 </item>

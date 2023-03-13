@@ -1,6 +1,15 @@
 
 {
   
+    "2023-03-recently-march-12-2023": {
+      "title": "Recently, March 12, 2023",
+      "published": "March 13, 2023",
+      "tags": ["weeknotes"],
+      "content": "Work has been complicated, recently. Layoffs, as a general idea, were announced a month ago; it was the same week I came down with a bad cold. I’ve been fairly low energy since and have had trouble differentiating the two. I’m supremely proud and confident that my team is doing the most important work possible. We’ll see!   The week prior to all of this, my dad came to visit and stay with us. Having an easier time hosting family was one of our goals in getting a 2nd bedroom. Success.   Wow, it’s nearly been a year since I left my last job. I’ve had a number of former colleagues asking for help in leaving, in addition to talking with folks being pushed out: I was surprised to see Code for America finally kill Brigades, and really twist the knife too by forcing groups to rename themselves.   GoodJob is great! I’ve been thinking about replacing Advisory Locks with a lock strategy that’s more compatible with PgBouncer. But that will probably be a 2-year project at least of incrementally crabwalking towards that goal while avoiding breaking changes. Rubygems.org just adopted GoodJob; I am humbled.   On other projects, I’ve been trying to lower costs. My S3 data-transfer bill went from $10 to $50 a month, which I’m not happy about; scrapers are the worst 🤷‍♀️ I’ve also been experimenting with Dokku for packing some smaller projects (paying $15 once rather than $12 per app), though the VM locked up once on a Saturday night and I had to reboot it and this is exactly why I don’t want to manage my own servers.   My brother and I have been planning a Celebration of Life for my mom.   I’m so happy to finally be back on Daylight Savings Time.",
+      "url": "/2023/03/recently-march-12-2023"
+    }
+    ,
+  
     "2023-02-service-object-objects-in-ruby": {
       "title": "Service Object Objects in Ruby",
       "published": "February 14, 2023",
