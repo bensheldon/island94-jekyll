@@ -4,7 +4,7 @@ layout: default
 
 <div class="home">
   {% if paginator.page != 1 %}
-    {% include pager.html %}
+    {% include pager.html hr="bottom" %}
   {% endif %}
 
   {% for post in paginator.posts %}
@@ -13,5 +13,5 @@ layout: default
     {% if forloop.last == false %}<hr>{% endif %}
   {% endfor %}
 
-  {% include pager.html %}
+  {% include pager.html hr="top" %}
 </div>
