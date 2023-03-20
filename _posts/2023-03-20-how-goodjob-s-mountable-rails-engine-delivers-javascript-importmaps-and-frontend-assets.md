@@ -1,8 +1,8 @@
 ---
-title: "How GoodJob's Mountable Rails Engine delivers Javascript importmaps and frontend assets"
+title: "How GoodJob's mountable Rails Engine delivers Javascript importmaps and frontend assets"
 date: 2023-03-20 08:27 PDT
 published: true
-tags: [GoodJob, RubyOnRails]
+tags: [GoodJob]
 ---
 
 [GoodJob](https://github.com/bensheldon/good_job) is a multithreaded, Postgres-based ActiveJob backend for Ruby on Rails.
