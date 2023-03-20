@@ -105,7 +105,7 @@ Another downside is that I package several hundred kilobytes of frontend code wi
 
 Having created the routes and controller actions, I can simply link the static files in the layout html header:
 
-```html.erb
+```html
 <!-- app/views/layouts/good_job/application.html.erg -->
 <head>
   <!-- ... -->
@@ -120,7 +120,7 @@ Having created the routes and controller actions, I can simply link the static f
 
 Beneath this, I manually construct the JSON the browser expects for importmaps:
 
-```html.erb
+```html
 <!-- Link es_module_shims -->
 <%= tag.script "", src: frontend_static_path(:es_module_shims, format: :js, v: GoodJob::VERSION, locale: nil), async: true, nonce: content_security_policy_nonce %>
 
