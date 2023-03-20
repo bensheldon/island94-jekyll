@@ -5,7 +5,7 @@
 
   {% for tag in tags %}
     {% capture tag_html %}
-      <a href="/tags/#{{ tag | replace:' ','_'}}">{{tag}}</a>
+      <a href="/tags/#{{ tag | downcase | replace:' ','_'}}">{{tag}}</a>
     {% endcapture %}
     {% assign tag_html = tag_html | strip %}
     {% assign formatted_tags = formatted_tags | push: tag_html %}
