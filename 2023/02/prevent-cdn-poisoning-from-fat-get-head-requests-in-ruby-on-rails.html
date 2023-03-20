@@ -115,9 +115,9 @@
   <li>
     <p>Here’s what a Fat Request looks like:</p>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  GET /search     &lt;== the url for the landing page
+    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET /search     &lt;== the url for the landing page
 
-  q=verybadstuff  &lt;== oh, but with a request body
+q=verybadstuff  &lt;== oh, but with a request body
 </code></pre></div>    </div>
   </li>
 </ul>
@@ -193,7 +193,7 @@
     <span class="n">expect</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="nf">request_parameters</span><span class="p">).</span><span class="nf">to</span> <span class="n">eq</span><span class="p">(</span><span class="s2">"q"</span> <span class="o">=&gt;</span> <span class="s2">"verybadstuff"</span><span class="p">)</span>
     <span class="n">expect</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="nf">parameters</span><span class="p">).</span><span class="nf">to</span> <span class="n">eq</span><span class="p">({</span><span class="s2">"action"</span><span class="o">=&gt;</span><span class="s2">"panlexicon"</span><span class="p">,</span> <span class="s2">"controller"</span><span class="o">=&gt;</span><span class="s2">"search"</span><span class="p">})</span>
 
-    <span class="c1"># the behavioral expectation </span>
+    <span class="c1"># the behavioral expectation</span>
     <span class="n">expect</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="nf">body</span><span class="p">).</span><span class="nf">not_to</span> <span class="kp">include</span> <span class="s2">"verybadstuff"</span>
   <span class="k">end</span>
 <span class="k">end</span>

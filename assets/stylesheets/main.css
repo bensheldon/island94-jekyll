@@ -13851,4 +13851,9 @@ blockquote {
   column-count: 4;
 }
 
+.highlighter-rouge > .highlight {
+  padding: 1rem 1rem 0.01rem 1rem;
+  margin-bottom: 1rem;
+}
+
 /*# sourceMappingURL=main.css.map */
