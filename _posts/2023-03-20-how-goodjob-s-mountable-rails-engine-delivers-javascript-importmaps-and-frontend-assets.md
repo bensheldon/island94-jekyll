@@ -105,23 +105,22 @@ Another downside is that I package several hundred kilobytes of frontend code wi
 
 Having created the routes and controller actions, I can simply link the static files in the layout html header:
 
-```html
+```html.erb
 <!-- app/views/layouts/good_job/application.html.erg -->
 <head>
   <!-- ... -->
-	<%# Note: Do not use asset tag helpers to avoid paths being overriden by config.asset_host %>
+  <%# Note: Do not use asset tag helpers to avoid paths being overriden by config.asset_host %>
+  <%= tag.link rel: "stylesheet", href: frontend_static_path(:bootstrap, format: :css, v: GoodJob::VERSION, locale: nil), nonce: content_security_policy_nonce %>
+  <%= tag.link rel: "stylesheet", href: frontend_static_path(:style, format: :css, v: GoodJob::VERSION, locale: nil), nonce: content_security_policy_nonce %>
 	
-	<%= tag.link rel: "stylesheet", href: frontend_static_path(:bootstrap, format: :css, v: GoodJob::VERSION, locale: nil), nonce: content_security_policy_nonce %>
-	<%= tag.link rel: "stylesheet", href: frontend_static_path(:style, format: :css, v: GoodJob::VERSION, locale: nil), nonce: content_security_policy_nonce %>
-	
-	<%= tag.script "", src: frontend_static_path(:bootstrap, format: :js, v: GoodJob::VERSION, locale: nil), nonce: content_security_policy_nonce %>
-	<%= tag.script "", src: frontend_static_path(:chartjs, format: :js, v: GoodJob::VERSION, locale: nil), nonce: content_security_policy_nonce %>
-	<%= tag.script "", src: frontend_static_path(:rails_ujs, format: :js, v: GoodJob::VERSION, locale: nil), nonce: content_security_policy_nonce %>
+  <%= tag.script "", src: frontend_static_path(:bootstrap, format: :js, v: GoodJob::VERSION, locale: nil), nonce: content_security_policy_nonce %>
+  <%= tag.script "", src: frontend_static_path(:chartjs, format: :js, v: GoodJob::VERSION, locale: nil), nonce: content_security_policy_nonce %>
+  <%= tag.script "", src: frontend_static_path(:rails_ujs, format: :js, v: GoodJob::VERSION, locale: nil), nonce: content_security_policy_nonce %>
 ```
 
 Beneath this, I manually construct the JSON the browser expects for importmaps:
 
-```html
+```html.erb
 <!-- Link es_module_shims -->
 <%= tag.script "", src: frontend_static_path(:es_module_shims, format: :js, v: GoodJob::VERSION, locale: nil), async: true, nonce: content_security_policy_nonce %>
 
