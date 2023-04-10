@@ -38,7 +38,7 @@ jobs:
           git commit -m "Add post: ${{ github.event.inputs.post_title }}"
       - name: Create Pull Request
         id: create_pr
-        uses: peter-evans/create-pull-request@v4
+        uses: peter-evans/create-pull-request@v5
         with:
           title: "Add post: ${{ github.event.inputs.post_title }}"
           body: ""
