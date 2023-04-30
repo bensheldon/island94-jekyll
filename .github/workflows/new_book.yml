@@ -53,7 +53,7 @@ jobs:
           git commit -m "Add book review: ${{ github.event.inputs.book_title }}"
       - name: Create Pull Request
         id: create_pr
-        uses: peter-evans/create-pull-request@v4
+        uses: peter-evans/create-pull-request@v5
         with:
           title: "Add book review: ${{ github.event.inputs.book_title }}"
           body: ""
