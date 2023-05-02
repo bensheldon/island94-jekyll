@@ -6,10 +6,90 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 02 May 2023 14:09:08 +0000</pubDate>
-    <lastBuildDate>Tue, 02 May 2023 14:09:08 +0000</lastBuildDate>
+    <pubDate>Tue, 02 May 2023 15:44:50 +0000</pubDate>
+    <lastBuildDate>Tue, 02 May 2023 15:44:50 +0000</lastBuildDate>
     <generator>Jekyll v4.3.2</generator>
     
+    
+      
+
+
+
+
+<item>
+  <title>Whatever you do, don&apos;t autoload Rails `lib/`</title>
+  <description>&lt;p&gt;One of the most common problems I encounter consulting on Rails projects is that developers have previously added &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lib/&lt;/code&gt; to autoload paths and then twisted themselves into knots creating error-prone, project-specific conventions for subsequently un-autoloading a subset of files also in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lib/&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Don’t do it. Don’t add your Rails project’s &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lib/&lt;/code&gt; to autoload paths.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;how-does-this-happen&quot;&gt;How does this happen?&lt;/h3&gt;
+
+&lt;p&gt;A growing Rails application will accumulate a lot of ruby classes and files that don’t cleanly fit into the default buckets of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;controllers&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;helpers&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jobs&lt;/code&gt;, or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;models&lt;/code&gt;. Developers should also be creating new directories in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;app/*&lt;/code&gt; to organize like-with-like files (your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;app/services/&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;app/merchants/&lt;/code&gt;, etc.). That’s ok!&lt;/p&gt;
+
+&lt;p&gt;But frequently there are one-off classes that don’t seem to rise to the level of their own directory in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;app/&lt;/code&gt;. From looking through the cruft of projects like &lt;a href=&quot;https://github.com/mastodon/mastodon/tree/c62604b5f69c3ad7f5449e0a7dc26606adebb777/app/lib&quot;&gt;Mastadon&lt;/a&gt; or applications &lt;a href=&quot;https://github.com/codeforamerica/vita-min/tree/2f5faf06f586d1ea3915af262aab7683240f4727/app/lib&quot;&gt;I’ve&lt;/a&gt; &lt;a href=&quot;https://github.com/bensheldon/open311status/blob/2cd70e391770f64d734f462624222fb8f8bc14a4/app/lib/service_requests_pager.rb&quot;&gt;worked&lt;/a&gt; &lt;a href=&quot;https://github.com/bensheldon/open311status/tree/2cd70e391770f64d734f462624222fb8f8bc14a4/app/lib&quot;&gt;on&lt;/a&gt;, these files look like:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;A lone form builder&lt;/li&gt;
+  &lt;li&gt;POROs (“Plain old Ruby objects”) like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PhoneNumberFormatter&lt;/code&gt;, or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ZipCodes&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Seeder&lt;/code&gt;, or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Pagination&lt;/code&gt;. Objects that serve a single purpose and are largely singletons/identity objects within the application.&lt;/li&gt;
+  &lt;li&gt;Boilerplate classes for 3rd party gems, e.g. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ApplicationResponder&lt;/code&gt; for the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;responders gem&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;That these files accumulate in a project is a fact of life. When choosing where to put them, that’s when things can go wrong.&lt;/p&gt;
+
+&lt;p&gt;In a newly built Rails project &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lib/&lt;/code&gt; looks like the natural place for these. But &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lib/&lt;/code&gt; has a downside: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lib/&lt;/code&gt; is not autoloaded. This can come as a surprise, even to experienced developers, because they have been accustomed to the convenience of autoloaded files in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;app&lt;/code&gt;. It’s not difficult to add an explicit &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;require&lt;/code&gt; statement into &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;application.rb&lt;/code&gt; or in an initializer, but that may not be one’s first thought.&lt;/p&gt;
+
+&lt;p&gt;That’s when people jump to googling “how to autoload &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lib/&lt;/code&gt;”. Don’t do it! &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lib/&lt;/code&gt; should not be autoloaded.&lt;/p&gt;
+
+&lt;p&gt;The simplest reason why you shouldn’t autoload &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lib/&lt;/code&gt;: there will be files that &lt;em&gt;should never&lt;/em&gt; be autoloaded, and if you autoload it those other files will now have to be moved or won’t work right. This is when people start twisting their configuration into knots.&lt;/p&gt;
+
+&lt;p&gt;What should you do instead?&lt;/p&gt;
+
+&lt;h3 id=&quot;an-omikase-solution&quot;&gt;An omikase solution&lt;/h3&gt;
+
+&lt;p&gt;DHH &lt;a href=&quot;https://github.com/rails/rails/pull/47843#issuecomment-1515367267&quot;&gt;writes&lt;/a&gt;:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lib/&lt;/code&gt; is intended to be for non-app specific library code that just happens to live in the app for now (usually pending extraction into open source or whatever). Everything app specific that’s part of the domain model should live in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;app/models&lt;/code&gt; (that directory is for POROs as much as ARs)… Stuff like a generic PhoneNumberFormatter is exactly what &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lib/&lt;/code&gt; is intended for. And if it’s app specific, for some reason, then &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;app/models&lt;/code&gt; is fine.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The omikase solution is to manually require files from &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lib/&lt;/code&gt; or use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;app/models&lt;/code&gt; generically to mean “Domain Models” rather than solely Active Record models. That’s great! Do that.&lt;/p&gt;
+
+&lt;h3 id=&quot;a-best-practice&quot;&gt;A best practice&lt;/h3&gt;
+
+&lt;p&gt;Xavier Noria, Zeitwerk’s creator &lt;a href=&quot;https://github.com/rails/rails/issues/37835#issuecomment-757367812&quot;&gt;writes&lt;/a&gt;:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The best practice to accomplish that nowadays is to move that code to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;app/lib&lt;/code&gt;. Only the Ruby code you want to reload, tasks or other auxiliary files are OK in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lib&lt;/code&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Sidekiq’s Problems and Troubleshooting &lt;a href=&quot;https://github.com/sidekiq/sidekiq/wiki/Problems-and-Troubleshooting#autoloading&quot;&gt;explains&lt;/a&gt;:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;A &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lib/&lt;/code&gt; directory will only cause pain. Move the code to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;app/lib/&lt;/code&gt; and make sure the code inside follows the class/filename conventions.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The best practice is to create an &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;app/lib/&lt;/code&gt; directory to home these files. &lt;a href=&quot;https://github.com/mastodon/mastodon/tree/c62604b5f69c3ad7f5449e0a7dc26606adebb777/app/lib&quot;&gt;Mastodon&lt;/a&gt; does it, as do &lt;a href=&quot;https://github.com/search?type=code&amp;amp;auto_enroll=true&amp;amp;q=path%3A%2F%5Eapp%5C%2Flib%5C%2F.*%5C.rb%2F&quot;&gt;many others&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;This “best practice” is not without contention, as usually anything in Rails that deviates from omikase does, like RSpec instead of MiniTest or FactoryBot instead of Fixtures. But creating &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;app/lib&lt;/code&gt; as a convention for Rails apps works for me and many others.&lt;/p&gt;
+
+&lt;h3 id=&quot;really-dont-autoload-lib&quot;&gt;Really, don’t autoload &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lib/&lt;/code&gt;&lt;/h3&gt;
+
+&lt;p&gt;Whatever path you take, don’t take the path of autoloading &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lib/&lt;/code&gt;.&lt;/p&gt;
+
+  &lt;br&gt;&lt;br&gt;
+  &lt;hr&gt;
+  &lt;p&gt;
+    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2023/05/whatever-you-do-don-t-autoload-rails-lib&quot;&gt;Whatever you do, don&apos;t autoload Rails `lib/`&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
+    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
+  &lt;/p&gt;
+</description>
+  <pubDate>Tue, 02 May 2023 14:09:00 +0000</pubDate>
+  <link>https://island94.org/2023/05/whatever-you-do-don-t-autoload-rails-lib</link>
+  <guid isPermaLink="true">https://island94.org/2023/05/whatever-you-do-don-t-autoload-rails-lib</guid>
+  
+  
+</item>
+
     
       
 
@@ -717,35 +797,6 @@ something many applications could benefit from.&lt;/li&gt;
   <pubDate>Wed, 04 Jan 2023 05:17:00 +0000</pubDate>
   <link>https://island94.org/2023/01/conflict-at-work</link>
   <guid isPermaLink="true">https://island94.org/2023/01/conflict-at-work</guid>
-  
-  
-</item>
-
-    
-      
-
-
-
-
-<item>
-  <title>2022 in review</title>
-  <description>&lt;ul&gt;
-  &lt;li&gt;Family: My mom passed away; first parent to go. Of a plus, we spent a lot of time with my brother and his young family. We had to cancel a big family trip to Europe, but hope to make up with a trip in 2023.&lt;/li&gt;
-  &lt;li&gt;Community: Turned 40 this year; celebrated 11 years in SF; coming up on 3 years on Nob Hill. Things feel good. We were approved as a foster/adopt Resource Family, but with everything that happened with my mom, we haven’t yet begun hosting children yet. I’m going into year three of strategic planning committee at St. Francis.&lt;/li&gt;
-  &lt;li&gt;Work: Started at GitHub after five years at Code for America. Still feels a bit like a dream that I get to continue to do what I want technically (Ruby and Rails) while also working with good people. I’ve continued to work with my leadership coach, which has been nice continuity.&lt;/li&gt;
-  &lt;li&gt;Projects &amp;amp; Consulting: It’s now been 10 years since I registered as a small business in SF, which I did when I first started earning money with Day of the Shirt and doing various consulting jobs. GoodJob is floating along, and become a small source of GitHub Sponsors funds. The other constellation of projects continued in maintenance: Brompt, Panlexicon, etc.&lt;/li&gt;
-&lt;/ul&gt;
-
-  &lt;br&gt;&lt;br&gt;
-  &lt;hr&gt;
-  &lt;p&gt;
-    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2023/01/2022-in-review&quot;&gt;2022 in review&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
-    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
-  &lt;/p&gt;
-</description>
-  <pubDate>Tue, 03 Jan 2023 01:19:00 +0000</pubDate>
-  <link>https://island94.org/2023/01/2022-in-review</link>
-  <guid isPermaLink="true">https://island94.org/2023/01/2022-in-review</guid>
   
   
 </item>
