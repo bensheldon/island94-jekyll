@@ -13,7 +13,7 @@ The problem of autoloading `lib/` is that there will subsequently be files added
 
 ### How does this happen?
 
-A growing Rails application will accumulate a lot of ruby classes and files that don't cleanly fit into the default buckets of `controllers`, `helpers`, `jobs`, or `models`. Developers should also be creating new directories in `app/*` to organize like-with-like files (your `app/services/` or `app/merchants/`, etc.). That's ok! 
+A growing Rails application will accumulate a lot of ruby classes and files that don't cleanly fit into the default `app/` directories of `controllers`, `helpers`, `jobs`, or `models`. Developers should also be creating new directories in `app/*` to organize like-with-like files (your `app/services/` or `app/merchants/`, etc.). That's ok! 
 
 But frequently there are one-off classes that don't seem to rise to the level of their own directory in `app/`. From looking through the cruft of projects like [Mastadon](https://github.com/mastodon/mastodon/tree/c62604b5f69c3ad7f5449e0a7dc26606adebb777/app/lib) or applications [I've](https://github.com/codeforamerica/vita-min/tree/2f5faf06f586d1ea3915af262aab7683240f4727/app/lib) [worked](https://github.com/bensheldon/open311status/blob/2cd70e391770f64d734f462624222fb8f8bc14a4/app/lib/service_requests_pager.rb) [on](https://github.com/bensheldon/open311status/tree/2cd70e391770f64d734f462624222fb8f8bc14a4/app/lib), these files look like:
 
@@ -23,7 +23,7 @@ But frequently there are one-off classes that don't seem to rise to the level of
 
 That these files accumulate in a project is a fact of life. When choosing where to put them, that's when things can go wrong.
 
-In a newly built Rails project `lib/` looks like the natural place for these. But `lib/` has a downside: `lib/` is not autoloaded. This can come as a surprise, even to experienced developers, because they have been accustomed to the convenience of autoloaded files in `app`. It's not difficult to add an explicit `require` statement into `application.rb` or in an initializer, but that may not be one's first thought.
+In a newly built Rails project `lib/` looks like the natural place for these. But `lib/` has a downside: `lib/` is not autoloaded. This can come as a surprise, even to experienced developers, because they have been accustomed to the convenience of autoloaded files in `app/`. It's not difficult to add an explicit `require` statement into `application.rb` or in an initializer, but that may not be one's first thought.
 
 That's when people jump to googling "how to autoload `lib/`". Don't do it! `lib/` should not be autoloaded. 
 
