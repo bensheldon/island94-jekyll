@@ -6,8 +6,8 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 03 May 2023 00:52:17 +0000</pubDate>
-    <lastBuildDate>Wed, 03 May 2023 00:52:17 +0000</lastBuildDate>
+    <pubDate>Wed, 03 May 2023 01:34:07 +0000</pubDate>
+    <lastBuildDate>Wed, 03 May 2023 01:34:07 +0000</lastBuildDate>
     <generator>Jekyll v4.3.2</generator>
     
     
@@ -44,7 +44,7 @@
 
 &lt;p&gt;What should you do instead?&lt;/p&gt;
 
-&lt;h3 id=&quot;an-omikase-solution&quot;&gt;An omikase solution&lt;/h3&gt;
+&lt;h3 id=&quot;an-omakase-solution&quot;&gt;An omakase solution&lt;/h3&gt;
 
 &lt;p&gt;DHH &lt;a href=&quot;https://github.com/rails/rails/pull/47843#issuecomment-1515367267&quot;&gt;writes&lt;/a&gt;:&lt;/p&gt;
 
@@ -52,7 +52,7 @@
   &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lib/&lt;/code&gt; is intended to be for non-app specific library code that just happens to live in the app for now (usually pending extraction into open source or whatever). Everything app specific that’s part of the domain model should live in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;app/models&lt;/code&gt; (that directory is for POROs as much as ARs)… Stuff like a generic PhoneNumberFormatter is exactly what &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lib/&lt;/code&gt; is intended for. And if it’s app specific, for some reason, then &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;app/models&lt;/code&gt; is fine.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;The omikase solution is to manually require files from &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lib/&lt;/code&gt; or use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;app/models&lt;/code&gt; generically to mean “Domain Models” rather than solely Active Record models. That’s great! Do that.&lt;/p&gt;
+&lt;p&gt;The omakase solution is to manually require files from &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lib/&lt;/code&gt; or use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;app/models&lt;/code&gt; generically to mean “Domain Models” rather than solely Active Record models. That’s great! Do that.&lt;/p&gt;
 
 &lt;h3 id=&quot;a-best-practice&quot;&gt;A best practice&lt;/h3&gt;
 
@@ -70,7 +70,7 @@
 
 &lt;p&gt;The best practice is to create an &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;app/lib/&lt;/code&gt; directory to home these files. &lt;a href=&quot;https://github.com/mastodon/mastodon/tree/c62604b5f69c3ad7f5449e0a7dc26606adebb777/app/lib&quot;&gt;Mastodon&lt;/a&gt; does it, as do &lt;a href=&quot;https://github.com/search?type=code&amp;amp;auto_enroll=true&amp;amp;q=path%3A%2F%5Eapp%5C%2Flib%5C%2F.*%5C.rb%2F&quot;&gt;many others&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;This “best practice” is not without contention, as usually anything in Rails that deviates from omikase does, like RSpec instead of MiniTest or FactoryBot instead of Fixtures. But creating &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;app/lib&lt;/code&gt; as a convention for Rails apps works for me and many others.&lt;/p&gt;
+&lt;p&gt;This “best practice” is not without contention, as usually anything in Rails that deviates from omakase does, like RSpec instead of MiniTest or FactoryBot instead of Fixtures. But creating &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;app/lib&lt;/code&gt; as a convention for Rails apps works for me and many others.&lt;/p&gt;
 
 &lt;h3 id=&quot;really-dont-autoload-lib&quot;&gt;Really, don’t autoload &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lib/&lt;/code&gt;&lt;/h3&gt;
 

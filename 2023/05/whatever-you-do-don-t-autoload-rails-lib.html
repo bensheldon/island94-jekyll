@@ -119,7 +119,7 @@
 
 <p>What should you do instead?</p>
 
-<h3 id="an-omikase-solution">An omikase solution</h3>
+<h3 id="an-omakase-solution">An omakase solution</h3>
 
 <p>DHH <a href="https://github.com/rails/rails/pull/47843#issuecomment-1515367267">writes</a>:</p>
 
@@ -127,7 +127,7 @@
   <p><code class="language-plaintext highlighter-rouge">lib/</code> is intended to be for non-app specific library code that just happens to live in the app for now (usually pending extraction into open source or whatever). Everything app specific that’s part of the domain model should live in <code class="language-plaintext highlighter-rouge">app/models</code> (that directory is for POROs as much as ARs)… Stuff like a generic PhoneNumberFormatter is exactly what <code class="language-plaintext highlighter-rouge">lib/</code> is intended for. And if it’s app specific, for some reason, then <code class="language-plaintext highlighter-rouge">app/models</code> is fine.</p>
 </blockquote>
 
-<p>The omikase solution is to manually require files from <code class="language-plaintext highlighter-rouge">lib/</code> or use <code class="language-plaintext highlighter-rouge">app/models</code> generically to mean “Domain Models” rather than solely Active Record models. That’s great! Do that.</p>
+<p>The omakase solution is to manually require files from <code class="language-plaintext highlighter-rouge">lib/</code> or use <code class="language-plaintext highlighter-rouge">app/models</code> generically to mean “Domain Models” rather than solely Active Record models. That’s great! Do that.</p>
 
 <h3 id="a-best-practice">A best practice</h3>
 
@@ -145,7 +145,7 @@
 
 <p>The best practice is to create an <code class="language-plaintext highlighter-rouge">app/lib/</code> directory to home these files. <a href="https://github.com/mastodon/mastodon/tree/c62604b5f69c3ad7f5449e0a7dc26606adebb777/app/lib">Mastodon</a> does it, as do <a href="https://github.com/search?type=code&amp;auto_enroll=true&amp;q=path%3A%2F%5Eapp%5C%2Flib%5C%2F.*%5C.rb%2F">many others</a>.</p>
 
-<p>This “best practice” is not without contention, as usually anything in Rails that deviates from omikase does, like RSpec instead of MiniTest or FactoryBot instead of Fixtures. But creating <code class="language-plaintext highlighter-rouge">app/lib</code> as a convention for Rails apps works for me and many others.</p>
+<p>This “best practice” is not without contention, as usually anything in Rails that deviates from omakase does, like RSpec instead of MiniTest or FactoryBot instead of Fixtures. But creating <code class="language-plaintext highlighter-rouge">app/lib</code> as a convention for Rails apps works for me and many others.</p>
 
 <h3 id="really-dont-autoload-lib">Really, don’t autoload <code class="language-plaintext highlighter-rouge">lib/</code></h3>
 
