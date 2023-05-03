@@ -95,8 +95,6 @@
   <div class="post-content" itemprop="articleBody">
     <p>One of the most common problems I encounter consulting on Rails projects is that developers have previously added <code class="language-plaintext highlighter-rouge">lib/</code> to autoload paths and then twisted themselves into knots creating error-prone, project-specific conventions for subsequently un-autoloading a subset of files also in <code class="language-plaintext highlighter-rouge">lib/</code>.</p>
 
-<p>The problem of autoloading <code class="language-plaintext highlighter-rouge">lib/</code> is that there will subsequently be files added to <code class="language-plaintext highlighter-rouge">lib/</code> that shouldn’t be autoloaded; because they should only be provisionally loaded in a certain environment or context, or deferred, for behavioral, performance, or memory reasons. If your project has already enabled autoloading on <code class="language-plaintext highlighter-rouge">lib/</code>, it’s now likely you’ll add additional configuration to un-autoload the new files. These overrides and counter-overrides accumulate over time and become difficult to understand and unwind.</p>
-
 <p><em>Don’t do it. Don’t add your Rails project’s <code class="language-plaintext highlighter-rouge">lib/</code> to autoload paths.</em></p>
 
 <h3 id="how-does-this-happen">How does this happen?</h3>
@@ -117,7 +115,7 @@
 
 <p>That’s when people jump to googling “how to autoload <code class="language-plaintext highlighter-rouge">lib/</code>”. Don’t do it! <code class="language-plaintext highlighter-rouge">lib/</code> should not be autoloaded.</p>
 
-<p>The simplest reason why you shouldn’t autoload <code class="language-plaintext highlighter-rouge">lib/</code>: there will be files that <em>should never</em> be autoloaded, and if you autoload it those other files will now have to be moved or won’t work right. This is when people start twisting their configuration into knots.</p>
+<p>The problem with autoloading <code class="language-plaintext highlighter-rouge">lib/</code> is that there will subsequently be files added to <code class="language-plaintext highlighter-rouge">lib/</code> that should <em>not</em> be autoloaded; because they should only be provisionally loaded in a certain environment or context, or deferred, for behavioral, performance, or memory reasons. If your project has already enabled autoloading on <code class="language-plaintext highlighter-rouge">lib/</code>, it’s now likely you’ll then add additional configuration to un-autoload the new files. These overrides and counter-overrides accumulate over time and become difficult to understand and unwind, and they cause breakage because someone’s intuition of what will or won’t be loaded in a certain environment or context is wrong.</p>
 
 <p>What should you do instead?</p>
 
@@ -170,13 +168,13 @@
       
       <li><a href="/2012/12/A-gentle-conceptual-introduction-to-Nodejs.html">A gentle & conceptual introduction to Node.js</a></li>
       
-      <li><a href="/2010/09/Making-language-of-meaning.html">Making language of meaning</a></li>
-      
       <li><a href="/2007/08/Geekout-Video-on-Maps-for-Cable-Access-TV.html">Geekout: Video on Maps for Cable Access TV</a></li>
       
-      <li><a href="/2023/03/how-goodjob-s-mountable-rails-engine-delivers-javascript-importmaps-and-frontend-assets">How GoodJob's mountable Rails Engine delivers Javascript importmaps and frontend assets</a></li>
+      <li><a href="/2010/09/Making-language-of-meaning.html">Making language of meaning</a></li>
       
       <li><a href="/2022/07/four-dumb-cringe-tech-interview-stories">Four dumb-cringe tech interview stories</a></li>
+      
+      <li><a href="/2023/03/how-goodjob-s-mountable-rails-engine-delivers-javascript-importmaps-and-frontend-assets">How GoodJob's mountable Rails Engine delivers Javascript importmaps and frontend assets</a></li>
       
     </ul>
   </div>

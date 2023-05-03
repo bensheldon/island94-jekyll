@@ -6,8 +6,8 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 02 May 2023 23:57:07 +0000</pubDate>
-    <lastBuildDate>Tue, 02 May 2023 23:57:07 +0000</lastBuildDate>
+    <pubDate>Wed, 03 May 2023 00:52:17 +0000</pubDate>
+    <lastBuildDate>Wed, 03 May 2023 00:52:17 +0000</lastBuildDate>
     <generator>Jekyll v4.3.2</generator>
     
     
@@ -20,8 +20,6 @@
 <item>
   <title>Whatever you do, don&apos;t autoload Rails `lib/`</title>
   <description>&lt;p&gt;One of the most common problems I encounter consulting on Rails projects is that developers have previously added &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lib/&lt;/code&gt; to autoload paths and then twisted themselves into knots creating error-prone, project-specific conventions for subsequently un-autoloading a subset of files also in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lib/&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;The problem of autoloading &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lib/&lt;/code&gt; is that there will subsequently be files added to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lib/&lt;/code&gt; that shouldn’t be autoloaded; because they should only be provisionally loaded in a certain environment or context, or deferred, for behavioral, performance, or memory reasons. If your project has already enabled autoloading on &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lib/&lt;/code&gt;, it’s now likely you’ll add additional configuration to un-autoload the new files. These overrides and counter-overrides accumulate over time and become difficult to understand and unwind.&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;Don’t do it. Don’t add your Rails project’s &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lib/&lt;/code&gt; to autoload paths.&lt;/em&gt;&lt;/p&gt;
 
@@ -43,7 +41,7 @@
 
 &lt;p&gt;That’s when people jump to googling “how to autoload &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lib/&lt;/code&gt;”. Don’t do it! &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lib/&lt;/code&gt; should not be autoloaded.&lt;/p&gt;
 
-&lt;p&gt;The simplest reason why you shouldn’t autoload &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lib/&lt;/code&gt;: there will be files that &lt;em&gt;should never&lt;/em&gt; be autoloaded, and if you autoload it those other files will now have to be moved or won’t work right. This is when people start twisting their configuration into knots.&lt;/p&gt;
+&lt;p&gt;The problem with autoloading &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lib/&lt;/code&gt; is that there will subsequently be files added to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lib/&lt;/code&gt; that should &lt;em&gt;not&lt;/em&gt; be autoloaded; because they should only be provisionally loaded in a certain environment or context, or deferred, for behavioral, performance, or memory reasons. If your project has already enabled autoloading on &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lib/&lt;/code&gt;, it’s now likely you’ll then add additional configuration to un-autoload the new files. These overrides and counter-overrides accumulate over time and become difficult to understand and unwind, and they cause breakage because someone’s intuition of what will or won’t be loaded in a certain environment or context is wrong.&lt;/p&gt;
 
 &lt;p&gt;What should you do instead?&lt;/p&gt;
 
