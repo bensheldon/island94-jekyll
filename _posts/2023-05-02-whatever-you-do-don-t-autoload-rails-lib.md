@@ -7,8 +7,6 @@ tags: []
 
 One of the most common problems I encounter consulting on Rails projects is that developers have previously added `lib/` to autoload paths and then twisted themselves into knots creating error-prone, project-specific conventions for subsequently un-autoloading a subset of files also in `lib/`. 
 
-The problem of autoloading `lib/` is that there will subsequently be files added to `lib/` that shouldn't be autoloaded; because they should only be provisionally loaded in a certain environment or context, or deferred, for behavioral, performance, or memory reasons. If your project has already enabled autoloading on `lib/`, it's now likely you'll add additional configuration to un-autoload the new files. These overrides and counter-overrides accumulate over time and become difficult to understand and unwind.
-
 *Don't do it. Don't add your Rails project's `lib/` to autoload paths.*
 
 ### How does this happen?
@@ -27,7 +25,7 @@ In a newly built Rails project `lib/` looks like the natural place for these. Bu
 
 That's when people jump to googling "how to autoload `lib/`". Don't do it! `lib/` should not be autoloaded. 
 
-The simplest reason why you shouldn't autoload `lib/`: there will be files that _should never_ be autoloaded, and if you autoload it those other files will now have to be moved or won't work right. This is when people start twisting their configuration into knots.
+The problem with autoloading `lib/` is that there will subsequently be files added to `lib/` that should _not_ be autoloaded; because they should only be provisionally loaded in a certain environment or context, or deferred, for behavioral, performance, or memory reasons. If your project has already enabled autoloading on `lib/`, it's now likely you'll then add additional configuration to un-autoload the new files. These overrides and counter-overrides accumulate over time and become difficult to understand and unwind.
 
 What should you do instead?
 
