@@ -29,13 +29,13 @@ The problem with autoloading `lib/` is that there will subsequently be files add
 
 What should you do instead?
 
-### An omikase solution
+### An omakase solution
 
 DHH [writes](https://github.com/rails/rails/pull/47843#issuecomment-1515367267):
 
 >  `lib/` is intended to be for non-app specific library code that just happens to live in the app for now (usually pending extraction into open source or whatever). Everything app specific that's part of the domain model should live in `app/models` (that directory is for POROs as much as ARs)... Stuff like a generic PhoneNumberFormatter is exactly what `lib/` is intended for. And if it's app specific, for some reason, then `app/models` is fine.
 
-The omikase solution is to manually require files from `lib/` or use `app/models` generically to mean "Domain Models" rather than solely Active Record models. That's great! Do that.
+The omakase solution is to manually require files from `lib/` or use `app/models` generically to mean "Domain Models" rather than solely Active Record models. That's great! Do that.
 
 ### A best practice
 
@@ -49,7 +49,7 @@ Sidekiq's Problems and Troubleshooting [explains](https://github.com/sidekiq/sid
 
 The best practice is to create an `app/lib/` directory to home these files. [Mastodon](https://github.com/mastodon/mastodon/tree/c62604b5f69c3ad7f5449e0a7dc26606adebb777/app/lib) does it, as do [many others](https://github.com/search?type=code&auto_enroll=true&q=path%3A%2F%5Eapp%5C%2Flib%5C%2F.*%5C.rb%2F).
 
-This "best practice" is not without contention, as usually anything in Rails that deviates from omikase does, like RSpec instead of MiniTest or FactoryBot instead of Fixtures. But creating `app/lib` as a convention for Rails apps works for me and many others.
+This "best practice" is not without contention, as usually anything in Rails that deviates from omakase does, like RSpec instead of MiniTest or FactoryBot instead of Fixtures. But creating `app/lib` as a convention for Rails apps works for me and many others.
 
 ### Really, don't autoload `lib/`
 
