@@ -26,7 +26,7 @@ Concurrency Control works by assigning jobs a "key" which is simply a queryable 
 There were some downsides to using Concurrency Control for Cron. 
 
 - It was a burden on developers. Concurrency Control extends `ActiveJob::Base` and required the developer to configure Concurrency Control rules separately from the Cron configuration.
-- It wasn't very performant. Concurrency Control's design is _optimistic_ and works best when collisions are rare or infrequent. But a large, clock-synchronized formation of GoodJob processes is a _pessimistic_ concurrency scenario, and it could take several seconds of advisory locking and unlocking across all the processes to insert a single job.
+- It wasn't very performant. Concurrency Control's design is pessimistic and works best when collisions are rare or infrequent. But a large, clock-synchronized formation of GoodJob processes will frequently produce collisions and it could take several seconds of advisory locking and unlocking across all the processes to insert a single job.
  
 ### Then, a unique index
 
@@ -42,6 +42,10 @@ Now, when a thundering herd of GoodJob processes tries to enqueue the same cron 
 
 Yes! I've received lots of positive feedback in the year+ since GoodJob's cron moved to a unique index locking strategy. From the application perspective, there's much less enqueueing latency using a unique index than when using advisory locks. And from the developer's perspective, it does _just work_ without additional configuration beyond the schedule.
 
+The main benefit is that the strategy is _optimistic_. GoodJob just goes for it and lets the database's unique indexing and built-in locks sort it out. That allows removing the application-level locking and querying and branching logic in the GoodJob client; only handling the potential `ActiveRecord::RecordNotUnique` exception is necessary.
+
 Using a unique index does require preserving the job records for a bit after the jobs have been performed. Otherwise, poor clock synchronization across processes could lead to a duplicate job being inserted again if the job has already been performed and removed from the table/index. Fortunately, preserving job records should not be too burdensome because GoodJob will [automatically clean them up](https://github.com/bensheldon/good_job/blob/994ecff5323bf0337e10464841128fda100750e6/README.md#monitor-and-preserve-worked-jobs) too.
 
 Lastly, one goal of writing this is the hope/fear that a Database Administrator will tell me this is a terrible strategy and provide a better one. Until that happens, I have confidence GoodJob's cron is good. [I'd love your feedback!](https://github.com/bensheldon/good_job/discussions/806)
+
+**Edit:** In an earlier version of this post, I mixed up "optimistic" and "pessimistic" locking; that has been corrected. 
