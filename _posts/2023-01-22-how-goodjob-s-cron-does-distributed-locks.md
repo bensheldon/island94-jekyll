@@ -5,7 +5,7 @@ published: true
 tags: [GoodJob]
 ---
 
-[GoodJob](https://github.com/bensheldon/good_job) is a multithreaded, Postgres-based, ActiveJob backend for Ruby on Rails. GoodJob has many features that take it beyond ActiveJob. One such feature is [cron-like functionality](https://github.com/bensheldon/good_job/blob/994ecff5323bf0337e10464841128fda100750e6/README.md#cron-style-repeatingrecurring-jobs) that allows scheduling repeated jobs on a fixed schedule. 
+[GoodJob](https://github.com/bensheldon/good_job) is a multithreaded, Postgres-based, Active Job backend for Ruby on Rails. GoodJob has many features that take it beyond Active Job. One such feature is [cron-like functionality](https://github.com/bensheldon/good_job/blob/994ecff5323bf0337e10464841128fda100750e6/README.md#cron-style-repeatingrecurring-jobs) that allows scheduling repeated jobs on a fixed schedule. 
 
 This post is a brief technical story of how GoodJob prevents duplicated cron jobs from running in a multi-process, distributed environment.
 
