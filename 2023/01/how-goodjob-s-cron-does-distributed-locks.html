@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>How GoodJob's Cron does distributed locks</title>
-  <meta name="description" content="GoodJob is a multithreaded, Postgres-based, ActiveJob backend for Ruby on Rails. GoodJob has many features that take it beyond ActiveJob. One such feature is...">
+  <meta name="description" content="GoodJob is a multithreaded, Postgres-based, Active Job backend for Ruby on Rails. GoodJob has many features that take it beyond Active Job. One such feature ...">
 
   <link rel="stylesheet" href="/assets/stylesheets/main.css">
   <script src="/assets/javascripts/main.js"></script>
@@ -99,7 +99,7 @@
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p><a href="https://github.com/bensheldon/good_job">GoodJob</a> is a multithreaded, Postgres-based, ActiveJob backend for Ruby on Rails. GoodJob has many features that take it beyond ActiveJob. One such feature is <a href="https://github.com/bensheldon/good_job/blob/994ecff5323bf0337e10464841128fda100750e6/README.md#cron-style-repeatingrecurring-jobs">cron-like functionality</a> that allows scheduling repeated jobs on a fixed schedule.</p>
+    <p><a href="https://github.com/bensheldon/good_job">GoodJob</a> is a multithreaded, Postgres-based, Active Job backend for Ruby on Rails. GoodJob has many features that take it beyond Active Job. One such feature is <a href="https://github.com/bensheldon/good_job/blob/994ecff5323bf0337e10464841128fda100750e6/README.md#cron-style-repeatingrecurring-jobs">cron-like functionality</a> that allows scheduling repeated jobs on a fixed schedule.</p>
 
 <p>This post is a brief technical story of how GoodJob prevents duplicated cron jobs from running in a multi-process, distributed environment.</p>
 
@@ -121,7 +121,7 @@
 
 <ul>
   <li>It was a burden on developers. Concurrency Control extends <code class="language-plaintext highlighter-rouge">ActiveJob::Base</code> and required the developer to configure Concurrency Control rules separately from the Cron configuration.</li>
-  <li>It wasn’t very performant. Concurrency Control’s design is <em>optimistic</em> and works best when collisions are rare or infrequent. But a large, clock-synchronized formation of GoodJob processes is a <em>pessimistic</em> concurrency scenario, and it could take several seconds of advisory locking and unlocking across all the processes to insert a single job.</li>
+  <li>It wasn’t very performant. Concurrency Control’s design is pessimistic and works best when collisions are rare or infrequent. But a large, clock-synchronized formation of GoodJob processes will frequently produce collisions and it could take several seconds of advisory locking and unlocking across all the processes to insert a single job.</li>
 </ul>
 
 <h3 id="then-a-unique-index">Then, a unique index</h3>
@@ -140,9 +140,13 @@
 
 <p>Yes! I’ve received lots of positive feedback in the year+ since GoodJob’s cron moved to a unique index locking strategy. From the application perspective, there’s much less enqueueing latency using a unique index than when using advisory locks. And from the developer’s perspective, it does <em>just work</em> without additional configuration beyond the schedule.</p>
 
+<p>The main benefit is that the strategy is <em>optimistic</em>. GoodJob just goes for it and lets the database’s unique indexing and built-in locks sort it out. That allows removing the application-level locking and querying and branching logic in the GoodJob client; only handling the potential <code class="language-plaintext highlighter-rouge">ActiveRecord::RecordNotUnique</code> exception is necessary.</p>
+
 <p>Using a unique index does require preserving the job records for a bit after the jobs have been performed. Otherwise, poor clock synchronization across processes could lead to a duplicate job being inserted again if the job has already been performed and removed from the table/index. Fortunately, preserving job records should not be too burdensome because GoodJob will <a href="https://github.com/bensheldon/good_job/blob/994ecff5323bf0337e10464841128fda100750e6/README.md#monitor-and-preserve-worked-jobs">automatically clean them up</a> too.</p>
 
 <p>Lastly, one goal of writing this is the hope/fear that a Database Administrator will tell me this is a terrible strategy and provide a better one. Until that happens, I have confidence GoodJob’s cron is good. <a href="https://github.com/bensheldon/good_job/discussions/806">I’d love your feedback!</a></p>
+
+<p><strong>Edit:</strong> In an earlier version of this post, I mixed up “optimistic” and “pessimistic” locking; that has been corrected.</p>
 
   </div>
 </article>
@@ -165,9 +169,9 @@
       
       <li><a href="/2007/08/Geekout-Video-on-Maps-for-Cable-Access-TV.html">Geekout: Video on Maps for Cable Access TV</a></li>
       
-      <li><a href="/2021/07/goodjob-whats-new-v1.12.0">GoodJob, what's new: Cron, concurrency controls, and a dashboard demo (v1.12.0)</a></li>
-      
       <li><a href="/2023/03/how-goodjob-s-mountable-rails-engine-delivers-javascript-importmaps-and-frontend-assets">How GoodJob's mountable Rails Engine delivers Javascript importmaps and frontend assets</a></li>
+      
+      <li><a href="/2021/07/goodjob-whats-new-v1.12.0">GoodJob, what's new: Cron, concurrency controls, and a dashboard demo (v1.12.0)</a></li>
       
     </ul>
   </div>
