@@ -13,7 +13,7 @@ I wanted to cement some of my learnings and understandings by writing a quick bl
 
 ### The use case: future scheduled tasks
 
-Imagine you want to run some bits of code, at a point of time of time in the future. It might look like this example creating several tasks at once with varying delays in seconds:
+Imagine you want to run some bits of code, at a point in time in the future. It might look like this example creating several tasks at once with varying delays in seconds:
 
 ```ruby
 ScheduledTask.execute(delay = 30) do
