@@ -61,7 +61,7 @@ I earlier described `Event` as a `Mutex` and `ConditionVariable` packaged togeth
 A [Ruby `ConditionVariable`](https://docs.ruby-lang.org/en/3.2/Thread/ConditionVariable.html) has two features that are perfect for multithreaded programming:
 
 - `wait`, which is blocking and will put a thread to sleep, with an optional timeout
-- `signal` (or `broadcast`), which can be emitted from a different thread to wake up the sleeping thread and allow it to continue.
+- `set`, which broadcasts a signal to any waiting threads to wake up. 
 
 Jesse Storimer's excellent and free ebook _Working with Ruby Threads_ has a great [section on ConditionVariables](https://workingwithruby.com/wwrt/condvars/) and why the mutex is a necessary part of the implementation. 
 
