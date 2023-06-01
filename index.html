@@ -103,9 +103,7 @@
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <h1 id="rebuilding-concurrent-ruby-scheduledtask-event-and-timerset">Rebuilding Concurrent Ruby: ScheduledTask, Event, and TimerSet</h1>
-
-<p>I’ve been diving into <a href="https://github.com/ruby-concurrency/concurrent-ruby">Concurrent Ruby library</a> a lot recently. I use Concurrent Ruby as the foundation for <a href="https://github.com/bensheldon/good_job">GoodJob</a> where it has saved me immense time and grief because it has a lot of reliable, complex thread-safe primitives that are well-shaped for GoodJob’s needs. I’m a big fan of Concurrent Ruby.</p>
+    <p>I’ve been diving into <a href="https://github.com/ruby-concurrency/concurrent-ruby">Concurrent Ruby library</a> a lot recently. I use Concurrent Ruby as the foundation for <a href="https://github.com/bensheldon/good_job">GoodJob</a> where it has saved me immense time and grief because it has a lot of reliable, complex thread-safe primitives that are well-shaped for GoodJob’s needs. I’m a big fan of Concurrent Ruby.</p>
 
 <p>I wanted to cement some of my learnings and understandings by writing a quick blog post to explain how some parts of Concurrent Ruby work, in the spirit of Neal Gib’s <a href="https://rebuilding-rails.com/"><em>Rebuilding Rails</em></a>. In the following, I’ll be sharing runnable Ruby code that is similar to how Concurrent Ruby solves the same kind of problems. That said, <strong>Concurrent Ruby is much, much safer—and thus a little more complex—than what I’m writing here</strong> so please, if you need this functionality, use Concurrent Ruby directly.</p>
 
