@@ -5,8 +5,6 @@ published: true
 tags: [ruby, GoodJob]
 ---
 
-# Rebuilding Concurrent Ruby: ScheduledTask, Event, and TimerSet
-
 I’ve been diving into [Concurrent Ruby library](https://github.com/ruby-concurrency/concurrent-ruby) a lot recently. I use Concurrent Ruby as the foundation for [GoodJob](https://github.com/bensheldon/good_job) where it has saved me immense time and grief because it has a lot of reliable, complex thread-safe primitives that are well-shaped for GoodJob’s needs. I’m a big fan of Concurrent Ruby.
 
 I wanted to cement some of my learnings and understandings by writing a quick blog post to explain how some parts of Concurrent Ruby work, in the spirit of Neal Gib’s [_Rebuilding Rails_](https://rebuilding-rails.com/). In the following, I’ll be sharing runnable Ruby code that is similar to how Concurrent Ruby solves the same kind of problems. That said, **Concurrent Ruby is much, much safer—and thus a little more complex—than what I’m writing here** so please, if you need this functionality, use Concurrent Ruby directly.
