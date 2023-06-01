@@ -6,8 +6,8 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 01 Jun 2023 01:58:31 +0000</pubDate>
-    <lastBuildDate>Thu, 01 Jun 2023 01:58:31 +0000</lastBuildDate>
+    <pubDate>Thu, 01 Jun 2023 02:09:04 +0000</pubDate>
+    <lastBuildDate>Thu, 01 Jun 2023 02:09:04 +0000</lastBuildDate>
     <generator>Jekyll v4.3.2</generator>
     
     
@@ -27,7 +27,7 @@
 
 &lt;h3 id=&quot;the-use-case-future-scheduled-tasks&quot;&gt;The use case: future scheduled tasks&lt;/h3&gt;
 
-&lt;p&gt;Imagine you want to run some bits of code, at a point of time of time in the future. It might look like this example creating several tasks at once with varying delays in seconds:&lt;/p&gt;
+&lt;p&gt;Imagine you want to run some bits of code, at a point in time in the future. It might look like this example creating several tasks at once with varying delays in seconds:&lt;/p&gt;
 
 &lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;no&quot;&gt;ScheduledTask&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;execute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;delay&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
   &lt;span class=&quot;c1&quot;&gt;# run some code&lt;/span&gt;
