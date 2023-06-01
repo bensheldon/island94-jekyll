@@ -6,10 +6,290 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 22 May 2023 14:48:00 +0000</pubDate>
-    <lastBuildDate>Mon, 22 May 2023 14:48:00 +0000</lastBuildDate>
+    <pubDate>Thu, 01 Jun 2023 01:58:31 +0000</pubDate>
+    <lastBuildDate>Thu, 01 Jun 2023 01:58:31 +0000</lastBuildDate>
     <generator>Jekyll v4.3.2</generator>
     
+    
+      
+        
+
+
+
+
+<item>
+  <title>Rebuilding Concurrent Ruby: ScheduledTask, Event, and TimerSet</title>
+  <description>&lt;h1 id=&quot;rebuilding-concurrent-ruby-scheduledtask-event-and-timerset&quot;&gt;Rebuilding Concurrent Ruby: ScheduledTask, Event, and TimerSet&lt;/h1&gt;
+
+&lt;p&gt;I’ve been diving into &lt;a href=&quot;https://github.com/ruby-concurrency/concurrent-ruby&quot;&gt;Concurrent Ruby library&lt;/a&gt; a lot recently. I use Concurrent Ruby as the foundation for &lt;a href=&quot;https://github.com/bensheldon/good_job&quot;&gt;GoodJob&lt;/a&gt; where it has saved me immense time and grief because it has a lot of reliable, complex thread-safe primitives that are well-shaped for GoodJob’s needs. I’m a big fan of Concurrent Ruby.&lt;/p&gt;
+
+&lt;p&gt;I wanted to cement some of my learnings and understandings by writing a quick blog post to explain how some parts of Concurrent Ruby work, in the spirit of Neal Gib’s &lt;a href=&quot;https://rebuilding-rails.com/&quot;&gt;&lt;em&gt;Rebuilding Rails&lt;/em&gt;&lt;/a&gt;. In the following, I’ll be sharing runnable Ruby code that is similar to how Concurrent Ruby solves the same kind of problems. That said, &lt;strong&gt;Concurrent Ruby is much, much safer—and thus a little more complex—than what I’m writing here&lt;/strong&gt; so please, if you need this functionality, use Concurrent Ruby directly.&lt;/p&gt;
+
+&lt;h3 id=&quot;the-use-case-future-scheduled-tasks&quot;&gt;The use case: future scheduled tasks&lt;/h3&gt;
+
+&lt;p&gt;Imagine you want to run some bits of code, at a point of time of time in the future. It might look like this example creating several tasks at once with varying delays in seconds:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;no&quot;&gt;ScheduledTask&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;execute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;delay&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;# run some code&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;no&quot;&gt;ScheduledTask&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;execute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;60&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;# run some code&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;no&quot;&gt;ScheduledTask&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;execute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;15&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;# run some code&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;In Concurrent Ruby, the object to do this is a &lt;a href=&quot;https://ruby-concurrency.github.io/concurrent-ruby/1.2.0/Concurrent/ScheduledTask.html&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Concurrent::ScheduledTask&lt;/code&gt;&lt;/a&gt; (good name, right?). A ScheduledTask will wait &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;delay&lt;/code&gt; seconds and then run the block of code on a background thread.&lt;/p&gt;
+
+&lt;p&gt;Behind the ScheduledTask is the real star: the &lt;a href=&quot;https://ruby-concurrency.github.io/concurrent-ruby/1.2.0/Concurrent/TimerSet.html&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Concurrent::TimerSet&lt;/code&gt;&lt;/a&gt;, which executes a collection of tasks, each after a given delay. Let’s break down the components of a TimerSet:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;TimerSet maintains a list of tasks, ordered by their delays, with the soonest first&lt;/li&gt;
+  &lt;li&gt;TimerSet runs a reactor-like loop in a background thread. This thread will peek at the next occurring task and wait/sleep until it occurs, then pop the task to execute it.&lt;/li&gt;
+  &lt;li&gt;TimerSet uses a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Concurrent::Event&lt;/code&gt; (which is like a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Mutex&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ConditionVariable&lt;/code&gt; combined in a convenient package) to interrupt the sleeping reactor when new tasks are created.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I’ll give examples of each of these. But first, you may be asking….&lt;/p&gt;
+
+&lt;h2 id=&quot;why-is-this-so-hard&quot;&gt;Why is this so hard?&lt;/h2&gt;
+
+&lt;p&gt;This is a lot of objects working together to accomplish the use case. This is why:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Ruby threads have a cost, so we can’t simply create a new thread for each and every task, putting it to sleep until an individual task is intended to be triggered. That would be a lot of threads.&lt;/li&gt;
+  &lt;li&gt;Ruby threads &lt;a href=&quot;http://headius.blogspot.com/2008/02/rubys-threadraise-threadkill-timeoutrb.html&quot;&gt;aren’t safe be canceled/killed&lt;/a&gt;, so we can’t, for example, create a single thread for the soonest task but then terminate it and create a new thread if new task is created with a sooner time.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The following section will show how these objects are put together. Again, this is not the exact Concurrent Ruby implementation, but it’s the general shape of how Concurrent Ruby solves this use case.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-event&quot;&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Event&lt;/code&gt;&lt;/h2&gt;
+
+&lt;p&gt;Concurrent Ruby describes a &lt;a href=&quot;https://github.com/ruby-concurrency/concurrent-ruby/blob/9f40827be9a8a192a6993a8d157bd3ed0662ada0/lib/concurrent-ruby/concurrent/atomic/event.rb&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Concurrent::Event&lt;/code&gt;&lt;/a&gt; as:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Old school kernel-style event reminiscent of Win32 programming in C++.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;I don’t know what that means exactly, but an Event can be in either a set or unset state, and it can wait (with a timeout!) and be awakened via signals across threads.&lt;/p&gt;
+
+&lt;p&gt;I earlier described &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Event&lt;/code&gt; as a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Mutex&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ConditionVariable&lt;/code&gt; packaged together. The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ConditionVariable&lt;/code&gt;is the star here, and the mutex is simply a supporting actor because the ConditionVariable requires it.&lt;/p&gt;
+
+&lt;p&gt;A &lt;a href=&quot;https://docs.ruby-lang.org/en/3.2/Thread/ConditionVariable.html&quot;&gt;Ruby &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ConditionVariable&lt;/code&gt;&lt;/a&gt; has two features that are perfect for multithreaded programming:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;wait&lt;/code&gt;, which is blocking and will put a thread to sleep, with an optional timeout&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;signal&lt;/code&gt; (or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;broadcast&lt;/code&gt;), which can be emitted from a different thread to wake up the sleeping thread and allow it to continue.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Jesse Storimer’s excellent and free ebook &lt;em&gt;Working with Ruby Threads&lt;/em&gt; has a great &lt;a href=&quot;https://workingwithruby.com/wwrt/condvars/&quot;&gt;section on ConditionVariables&lt;/a&gt; and why the mutex is a necessary part of the implementation.&lt;/p&gt;
+
+&lt;p&gt;Here’s some code that implements an Event with an example to show how it can wake up a thread:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Event&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initialize&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@mutex&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Mutex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@condition&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ConditionVariable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@set&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;wait&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;timeout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@mutex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;synchronize&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+      &lt;span class=&quot;vi&quot;&gt;@set&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@condition&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;wait&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@mutex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;timeout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;set&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@mutex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;synchronize&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+      &lt;span class=&quot;vi&quot;&gt;@set&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;
+      &lt;span class=&quot;vi&quot;&gt;@condition&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;broadcast&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;reset&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@mutex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;synchronize&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+      &lt;span class=&quot;vi&quot;&gt;@set&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Here’s a simple example of an Event running in a loop to show how it might be used:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;event&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;running&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;thread&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Thread&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;# A simple loop in a thread&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;running&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# loop every second unless signaled&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;wait&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Event has been set&quot;&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;reset&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Exiting thread&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;nb&quot;&gt;sleep&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;set&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; Event has been set&lt;/span&gt;
+
+&lt;span class=&quot;nb&quot;&gt;sleep&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;set&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; Event has been set&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# let the thread exit&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;running&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;thread&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;join&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; Exiting thread&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;the-scheduledtask&quot;&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ScheduledTask&lt;/code&gt;&lt;/h3&gt;
+
+&lt;p&gt;The implementation of the ScheduledTask isn’t too important in this explanation, but I’ll sketch out the necessary pieces, which match up with a &lt;a href=&quot;https://github.com/ruby-concurrency/concurrent-ruby/blob/9f40827be9a8a192a6993a8d157bd3ed0662ada0/lib/concurrent-ruby/concurrent/scheduled_task.rb&quot;&gt;￼&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Concurrent::ScheduledTask&lt;/code&gt;￼&lt;/a&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# GLOBAL_TIMER_SET = TimerSet.new&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ScheduledTask&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;attr_reader&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:schedule_time&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;execute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;delay&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;timer_set: &lt;/span&gt;&lt;span class=&quot;no&quot;&gt;GLOBAL_TIMER_SET&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;task&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;scheduled_task&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;delay&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;task&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;timer_set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;post_task&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;scheduled_task&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initialize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;delay&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;task&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@schedule_time&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;now&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;delay&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@task&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;task&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;run&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@task&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;call&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;other&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;schedule_time&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;other&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;schedule_time&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;A couple things to call out here:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GLOBAL_TIMER_SET&lt;/code&gt; is necessary so that all ScheduledTasks are added to the same TimerSet. In Concurrent Ruby, this is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Concurrent.global_timer_set&lt;/code&gt;, though a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ScheduledTask.execute&lt;/code&gt; can be given an explicit &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;timer_set:&lt;/code&gt; parameter if an application has multiple TimerSets (for example, GoodJob initializes its own TimerSet for finer lifecycle management).&lt;/li&gt;
+  &lt;li&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;=&amp;gt;&lt;/code&gt; comparison operator, which will be used to keep our list of tasks sorted with the soonest tasks first.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;the-timerset&quot;&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;TimerSet&lt;/code&gt;&lt;/h3&gt;
+
+&lt;p&gt;Now we have the pieces necessary to implement a TimerSet and fulfill our use case. The TimerSet implemented here is very similar to a &lt;a href=&quot;https://github.com/ruby-concurrency/concurrent-ruby/blob/9f40827be9a8a192a6993a8d157bd3ed0662ada0/lib/concurrent-ruby/concurrent/executor/timer_set.rb&quot;&gt;￼￼￼&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Concurrent::TimerSet&lt;/code&gt;￼￼￼&lt;/a&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;TimerSet&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initialize&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@queue&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@mutex&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Mutex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@event&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@thread&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;post_task&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;task&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@mutex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;synchronize&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+      &lt;span class=&quot;vi&quot;&gt;@queue&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;task&lt;/span&gt;
+      &lt;span class=&quot;vi&quot;&gt;@queue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;sort!&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;process_tasks&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@queue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;size&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;set&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;shutdown&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@mutex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;synchronize&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@queue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;clear&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;set&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@thread&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;join&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@thread&lt;/span&gt;
+    &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;kp&quot;&gt;private&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;process_tasks&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@thread&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Thread&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+      &lt;span class=&quot;kp&quot;&gt;loop&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;# Peek the first item in the queue&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;task&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@mutex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;synchronize&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;reset&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@queue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;first&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;unless&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;task&lt;/span&gt;
+
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;task&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;schedule_time&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;now&lt;/span&gt;
+          &lt;span class=&quot;c1&quot;&gt;# Pop the first item in the queue&lt;/span&gt;
+          &lt;span class=&quot;n&quot;&gt;task&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@mutex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;synchronize&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@queue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;shift&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+          &lt;span class=&quot;n&quot;&gt;task&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;run&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
+          &lt;span class=&quot;n&quot;&gt;timeout&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;task&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;schedule_time&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;now&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;60&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;min&lt;/span&gt;
+          &lt;span class=&quot;vi&quot;&gt;@event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;wait&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;timeout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;There’s a lot going on here, but here are the landmarks:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;In this TimerSet, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@queue&lt;/code&gt; is an &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Array&lt;/code&gt; that we explicitly call &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sort!&lt;/code&gt; on so that the soonest task is always first in the array. In the Concurrent Ruby implementation, that’s done more elegantly with a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Concurrent::Collection::NonConcurrentPriorityQueue&lt;/code&gt;. The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@mutex&lt;/code&gt; is used to make sure that adding/sorting/peeking/popping operations on the queue are synchronized and safe across threads.&lt;/li&gt;
+  &lt;li&gt;The magic happens in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;#process_tasks&lt;/code&gt;, which creates a new thread and starts up a loop. It loops over the first task in the queue (the soonest):
+    &lt;ul&gt;
+      &lt;li&gt;If there is no task, it breaks the loop and exits the thread.&lt;/li&gt;
+      &lt;li&gt;If there is a task, it checks whether it’s time to run, and if so, runs it. If it’s not time yet, it uses the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Event#wait&lt;/code&gt; until it &lt;em&gt;is&lt;/em&gt; time to run, or 60 seconds, whichever is sooner. That 60 seconds is a magic number in the real implementation, and I assume that’s to reduce clock drift. Remember,  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Event#wait&lt;/code&gt; is signalable, so if a new task is added, the loop will be immediately restarted and the delay recalculated.&lt;/li&gt;
+      &lt;li&gt;In real Concurrent Ruby, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;task.run&lt;/code&gt; is posted to a separate thread pool where it won’t block or slow down the loop.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Event#set&lt;/code&gt; is called inside of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;#add_task&lt;/code&gt; which inserts new tasks into the queue. The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;process_tasks&lt;/code&gt; background thread is only created &lt;em&gt;the first time&lt;/em&gt; a task is added to the queue after the queue has been emptied. This minimizes the number of active threads.&lt;/li&gt;
+  &lt;li&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Event#reset&lt;/code&gt; is called when the queue is first peeked in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;process_tasks&lt;/code&gt;. There’s a lot of subtle race conditions being guarded against in a TimerSet. Calling reset unsets the event at the top of the loop to allow the Event to be set again before the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Event#wait&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;And finally, we can put all of the pieces together to fulfill our use case of scheduled tasks:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;no&quot;&gt;GLOBAL_TIMER_SET&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;TimerSet&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;
+
+&lt;span class=&quot;no&quot;&gt;ScheduledTask&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;execute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;This is the first task&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;ScheduledTask&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;execute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;This is the third task&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;ScheduledTask&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;execute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;This is the second task&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nb&quot;&gt;sleep&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;GLOBAL_TIMER_SET&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;shutdown&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; This is the first task&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; This is the second task&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; This is the third task&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;thats-it&quot;&gt;That’s it!&lt;/h3&gt;
+
+&lt;p&gt;The TimerSet is a really neat object that’s powered by an Event, which is itself powered by a ConditionVariable. There’s a lot of fun thread-based signaling happening here!&lt;/p&gt;
+
+&lt;p&gt;While writing my post, I came across a 2014 post from Job Vranish entitled &lt;a href=&quot;https://spin.atomicobject.com/2014/07/07/ruby-queue-pop-timeout/&quot;&gt;“Ruby Queue Pop with Timeout”&lt;/a&gt;, which builds something very similar looking using the same primitives. In the comments, Mike Perham linked to &lt;a href=&quot;https://github.com/mperham/connection_pool/blob/f83b6304c0e5936b1b286b26a73f3febda051c9b/lib/connection_pool/timed_stack.rb&quot;&gt;Connection Pool’s TimedStack&lt;/a&gt; which also looks similar. Again &lt;strong&gt;please use a real library like Concurrent Ruby or Connection Pool.&lt;/strong&gt; This was just for explanatory purposes 👍&lt;/p&gt;
+
+  &lt;br&gt;&lt;br&gt;
+  &lt;hr&gt;
+  &lt;p&gt;
+    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2023/06/rebuilding-concurrent-ruby-scheduledtask-event-and-timerset&quot;&gt;Rebuilding Concurrent Ruby: ScheduledTask, Event, and TimerSet&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
+    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
+  &lt;/p&gt;
+</description>
+  <pubDate>Thu, 01 Jun 2023 01:44:00 +0000</pubDate>
+  <link>https://island94.org/2023/06/rebuilding-concurrent-ruby-scheduledtask-event-and-timerset</link>
+  <guid isPermaLink="true">https://island94.org/2023/06/rebuilding-concurrent-ruby-scheduledtask-event-and-timerset</guid>
+  
+    <category>ruby</category>
+  
+    <category>GoodJob</category>
+  
+  
+</item>
+
+      
     
       
         
@@ -764,87 +1044,6 @@ q=verybadstuff  &amp;lt;== oh, but with a request body
   <guid isPermaLink="true">https://island94.org/2023/02/introducing-goodjob-bulk-and-batch</guid>
   
     <category>GoodJob</category>
-  
-  
-</item>
-
-      
-    
-      
-        
-
-
-
-
-<item>
-  <title>Framing open source contributions at work</title>
-  <description>&lt;p&gt;Excerpts from the excellent RailsConf 2022 keynote: &lt;a href=&quot;https://www.youtube.com/watch?v=MbqJzACF-54&quot;&gt;The Success of Ruby on Rails by Eileen Uchitelle&lt;/a&gt; [reformatted from the transcript]:&lt;/p&gt;
-
-&lt;blockquote&gt;
-
-  &lt;p&gt;Upgrading is one of the easiest ways to find an area of Rails that can benefit from your contributions.  Fixing an issue in a recent release has a high likelihood of being merged.&lt;/p&gt;
-
-  &lt;p&gt;Running off Rails Main is another way to find contributions to Rails.  If you don’t want to run your Main in production,   you could run it in a separate CI build.  Shopify, GitHub and Basecamp run it.&lt;/p&gt;
-
-  &lt;p&gt;Running off Main may be harder than running off a release because features and bug fixes are  a little in flux sometimes. If you are running  off of Main, a feature added to the Main branch could be removed without deprecation. This is a worthwhile risk to take on because it lowers the overall risk of an upgrade.  When you run off Main, you’re less likely to fall behind upgrading because it becomes  part of your weekly or monthly maintenance.  Upgrading becomes routine, second nature rather  than novel and scary. Changes are easy to isolate. It’s just slightly less polished. Like I  said, I still think it’s pretty stable.&lt;/p&gt;
-
-  &lt;p&gt;Another way to find places to contribute  is look at your own applications.&lt;/p&gt;
-
-  &lt;ul&gt;
-    &lt;li&gt;Do you have monkey patches on Rails code  that are fixes bugs or changing behavior?   Instead of leaving them there, upstream  the fix and delete the monkey patch.&lt;/li&gt;
-    &lt;li&gt;Is there infrastructure level code that  doesn’t really pertain to your product? It’s possible this could be a great addition to  Rails. When I wrote the database in Rails, it came from GitHub’s monolith. It made perfect sense  because it was getting in the way of upgrades, didn’t expose any intellectual property, had  nothing to do with your product features and&lt;br /&gt;
-something many applications could benefit from.&lt;/li&gt;
-    &lt;li&gt;Lastly and most importantly, keep showing up.&lt;/li&gt;
-  &lt;/ul&gt;
-
-  &lt;p&gt;… Ultimately,  if more companies treated the framework as an extension of the application, it would  result in higher resilience and stability. Investment in Rails ensures your foundation will not crumble under the weight of your application. Treating it as an unimportant part of your application is a mistake and many, many leaders make this mistake.&lt;/p&gt;
-
-  &lt;p&gt;…leaders see funding open source risky is because they don’t actually  understand the work. … Often, leaders worry if there’s a team working in open source, other teams are going to be jealous or resentful that that team is doing “fun” work. …&lt;/p&gt;
-
-  &lt;p&gt;Maintainers need to make changes, deal with security incidents and also handle criticism from many people. Maintaining and contributing to open source requires a different skill set than product work. That doesn’t make it any less essential.&lt;/p&gt;
-
-  &lt;p&gt;…Many product companies don’t like words like “research” and “experimental.”  They can imply work without goals. Use words like  “investment.” And demonstrate the direct value will bring. Make sure it is measurable and will  make the application and product more successful. A great example of measurable work is  a change that improves performance. If you can tie contributions to direct customer improvements, it’s easier to show leadership.&lt;/p&gt;
-
-  &lt;p&gt;…As I started contributing more and more  and pealing back the layers of Rails, the impact is limitless. I started looking at how applications stretched  the boundaries of what Rails was meant to do.&lt;/p&gt;
-
-  &lt;p&gt;…Ultimately, I want you to contribute to Rails because it’s going to enable you to build a better company and product. The benefits of investing in Rails go far beyond improving the framework.&lt;/p&gt;
-
-  &lt;p&gt;Investing in Rails will build up the skills of your engineering team. They will developer better communication skills, learn to navigate criticism,  debugging skills and how the framework functions.  It will teach engineers about the inner-workings and catch bugs.&lt;/p&gt;
-
-  &lt;p&gt;Monkey patching is far more dangerous than I think most realize. They break  with upgrades and cause security incidents.  When you write a monkey patch, you maintain a portion of Rails code. Wouldn’t it have been   better to patch it upstream rather than taking on that risk and responsibility.&lt;/p&gt;
-
-  &lt;p&gt;It will give your engineering team the skills  they need to make better technical decisions. You’re ensuring that Rails benefits your application and the company for the long-term.&lt;/p&gt;
-
-  &lt;p&gt;…Contributing to Rails is only &lt;em&gt;not&lt;/em&gt; essential if you don’t care about the direction the framework is headed in. We should be contributing  because we care about the changes.&lt;/p&gt;
-
-  &lt;p&gt;We want to ensure our apps are upgradeable, performant and stable.&lt;/p&gt;
-
-  &lt;p&gt;Investment in Rails also means you won’t have to rewrite your application in a few years because Rails no longer supports what you need. When you fail  to invest in your tools, you end up being unable to upgrade. Your engineering team is miserable. The codebase is a mess and writing features is impossible. You’re forced into a rewrite, your engineers want to write Rails and you can no longer let them do that. You have to build a bunch of features before you site falls over.&lt;/p&gt;
-
-  &lt;p&gt;It’s not Rails’ fault you made  the decision to invest elsewhere.&lt;/p&gt;
-
-  &lt;p&gt;If you build contributing into your culture, the benefits are clear:&lt;/p&gt;
-
-  &lt;ul&gt;
-    &lt;li&gt;Your engineering teams’ skills will improve.&lt;/li&gt;
-    &lt;li&gt;Rails will evolve with your  application because you’re helping decide how it needs to change.&lt;/li&gt;
-    &lt;li&gt;Your application will be  more resilient because there’s low tech debt and your foundation is stable. Active investment  prevents your application from degrading.&lt;/li&gt;
-  &lt;/ul&gt;
-
-  &lt;p&gt;Building a team to invest in Rails is  proactive. Rewriting an application is reactive. Which one do you think is better for business in the long run?&lt;/p&gt;
-
-&lt;/blockquote&gt;
-
-  &lt;br&gt;&lt;br&gt;
-  &lt;hr&gt;
-  &lt;p&gt;
-    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2023/01/framing-open-source-contributions-at-work&quot;&gt;Framing open source contributions at work&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
-    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
-  &lt;/p&gt;
-</description>
-  <pubDate>Fri, 27 Jan 2023 00:51:00 +0000</pubDate>
-  <link>https://island94.org/2023/01/framing-open-source-contributions-at-work</link>
-  <guid isPermaLink="true">https://island94.org/2023/01/framing-open-source-contributions-at-work</guid>
   
   
 </item>
