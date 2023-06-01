@@ -161,7 +161,7 @@
 
 <ul>
   <li><code class="language-plaintext highlighter-rouge">wait</code>, which is blocking and will put a thread to sleep, with an optional timeout</li>
-  <li><code class="language-plaintext highlighter-rouge">signal</code> (or <code class="language-plaintext highlighter-rouge">broadcast</code>), which can be emitted from a different thread to wake up the sleeping thread and allow it to continue.</li>
+  <li><code class="language-plaintext highlighter-rouge">set</code>, which broadcasts a signal to any waiting threads to wake up.</li>
 </ul>
 
 <p>Jesse Storimer’s excellent and free ebook <em>Working with Ruby Threads</em> has a great <a href="https://workingwithruby.com/wwrt/condvars/">section on ConditionVariables</a> and why the mutex is a necessary part of the implementation.</p>
