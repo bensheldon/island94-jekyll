@@ -6,8 +6,8 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 01 Jun 2023 03:30:57 +0000</pubDate>
-    <lastBuildDate>Thu, 01 Jun 2023 03:30:57 +0000</lastBuildDate>
+    <pubDate>Fri, 02 Jun 2023 01:50:10 +0000</pubDate>
+    <lastBuildDate>Fri, 02 Jun 2023 01:50:10 +0000</lastBuildDate>
     <generator>Jekyll v4.3.2</generator>
     
     
@@ -20,7 +20,7 @@
   <title>Rebuilding Concurrent Ruby: ScheduledTask, Event, and TimerSet</title>
   <description>&lt;p&gt;I’ve been diving into &lt;a href=&quot;https://github.com/ruby-concurrency/concurrent-ruby&quot;&gt;Concurrent Ruby library&lt;/a&gt; a lot recently. I use Concurrent Ruby as the foundation for &lt;a href=&quot;https://github.com/bensheldon/good_job&quot;&gt;GoodJob&lt;/a&gt; where it has saved me immense time and grief because it has a lot of reliable, complex thread-safe primitives that are well-shaped for GoodJob’s needs. I’m a big fan of Concurrent Ruby.&lt;/p&gt;
 
-&lt;p&gt;I wanted to cement some of my learnings and understandings by writing a quick blog post to explain how some parts of Concurrent Ruby work, in the spirit of Neal Gib’s &lt;a href=&quot;https://rebuilding-rails.com/&quot;&gt;&lt;em&gt;Rebuilding Rails&lt;/em&gt;&lt;/a&gt;. In the following, I’ll be sharing runnable Ruby code that is similar to how Concurrent Ruby solves the same kind of problems. That said, &lt;strong&gt;Concurrent Ruby is much, much safer—and thus a little more complex—than what I’m writing here&lt;/strong&gt; so please, if you need this functionality, use Concurrent Ruby directly.&lt;/p&gt;
+&lt;p&gt;I wanted to cement some of my learnings and understandings by writing a quick blog post to explain how some parts of Concurrent Ruby work, in the spirit of Noah Gibb’s &lt;a href=&quot;https://rebuilding-rails.com/&quot;&gt;&lt;em&gt;Rebuilding Rails&lt;/em&gt;&lt;/a&gt;. In the following, I’ll be sharing runnable Ruby code that is similar to how Concurrent Ruby solves the same kind of problems. That said, &lt;strong&gt;Concurrent Ruby is much, much safer—and thus a little more complex—than what I’m writing here&lt;/strong&gt; so please, if you need this functionality, use Concurrent Ruby directly.&lt;/p&gt;
 
 &lt;h3 id=&quot;the-use-case-future-scheduled-tasks&quot;&gt;The use case: future scheduled tasks&lt;/h3&gt;
 
