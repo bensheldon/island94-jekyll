@@ -1,15 +1,12 @@
 //// Font Awesome
 $fa-font-path: "../fonts/fontawesome";
 
-
-
 @import "vendor/syntax-highlighting";
 @import "vendor/bootstrap/bootstrap";
 @import "vendor/fontawesome/font-awesome";
 @import "posts";
 
 .navbar-brand {
-  color: black;
   font-weight: 700;
 }
 
@@ -21,7 +18,7 @@ blockquote {
   padding-left: 1em;
   margin-right: 1em;
   font-size: inherit;
-  border-left: 0.5em solid #eeeeee;
+  border-left: 0.5em solid var(--bs-light-border-subtle);
 }
 
 .list-columns {
