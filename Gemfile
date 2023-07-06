@@ -9,6 +9,7 @@ gem 'jekyll-redirect-from'
 gem 'kramdown-parser-gfm'
 gem 'jekyll-sitemap'
 gem 'jekyll-compose'
+gem 'octokit'
 
 # for related_posts with --lsi
 gem 'classifier-reborn'

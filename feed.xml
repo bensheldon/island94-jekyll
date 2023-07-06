@@ -11,7 +11,7 @@ layout: null
     <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
     <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
     <generator>Jekyll v{{ jekyll.version }}</generator>
-    {% assign documents = site.documents | sort: 'date' | reverse %}
+    {% assign documents = site.documents | sort: 'date' | reverse | where_exp: 'document', 'document.collection != "bookmarks"' %}
     {% for document in documents limit: 10 %}
       {% if document.collection == "posts" %}
         {% include post.xml post=document %}
