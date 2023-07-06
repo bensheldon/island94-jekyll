@@ -21,6 +21,7 @@ lsi: false
 permalink: "/:year/:month/:title"
 paginate: 10
 paginate_path: "/page/:num/"
+
 defaults:
   - scope:
       path: "page"
@@ -31,12 +32,25 @@ defaults:
       type: "posts"
     values:
       layout: "post"
+  - scope:
+      path: ""
+      type: "books"
+    values:
+      layout: "book"
+  - scope:
+      path: ""
+      type: "bookmarks"
+    values:
+      layout: "bookmark"
+      sitemap: false
 
 collections:
   books:
     output: true
-    layout: book
     permalink: "/:year/:month/:title"
+  bookmarks:
+    output: true
+    permalink: "/bookmarks/:year/:month/:title"
 
 exclude:
   - .github

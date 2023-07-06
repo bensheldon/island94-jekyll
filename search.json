@@ -1,7 +1,7 @@
 ---
 ---
 
-{% assign documents = site.documents | sort: 'date' | reverse %}
+{% assign documents = site.documents | sort: 'date' | reverse | where_exp: 'document', 'document.collection != "bookmarks"' %}
 {
   {% for document in documents %}
     "{{ document.url | slugify }}": {

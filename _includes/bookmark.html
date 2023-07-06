@@ -1,0 +1,17 @@
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="{{ bookmark.url | prepend: site.baseurl }}">
+        {{ bookmark.title | default: bookmark.link }}
+      </a>
+    </h1>
+    <small><a href="{{ bookmark.link }}">{{ bookmark.link }}</a></small>
+    <p>
+      {% if bookmark.date %}<time datetime="{{ bookmark.date | date_to_xmlschema }}" itemprop="datePublished">{{ bookmark.date | date: "%B %-d, %Y" }}</time>{% endif %}
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    {{ bookmark.content | markdownify }}
+  </div>
+</article>
