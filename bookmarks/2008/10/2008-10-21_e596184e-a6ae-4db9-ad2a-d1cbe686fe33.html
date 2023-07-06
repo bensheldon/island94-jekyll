@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>macosxhints.com - Fix an issue with the Firefox download folder location</title>
+  <meta name="description" content="Fix an issue with the Firefox download folder locationMon, Mar 10 2008 at 7:30AM PDT • Submitted by fyngyrz Web BrowsersIf you migrate from a previous machin...">
+
+  <link rel="stylesheet" href="/assets/stylesheets/main.css">
+  <script src="/assets/javascripts/main.js"></script>
+
+  <link rel="canonical" href="https://island94.org/bookmarks/2008/10/2008-10-21_e596184e-a6ae-4db9-ad2a-d1cbe686fe33">
+
+  <link rel="alternate" type="application/rss+xml" title="Island94.org Posts" href="https://island94.org/feed.xml">
+  <link rel="alternate" type="application/rss+xml" title="Island94.org Book Reviews" href="https://island94.org/books.xml">
+
+  
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-870047-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+</head>
+
+
+  <body>
+
+    <nav class="navbar navbar-expand-lg navbar-light mb-2 flex-column">
+  <div class="container">
+    <a class="navbar-brand" href="/">Island94.org</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link " href="/about/">About</a></li>
+        <li class="nav-item"><a class="nav-link " href="/archives/">Archives</a></li>
+        <li class="nav-item"><a class="nav-link " href="/books/">Books</a></li>
+        <li class="nav-item"><a class="nav-link " href="/tags/">Tags</a></li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Feeds <span class="fa fa-rss"></span>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a href="/feed.xml" class="dropdown-item">Everything RSS <span class="fa fa-rss"></span></a></li>
+            <li><a href="/posts.xml" class="dropdown-item">Posts RSS <span class="fa fa-rss"></span></a></li>
+            <li><a href="/books.xml" class="dropdown-item">Books RSS <span class="fa fa-rss"></span></a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <form id="search" class="d-flex" action="/search" method="get">
+        <input id="search-box" class="form-control search" role="search" name="q" placeholder="Search" aria-label="Search" results="0" type="text">
+        <button class="sr-only" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+  <div class="container">
+    <div class="text-muted fst-italic">
+      — Ben Sheldon's personal blog and <a href="/2012/04/A-Commonplace-Book.html">commonplace book</a>.
+    </div>
+  </div>
+</nav>
+
+
+    <div class="container container-body">
+      
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/bookmarks/2008/10/2008-10-21_e596184e-a6ae-4db9-ad2a-d1cbe686fe33">
+        macosxhints.com - Fix an issue with the Firefox download folder location
+      </a>
+    </h1>
+    <small><a href="http://www.macosxhints.com/article.php?story=20080302205219455">http://www.macosxhints.com/article.php?story=20080302205219455</a></small>
+    <p>
+      <time datetime="2008-10-21T15:22:00+00:00" itemprop="datePublished">October 21, 2008</time>
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>Fix an issue with the Firefox download folder location
+Mon, Mar 10 2008 at 7:30AM PDT • Submitted by fyngyrz Web Browsers
+If you migrate from a previous machine to a new machine using Apple’s Migration Assistant, and in the process you create a new user – this can happen if you create your old user account on the new machine prior to migrating – you may have issues with Firefox and the Downloads folder. Because of a shortcoming in the migration tool, the OS X Downloads folder for the new account will have the path for the old account, and Firefox will then be unable to save because it does not have the correct permissions. I encountered this issue with 10.5 Leopard (both machines), migrating from an old Mac mini to new Mac pro.</p>
+
+<p>The solution is to open ~/Library » Preferences » com.apple.internetconfig.plist with the Property List Editor (Xcode required), navigate to the Download Folder item, and delete the value (not the key; just the value under it), then save the property list fi</p>
+
+  </div>
+</article>
+
+<hr>
+
+    </div>
+
+    <footer class="site-footer">
+
+</footer>
+
+
+  </body>
+
+</html>
