@@ -2,7 +2,7 @@ name: Create Bookmark
 on:
   workflow_dispatch:
     inputs:
-      bookmark_url:
+      bookmark_link:
         description: 'URL'
         required: true
         type: string
@@ -27,7 +27,7 @@ jobs:
     steps:
       - name: Bookmark Details
         env:
-          BOOKMARK_URL: ${{ github.event.inputs.bookmark_url }}
+          BOOKMARK_LINK: ${{ github.event.inputs.bookmark_link }}
           BOOKMARK_TITLE: ${{ github.event.inputs.bookmark_title }}
           BOOKMARK_TAGS: ${{ github.event.inputs.bookmark_tags }}
           BOOKMARK_NOTES: ${{ github.event.inputs.bookmark_notes }}
@@ -49,7 +49,7 @@ jobs:
       - name: Create bookmark
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BOOKMARK_URL: ${{ github.event.inputs.bookmark_url }}
+          BOOKMARK_LINK: ${{ github.event.inputs.bookmark_link }}
           BOOKMARK_TITLE: ${{ github.event.inputs.bookmark_title }}
           BOOKMARK_TAGS: ${{ github.event.inputs.bookmark_tags }}
           BOOKMARK_NOTES: ${{ github.event.inputs.bookmark_notes }}
