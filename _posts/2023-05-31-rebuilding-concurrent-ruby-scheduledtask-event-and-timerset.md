@@ -128,7 +128,7 @@ thread.join
 
 ### The `ScheduledTask`
 
-The implementation of the ScheduledTask isn’t too important in this explanation, but I’ll sketch out the necessary pieces, which match up with a [￼`Concurrent::ScheduledTask`￼](https://github.com/ruby-concurrency/concurrent-ruby/blob/9f40827be9a8a192a6993a8d157bd3ed0662ada0/lib/concurrent-ruby/concurrent/scheduled_task.rb):
+The implementation of the ScheduledTask isn’t too important in this explanation, but I’ll sketch out the necessary pieces, which match up with a [`Concurrent::ScheduledTask`](https://github.com/ruby-concurrency/concurrent-ruby/blob/9f40827be9a8a192a6993a8d157bd3ed0662ada0/lib/concurrent-ruby/concurrent/scheduled_task.rb):
 
 ```ruby
 # GLOBAL_TIMER_SET = TimerSet.new
@@ -163,7 +163,7 @@ A couple things to call out here:
 
 ### The `TimerSet`
 
-Now we have the pieces necessary to implement a TimerSet and fulfill our use case. The TimerSet implemented here is very similar to a [￼￼￼`Concurrent::TimerSet`￼￼￼](https://github.com/ruby-concurrency/concurrent-ruby/blob/9f40827be9a8a192a6993a8d157bd3ed0662ada0/lib/concurrent-ruby/concurrent/executor/timer_set.rb):
+Now we have the pieces necessary to implement a TimerSet and fulfill our use case. The TimerSet implemented here is very similar to a [`Concurrent::TimerSet`](https://github.com/ruby-concurrency/concurrent-ruby/blob/9f40827be9a8a192a6993a8d157bd3ed0662ada0/lib/concurrent-ruby/concurrent/executor/timer_set.rb):
 
 ```ruby
 class TimerSet
