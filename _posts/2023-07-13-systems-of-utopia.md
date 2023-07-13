@@ -15,7 +15,7 @@ Anti-populism and anti-patriotism leads nowhere, because these attitudes are abo
 
 </blockquote>
 
-And then closer to work, on engineering leadership in Will Larsen's ["Building personal and organizational prestige"](https://lethain.com/building-prestige/) whose diagnosis rings true (emphasis mine):
+And then closer to work, on engineering leadership in Will Larsen's ["Building personal and organizational prestige"](https://lethain.com/building-prestige/):
 
 <blockquote markdown=1>
 
