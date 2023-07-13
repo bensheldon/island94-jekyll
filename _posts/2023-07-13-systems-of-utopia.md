@@ -23,5 +23,5 @@ In my experience, **engineers confronted with a new problem often leap to creati
 
 For example, when an organization decides to invest into its engineering brand, the initial plan will often focus on project execution. It’ll include a goal for publishing frequency, ensuring content is representationally accurate across different engineering sub-domains, and how to incentivize participants to contribute. If you follow the project plan carefully, you will technically have built an engineering brand, but my experience is that it’ll be both more work and less effective than a less systematic approach.
 
-</blockquote
+</blockquote>
 
