@@ -87,7 +87,7 @@
       <li class="page-item"><a href="/page/4/" class="page-link"><span aria-hidden="true">&larr; </span>Newer</a></li>
     
 
-    <li class="page-item disabled"><span class="page-link">Page 5 of 64</span></li>
+    <li class="page-item disabled"><span class="page-link">Page 5 of 65</span></li>
 
     
       <li class="page-item"><a href="/page/6/" class="page-link">Older<span aria-hidden="true"> &rarr;</span></a></li>
@@ -101,6 +101,82 @@
 
   
 
+  
+    
+
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2022/02/til-activerecord-transactions-roll-back-on-ruby-thread-abort">TIL: ActiveRecord transactions roll back on Ruby Thread abort</a>
+    </h1>
+    <p class="post-meta text-muted">
+      <time datetime="2022-02-08T03:54:00+00:00" itemprop="datePublished">February 8, 2022</time>
+      
+      
+
+
+
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>I learned that ActiveRecord would roll back transactions when inside an aborted thread. It’s implemented right here, in ActiveRecord’s <a href="https://github.com/rails/rails/blob/3f13828392a4aea81184fa873c47cb2e53d295e9/activerecord/lib/active_record/connection_adapters/abstract/transaction.rb#L336-L342">connection_adapters/abstract/transaction.rb</a>:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">within_new_transaction</span>
+  <span class="c1"># ...</span>
+<span class="k">ensure</span>
+  <span class="c1"># ...</span>
+  <span class="k">elsif</span> <span class="no">Thread</span><span class="p">.</span><span class="nf">current</span><span class="p">.</span><span class="nf">status</span> <span class="o">==</span> <span class="s2">"aborting"</span> <span class="o">||</span> <span class="p">(</span><span class="o">!</span><span class="n">completed</span> <span class="o">&amp;&amp;</span> <span class="n">transaction</span><span class="p">.</span><span class="nf">written</span><span class="p">)</span>
+    <span class="c1"># The transaction is still open but the block returned earlier.</span>
+    <span class="c1">#</span>
+    <span class="c1"># The block could return early because of a timeout or because the thread is aborting,</span>
+    <span class="c1"># so we are rolling back to make sure the timeout didn't caused the transaction to be</span>
+    <span class="c1"># committed incompletely.</span>
+    <span class="n">rollback_transaction</span>
+  <span class="c1"># ...</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>How did I end up here? I recently implemented a feature in GoodJob to track active processes in the database using ActiveRecord. These database queries occur in a background thread where I also use the same database connection for GoodJob’s Postgres LISTENing. It looks something like this (pseudocode):</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">Concurrent</span><span class="o">::</span><span class="no">Future</span><span class="p">.</span><span class="nf">execute</span> <span class="k">do</span>
+  <span class="n">process</span> <span class="o">=</span> <span class="no">Process</span><span class="p">.</span><span class="nf">create</span>
+  <span class="kp">loop</span> <span class="p">{</span> <span class="n">listen_for_notify</span> <span class="p">}</span>
+<span class="k">ensure</span>
+  <span class="n">process</span><span class="o">&amp;</span><span class="p">.</span><span class="nf">destroy!</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>While working on one of my Rails projects that use GoodJob (https://dayoftheshirt.com), I noticed that Process records were not cleaned up as I expected running when GoodJob async inside of Rails Server/Puma locally and exiting. Inspecting the logs, I saw this:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>TRANSACTION (0.1ms)  BEGIN
+GoodJob::Process Destroy (0.3ms)  DELETE FROM "good_job_processes" WHERE "good_job_processes"."id" = $1  [["id", "320de861-4c84-4f8c-ba3e-2e08a8ef0469"]]
+TRANSACTION (0.1ms)  ROLLBACK
+</code></pre></div></div>
+
+<p>Huh. I did some Googling and found some <a href="https://github.com/rails/rails/pull/40704#discussion_r532007113">references to rollback behavior</a>, and asked in the Rails Link Slack, but nobody knew. This caused me to dig in ActiveRecord, where I found the behavior implemented.</p>
+
+<p>I was still confused because I had never seen this behavior in GoodJob when building out the feature. But after much head-scratching, I realized that I hadn’t followed <a href="https://github.com/bensheldon/good_job#execute-jobs-async--in-process">GoodJob’s README instructions for integrating with Puma</a>, which ensures that GoodJob is gracefully shutdown before Ruby aborts threads at exit:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># config/puma.rb</span>
+
+<span class="n">on_worker_shutdown</span> <span class="k">do</span>
+  <span class="no">GoodJob</span><span class="p">.</span><span class="nf">shutdown</span>
+<span class="k">end</span>
+
+<span class="no">MAIN_PID</span> <span class="o">=</span> <span class="no">Process</span><span class="p">.</span><span class="nf">pid</span>
+<span class="nb">at_exit</span> <span class="k">do</span>
+  <span class="no">GoodJob</span><span class="p">.</span><span class="nf">shutdown</span> <span class="k">if</span> <span class="no">Process</span><span class="p">.</span><span class="nf">pid</span> <span class="o">==</span> <span class="no">MAIN_PID</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>Mystery solved.</p>
+
+  </div>
+</article>
+
+
+    <hr>
   
     
 
@@ -591,74 +667,6 @@ Ben and Angelina</p>
 </article>
 
 
-    <hr>
-  
-    
-
-<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">
-      <a class="post-link" href="/2021/06/goodjob-updates-v1.5-v1.9">GoodJob Updates v1.5 - v1.9: Dashboard, daemonize, async_server, and graceful shutdowns</a>
-    </h1>
-    <p class="post-meta text-muted">
-      <time datetime="2021-06-01T03:14:00+00:00" itemprop="datePublished">June 1, 2021</time>
-      
-      
-
-
-  
-
-  
-
-  • Tagged <a href="/tags/#goodjob">GoodJob</a>
-
-
-    </p>
-  </header>
-
-  <div class="post-content" itemprop="articleBody">
-    <p>This is a quick roundup of what’s new with GoodJob since the last update published for <a href="https://island94.org/2021/01/goodjob-1-4-jruby-compatibility-and-more">GoodJob v1.4</a>.</p>
-
-<p>GoodJob (<a href="https://github.com/bensheldon/good_job">github</a>) is a multithreaded, Postgres-based, ActiveJob backend for Ruby on Rails. If you’re new to GoodJob, read the  <a href="https://island94.org/2020/07/introducing-goodjob-1-0">introductory blog post</a> .</p>
-
-<p><em>For further details on the following updates, check out GoodJob’s <a href="https://github.com/bensheldon/good_job/blob/main/CHANGELOG.md">Changelog</a> or <a href="https://github.com/bensheldon/good_job/blob/main/README.md">Readme</a>.</em></p>
-
-<h3 id="goodjob-v15-web-dashboard-and-configuration">GoodJob v1.5: Web Dashboard and configuration</h3>
-
-<p>GoodJob ships with a <a href="https://github.com/bensheldon/good_job#dashboard">web dashboard</a> to display future, finished and errored jobs for easy inspection.  The Dashboard mounts as a self-contained Rails Engine.</p>
-
-<p>GoodJob uses more <code class="language-plaintext highlighter-rouge">Rails.application.config...</code> for improved autoloading compatibility; deprecation notices have examples for updating configuration.</p>
-
-<h3 id="goodjob-v16-daemonize">GoodJob v1.6: Daemonize</h3>
-
-<p>GoodJob can run as a backgrounded daemon for folks who are still managing servers with <code class="language-plaintext highlighter-rouge">--daemonize</code>.</p>
-
-<h3 id="goodjob-v17-scheduled-job-cache">GoodJob v1.7: Scheduled job cache</h3>
-
-<p>GoodJob caches scheduled jobs (i.e. <code class="language-plaintext highlighter-rouge">ExampleJob.set(wait: 30.minutes).perform_later</code>) for signifiantly improved latency without relying upon polling.</p>
-
-<h3 id="goodjob-v18-graceful-shutdown">GoodJob v1.8: Graceful shutdown</h3>
-
-<p>GoodJob added additional shutdown options, including <code class="language-plaintext highlighter-rouge">GOOD_JOB_SHUTDOWN_TIMEOUT</code> to allow jobs to finish before exiting.</p>
-
-<h3 id="goodjob-v19-async_server-mode">GoodJob v1.9: async_server mode</h3>
-
-<p>GoodJob added an additional <code class="language-plaintext highlighter-rouge">async</code> execution mode to simplify the default configuration: running jobs as part of the web-process (and <em>not</em> console, Rake commands, etc.)</p>
-
-<h3 id="upcoming-cron-and-concurrency-controls">Upcoming: cron and concurrency controls</h3>
-
-<p>GoodJob will add support for cron-style repeating jobs, and concurrency controls to ensure that only a specified number (1 or more) jobs are enqueued or performed at the same time.  I previously was opposed to extending ActiveJob’s interface, but <a href="https://github.com/bensheldon/good_job/issues/255">have changed my mind</a>; it’s on!</p>
-
-<h3 id="contribute">Contribute</h3>
-
-<p>Code, documentation, and curiosity-based contributions are welcome! Check out the  <a href="https://github.com/bensheldon/good_job/projects/1">GoodJob Backlog</a>, comment on or open a Github Issue, or make a Pull Request. <strong>Thank you!!!</strong> to everyone who has contributed to GoodJob, including morgoth, tedhexaflow, weh, lauer, reczy, zealot128, gadimbaylisahil, Mr0grog, thilo, arku, sj26, jm96441, thedanbob, and joshmn.</p>
-
-<p>I also have a <a href="https://github.com/sponsors/bensheldon">GitHub Sponsors Profile</a> if you’re able to support GoodJob and me monetarily. It helps me stay in touch and send you project updates too.</p>
-
-  </div>
-</article>
-
-
     
   
 
@@ -672,7 +680,7 @@ Ben and Angelina</p>
       <li class="page-item"><a href="/page/4/" class="page-link"><span aria-hidden="true">&larr; </span>Newer</a></li>
     
 
-    <li class="page-item disabled"><span class="page-link">Page 5 of 64</span></li>
+    <li class="page-item disabled"><span class="page-link">Page 5 of 65</span></li>
 
     
       <li class="page-item"><a href="/page/6/" class="page-link">Older<span aria-hidden="true"> &rarr;</span></a></li>
