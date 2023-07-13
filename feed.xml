@@ -6,8 +6,8 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 13 Jul 2023 16:14:48 +0000</pubDate>
-    <lastBuildDate>Thu, 13 Jul 2023 16:14:48 +0000</lastBuildDate>
+    <pubDate>Thu, 13 Jul 2023 20:21:09 +0000</pubDate>
+    <lastBuildDate>Thu, 13 Jul 2023 20:21:09 +0000</lastBuildDate>
     <generator>Jekyll v4.3.2</generator>
     
     
@@ -280,7 +280,7 @@
 
 &lt;h3 id=&quot;the-scheduledtask&quot;&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ScheduledTask&lt;/code&gt;&lt;/h3&gt;
 
-&lt;p&gt;The implementation of the ScheduledTask isn’t too important in this explanation, but I’ll sketch out the necessary pieces, which match up with a &lt;a href=&quot;https://github.com/ruby-concurrency/concurrent-ruby/blob/9f40827be9a8a192a6993a8d157bd3ed0662ada0/lib/concurrent-ruby/concurrent/scheduled_task.rb&quot;&gt;￼&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Concurrent::ScheduledTask&lt;/code&gt;￼&lt;/a&gt;:&lt;/p&gt;
+&lt;p&gt;The implementation of the ScheduledTask isn’t too important in this explanation, but I’ll sketch out the necessary pieces, which match up with a &lt;a href=&quot;https://github.com/ruby-concurrency/concurrent-ruby/blob/9f40827be9a8a192a6993a8d157bd3ed0662ada0/lib/concurrent-ruby/concurrent/scheduled_task.rb&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Concurrent::ScheduledTask&lt;/code&gt;&lt;/a&gt;:&lt;/p&gt;
 
 &lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# GLOBAL_TIMER_SET = TimerSet.new&lt;/span&gt;
 
@@ -316,7 +316,7 @@
 
 &lt;h3 id=&quot;the-timerset&quot;&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;TimerSet&lt;/code&gt;&lt;/h3&gt;
 
-&lt;p&gt;Now we have the pieces necessary to implement a TimerSet and fulfill our use case. The TimerSet implemented here is very similar to a &lt;a href=&quot;https://github.com/ruby-concurrency/concurrent-ruby/blob/9f40827be9a8a192a6993a8d157bd3ed0662ada0/lib/concurrent-ruby/concurrent/executor/timer_set.rb&quot;&gt;￼￼￼&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Concurrent::TimerSet&lt;/code&gt;￼￼￼&lt;/a&gt;:&lt;/p&gt;
+&lt;p&gt;Now we have the pieces necessary to implement a TimerSet and fulfill our use case. The TimerSet implemented here is very similar to a &lt;a href=&quot;https://github.com/ruby-concurrency/concurrent-ruby/blob/9f40827be9a8a192a6993a8d157bd3ed0662ada0/lib/concurrent-ruby/concurrent/executor/timer_set.rb&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Concurrent::TimerSet&lt;/code&gt;&lt;/a&gt;:&lt;/p&gt;
 
 &lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;TimerSet&lt;/span&gt;
   &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initialize&lt;/span&gt;

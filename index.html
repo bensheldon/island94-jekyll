@@ -364,7 +364,7 @@
 
 <h3 id="the-scheduledtask">The <code class="language-plaintext highlighter-rouge">ScheduledTask</code></h3>
 
-<p>The implementation of the ScheduledTask isn’t too important in this explanation, but I’ll sketch out the necessary pieces, which match up with a <a href="https://github.com/ruby-concurrency/concurrent-ruby/blob/9f40827be9a8a192a6993a8d157bd3ed0662ada0/lib/concurrent-ruby/concurrent/scheduled_task.rb">￼<code class="language-plaintext highlighter-rouge">Concurrent::ScheduledTask</code>￼</a>:</p>
+<p>The implementation of the ScheduledTask isn’t too important in this explanation, but I’ll sketch out the necessary pieces, which match up with a <a href="https://github.com/ruby-concurrency/concurrent-ruby/blob/9f40827be9a8a192a6993a8d157bd3ed0662ada0/lib/concurrent-ruby/concurrent/scheduled_task.rb"><code class="language-plaintext highlighter-rouge">Concurrent::ScheduledTask</code></a>:</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># GLOBAL_TIMER_SET = TimerSet.new</span>
 
@@ -400,7 +400,7 @@
 
 <h3 id="the-timerset">The <code class="language-plaintext highlighter-rouge">TimerSet</code></h3>
 
-<p>Now we have the pieces necessary to implement a TimerSet and fulfill our use case. The TimerSet implemented here is very similar to a <a href="https://github.com/ruby-concurrency/concurrent-ruby/blob/9f40827be9a8a192a6993a8d157bd3ed0662ada0/lib/concurrent-ruby/concurrent/executor/timer_set.rb">￼￼￼<code class="language-plaintext highlighter-rouge">Concurrent::TimerSet</code>￼￼￼</a>:</p>
+<p>Now we have the pieces necessary to implement a TimerSet and fulfill our use case. The TimerSet implemented here is very similar to a <a href="https://github.com/ruby-concurrency/concurrent-ruby/blob/9f40827be9a8a192a6993a8d157bd3ed0662ada0/lib/concurrent-ruby/concurrent/executor/timer_set.rb"><code class="language-plaintext highlighter-rouge">Concurrent::TimerSet</code></a>:</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">TimerSet</span>
   <span class="k">def</span> <span class="nf">initialize</span>
