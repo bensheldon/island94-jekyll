@@ -19,7 +19,7 @@ First, I reached out to new hires, especially new people managers, and offered t
 
 I'd tell them a story about a prior illuminating executive AMA with Jen where she had shared a philosophy: instead of drawing a bullseye on the wall and trying to hit it down the center with your programs and activities, you can simply throw stuff at the wall and draw the bullseye afterwards around what sticks.
 
-Second, my desk overlooked the executive conference room, which was a glass fishbowl with a couch. It was not infrequent for people to leave that room in a mess of hot tears. When they did and I saw, I'd send them a Slack message and gently offer to buy them a coffee at the Blue Bottle around the corner from the office. There was no ulterior motive; working through it with my leadership coach, a protege of financier Carl Ikahn: I simply operationalized giving a shit about people. 
+Second, my desk overlooked the executive conference room, which was a glass fishbowl with a couch. It was not infrequent for people to leave that room in a mess of hot tears. When they did and I saw, I'd send them a Slack message and gently offer to buy them a coffee at the Blue Bottle around the corner from the office. There was no ulterior motive; working through it with my leadership coach, a protege of financier Carl Icahn: I simply operationalized giving a shit about people. 
 
 Compared to writing a book or leading an organization or serving as a government executive for a year, as Intel CEO Andy Grove might observe: my activities were not high leverage. They also fall outside the bullseye drawn around the stories of the book.
 
