@@ -9,7 +9,7 @@ redirect_from:
 - "?p=4"
 ---
 
-You can reach Ben Sheldon, the author of this blog, by emailing [ben@island94.org](mailto:ben@island94.org).
+You can reach Ben Sheldon, the author of this blog, by emailing [bensheldon@gmail.com](mailto:bensheldon@gmail.com).
 
 ## Historical
 
