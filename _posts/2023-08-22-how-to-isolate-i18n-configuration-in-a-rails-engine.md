@@ -9,7 +9,7 @@ tags:
 
 [GoodJob](https://github.com/bensheldon/good_job) is a multithreaded, Postgres-based, Active Job backend for Ruby on Rails.
 
-GoodJob includes an administrative web dashboard that is packaged as a mountable Rails Engine. The dashboard is currently translated into 8 different languages: English, German, Spanish, French, Japanese, Dutch, Russian, Turkish, and Ukrainian (I'd love your help improving these and translating additional languages too). Demo here: https://goodjob-demo.herokuapp.com/
+GoodJob includes an administrative web dashboard that is packaged as a mountable Rails Engine. The dashboard is currently translated into 8 different languages: English, German, Spanish, French, Japanese, Dutch, Russian, Turkish, and Ukrainian (I'd love your help improving these and translating additional languages too). Demo here: [https://goodjob-demo.herokuapp.com/](https://goodjob-demo.herokuapp.com/)
 
 I have learned quite a lot during the GoodJob development process about internationalizing a Rails Engine. I've previously worked on rather large and complicated localized government welfare applications, so I'm familiar with localization in the context of a Rails app. But internationalizing a Rails Engine was new, getting it right was harder than I expected, and I had trouble finding documentation and code examples in other libraries.
 
@@ -81,7 +81,7 @@ module GoodJob
 end
 ```
 
-Here's the PR with the details that also shows the various complications I had introduced prior to finding this better approach: https://github.com/bensheldon/good_job/pull/1001
+Here's the PR with the details that also shows the various complications I had introduced prior to finding this better approach: [https://github.com/bensheldon/good_job/pull/1001](https://github.com/bensheldon/good_job/pull/1001)
 
 ### Isolating Rails Formatters
 
@@ -106,7 +106,7 @@ Then, for each helper, here's how to scope them down:
 - `number_to_human(number, unit: "good_job.number")`
 - `time_ago_in_words(timestamp, scope: "good_job.datetime.distance_in_words")`
 
-By the way, there is a great repository of translations for Rails helpers here: https://github.com/svenfuchs/rails-i18n/tree/64e3b0e59994cc65fbc47046f9a12cf95737f9eb/rails/locale
+By the way, there is a great repository of translations for Rails helpers here: [https://github.com/svenfuchs/rails-i18n/tree/64e3b0e59994cc65fbc47046f9a12cf95737f9eb/rails/locale](https://github.com/svenfuchs/rails-i18n/tree/64e3b0e59994cc65fbc47046f9a12cf95737f9eb/rails/locale)
 
 ### Closing thoughts
 
