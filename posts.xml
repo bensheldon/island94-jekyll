@@ -6,8 +6,8 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 22 Aug 2023 14:00:38 +0000</pubDate>
-    <lastBuildDate>Tue, 22 Aug 2023 14:00:38 +0000</lastBuildDate>
+    <pubDate>Tue, 22 Aug 2023 14:12:55 +0000</pubDate>
+    <lastBuildDate>Tue, 22 Aug 2023 14:12:55 +0000</lastBuildDate>
     <generator>Jekyll v4.3.2</generator>
     
     
@@ -20,7 +20,7 @@
   <title>How to isolate I18n configuration in a Rails Engine</title>
   <description>&lt;p&gt;&lt;a href=&quot;https://github.com/bensheldon/good_job&quot;&gt;GoodJob&lt;/a&gt; is a multithreaded, Postgres-based, Active Job backend for Ruby on Rails.&lt;/p&gt;
 
-&lt;p&gt;GoodJob includes an administrative web dashboard that is packaged as a mountable Rails Engine. The dashboard is currently translated into 8 different languages: English, German, Spanish, French, Japanese, Dutch, Russian, Turkish, and Ukrainian (I’d love your help improving these and translating additional languages too). Demo here: https://goodjob-demo.herokuapp.com/&lt;/p&gt;
+&lt;p&gt;GoodJob includes an administrative web dashboard that is packaged as a mountable Rails Engine. The dashboard is currently translated into 8 different languages: English, German, Spanish, French, Japanese, Dutch, Russian, Turkish, and Ukrainian (I’d love your help improving these and translating additional languages too). Demo here: &lt;a href=&quot;https://goodjob-demo.herokuapp.com/&quot;&gt;https://goodjob-demo.herokuapp.com/&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;I have learned quite a lot during the GoodJob development process about internationalizing a Rails Engine. I’ve previously worked on rather large and complicated localized government welfare applications, so I’m familiar with localization in the context of a Rails app. But internationalizing a Rails Engine was new, getting it right was harder than I expected, and I had trouble finding documentation and code examples in other libraries.&lt;/p&gt;
 
@@ -93,7 +93,7 @@
 &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Here’s the PR with the details that also shows the various complications I had introduced prior to finding this better approach: https://github.com/bensheldon/good_job/pull/1001&lt;/p&gt;
+&lt;p&gt;Here’s the PR with the details that also shows the various complications I had introduced prior to finding this better approach: &lt;a href=&quot;https://github.com/bensheldon/good_job/pull/1001&quot;&gt;https://github.com/bensheldon/good_job/pull/1001&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;isolating-rails-formatters&quot;&gt;Isolating Rails Formatters&lt;/h3&gt;
 
@@ -119,7 +119,7 @@
   &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;time_ago_in_words(timestamp, scope: &quot;good_job.datetime.distance_in_words&quot;)&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;By the way, there is a great repository of translations for Rails helpers here: https://github.com/svenfuchs/rails-i18n/tree/64e3b0e59994cc65fbc47046f9a12cf95737f9eb/rails/locale&lt;/p&gt;
+&lt;p&gt;By the way, there is a great repository of translations for Rails helpers here: &lt;a href=&quot;https://github.com/svenfuchs/rails-i18n/tree/64e3b0e59994cc65fbc47046f9a12cf95737f9eb/rails/locale&quot;&gt;https://github.com/svenfuchs/rails-i18n/tree/64e3b0e59994cc65fbc47046f9a12cf95737f9eb/rails/locale&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;closing-thoughts&quot;&gt;Closing thoughts&lt;/h3&gt;
 
