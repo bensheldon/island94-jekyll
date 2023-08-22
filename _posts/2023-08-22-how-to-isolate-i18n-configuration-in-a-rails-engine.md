@@ -3,7 +3,7 @@ title: "How to isolate I18n configuration in a Rails Engine"
 date: 2023-08-22 06:54 PDT
 published: true
 tags:
-- good_job
+- GoodJob
 - Ruby on Rails
 ---
 
