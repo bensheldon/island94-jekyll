@@ -110,6 +110,6 @@ By the way, there is a great repository of translations for Rails helpers here: 
 
 ### Closing thoughts
 
-Whenever I work I internationalization in Rails, I have to give a shoutout for the [`i18n-tasks` library](https://github.com/glebm/i18n-tasks), which has been invaluable in operationalizing translation workflows: surfacing missing translation, normalizing and linting yaml files, making it easy to export the whole thing to a spreadsheet for review and correction, or using machine translation to quickly turn around a change (I have complicated feelings on that!).
+Whenever I work on internationalization in Rails, I have to give a shoutout for the [`i18n-tasks` library](https://github.com/glebm/i18n-tasks), which has been invaluable in operationalizing translation workflows: surfacing missing translation, normalizing and linting yaml files, making it easy to export the whole thing to a spreadsheet for review and correction, or using machine translation to quickly turn around a change (I have complicated feelings on that!).
 
 Internationalizing GoodJob has been a fun creative adventure. I hope that by writing this that other Rails Engine developers prioritize internationalization a little higher and have an easier time walking in these footsteps. And maybe we'll make the ergonomics of it a little easier upstream too.
