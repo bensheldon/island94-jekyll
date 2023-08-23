@@ -6,8 +6,8 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 22 Aug 2023 14:12:55 +0000</pubDate>
-    <lastBuildDate>Tue, 22 Aug 2023 14:12:55 +0000</lastBuildDate>
+    <pubDate>Wed, 23 Aug 2023 12:18:33 +0000</pubDate>
+    <lastBuildDate>Wed, 23 Aug 2023 12:18:33 +0000</lastBuildDate>
     <generator>Jekyll v4.3.2</generator>
     
     
@@ -124,7 +124,7 @@
 
 &lt;h3 id=&quot;closing-thoughts&quot;&gt;Closing thoughts&lt;/h3&gt;
 
-&lt;p&gt;Whenever I work I internationalization in Rails, I have to give a shoutout for the &lt;a href=&quot;https://github.com/glebm/i18n-tasks&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;i18n-tasks&lt;/code&gt; library&lt;/a&gt;, which has been invaluable in operationalizing translation workflows: surfacing missing translation, normalizing and linting yaml files, making it easy to export the whole thing to a spreadsheet for review and correction, or using machine translation to quickly turn around a change (I have complicated feelings on that!).&lt;/p&gt;
+&lt;p&gt;Whenever I work on internationalization in Rails, I have to give a shoutout for the &lt;a href=&quot;https://github.com/glebm/i18n-tasks&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;i18n-tasks&lt;/code&gt; library&lt;/a&gt;, which has been invaluable in operationalizing translation workflows: surfacing missing translation, normalizing and linting yaml files, making it easy to export the whole thing to a spreadsheet for review and correction, or using machine translation to quickly turn around a change (I have complicated feelings on that!).&lt;/p&gt;
 
 &lt;p&gt;Internationalizing GoodJob has been a fun creative adventure. I hope that by writing this that other Rails Engine developers prioritize internationalization a little higher and have an easier time walking in these footsteps. And maybe we’ll make the ergonomics of it a little easier upstream too.&lt;/p&gt;
 
