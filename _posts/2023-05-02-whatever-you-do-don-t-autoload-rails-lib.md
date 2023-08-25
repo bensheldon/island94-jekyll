@@ -5,6 +5,8 @@ published: true
 tags: []
 ---
 
+update: 
+
 One of the most common problems I encounter consulting on Rails projects is that developers have previously added `lib/` to autoload paths and then twisted themselves into knots creating error-prone, project-specific conventions for subsequently un-autoloading a subset of files also in `lib/`. 
 
 *Don't do it. Don't add your Rails project's `lib/` to autoload paths.*
