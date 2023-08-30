@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Whatever you do, don't autoload Rails `lib/`</title>
-  <meta name="description" content="One of the most common problems I encounter consulting on Rails projects is that developers have previously added lib/ to autoload paths and then twisted the...">
+  <meta name="description" content="Update: Rails v7.2 will introduce a new configuration method config.autoload_lib to make it safer and easier to autoload the /lib directory and explicitly ex...">
 
   <link rel="stylesheet" href="/assets/stylesheets/main.css">
   <script src="/assets/javascripts/main.js"></script>
@@ -93,7 +93,9 @@
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p>One of the most common problems I encounter consulting on Rails projects is that developers have previously added <code class="language-plaintext highlighter-rouge">lib/</code> to autoload paths and then twisted themselves into knots creating error-prone, project-specific conventions for subsequently un-autoloading a subset of files also in <code class="language-plaintext highlighter-rouge">lib/</code>.</p>
+    <p><em><strong>Update:</strong> Rails v7.2 will introduce a new configuration method <a href="https://github.com/rails/rails/pull/48572"><code class="language-plaintext highlighter-rouge">config.autoload_lib</code></a> to make it safer and easier to autoload the <code class="language-plaintext highlighter-rouge">/lib</code> directory and explicitly exclude directories from autoloading. When released, this advice may no longer be relevant, though I imagine it will still be possible for developers to twist themselves into knots and cause outages with autoloading overrides.</em></p>
+
+<p>One of the most common problems I encounter consulting on Rails projects is that developers have previously added <code class="language-plaintext highlighter-rouge">lib/</code> to autoload paths and then twisted themselves into knots creating error-prone, project-specific conventions for subsequently un-autoloading a subset of files also in <code class="language-plaintext highlighter-rouge">lib/</code>.</p>
 
 <p><em>Don’t do it. Don’t add your Rails project’s <code class="language-plaintext highlighter-rouge">lib/</code> to autoload paths.</em></p>
 
