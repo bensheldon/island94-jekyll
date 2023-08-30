@@ -6,10 +6,92 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 30 Aug 2023 22:47:06 +0000</pubDate>
-    <lastBuildDate>Wed, 30 Aug 2023 22:47:06 +0000</lastBuildDate>
+    <pubDate>Wed, 30 Aug 2023 23:41:42 +0000</pubDate>
+    <lastBuildDate>Wed, 30 Aug 2023 23:41:42 +0000</lastBuildDate>
     <generator>Jekyll v4.3.2</generator>
     
+    
+      
+        
+
+
+
+
+<item>
+  <title>Fake the algorithm til you make it</title>
+  <description>&lt;p&gt;Almost exactly a decade ago I worked at OkCupid Labs where small teams (~2 engineers, a designer, and a fractional PM) would build zero-to-one applications. It was great fun and I worked mainly on &lt;a href=&quot;https://island94.org/2013/07/Meet-Ravel.html&quot;&gt;Ravel!&lt;/a&gt; though bopped around quite a bit too.&lt;/p&gt;
+
+&lt;p&gt;With small teams and quick timelines, I learned a lot about where to invest time in early social apps (onboarding and core loop) and where not to (matchmaking algorithms). The following is lightly adapted from a bunch of comments I wrote on an r/webdev post a few years ago, asking for &lt;a href=&quot;https://www.reddit.com/r/webdev/comments/pey1p7/comment/%2Chb4gik2%2C/&quot;&gt;“Surprisingly simple web apps?”&lt;/a&gt;. My response was &lt;a href=&quot;https://www.reddit.com/r/webdev/comments/pey1p7/comment/hb4gpxy/?utm_source=reddit&amp;amp;utm_medium=web2x&amp;amp;context=3&quot;&gt;described&lt;/a&gt; as “one of the more interesting things I’ve read on reddit in 5 years”:&lt;/p&gt;
+
+&lt;p&gt;If you’re looking for inspiration, what is successful today is likely more complex than it was when it was originally launched. Twitter, Tinder, Facebook all likely launched with simple CRUD and associations, and only later did they get fancy algorithms. Also, Nextdoor, Grindr, Yelp [this was 2013].&lt;/p&gt;
+
+&lt;p&gt;I used to work on social and dating apps and it is all “fake it till you make it”. The “secret sauce” is bucket by distance intervals, then order by random using the user-id as a seed so it’s determinist, but still just random sort. Smoke and mirrors and marketing bluster.&lt;/p&gt;
+
+&lt;p&gt;You see this “Secret Sauce” marketing a lot. An app will imply that they have some secret, complex algorithm that no other competitor has. The software equivalent of “you can get a hamburger from anywhere, but ours has our secret sauce that makes it taste best”. But that can be bluster and market positioning rather than actually complexity. In truth, it’s secretly mayo, ketchup and relish. Or as I’ve encountered building apps, deterministic random.&lt;/p&gt;
+
+&lt;p&gt;Imagine you have a dating/social app and you want to have a match-making algorithm. You tell your users that you have the only astrologist datascience team building complex machine-learning models that can map every astronomical body in the known universe to individual personality traits and precisely calculate true love to the 9th decimal.&lt;/p&gt;
+
+&lt;p&gt;In truth, you:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;For the current user, bucket other users by distance: a bucket of users that are less than 5km away; less than 25km; less than 100km; and everyone else. Early social app stuff is hard because you have a small userbase but you need to appear to be really popular, so you may need to adjust those numbers; also a reason to launch in a focused market.&lt;/li&gt;
+  &lt;li&gt;Within each distance bucket, simply sort the users by random, seeded by the user id of the current user (Postgres &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;setseed&lt;/code&gt;). That way the other people will always appear in the same order to the current user.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;It works on people’s confirmation bias: if you confidently tell someone that they are a match, they are likely to generate their own evidence to support that impression. You don’t even have to do the location bucketing either, but likely you want to give people something that is actionable for your core loop.&lt;/p&gt;
+
+&lt;p&gt;And remember, this is really about priorities in the early life of a product. It’s not difficult to do something complex, but it takes time and engaged users to dial it in; so that’s why you don’t launch with a real algorithm.&lt;/p&gt;
+
+&lt;p&gt;This is all really easy to do with just a relational database &lt;em&gt;in the database&lt;/em&gt;, no in-memory descent models or whatever. Here’s a simple recommendation strategy for t-shirts (from my &lt;a href=&quot;https://dayoftheshirt.com&quot;&gt;Day of the Shirt&lt;/a&gt;), in SQL for Ruby on Rails:&lt;/p&gt;
+
+&lt;p&gt;For a given user, find all of the t-shirts they have favorited, then find all of the users that have also favorited those t-shirts and strength them based on who has favorited the most t-shirts in common with the initial user, and then find all of the t-shirts those users have favorited, multiply through the counts and strengths, sum and order them. There’s your recommended t-shirts:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Shirts&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;# ...&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;scope&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:order_by_recommended&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;lambda&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;joins&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;~&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;SQL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;squish&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;order&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;strength DESC NULLS LAST&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;
+      LEFT JOIN (
+        WITH recommended_users AS (
+          SELECT user_id, count(*) AS strength
+          FROM favorite_shirts_users
+          WHERE
+            shirt_id IN (
+              SELECT shirt_id
+              FROM favorite_shirts_users
+              WHERE &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sanitize_sql_for_conditions&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;user_id = ?&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;
+            )
+          GROUP BY user_id
+        )
+        SELECT shirt_id, SUM(strength) AS strength
+        FROM favorite_shirts_users
+        LEFT JOIN recommended_users ON recommended_users.user_id = favorite_shirts_users.user_id
+        GROUP BY shirt_id
+      ) AS recommended_shirts ON recommended_shirts.shirt_id = shirts.id
+&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;    SQL&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;That’s a relatively lightweight strategy, that you can run in real-time and if there is enough engagement can appear effective. And if you don’t have enough engagement, again, enrich it with some deterministically random results.&lt;/p&gt;
+
+&lt;p&gt;It’s basic but you can also add in other kinds of engagement and weigh them differently or whatever. It’s all good. Then you have massive success and hire a real datascience team.&lt;/p&gt;
+
+
+  &lt;br&gt;&lt;br&gt;
+  &lt;hr&gt;
+  &lt;p&gt;
+    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2023/08/fake-the-algorithm-til-you-make-it&quot;&gt;Fake the algorithm til you make it&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
+    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
+  &lt;/p&gt;
+</description>
+  <pubDate>Wed, 30 Aug 2023 22:50:00 +0000</pubDate>
+  <link>https://island94.org/2023/08/fake-the-algorithm-til-you-make-it</link>
+  <guid isPermaLink="true">https://island94.org/2023/08/fake-the-algorithm-til-you-make-it</guid>
+  
+  
+</item>
+
+      
     
       
         
@@ -997,42 +1079,6 @@
   <guid isPermaLink="true">https://island94.org/2023/03/how-goodjob-s-mountable-rails-engine-delivers-javascript-importmaps-and-frontend-assets</guid>
   
     <category>GoodJob</category>
-  
-  
-</item>
-
-      
-    
-      
-        
-
-
-
-
-<item>
-  <title>Recently, March 12, 2023</title>
-  <description>&lt;ul&gt;
-  &lt;li&gt;Work has been complicated, recently. &lt;a href=&quot;https://techcrunch.com/2023/02/09/github-lays-off-10-and-goes-fully-remote/&quot;&gt;Layoffs, as a general idea&lt;/a&gt;, were announced a month ago; it was the same week I came down with a bad cold. I’ve been fairly low energy since and have had trouble differentiating the two. I’m supremely proud and confident that my team is doing the most important work possible. We’ll see!&lt;/li&gt;
-  &lt;li&gt;The week prior to all of this, my dad came to visit and stay with us. Having an easier time hosting family was one of our goals in getting a 2nd bedroom. Success.&lt;/li&gt;
-  &lt;li&gt;Wow, it’s nearly been a year since I left my last job. I’ve had a number of former colleagues asking for help in leaving, in addition to talking with folks being pushed out: I was surprised to see Code for America finally kill Brigades, and really &lt;a href=&quot;https://statescoop.com/code-for-america-local-brigades-ending/&quot;&gt;twist the knife too&lt;/a&gt; by forcing groups to rename themselves.&lt;/li&gt;
-  &lt;li&gt;GoodJob is great! I’ve been thinking about &lt;a href=&quot;https://github.com/bensheldon/good_job/discussions/831&quot;&gt;replacing Advisory Locks&lt;/a&gt; with a lock strategy that’s more compatible with PgBouncer. But that will probably be a 2-year project at least of incrementally crabwalking towards that goal while avoiding breaking changes. &lt;a href=&quot;https://github.com/rubygems/rubygems.org/pull/3533&quot;&gt;Rubygems.org just adopted GoodJob&lt;/a&gt;; I am humbled.&lt;/li&gt;
-  &lt;li&gt;On other projects, I’ve been trying to lower costs. My S3 data-transfer bill went from $10 to $50 a month, which I’m not happy about; scrapers are the worst 🤷‍♀️ I’ve also been experimenting with Dokku for packing some smaller projects (paying $15 once rather than $12 per app), though the VM locked up once on a Saturday night and I had to reboot it and this is exactly why I don’t want to manage my own servers.&lt;/li&gt;
-  &lt;li&gt;My brother and I have been planning a Celebration of Life for my mom.&lt;/li&gt;
-  &lt;li&gt;I’m so happy to finally be back on Daylight Savings Time.&lt;/li&gt;
-&lt;/ul&gt;
-
-  &lt;br&gt;&lt;br&gt;
-  &lt;hr&gt;
-  &lt;p&gt;
-    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2023/03/recently-march-12-2023&quot;&gt;Recently, March 12, 2023&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
-    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
-  &lt;/p&gt;
-</description>
-  <pubDate>Mon, 13 Mar 2023 00:26:00 +0000</pubDate>
-  <link>https://island94.org/2023/03/recently-march-12-2023</link>
-  <guid isPermaLink="true">https://island94.org/2023/03/recently-march-12-2023</guid>
-  
-    <category>weeknotes</category>
   
   
 </item>

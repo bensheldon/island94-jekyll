@@ -107,6 +107,52 @@
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
     <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2020/11/better-by-our-own-standards">Better by our own standards</a>
+    </h1>
+    <p class="post-meta text-muted">
+      <time datetime="2020-11-03T19:55:00+00:00" itemprop="datePublished">November 3, 2020</time>
+      
+      
+
+
+
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>This book review in the New Yorker of <a href="https://www.newyorker.com/magazine/2019/08/26/how-cultural-anthropologists-redefined-humanity">Charles King’s “Gods of the Upper Air”</a> has been kicking about my brain for a long while, especially in regards to the phrase “variations within groups are greater than variations between groups” concretely in my work on accessibility, diversity, equity and inclusion.</p>
+
+<blockquote>
+
+  <p>The evidence proved, Boas said, “the plasticity of human types.” It also showed that variations within groups are greater than variations between groups.</p>
+
+  <p>…</p>
+
+  <p>Boas devoted his life to showing people that the science they were relying on was bad science. “He believed the world must be made safe for differences,” Ruth Benedict wrote when Boas died.</p>
+
+  <p>…</p>
+
+  <p>It’s true that Boas and Benedict spoke of “relativity,” and that at the end of “Patterns of Culture” Benedict refers to “coexisting and equally valid patterns of life which mankind has created for itself from the raw materials of existence.” But everything else in Benedict’s book contradicts the assertion that all cultures are “equally valid.” The whole point is to judge which practices, others’ or our own, seem to produce the kind of society we want. The anthropological mirror has a moral purpose.</p>
+
+  <p>The term “culture” is responsible for some of the confusion. We think that to call something part of a group’s culture is to excuse it from judgment. We say, That’s just the lens through which people in that society view the world. It’s not for us to tell them what to think. Our ways are not better, only different. What it all boils down to (to paraphrase Montaigne) is: We wear pants; they do not. That would be relativism.</p>
+
+  <p>But to say that a belief or a practice is culture-relative is not to place it beyond judgment. The whole force of Boasian anthropology is the demonstration that racial prejudice is cultural. The belief that some races are superior and some inferior is learned; it has no basis in biology. It is therefore subject to criticism.</p>
+
+  <p>Boas spent his entire life telling people that intolerance is wrong. King says that cultural anthropology pushes us to expand our notion of the human. That may be so, but it has nothing to do with relativism. King’s anthropologists are prescriptivists. They are constantly telling us to unlearn one way of living in order to learn a way that is better by <em>our own standards</em>.</p>
+
+</blockquote>
+
+  </div>
+</article>
+
+
+    <hr>
+  
+    
+
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
       <a class="post-link" href="/2020/11/the-five-ideals-explained">The five ideals explained</a>
     </h1>
     <p class="post-meta text-muted">
@@ -582,86 +628,6 @@
 
 <h2 id="contribute">Contribute</h2>
 <p>GoodJob continues to be enjoyable to develop and build upon Rails’ ActiveJob and Concurrent Ruby. Contributions are welcomed: check out the <a href="https://github.com/bensheldon/good_job/projects/1">GoodJob Backlog</a>, comment on or open a Github Issue, or make a Pull Request.</p>
-
-  </div>
-</article>
-
-
-    <hr>
-  
-    
-
-<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">
-      <a class="post-link" href="/2020/07/introducing-goodjob-1-0">Introducing GoodJob 1.0, a new Postgres-based, multithreaded, ActiveJob backend for Ruby on Rails</a>
-    </h1>
-    <p class="post-meta text-muted">
-      <time datetime="2020-07-20T21:12:00+00:00" itemprop="datePublished">July 20, 2020</time>
-      
-      
-
-
-  
-
-  
-
-  • Tagged <a href="/tags/#goodjob">GoodJob</a>
-
-
-    </p>
-  </header>
-
-  <div class="post-content" itemprop="articleBody">
-    <p><a href="https://github.com/bensheldon/good_job">GoodJob</a> is a new Postgres-based, multithreaded, second-generation ActiveJob backend for Ruby on Rails.</p>
-
-<p><strong>Inspired by Delayed::Job and Que, <a href="https://github.com/bensheldon/good_job">GoodJob</a> is designed for maximum compatibility with Ruby on Rails, ActiveJob, and Postgres to be simple and performant for most workloads.</strong></p>
-<ul>
-  <li><strong>Designed for ActiveJob.</strong> Complete support for async, queues, delays, priorities, timeouts, and retries with near-zero configuration.</li>
-  <li><strong>Built for Rails.</strong> Fully adopts Ruby on Rails threading and code execution guidelines with Concurrent::Ruby.</li>
-  <li><strong>Backed by Postgres.</strong> Relies upon Postgres integrity and session-level Advisory Locks to provide run-once safety and stay within the limits of schema.rb.</li>
-  <li><strong>For most workloads.</strong> Targets full-stack teams, economy-minded solo developers, and applications that enqueue less than 1-million jobs/day.</li>
-</ul>
-
-<p><a href="https://github.com/bensheldon/good_job">Visit Github for instructions on adding GoodJob to your Rails application</a> , or read on for the story behind GoodJob.</p>
-
-<h3 id="a-second-generation-activejob-backend">A “Second-generation” ActiveJob backend</h3>
-
-<p>Why “second-generation*”? GoodJob is designed from the beginning to be an ActiveJob-backend in a conventional Ruby on Rails application.</p>
-
-<p>First-generation ActiveJob backends, like Delayed::Job and Que, all predate ActiveJob and support non-Rails applications. First-generation ActiveJob backends are significantly more complex than GoodJob because they separately maintain a lot of functionality that comes with a conventional Rails installation (ActiveRecord, ActiveSupport, Concurrent::Ruby) and re-implement job lifecycle hooks so they can work apart from ActiveJob. I’ve observed that this can make them slow to keep up with major Rails changes. An impetus for GoodJob was reviewing the number of outages, blocked upgrades, and forks of first-generation backends I’ve managed during both major and minor Rails upgrades over the years.</p>
-
-<p>As a second-generation ActiveJob backend, GoodJob can draft off of all the advances and solved problems of ActiveJob and Ruby on Rails. For example <code class="language-plaintext highlighter-rouge">rescue_from</code>, <code class="language-plaintext highlighter-rouge">retry_on</code>, <code class="language-plaintext highlighter-rouge">discard_on</code> are all implemented already by ActiveJob.</p>
-
-<p>GoodJob is significantly thinner than first-generation backends, and over the long run hopefully easier to maintain and keep up with changes to Ruby on Rails. For example, GoodJob is currently ~600 lines of code, whereas Que is ~1,200 lines, and Delayed::Job is ~2,300 lines (2,000 for <code class="language-plaintext highlighter-rouge">delayed_job</code>, and an additional 300 for <code class="language-plaintext highlighter-rouge">delayed_job_active_record</code>).</p>
-
-<p><em>*“Second generation” was coined for me by Daniel Lopez on <a href="https://rubyonrails-link.slack.com/archives/C0GB80GRE/p1594860261410500">Ruby on Rails Link Slack</a>.</em></p>
-
-<h3 id="postgres-based">Postgres-based</h3>
-
-<p>I love Postgres. Postgres offers a lot of features, has safety and integrity guarantees, and simply running fewer services (skipping Redis) means less complexity in development and production.</p>
-
-<p>GoodJob builds atop ActiveRecord. It’s numbingly boring, in a good way.</p>
-
-<p>GoodJob uses session-level Advisory Locks to provide run-once guarantees with relatively little performance implications for most workloads.</p>
-
-<p>GoodJob’s session-level Advisory Lock implementation is perhaps the only “novel” aspect, that comes from my experience orchestrating complex web-driving of government systems (“the browser is the API”) for <a href="https://codeforamerica.org/">Code for America</a>. GoodJob uses a Common Table Expression (CTE) to find, lock, and return the next workable job in a single query. Session-level Advisory Locks will gracefully relinquish that lock if interrupted, without having to maintain a transaction for the duration of the job.</p>
-
-<h3 id="multi-threaded">Multi-threaded</h3>
-
-<p>GoodJob uses <a href="https://github.com/ruby-concurrency/concurrent-ruby">Concurrent::Ruby</a>  to scale and manage jobs across multiple threads. “<em>Concurrent Ruby makes one of the strongest thread-safety guarantees of any Ruby concurrency library”.</em>  Ruby on Rails has adopted Concurrent Ruby, and GoodJob follows its lead and <a href="https://guides.rubyonrails.org/threading_and_code_execution.html">thread-execution and safety guidelines</a>.</p>
-
-<p>In building GoodJob I leaned heavily on my positive experiences running Que, another multithreaded backend, on Heroku. Threads are great for balancing simplicity, economy, and performance for typical IO-bound workloads like heavy database queries, API requests, Selenium web-driving, or sending emails.</p>
-
-<p>A feature that won’t be in GoodJob 1.0, but I hope to implement soon, is the ability to run the GoodJob scheduler inside the webserver process (“async mode”). This was a feature  <a href="https://github.com/que-rb/que/issues/238#issuecomment-480648845">withdrawn from Que</a> , but I believe can be safely implemented with Concurrent Ruby. An async mode would offer even greater economy, for example, in Heroku’s constrained environment.</p>
-
-<h3 id="goodjob-is-right-for-me">GoodJob is right for me</h3>
-
-<p>GoodJob’s design is based directly on my experience in 2-pizza, full-stack teams, and as an economy-minded solo developer. GoodJob already powers  <a href="https://dayoftheshirt.com/">Day of the Shirt</a> and <a href="https://brompt.com/">Brompt</a> performing tens-of-thousands of real-world jobs a day.</p>
-
-<h3 id="is-goodjob-right-for-you">Is GoodJob right for you?</h3>
-
-<p><a href="https://github.com/bensheldon/good_job">Try it out</a>  and let me know.</p>
 
   </div>
 </article>

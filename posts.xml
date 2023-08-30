@@ -6,10 +6,90 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 30 Aug 2023 22:47:06 +0000</pubDate>
-    <lastBuildDate>Wed, 30 Aug 2023 22:47:06 +0000</lastBuildDate>
+    <pubDate>Wed, 30 Aug 2023 23:41:42 +0000</pubDate>
+    <lastBuildDate>Wed, 30 Aug 2023 23:41:42 +0000</lastBuildDate>
     <generator>Jekyll v4.3.2</generator>
     
+    
+      
+
+
+
+
+<item>
+  <title>Fake the algorithm til you make it</title>
+  <description>&lt;p&gt;Almost exactly a decade ago I worked at OkCupid Labs where small teams (~2 engineers, a designer, and a fractional PM) would build zero-to-one applications. It was great fun and I worked mainly on &lt;a href=&quot;https://island94.org/2013/07/Meet-Ravel.html&quot;&gt;Ravel!&lt;/a&gt; though bopped around quite a bit too.&lt;/p&gt;
+
+&lt;p&gt;With small teams and quick timelines, I learned a lot about where to invest time in early social apps (onboarding and core loop) and where not to (matchmaking algorithms). The following is lightly adapted from a bunch of comments I wrote on an r/webdev post a few years ago, asking for &lt;a href=&quot;https://www.reddit.com/r/webdev/comments/pey1p7/comment/%2Chb4gik2%2C/&quot;&gt;“Surprisingly simple web apps?”&lt;/a&gt;. My response was &lt;a href=&quot;https://www.reddit.com/r/webdev/comments/pey1p7/comment/hb4gpxy/?utm_source=reddit&amp;amp;utm_medium=web2x&amp;amp;context=3&quot;&gt;described&lt;/a&gt; as “one of the more interesting things I’ve read on reddit in 5 years”:&lt;/p&gt;
+
+&lt;p&gt;If you’re looking for inspiration, what is successful today is likely more complex than it was when it was originally launched. Twitter, Tinder, Facebook all likely launched with simple CRUD and associations, and only later did they get fancy algorithms. Also, Nextdoor, Grindr, Yelp [this was 2013].&lt;/p&gt;
+
+&lt;p&gt;I used to work on social and dating apps and it is all “fake it till you make it”. The “secret sauce” is bucket by distance intervals, then order by random using the user-id as a seed so it’s determinist, but still just random sort. Smoke and mirrors and marketing bluster.&lt;/p&gt;
+
+&lt;p&gt;You see this “Secret Sauce” marketing a lot. An app will imply that they have some secret, complex algorithm that no other competitor has. The software equivalent of “you can get a hamburger from anywhere, but ours has our secret sauce that makes it taste best”. But that can be bluster and market positioning rather than actually complexity. In truth, it’s secretly mayo, ketchup and relish. Or as I’ve encountered building apps, deterministic random.&lt;/p&gt;
+
+&lt;p&gt;Imagine you have a dating/social app and you want to have a match-making algorithm. You tell your users that you have the only astrologist datascience team building complex machine-learning models that can map every astronomical body in the known universe to individual personality traits and precisely calculate true love to the 9th decimal.&lt;/p&gt;
+
+&lt;p&gt;In truth, you:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;For the current user, bucket other users by distance: a bucket of users that are less than 5km away; less than 25km; less than 100km; and everyone else. Early social app stuff is hard because you have a small userbase but you need to appear to be really popular, so you may need to adjust those numbers; also a reason to launch in a focused market.&lt;/li&gt;
+  &lt;li&gt;Within each distance bucket, simply sort the users by random, seeded by the user id of the current user (Postgres &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;setseed&lt;/code&gt;). That way the other people will always appear in the same order to the current user.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;It works on people’s confirmation bias: if you confidently tell someone that they are a match, they are likely to generate their own evidence to support that impression. You don’t even have to do the location bucketing either, but likely you want to give people something that is actionable for your core loop.&lt;/p&gt;
+
+&lt;p&gt;And remember, this is really about priorities in the early life of a product. It’s not difficult to do something complex, but it takes time and engaged users to dial it in; so that’s why you don’t launch with a real algorithm.&lt;/p&gt;
+
+&lt;p&gt;This is all really easy to do with just a relational database &lt;em&gt;in the database&lt;/em&gt;, no in-memory descent models or whatever. Here’s a simple recommendation strategy for t-shirts (from my &lt;a href=&quot;https://dayoftheshirt.com&quot;&gt;Day of the Shirt&lt;/a&gt;), in SQL for Ruby on Rails:&lt;/p&gt;
+
+&lt;p&gt;For a given user, find all of the t-shirts they have favorited, then find all of the users that have also favorited those t-shirts and strength them based on who has favorited the most t-shirts in common with the initial user, and then find all of the t-shirts those users have favorited, multiply through the counts and strengths, sum and order them. There’s your recommended t-shirts:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Shirts&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;# ...&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;scope&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:order_by_recommended&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;lambda&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;joins&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;~&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;SQL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;squish&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;order&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;strength DESC NULLS LAST&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;
+      LEFT JOIN (
+        WITH recommended_users AS (
+          SELECT user_id, count(*) AS strength
+          FROM favorite_shirts_users
+          WHERE
+            shirt_id IN (
+              SELECT shirt_id
+              FROM favorite_shirts_users
+              WHERE &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sanitize_sql_for_conditions&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;user_id = ?&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;
+            )
+          GROUP BY user_id
+        )
+        SELECT shirt_id, SUM(strength) AS strength
+        FROM favorite_shirts_users
+        LEFT JOIN recommended_users ON recommended_users.user_id = favorite_shirts_users.user_id
+        GROUP BY shirt_id
+      ) AS recommended_shirts ON recommended_shirts.shirt_id = shirts.id
+&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;    SQL&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;That’s a relatively lightweight strategy, that you can run in real-time and if there is enough engagement can appear effective. And if you don’t have enough engagement, again, enrich it with some deterministically random results.&lt;/p&gt;
+
+&lt;p&gt;It’s basic but you can also add in other kinds of engagement and weigh them differently or whatever. It’s all good. Then you have massive success and hire a real datascience team.&lt;/p&gt;
+
+
+  &lt;br&gt;&lt;br&gt;
+  &lt;hr&gt;
+  &lt;p&gt;
+    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2023/08/fake-the-algorithm-til-you-make-it&quot;&gt;Fake the algorithm til you make it&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
+    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
+  &lt;/p&gt;
+</description>
+  <pubDate>Wed, 30 Aug 2023 22:50:00 +0000</pubDate>
+  <link>https://island94.org/2023/08/fake-the-algorithm-til-you-make-it</link>
+  <guid isPermaLink="true">https://island94.org/2023/08/fake-the-algorithm-til-you-make-it</guid>
+  
+  
+</item>
+
     
       
 
@@ -931,131 +1011,6 @@
   <pubDate>Mon, 13 Feb 2023 04:34:00 +0000</pubDate>
   <link>https://island94.org/2023/02/slop-and-call</link>
   <guid isPermaLink="true">https://island94.org/2023/02/slop-and-call</guid>
-  
-  
-</item>
-
-    
-      
-
-
-
-
-<item>
-  <title>Prevent CDN poisoning from Fat GET/HEAD Requests in Ruby on Rails</title>
-  <description>&lt;p&gt;There are many different flavors of &lt;a href=&quot;https://portswigger.net/research/web-cache-entanglement&quot;&gt;web cache poisoning discovered by Security Researcher James Kettle&lt;/a&gt;. Read on for an explanation of one I’ve run across…&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;What is a Fat GET/HEAD Request?&lt;/strong&gt; A GET or HEAD request is “fat” when it has a request body. It’s unexpected! Typically one sees a request body with a POST or PUT request because the body contains form data. The HTTP specification says that including a request body with GET or HEAD requests is &lt;a href=&quot;https://stackoverflow.com/a/983458&quot;&gt;&lt;em&gt;undefined&lt;/em&gt;&lt;/a&gt;. You can do it, and it’s up to the application to figure out what that means. Sometimes it’s bad!&lt;/p&gt;
-
-&lt;p&gt;You can get a sense of the applications that intentionally support Fat Requests (and how grumpy it makes some people) by reading through this &lt;a href=&quot;https://github.com/postmanlabs/postman-app-support/issues/131&quot;&gt;Postman issue&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Fat Requests can lead to CDN and cache poisoning in Rails.&lt;/strong&gt; CDNs and caching web proxies (like Varnish) are frequently configured to cache the response from a GET or HEAD request based solely on the request’s URL and not the contents of the request body (they don’t cache POSTs or PUTs at all). If an application isn’t deliberately handling the request body, it may cause unexpected content to be cached and served.&lt;/p&gt;
-
-&lt;p&gt;For example, you have a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/search&lt;/code&gt; endpoint:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GET /search&lt;/code&gt; shows a landing page with some explanatory content&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GET /search?q=foo&lt;/code&gt; shows the search results for “foo”.&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Here’s what a Fat Request looks like:&lt;/p&gt;
-
-    &lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;GET /search     &amp;lt;== the url for the landing page
-
-q=verybadstuff  &amp;lt;== oh, but with a request body
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;In a Rails Controller, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;parameters&lt;/code&gt; (alias &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;params&lt;/code&gt;) merges query parameters (that’s the URL values) with request parameters (that’s the body values) into a single data structure. If your controller uses the presence of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;params[:q]&lt;/code&gt; to determine whether to show the landing page or the search results, it’s possible that when someone sends that Fat Request, your CDN may cache and subsequently serve the results for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;verybadstuff&lt;/code&gt; every time someone visits the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/search&lt;/code&gt; landing page. That’s bad!&lt;/p&gt;
-
-&lt;p&gt;Here’s how to Curl it:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl &lt;span class=&quot;nt&quot;&gt;-XGET&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-H&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Content-Type: application/x-www-form-urlencoded&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;q=verybadstuff&quot;&lt;/span&gt; http://localhost:3000/search
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Here are 3 ways to fix it…&lt;/p&gt;
-
-&lt;h2 id=&quot;solution-1-fix-at-the-cdn&quot;&gt;Solution #1: Fix at the CDN&lt;/h2&gt;
-
-&lt;p&gt;The most straightforward place to fix this should be at the caching layer, but it’s not always easy.&lt;/p&gt;
-
-&lt;p&gt;With Cloudflare, you could rewrite the GET request’s &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Content-Type&lt;/code&gt; header if it is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;application/x-www-form-urlencoded&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;multipart/form-data&lt;/code&gt;. Or use a Cloudflare Worker to drop the request body.&lt;/p&gt;
-
-&lt;p&gt;Varnish makes it easy to drop the request body for any GET request.&lt;/p&gt;
-
-&lt;p&gt;Other CDNs or proxies may be easier or more difficult. It depends!&lt;/p&gt;
-
-&lt;p&gt;Update via &lt;a href=&quot;https://github.com/Mr0grog&quot;&gt;Mr0grog&lt;/a&gt;: AWS Cloudfront returns a &lt;a href=&quot;https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#RequestCustom-get-body&quot;&gt;403 by default&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&quot;solution-2-deliberately-use-query_parameters&quot;&gt;Solution #2: Deliberately use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;query_parameters&lt;/code&gt;&lt;/h2&gt;
-
-&lt;p&gt;Rails provides three different methods for accessing parameters:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;query_parameters&lt;/code&gt; for the values in the request URL&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;request_parameters&lt;/code&gt; ) for the values in the request body&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;parameters&lt;/code&gt; (alias &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;params&lt;/code&gt;) for the problematic combination of them both. Values in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;query_parameters&lt;/code&gt; take precedence over values in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;request_parameters&lt;/code&gt; when they are merged together.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Developers could be diligent and make sure to only use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;query_parameters&lt;/code&gt; in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;#index&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;#show&lt;/code&gt; , or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;get&lt;/code&gt; routed actions. Here’s an example from the &lt;a href=&quot;https://github.com/git/git-scm.com/issues/1551&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git-scm&lt;/code&gt; project&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&quot;solution-3-patch-rails&quot;&gt;Solution #3: Patch Rails&lt;/h2&gt;
-
-&lt;p&gt;Changes were &lt;a href=&quot;https://github.com/rails/rails/issues/39974&quot;&gt;proposed in Rails&lt;/a&gt; to not have &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;parameters&lt;/code&gt; merge in the body values for GET and HEAD requests; it was rejected because it’s more a problem with the upstream cache than it is with Rails.&lt;/p&gt;
-
-&lt;p&gt;You can patch your own version of Rails. Here’s an example that patches the method in &lt;a href=&quot;https://github.com/rails/rails/blob/21a3b52ba0b7d94b4903e02b6ac537a7d1d1c817/actionpack/lib/action_dispatch/http/parameters.rb#L49-L63&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ActionDispatch::Request&lt;/code&gt;&lt;/a&gt;:&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# config/initializers/sanitize_fat_requests.rb&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;module&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;SanitizeFatRequests&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;parameters&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;params&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;get_header&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;action_dispatch.request.parameters&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;params&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;
-
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;get?&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;head?&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;params&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;query_parameters&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;dup&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;merge!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path_parameters&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;set_header&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;action_dispatch.request.parameters&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;super&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;alias&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:params&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:parameters&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-
-&lt;span class=&quot;no&quot;&gt;ActionDispatch&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;SanitizeFatRequests&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# Some RSpec tests to verify this&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;rails_helper&apos;&lt;/span&gt;
-
-&lt;span class=&quot;no&quot;&gt;RSpec&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;describe&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;SanitizeFatRequests&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;type: :request&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;it&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;does not merge body params in GET requests&apos;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;get&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;/search&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;headers: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;CONTENT_TYPE&apos;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;application/x-www-form-urlencoded&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;env: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;rack.input&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;StringIO&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;q=verybadstuff&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-    &lt;span class=&quot;c1&quot;&gt;# verify that the request is correctly shaped because&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;# the test helpers don&apos;t expect this kind of request&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;request_parameters&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;eq&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;q&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;verybadstuff&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;parameters&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;eq&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;action&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;panlexicon&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;controller&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;search&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
-
-    &lt;span class=&quot;c1&quot;&gt;# the behavioral expectation&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;not_to&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;verybadstuff&quot;&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-
-  &lt;br&gt;&lt;br&gt;
-  &lt;hr&gt;
-  &lt;p&gt;
-    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2023/02/prevent-cdn-poisoning-from-fat-get-head-requests-in-ruby-on-rails&quot;&gt;Prevent CDN poisoning from Fat GET/HEAD Requests in Ruby on Rails&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
-    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
-  &lt;/p&gt;
-</description>
-  <pubDate>Sun, 12 Feb 2023 20:32:00 +0000</pubDate>
-  <link>https://island94.org/2023/02/prevent-cdn-poisoning-from-fat-get-head-requests-in-ruby-on-rails</link>
-  <guid isPermaLink="true">https://island94.org/2023/02/prevent-cdn-poisoning-from-fat-get-head-requests-in-ruby-on-rails</guid>
-  
-    <category>rails</category>
   
   
 </item>

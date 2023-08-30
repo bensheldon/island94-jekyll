@@ -84,6 +84,88 @@
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
     <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2023/08/fake-the-algorithm-til-you-make-it">Fake the algorithm til you make it</a>
+    </h1>
+    <p class="post-meta text-muted">
+      <time datetime="2023-08-30T22:50:00+00:00" itemprop="datePublished">August 30, 2023</time>
+      
+      
+
+
+
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>Almost exactly a decade ago I worked at OkCupid Labs where small teams (~2 engineers, a designer, and a fractional PM) would build zero-to-one applications. It was great fun and I worked mainly on <a href="https://island94.org/2013/07/Meet-Ravel.html">Ravel!</a> though bopped around quite a bit too.</p>
+
+<p>With small teams and quick timelines, I learned a lot about where to invest time in early social apps (onboarding and core loop) and where not to (matchmaking algorithms). The following is lightly adapted from a bunch of comments I wrote on an r/webdev post a few years ago, asking for <a href="https://www.reddit.com/r/webdev/comments/pey1p7/comment/%2Chb4gik2%2C/">“Surprisingly simple web apps?”</a>. My response was <a href="https://www.reddit.com/r/webdev/comments/pey1p7/comment/hb4gpxy/?utm_source=reddit&amp;utm_medium=web2x&amp;context=3">described</a> as “one of the more interesting things I’ve read on reddit in 5 years”:</p>
+
+<p>If you’re looking for inspiration, what is successful today is likely more complex than it was when it was originally launched. Twitter, Tinder, Facebook all likely launched with simple CRUD and associations, and only later did they get fancy algorithms. Also, Nextdoor, Grindr, Yelp [this was 2013].</p>
+
+<p>I used to work on social and dating apps and it is all “fake it till you make it”. The “secret sauce” is bucket by distance intervals, then order by random using the user-id as a seed so it’s determinist, but still just random sort. Smoke and mirrors and marketing bluster.</p>
+
+<p>You see this “Secret Sauce” marketing a lot. An app will imply that they have some secret, complex algorithm that no other competitor has. The software equivalent of “you can get a hamburger from anywhere, but ours has our secret sauce that makes it taste best”. But that can be bluster and market positioning rather than actually complexity. In truth, it’s secretly mayo, ketchup and relish. Or as I’ve encountered building apps, deterministic random.</p>
+
+<p>Imagine you have a dating/social app and you want to have a match-making algorithm. You tell your users that you have the only astrologist datascience team building complex machine-learning models that can map every astronomical body in the known universe to individual personality traits and precisely calculate true love to the 9th decimal.</p>
+
+<p>In truth, you:</p>
+
+<ul>
+  <li>For the current user, bucket other users by distance: a bucket of users that are less than 5km away; less than 25km; less than 100km; and everyone else. Early social app stuff is hard because you have a small userbase but you need to appear to be really popular, so you may need to adjust those numbers; also a reason to launch in a focused market.</li>
+  <li>Within each distance bucket, simply sort the users by random, seeded by the user id of the current user (Postgres <code class="language-plaintext highlighter-rouge">setseed</code>). That way the other people will always appear in the same order to the current user.</li>
+</ul>
+
+<p>It works on people’s confirmation bias: if you confidently tell someone that they are a match, they are likely to generate their own evidence to support that impression. You don’t even have to do the location bucketing either, but likely you want to give people something that is actionable for your core loop.</p>
+
+<p>And remember, this is really about priorities in the early life of a product. It’s not difficult to do something complex, but it takes time and engaged users to dial it in; so that’s why you don’t launch with a real algorithm.</p>
+
+<p>This is all really easy to do with just a relational database <em>in the database</em>, no in-memory descent models or whatever. Here’s a simple recommendation strategy for t-shirts (from my <a href="https://dayoftheshirt.com">Day of the Shirt</a>), in SQL for Ruby on Rails:</p>
+
+<p>For a given user, find all of the t-shirts they have favorited, then find all of the users that have also favorited those t-shirts and strength them based on who has favorited the most t-shirts in common with the initial user, and then find all of the t-shirts those users have favorited, multiply through the counts and strengths, sum and order them. There’s your recommended t-shirts:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Shirts</span>
+  <span class="c1"># ...</span>
+  <span class="n">scope</span> <span class="ss">:order_by_recommended</span><span class="p">,</span> <span class="nb">lambda</span> <span class="p">{</span> <span class="o">|</span><span class="n">user</span><span class="o">|</span>
+    <span class="n">joins</span><span class="p">(</span><span class="o">&lt;&lt;~</span><span class="no">SQL</span><span class="p">.</span><span class="nf">squish</span><span class="p">).</span><span class="nf">order</span><span class="p">(</span><span class="s1">'strength DESC NULLS LAST'</span><span class="p">)</span><span class="sh">
+      LEFT JOIN (
+        WITH recommended_users AS (
+          SELECT user_id, count(*) AS strength
+          FROM favorite_shirts_users
+          WHERE
+            shirt_id IN (
+              SELECT shirt_id
+              FROM favorite_shirts_users
+              WHERE </span><span class="si">#{</span><span class="n">sanitize_sql_for_conditions</span><span class="p">([</span><span class="s1">'user_id = ?'</span><span class="p">,</span> <span class="n">user</span><span class="p">.</span><span class="nf">id</span><span class="p">])</span><span class="si">}</span><span class="sh">
+            )
+          GROUP BY user_id
+        )
+        SELECT shirt_id, SUM(strength) AS strength
+        FROM favorite_shirts_users
+        LEFT JOIN recommended_users ON recommended_users.user_id = favorite_shirts_users.user_id
+        GROUP BY shirt_id
+      ) AS recommended_shirts ON recommended_shirts.shirt_id = shirts.id
+</span><span class="no">    SQL</span>
+  <span class="p">}</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>That’s a relatively lightweight strategy, that you can run in real-time and if there is enough engagement can appear effective. And if you don’t have enough engagement, again, enrich it with some deterministically random results.</p>
+
+<p>It’s basic but you can also add in other kinds of engagement and weigh them differently or whatever. It’s all good. Then you have massive success and hire a real datascience team.</p>
+
+
+  </div>
+</article>
+
+
+    <hr>
+  
+    
+
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
       <a class="post-link" href="/2023/08/how-to-isolate-i18n-configuration-in-a-rails-engine">How to isolate I18n configuration in a Rails Engine</a>
     </h1>
     <p class="post-meta text-muted">
@@ -1031,137 +1113,6 @@
 <p>Both games have their techniques. Playing English I got really good at fine ball handling and putting a sidespin on the ball (that’s the “English”) and having a narrow intent. With 9-ball, I learned to do a lot of what we call a “textbook”-shot (I dunno why we gave only this one shot that name; we were 17). The shot was to bounce the ball off of as many alternating rails as possible until the ball eventually walked itself into a pocket. Just slam it really.</p>
 
 <p>The point is, both of them were ok ways to play. They were just different. It’s fine.</p>
-
-  </div>
-</article>
-
-
-    <hr>
-  
-    
-
-<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">
-      <a class="post-link" href="/2023/02/prevent-cdn-poisoning-from-fat-get-head-requests-in-ruby-on-rails">Prevent CDN poisoning from Fat GET/HEAD Requests in Ruby on Rails</a>
-    </h1>
-    <p class="post-meta text-muted">
-      <time datetime="2023-02-12T20:32:00+00:00" itemprop="datePublished">February 12, 2023</time>
-      
-      
-
-
-  
-
-  
-
-  • Tagged <a href="/tags/#rails">rails</a>
-
-
-    </p>
-  </header>
-
-  <div class="post-content" itemprop="articleBody">
-    <p>There are many different flavors of <a href="https://portswigger.net/research/web-cache-entanglement">web cache poisoning discovered by Security Researcher James Kettle</a>. Read on for an explanation of one I’ve run across…</p>
-
-<p><strong>What is a Fat GET/HEAD Request?</strong> A GET or HEAD request is “fat” when it has a request body. It’s unexpected! Typically one sees a request body with a POST or PUT request because the body contains form data. The HTTP specification says that including a request body with GET or HEAD requests is <a href="https://stackoverflow.com/a/983458"><em>undefined</em></a>. You can do it, and it’s up to the application to figure out what that means. Sometimes it’s bad!</p>
-
-<p>You can get a sense of the applications that intentionally support Fat Requests (and how grumpy it makes some people) by reading through this <a href="https://github.com/postmanlabs/postman-app-support/issues/131">Postman issue</a>.</p>
-
-<p><strong>Fat Requests can lead to CDN and cache poisoning in Rails.</strong> CDNs and caching web proxies (like Varnish) are frequently configured to cache the response from a GET or HEAD request based solely on the request’s URL and not the contents of the request body (they don’t cache POSTs or PUTs at all). If an application isn’t deliberately handling the request body, it may cause unexpected content to be cached and served.</p>
-
-<p>For example, you have a <code class="language-plaintext highlighter-rouge">/search</code> endpoint:</p>
-
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">GET /search</code> shows a landing page with some explanatory content</li>
-  <li><code class="language-plaintext highlighter-rouge">GET /search?q=foo</code> shows the search results for “foo”.</li>
-  <li>
-    <p>Here’s what a Fat Request looks like:</p>
-
-    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET /search     &lt;== the url for the landing page
-
-q=verybadstuff  &lt;== oh, but with a request body
-</code></pre></div>    </div>
-  </li>
-</ul>
-
-<p>In a Rails Controller, <code class="language-plaintext highlighter-rouge">parameters</code> (alias <code class="language-plaintext highlighter-rouge">params</code>) merges query parameters (that’s the URL values) with request parameters (that’s the body values) into a single data structure. If your controller uses the presence of <code class="language-plaintext highlighter-rouge">params[:q]</code> to determine whether to show the landing page or the search results, it’s possible that when someone sends that Fat Request, your CDN may cache and subsequently serve the results for <code class="language-plaintext highlighter-rouge">verybadstuff</code> every time someone visits the <code class="language-plaintext highlighter-rouge">/search</code> landing page. That’s bad!</p>
-
-<p>Here’s how to Curl it:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-XGET</span> <span class="nt">-H</span> <span class="s2">"Content-Type: application/x-www-form-urlencoded"</span> <span class="nt">-d</span> <span class="s2">"q=verybadstuff"</span> http://localhost:3000/search
-</code></pre></div></div>
-
-<p>Here are 3 ways to fix it…</p>
-
-<h2 id="solution-1-fix-at-the-cdn">Solution #1: Fix at the CDN</h2>
-
-<p>The most straightforward place to fix this should be at the caching layer, but it’s not always easy.</p>
-
-<p>With Cloudflare, you could rewrite the GET request’s <code class="language-plaintext highlighter-rouge">Content-Type</code> header if it is <code class="language-plaintext highlighter-rouge">application/x-www-form-urlencoded</code> or <code class="language-plaintext highlighter-rouge">multipart/form-data</code>. Or use a Cloudflare Worker to drop the request body.</p>
-
-<p>Varnish makes it easy to drop the request body for any GET request.</p>
-
-<p>Other CDNs or proxies may be easier or more difficult. It depends!</p>
-
-<p>Update via <a href="https://github.com/Mr0grog">Mr0grog</a>: AWS Cloudfront returns a <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#RequestCustom-get-body">403 by default</a>.</p>
-
-<h2 id="solution-2-deliberately-use-query_parameters">Solution #2: Deliberately use <code class="language-plaintext highlighter-rouge">query_parameters</code></h2>
-
-<p>Rails provides three different methods for accessing parameters:</p>
-
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">query_parameters</code> for the values in the request URL</li>
-  <li><code class="language-plaintext highlighter-rouge">request_parameters</code> ) for the values in the request body</li>
-  <li><code class="language-plaintext highlighter-rouge">parameters</code> (alias <code class="language-plaintext highlighter-rouge">params</code>) for the problematic combination of them both. Values in <code class="language-plaintext highlighter-rouge">query_parameters</code> take precedence over values in <code class="language-plaintext highlighter-rouge">request_parameters</code> when they are merged together.</li>
-</ul>
-
-<p>Developers could be diligent and make sure to only use <code class="language-plaintext highlighter-rouge">query_parameters</code> in <code class="language-plaintext highlighter-rouge">#index</code> or <code class="language-plaintext highlighter-rouge">#show</code> , or <code class="language-plaintext highlighter-rouge">get</code> routed actions. Here’s an example from the <a href="https://github.com/git/git-scm.com/issues/1551"><code class="language-plaintext highlighter-rouge">git-scm</code> project</a>.</p>
-
-<h2 id="solution-3-patch-rails">Solution #3: Patch Rails</h2>
-
-<p>Changes were <a href="https://github.com/rails/rails/issues/39974">proposed in Rails</a> to not have <code class="language-plaintext highlighter-rouge">parameters</code> merge in the body values for GET and HEAD requests; it was rejected because it’s more a problem with the upstream cache than it is with Rails.</p>
-
-<p>You can patch your own version of Rails. Here’s an example that patches the method in <a href="https://github.com/rails/rails/blob/21a3b52ba0b7d94b4903e02b6ac537a7d1d1c817/actionpack/lib/action_dispatch/http/parameters.rb#L49-L63"><code class="language-plaintext highlighter-rouge">ActionDispatch::Request</code></a>:</p>
-
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># config/initializers/sanitize_fat_requests.rb</span>
-<span class="k">module</span> <span class="nn">SanitizeFatRequests</span>
-  <span class="k">def</span> <span class="nf">parameters</span>
-    <span class="n">params</span> <span class="o">=</span> <span class="n">get_header</span><span class="p">(</span><span class="s2">"action_dispatch.request.parameters"</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">params</span> <span class="k">if</span> <span class="n">params</span>
-
-    <span class="k">if</span> <span class="n">get?</span> <span class="o">||</span> <span class="n">head?</span>
-      <span class="n">params</span> <span class="o">=</span> <span class="n">query_parameters</span><span class="p">.</span><span class="nf">dup</span>
-      <span class="n">params</span><span class="p">.</span><span class="nf">merge!</span><span class="p">(</span><span class="n">path_parameters</span><span class="p">)</span>
-      <span class="n">set_header</span><span class="p">(</span><span class="s2">"action_dispatch.request.parameters"</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
-      <span class="n">params</span>
-    <span class="k">else</span>
-      <span class="k">super</span>
-    <span class="k">end</span>
-  <span class="k">end</span>
-  <span class="k">alias</span> <span class="ss">:params</span> <span class="ss">:parameters</span>
-<span class="k">end</span>
-
-<span class="no">ActionDispatch</span><span class="o">::</span><span class="no">Request</span><span class="p">.</span><span class="nf">include</span><span class="p">(</span><span class="no">SanitizeFatRequests</span><span class="p">)</span>
-
-<span class="c1"># Some RSpec tests to verify this</span>
-<span class="nb">require</span> <span class="s1">'rails_helper'</span>
-
-<span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="no">SanitizeFatRequests</span><span class="p">,</span> <span class="ss">type: :request</span> <span class="k">do</span>
-  <span class="n">it</span> <span class="s1">'does not merge body params in GET requests'</span> <span class="k">do</span>
-    <span class="n">get</span> <span class="s2">"/search"</span><span class="p">,</span> <span class="ss">headers: </span><span class="p">{</span><span class="s1">'CONTENT_TYPE'</span> <span class="o">=&gt;</span> <span class="s1">'application/x-www-form-urlencoded'</span><span class="p">},</span> <span class="ss">env: </span><span class="p">{</span><span class="s1">'rack.input'</span><span class="p">:</span> <span class="no">StringIO</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s1">'q=verybadstuff'</span><span class="p">)</span> <span class="p">}</span>
-
-    <span class="c1"># verify that the request is correctly shaped because</span>
-    <span class="c1"># the test helpers don't expect this kind of request</span>
-    <span class="n">expect</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="nf">request_parameters</span><span class="p">).</span><span class="nf">to</span> <span class="n">eq</span><span class="p">(</span><span class="s2">"q"</span> <span class="o">=&gt;</span> <span class="s2">"verybadstuff"</span><span class="p">)</span>
-    <span class="n">expect</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="nf">parameters</span><span class="p">).</span><span class="nf">to</span> <span class="n">eq</span><span class="p">({</span><span class="s2">"action"</span><span class="o">=&gt;</span><span class="s2">"panlexicon"</span><span class="p">,</span> <span class="s2">"controller"</span><span class="o">=&gt;</span><span class="s2">"search"</span><span class="p">})</span>
-
-    <span class="c1"># the behavioral expectation</span>
-    <span class="n">expect</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="nf">body</span><span class="p">).</span><span class="nf">not_to</span> <span class="kp">include</span> <span class="s2">"verybadstuff"</span>
-  <span class="k">end</span>
-<span class="k">end</span>
-</code></pre></div></div>
-
 
   </div>
 </article>
