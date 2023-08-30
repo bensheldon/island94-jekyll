@@ -5,6 +5,8 @@ published: true
 tags: []
 ---
 
+_**Update:** Rails v7.2 will introduce a new configuration method [`config.autoload_lib`](https://github.com/rails/rails/pull/48572) to make it safer and easier to autoload the `/lib` directory and explicitly exclude directories from autoloading. When released, this advice may no longer be relevant, though I imagine it will still be possible for developers to twist themselves into knots and cause outages with autoloading overrides._  
+
 One of the most common problems I encounter consulting on Rails projects is that developers have previously added `lib/` to autoload paths and then twisted themselves into knots creating error-prone, project-specific conventions for subsequently un-autoloading a subset of files also in `lib/`. 
 
 *Don't do it. Don't add your Rails project's `lib/` to autoload paths.*
