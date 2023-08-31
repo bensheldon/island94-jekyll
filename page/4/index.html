@@ -107,6 +107,152 @@
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
     <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2022/07/what-the-fuck-are-you-talking-about-the-story-of-nodetiles">"What the fuck are you talking about?": The story of NodeTiles</a>
+    </h1>
+    <p class="post-meta text-muted">
+      <time datetime="2022-07-14T05:31:00+00:00" itemprop="datePublished">July 14, 2022</time>
+      
+      
+
+
+  
+
+  
+
+  • Tagged <a href="/tags/#maps">maps</a>
+
+
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p><img src="/uploads/2022-07/nodetiles.png" alt="NodeTiles' trippy demo image that says &quot;NODTILES&quot; written across a map ofthe globe" /></p>
+
+<p><em>I recently lost access to my 10-year old Code for America email address when I changed jobs. I tried to preserve some of the good stuff and this is one story.</em></p>
+
+<p>During my time as a Code for America Fellow in 2012, I created a Javascript-based slippy map tile renderer called <a href="https://github.com/nodetiles/nodetiles-core">NodeTiles</a> (kinda sorta like Mapnik). Several colleagues helped vastly expand it, we presented at NACIS, and I know of at least one successful company that is still powered by forked version of it today.</p>
+
+<p><strong>Jessica</strong></p>
+
+<p>During our Fellowship, Jessica Lord gave a tech talk on building custom map tiles and first introduced me to TileMill. I couldn’t find a record in my email of when that happened, but know she planted this seed 🌱</p>
+
+<p><strong>Tom</strong></p>
+
+<p>On April 25, 2012, I sent this email to Tom Carden:</p>
+
+<blockquote>
+  <p>This week I came across a gist of yours and eventually made my way to nodemap while researching how to generate server-side map tiles. Thank you so much for putting those pieces together; they’re fantastic! I matched your code with node-canvas-heroku to get it running in the cloud and it’s pretty fantastic:</p>
+
+  <p><a href="http://morning-spring-2292.herokuapp.com/">http://morning-spring-2292.herokuapp.com/</a></p>
+
+  <p>Anyways, just wanted to send you a big thanks for the code and inspiration. I’m working on building a node-based utfgrid renderer to bootstrap an entire wax interaction layer… all without Mapnik (though maybe I should just work on packaging that for Heroku).</p>
+
+  <p>Cheers,
+Ben</p>
+</blockquote>
+
+<p>Tom gave some helpful advice and caveat emptor about JS performance and data caching. He continued to follow up with node-canvas and cairo suggestions for getting stuff running on Heroku. Tom ended up being a Code for America mentor for a different project and he was the source of us using the Toner map style in demos and also a nice leaflet clustering plugin.</p>
+
+<p><strong>Rob</strong></p>
+
+<p>Rob Brackett was the first person I explained what I was doing to create a tile render in Javascript. His reaction to my explanation was “What the fuck are you talking about?” Rob is one of my best friends, and I don’t remember how I explained what would become Nodeiles initially, but I’m sure it took 20 minutes and was a non-linear train of thought.</p>
+
+<p>On May 2, 2012, I sent this email to “Fuzz”, Code for America’s random-nerdsnipe list:</p>
+
+<blockquote>
+
+  <p>Last week Rob and I built a heroku-compatible map-tile renderer (and UTFGrid generator) that can quickly (and with low bandwidth/client-processing) serve interactive maps and markers comprising tens of thousands of points and polygons—and unlike TileMill, the final map can be connected to a live database and updated on-the-fly. It’s kind’ve badass.</p>
+
+  <p>Here are 2 examples:</p>
+
+  <ol>
+    <li>
+      <p>Static map of San Francisco streets and Parks: 
+ <a href="http://morning-spring-2292.herokuapp.com/">http://morning-spring-2292.herokuapp.com/</a></p>
+    </li>
+    <li>
+      <p>Map of all ~1.5k Occupy sites worldwide (I did this in about 15min, so it’s a little clunky):
+ <a href="http://occupy-map.herokuapp.com/">http://occupy-map.herokuapp.com/</a></p>
+    </li>
+  </ol>
+
+  <p>In terms of why it’s badass (from less to more geeky):</p>
+
+  <ol>
+    <li>It’s fast. Nothing is rendered in the browser, instead all of the tiles are rendered and streamed to the browser as PNGs.</li>
+    <li>It’s small. No shapefiles are sent to the browser. Each Map (the entire initial pageload) is less than 500kb.</li>
+    <li>It can do dynamic data. TileMill makes beautiful maps, but once you export them to MapBox (or your own mbtile server), you can’t change them. This can be hooked up to a live database (right now it parses geojson).</li>
+    <li>It runs on Heroku. It uses node-canvas (not Mapnik) so it is fast, lightweight and has few dependencies.</li>
+    <li>It renders UTFGrids, which can provide mouse-hovers and other straightforward UI stuff that most maps don’t (way less clicky)</li>
+    <li>It’s not a tileserver, it’s a tile <em>renderer</em>. Seriously, all those maptiles are being generated on on-the-fly (we should probably cache them, but hey, this is bleeding edge)</li>
+    <li>It’s nodejs and all the code is on Github:  <a href="https://github.com/bensheldon/nodetiles">https://github.com/bensheldon/nodetiles</a>  </li>
+  </ol>
+
+  <p>I’m still working on it, so if you have a big dataset that you’ve had trouble mapping before, let me know since I’m looking for more/better use cases.</p>
+
+</blockquote>
+
+<p><strong>Prashant</strong></p>
+
+<p>Prashant Singh, another Code for America fellow, was excited about the project and gave me lots of feedback. Prashant was using my project to generate large static maps from the commandline, and he gave some feedback on his experience doing similar work with Mapnik. Prashant and two other Fellows, Alicia Rouault and Matt Hampel, would subsequently build a business on top of it.</p>
+
+<p>On June 5, 2012 I sent this email to Eric Gundersen at Mapbox:</p>
+
+<blockquote>
+
+  <p>I haven’t done a big writeup yet. I’m hoping to submit to NACIS for their October conference, but I’m still trying to clean up the code, modularize it, and write tests and documentation.</p>
+
+  <p>General backstory: I had been playing around a lot with TileMill and Mapnik and trying to programmatically generate map tiles; at CfA we have a lot of big, dynamic data and I was trying to set up an automated tile renderer. Then I came across a Tom Carden project where he was use Node-Canvas to render tiles… and then I discovered a node-canvas module that would run on Heroku… and by that point I was in love with the idea of a low-dependency (compared to mapnik) on-the-fly tile rendering implementation.</p>
+
+  <p>From there, I wanted to see how close I could get to a full-blown TileJSON implementation. I had my coworker Rob Brackett write me a Javascript UTFGrid implementation and I hooked that up to the tile rasterizer. And bam. It’s clunky as hell, and sort’ve slow (it’s rendering an entire shapefile then cropping it down for every tile rather than spatially indexing the features), but I think it has potential. </p>
+
+  <p>I think the next step (in addition to cleanup and documentation) is loading up some OSM metro data and actually seeing how the performance compares to Mapnik. Also, while I can’t foresee implementing something like Cascadenik, node-canvas gives you direct access to the graphics renderer and it might be useful for creating boutique maps with graphical flourishes that Mapnik hasn’t implemented… and of course for creating layers with dynamic data.</p>
+
+  <p>Let me know if you have any specific questions or ideas you’d like me to try to implement or use as demos. Thanks for the interest!</p>
+
+</blockquote>
+
+<p><strong>Alex</strong></p>
+
+<p>Alex Yule, another Code for America Fellow, and an actual experienced cartographer, was also interested. Alex would build a proper database adapter layer and the actual spatial indexing functionality that all of my previous emails yolo. Alex joined Rob and my presentation proposal at NACIS. This was our abstract:</p>
+
+<blockquote>
+  <p><strong>NodeTiles: Joyful Map Tile Rendering with Node.js</strong></p>
+
+  <p>Mapnik has become the de facto open-source standard for rendering map tiles. While Mapnik is extremely powerful, it can be difficult to set up and deploy. We present NodeTiles, a lightweight, JavaScript-based, open-source map tile renderer that is easy to deploy, use, and extend. Built to support applications with dynamic data, NodeTiles offers an accessible and cloud-friendly alternative to Mapnik. While still in early-stage development, features on the road-map include styling with the CSS-based Carto language for compatibility with MapBox TileMill, UTFGrid generation for client-side interactivity, and data adaptors for PostGIS and Shapefiles.</p>
+</blockquote>
+
+<p><strong>NACIS</strong></p>
+
+<p>The NACIS (North American Cartographic Information Society) conference was October 17-19, 2012 in Portland, Oregon. Alex and Rob and I had gotten an AirBnB and I mostly remember us doing a lot of last-minute implementing. Alex built a really nice Postgres Adapter plugin and Rob was reimplementing Cascadenik (“CSS for Maps”) somewhere between Javascript and Cairo; there was a deep-dive into blitting. We presented at a breakout called “Slippy Maps”.</p>
+
+<p>Afterwards, I remember riding BART back from the airport when we arrived home in San Francisco. I was talking with a maybe-a-big-deal person from the map-tech community, and they asked me something pointed like “But how much did <strong>you</strong> <em>really</em> contribute to NodeTiles?” I said something like “It was a team effort” and then it got really quiet. In hindsight that was probably a job interview. And also fuck that, it <em>was</em> a team effort.</p>
+
+<p><strong>That’s it</strong></p>
+
+<p>During Fall of 2012 Code for America Fellowship was ending and interviewing as an inexperienced engineer is freaking hard (and also incredibly dumb, but those are different stories). So I mostly put down NodeTiles. And also:</p>
+
+<ul>
+  <li>Going from something that’s a tech demo to something understandable (“What the fuck are you talking about”) and usable by outsiders is hard.</li>
+  <li>The sheer difficulty of spatial work. That dumb NodeTiles logo took me hours just to get the tooling together to just like, draw straight lines on a globe to say “NODETILES”.</li>
+  <li>Maps are a commodity, and also if you need to dynamically map a billion+ polyons (I’ve been informed that today there is Postgres MVT) <em>and</em> you need a pipeline for auth and anti-scrape and billing and raster and…. well, god bless you.</li>
+  <li>I leaned into some questionable architectural decisions to make NodeTiles more Javascripty, splitting up the front and backends, and modularizing all the different pieces into their own packages. In hindsight that was a lot of valueless work that only introduced friction into building the tool and delivering the value. That’s on me; never forget.</li>
+  <li>Given that this is an email-based retrospective, I will admit I found some emails from kinda big deals like Stamen that I didn’t respond to. I dunno why I didn’t respond; probably burnout. If that was you, it wasn’t personal, and I’m happy with the path I’ve taken, and I hope you are too 🤗</li>
+</ul>
+
+<p>NodeTiles is <a href="https://github.com/nodetiles">still up on GitHub</a>. If you can get node-canvas linking to cairo (memories of this seems like a fever dream), NodeTiles is really cool. Maybe you’ll do something neat with Nodetiles ❤️</p>
+
+  </div>
+</article>
+
+
+    <hr>
+  
+    
+
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
       <a class="post-link" href="/2022/07/were-all-just-people-here-even-platforms">We're all just people here, even platforms</a>
     </h1>
     <p class="post-meta text-muted">
@@ -576,70 +722,6 @@
   <p><strong>Many U.S. military advisers come to view interpersonal rapport with partners</strong>—once a tool presumed to increase influence and shape partner behavior—<strong>as the very goal of advising</strong>. When persuasion fails, advisers are instructed to avoid any steps that might jeopardize the relationship.</p>
 
   <p>…The military is aiming to minimize bureaucratic headache and implement the standard operating procedures it can sustain, even if those procedures are untethered from its own theory of victory.</p>
-
-</blockquote>
-
-  </div>
-</article>
-
-
-    <hr>
-  
-    
-
-<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">
-      <a class="post-link" href="/2022/03/software-models">Software models</a>
-    </h1>
-    <p class="post-meta text-muted">
-      <time datetime="2022-03-01T01:32:00+00:00" itemprop="datePublished">March 1, 2022</time>
-      
-      
-
-
-
-    </p>
-  </header>
-
-  <div class="post-content" itemprop="articleBody">
-    <p><img src="/uploads/2022-02/strict-technical-debt.jpg" alt="Stickynote drawing of a chart in which understanding of the business domain grows, and understanding of the modeling in code sinuisoidally approaches and departs from it." /></p>
-
-<p>Software design has been in my thoughts lately. Particularly <em>agile</em> software design, in which the game is to re-design working software in response to changing business requirements in response to learnings from working software.</p>
-
-<p>1. I was recently talking to a colleague about what I call “Strict” Technical Debt, which is how Ward Cunningham originally defined it (not YAGNI or Skimping <a href="https://ronjeffries.com/articles/019-01ff/iter-yagni-skimp/">according to Ron Jeffries</a>). <a href="https://daverupert.com/2020/11/technical-debt-as-a-lack-of-understanding/">Dave Rupert pulls out</a> the following quote from Ward Cunningham, as “Technical Debt as a lack of understanding”:</p>
-
-<blockquote>
-  <p>“If you develop a program for a long period of time by only adding features but never reorganizing it to reflect your understanding of those features, then eventually that program simply does not contain any understanding and all efforts to work on it take longer and longer.”</p>
-</blockquote>
-
-<p>2. This sentence from SICPER’s <a href="https://www.sicpers.info/2022/02/aphorism-considered-harmful/">“Aphorism Considered Harmful”</a> about the phrase “Make it work, make it right, make it fast”:</p>
-
-<blockquote>
-
-  <p>So actually it looks like I had the wrong idea all this time: you don’t somehow make working software then correct software then fast software, you make working software and some inputs into that are the abstractions in the interfaces you design and the performance they permit in use.</p>
-
-</blockquote>
-
-<p>Or as I interpret it: make it functional, then make the software design be an appropriate representation and model of the business/problem domain, and then make it appropriate/ergonomic for future developers to use or maintain.</p>
-
-<p>3. I left this comment on Jason Swett’s <a href="https://www.codewithjason.com/duplication-cheaper-wrong-abstraction/">“Why I don’t buy “duplication is cheaper than the wrong abstraction”</a>:</p>
-
-<blockquote>
-
-  <p>…The statement I use is “code duplication is better than the wrong business abstraction”.</p>
-
-  <p>A lot of these statements/concepts come out of Agile, Object-Oriented Programming, and Extreme Programming recognize that there are two things evolving unevenly: the understanding of the business domain, and then laggingly, the development of the code that models the understanding of the business domain.</p>
-
-  <p>A better expansion here as I understand the concept would be “duplication of code is acceptable if the proposed extraction/abstraction does not meaningfully model the current understanding of the business domain”.</p>
-
-  <p>The power of the statement, as I use it (and as I see these things go from Agile/OOPS/XP) is to push someone to get closer to the business domain (and the user) in their thinking/proposals/justifications and as a counterweight to DRY. The problem with these things is when they get imposed as a criticism, rather than the starting place of a conversation.</p>
-
-  <p>I think you give solid advice:</p>
-
-  <blockquote>
-    <p>Don’t try to make one thing act like two things. Instead, separate it into two things. If you feel reluctant to modify someone else’s code, ask why that is.</p>
-  </blockquote>
 
 </blockquote>
 
