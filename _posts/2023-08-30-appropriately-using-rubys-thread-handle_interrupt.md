@@ -7,7 +7,7 @@ tags: []
 
 Working on [GoodJob](https://github.com/bensheldon/good_job), I spend a lot of time thinking about multithreaded behavior in Ruby. One piece of Ruby functionality that I don’t see written about very often is `Thread.handle_interrupt`. _Big thanks to John Bachir and Matthew Draper for talking through its usage with me._
 
-**Some background about interrupts:** In Ruby, exceptions can be raised anywhere and at anytime in a thread by other threads (including the main thread, that’s how `timeout` works). Even `rescue` and  `ensure` blocks can be interrupted. Everywhere. Most of the time this isn’t something you need to think about (unless you’re [using Timeout](https://github.com/ankane/the-ultimate-guide-to-ruby-timeouts) or `rack-timeout` or doing explicit multithreaded code). But if you are, it’s important to understand and think defensively. 
+**Some background about interrupts:** In Ruby, exceptions can be raised anywhere and at anytime in a thread by other threads (including the main thread, that’s how `timeout` works). Even `rescue` and  `ensure` blocks can be interrupted. Everywhere. Most of the time this isn’t something you need to think about (unless you’re [using Timeout](https://github.com/ankane/the-ultimate-guide-to-ruby-timeouts) or `rack-timeout` or doing explicit multithreaded code). But if you are, it’s important to think and code defensively. 
 
 Starting with an example:
 
