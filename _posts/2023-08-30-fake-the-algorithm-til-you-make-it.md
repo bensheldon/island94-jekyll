@@ -31,7 +31,7 @@ This is all really easy to do with just a relational database _in the database_,
 For a given user, find all of the t-shirts they have favorited, then find all of the users that have also favorited those t-shirts and strength them based on who has favorited the most t-shirts in common with the initial user, and then find all of the t-shirts those users have favorited, multiply through the counts and strengths, sum and order them. There's your recommended t-shirts:
 
 ```ruby
-class Shirts
+class Shirts < ApplicationRecord
   # ...
   scope :order_by_recommended, lambda { |user|
     joins(<<~SQL.squish).order('strength DESC NULLS LAST')
