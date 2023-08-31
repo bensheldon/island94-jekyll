@@ -124,7 +124,7 @@
 
 <p>For a given user, find all of the t-shirts they have favorited, then find all of the users that have also favorited those t-shirts and strength them based on who has favorited the most t-shirts in common with the initial user, and then find all of the t-shirts those users have favorited, multiply through the counts and strengths, sum and order them. There’s your recommended t-shirts:</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Shirts</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Shirts</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
   <span class="c1"># ...</span>
   <span class="n">scope</span> <span class="ss">:order_by_recommended</span><span class="p">,</span> <span class="nb">lambda</span> <span class="p">{</span> <span class="o">|</span><span class="n">user</span><span class="o">|</span>
     <span class="n">joins</span><span class="p">(</span><span class="o">&lt;&lt;~</span><span class="no">SQL</span><span class="p">.</span><span class="nf">squish</span><span class="p">).</span><span class="nf">order</span><span class="p">(</span><span class="s1">'strength DESC NULLS LAST'</span><span class="p">)</span><span class="sh">
