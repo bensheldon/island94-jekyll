@@ -81,7 +81,7 @@ There’s a “seam” right there between the `ensure` and the `Thread.handle_i
 ```ruby
 thread = Thread.new do 
   Thread.handle_interrupt(Exception: :never) do
-	Thread.handle_interrupt(Exception: :immediately) do
+    Thread.handle_interrupt(Exception: :immediately) do
       open_work
       do_work
     end
