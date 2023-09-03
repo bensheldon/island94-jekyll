@@ -93,11 +93,11 @@ end
 
 That’s right: have the `ensure` block nested within the outer `Thread.handle_interrupt(Exception: :never)` so that interrupts cannot happen in the `ensure`, and then use a second `Thread.handle_interrupt(Exception: :immediately)` to allow the interrupts to take place in the code _before_ the `ensure` block.
 
-There’s another pattern you might also be able to use with `:no_blocking`:
+There’s another pattern you might also be able to use with `:on_blocking`:
 
 ```ruby
 thread = Thread.new do 
-  Thread.handle_interrupt(Exception: :no_blocking) do
+  Thread.handle_interrupt(Exception: :on_blocking) do
     open_work
     do_work
   ensure
@@ -108,13 +108,13 @@ thread = Thread.new do
 end
 ```
 
-Doesn’t that have the problematic seam? Nope, because when under `:no_blocking` there isn’t an operation taking place right there would release the GVL (e.g. no IO). 
+Doesn’t that have the problematic seam? Nope, because when under `:on_blocking` there isn’t an operation taking place right there would release the GVL (e.g. no IO). 
 
-But it does get tricky if, for example, the `do_work` is some Ruby calculation that is unbounded (I dunno, maybe a problematic regex or someone accidentally decided to calculate prime numbers or something). Then the Ruby code will not be interrupted at all and your thread will hang. That’s bad too. So you you’d then need to do something like this:
+But it does get tricky if, for example, the `do_work` is some Ruby calculation that is unbounded (I dunno, maybe a problematic regex or someone accidentally decided to calculate prime numbers or something). Then the Ruby code will not be interrupted at all and your thread will hang. That’s bad too. So you’d then need to do something like this:
 
 ```ruby
 thread = Thread.new do 
-  Thread.handle_interrupt(Exception: :no_blocking) do
+  Thread.handle_interrupt(Exception: :on_blocking) do
     open_work
     Thread.handle_interrupt(Exception: :immediately) do
       do_work
