@@ -179,10 +179,10 @@
 
 <p>That’s right: have the <code class="language-plaintext highlighter-rouge">ensure</code> block nested within the outer <code class="language-plaintext highlighter-rouge">Thread.handle_interrupt(Exception: :never)</code> so that interrupts cannot happen in the <code class="language-plaintext highlighter-rouge">ensure</code>, and then use a second <code class="language-plaintext highlighter-rouge">Thread.handle_interrupt(Exception: :immediately)</code> to allow the interrupts to take place in the code <em>before</em> the <code class="language-plaintext highlighter-rouge">ensure</code> block.</p>
 
-<p>There’s another pattern you might also be able to use with <code class="language-plaintext highlighter-rouge">:no_blocking</code>:</p>
+<p>There’s another pattern you might also be able to use with <code class="language-plaintext highlighter-rouge">:on_blocking</code>:</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">thread</span> <span class="o">=</span> <span class="no">Thread</span><span class="p">.</span><span class="nf">new</span> <span class="k">do</span> 
-  <span class="no">Thread</span><span class="p">.</span><span class="nf">handle_interrupt</span><span class="p">(</span><span class="no">Exception</span><span class="p">:</span> <span class="ss">:no_blocking</span><span class="p">)</span> <span class="k">do</span>
+  <span class="no">Thread</span><span class="p">.</span><span class="nf">handle_interrupt</span><span class="p">(</span><span class="no">Exception</span><span class="p">:</span> <span class="ss">:on_blocking</span><span class="p">)</span> <span class="k">do</span>
     <span class="n">open_work</span>
     <span class="n">do_work</span>
   <span class="k">ensure</span>
@@ -193,12 +193,12 @@
 <span class="k">end</span>
 </code></pre></div></div>
 
-<p>Doesn’t that have the problematic seam? Nope, because when under <code class="language-plaintext highlighter-rouge">:no_blocking</code> there isn’t an operation taking place right there would release the GVL (e.g. no IO).</p>
+<p>Doesn’t that have the problematic seam? Nope, because when under <code class="language-plaintext highlighter-rouge">:on_blocking</code> there isn’t an operation taking place right there would release the GVL (e.g. no IO).</p>
 
-<p>But it does get tricky if, for example, the <code class="language-plaintext highlighter-rouge">do_work</code> is some Ruby calculation that is unbounded (I dunno, maybe a problematic regex or someone accidentally decided to calculate prime numbers or something). Then the Ruby code will not be interrupted at all and your thread will hang. That’s bad too. So you you’d then need to do something like this:</p>
+<p>But it does get tricky if, for example, the <code class="language-plaintext highlighter-rouge">do_work</code> is some Ruby calculation that is unbounded (I dunno, maybe a problematic regex or someone accidentally decided to calculate prime numbers or something). Then the Ruby code will not be interrupted at all and your thread will hang. That’s bad too. So you’d then need to do something like this:</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">thread</span> <span class="o">=</span> <span class="no">Thread</span><span class="p">.</span><span class="nf">new</span> <span class="k">do</span> 
-  <span class="no">Thread</span><span class="p">.</span><span class="nf">handle_interrupt</span><span class="p">(</span><span class="no">Exception</span><span class="p">:</span> <span class="ss">:no_blocking</span><span class="p">)</span> <span class="k">do</span>
+  <span class="no">Thread</span><span class="p">.</span><span class="nf">handle_interrupt</span><span class="p">(</span><span class="no">Exception</span><span class="p">:</span> <span class="ss">:on_blocking</span><span class="p">)</span> <span class="k">do</span>
     <span class="n">open_work</span>
     <span class="no">Thread</span><span class="p">.</span><span class="nf">handle_interrupt</span><span class="p">(</span><span class="no">Exception</span><span class="p">:</span> <span class="ss">:immediately</span><span class="p">)</span> <span class="k">do</span>
       <span class="n">do_work</span>

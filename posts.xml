@@ -6,8 +6,8 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 31 Aug 2023 22:25:47 +0000</pubDate>
-    <lastBuildDate>Thu, 31 Aug 2023 22:25:47 +0000</lastBuildDate>
+    <pubDate>Sun, 03 Sep 2023 13:50:47 +0000</pubDate>
+    <lastBuildDate>Sun, 03 Sep 2023 13:50:47 +0000</lastBuildDate>
     <generator>Jekyll v4.3.2</generator>
     
     
@@ -100,10 +100,10 @@
 
 &lt;p&gt;That’s right: have the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ensure&lt;/code&gt; block nested within the outer &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Thread.handle_interrupt(Exception: :never)&lt;/code&gt; so that interrupts cannot happen in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ensure&lt;/code&gt;, and then use a second &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Thread.handle_interrupt(Exception: :immediately)&lt;/code&gt; to allow the interrupts to take place in the code &lt;em&gt;before&lt;/em&gt; the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ensure&lt;/code&gt; block.&lt;/p&gt;
 
-&lt;p&gt;There’s another pattern you might also be able to use with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;:no_blocking&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;There’s another pattern you might also be able to use with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;:on_blocking&lt;/code&gt;:&lt;/p&gt;
 
 &lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;thread&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Thread&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; 
-  &lt;span class=&quot;no&quot;&gt;Thread&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;handle_interrupt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Exception&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:no_blocking&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+  &lt;span class=&quot;no&quot;&gt;Thread&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;handle_interrupt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Exception&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:on_blocking&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;open_work&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;do_work&lt;/span&gt;
   &lt;span class=&quot;k&quot;&gt;ensure&lt;/span&gt;
@@ -114,12 +114,12 @@
 &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Doesn’t that have the problematic seam? Nope, because when under &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;:no_blocking&lt;/code&gt; there isn’t an operation taking place right there would release the GVL (e.g. no IO).&lt;/p&gt;
+&lt;p&gt;Doesn’t that have the problematic seam? Nope, because when under &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;:on_blocking&lt;/code&gt; there isn’t an operation taking place right there would release the GVL (e.g. no IO).&lt;/p&gt;
 
-&lt;p&gt;But it does get tricky if, for example, the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;do_work&lt;/code&gt; is some Ruby calculation that is unbounded (I dunno, maybe a problematic regex or someone accidentally decided to calculate prime numbers or something). Then the Ruby code will not be interrupted at all and your thread will hang. That’s bad too. So you you’d then need to do something like this:&lt;/p&gt;
+&lt;p&gt;But it does get tricky if, for example, the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;do_work&lt;/code&gt; is some Ruby calculation that is unbounded (I dunno, maybe a problematic regex or someone accidentally decided to calculate prime numbers or something). Then the Ruby code will not be interrupted at all and your thread will hang. That’s bad too. So you’d then need to do something like this:&lt;/p&gt;
 
 &lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;thread&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Thread&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; 
-  &lt;span class=&quot;no&quot;&gt;Thread&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;handle_interrupt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Exception&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:no_blocking&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+  &lt;span class=&quot;no&quot;&gt;Thread&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;handle_interrupt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Exception&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:on_blocking&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;open_work&lt;/span&gt;
     &lt;span class=&quot;no&quot;&gt;Thread&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;handle_interrupt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Exception&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:immediately&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
       &lt;span class=&quot;n&quot;&gt;do_work&lt;/span&gt;
