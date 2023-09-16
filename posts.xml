@@ -6,8 +6,8 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 03 Sep 2023 13:50:47 +0000</pubDate>
-    <lastBuildDate>Sun, 03 Sep 2023 13:50:47 +0000</lastBuildDate>
+    <pubDate>Sat, 16 Sep 2023 18:23:17 +0000</pubDate>
+    <lastBuildDate>Sat, 16 Sep 2023 18:23:17 +0000</lastBuildDate>
     <generator>Jekyll v4.3.2</generator>
     
     
@@ -776,7 +776,7 @@
 
 <item>
   <title>Whatever you do, don&apos;t autoload Rails `lib/`</title>
-  <description>&lt;p&gt;&lt;em&gt;&lt;strong&gt;Update:&lt;/strong&gt; Rails v7.2 will introduce a new configuration method &lt;a href=&quot;https://github.com/rails/rails/pull/48572&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;config.autoload_lib&lt;/code&gt;&lt;/a&gt; to make it safer and easier to autoload the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/lib&lt;/code&gt; directory and explicitly exclude directories from autoloading. When released, this advice may no longer be relevant, though I imagine it will still be possible for developers to twist themselves into knots and cause outages with autoloading overrides.&lt;/em&gt;&lt;/p&gt;
+  <description>&lt;p&gt;&lt;em&gt;&lt;strong&gt;Update:&lt;/strong&gt; Rails v7.1 will introduce a new configuration method &lt;a href=&quot;https://github.com/rails/rails/pull/48572&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;config.autoload_lib&lt;/code&gt;&lt;/a&gt; to make it safer and easier to autoload the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/lib&lt;/code&gt; directory and explicitly exclude directories from autoloading. When released, this advice may no longer be relevant, though I imagine it will still be possible for developers to twist themselves into knots and cause outages with autoloading overrides.&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;One of the most common problems I encounter consulting on Rails projects is that developers have previously added &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lib/&lt;/code&gt; to autoload paths and then twisted themselves into knots creating error-prone, project-specific conventions for subsequently un-autoloading a subset of files also in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lib/&lt;/code&gt;.&lt;/p&gt;
 
