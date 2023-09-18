@@ -6,10 +6,67 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 16 Sep 2023 18:23:17 +0000</pubDate>
-    <lastBuildDate>Sat, 16 Sep 2023 18:23:17 +0000</lastBuildDate>
+    <pubDate>Mon, 18 Sep 2023 02:45:41 +0000</pubDate>
+    <lastBuildDate>Mon, 18 Sep 2023 02:45:41 +0000</lastBuildDate>
     <generator>Jekyll v4.3.2</generator>
     
+    
+      
+
+
+
+
+<item>
+  <title>In defense of consensus</title>
+  <description>&lt;p&gt;There’s a style of reactionary meme that takes a photo of like, empty store-shelves or a trash-strewn street, and applies the image macro “This is what Communism looks like”. But upon closer inspection (and social media lampooning), it’s a photo of America, capitalist America, very much not under communism. We’ll come back to this.&lt;/p&gt;
+
+&lt;p&gt;Let’s talk about “consensus”. Not a week goes by in my Bay Area tech worklife where I don’t read or hear someone dragging consensus. Consensus is pilloried: weak, indecisive, lowest-common denominator, unclear, drawn out… consensus is bad, they say.&lt;/p&gt;
+
+&lt;p&gt;Working in tech for a decade, I have to admit this struck me as strange the first time I heard a coworker complain about that bogeyman “consensus”. I’ve been a facilitator of consensus-based practice for &lt;a href=&quot;https://island94.org/2010/04/I-am-now-a-Technology-of-Participation-facilitator-.html&quot;&gt;13 years&lt;/a&gt;. These practices, taught to me through the &lt;a href=&quot;https://www.ica-usa.org&quot;&gt;Institute for Cultural Affair’s ToP (“Technology of Participation”)&lt;/a&gt; series, served me well when I was doing nonprofit and community work, serving on boards and facilitating offsites. And consensus-based practices have served me well in tech and business too: using its methods to do discovery, lead meetings, get feedback, and drive decision-making and action. I do strategic planning consultation too.&lt;/p&gt;
+
+&lt;p&gt;The consensus-based practices I’ve learned take a group through a process: beginning with a prompt or need, then collecting facts and inputs, understanding people’s reactions to them, their interpretations and implications, and ultimately describing a series of actions and commitments to take. This can be a simple conversation, or a multi-day event that builds fractally on itself: a preceding session’s final actions could be deciding on what will be the following session’s initial inputs. When I’m working with leaders to design the process, we’ll discuss what responsibilities we want to delegate to the group, and what decisions will be retained among leadership. Leadership remains &lt;em&gt;accountable&lt;/em&gt;, in the sense that there is a legible decision-making process, which is a strong benefit of deliberative practice. That’s “consensus”.&lt;/p&gt;
+
+&lt;p&gt;Alternatively, the Bay Area tech process, not “consensus”, oh no, seems to follow these recipes:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Plan and socialize&lt;/li&gt;
+  &lt;li&gt;Disagree and commit&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I was introduced to “plan and socialize” in my second tech job, being mentored by the Director of Engineering. To “socialize” is more than informing people, it’s having conversations and helping them understand how a plan or proposal will affect their work, and getting feedback that might lead to adjustments or compensatory actions. It’s also somewhat vague: asking people to leave comments in a google doc, attend an office hours, or a loosely moderated feedback session. Decisions, once made, are also socialized: explained, defended, adjusted, or white-knuckled through.&lt;/p&gt;
+
+&lt;p&gt;Depending on their power level, leaders may then ask people to “disagree and commit” meaning that the (negative) feedback has been heard but those underlings must commit to carrying the plan out regardless. Suck it up, professionally, so to speak. Sometimes this is used as performance feedback: “I’m aware you’ve been sharing your dislike of the plan with coworkers. That lack of trust is undermining the business. I need you to disagree and commit”… and keep your thoughts to yourself.&lt;/p&gt;
+
+&lt;p&gt;Under the spotlight, these approaches look less like bold and steely decision-making, and more like mumbly plan shifting backed by blusterful threats. Like the “this is what communism looks like”-meme, the scary-othered threat is not “consensus” but simply the current reality: confused, inadequate, probationary, triangulating, embarrassing, shameful.&lt;/p&gt;
+
+&lt;p&gt;There’s a joke in civic tech: government tech projects may say they can’t do incremental development, but that’s exactly what happens after their big-bang waterfall launch crashes-and-burns and they end up having to fix it one piece at a time. Clay Shirky captures it in &lt;a href=&quot;https://www.politico.com/magazine/story/2013/11/the-willful-ignorance-that-doomed-healthcaregov-100290/&quot;&gt;“How Willful Ignorance Doomed HealthCare.gov”&lt;/a&gt;:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;It is hard for policy people to imagine that HealthCare.gov could have had a phased rollout, &lt;em&gt;even while it is having one&lt;/em&gt;. At launch, on Oct. 1, only a tiny fraction of potential users could actually try the service. They generated errors. Those errors were handed to a team whose job was to improve the site, already public but only partially working. The resulting improvements are incremental and put in place over a period of months. That &lt;em&gt;is&lt;/em&gt; a phased rollout, just one conducted in the worst possible way.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Bay Area tech has the same relationship to decisions and consensus: they’re trying to craft a deliberative process for information sharing, feedback gathering. and alignment building…y’know, that “consensus” they won’t do. They’re simply doing it &lt;em&gt;after&lt;/em&gt; they’ve already “decided” on an insufficient course of action and are grasping for a fix. That’s not a problem with consensus. Consensus &lt;em&gt;is&lt;/em&gt; the fix!&lt;/p&gt;
+
+&lt;p&gt;Please think of this the next time you hear (or say) something bad about consensus. Consensus is pretty great, and even better when used from the start.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;The Institute for Cultural Affairs has &lt;a href=&quot;https://www.top-training.net/w/schedule/&quot;&gt;lots of trainings&lt;/a&gt;  on consensus-based facilitation. The &lt;a href=&quot;https://strategicfacilitation.com&quot;&gt;Center for Strategic Facilitation&lt;/a&gt; is the Bay Area’s local trainer and service provider, but there are trainers and service providers all over the globe.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;There is a system known as &lt;a href=&quot;https://en.wikipedia.org/wiki/Formal_consensus&quot;&gt;“Formal Consensus”&lt;/a&gt; which gained some notability during the &lt;a href=&quot;https://en.wikipedia.org/wiki/1999_Seattle_WTO_protests&quot;&gt;1999 “Battle of Seattle” WTO protests&lt;/a&gt; as a means of empowering small groups, particularly indigenous representatives, by providing a limited and fixed number of “blocks” during deliberations to stop actions proposed by far larger groups. Also how my buddy organized &lt;a href=&quot;https://github.com/freegeekchicago/fgc-docs/blob/4dc37cbb76eaf766274f30fcb1f9df9d5bc199df/constitution.md#governance&quot;&gt;FreeGeek Chicago&lt;/a&gt;. I have &lt;strong&gt;never&lt;/strong&gt; heard anyone in Bay Area tech reference any of this in regards to what they mean by consensus.&lt;/em&gt;&lt;/p&gt;
+
+  &lt;br&gt;&lt;br&gt;
+  &lt;hr&gt;
+  &lt;p&gt;
+    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2023/09/in-defense-of-consensus&quot;&gt;In defense of consensus&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
+    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
+  &lt;/p&gt;
+</description>
+  <pubDate>Mon, 18 Sep 2023 02:30:00 +0000</pubDate>
+  <link>https://island94.org/2023/09/in-defense-of-consensus</link>
+  <guid isPermaLink="true">https://island94.org/2023/09/in-defense-of-consensus</guid>
+  
+  
+</item>
+
     
       
 
@@ -1037,86 +1094,6 @@
   <guid isPermaLink="true">https://island94.org/2023/03/recently-march-12-2023</guid>
   
     <category>weeknotes</category>
-  
-  
-</item>
-
-    
-      
-
-
-
-
-<item>
-  <title>Service Object Objects in Ruby</title>
-  <description>&lt;p&gt;For anyone that follows me on social media, I’ll sometimes get into a &lt;a href=&quot;https://deprogrammaticaipsum.com/james-coplien/&quot;&gt;Coplien&lt;/a&gt;-esque funk of “I don’t wanna write Classes. I want to write &lt;em&gt;Objects&lt;/em&gt;!”. I don’t want to negotiate an industrial-relations policy for instances of Person in the current scope. I want to imagine the joy and misery Alice and Bob will experience working together right now.&lt;/p&gt;
-
-&lt;p&gt;I was thinking of that recently when &lt;a href=&quot;https://www.reddit.com/r/ruby/comments/10sooyr/comment/j74j5qw/?utm_source=reddit&amp;amp;utm_medium=web2x&amp;amp;context=3&quot;&gt;commenting on Reddit&lt;/a&gt; about Caleb Hearth’s &lt;a href=&quot;https://calebhearth.com/decree&quot;&gt;“The Decree Design Pattern”&lt;/a&gt;. Which ended up in the superset of these two thoughts:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;heck yeah! if it’s globally distinct it should be globally referenceable&lt;/li&gt;
-  &lt;li&gt;oh, oh no, I don’t like looking at &lt;em&gt;that&lt;/em&gt; particular Ruby code&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;This was my comment to try to personally come to terms with those thoughts, iteratively:&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# a consistent callable&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;my_decree&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;do_something&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# ok, but globally scoped&lt;/span&gt;
-&lt;span class=&quot;no&quot;&gt;MY_DECREE&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;do_something&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# ok, but without the shouty all-caps&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;module&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;MyDecree&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;call&lt;/span&gt; 
-    &lt;span class=&quot;n&quot;&gt;do_something&lt;/span&gt; 
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt; 
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# ok, but what about when it gets really complex&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MyDecree&lt;/span&gt; 
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;call&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;variable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;variable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;call&lt;/span&gt; 
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-  
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;variable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;vi&quot;&gt;@variable&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;variable&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;call&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;do_something&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;do_something_else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@variable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;do_even_more&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;do_even_more&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;# something really complicated....&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;From the outside, &lt;em&gt;object&lt;/em&gt; perspective, these are all have the same interchangeable interface (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.call&lt;/code&gt;), and except for the first one, accessible everywhere. That’s great, from my perspective! Though I guess it’s a pretty short blog post to say:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Decrees are globally discrete and call-able objects&lt;/li&gt;
-  &lt;li&gt;The implementation is up to you!&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Unfortunately, the moment the internals come into play, it gets messy. But I don’t think that should take away from the external perspective.&lt;/p&gt;
-
-
-  &lt;br&gt;&lt;br&gt;
-  &lt;hr&gt;
-  &lt;p&gt;
-    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2023/02/service-object-objects-in-ruby&quot;&gt;Service Object Objects in Ruby&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
-    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
-  &lt;/p&gt;
-</description>
-  <pubDate>Tue, 14 Feb 2023 16:18:00 +0000</pubDate>
-  <link>https://island94.org/2023/02/service-object-objects-in-ruby</link>
-  <guid isPermaLink="true">https://island94.org/2023/02/service-object-objects-in-ruby</guid>
-  
-    <category>Ruby</category>
   
   
 </item>

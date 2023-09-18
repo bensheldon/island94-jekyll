@@ -107,6 +107,50 @@
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
     <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2010/11/Boston-Bike-Crash-Map.html">Boston Bike Crash Map</a>
+    </h1>
+    <p class="post-meta text-muted">
+      <time datetime="2010-11-23T00:00:00+00:00" itemprop="datePublished">November 23, 2010</time>
+      
+      
+
+
+  
+
+  
+
+  • Tagged <a href="/tags/#bicycles">bicycles</a>, <a href="/tags/#boston">Boston</a>, <a href="/tags/#mapping">mapping</a>, <a href="/tags/#maps">maps</a>, <a href="/tags/#navigation">navigation</a>, <a href="/tags/#portfolio">portfolio</a>, and <a href="/tags/#project">project</a>
+
+
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p><a href="/uploads/2010-11-23-Boston-Bike-Crash-Map/bcu-crashmap.png"> <img src="/uploads/2010-11-23-Boston-Bike-Crash-Map/bcu-crashmap.png" alt="" title="bcu-crashmap" /> </a></p>
+
+<p>Today the Boston Cyclist’s Union (BCU) launched their <a href="http://bostoncyclistsunion.org/resources/crash-map/">interactive Boston bike Crash Map</a>, a mapping tool that I’ve been working on with them to help share and analyze bicycle crash data. They did all the hard work of getting the Boston Emergency Medical Services and Police Department to properly code and release the data—I just helped them clean it, geocode it and put it on a map.</p>
+
+<p>It is an exciting project both because the data is compelling for bike safety and livable streets advocacy, and it required some novel/cludgy engineering. We wanted to create a system that would allow the BCU to access and update the data behind the map, but because of their technical capacity, I couldn’t overly format the data or create a CMS database. The solution: Google Spreadsheets. All of the data is stored in a shared Google Spreadsheet that is <a href="http://gmaps-samples.googlecode.com/svn/trunk/spreadsheetsmapwizard/makecustommap.htm">automatically fed to the map </a>on BCU’s website. Google Spreadsheets can even <a href="http://apitricks.blogspot.com/2008/10/geocoding-by-google-spreadsheets.html">geocode the addresses</a>. I had to mess about with the javascript code a bit—aggregating multiple overlapping incidents at the same location into a single marker was all me—but overall it was a fun project.</p>
+
+<blockquote>
+  <p>Back in March and April of this year we asked Boston Emergency Medical Services (EMS) and the Boston Police Department (BPD) to separate bike and pedestrian crash data to allow us to see where bike crashes are happening. And to theircredit, each department quickly recognized the need and worked with us to meet it, partly by adding bicycle checkboxes to their incident report forms.</p>
+
+  <p>Now, not only do we have over six months of data to look at (May thru October 2010), but  it’s all plugged into an  <a href="http://r20.rs6.net/tn.jsp?llr=wpangcdab&amp;et=1103945671173&amp;s=339&amp;e=001wIWbcramWbVCUaA2ne6YH-bCGRpo6WHNa5-ujQcQjMJ7tyjo8dy_VmeXKB8mzWxuGypUF3glNTGPnb_M5N4xUAC7NV2tGaMRYMXifmMlpFxQhX-7doYuKX2VFTcai94WuRhF8Yb7w0MwHz08kAhhONNLvoPuosDn">interactive Google map</a>created by Union member and volunteer Ben Sheldon. Thanks Ben! It will still be a year or two before we can have a large enough sample size to discern reoccurring patterns at particular intersections, but this first six-month glimpse of the data does give a sense of where crashes are happening in the city and a few other interesting things.</p>
+</blockquote>
+
+<p>**Update: **The map has been mentioned on <a href="http://www.wbur.org/2010/11/29/bike-crash-map">WBUR</a> and <a href="http://www.universalhub.com/2010/thats-lot-crashes">UniversalHub</a>. I’ve been told that after releasing the map, there has been a big uptick in BCU memberships and request for info too.</p>
+
+  </div>
+</article>
+
+
+    <hr>
+  
+    
+
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
       <a class="post-link" href="/2010/11/Goofus-Gallant-MBA.html">Goofus & Gallant, MBA</a>
     </h1>
     <p class="post-meta text-muted">
@@ -489,54 +533,6 @@
 <p><em>Build, learn, organize, subvert</em></p>
 
 <p>A design by Ryan Jenkins of Troy, NY. My colleague Carolyn Braunius had this screen-printed on a shirt at the <a href="http://www.island94.org/2010/09/kitchen-consensus-conjecture/">Prometheus Barnraising</a>.</p>
-
-  </div>
-</article>
-
-
-    <hr>
-  
-    
-
-<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">
-      <a class="post-link" href="/2010/10/No-wonder-you-werent-good-at-it.html">No wonder you weren't good at it</a>
-    </h1>
-    <p class="post-meta text-muted">
-      <time datetime="2010-10-17T00:00:00+00:00" itemprop="datePublished">October 17, 2010</time>
-      
-      
-
-
-  
-
-  
-
-  • Tagged <a href="/tags/#math">math</a>, <a href="/tags/#pedagogy">pedagogy</a>, <a href="/tags/#satire">satire</a>, and <a href="/tags/#teaching">teaching</a>
-
-
-    </p>
-  </header>
-
-  <div class="post-content" itemprop="articleBody">
-    <p>From the introduction to Paul Lockhart’s <em>A Mathematician’s Lament</em> (<a href="http://www.maa.org/devlin/LockhartsLament.pdf">PDF</a>;  it’s also published as a book which is how I discovered it):</p>
-
-<blockquote>
-  <p>A musician wakes from a terrible nightmare. In his dream he finds himself in a society where music education has been made mandatory. “We are helping our students become more competitive in an increasingly sound-filled world.” Educators, school systems, and the state are put in charge of this vital project. Studies are commissioned, committees are formed, and decisions are made— all without the advice or participation of a single working musician or composer.</p>
-
-  <p>Since musicians are known to set down their ideas in the form of sheet music, these curious black dots and lines must constitute the “language of music.” It is imperative that students become fluent in this language if they are to attain any degree of musical competence; indeed, it would be ludicrous to expect a child to sing a song or play an instrument without having a thorough grounding in music notation and theory. Playing and listening to music, let alone composing an original piece, are considered very advanced topics and are generally put off until college, and more often graduate school.</p>
-
-  <p>As for the primary and secondary schools, their mission is to train students to use this language— to jiggle symbols around according to a fixed set of rules: “Music class is where we take out our staff paper, our teacher puts some notes on the board, and we copy them or transpose them into a different key. We have to make sure to get the clefs and key signatures right, and our teacher is very picky about making sure we fill in our quarter-notes completely. One time we had a chromatic scale problem and I did it right, but the teacher gave me no credit because I had the stems pointing the wrong way.”</p>
-
-  <p>In their wisdom, educators soon realize that even very young children can be given this kind of musical instruction. In fact it is considered quite shameful if one’s third-grader hasn’t completely memorized his circle of fifths. “I’ll have to get my son a music tutor. He simply won’t apply himself to his music homework. He says it’s boring. He just sits there staring out the window, humming tunes to himself and making up silly songs.”</p>
-
-  <p>In the higher grades the pressure is really on. After all, the students must be prepared for the standardized tests and college admissions exams. Students must take courses in Scales and Modes, Meter, Harmony, and Counterpoint. “It’s a lot for them to learn, but later in college when they finally get to hear all this stuff, they’ll really appreciate all the work they did in high school.” Of course, not many students actually go on to concentrate in music, so only a few will ever get to hear the sounds that the black dots represent. Nevertheless, it is important that every member of society be able to recognize a modulation or a fugal passage, regardless of the fact that they will never hear one. “To tell you the truth, most students just aren’t very good at music. They are bored in class, their skills are terrible, and their homework is barely legible. Most of them couldn’t care less about how important music is in today’s world; they just want to take the minimum number of music courses and be done with it. I guess there are just music people and non-music people. I had this one kid, though, man was she sensational! Her sheets were impeccable— every note in the right place, perfect calligraphy, sharps, flats, just beautiful. She’s going to make one hell of a musician someday.”</p>
-
-  <p>Waking up in a cold sweat, the musician realizes, gratefully, that it was all just a crazy dream. “Of course!” he reassures himself, “No society would ever reduce such a beautiful and meaningful art form to something so mindless and trivial; no culture could be so cruel to its children as to deprive them of such a natural, satisfying means of human expression. How absurd!”</p>
-</blockquote>
-
-<p>When I tell people I have a degree in math, the response is usually “I was really bad at math.” The truth is that most people never did any actual math; even I did fairly little.</p>
 
   </div>
 </article>
