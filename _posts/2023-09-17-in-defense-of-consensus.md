@@ -28,7 +28,7 @@ There's a joke in civic tech: government tech projects may say they can't do inc
 
 > It is hard for policy people to imagine that HealthCare.gov could have had a phased rollout, *even while it is having one*. At launch, on Oct. 1, only a tiny fraction of potential users could actually try the service. They generated errors. Those errors were handed to a team whose job was to improve the site, already public but only partially working. The resulting improvements are incremental and put in place over a period of months. That *is* a phased rollout, just one conducted in the worst possible way.
 
-Bay Area tech has the same relationship to decisions and consensus: they're trying to craft a deliberative process for information sharing, feedback gathering. and alignment building...y'know, that "consensus" they won't do. They're simply doing it _after_ they've already "decided" on an insufficient course of action and are grasping for a fix. Ultimately they are using consensus, just consensus conducted in the worst possible way.
+Bay Area tech has the same relationship to decisions and consensus: they're trying to craft a deliberative process for information sharing, feedback gathering. and alignment building...y'know, that "consensus" they won't do. They're simply doing it _after_ they've already "decided" on an insufficient course of action and are grasping for a fix. Ultimately they are reaching for consensus, just consensus conducted in the worst possible way.
 
 Please think of this the next time you hear (or say) something bad about consensus. Consensus is pretty great, and even better when used from the start.
 
