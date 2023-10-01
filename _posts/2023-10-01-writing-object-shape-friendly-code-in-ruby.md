@@ -23,7 +23,7 @@ This succinct explanation is from [Ayush Poddar](https://poddarayush.com/posts/o
 
 > New objects with the same [instance variable] transitions will end up with the same shape. This is independent of the class of the object. This also includes the child classes since they, too, can re-use the shape transitions of the parent class. But, **two objects can share the same shape only if the order in which their instance variables are set is the same.**
 
-That's it, that's what you have to do: if you want to ensure that two objects share the same shape, make sure they define their instance variables in the same order: Let's start with a counterexample:
+That's it, that's what you have to do: if you want to ensure that two objects share the same shape, make sure they define their instance variables in the same order. Let's start with a counterexample:
 
 ```ruby
 # Bad: Object Shape unfriendly
