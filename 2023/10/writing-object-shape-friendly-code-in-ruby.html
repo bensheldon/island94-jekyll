@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Writing Object Shape friendly code in Ruby</title>
+  <meta name="description" content="Ruby 3.2 includes a performance optimization called Object Shapes, that changes how the Ruby VM stores, looks up, and caches instances variables (the variabl...">
+
+  <link rel="stylesheet" href="/assets/stylesheets/main.css">
+  <script src="/assets/javascripts/main.js"></script>
+
+  <link rel="canonical" href="https://island94.org/2023/10/writing-object-shape-friendly-code-in-ruby">
+
+  <link rel="alternate" type="application/rss+xml" title="Island94.org Posts" href="https://island94.org/feed.xml">
+  <link rel="alternate" type="application/rss+xml" title="Island94.org Book Reviews" href="https://island94.org/books.xml">
+
+  
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-870047-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+</head>
+
+
+  <body>
+
+    <nav class="navbar navbar-expand-lg navbar-light mb-2 flex-column">
+  <div class="container">
+    <a class="navbar-brand" href="/">Island94.org</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link " href="/about/">About</a></li>
+        <li class="nav-item"><a class="nav-link " href="/archives/">Archives</a></li>
+        <li class="nav-item"><a class="nav-link " href="/books/">Books</a></li>
+        <li class="nav-item"><a class="nav-link " href="/tags/">Tags</a></li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Feeds <span class="fa fa-rss"></span>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a href="/feed.xml" class="dropdown-item">Everything RSS <span class="fa fa-rss"></span></a></li>
+            <li><a href="/posts.xml" class="dropdown-item">Posts RSS <span class="fa fa-rss"></span></a></li>
+            <li><a href="/books.xml" class="dropdown-item">Books RSS <span class="fa fa-rss"></span></a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <form id="search" class="d-flex" action="/search" method="get">
+        <input id="search-box" class="form-control search" role="search" name="q" placeholder="Search" aria-label="Search" results="0" type="text">
+        <button class="sr-only" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+  <div class="container">
+    <div class="text-muted fst-italic">
+      — Ben Sheldon's personal blog and <a href="/2012/04/A-Commonplace-Book.html">commonplace book</a>.
+    </div>
+  </div>
+</nav>
+
+
+    <div class="container container-body">
+      
+
+
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2023/10/writing-object-shape-friendly-code-in-ruby">Writing Object Shape friendly code in Ruby</a>
+    </h1>
+    <p class="post-meta text-muted">
+      <time datetime="2023-10-01T15:05:00+00:00" itemprop="datePublished">October 1, 2023</time>
+      
+      
+
+
+  
+
+  
+
+  • Tagged <a href="/tags/#ruby">Ruby</a>
+
+
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>Ruby 3.2 includes a performance optimization called Object Shapes, that changes how the Ruby VM stores, looks up, and caches instances variables (the variables that look like <code class="language-plaintext highlighter-rouge">@ivar</code>) . YJIT also takes advantage of Object Shapes, and the upcoming Ruby 3.3 has further improvements that improve the performance of Object Shapes.</p>
+
+<p>This is a brief blog post about how to write your own Ruby application code that is optimized for Object Shapes. If instead you’d like to learn more about how Object Shapes is implemented in Ruby, watch <a href="https://www.youtube.com/watch?v=R0oxlyVUpDw">Aaron Patterson’s RubyConf 2022 video</a> or read this <a href="https://poddarayush.com/posts/object-shapes-improve-ruby-code-performance/">explanation from Ayush Poddar</a> .</p>
+
+<p><em>Big thank you to my colleagues John Hawthorn and Matthew Draper for feedback on the coding strategies described here. And John Bachir, Nate Matykiewicz, Josh Nichols, and Jean Boussier whose conversation in <a href="https://www.speedshop.co/rails-performance-workshop.html">Rails Performance Slack</a> inspired it.</em></p>
+
+<h3 id="the-general-rule-define-your-instance-variables-in-the-same-order-every-time">The general rule: define your instance variables in the same order every time</h3>
+
+<p>To take advantage of Object Shape optimizations in your own Ruby Code, the goal is to minimize the number of different shapes of objects that are created and minimize the number of object shape transitions that occur while your application is running:</p>
+
+<ul>
+  <li>Ensure that instances of the same class share the same object shape</li>
+  <li>Ensure that objects do not frequently or unnecessarily transition or change their shape</li>
+  <li>Help objects that <em>could</em> share the same object shape (e.g. substitutable child classes) to do so, with reasonable effort and without compromising readability and maintainability.</li>
+</ul>
+
+<p>This succinct explanation is from <a href="https://poddarayush.com/posts/object-shapes-improve-ruby-code-performance/">Ayush Poddar</a>, and explains the conditions that allow objects to share a shape:</p>
+
+<blockquote>
+  <p>New objects with the same [instance variable] transitions will end up with the same shape. This is independent of the class of the object. This also includes the child classes since they, too, can re-use the shape transitions of the parent class. But, <strong>two objects can share the same shape only if the order in which their instance variables are set is the same.</strong></p>
+</blockquote>
+
+<p>That’s it, that’s what you have to do: if you want to ensure that two objects share the same shape, make sure they define their instance variables in the same order. Let’s start with a counterexample:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Bad: Object Shape unfriendly</span>
+<span class="k">class</span> <span class="nc">GroceryStore</span>
+  <span class="k">def</span> <span class="nf">fruit</span>
+    <span class="vi">@fruit</span> <span class="o">=</span> <span class="s2">"apple"</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">vegetable</span>
+    <span class="vi">@vegetable</span> <span class="o">=</span> <span class="s2">"broccoli"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="c1"># The "Application"</span>
+<span class="n">alpha_store</span> <span class="o">=</span> <span class="no">GroceryStore</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">alpha_store</span><span class="p">.</span><span class="nf">fruit</span> <span class="c1"># defines @fruit first</span>
+<span class="n">alpha_store</span><span class="p">.</span><span class="nf">vegetable</span> <span class="c1"># defines @vegetable second</span>
+
+<span class="n">beta_store</span> <span class="o">=</span> <span class="no">GroceryStore</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">beta_store</span><span class="p">.</span><span class="nf">vegetable</span> <span class="c1"># defines @vegetable first</span>
+<span class="n">beta_store</span><span class="p">.</span><span class="nf">fruit</span> <span class="c1"># defines #fruit second </span>
+</code></pre></div></div>
+
+<p>In this example, <code class="language-plaintext highlighter-rouge">alpha_store</code> and <code class="language-plaintext highlighter-rouge">beta_store</code> do not share the same object shape because the order in which their instance variables are defined depends on the order the application calls their methods. This code is not Object Shape friendly.</p>
+
+<h3 id="pattern-define-your-instance-variables-in-initialize">Pattern: Define your instance variables in initialize</h3>
+
+<p>The simplest way to ensure instance variables are defined in the same order every time is to define the instance variables in <code class="language-plaintext highlighter-rouge">#initialize</code>:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Good: Object Shape friendly</span>
+<span class="k">class</span> <span class="nc">GroceryStore</span>
+  <span class="k">def</span> <span class="nf">initialize</span>
+    <span class="vi">@fruit</span> <span class="o">=</span> <span class="s2">"apple"</span>
+    <span class="vi">@vegetable</span> <span class="o">=</span> <span class="s2">"broccoli"</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">fruit</span>
+    <span class="vi">@fruit</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">vegetable</span>
+    <span class="vi">@vegetable</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>It’s also ok to define instance variables implicitly with <code class="language-plaintext highlighter-rouge">attr_*</code> methods in the class body, which has the same outcome of always defining the instance variables in the same order.</p>
+
+<p>Now I realize this is a very simplistic example, but that’s really all there is to it. If it makes you feel better, at GitHub where I work, we have classes with upwards of 200 instance variables. In hot code, where we have profiled, we go to a negligible effort of making sure those instance variables are defined in the same order; it’s really not that bad!</p>
+
+<h3 id="pattern-null-memoization">Pattern: Null memoization</h3>
+
+<p>Using instance variables to memoize values in your code may present a challenge when nil is a valid memoized value. This is a common pattern in Ruby that is not Object Shape friendly:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Bad: Object Shape unfriendly</span>
+<span class="k">class</span> <span class="nc">GroceryStore</span>
+  <span class="k">def</span> <span class="nf">fruit</span>
+    <span class="k">return</span> <span class="vi">@fruit</span> <span class="k">if</span> <span class="k">defined?</span><span class="p">(</span><span class="vi">@fruit</span><span class="p">)</span>
+    <span class="vi">@fruit</span> <span class="o">=</span> <span class="n">an_expensive_operation</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>Rewrite this by creating a unique <code class="language-plaintext highlighter-rouge">NULL</code> constant and check for its presence instead:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Good: Object Shape friendly</span>
+<span class="k">class</span> <span class="nc">GroceryStore</span>
+  <span class="no">NULL</span> <span class="o">=</span> <span class="no">Object</span><span class="p">.</span><span class="nf">new</span>
+  <span class="no">NULL</span><span class="p">.</span><span class="nf">freeze</span> <span class="c1"># not strictly necessary, but makes it Ractor-safe</span>
+
+  <span class="k">def</span> <span class="nf">initialize</span>
+    <span class="vi">@fruit</span> <span class="o">=</span> <span class="no">NULL</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">fruit</span>
+    <span class="k">return</span> <span class="vi">@fruit</span> <span class="k">unless</span> <span class="vi">@fruit</span> <span class="o">==</span> <span class="no">NULL</span>
+    <span class="vi">@fruit</span> <span class="o">=</span> <span class="n">an_expensive_operation</span> 
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>Alternatively, if you’re doing a lot of meta or variable programming and you need an arbitrary number of memoized values, use a hash and key check instead:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Good: Object Shape friendly</span>
+<span class="k">class</span> <span class="nc">GroceryStore</span>
+  <span class="k">def</span> <span class="nf">initialize</span>
+    <span class="vi">@produce</span> <span class="o">=</span> <span class="p">{}</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">produce</span><span class="p">(</span><span class="n">type</span><span class="p">)</span>
+    <span class="k">return</span> <span class="vi">@produce</span><span class="p">[</span><span class="n">type</span><span class="p">]</span> <span class="k">if</span> <span class="vi">@produce</span><span class="p">.</span><span class="nf">key?</span><span class="p">(</span><span class="n">type</span><span class="p">)</span>
+    <span class="vi">@produce</span><span class="p">[</span><span class="n">type</span><span class="p">]</span> <span class="o">=</span> <span class="n">an_expensive_operation</span><span class="p">(</span><span class="n">type</span><span class="p">)</span> 
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<h3 id="thats-it">That’s it</h3>
+
+<p>Creating Object Shape friendly code is not very complicated!</p>
+
+<p>Please reach out if there’s other patterns I’m missing: bensheldon@gmail.com / <a href="https://twitter.com/bensheldon">twitter.com/@bensheldon</a> / <a href="https://ruby.social/@bensheldon">ruby.social/@bensheldon</a></p>
+
+  </div>
+</article>
+
+
+<div class="card my-4 text-dark bg-light">
+  <div class="card-body">
+    <p>
+      Discuss this with me on <a href="https://twitter.com/bensheldon"><span class="fa fa-twitter"></span> Twitter</a>
+      or suggest a <a href="https://github.com/bensheldon/island94-jekyll/blob/main/_posts/2023-10-01-writing-object-shape-friendly-code-in-ruby.md"><span class="fa fa-github-alt"></span> change</a>.
+    </p>
+
+    <p>Related Posts:</p>
+
+    <ul>
+      
+      <li><a href="/2023/06/rebuilding-concurrent-ruby-scheduledtask-event-and-timerset">Rebuilding Concurrent Ruby: ScheduledTask, Event, and TimerSet</a></li>
+      
+      <li><a href="/2012/12/A-gentle-conceptual-introduction-to-Nodejs.html">A gentle & conceptual introduction to Node.js</a></li>
+      
+      <li><a href="/2007/08/Geekout-Video-on-Maps-for-Cable-Access-TV.html">Geekout: Video on Maps for Cable Access TV</a></li>
+      
+      <li><a href="/2023/03/how-goodjob-s-mountable-rails-engine-delivers-javascript-importmaps-and-frontend-assets">How GoodJob's mountable Rails Engine delivers Javascript importmaps and frontend assets</a></li>
+      
+      <li><a href="/2022/07/four-dumb-cringe-tech-interview-stories">Four dumb-cringe tech interview stories</a></li>
+      
+    </ul>
+  </div>
+</div>
+
+
+    </div>
+
+    <footer class="site-footer">
+
+</footer>
+
+
+  </body>
+
+</html>

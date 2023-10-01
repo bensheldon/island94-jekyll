@@ -6,10 +6,158 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 18 Sep 2023 03:28:01 +0000</pubDate>
-    <lastBuildDate>Mon, 18 Sep 2023 03:28:01 +0000</lastBuildDate>
+    <pubDate>Sun, 01 Oct 2023 16:46:06 +0000</pubDate>
+    <lastBuildDate>Sun, 01 Oct 2023 16:46:06 +0000</lastBuildDate>
     <generator>Jekyll v4.3.2</generator>
     
+    
+      
+
+
+
+
+<item>
+  <title>Writing Object Shape friendly code in Ruby</title>
+  <description>&lt;p&gt;Ruby 3.2 includes a performance optimization called Object Shapes, that changes how the Ruby VM stores, looks up, and caches instances variables (the variables that look like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@ivar&lt;/code&gt;) . YJIT also takes advantage of Object Shapes, and the upcoming Ruby 3.3 has further improvements that improve the performance of Object Shapes.&lt;/p&gt;
+
+&lt;p&gt;This is a brief blog post about how to write your own Ruby application code that is optimized for Object Shapes. If instead you’d like to learn more about how Object Shapes is implemented in Ruby, watch &lt;a href=&quot;https://www.youtube.com/watch?v=R0oxlyVUpDw&quot;&gt;Aaron Patterson’s RubyConf 2022 video&lt;/a&gt; or read this &lt;a href=&quot;https://poddarayush.com/posts/object-shapes-improve-ruby-code-performance/&quot;&gt;explanation from Ayush Poddar&lt;/a&gt; .&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Big thank you to my colleagues John Hawthorn and Matthew Draper for feedback on the coding strategies described here. And John Bachir, Nate Matykiewicz, Josh Nichols, and Jean Boussier whose conversation in &lt;a href=&quot;https://www.speedshop.co/rails-performance-workshop.html&quot;&gt;Rails Performance Slack&lt;/a&gt; inspired it.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;the-general-rule-define-your-instance-variables-in-the-same-order-every-time&quot;&gt;The general rule: define your instance variables in the same order every time&lt;/h3&gt;
+
+&lt;p&gt;To take advantage of Object Shape optimizations in your own Ruby Code, the goal is to minimize the number of different shapes of objects that are created and minimize the number of object shape transitions that occur while your application is running:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Ensure that instances of the same class share the same object shape&lt;/li&gt;
+  &lt;li&gt;Ensure that objects do not frequently or unnecessarily transition or change their shape&lt;/li&gt;
+  &lt;li&gt;Help objects that &lt;em&gt;could&lt;/em&gt; share the same object shape (e.g. substitutable child classes) to do so, with reasonable effort and without compromising readability and maintainability.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This succinct explanation is from &lt;a href=&quot;https://poddarayush.com/posts/object-shapes-improve-ruby-code-performance/&quot;&gt;Ayush Poddar&lt;/a&gt;, and explains the conditions that allow objects to share a shape:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;New objects with the same [instance variable] transitions will end up with the same shape. This is independent of the class of the object. This also includes the child classes since they, too, can re-use the shape transitions of the parent class. But, &lt;strong&gt;two objects can share the same shape only if the order in which their instance variables are set is the same.&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;That’s it, that’s what you have to do: if you want to ensure that two objects share the same shape, make sure they define their instance variables in the same order. Let’s start with a counterexample:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# Bad: Object Shape unfriendly&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;GroceryStore&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;fruit&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@fruit&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;apple&quot;&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;vegetable&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@vegetable&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;broccoli&quot;&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# The &quot;Application&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;alpha_store&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;GroceryStore&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;alpha_store&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;fruit&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# defines @fruit first&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;alpha_store&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;vegetable&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# defines @vegetable second&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;beta_store&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;GroceryStore&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;beta_store&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;vegetable&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# defines @vegetable first&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;beta_store&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;fruit&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# defines #fruit second &lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;In this example, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;alpha_store&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;beta_store&lt;/code&gt; do not share the same object shape because the order in which their instance variables are defined depends on the order the application calls their methods. This code is not Object Shape friendly.&lt;/p&gt;
+
+&lt;h3 id=&quot;pattern-define-your-instance-variables-in-initialize&quot;&gt;Pattern: Define your instance variables in initialize&lt;/h3&gt;
+
+&lt;p&gt;The simplest way to ensure instance variables are defined in the same order every time is to define the instance variables in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;#initialize&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# Good: Object Shape friendly&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;GroceryStore&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initialize&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@fruit&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;apple&quot;&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@vegetable&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;broccoli&quot;&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;fruit&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@fruit&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;vegetable&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@vegetable&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;It’s also ok to define instance variables implicitly with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;attr_*&lt;/code&gt; methods in the class body, which has the same outcome of always defining the instance variables in the same order.&lt;/p&gt;
+
+&lt;p&gt;Now I realize this is a very simplistic example, but that’s really all there is to it. If it makes you feel better, at GitHub where I work, we have classes with upwards of 200 instance variables. In hot code, where we have profiled, we go to a negligible effort of making sure those instance variables are defined in the same order; it’s really not that bad!&lt;/p&gt;
+
+&lt;h3 id=&quot;pattern-null-memoization&quot;&gt;Pattern: Null memoization&lt;/h3&gt;
+
+&lt;p&gt;Using instance variables to memoize values in your code may present a challenge when nil is a valid memoized value. This is a common pattern in Ruby that is not Object Shape friendly:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# Bad: Object Shape unfriendly&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;GroceryStore&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;fruit&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@fruit&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;defined?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@fruit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@fruit&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;an_expensive_operation&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Rewrite this by creating a unique &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NULL&lt;/code&gt; constant and check for its presence instead:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# Good: Object Shape friendly&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;GroceryStore&lt;/span&gt;
+  &lt;span class=&quot;no&quot;&gt;NULL&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Object&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;
+  &lt;span class=&quot;no&quot;&gt;NULL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;freeze&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# not strictly necessary, but makes it Ractor-safe&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initialize&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@fruit&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;NULL&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;fruit&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@fruit&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;unless&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@fruit&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;NULL&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@fruit&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;an_expensive_operation&lt;/span&gt; 
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Alternatively, if you’re doing a lot of meta or variable programming and you need an arbitrary number of memoized values, use a hash and key check instead:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# Good: Object Shape friendly&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;GroceryStore&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initialize&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@produce&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;produce&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@produce&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@produce&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;key?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@produce&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;an_expensive_operation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; 
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;thats-it&quot;&gt;That’s it&lt;/h3&gt;
+
+&lt;p&gt;Creating Object Shape friendly code is not very complicated!&lt;/p&gt;
+
+&lt;p&gt;Please reach out if there’s other patterns I’m missing: bensheldon@gmail.com / &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;twitter.com/@bensheldon&lt;/a&gt; / &lt;a href=&quot;https://ruby.social/@bensheldon&quot;&gt;ruby.social/@bensheldon&lt;/a&gt;&lt;/p&gt;
+
+  &lt;br&gt;&lt;br&gt;
+  &lt;hr&gt;
+  &lt;p&gt;
+    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2023/10/writing-object-shape-friendly-code-in-ruby&quot;&gt;Writing Object Shape friendly code in Ruby&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
+    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
+  &lt;/p&gt;
+</description>
+  <pubDate>Sun, 01 Oct 2023 15:05:00 +0000</pubDate>
+  <link>https://island94.org/2023/10/writing-object-shape-friendly-code-in-ruby</link>
+  <guid isPermaLink="true">https://island94.org/2023/10/writing-object-shape-friendly-code-in-ruby</guid>
+  
+    <category>Ruby</category>
+  
+  
+</item>
+
     
       
 
@@ -1060,40 +1208,6 @@
   <guid isPermaLink="true">https://island94.org/2023/03/how-goodjob-s-mountable-rails-engine-delivers-javascript-importmaps-and-frontend-assets</guid>
   
     <category>GoodJob</category>
-  
-  
-</item>
-
-    
-      
-
-
-
-
-<item>
-  <title>Recently, March 12, 2023</title>
-  <description>&lt;ul&gt;
-  &lt;li&gt;Work has been complicated, recently. &lt;a href=&quot;https://techcrunch.com/2023/02/09/github-lays-off-10-and-goes-fully-remote/&quot;&gt;Layoffs, as a general idea&lt;/a&gt;, were announced a month ago; it was the same week I came down with a bad cold. I’ve been fairly low energy since and have had trouble differentiating the two. I’m supremely proud and confident that my team is doing the most important work possible. We’ll see!&lt;/li&gt;
-  &lt;li&gt;The week prior to all of this, my dad came to visit and stay with us. Having an easier time hosting family was one of our goals in getting a 2nd bedroom. Success.&lt;/li&gt;
-  &lt;li&gt;Wow, it’s nearly been a year since I left my last job. I’ve had a number of former colleagues asking for help in leaving, in addition to talking with folks being pushed out: I was surprised to see Code for America finally kill Brigades, and really &lt;a href=&quot;https://statescoop.com/code-for-america-local-brigades-ending/&quot;&gt;twist the knife too&lt;/a&gt; by forcing groups to rename themselves.&lt;/li&gt;
-  &lt;li&gt;GoodJob is great! I’ve been thinking about &lt;a href=&quot;https://github.com/bensheldon/good_job/discussions/831&quot;&gt;replacing Advisory Locks&lt;/a&gt; with a lock strategy that’s more compatible with PgBouncer. But that will probably be a 2-year project at least of incrementally crabwalking towards that goal while avoiding breaking changes. &lt;a href=&quot;https://github.com/rubygems/rubygems.org/pull/3533&quot;&gt;Rubygems.org just adopted GoodJob&lt;/a&gt;; I am humbled.&lt;/li&gt;
-  &lt;li&gt;On other projects, I’ve been trying to lower costs. My S3 data-transfer bill went from $10 to $50 a month, which I’m not happy about; scrapers are the worst 🤷‍♀️ I’ve also been experimenting with Dokku for packing some smaller projects (paying $15 once rather than $12 per app), though the VM locked up once on a Saturday night and I had to reboot it and this is exactly why I don’t want to manage my own servers.&lt;/li&gt;
-  &lt;li&gt;My brother and I have been planning a Celebration of Life for my mom.&lt;/li&gt;
-  &lt;li&gt;I’m so happy to finally be back on Daylight Savings Time.&lt;/li&gt;
-&lt;/ul&gt;
-
-  &lt;br&gt;&lt;br&gt;
-  &lt;hr&gt;
-  &lt;p&gt;
-    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2023/03/recently-march-12-2023&quot;&gt;Recently, March 12, 2023&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
-    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
-  &lt;/p&gt;
-</description>
-  <pubDate>Mon, 13 Mar 2023 00:26:00 +0000</pubDate>
-  <link>https://island94.org/2023/03/recently-march-12-2023</link>
-  <guid isPermaLink="true">https://island94.org/2023/03/recently-march-12-2023</guid>
-  
-    <category>weeknotes</category>
   
   
 </item>

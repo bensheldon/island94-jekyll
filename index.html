@@ -84,6 +84,160 @@
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
     <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2023/10/writing-object-shape-friendly-code-in-ruby">Writing Object Shape friendly code in Ruby</a>
+    </h1>
+    <p class="post-meta text-muted">
+      <time datetime="2023-10-01T15:05:00+00:00" itemprop="datePublished">October 1, 2023</time>
+      
+      
+
+
+  
+
+  
+
+  • Tagged <a href="/tags/#ruby">Ruby</a>
+
+
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>Ruby 3.2 includes a performance optimization called Object Shapes, that changes how the Ruby VM stores, looks up, and caches instances variables (the variables that look like <code class="language-plaintext highlighter-rouge">@ivar</code>) . YJIT also takes advantage of Object Shapes, and the upcoming Ruby 3.3 has further improvements that improve the performance of Object Shapes.</p>
+
+<p>This is a brief blog post about how to write your own Ruby application code that is optimized for Object Shapes. If instead you’d like to learn more about how Object Shapes is implemented in Ruby, watch <a href="https://www.youtube.com/watch?v=R0oxlyVUpDw">Aaron Patterson’s RubyConf 2022 video</a> or read this <a href="https://poddarayush.com/posts/object-shapes-improve-ruby-code-performance/">explanation from Ayush Poddar</a> .</p>
+
+<p><em>Big thank you to my colleagues John Hawthorn and Matthew Draper for feedback on the coding strategies described here. And John Bachir, Nate Matykiewicz, Josh Nichols, and Jean Boussier whose conversation in <a href="https://www.speedshop.co/rails-performance-workshop.html">Rails Performance Slack</a> inspired it.</em></p>
+
+<h3 id="the-general-rule-define-your-instance-variables-in-the-same-order-every-time">The general rule: define your instance variables in the same order every time</h3>
+
+<p>To take advantage of Object Shape optimizations in your own Ruby Code, the goal is to minimize the number of different shapes of objects that are created and minimize the number of object shape transitions that occur while your application is running:</p>
+
+<ul>
+  <li>Ensure that instances of the same class share the same object shape</li>
+  <li>Ensure that objects do not frequently or unnecessarily transition or change their shape</li>
+  <li>Help objects that <em>could</em> share the same object shape (e.g. substitutable child classes) to do so, with reasonable effort and without compromising readability and maintainability.</li>
+</ul>
+
+<p>This succinct explanation is from <a href="https://poddarayush.com/posts/object-shapes-improve-ruby-code-performance/">Ayush Poddar</a>, and explains the conditions that allow objects to share a shape:</p>
+
+<blockquote>
+  <p>New objects with the same [instance variable] transitions will end up with the same shape. This is independent of the class of the object. This also includes the child classes since they, too, can re-use the shape transitions of the parent class. But, <strong>two objects can share the same shape only if the order in which their instance variables are set is the same.</strong></p>
+</blockquote>
+
+<p>That’s it, that’s what you have to do: if you want to ensure that two objects share the same shape, make sure they define their instance variables in the same order. Let’s start with a counterexample:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Bad: Object Shape unfriendly</span>
+<span class="k">class</span> <span class="nc">GroceryStore</span>
+  <span class="k">def</span> <span class="nf">fruit</span>
+    <span class="vi">@fruit</span> <span class="o">=</span> <span class="s2">"apple"</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">vegetable</span>
+    <span class="vi">@vegetable</span> <span class="o">=</span> <span class="s2">"broccoli"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="c1"># The "Application"</span>
+<span class="n">alpha_store</span> <span class="o">=</span> <span class="no">GroceryStore</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">alpha_store</span><span class="p">.</span><span class="nf">fruit</span> <span class="c1"># defines @fruit first</span>
+<span class="n">alpha_store</span><span class="p">.</span><span class="nf">vegetable</span> <span class="c1"># defines @vegetable second</span>
+
+<span class="n">beta_store</span> <span class="o">=</span> <span class="no">GroceryStore</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">beta_store</span><span class="p">.</span><span class="nf">vegetable</span> <span class="c1"># defines @vegetable first</span>
+<span class="n">beta_store</span><span class="p">.</span><span class="nf">fruit</span> <span class="c1"># defines #fruit second </span>
+</code></pre></div></div>
+
+<p>In this example, <code class="language-plaintext highlighter-rouge">alpha_store</code> and <code class="language-plaintext highlighter-rouge">beta_store</code> do not share the same object shape because the order in which their instance variables are defined depends on the order the application calls their methods. This code is not Object Shape friendly.</p>
+
+<h3 id="pattern-define-your-instance-variables-in-initialize">Pattern: Define your instance variables in initialize</h3>
+
+<p>The simplest way to ensure instance variables are defined in the same order every time is to define the instance variables in <code class="language-plaintext highlighter-rouge">#initialize</code>:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Good: Object Shape friendly</span>
+<span class="k">class</span> <span class="nc">GroceryStore</span>
+  <span class="k">def</span> <span class="nf">initialize</span>
+    <span class="vi">@fruit</span> <span class="o">=</span> <span class="s2">"apple"</span>
+    <span class="vi">@vegetable</span> <span class="o">=</span> <span class="s2">"broccoli"</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">fruit</span>
+    <span class="vi">@fruit</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">vegetable</span>
+    <span class="vi">@vegetable</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>It’s also ok to define instance variables implicitly with <code class="language-plaintext highlighter-rouge">attr_*</code> methods in the class body, which has the same outcome of always defining the instance variables in the same order.</p>
+
+<p>Now I realize this is a very simplistic example, but that’s really all there is to it. If it makes you feel better, at GitHub where I work, we have classes with upwards of 200 instance variables. In hot code, where we have profiled, we go to a negligible effort of making sure those instance variables are defined in the same order; it’s really not that bad!</p>
+
+<h3 id="pattern-null-memoization">Pattern: Null memoization</h3>
+
+<p>Using instance variables to memoize values in your code may present a challenge when nil is a valid memoized value. This is a common pattern in Ruby that is not Object Shape friendly:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Bad: Object Shape unfriendly</span>
+<span class="k">class</span> <span class="nc">GroceryStore</span>
+  <span class="k">def</span> <span class="nf">fruit</span>
+    <span class="k">return</span> <span class="vi">@fruit</span> <span class="k">if</span> <span class="k">defined?</span><span class="p">(</span><span class="vi">@fruit</span><span class="p">)</span>
+    <span class="vi">@fruit</span> <span class="o">=</span> <span class="n">an_expensive_operation</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>Rewrite this by creating a unique <code class="language-plaintext highlighter-rouge">NULL</code> constant and check for its presence instead:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Good: Object Shape friendly</span>
+<span class="k">class</span> <span class="nc">GroceryStore</span>
+  <span class="no">NULL</span> <span class="o">=</span> <span class="no">Object</span><span class="p">.</span><span class="nf">new</span>
+  <span class="no">NULL</span><span class="p">.</span><span class="nf">freeze</span> <span class="c1"># not strictly necessary, but makes it Ractor-safe</span>
+
+  <span class="k">def</span> <span class="nf">initialize</span>
+    <span class="vi">@fruit</span> <span class="o">=</span> <span class="no">NULL</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">fruit</span>
+    <span class="k">return</span> <span class="vi">@fruit</span> <span class="k">unless</span> <span class="vi">@fruit</span> <span class="o">==</span> <span class="no">NULL</span>
+    <span class="vi">@fruit</span> <span class="o">=</span> <span class="n">an_expensive_operation</span> 
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>Alternatively, if you’re doing a lot of meta or variable programming and you need an arbitrary number of memoized values, use a hash and key check instead:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Good: Object Shape friendly</span>
+<span class="k">class</span> <span class="nc">GroceryStore</span>
+  <span class="k">def</span> <span class="nf">initialize</span>
+    <span class="vi">@produce</span> <span class="o">=</span> <span class="p">{}</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">produce</span><span class="p">(</span><span class="n">type</span><span class="p">)</span>
+    <span class="k">return</span> <span class="vi">@produce</span><span class="p">[</span><span class="n">type</span><span class="p">]</span> <span class="k">if</span> <span class="vi">@produce</span><span class="p">.</span><span class="nf">key?</span><span class="p">(</span><span class="n">type</span><span class="p">)</span>
+    <span class="vi">@produce</span><span class="p">[</span><span class="n">type</span><span class="p">]</span> <span class="o">=</span> <span class="n">an_expensive_operation</span><span class="p">(</span><span class="n">type</span><span class="p">)</span> 
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<h3 id="thats-it">That’s it</h3>
+
+<p>Creating Object Shape friendly code is not very complicated!</p>
+
+<p>Please reach out if there’s other patterns I’m missing: bensheldon@gmail.com / <a href="https://twitter.com/bensheldon">twitter.com/@bensheldon</a> / <a href="https://ruby.social/@bensheldon">ruby.social/@bensheldon</a></p>
+
+  </div>
+</article>
+
+
+    <hr>
+  
+    
+
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
       <a class="post-link" href="/2023/09/in-defense-of-consensus">In defense of consensus</a>
     </h1>
     <p class="post-meta text-muted">
@@ -1152,46 +1306,6 @@
 <p>I’ll admit, serving frontend assets using <code class="language-plaintext highlighter-rouge">render file:</code> is boring, but I experienced a thrill the first time I wired up the importmaps and <em>it just worked</em>. Writing small Javascript modules and using <code class="language-plaintext highlighter-rouge">import</code> directives is really nice. I recently added Stimulus and I’m feeling optimistic that I could reliably implement Turbo in my gem’s Rails Engine fully decoupled from the parent application.</p>
 
 <p>I hope this post about GoodJob inspires you to build full-featured web frontends for your own gems and libraries.</p>
-
-  </div>
-</article>
-
-
-    <hr>
-  
-    
-
-<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">
-      <a class="post-link" href="/2023/03/recently-march-12-2023">Recently, March 12, 2023</a>
-    </h1>
-    <p class="post-meta text-muted">
-      <time datetime="2023-03-13T00:26:00+00:00" itemprop="datePublished">March 13, 2023</time>
-      
-      
-
-
-  
-
-  
-
-  • Tagged <a href="/tags/#weeknotes">weeknotes</a>
-
-
-    </p>
-  </header>
-
-  <div class="post-content" itemprop="articleBody">
-    <ul>
-  <li>Work has been complicated, recently. <a href="https://techcrunch.com/2023/02/09/github-lays-off-10-and-goes-fully-remote/">Layoffs, as a general idea</a>, were announced a month ago; it was the same week I came down with a bad cold. I’ve been fairly low energy since and have had trouble differentiating the two. I’m supremely proud and confident that my team is doing the most important work possible. We’ll see!</li>
-  <li>The week prior to all of this, my dad came to visit and stay with us. Having an easier time hosting family was one of our goals in getting a 2nd bedroom. Success.</li>
-  <li>Wow, it’s nearly been a year since I left my last job. I’ve had a number of former colleagues asking for help in leaving, in addition to talking with folks being pushed out: I was surprised to see Code for America finally kill Brigades, and really <a href="https://statescoop.com/code-for-america-local-brigades-ending/">twist the knife too</a> by forcing groups to rename themselves.</li>
-  <li>GoodJob is great! I’ve been thinking about <a href="https://github.com/bensheldon/good_job/discussions/831">replacing Advisory Locks</a> with a lock strategy that’s more compatible with PgBouncer. But that will probably be a 2-year project at least of incrementally crabwalking towards that goal while avoiding breaking changes. <a href="https://github.com/rubygems/rubygems.org/pull/3533">Rubygems.org just adopted GoodJob</a>; I am humbled.</li>
-  <li>On other projects, I’ve been trying to lower costs. My S3 data-transfer bill went from $10 to $50 a month, which I’m not happy about; scrapers are the worst 🤷‍♀️ I’ve also been experimenting with Dokku for packing some smaller projects (paying $15 once rather than $12 per app), though the VM locked up once on a Saturday night and I had to reboot it and this is exactly why I don’t want to manage my own servers.</li>
-  <li>My brother and I have been planning a Celebration of Life for my mom.</li>
-  <li>I’m so happy to finally be back on Daylight Savings Time.</li>
-</ul>
 
   </div>
 </article>
