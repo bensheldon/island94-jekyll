@@ -47,7 +47,7 @@ beta_store.vegetable # defines @vegetable first
 beta_store.fruit # defines #fruit second 
 ```
 
-In this example, `alpha_store` and `beta_store` do not share the same object shape because the order in which their instance variables are defined depends on the order the application calls their methods. These objects are not Object Shape friendly.
+In this example, `alpha_store` and `beta_store` do not share the same object shape because the order in which their instance variables are defined depends on the order the application calls their methods. This code is not Object Shape friendly.
 
 ### Pattern: Define your instance variables in initialize
 
