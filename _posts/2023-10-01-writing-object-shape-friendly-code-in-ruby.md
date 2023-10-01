@@ -5,7 +5,7 @@ published: true
 tags: [Ruby]
 ---
 
- Ruby 3.2 includes a performance optimization called Object Shapes, that changes how the Ruby VM stores, looks up, and caches instances variables (the variables that look like `@ivar`) . YJIT also takes advantage of Object Shapes, and the upcoming Ruby 3.3 has further improvements that improve the performance of Object Shapes.
+Ruby 3.2 includes a performance optimization called Object Shapes, that changes how the Ruby VM stores, looks up, and caches instances variables (the variables that look like `@ivar`) . YJIT also takes advantage of Object Shapes, and the upcoming Ruby 3.3 has further improvements that improve the performance of Object Shapes.
 
 This is a brief blog post about how to write your own Ruby application code that is optimized for Object Shapes. If instead you'd like to learn more about how Object Shapes is implemented in Ruby, watch [Aaron Patterson's RubyConf 2022 video](https://www.youtube.com/watch?v=R0oxlyVUpDw) or read this [explanation from Ayush Poddar](https://poddarayush.com/posts/object-shapes-improve-ruby-code-performance/) .
 
@@ -50,6 +50,7 @@ beta_store.fruit # defines #fruit second
 In this example, `alpha_store` and `beta_store` do not share the same object shape because the order in which their instance variables are defined depends on the order the application calls their methods. These objects are not Object Shape friendly.
 
 ### Pattern: Define your instance variables in initialize
+
 The simplest way to ensure instance variables are defined in the same order every time is to define the instance variables in `#initialize`:
 
 ```ruby
