@@ -2,7 +2,7 @@
 title: "Writing Object Shape friendly code in Ruby"
 date: 2023-10-01 08:05 PDT
 published: true
-tags: []
+tags: [Ruby]
 ---
 
  Ruby 3.2 includes a performance optimization called Object Shapes, that changes how the Ruby VM stores, looks up, and caches instances variables (the variables that look like `@ivar`) . YJIT also takes advantage of Object Shapes, and the upcoming Ruby 3.3 has further improvements that improve the performance of Object Shapes.
