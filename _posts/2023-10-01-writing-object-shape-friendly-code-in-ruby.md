@@ -58,7 +58,7 @@ The simplest way to ensure instance variables are defined in the same order ever
 class GroceryStore
   def initialize
     @fruit = "apple"
-    @vegetable = "broccoli"
+    @vegetable = nil # declare but assign later
   end
 
   def fruit
@@ -66,7 +66,7 @@ class GroceryStore
   end
 
   def vegetable
-    @vegetable
+    @vegetable ||=  "broccoli"
   end
 end
 ```
