@@ -6,8 +6,8 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 01 Oct 2023 16:46:06 +0000</pubDate>
-    <lastBuildDate>Sun, 01 Oct 2023 16:46:06 +0000</lastBuildDate>
+    <pubDate>Mon, 02 Oct 2023 16:37:50 +0000</pubDate>
+    <lastBuildDate>Mon, 02 Oct 2023 16:37:50 +0000</lastBuildDate>
     <generator>Jekyll v4.3.2</generator>
     
     
@@ -74,7 +74,7 @@
 &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;GroceryStore&lt;/span&gt;
   &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initialize&lt;/span&gt;
     &lt;span class=&quot;vi&quot;&gt;@fruit&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;apple&quot;&lt;/span&gt;
-    &lt;span class=&quot;vi&quot;&gt;@vegetable&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;broccoli&quot;&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@vegetable&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# declare but assign later&lt;/span&gt;
   &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
 
   &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;fruit&lt;/span&gt;
@@ -82,7 +82,7 @@
   &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
 
   &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;vegetable&lt;/span&gt;
-    &lt;span class=&quot;vi&quot;&gt;@vegetable&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@vegetable&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||=&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;broccoli&quot;&lt;/span&gt;
   &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
