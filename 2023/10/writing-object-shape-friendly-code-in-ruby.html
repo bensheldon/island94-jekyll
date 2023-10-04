@@ -167,7 +167,7 @@
 <span class="k">end</span>
 </code></pre></div></div>
 
-<p>It’s also ok to define instance variables implicitly with <code class="language-plaintext highlighter-rouge">attr_*</code> methods in the class body, which has the same outcome of always defining the instance variables in the same order.</p>
+<p><del>It’s also ok to define instance variables implicitly with <code class="language-plaintext highlighter-rouge">attr_*</code> methods in the class body, which has the same outcome of always defining the instance variables in the same order.</del> <strong>Update</strong>: Ufuk Kayserilioglu informed me that <code class="language-plaintext highlighter-rouge">attr_*</code> do not define the instance variable until they are first called, meaning that these methods or their associated instance variables should also be declared with a value in <code class="language-plaintext highlighter-rouge">#initialize</code>.</p>
 
 <p>Now I realize this is a very simplistic example, but that’s really all there is to it. If it makes you feel better, at GitHub where I work, we have classes with upwards of 200 instance variables. In hot code, where we have profiled, we go to a negligible effort of making sure those instance variables are defined in the same order; it’s really not that bad!</p>
 
@@ -244,9 +244,9 @@
       
       <li><a href="/2007/08/Geekout-Video-on-Maps-for-Cable-Access-TV.html">Geekout: Video on Maps for Cable Access TV</a></li>
       
-      <li><a href="/2023/03/how-goodjob-s-mountable-rails-engine-delivers-javascript-importmaps-and-frontend-assets">How GoodJob's mountable Rails Engine delivers Javascript importmaps and frontend assets</a></li>
-      
       <li><a href="/2022/07/four-dumb-cringe-tech-interview-stories">Four dumb-cringe tech interview stories</a></li>
+      
+      <li><a href="/2023/03/how-goodjob-s-mountable-rails-engine-delivers-javascript-importmaps-and-frontend-assets">How GoodJob's mountable Rails Engine delivers Javascript importmaps and frontend assets</a></li>
       
     </ul>
   </div>
