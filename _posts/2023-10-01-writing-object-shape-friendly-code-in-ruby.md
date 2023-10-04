@@ -71,7 +71,7 @@ class GroceryStore
 end
 ```
 
-It's also ok to define instance variables implicitly with `attr_*` methods in the class body, which has the same outcome of always defining the instance variables in the same order.
+~~It's also ok to define instance variables implicitly with `attr_*` methods in the class body, which has the same outcome of always defining the instance variables in the same order.~~ **Update**: Ufuk Kayserilioglu informed me that `attr_*` do not define the instance variable until they are first called, meaning that these methods or their associated instance variables should also be declared with a value in `#initialize`.    
 
 Now I realize this is a very simplistic example, but that's really all there is to it. If it makes you feel better, at GitHub where I work, we have classes with upwards of 200 instance variables. In hot code, where we have profiled, we go to a negligible effort of making sure those instance variables are defined in the same order; it's really not that bad!
 
