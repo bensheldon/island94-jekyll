@@ -84,6 +84,61 @@
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
     <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2023/10/reflections-on-good-job-for-solid-queue">Reflections on GoodJob for Solid Queue</a>
+    </h1>
+    <p class="post-meta text-muted">
+      <time datetime="2023-10-10T16:05:00+00:00" itemprop="datePublished">October 10, 2023</time>
+      
+      
+
+
+  
+
+  
+
+  • Tagged <a href="/tags/#goodjob">GoodJob</a> and <a href="/tags/#ruby">Ruby</a>
+
+
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p><a href="/uploads/2023-10/rails_world_solid_queue.jpg"><img src="/uploads/2023-10/rails_world_solid_queue.jpg" alt="Rails World presents Solid Queue and Mission Control" /></a></p>
+
+<p><em>GoodJob, via its <a href="https://island94.org/2020/07/introducing-goodjob-1-0">introductory blog post</a>, was highlighted last week at Rails World. A new Active Job queue backend, <a href="https://rubygems.org/gems/solid_queue">Solid Queue</a>, was announced, and I’m excited to see where it goes!</em></p>
+
+<p>I attended Rails World in Amsterdam this past week. During the conference, a new Active Job backend was announced: Solid Queue, which has the potential to become first, first-party backend in Rails. Solid Queue, like my GoodJob, is backed by a relational database. I’m very excited about this! I had a chance to talk to Rosa Gutierrez, who is leading the effort at 37signals, and I’m hopeful that I’ll be able to contribute to Solid Queue and who knows, maybe it could even become a successor to GoodJob.</p>
+
+<p>With that thought in mind, I reflected on some of the design and motivations that became GoodJob, and that I believe are important regardless of the Active Job backend under development. These are not intended to be design documents but more a list of things that I have learned or come across during my 3 years working on GoodJob. It would be nice to keep these in mind when designing a potential successor to GoodJob. And I hope they can be the seed to further conversations, rather than a fully realized proposal or argument. Let’s go:</p>
+
+<ul>
+  <li><strong>SIGKILL Safety</strong>. Recovering from a SIGKILL (or someone unplugging the power cord) is always number one in my mind when thinking of GoodJob. That informed my desire to use Advisory Locks (which are automatically released on disconnect), and my future thinking about heartbeats if GoodJob switched over to using <code class="language-plaintext highlighter-rouge">FOR UPDATE SKIP LOCK</code> instead of Advisory Locks. I do not think jobs should be limited to a specific timeout (as Delayed Job’s design uses) as that also creates significant retry latency when resumed, and jobs definitely shouldn’t be wrapped with a transaction either.</li>
+  <li><strong>(Human) Exception and Retry Workflows</strong>. Everybody has a different workflow for how they deal with errors, and I believe that a backend needs to track, report (e.g. send to Sentry or Bugsnag) and expose the various reasons an error appears: retried, retry stopped, explicitly discarded, SIGKILLed/interrupted, unhandled error, etc. I still am dialing this in on GoodJob because there is wide variability of how people and teams manage their error workflows. I’m always learning something new. For example, there are very different answers on “when using <code class="language-plaintext highlighter-rouge">retry_on SpecialError, attempts: 3</code> should the 4th error be reported to the exception tracker? What about an explicit <code class="language-plaintext highlighter-rouge">discard_on</code>? Should a <code class="language-plaintext highlighter-rouge">discard_on</code> error be reviewed and reenqueued or not?” If a job is SIGKILLed/interrupted, should it be automatically restarted or held for manual review? Everyone seems to do it differently! I haven’t cracked the code on what is “ideal” or reasonable to say “nope, don’t do it <em>that</em> way.” Active Job’s error handling isn’t clear cut either, so maybe we can make that better and come around to a more opinionated (but still inclusive) design. Maybe!</li>
+  <li><strong>Process Harnesses</strong>. I think it’s interesting that Rails might ship with a 1st party queue backend before it ships with a 1st party webserver: there is a lot of operational overlap. Signal handling, timeouts, daemonization, liveness and healthcheck probes, monitoring and scaling instrumentation. There’s quite a lot of ground to cover, and a lot different systems and tooling: Kubernetes,  systemd, rc.d, Heroku, Judoscale, to name just a few of the various operational targets that I’ve spent considerable time supporting.</li>
+  <li><strong>Repeating Jobs / Clock Process</strong>. It took me <a href="https://github.com/bensheldon/good_job/issues/255">a while to come around to this</a> in GoodJob, but I believe that performing work <em>repetitively on a schedule</em> (“cron-like”) is very much in the same problem-domain as background jobs. There’s lots of different ways to design it that I don’t feel strongly about, for example GoodJob minimizes autoloading by keeping schedules separate from job classes, but I do think it is necessary to plan for scheduled jobs in a well-architected Rails application.</li>
+  <li><strong>Unique Jobs, Throttles, Fuses and other Concurrency Controls</strong>,. Similarly to Repeating Jobs, demand is high for everything I’d bucket under “concurrency controls”, which I’ll say covers both enqueue and dequeue complexity. And these features are tough because they sit in counterbalance to overall performance: do you want to run jobs faster or smarter? And these are the features that I think are legit because there are other features below under Queue Design that I think are bunk. There’s a lot of discernment to do!</li>
+  <li><strong>Queue design and multi-queue execution pools</strong>. I do think queue design is a place where lots of people do it wrong. I believe queues should be organized by maximum total latency SLO (<code class="language-plaintext highlighter-rouge">latency_15s</code>, <code class="language-plaintext highlighter-rouge">latency_15m</code> , <code class="language-plaintext highlighter-rouge">latency_8h</code>) and <em>not</em> by their purpose or dependencies  (<code class="language-plaintext highlighter-rouge">mailers</code>, <code class="language-plaintext highlighter-rouge">billing</code>, <code class="language-plaintext highlighter-rouge">api</code>). <a href="https://www.railsspeed.com/">Nate Berkopec believes similarly.</a> And I think that informs that <strong>execution pools (e.g. thread pools) should be able to work from multiple queues and have independent concurrency configuration (e.g. number of threads)</strong>, both to ease transition from the latter to the former, but also because it allows sharing resources as optimally as possible (having 3 separate pools that pull from <code class="language-plaintext highlighter-rouge">"latency_15s"</code>, <code class="language-plaintext highlighter-rouge">"latency_15m, latency_15s"</code>, and <code class="language-plaintext highlighter-rouge">"latency_8h,*"</code> in GoodJob’s syntax). I personally think concepts like priority or ordered-queues lead to bad queue design, so I wouldn’t sweat that. Any ordering regime more complex than first-in-first-out (FIFO) prioritizes capacity (or lack thereof) over latency. This might sound strange coming from me who champions running workloads in the webbrowser on tiny dynos, but it’s different in my mind: I don’t think it’s possible to meet a latency target through prioritization when there is a fundamental lack of capacity.</li>
+  <li><strong>Labels</strong>. Per the previous point, though I have yet to implement this in GoodJob (soon!), I think that giving developers the option to label their jobs might break their bad habit of using queue names as functional labels, instead of what I believe queues should be appropriately used for: latency and quality-of-service thresholds. I mention it here just in case that informs Solid Queue’s design.</li>
+  <li><strong>Observability</strong>. GoodJob maintains a lot of bookkeeping, keeping job and granular execution data around after execution so it can be inspected. People seem to like that, and it’s necessary keep them around for calculating accurate latency metrics, though it all is a trade-off against performance. It makes for a fun Web Dashboard too.</li>
+  <li><strong>Performance Envelope.</strong> I dunno, I mention this just because I think people spend an inordinate amount of time comparing queue backend performance and asking “do the jobs go brrrrr?” GoodJob targets the small and medium end of projects (though some big ones use it too) and prioritizes operational simplicity over performance. That works for me (and a lot of others!) but also isn’t really reflective of the scale of companies leading Rails development. There’s a tension here.</li>
+  <li><strong>Making better mistakes tomorrow</strong>. I’m really proud of having a reputation for being helpful and responsive and curious in the GoodJob issue queue and discussions and various support Slacks (like <a href="https://www.rubyonrails.link">Rails Link</a>). I think there is a lot to the queue backend domain that won’t be learned by upfront analysis, and that can’t be easily bucketed into either “the library is doing it wrong” or “the developer is doing it wrong” There’s a lot of variation! (not to mention across JRuby,etc. and various database versions). I’m able to do things with GoodJob that I think is unlikely on a 1st party Rails queue backend (like cutting a new release after every patch and fix), and I’m able to stay oriented to the people and the problem they’re trying to solve over the technological solution itself. I hope all that can be preserved as these things move upstream.</li>
+</ul>
+
+<p>That’s it! I’m probably forgetting stuff, so I’ll reserve the right to keep adding to this list. I’d love to keep talking about this and hope that Solid Queue will be fantastic!</p>
+
+<p><em>Oh, and Solid Queue isn’t released yet, so if this seems compelling, <a href="https://github.com/bensheldon/good_job">use GoodJob</a> in the meantime.</em></p>
+
+  </div>
+</article>
+
+
+    <hr>
+  
+    
+
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
       <a class="post-link" href="/2023/10/writing-object-shape-friendly-code-in-ruby">Writing Object Shape friendly code in Ruby</a>
     </h1>
     <p class="post-meta text-muted">
@@ -1143,169 +1198,6 @@
 <h3 id="really-dont-autoload-lib">Really, don’t autoload <code class="language-plaintext highlighter-rouge">lib/</code></h3>
 
 <p>Whatever path you take, don’t take the path of autoloading <code class="language-plaintext highlighter-rouge">lib/</code>.</p>
-
-  </div>
-</article>
-
-
-    <hr>
-  
-    
-
-<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">
-      <a class="post-link" href="/2023/03/how-goodjob-s-mountable-rails-engine-delivers-javascript-importmaps-and-frontend-assets">How GoodJob's mountable Rails Engine delivers Javascript importmaps and frontend assets</a>
-    </h1>
-    <p class="post-meta text-muted">
-      <time datetime="2023-03-20T15:27:00+00:00" itemprop="datePublished">March 20, 2023</time>
-      
-      
-
-
-  
-
-  
-
-  • Tagged <a href="/tags/#goodjob">GoodJob</a>
-
-
-    </p>
-  </header>
-
-  <div class="post-content" itemprop="articleBody">
-    <p><a href="https://github.com/bensheldon/good_job">GoodJob</a> is a multithreaded, Postgres-based ActiveJob backend for Ruby on Rails.</p>
-
-<p>GoodJob includes a full-featured (though optional) web dashboard to monitor and administer background jobs. The web dashboard is included in the <code class="language-plaintext highlighter-rouge">good_job</code> gem as a mountable Rails Engine.</p>
-
-<p>As the maintainer of GoodJob, I want to make gem development easier for myself by innovating as little as possible. That’s why GoodJob builds on top of Active Record and Concurrent::Ruby.</p>
-
-<p>But, the frontend can be a beast. When thinking about how to build a full-featured web dashboard <em>packaged within a Rails Engine within a gem</em>, I had three goals:</p>
-
-<ol>
-  <li><strong>Be asset pipeline agnostic with zero dependencies.</strong> As of Rails ~7.0, a Rails developer can choose between several different asset pipeline tools (Sprockets, Webpacker/Shakapacker, esbuild/jsbundling, etc.). That’s too many! I want to ensure what I package with GoodJob is compatible with all of them. I also don’t want to affect the parent application at all; everything must be independent and self-contained.</li>
-  <li><strong>Allow easy patching/debugging.</strong> I want the GoodJob web dashboard to work when using the Git repo directly in a project’s Gemfile or simply <code class="language-plaintext highlighter-rouge">bundle open good_job</code> to debug a problem.</li>
-  <li><strong>Write contemporary frontend code.</strong> I want to use Bootstrap UI, Stimulus, Rails UJS, and write modular JavaScript with imports. Maybe even Turbo!</li>
-</ol>
-
-<p>And of course, I want GoodJob to be secure, performant, and a joy to develop and use for myself and the developer community.</p>
-
-<p>Read on for how I achieved it all (mostly!) with GoodJob.</p>
-
-<h2 id="what-i-didnt-do">What I didn’t do</h2>
-
-<p>Here’s all the things I considered, but decided not to do:</p>
-
-<ul>
-  <li><strong>Nope: Manually construct/inline a small number of javascript files</strong>: I did not want to manually build a javascript file, copy-pasting various various 3rd-party libraries into a single file, and then writing my code at the bottom. This seemed laborious and prone to error, especially when I would need to update a library; and my IDE doesn’t work well with large files so writing my own code would be difficult.</li>
-  <li><strong>Nope: Precompile javascript in the repository or on gem build:</strong> I did not want to force a pre-commit step to build javascript, or to only package built javascript into the gem because that would make patching and debugging difficult. Over my career I’ve struggled contributing to a number of otherwise fantastic gems that use this workflow pattern.</li>
-  <li><strong>Nope: Compile javascript in the application:</strong> Rails has too many different asset pipeline patterns right now for me to consider supporting them all. I consider this more a result of a highly fragmented frontend ecosystem than an indictment of Rails. I can’t imagine supporting all of the different options and whatever else shows up in the future at the same time. (I’m in awe of the gems that do; nice work <code class="language-plaintext highlighter-rouge">rails_admin</code>!)</li>
-</ul>
-
-<h2 id="what-i-did-do">What I did do</h2>
-
-<p>As I wrote earlier: “innovate as little as possible”:</p>
-
-<p><strong>Serve vanilla JS and CSS out of vanilla Routes/Controller</strong></p>
-
-<p>GoodJob has explicit routes for frontend assets that wire up to a controller that serves those assets statically with <code class="language-plaintext highlighter-rouge">render :file</code>. Let’s break that down…</p>
-
-<p>In my Rails Engine’s router, I define a namescape, <code class="language-plaintext highlighter-rouge">frontend</code>, and two <code class="language-plaintext highlighter-rouge">get</code> routes. The first route, <code class="language-plaintext highlighter-rouge">modules</code> , is for Javascript modules that will go into the importmap. The second route, <code class="language-plaintext highlighter-rouge">static</code> , is for Javascript and CSS that I’ll link/script directly in the HTML head.</p>
-
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># config/routes.rb</span>
-<span class="n">scope</span> <span class="ss">:frontend</span><span class="p">,</span> <span class="ss">controller: :frontends</span> <span class="k">do</span>
-  <span class="n">get</span> <span class="s2">"modules/:name"</span><span class="p">,</span> <span class="ss">action: :module</span><span class="p">,</span> <span class="ss">as: :frontend_module</span><span class="p">,</span> <span class="ss">constraints: </span><span class="p">{</span> <span class="ss">format: </span><span class="s1">'js'</span> <span class="p">}</span>
-  <span class="n">get</span> <span class="s2">"static/:name"</span><span class="p">,</span> <span class="ss">action: :static</span><span class="p">,</span> <span class="ss">as: :frontend_static</span><span class="p">,</span> <span class="ss">constraints: </span><span class="p">{</span> <span class="ss">format: </span><span class="sx">%w[css js]</span> <span class="p">}</span>
-<span class="k">end</span>
-</code></pre></div></div>
-
-<p>In the matching controller, I create static constants that define hashes of files that are matched and served, which I store in a <code class="language-plaintext highlighter-rouge">app/frontend</code> directory in my Rails Engine. <em>I want paths to be explicit for security reasons because passing any sort of dynamic file path through the URL could be a path traversal vulnerability.</em> All of the frontend assets are stored in  <code class="language-plaintext highlighter-rouge">app/frontend</code> and served out of this controller:</p>
-
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># app/controllers/good_job/frontends_controller.rb</span>
-
-<span class="k">module</span> <span class="nn">GoodJob</span>
-  <span class="k">class</span> <span class="nc">FrontendsController</span> <span class="o">&lt;</span> <span class="no">ActionController</span><span class="o">::</span><span class="no">Base</span> <span class="c1"># rubocop:disable Rails/ApplicationController</span>
-    <span class="no">STATIC_ASSETS</span> <span class="o">=</span> <span class="p">{</span>
-      <span class="ss">css: </span><span class="p">{</span>
-        <span class="ss">bootstrap: </span><span class="no">GoodJob</span><span class="o">::</span><span class="no">Engine</span><span class="p">.</span><span class="nf">root</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="s2">"app"</span><span class="p">,</span> <span class="s2">"frontend"</span><span class="p">,</span> <span class="s2">"good_job"</span><span class="p">,</span> <span class="s2">"vendor"</span><span class="p">,</span> <span class="s2">"bootstrap"</span><span class="p">,</span> <span class="s2">"bootstrap.min.css"</span><span class="p">),</span>
-        <span class="ss">style: </span><span class="no">GoodJob</span><span class="o">::</span><span class="no">Engine</span><span class="p">.</span><span class="nf">root</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="s2">"app"</span><span class="p">,</span> <span class="s2">"frontend"</span><span class="p">,</span> <span class="s2">"good_job"</span><span class="p">,</span> <span class="s2">"style.css"</span><span class="p">),</span>
-      <span class="p">},</span>
-      <span class="ss">js: </span><span class="p">{</span>
-        <span class="ss">bootstrap: </span><span class="no">GoodJob</span><span class="o">::</span><span class="no">Engine</span><span class="p">.</span><span class="nf">root</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="s2">"app"</span><span class="p">,</span> <span class="s2">"frontend"</span><span class="p">,</span> <span class="s2">"good_job"</span><span class="p">,</span> <span class="s2">"vendor"</span><span class="p">,</span> <span class="s2">"bootstrap"</span><span class="p">,</span> <span class="s2">"bootstrap.bundle.min.js"</span><span class="p">),</span>
-        <span class="ss">chartjs: </span><span class="no">GoodJob</span><span class="o">::</span><span class="no">Engine</span><span class="p">.</span><span class="nf">root</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="s2">"app"</span><span class="p">,</span> <span class="s2">"frontend"</span><span class="p">,</span> <span class="s2">"good_job"</span><span class="p">,</span> <span class="s2">"vendor"</span><span class="p">,</span> <span class="s2">"chartjs"</span><span class="p">,</span> <span class="s2">"chart.min.js"</span><span class="p">),</span>
-        <span class="ss">es_module_shims: </span><span class="no">GoodJob</span><span class="o">::</span><span class="no">Engine</span><span class="p">.</span><span class="nf">root</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="s2">"app"</span><span class="p">,</span> <span class="s2">"frontend"</span><span class="p">,</span> <span class="s2">"good_job"</span><span class="p">,</span> <span class="s2">"vendor"</span><span class="p">,</span> <span class="s2">"es_module_shims.js"</span><span class="p">),</span>
-        <span class="ss">rails_ujs: </span><span class="no">GoodJob</span><span class="o">::</span><span class="no">Engine</span><span class="p">.</span><span class="nf">root</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="s2">"app"</span><span class="p">,</span> <span class="s2">"frontend"</span><span class="p">,</span> <span class="s2">"good_job"</span><span class="p">,</span> <span class="s2">"vendor"</span><span class="p">,</span> <span class="s2">"rails_ujs.js"</span><span class="p">),</span>
-      <span class="p">},</span>
-    <span class="p">}.</span><span class="nf">freeze</span>
-
-		<span class="c1"># Additional JS modules that don't live in app/frontend/good_job/modules</span>
-    <span class="no">MODULE_OVERRIDES</span> <span class="o">=</span> <span class="p">{</span>
-      <span class="ss">application: </span><span class="no">GoodJob</span><span class="o">::</span><span class="no">Engine</span><span class="p">.</span><span class="nf">root</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="s2">"app"</span><span class="p">,</span> <span class="s2">"frontend"</span><span class="p">,</span> <span class="s2">"good_job"</span><span class="p">,</span> <span class="s2">"application.js"</span><span class="p">),</span>
-      <span class="ss">stimulus: </span><span class="no">GoodJob</span><span class="o">::</span><span class="no">Engine</span><span class="p">.</span><span class="nf">root</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="s2">"app"</span><span class="p">,</span> <span class="s2">"frontend"</span><span class="p">,</span> <span class="s2">"good_job"</span><span class="p">,</span> <span class="s2">"vendor"</span><span class="p">,</span> <span class="s2">"stimulus.js"</span><span class="p">),</span>
-    <span class="p">}.</span><span class="nf">freeze</span>
-
-    <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">js_modules</span>
-      <span class="vi">@_js_modules</span> <span class="o">||=</span> <span class="no">GoodJob</span><span class="o">::</span><span class="no">Engine</span><span class="p">.</span><span class="nf">root</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="s2">"app"</span><span class="p">,</span> <span class="s2">"frontend"</span><span class="p">,</span> <span class="s2">"good_job"</span><span class="p">,</span> <span class="s2">"modules"</span><span class="p">).</span><span class="nf">children</span><span class="p">.</span><span class="nf">select</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:file?</span><span class="p">).</span><span class="nf">each_with_object</span><span class="p">({})</span> <span class="k">do</span> <span class="o">|</span><span class="n">file</span><span class="p">,</span> <span class="n">modules</span><span class="o">|</span>
-        <span class="n">key</span> <span class="o">=</span> <span class="no">File</span><span class="p">.</span><span class="nf">basename</span><span class="p">(</span><span class="n">file</span><span class="p">.</span><span class="nf">basename</span><span class="p">.</span><span class="nf">to_s</span><span class="p">,</span> <span class="s2">".js"</span><span class="p">).</span><span class="nf">to_sym</span>
-        <span class="n">modules</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">file</span>
-      <span class="k">end</span><span class="p">.</span><span class="nf">merge</span><span class="p">(</span><span class="no">MODULE_OVERRIDES</span><span class="p">)</span>
-    <span class="k">end</span>
-
-    <span class="c1"># Necessarly to serve Javascript to the browser</span>
-		<span class="n">skip_after_action</span> <span class="ss">:verify_same_origin_request</span><span class="p">,</span> <span class="ss">raise: </span><span class="kp">false</span>
-    <span class="n">before_action</span> <span class="p">{</span> <span class="n">expires_in</span> <span class="mi">1</span><span class="p">.</span><span class="nf">year</span><span class="p">,</span> <span class="ss">public: </span><span class="kp">true</span> <span class="p">}</span>
-
-    <span class="k">def</span> <span class="nf">static</span>
-      <span class="n">render</span> <span class="ss">file: </span><span class="no">STATIC_ASSETS</span><span class="p">.</span><span class="nf">dig</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="ss">:format</span><span class="p">].</span><span class="nf">to_sym</span><span class="p">,</span> <span class="n">params</span><span class="p">[</span><span class="ss">:name</span><span class="p">].</span><span class="nf">to_sym</span><span class="p">)</span> <span class="o">||</span> <span class="k">raise</span><span class="p">(</span><span class="no">ActionController</span><span class="o">::</span><span class="no">RoutingError</span><span class="p">,</span> <span class="s1">'Not Found'</span><span class="p">)</span>
-    <span class="k">end</span>
-
-    <span class="k">def</span> <span class="nf">module</span>
-      <span class="k">raise</span><span class="p">(</span><span class="no">ActionController</span><span class="o">::</span><span class="no">RoutingError</span><span class="p">,</span> <span class="s1">'Not Found'</span><span class="p">)</span> <span class="k">if</span> <span class="n">params</span><span class="p">[</span><span class="ss">:format</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">"js"</span>
-
-      <span class="n">render</span> <span class="ss">file: </span><span class="nb">self</span><span class="p">.</span><span class="nf">class</span><span class="p">.</span><span class="nf">js_modules</span><span class="p">[</span><span class="n">params</span><span class="p">[</span><span class="ss">:name</span><span class="p">].</span><span class="nf">to_sym</span><span class="p">]</span> <span class="o">||</span> <span class="k">raise</span><span class="p">(</span><span class="no">ActionController</span><span class="o">::</span><span class="no">RoutingError</span><span class="p">,</span> <span class="s1">'Not Found'</span><span class="p">)</span>
-    <span class="k">end</span>
-  <span class="k">end</span>
-<span class="k">end</span>
-</code></pre></div></div>
-
-<p>One downside of this is that I’m unable to use Sass or Typescript or anything that isn’t vanilla CSS or Javascript. So far I haven’t missed that too much; Bootstrap brings a very comprehensive design system and Rubymine is pretty good at hinting Javscript on its own.</p>
-
-<p>Another downside is that I package several hundred kilobytes of frontend code within my gem. This increases the gem size, which is a real bummer if an application isn’t mounting the dashboard. I’ve considered separating the optional dashboard into a separate gem, but I’m deferring that until anyone notices that it’s problematic (so far so good!).</p>
-
-<p><strong>Manually link assets and construct a JS importmaps in my Engine’s layout <code class="language-plaintext highlighter-rouge">&lt;head&gt;</code></strong></p>
-
-<p>Having created the routes and controller actions, I can simply link the static files in the layout html header:</p>
-
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!-- app/views/layouts/good_job/application.html.erg --&gt;</span>
-<span class="nt">&lt;head&gt;</span>
-  <span class="c">&lt;!-- ... --&gt;</span>
-  <span class="nt">&lt;</span><span class="err">%</span><span class="na">#</span> <span class="na">Note:</span> <span class="na">Do</span> <span class="na">not</span> <span class="na">use</span> <span class="na">asset</span> <span class="na">tag</span> <span class="na">helpers</span> <span class="na">to</span> <span class="na">avoid</span> <span class="na">paths</span> <span class="na">being</span> <span class="na">overriden</span> <span class="na">by</span> <span class="na">config.asset_host</span> <span class="err">%</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;</span><span class="err">%=</span> <span class="na">tag.link</span> <span class="na">rel:</span> <span class="err">"</span><span class="na">stylesheet</span><span class="err">",</span> <span class="na">href:</span> <span class="na">frontend_static_path</span><span class="err">(</span><span class="na">:bootstrap</span><span class="err">,</span> <span class="na">format:</span> <span class="na">:css</span><span class="err">,</span> <span class="na">v:</span> <span class="na">GoodJob::VERSION</span><span class="err">,</span> <span class="na">locale:</span> <span class="na">nil</span><span class="err">),</span> <span class="na">nonce:</span> <span class="na">content_security_policy_nonce</span> <span class="err">%</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;</span><span class="err">%=</span> <span class="na">tag.link</span> <span class="na">rel:</span> <span class="err">"</span><span class="na">stylesheet</span><span class="err">",</span> <span class="na">href:</span> <span class="na">frontend_static_path</span><span class="err">(</span><span class="na">:style</span><span class="err">,</span> <span class="na">format:</span> <span class="na">:css</span><span class="err">,</span> <span class="na">v:</span> <span class="na">GoodJob::VERSION</span><span class="err">,</span> <span class="na">locale:</span> <span class="na">nil</span><span class="err">),</span> <span class="na">nonce:</span> <span class="na">content_security_policy_nonce</span> <span class="err">%</span><span class="nt">&gt;</span>
-	
-  <span class="nt">&lt;</span><span class="err">%=</span> <span class="na">tag.script</span> <span class="err">"",</span> <span class="na">src:</span> <span class="na">frontend_static_path</span><span class="err">(</span><span class="na">:bootstrap</span><span class="err">,</span> <span class="na">format:</span> <span class="na">:js</span><span class="err">,</span> <span class="na">v:</span> <span class="na">GoodJob::VERSION</span><span class="err">,</span> <span class="na">locale:</span> <span class="na">nil</span><span class="err">),</span> <span class="na">nonce:</span> <span class="na">content_security_policy_nonce</span> <span class="err">%</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;</span><span class="err">%=</span> <span class="na">tag.script</span> <span class="err">"",</span> <span class="na">src:</span> <span class="na">frontend_static_path</span><span class="err">(</span><span class="na">:chartjs</span><span class="err">,</span> <span class="na">format:</span> <span class="na">:js</span><span class="err">,</span> <span class="na">v:</span> <span class="na">GoodJob::VERSION</span><span class="err">,</span> <span class="na">locale:</span> <span class="na">nil</span><span class="err">),</span> <span class="na">nonce:</span> <span class="na">content_security_policy_nonce</span> <span class="err">%</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;</span><span class="err">%=</span> <span class="na">tag.script</span> <span class="err">"",</span> <span class="na">src:</span> <span class="na">frontend_static_path</span><span class="err">(</span><span class="na">:rails_ujs</span><span class="err">,</span> <span class="na">format:</span> <span class="na">:js</span><span class="err">,</span> <span class="na">v:</span> <span class="na">GoodJob::VERSION</span><span class="err">,</span> <span class="na">locale:</span> <span class="na">nil</span><span class="err">),</span> <span class="na">nonce:</span> <span class="na">content_security_policy_nonce</span> <span class="err">%</span><span class="nt">&gt;</span>
-</code></pre></div></div>
-
-<p>Beneath this, I manually construct the JSON the browser expects for importmaps:</p>
-
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!-- Link es_module_shims --&gt;</span>
-<span class="nt">&lt;</span><span class="err">%=</span> <span class="na">tag.script</span> <span class="err">"",</span> <span class="na">src:</span> <span class="na">frontend_static_path</span><span class="err">(</span><span class="na">:es_module_shims</span><span class="err">,</span> <span class="na">format:</span> <span class="na">:js</span><span class="err">,</span> <span class="na">v:</span> <span class="na">GoodJob::VERSION</span><span class="err">,</span> <span class="na">locale:</span> <span class="na">nil</span><span class="err">),</span> <span class="na">async:</span> <span class="na">true</span><span class="err">,</span> <span class="na">nonce:</span> <span class="na">content_security_policy_nonce</span> <span class="err">%</span><span class="nt">&gt;</span>
-
-<span class="c">&lt;!-- Construct the importmaps JSON object --&gt;</span>
-<span class="nt">&lt;</span><span class="err">%</span> <span class="na">importmaps = </span><span class="s">GoodJob::FrontendsController.js_modules.keys.index_with</span> <span class="err">{</span> <span class="err">|</span><span class="na">module_name</span><span class="err">|</span> <span class="na">frontend_module_path</span><span class="err">(</span><span class="na">module_name</span><span class="err">,</span> <span class="na">format:</span> <span class="na">:js</span><span class="err">,</span> <span class="na">locale:</span> <span class="na">nil</span><span class="err">,</span> <span class="na">v:</span> <span class="na">GoodJob::VERSION</span><span class="err">)</span> <span class="err">}</span> <span class="err">%</span><span class="nt">&gt;</span>
-<span class="nt">&lt;</span><span class="err">%=</span> <span class="na">tag.script</span><span class="err">({</span> <span class="na">imports:</span> <span class="na">importmaps</span> <span class="err">}.</span><span class="na">to_json.html_safe</span><span class="err">,</span> <span class="na">type:</span> <span class="err">"</span><span class="na">importmap</span><span class="err">",</span> <span class="na">nonce:</span> <span class="na">content_security_policy_nonce</span><span class="err">)</span> <span class="err">%</span><span class="nt">&gt;</span>
-
-<span class="c">&lt;!-- Import the entrypoint: application.js --&gt;</span>
-<span class="nt">&lt;</span><span class="err">%=</span> <span class="na">tag.script</span> <span class="err">"",</span> <span class="na">type:</span> <span class="err">"</span><span class="na">module</span><span class="err">",</span> <span class="na">nonce:</span> <span class="na">content_security_policy_nonce</span> <span class="na">do</span> <span class="err">%</span><span class="nt">&gt;</span> import "application"; <span class="nt">&lt;</span><span class="err">%</span> <span class="na">end</span> <span class="err">%</span><span class="nt">&gt;</span>
-</code></pre></div></div>
-
-<h3 id="thats-it">That’s it!</h3>
-
-<p>I’ll admit, serving frontend assets using <code class="language-plaintext highlighter-rouge">render file:</code> is boring, but I experienced a thrill the first time I wired up the importmaps and <em>it just worked</em>. Writing small Javascript modules and using <code class="language-plaintext highlighter-rouge">import</code> directives is really nice. I recently added Stimulus and I’m feeling optimistic that I could reliably implement Turbo in my gem’s Rails Engine fully decoupled from the parent application.</p>
-
-<p>I hope this post about GoodJob inspires you to build full-featured web frontends for your own gems and libraries.</p>
 
   </div>
 </article>
