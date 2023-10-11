@@ -6,8 +6,8 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 10 Oct 2023 16:52:20 +0000</pubDate>
-    <lastBuildDate>Tue, 10 Oct 2023 16:52:20 +0000</lastBuildDate>
+    <pubDate>Wed, 11 Oct 2023 22:44:44 +0000</pubDate>
+    <lastBuildDate>Wed, 11 Oct 2023 22:44:44 +0000</lastBuildDate>
     <generator>Jekyll v4.3.2</generator>
     
     
@@ -22,7 +22,7 @@
 
 &lt;p&gt;&lt;em&gt;GoodJob, via its &lt;a href=&quot;https://island94.org/2020/07/introducing-goodjob-1-0&quot;&gt;introductory blog post&lt;/a&gt;, was highlighted last week at Rails World. A new Active Job queue backend, &lt;a href=&quot;https://rubygems.org/gems/solid_queue&quot;&gt;Solid Queue&lt;/a&gt;, was announced, and I’m excited to see where it goes!&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;I attended Rails World in Amsterdam this past week. During the conference, a new Active Job backend was announced: Solid Queue, which has the potential to become first, first-party backend in Rails. Solid Queue, like my GoodJob, is backed by a relational database. I’m very excited about this! I had a chance to talk to Rosa Gutierrez, who is leading the effort at 37signals, and I’m hopeful that I’ll be able to contribute to Solid Queue and who knows, maybe it could even become a successor to GoodJob.&lt;/p&gt;
+&lt;p&gt;I attended Rails World in Amsterdam this past week. During the conference, a new Active Job backend was announced: Solid Queue (&lt;a href=&quot;https://www.youtube.com/watch?v=iqXjGiQ_D-A&amp;amp;t=3121s&quot;&gt;video&lt;/a&gt;), which has the potential to become first, first-party backend in Rails. Solid Queue, like my GoodJob, is backed by a relational database. I’m very excited about this! I had a chance to talk to Rosa Gutierrez, who is leading the effort at 37signals, and I’m hopeful that I’ll be able to contribute to Solid Queue and who knows, maybe it could even become a successor to GoodJob.&lt;/p&gt;
 
 &lt;p&gt;With that thought in mind, I reflected on some of the design and motivations that became GoodJob, and that I believe are important regardless of the Active Job backend under development. These are not intended to be design documents but more a list of things that I have learned or come across during my 3 years working on GoodJob. It would be nice to keep these in mind when designing a potential successor to GoodJob. And I hope they can be the seed to further conversations, rather than a fully realized proposal or argument. Let’s go:&lt;/p&gt;
 
