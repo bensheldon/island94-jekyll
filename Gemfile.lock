@@ -8,13 +8,20 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (7.0.7.2)
+    activesupport (7.1.1)
+      base64
+      bigdecimal
       concurrent-ruby (~> 1.0, >= 1.0.2)
+      connection_pool (>= 2.2.5)
+      drb
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
+      mutex_m
       tzinfo (~> 2.0)
     addressable (2.8.5)
       public_suffix (>= 2.0.2, < 6.0)
+    base64 (0.1.1)
+    bigdecimal (3.1.4)
     capybara (3.39.2)
       addressable
       matrix
@@ -34,10 +41,13 @@ GEM
     coffee-script-source (1.12.2)
     colorator (1.1.0)
     concurrent-ruby (1.2.2)
+    connection_pool (2.4.1)
     cuprite (0.14.3)
       capybara (~> 3.0)
       ferrum (~> 0.13.0)
     diff-lcs (1.5.0)
+    drb (2.1.1)
+      ruby2_keywords
     em-websocket (0.5.3)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0)
@@ -107,7 +117,8 @@ GEM
     method_source (1.0.0)
     mini_mime (1.1.2)
     mini_portile2 (2.8.2)
-    minitest (5.19.0)
+    minitest (5.20.0)
+    mutex_m (0.1.2)
     nokogiri (1.15.3)
       mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
