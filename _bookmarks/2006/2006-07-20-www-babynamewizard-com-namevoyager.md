@@ -1,0 +1,14 @@
+---
+link: http://www.babynamewizard.com/namevoyager/
+date: 2006-07-20 03:53 UTC
+published: true
+title: 'The Baby Name Wizard: NameVoyager'
+tags:
+- names
+- baby
+- statistics
+- fun
+- visualization
+---
+
+

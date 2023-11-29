@@ -1,0 +1,9 @@
+---
+link: http://www.youtube.com/watch?v=2n03qGeDCAU
+date: 2011-03-15 17:21 UTC
+published: true
+title: YouTube - Arts of Life Band - Shark Attack
+tags: []
+---
+
+I saw them perform in Chicago. They were awesome.

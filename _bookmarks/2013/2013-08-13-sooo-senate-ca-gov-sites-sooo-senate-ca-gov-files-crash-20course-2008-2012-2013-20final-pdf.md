@@ -1,0 +1,9 @@
+---
+link: http://sooo.senate.ca.gov/sites/sooo.senate.ca.gov/files/crash%20course%2008%2012%2013%20FINAL.pdf
+date: 2013-08-13 01:09 UTC
+published: true
+title: ''
+tags: []
+---
+
+

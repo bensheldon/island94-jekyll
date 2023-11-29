@@ -1,0 +1,9 @@
+---
+link: http://charterinsights.blogspot.com/2011/06/why-teacher-pensions-are-bad-idea.html
+date: 2011-07-03 22:40 UTC
+published: true
+title: Why teacher pensions are a bad idea
+tags: []
+---
+
+@Bec & @Eads - this, exactly: "I hope you all understand, that I'm not coming at this from a politically motivated perspective. I'm not intentionally talking about ethics. I'm simply applying a little logic and math to a problem that seems to be driving some emotional reactions in this country."

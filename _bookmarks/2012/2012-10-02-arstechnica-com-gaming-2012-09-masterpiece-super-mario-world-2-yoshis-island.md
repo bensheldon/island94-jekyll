@@ -1,0 +1,9 @@
+---
+link: http://arstechnica.com/gaming/2012/09/masterpiece-super-mario-world-2-yoshis-island/
+date: 2012-10-02 00:19 UTC
+published: true
+title: 'Masterpiece: Super Mario World 2: Yoshi’s Island | Ars Technica'
+tags: []
+---
+
+

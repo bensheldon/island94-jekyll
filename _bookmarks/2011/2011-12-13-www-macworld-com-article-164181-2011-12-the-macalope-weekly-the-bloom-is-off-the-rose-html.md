@@ -1,0 +1,9 @@
+---
+link: http://www.macworld.com/article/164181/2011/12/the_macalope_weekly_the_bloom_is_off_the_rose.html
+date: 2011-12-13 01:31 UTC
+published: true
+title: Google’s Android Revenue
+tags: []
+---
+
+

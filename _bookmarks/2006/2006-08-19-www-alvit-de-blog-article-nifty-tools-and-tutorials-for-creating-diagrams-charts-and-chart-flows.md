@@ -1,0 +1,13 @@
+---
+link: http://www.alvit.de/blog/article/nifty-tools-and-tutorials-for-creating-diagrams-charts-and-chart-flows
+date: 2006-08-19 19:04 UTC
+published: true
+title: 'Vitaly Friedman''s Notebook: List of nifty tools for drawing diagrams, charts
+  and flow-charts'
+tags:
+- charts
+- design
+- css
+---
+
+

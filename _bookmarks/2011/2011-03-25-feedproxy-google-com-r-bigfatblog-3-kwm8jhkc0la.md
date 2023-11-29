@@ -1,0 +1,9 @@
+---
+link: http://feedproxy.google.com/~r/bigfatblog/~3/Kwm8jhKc0lA/
+date: 2011-03-25 17:11 UTC
+published: true
+title: The Last Middle Class American
+tags: []
+---
+
+

@@ -1,0 +1,11 @@
+---
+link: http://cookieshq.co.uk/posts/useful-factory-girl-methods/
+date: 2014-09-04 21:01 UTC
+published: true
+title: Useful Factory Girl methods | CookiesHQ
+tags:
+- ruby
+- rails
+---
+
+

@@ -1,0 +1,9 @@
+---
+link: http://www.marriedtothesea.com/102411
+date: 2011-10-26 01:22 UTC
+published: true
+title: first night as a married couple
+tags: []
+---
+
+The only thing I remember from "The Bell Jar":<br><br>> 'Esther’s mother had told her that when she and Esther’s father left Reno on their honeymoon, he had said, "Well, that’s a relief, now we can stop pretending and be ourselves." After that, Esther’s mother "never had a minute’s peace."'

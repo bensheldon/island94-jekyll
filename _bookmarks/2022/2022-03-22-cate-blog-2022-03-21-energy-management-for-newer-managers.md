@@ -1,0 +1,9 @@
+---
+link: https://cate.blog/2022/03/21/energy-management-for-newer-managers/
+date: 2022-03-22 16:28 UTC
+published: true
+title: Energy Management for Newer Managers – Accidentally in Code
+tags: []
+---
+
+

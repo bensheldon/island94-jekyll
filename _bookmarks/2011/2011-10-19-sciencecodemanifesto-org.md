@@ -1,0 +1,9 @@
+---
+link: http://sciencecodemanifesto.org/#
+date: 2011-10-19 13:48 UTC
+published: true
+title: Science Code Manifesto
+tags: []
+---
+
+

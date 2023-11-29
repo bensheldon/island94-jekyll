@@ -1,0 +1,10 @@
+---
+link: http://feedproxy.google.com/~r/bethblog/~3/CZFYxfxhsjc/
+date: 2011-01-01 20:44 UTC
+published: true
+title: 'My New Year’s Resolution:  Reducing Distraction and Relearning Solitude In
+  Age of Connectivity'
+tags: []
+---
+
+Is "affluence" a technical or human approach?

@@ -1,0 +1,9 @@
+---
+link: http://www.batchgeo.com/map/b17ff619f3ec1727d5cf16af438fd89f
+date: 2011-04-01 16:40 UTC
+published: true
+title: Boston Bicycle Racks Installed as of 01.18.11
+tags: []
+---
+
+A nice use of a BatchGeo map by the City of Boston.

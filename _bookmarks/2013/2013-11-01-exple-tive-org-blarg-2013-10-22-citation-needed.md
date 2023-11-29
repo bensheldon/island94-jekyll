@@ -1,0 +1,9 @@
+---
+link: http://exple.tive.org/blarg/2013/10/22/citation-needed/
+date: 2013-11-01 20:41 UTC
+published: true
+title: Citation Needed – blarg?
+tags: []
+---
+
+

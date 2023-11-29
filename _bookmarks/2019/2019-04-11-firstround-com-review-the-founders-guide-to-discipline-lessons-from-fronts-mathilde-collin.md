@@ -1,0 +1,10 @@
+---
+link: https://firstround.com/review/the-founders-guide-to-discipline-lessons-from-fronts-mathilde-collin/
+date: 2019-04-11 01:23 UTC
+published: true
+title: 'The Founder’s Guide to Discipline: Lessons from Front’s Mathilde Collin |
+  First Round Review'
+tags: []
+---
+
+

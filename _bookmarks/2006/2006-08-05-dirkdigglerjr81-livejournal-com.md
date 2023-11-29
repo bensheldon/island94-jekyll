@@ -1,0 +1,11 @@
+---
+link: http://dirkdigglerjr81.livejournal.com/
+date: 2006-08-05 15:46 UTC
+published: true
+title: And now...
+tags:
+- livejournal
+- blog
+---
+
+jamie

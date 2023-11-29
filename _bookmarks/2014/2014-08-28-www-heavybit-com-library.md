@@ -1,0 +1,12 @@
+---
+link: http://www.heavybit.com/library
+date: 2014-08-28 02:21 UTC
+published: true
+title: Heavybit Industries Video Library
+tags:
+- startups
+- entrepreneurship
+- video
+---
+
+Great lot of videos about the *business* of technology products.

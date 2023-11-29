@@ -1,0 +1,9 @@
+---
+link: https://martech.zone/how-does-advertising-work/
+date: 2019-10-22 01:03 UTC
+published: true
+title: How Advertising Works
+tags: []
+---
+
+

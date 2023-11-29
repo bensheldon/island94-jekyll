@@ -1,0 +1,11 @@
+---
+link: https://blog.canny.io/saas-startup-ramen-profitability/
+date: 2017-11-01 02:16 UTC
+published: true
+title: How we Bootstrapped our SaaS Startup to Ramen Profitability – Canny Blog
+tags:
+- marketing
+- products
+---
+
+

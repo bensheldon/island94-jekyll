@@ -1,0 +1,9 @@
+---
+link: http://feedproxy.google.com/~r/typepad/philantopic/~3/eQYQ0NV4mbg/foundations-and-power-beyond-advocacy-1.html
+date: 2011-04-13 13:16 UTC
+published: true
+title: 'Foundations and Power: Beyond Advocacy'
+tags: []
+---
+
+Thoughts that aren't necessarily new, but impeccably synthesized.

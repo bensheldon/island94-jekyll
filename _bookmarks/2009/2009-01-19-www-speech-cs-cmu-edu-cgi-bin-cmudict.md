@@ -1,0 +1,15 @@
+---
+link: http://www.speech.cs.cmu.edu/cgi-bin/cmudict
+date: 2009-01-19 12:55 UTC
+published: true
+title: CMU Pronouncing Dictionary
+tags:
+- reference
+- writing
+- lanugage
+- data
+- linguistics
+- panlexicon
+---
+
+

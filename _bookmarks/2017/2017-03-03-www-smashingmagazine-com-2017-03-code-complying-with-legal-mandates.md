@@ -1,0 +1,9 @@
+---
+link: https://www.smashingmagazine.com/2017/03/code-complying-with-legal-mandates/
+date: 2017-03-03 05:51 UTC
+published: true
+title: 'When Your Code Has To Work: Complying With Legal Mandates'
+tags: []
+---
+
+

@@ -1,0 +1,13 @@
+---
+link: http://superfluousbanter.org/archives/2007/04/setting-up-imap-in-apple-mail/
+date: 2008-07-15 15:21 UTC
+published: true
+title: Setting up IMAP in AppleMail @ Dan Rubin’s SuperfluousBanter
+tags:
+- article
+- howto
+- email
+- mac
+---
+
+

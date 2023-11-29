@@ -1,0 +1,9 @@
+---
+link: http://randsinrepose.com/archives/the-qa-mindset/
+date: 2014-12-03 20:48 UTC
+published: true
+title: The Q.A. Mindset
+tags: []
+---
+
+

@@ -1,0 +1,12 @@
+---
+link: http://island94.org/breakfast-cereals-oh-my
+date: 2008-03-31 13:39 UTC
+published: true
+title: Breakfast Cereals, oh my | island94
+tags:
+- cereal
+- food
+- nutrition
+---
+
+Read a fun article about Breakfast Cereals via a comment on breakfast cupcakes, err, muffins.

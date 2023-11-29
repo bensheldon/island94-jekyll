@@ -1,0 +1,9 @@
+---
+link: http://feedproxy.google.com/~r/typepad/philantopic/~3/umygvtOAB64/social-justice-grantmaking-update.html
+date: 2011-04-07 12:07 UTC
+published: true
+title: 'Key Facts on Social Justice Grantmaking: An Update'
+tags: []
+---
+
+How many of these grants went to organizations run by women, persons of color, persons with physical or mental disabilities, youth or aged, persons on public assistance, persons with criminal records, LGBTQs, or other marginalized groups? Reading the selected grants, it's a bit of a crapshoot: Immolakee Worker's Alliance (awesome!) University of Michigan (depends), Brookings Institute (jeez).

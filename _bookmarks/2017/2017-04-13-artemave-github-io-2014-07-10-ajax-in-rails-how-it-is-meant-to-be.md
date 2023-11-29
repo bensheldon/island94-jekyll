@@ -1,0 +1,9 @@
+---
+link: http://artemave.github.io/2014/07/10/ajax-in-rails-how-it-is-meant-to-be/
+date: 2017-04-13 16:34 UTC
+published: true
+title: Rails Ajax with HTML the way it's meant to be
+tags: []
+---
+
+

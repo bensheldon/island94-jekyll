@@ -1,0 +1,11 @@
+---
+link: https://github.com/xdissent/ievms
+date: 2012-01-11 18:01 UTC
+published: true
+title: xdissent/ievms - GitHub
+tags:
+- development
+- webdesign
+---
+
+Microsoft provides virtual machine disk images to facilitate website testing in multiple versions of IE, regardless of the host operating system. Unfortunately, setting these virtual machines up without Microsoft's VirtualPC can be extremely difficult. The ievms scripts aim to facilitate that process using VirtualBox on Linux or OS X. With a single command, you can have IE6, IE7, IE8 and IE9 running in separate virtual machines.

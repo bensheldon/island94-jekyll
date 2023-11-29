@@ -1,0 +1,9 @@
+---
+link: http://johngeraci.com/blog/2011/10/open-is-dead/
+date: 2011-10-06 12:52 UTC
+published: true
+title: Open Is Dead.
+tags: []
+---
+
+...just don't talk about power. Never talk about power.

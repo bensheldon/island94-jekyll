@@ -1,0 +1,9 @@
+---
+link: http://www.accidentalhedonist.com/index.php?title=cookie_dough_cake&more=1&c=1&tb=1&pb=1
+date: 2011-10-16 14:15 UTC
+published: true
+title: Cookie Dough Cake
+tags: []
+---
+
+

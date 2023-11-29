@@ -1,0 +1,12 @@
+---
+link: http://owltastic.com/2011/08/simple-interface-design-icons/
+date: 2011-08-04 21:42 UTC
+published: true
+title: Flat, simple icons for interface design
+tags:
+- images
+- icons
+- graphics
+---
+
+

@@ -1,0 +1,9 @@
+---
+link: http://www.flickr.com/photos/joseduarteq/5857976519/in/pool-95477519@N00
+date: 2011-06-21 23:48 UTC
+published: true
+title: Information Bars (Information graphics in the city)
+tags: []
+---
+
+

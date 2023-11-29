@@ -1,0 +1,9 @@
+---
+link: http://www.verysmallarray.com/?p=1173
+date: 2011-06-18 17:17 UTC
+published: true
+title: No Guarantee of Quality
+tags: []
+---
+
+

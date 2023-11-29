@@ -1,0 +1,9 @@
+---
+link: https://www.youtube.com/watch?v=gxJUPfKtg_Q&feature=share
+date: 2019-09-16 15:15 UTC
+published: true
+title: 12 motiviations of gamers
+tags: []
+---
+
+

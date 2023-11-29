@@ -1,0 +1,9 @@
+---
+link: http://www.gq.com/entertainment/television/201401/duck-dynasty-phil-robertson
+date: 2013-12-20 05:44 UTC
+published: true
+title: Duck Dynasty's Phil Robertson Gives Drew Magary a Tour
+tags: []
+---
+
+

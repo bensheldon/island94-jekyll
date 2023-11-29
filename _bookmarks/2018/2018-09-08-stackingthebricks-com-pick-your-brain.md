@@ -1,0 +1,9 @@
+---
+link: https://stackingthebricks.com//pick-your-brain/
+date: 2018-09-08 01:45 UTC
+published: true
+title: My magic response to "Hey, can I pick your brain?"
+tags: []
+---
+
+

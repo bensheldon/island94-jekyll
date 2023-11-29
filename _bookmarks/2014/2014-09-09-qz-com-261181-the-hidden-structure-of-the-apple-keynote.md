@@ -1,0 +1,9 @@
+---
+link: http://qz.com/261181/the-hidden-structure-of-the-apple-keynote/
+date: 2014-09-09 02:47 UTC
+published: true
+title: The hidden structure of the Apple keynote
+tags: []
+---
+
+One of Apple’s most successful products—which rarely gets recognized as such—is made not of aluminum and glass, but of words and pictures. The Apple keynote is…

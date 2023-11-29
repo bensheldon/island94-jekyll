@@ -1,0 +1,9 @@
+---
+link: https://resilientwebdesign.com/
+date: 2018-03-09 17:22 UTC
+published: true
+title: Resilient Web Design
+tags: []
+---
+
+

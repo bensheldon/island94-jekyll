@@ -1,0 +1,10 @@
+---
+link: http://goldengridsystem.com/
+date: 2011-08-24 12:07 UTC
+published: true
+title: Golden Grid System
+tags:
+- webdesign
+---
+
+flexible dynamic grids

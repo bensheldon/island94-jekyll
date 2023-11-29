@@ -1,0 +1,10 @@
+---
+link: http://www.peterkretzman.com/
+date: 2016-12-02 01:01 UTC
+published: true
+title: CTO/CIO PERSPECTIVES Intensely practical tips on information technology management,
+  by Peter Kretzman
+tags: []
+---
+
+

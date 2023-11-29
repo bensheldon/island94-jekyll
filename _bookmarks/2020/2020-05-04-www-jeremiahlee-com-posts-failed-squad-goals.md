@@ -1,0 +1,9 @@
+---
+link: https://www.jeremiahlee.com/posts/failed-squad-goals/
+date: 2020-05-04 21:51 UTC
+published: true
+title: 'Spotify’s Failed #SquadGoals'
+tags: []
+---
+
+

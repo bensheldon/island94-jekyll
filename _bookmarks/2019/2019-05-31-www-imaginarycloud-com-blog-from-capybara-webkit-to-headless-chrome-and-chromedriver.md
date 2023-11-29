@@ -1,0 +1,11 @@
+---
+link: https://www.imaginarycloud.com/blog/from-capybara-webkit-to-headless-chrome-and-chromedriver/
+date: 2019-05-31 22:27 UTC
+published: true
+title: From capybara-webkit to Headless Chrome and ChromeDriver
+tags: []
+---
+
+Lots of helpful driving tips like this:
+
+<blockquote>To deal with this, you can close all popups on the page, and scroll down to the element before clicking it.</blockquote>

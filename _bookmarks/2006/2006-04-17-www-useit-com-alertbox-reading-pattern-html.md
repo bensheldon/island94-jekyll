@@ -1,0 +1,10 @@
+---
+link: http://www.useit.com/alertbox/reading_pattern.html
+date: 2006-04-17 19:19 UTC
+published: true
+title: F-Shaped Pattern For Reading Web Content (Jakob Nielsen's Alertbox)
+tags:
+- webdesign
+---
+
+

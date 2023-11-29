@@ -1,0 +1,11 @@
+---
+link: http://thesassway.com/intermediate/understanding-placeholder-selectors
+date: 2014-11-10 15:09 UTC
+published: true
+title: 'SASS: Understanding placeholder selectors'
+tags:
+- sass
+- css
+---
+
+

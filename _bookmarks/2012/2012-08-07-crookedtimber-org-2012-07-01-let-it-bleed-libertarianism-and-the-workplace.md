@@ -1,0 +1,9 @@
+---
+link: http://crookedtimber.org/2012/07/01/let-it-bleed-libertarianism-and-the-workplace/
+date: 2012-08-07 02:23 UTC
+published: true
+title: 'Let It Bleed: Libertarianism and the Workplace — Crooked Timber'
+tags: []
+---
+
+

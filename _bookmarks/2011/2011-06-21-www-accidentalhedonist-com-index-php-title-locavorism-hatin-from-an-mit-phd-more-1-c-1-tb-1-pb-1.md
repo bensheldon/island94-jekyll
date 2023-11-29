@@ -1,0 +1,9 @@
+---
+link: http://www.accidentalhedonist.com/index.php?title=locavorism_hatin_from_an_mit_phd&more=1&c=1&tb=1&pb=1
+date: 2011-06-21 20:53 UTC
+published: true
+title: Locavorism Hatin' from an MIT PhD.
+tags: []
+---
+
+"...there is an increase of investment in local community to the tune of 25% versus spending on imported articles."

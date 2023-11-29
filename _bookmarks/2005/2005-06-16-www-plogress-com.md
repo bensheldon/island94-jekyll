@@ -1,0 +1,9 @@
+---
+link: http://www.plogress.com/
+date: 2005-06-16 16:05 UTC
+published: true
+title: Welcome to Plogress.com!
+tags: []
+---
+
+RSS feeds on your representatives voting record

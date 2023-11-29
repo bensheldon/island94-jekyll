@@ -1,0 +1,9 @@
+---
+link: http://devblog.avdi.org/2014/02/10/the-passion-gospel/
+date: 2014-03-29 17:35 UTC
+published: true
+title: The Passion Gospel | Virtuous Code
+tags: []
+---
+
+Warning: This is really long. Also, reading it may render you unemployable at some startups. In the beginning I started my programming career in the vast military-industrial complex.

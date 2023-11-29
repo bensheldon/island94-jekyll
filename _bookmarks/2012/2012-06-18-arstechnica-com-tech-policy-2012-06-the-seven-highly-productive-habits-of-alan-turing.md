@@ -1,0 +1,9 @@
+---
+link: http://arstechnica.com/tech-policy/2012/06/the-seven-highly-productive-habits-of-alan-turing/
+date: 2012-06-18 05:17 UTC
+published: true
+title: The highly productive habits of Alan Turing | Ars Technica
+tags: []
+---
+
+

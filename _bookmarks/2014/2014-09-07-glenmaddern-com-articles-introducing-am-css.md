@@ -1,0 +1,9 @@
+---
+link: http://glenmaddern.com/articles/introducing-am-css
+date: 2014-09-07 03:29 UTC
+published: true
+title: 'Introducing AM - Attribute Modules for CSS - Glen Maddern: Internet Pro'
+tags: []
+---
+
+An alternative go BEM

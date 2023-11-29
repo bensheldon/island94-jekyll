@@ -1,0 +1,9 @@
+---
+link: http://www.newyorker.com/magazine/2014/11/24/good-game
+date: 2014-11-25 15:14 UTC
+published: true
+title: The Rise of the Professional Cyber Athlete
+tags: []
+---
+
+I confess to being bewildered, still, by what is often said to be the greatest game of StarCraft II ever played. Fall, 2013. New York’s Hammerstein Ballroom.…

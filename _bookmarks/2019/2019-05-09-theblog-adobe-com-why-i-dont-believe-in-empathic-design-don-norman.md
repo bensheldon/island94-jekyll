@@ -1,0 +1,9 @@
+---
+link: https://theblog.adobe.com/why-i-dont-believe-in-empathic-design-don-norman/
+date: 2019-05-09 13:09 UTC
+published: true
+title: Why I Don’t Believe in Empathic Design | Adobe Blog
+tags: []
+---
+
+

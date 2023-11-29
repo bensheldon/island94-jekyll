@@ -1,0 +1,17 @@
+---
+link: http://flowingdata.com/2009/11/12/how-to-make-a-us-county-thematic-map-using-free-tools/
+date: 2010-02-22 19:40 UTC
+published: true
+title: How to Make a US County Thematic Map Using Free Tools | FlowingData
+tags:
+- howto
+- visualization
+- maps
+- python
+- gis
+- statistics
+- tools
+- tutorial
+---
+
+re are about a million ways to make a choropleth map. You know, the maps that color regions by some metric. The problem is that a lot of solutions require expensive software or have a high learning curve...or both. What if you just want a simple map without all the GIS stuff? In this post, I'll show you how to make a county-specific choropleth map using only free tools.

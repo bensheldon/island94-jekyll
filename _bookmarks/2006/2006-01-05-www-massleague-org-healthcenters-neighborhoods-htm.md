@@ -1,0 +1,11 @@
+---
+link: http://www.massleague.org/HealthCenters-neighborhoods.htm
+date: 2006-01-05 13:23 UTC
+published: true
+title: Boston Community Health Centers by neighborhoods
+tags:
+- healthcare
+- boston
+---
+
+

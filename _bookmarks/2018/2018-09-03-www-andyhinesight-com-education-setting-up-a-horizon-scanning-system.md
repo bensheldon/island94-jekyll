@@ -1,0 +1,9 @@
+---
+link: http://www.andyhinesight.com/education/setting-up-a-horizon-scanning-system/
+date: 2018-09-03 14:46 UTC
+published: true
+title: horizon scanning system | Hinesight....for Foresight
+tags: []
+---
+
+

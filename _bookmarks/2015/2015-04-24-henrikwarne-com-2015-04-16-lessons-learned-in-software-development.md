@@ -1,0 +1,9 @@
+---
+link: http://henrikwarne.com/2015/04/16/lessons-learned-in-software-development/
+date: 2015-04-24 01:15 UTC
+published: true
+title: Lessons Learned in Software Development | Henrik Warne's blog
+tags: []
+---
+
+

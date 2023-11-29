@@ -1,0 +1,9 @@
+---
+link: https://lethain.com/special-topics-org-design/
+date: 2019-03-29 18:00 UTC
+published: true
+title: Rules of thumb for org design.
+tags: []
+---
+
+

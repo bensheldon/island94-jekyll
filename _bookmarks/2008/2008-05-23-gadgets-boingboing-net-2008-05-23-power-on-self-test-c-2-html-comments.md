@@ -1,0 +1,10 @@
+---
+link: http://gadgets.boingboing.net/2008/05/23/power-on-self-test-c-2.html#comments
+date: 2008-05-23 18:29 UTC
+published: true
+title: 'Power On Self Test: Cargo Cult of Mac - Boing Boing Gadgets'
+tags:
+- cargocult
+---
+
+

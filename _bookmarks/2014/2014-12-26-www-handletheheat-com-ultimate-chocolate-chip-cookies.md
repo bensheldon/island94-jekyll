@@ -1,0 +1,10 @@
+---
+link: http://www.handletheheat.com/ultimate-chocolate-chip-cookies
+date: 2014-12-26 00:53 UTC
+published: true
+title: Ultimate Chocolate Chip Cookies - Handle the Heat
+tags:
+- recipe
+---
+
+

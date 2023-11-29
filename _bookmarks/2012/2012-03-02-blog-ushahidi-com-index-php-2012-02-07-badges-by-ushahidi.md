@@ -1,0 +1,12 @@
+---
+link: http://blog.ushahidi.com/index.php/2012/02/07/badges-by-ushahidi/
+date: 2012-03-02 15:53 UTC
+published: true
+title: Badges by Ushahidi
+tags:
+- design
+- badges
+- webdesign
+---
+
+

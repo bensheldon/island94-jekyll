@@ -1,0 +1,9 @@
+---
+link: https://www.nfx.com/post/how-vcs-see-your-kpis
+date: 2018-08-06 15:07 UTC
+published: true
+title: How VCs See Your KPIs
+tags: []
+---
+
+

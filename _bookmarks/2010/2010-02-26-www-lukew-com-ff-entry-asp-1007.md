@@ -1,0 +1,12 @@
+---
+link: http://www.lukew.com/ff/entry.asp?1007#
+date: 2010-02-26 19:23 UTC
+published: true
+title: LukeW | "Mad Libs" Style Form Increases Conversion 25-40%
+tags:
+- webdesign
+- design
+- designs
+---
+
+A while ago, I came across a unique registration form built by Jeremy Keith for his audio sharing site, Huffduffer. Though it asked people the same questions found in typical sign-up forms, the Huffduffer registration form did so in a narrative format. It presented input fields to people as blanks within sentences (Mad Libs-style, if you will).

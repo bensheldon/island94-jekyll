@@ -1,0 +1,20 @@
+---
+link: http://reactor-core.org/operating-manual-for-spaceship-earth.html#
+date: 2010-03-01 18:33 UTC
+published: true
+title: Full text of OPERATING MANUAL FOR SPACESHIP EARTH, by Richard Buckminster Fuller
+  (1969)
+tags:
+- book
+- systemstheory
+- cybernetics
+- strategy
+- management
+- analysis
+---
+
+OPERATING MANUAL FOR SPACESHIP EARTH
+
+by Richard Buckminster Fuller (1969)
+
+1. COMPREHENSIVE PROPENSITIES

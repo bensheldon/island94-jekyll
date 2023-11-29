@@ -1,0 +1,9 @@
+---
+link: http://martin.kleppmann.com/2011/03/07/accounting-for-computer-scientists.html
+date: 2011-03-08 01:55 UTC
+published: true
+title: Accounting for Computer Scientists — Martin Kleppmann‘s blog
+tags: []
+---
+
+

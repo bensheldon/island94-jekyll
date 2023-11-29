@@ -1,0 +1,13 @@
+---
+link: http://www.justinweiss.com/blog/2015/09/08/keeping-your-logs-from-becoming-an-unreadable-mess/
+date: 2015-09-09 00:15 UTC
+published: true
+title: Keeping your logs from becoming an unreadable mess - Weissblog
+tags:
+- ruby
+- rails
+---
+
+<blockquote>How much do you use the Rails logger in your apps? Have you tried tagged logging? If you haven’t, try finding a place for it. Tagging actions taken by your users is a good start. It’ll help you out the next time you have to debug a crazy multi-step bug.
+
+</blockquote>

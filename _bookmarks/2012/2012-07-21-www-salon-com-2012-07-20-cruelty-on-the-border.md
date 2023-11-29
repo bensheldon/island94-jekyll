@@ -1,0 +1,9 @@
+---
+link: http://www.salon.com/2012/07/20/cruelty_on_the_border/
+date: 2012-07-21 20:33 UTC
+published: true
+title: "  Cruelty on the border - Salon.com"
+tags: []
+---
+
+

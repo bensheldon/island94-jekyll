@@ -1,0 +1,11 @@
+---
+link: http://www.kenstone.net/fcp_homepage/tutorial_reviews.html
+date: 2006-06-29 17:29 UTC
+published: true
+title: Ken Stone's Final Cut Pro
+tags:
+- fcp
+- tutorials
+---
+
+

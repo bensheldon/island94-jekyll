@@ -1,0 +1,11 @@
+---
+link: https://support.lulu.com/View.jsp?procId=c35b57a2cbd8bd905ae00133fb8858b7&authToken=e25535d0b17750fac9ade163ea59b3da&forceLogout=true&locale=en_US
+date: 2010-12-09 22:00 UTC
+published: true
+title: 'Lulu: Book Bleeds'
+tags:
+- printing
+- publishing
+---
+
+For an explanation of Bleed (Full Bleed) see our Glossary.Create one PDF with a page size .25” (.68cm) larger in both width and height than the book chosen. For example, a 6 x 9" book will need a PDF with a page size of 6.25 x 9.25". The printer trims all four sides of the page equally. There is a .125 inch (.36cm) variation in the trimming process. Improperly sized or applied bleeds will result in a white strip or important parts of the image or text cut off at the edge of the page.

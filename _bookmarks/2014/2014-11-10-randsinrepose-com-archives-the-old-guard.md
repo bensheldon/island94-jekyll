@@ -1,0 +1,9 @@
+---
+link: http://randsinrepose.com/archives/the-old-guard/
+date: 2014-11-10 22:36 UTC
+published: true
+title: The Old Guard – Rands in Repose
+tags: []
+---
+
+Dunbar’s Number is a favorite blunt diagnosis for the pains that affect rapidly growing teams. The number, which is somewhere between 100 and 250 describes a…

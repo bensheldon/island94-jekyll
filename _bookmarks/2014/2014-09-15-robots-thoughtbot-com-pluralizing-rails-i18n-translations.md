@@ -1,0 +1,9 @@
+---
+link: http://robots.thoughtbot.com/pluralizing-rails-i18n-translations
+date: 2014-09-15 22:23 UTC
+published: true
+title: Pluralizing I18n Translations in Your Rails Application
+tags: []
+---
+
+Say we have some I18n text that tells users how many notifications they have. One option for dealing with a singular vs plural situation would look like…

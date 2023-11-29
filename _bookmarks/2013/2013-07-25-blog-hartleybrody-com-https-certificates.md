@@ -1,0 +1,9 @@
+---
+link: http://blog.hartleybrody.com/https-certificates/
+date: 2013-07-25 05:44 UTC
+published: true
+title: 'How HTTPS Secures Connections: What Every Web Dev Should Know'
+tags: []
+---
+
+

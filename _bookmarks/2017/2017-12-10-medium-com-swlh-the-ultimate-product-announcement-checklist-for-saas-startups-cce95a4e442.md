@@ -1,0 +1,9 @@
+---
+link: https://medium.com/swlh/the-ultimate-product-announcement-checklist-for-saas-startups-cce95a4e442
+date: 2017-12-10 15:26 UTC
+published: true
+title: The Ultimate Product Announcement Checklist for SaaS Startups
+tags: []
+---
+
+

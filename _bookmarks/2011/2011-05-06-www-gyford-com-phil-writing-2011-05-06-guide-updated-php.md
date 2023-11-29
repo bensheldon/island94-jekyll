@@ -1,0 +1,9 @@
+---
+link: http://www.gyford.com/phil/writing/2011/05/06/guide-updated.php
+date: 2011-05-06 12:32 UTC
+published: true
+title: 'Updated: A Beginner''s Guide to Freelancing'
+tags: []
+---
+
+

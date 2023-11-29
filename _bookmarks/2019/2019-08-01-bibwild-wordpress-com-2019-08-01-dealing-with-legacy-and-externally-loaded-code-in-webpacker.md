@@ -1,0 +1,9 @@
+---
+link: https://bibwild.wordpress.com/2019/08/01/dealing-with-legacy-and-externally-loaded-code-in-webpacker/
+date: 2019-08-01 19:08 UTC
+published: true
+title: Dealing with legacy and externally loaded code in webpack(er)
+tags: []
+---
+
+externals, expose, provide and friends.

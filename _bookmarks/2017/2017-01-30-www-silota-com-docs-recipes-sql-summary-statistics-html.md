@@ -1,0 +1,9 @@
+---
+link: http://www.silota.com/docs/recipes/sql-summary-statistics.html
+date: 2017-01-30 05:33 UTC
+published: true
+title: Calculating Summary Statistics · Advanced SQL Recipes · SILOTA Documentation
+tags: []
+---
+
+

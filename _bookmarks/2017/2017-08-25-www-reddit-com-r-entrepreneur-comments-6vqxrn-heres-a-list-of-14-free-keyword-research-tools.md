@@ -1,0 +1,10 @@
+---
+link: https://www.reddit.com/r/Entrepreneur/comments/6vqxrn/heres_a_list_of_14_free_keyword_research_tools/
+date: 2017-08-25 13:08 UTC
+published: true
+title: Here's a list of 14 free keyword research tools you can use for SEO, market
+  research, content topic ideas, etc.
+tags: []
+---
+
+

@@ -1,0 +1,12 @@
+---
+link: http://yannesposito.com/Scratch/en/blog/Learn-Vim-Progressively/
+date: 2012-04-19 15:02 UTC
+published: true
+title: Learn Vim Progressively
+tags:
+- programming
+- tutorial
+- tutorials
+---
+
+

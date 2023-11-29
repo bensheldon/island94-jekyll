@@ -1,0 +1,9 @@
+---
+link: http://www.flickr.com/photos/teoverycrock/5602872631/in/pool-1115946@N24
+date: 2011-04-14 17:42 UTC
+published: true
+title: provincia di Trento
+tags: []
+---
+
+@billybrown - seems like your kind of map (though yours would look even better)

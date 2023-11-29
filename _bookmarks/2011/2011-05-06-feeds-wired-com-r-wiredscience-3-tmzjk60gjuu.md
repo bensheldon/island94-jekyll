@@ -1,0 +1,9 @@
+---
+link: http://feeds.wired.com/~r/wiredscience/~3/TmZJk60gJUU/
+date: 2011-05-06 15:53 UTC
+published: true
+title: Groupthink Not a Problem in Simulated Mars Mission
+tags: []
+---
+
+Heaven forbid we become Martians:<br><br>“The worst case scenario is … there may be a microculture within the crew that evolves, and the crew starts having values that deviate to a large extent from values on Earth,” Sandal said.

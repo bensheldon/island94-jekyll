@@ -1,0 +1,9 @@
+---
+link: http://en.m.wikipedia.org/wiki/Californian_Ideology
+date: 2011-06-20 13:18 UTC
+published: true
+title: Californian Ideology
+tags: []
+---
+
+Foreboding

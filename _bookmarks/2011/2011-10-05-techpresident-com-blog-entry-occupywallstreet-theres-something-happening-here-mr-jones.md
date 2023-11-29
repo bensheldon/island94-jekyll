@@ -1,0 +1,9 @@
+---
+link: http://techpresident.com/blog-entry/occupywallstreet-theres-something-happening-here-mr-jones
+date: 2011-10-05 11:24 UTC
+published: true
+title: "#OccupyWallStreet: There's Something Happening Here, Mr. Jones | techPresident"
+tags: []
+---
+
+(At least) one of my former-Corps members is in the leadership tent. It was a  running joke of saying when NOT to wear your AmeriCorps shirt ("don't wear it to a bank robbery"); I told her I'd send her some shirts for her court-date if she gets picked up. <br><br>I'm kind've a statement nerd (<a href="http://www.island94.org/2010/02/mount-vernon-port-huron-and-sharon-statements-in-comparison/">http://www.island94.org/2010/02/mount-vernon-port-huron-and-sharon-statements-in-comparison/</a>) so it's exciting to think this might be excepted in a textbook 40 years from now

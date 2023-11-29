@@ -1,0 +1,9 @@
+---
+link: http://www.thingsfollowingangrycats.com/?p=693
+date: 2011-10-30 18:46 UTC
+published: true
+title: Fleeced
+tags: []
+---
+
+I assume this is how Ponty spends his day when he escapes outside.

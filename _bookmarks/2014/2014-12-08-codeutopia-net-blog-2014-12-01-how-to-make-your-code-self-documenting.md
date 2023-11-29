@@ -1,0 +1,9 @@
+---
+link: http://codeutopia.net/blog/2014/12/01/how-to-make-your-code-self-documenting/
+date: 2014-12-08 15:13 UTC
+published: true
+title: How to make your code self-documenting? | CodeUtopia - The blog of Jani Hartikainen
+tags: []
+---
+
+

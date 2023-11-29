@@ -1,0 +1,10 @@
+---
+link: http://blog.plataformatec.com.br/2018/08/the-misguiding-mindset-that-you-are-using-and-how-it-is-hindering-your-microservices-architecture/
+date: 2018-08-26 02:48 UTC
+published: true
+title: The misguiding mindset that you are using and how it is hindering your microservices
+  architecture
+tags: []
+---
+
+Microservices is about team independence and alignment, not DRYness and entanglement. The team should suppress the urge to create a new service for each new feature that appears, and instead think about how it will fit into the broader picture of the architecture.

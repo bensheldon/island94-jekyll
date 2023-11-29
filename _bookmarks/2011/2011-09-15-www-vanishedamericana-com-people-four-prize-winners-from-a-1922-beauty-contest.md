@@ -1,0 +1,9 @@
+---
+link: http://www.vanishedamericana.com/people/four-prize-winners-from-a-1922-beauty-contest/
+date: 2011-09-15 09:25 UTC
+published: true
+title: Four prize winners from a 1922 beauty contest
+tags: []
+---
+
+

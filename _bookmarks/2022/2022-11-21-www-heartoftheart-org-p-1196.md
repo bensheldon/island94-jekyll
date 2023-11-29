@@ -1,0 +1,16 @@
+---
+link: https://www.heartoftheart.org/?p=1196
+date: 2022-11-21 14:35 UTC
+published: true
+title: Myron’s Maxims – Heart of the Art
+tags: []
+---
+
+People own what they help create
+Real change happens in real work
+Those who do the work, do the change
+Connect the system to more of itself
+Start anywhere, follow everywhere
+The process you use to get to the future is the future you get.
+
+via https://blog.mattedgar.com/2022/11/19/weeknote-14-to-18-november-2022/

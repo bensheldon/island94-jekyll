@@ -1,0 +1,9 @@
+---
+link: http://www.pheedcontent.com/click.phdo?i=e045984f8cb98eb588b48cc2dd7d0218
+date: 2011-08-04 13:04 UTC
+published: true
+title: 'What People Don''t Get About My Job: I Worked at FEMA'
+tags: []
+---
+
+

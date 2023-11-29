@@ -1,0 +1,10 @@
+---
+link: http://www.newrepublic.com/article/120178/problem-international-development-and-plan-fix-it
+date: 2014-11-23 16:15 UTC
+published: true
+title: Stop Trying to Save the World
+tags:
+- nonprofit
+---
+
+

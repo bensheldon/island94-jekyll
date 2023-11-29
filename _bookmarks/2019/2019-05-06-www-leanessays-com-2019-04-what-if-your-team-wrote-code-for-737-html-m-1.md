@@ -1,0 +1,9 @@
+---
+link: http://www.leanessays.com/2019/04/what-if-your-team-wrote-code-for-737.html?m=1
+date: 2019-05-06 12:27 UTC
+published: true
+title: 'LeanEssays: What If Your Team Wrote the Code for the 737 MCAS System?'
+tags: []
+---
+
+> Software engineers need to understand what civil engineers learn as undergraduates – safety is not someone else’s job; it is the responsibility of every engineer involved in the design and implementation of a system whose failure might cause harm. If your team is not ready to accept this responsibility, then call yourselves developers or programmers or technicians – but not engineers.

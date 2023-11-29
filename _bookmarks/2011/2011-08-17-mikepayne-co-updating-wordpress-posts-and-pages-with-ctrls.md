@@ -1,0 +1,9 @@
+---
+link: http://mikepayne.co/updating-wordpress-posts-and-pages-with-ctrls/
+date: 2011-08-17 22:11 UTC
+published: true
+title: http://goo.gl/A4j94
+tags: []
+---
+
+

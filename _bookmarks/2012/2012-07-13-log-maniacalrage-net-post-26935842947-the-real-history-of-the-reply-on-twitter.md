@@ -1,0 +1,9 @@
+---
+link: http://log.maniacalrage.net/post/26935842947/the-real-history-of-the-reply-on-twitter
+date: 2012-07-13 22:09 UTC
+published: true
+title: The Real History of the @reply on Twitter
+tags: []
+---
+
+

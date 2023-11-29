@@ -1,0 +1,10 @@
+---
+link: http://feedproxy.google.com/~r/ChristopherSPenn/~3/ZO86rzSQJ00/
+date: 2010-12-15 03:42 UTC
+published: true
+title: Paradigm shifts in marketing
+tags:
+- writing
+---
+
+Taken from that perspective, social media not only isn’t a paradigm shift, it’s not even remotely close to new. The idea that businesses could and should communicate with customers and have conversations with them stretch back to prehistoric times when merchants in local bazaars first figured out that telling a customer to tell a friend about their apple stand was a good way to build business. The channels have changed throughout the millennia and the scale with which you can do so has dramatically increased, but the method of two-way communication via Twitter is exactly the same as the apple merchant from 50,000 years ago.

@@ -1,0 +1,9 @@
+---
+link: http://www.macworld.com/article/161777/2011/08/kagi_sparks_controversy_with_5_visualhub_lion_update.html
+date: 2011-08-17 01:43 UTC
+published: true
+title: Kagi Sparks Controversy With $5 VisualHub Lion Update
+tags: []
+---
+
+We tried to hire Tyler at the DigitalBicycle; before defunction, that is.

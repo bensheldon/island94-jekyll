@@ -1,0 +1,13 @@
+---
+link: http://blog.ruhlman.com/ruhlmancom/
+date: 2008-01-04 19:00 UTC
+published: true
+title: ruhlman.com
+tags:
+- blog
+- cooking
+- recipes
+- Food
+---
+
+write about many subjects in magazines and newspapers, but mostly in books and mostly about food, chefs, and cooking—issues also covered in this blog.

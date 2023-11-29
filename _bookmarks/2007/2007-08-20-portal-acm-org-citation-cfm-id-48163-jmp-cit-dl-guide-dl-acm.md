@@ -1,0 +1,12 @@
+---
+link: http://portal.acm.org/citation.cfm?id=48163&jmp=cit&dl=GUIDE&dl=ACM
+date: 2007-08-20 03:55 UTC
+published: true
+title: Tools and methods for computational lexicology
+tags:
+- panlexicon
+- thesaurus
+- paper
+---
+
+This paper presents a set of tools and methods for acquiring, manipulating, and analyzing machine-readable dictionaries. We give several detailed examples of the use of these tools and methods for particular analyses. A novel aspect of our work is that i

@@ -1,0 +1,9 @@
+---
+link: http://furnished.tumblr.com/post/3357330261
+date: 2011-02-18 04:28 UTC
+published: true
+title: Photo
+tags: []
+---
+
+

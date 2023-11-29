@@ -1,0 +1,16 @@
+---
+link: http://paulstamatiou.com/2005/11/19/how-to-quickie-embedded-flickr-slideshows/
+date: 2007-11-23 15:31 UTC
+published: true
+title: 'HOW TO Quickie: Embedded Flickr Slideshows'
+tags:
+- widget
+- flickr
+- photography
+- photo
+- media
+- tools
+- presentations
+---
+
+Dig those flash Flickr slideshows? All that’s needed is a bit of code to embed them within your website to give your readers something dynamic.

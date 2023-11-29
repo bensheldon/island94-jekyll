@@ -1,0 +1,10 @@
+---
+link: https://www.reddit.com/r/edmproduction/comments/703fml/the_absolute_beginners_guide_to_electronic_dance/
+date: 2022-07-03 03:48 UTC
+published: true
+title: 'The Absolute Beginner''s Guide to Electronic Dance Music Production (or the
+  Getting Started FAQ redone): edmproduction'
+tags: []
+---
+
+

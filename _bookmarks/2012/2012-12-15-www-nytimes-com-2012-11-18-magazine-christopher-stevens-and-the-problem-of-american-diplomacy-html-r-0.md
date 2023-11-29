@@ -1,0 +1,9 @@
+---
+link: http://www.nytimes.com/2012/11/18/magazine/christopher-stevens-and-the-problem-of-american-diplomacy.html?_r=0
+date: 2012-12-15 08:36 UTC
+published: true
+title: christopher-stevens-and-the-problem-of-american-diplomacy.html
+tags: []
+---
+
+

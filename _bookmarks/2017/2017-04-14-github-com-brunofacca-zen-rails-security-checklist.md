@@ -1,0 +1,9 @@
+---
+link: https://github.com/brunofacca/zen-rails-security-checklist
+date: 2017-04-14 13:54 UTC
+published: true
+title: Rails security checklist
+tags: []
+---
+
+

@@ -1,0 +1,9 @@
+---
+link: https://www.hanselman.com/blog/EasilyRenameYourGitDefaultBranchFromMasterToMain.aspx
+date: 2020-06-14 16:34 UTC
+published: true
+title: Easily rename your Git default branch from master to main - Scott Hanselman
+tags: []
+---
+
+

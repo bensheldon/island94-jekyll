@@ -1,0 +1,9 @@
+---
+link: http://nplusonemag.com/Brothel-Washington
+date: 2012-06-11 00:56 UTC
+published: true
+title: 'n+1: Brothel, Washington DC'
+tags: []
+---
+
+

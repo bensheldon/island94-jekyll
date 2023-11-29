@@ -1,0 +1,9 @@
+---
+link: http://techcrunch.com/2012/01/08/talent-not-hiring/
+date: 2012-01-09 23:59 UTC
+published: true
+title: Want A Great Team? Focus On Talent, Not Hiring | TechCrunch
+tags: []
+---
+
+

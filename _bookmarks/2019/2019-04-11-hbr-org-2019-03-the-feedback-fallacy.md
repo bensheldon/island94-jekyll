@@ -1,0 +1,10 @@
+---
+link: https://hbr.org/2019/03/the-feedback-fallacy
+date: 2019-04-11 20:50 UTC
+published: true
+title: Why Feedback Rarely Does What It’s Meant To
+tags:
+- feedback
+---
+
+

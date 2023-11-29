@@ -1,0 +1,14 @@
+---
+link: http://www.nicenet.org/
+date: 2007-03-07 22:28 UTC
+published: true
+title: Nicenet
+tags:
+- education
+- elearning
+- blog
+- community
+- communication
+---
+
+Nicenet's Internet Classroom Assistant (ICA) allows virtually any classroom, even those with modest resources, access to powerful tools. Everything in Nicenet is offered free for public use, and Nicenet makes no profits from your participation.

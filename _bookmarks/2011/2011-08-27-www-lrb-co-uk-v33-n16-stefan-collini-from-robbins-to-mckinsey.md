@@ -1,0 +1,10 @@
+---
+link: http://www.lrb.co.uk/v33/n16/stefan-collini/from-robbins-to-mckinsey
+date: 2011-08-27 17:43 UTC
+published: true
+title: 'Stefan Collini · From Robbins to McKinsey: The Dismantling of the Universities
+  · LRB 25 August 2011 (Links for 26 August 2011)'
+tags: []
+---
+
+

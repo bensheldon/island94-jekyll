@@ -1,0 +1,9 @@
+---
+link: http://printhandbook.com/design-resources/binding-guide.php#
+date: 2011-08-04 14:22 UTC
+published: true
+title: Binding guide - The Print Handbook
+tags: []
+---
+
+

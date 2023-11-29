@@ -1,0 +1,9 @@
+---
+link: http://dashes.com/anil/2013/07/rules-of-internet.html
+date: 2013-07-19 22:53 UTC
+published: true
+title: 10 Rules of Internet - Anil Dash
+tags: []
+---
+
+

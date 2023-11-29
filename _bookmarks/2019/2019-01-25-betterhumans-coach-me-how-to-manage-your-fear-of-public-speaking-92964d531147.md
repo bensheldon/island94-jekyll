@@ -1,0 +1,9 @@
+---
+link: https://betterhumans.coach.me/how-to-manage-your-fear-of-public-speaking-92964d531147
+date: 2019-01-25 05:00 UTC
+published: true
+title: How to Manage Your Fear of Public Speaking – Better Humans
+tags: []
+---
+
+

@@ -1,0 +1,10 @@
+---
+link: https://www.universalhub.com/2011/another-harvard-square-bookstore-bites-dust-curiou
+date: 2011-06-06 13:22 UTC
+published: true
+title: 'Another Harvard Square bookstore bites the dust: Curious George to shut this
+  month'
+tags: []
+---
+
+Boo.

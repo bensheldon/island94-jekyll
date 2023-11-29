@@ -1,0 +1,10 @@
+---
+link: https://www.theguardian.com/books/2019/oct/11/how-to-speak-internet-online-writing-richard-godwin
+date: 2019-10-13 18:46 UTC
+published: true
+title: How the internet is changing language as we know it (ikr lol) | Books | The
+  Guardian
+tags: []
+---
+
+

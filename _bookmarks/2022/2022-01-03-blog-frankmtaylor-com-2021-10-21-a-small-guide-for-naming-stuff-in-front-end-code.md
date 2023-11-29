@@ -1,0 +1,9 @@
+---
+link: https://blog.frankmtaylor.com/2021/10/21/a-small-guide-for-naming-stuff-in-front-end-code/
+date: 2022-01-03 23:56 UTC
+published: true
+title: A Small Guide for Naming Stuff in Front-end Code – Frank M Taylor
+tags: []
+---
+
+

@@ -1,0 +1,14 @@
+---
+link: http://www.radaronline.com/features/2008/05/generation_x_millennials_facebook_kevin_colvin_baby_boomers.php
+date: 2008-05-26 20:33 UTC
+published: true
+title: 'Features : Radar Online : A Call to Arms Against Millennials'
+tags:
+- culture
+- article
+- Millennials
+- socialnetworking
+- generations
+---
+
+They're naive, self-important, and perpetually plugged in. This is a call to arms against Millennials

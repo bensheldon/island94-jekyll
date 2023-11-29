@@ -1,0 +1,9 @@
+---
+link: https://www.smashingmagazine.com/2018/06/web-developer-resume/
+date: 2018-06-29 13:36 UTC
+published: true
+title: How To Craft The Perfect Web Developer Ré­su­mé
+tags: []
+---
+
+

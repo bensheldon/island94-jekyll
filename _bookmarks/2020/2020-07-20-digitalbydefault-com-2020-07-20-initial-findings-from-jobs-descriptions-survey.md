@@ -1,0 +1,10 @@
+---
+link: https://digitalbydefault.com/2020/07/20/initial-findings-from-jobs-descriptions-survey/
+date: 2020-07-20 15:59 UTC
+published: true
+title: Initial findings from jobs descriptions survey – Digital by Default (by Matt
+  Jukes)
+tags: []
+---
+
+257 people responded to my survey about what job seekers are looking for from job desscriptions/ads. There is a lot to dig into properly and I intend to do some follow up interviews - and then share a bunch of the raw data (maybe not the free text? Will have a think.) Here are a…

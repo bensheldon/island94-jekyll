@@ -1,0 +1,10 @@
+---
+link: https://www.youtube.com/watch?v=eq4CnIzw-pE
+date: 2015-04-30 01:29 UTC
+published: true
+title: '"Better Living Through Statistics: Monitoring Doesn''t Have To Suck" - Jamie
+  Wilkinson of Google'
+tags: []
+---
+
+

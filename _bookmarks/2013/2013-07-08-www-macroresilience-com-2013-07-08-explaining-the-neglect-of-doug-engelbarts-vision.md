@@ -1,0 +1,9 @@
+---
+link: http://www.macroresilience.com/2013/07/08/explaining-the-neglect-of-doug-engelbarts-vision/
+date: 2013-07-08 18:59 UTC
+published: true
+title: explaining-the-neglect-of-doug-engelbarts-vision
+tags: []
+---
+
+

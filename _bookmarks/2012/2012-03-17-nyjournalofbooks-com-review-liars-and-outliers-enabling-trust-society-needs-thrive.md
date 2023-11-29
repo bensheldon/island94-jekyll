@@ -1,0 +1,12 @@
+---
+link: http://nyjournalofbooks.com/review/liars-and-outliers-enabling-trust-society-needs-thrive
+date: 2012-03-17 03:45 UTC
+published: true
+title: 'Liars and Outliers: Enabling the Trust that Society Needs to Thrive'
+tags:
+- writing
+- logic
+- rhetoric
+---
+
+The model of writing Liars and Outliers itself appears to be based on a limited set of rules: Provide a wide range of interesting examples of a complex ill-defined phenomena; refer to expert opinion from a variety of sources; identify a limited set of parameters and controls; make models; note the deficiencies of said models; form vague general principles; change the topic and repeat.

@@ -1,0 +1,9 @@
+---
+link: http://scottberkun.com/2010/inside-pixars-leadership/
+date: 2013-05-29 14:53 UTC
+published: true
+title: "  Inside Pixar’s Leadership"
+tags: []
+---
+
+

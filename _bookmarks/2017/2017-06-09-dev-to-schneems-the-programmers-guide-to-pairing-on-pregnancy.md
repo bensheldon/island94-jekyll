@@ -1,0 +1,9 @@
+---
+link: https://dev.to/schneems/the-programmers-guide-to-pairing-on-pregnancy
+date: 2017-06-09 01:29 UTC
+published: true
+title: The Programmer's Guide to Pairing on Pregnancy
+tags: []
+---
+
+

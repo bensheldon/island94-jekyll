@@ -1,0 +1,9 @@
+---
+link: https://newsletter.pragmaticengineer.com/p/real-world-eng-8
+date: 2023-02-14 04:23 UTC
+published: true
+title: 'Real-world Engineering Challenges #8: Breaking up a Monolith'
+tags: []
+---
+
+A deep dive into how Khan Academy took a 1 million-line Python monolith and split it into ~40 Go services in a more than 3 year-long project.

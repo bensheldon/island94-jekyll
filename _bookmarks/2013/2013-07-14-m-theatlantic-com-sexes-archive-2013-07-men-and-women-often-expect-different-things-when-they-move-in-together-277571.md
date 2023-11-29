@@ -1,0 +1,10 @@
+---
+link: http://m.theatlantic.com/sexes/archive/2013/07/men-and-women-often-expect-different-things-when-they-move-in-together/277571/
+date: 2013-07-14 22:28 UTC
+published: true
+title: Men and Women Often Expect Different Things When They Move In Together - Atlantic
+  Mobile
+tags: []
+---
+
+

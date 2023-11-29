@@ -1,0 +1,9 @@
+---
+link: http://hilobrow.com/2014/08/19/kern-your-enthusiasm-19/
+date: 2014-08-22 13:45 UTC
+published: true
+title: Kern Your Enthusiasm (19) | HiLobrow
+tags: []
+---
+
+One of 25 installments in a series of posts analyzing and celebrating a few of our favorite (and least favorite) typefaces. CHICAGO | SUSAN KARE | 1983 It was…

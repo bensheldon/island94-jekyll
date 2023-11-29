@@ -1,0 +1,9 @@
+---
+link: http://viewportsizes.com/
+date: 2013-07-29 15:02 UTC
+published: true
+title: a handy, searchable reference of platforms and device dimensions
+tags: []
+---
+
+

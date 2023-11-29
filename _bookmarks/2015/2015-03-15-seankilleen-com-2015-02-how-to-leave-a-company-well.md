@@ -1,0 +1,10 @@
+---
+link: http://seankilleen.com/2015/02/how-to-leave-a-company-well/
+date: 2015-03-15 23:46 UTC
+published: true
+title: How to Leave a Company Well – SeanKilleen.com
+tags:
+- employment
+---
+
+

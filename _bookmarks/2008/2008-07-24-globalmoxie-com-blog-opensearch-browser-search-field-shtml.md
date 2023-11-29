@@ -1,0 +1,12 @@
+---
+link: http://globalmoxie.com/blog/opensearch-browser-search-field.shtml
+date: 2008-07-24 22:35 UTC
+published: true
+title: 'OpenSearch: Add Your Site to Browsers’ Built-in Search (Global Moxie)'
+tags:
+- opensearch
+- html
+- panlexicon
+---
+
+The following HTML snippet displays a link to supporting browsers (for now, Firefox 2 and IE7) allowing visitors to add your search to the browser. Add this to your Big Medium template(s) where you would like the link to appear:

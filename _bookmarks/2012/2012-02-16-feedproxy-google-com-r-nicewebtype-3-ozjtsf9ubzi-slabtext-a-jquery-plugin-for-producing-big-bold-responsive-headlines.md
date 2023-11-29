@@ -1,0 +1,12 @@
+---
+link: http://feedproxy.google.com/~r/NiceWebType/~3/OZjtSF9ubZI/slabtext-a-jquery-plugin-for-producing-big-bold-responsive-headlines
+date: 2012-02-16 13:25 UTC
+published: true
+title: slabText jQuery plugin for headlines
+tags:
+- css
+- jquery
+- webdesign
+---
+
+

@@ -1,0 +1,9 @@
+---
+link: http://www.chachaville.com/content/intro-couchdb
+date: 2011-01-20 12:23 UTC
+published: true
+title: Intro to CouchDB
+tags: []
+---
+
+

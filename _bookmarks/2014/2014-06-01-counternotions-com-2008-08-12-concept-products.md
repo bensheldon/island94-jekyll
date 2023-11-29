@@ -1,0 +1,9 @@
+---
+link: http://counternotions.com/2008/08/12/concept-products/
+date: 2014-06-01 23:46 UTC
+published: true
+title: Why Apple doesn't do "Concept Products"
+tags: []
+---
+
+Everyone has a favorite “concept car.” Whether it’s the ’54 Firebird, ’64 Stiletto, ’80 Epcot or ’88 Sunraycer, these “flights of imagination” all have one…

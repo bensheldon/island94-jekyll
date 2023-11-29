@@ -1,0 +1,9 @@
+---
+link: http://www.flickr.com/photos/pbull/5355289924/
+date: 2011-01-14 19:13 UTC
+published: true
+title: Tesla stopped by work today
+tags: []
+---
+
+

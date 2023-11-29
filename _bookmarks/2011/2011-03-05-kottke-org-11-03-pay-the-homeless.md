@@ -1,0 +1,9 @@
+---
+link: http://kottke.org/11/03/pay-the-homeless
+date: 2011-03-05 21:47 UTC
+published: true
+title: Pay the homeless
+tags: []
+---
+
+I love to ask the question "why don't you just give them the money?"Glad to see more people are.

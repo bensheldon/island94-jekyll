@@ -1,0 +1,11 @@
+---
+link: http://9to5mac.com/2014/08/29/seeing-through-the-illusion-understanding-apples-mastery-of-the-media/
+date: 2014-09-01 20:48 UTC
+published: true
+title: 'Seeing Through the Illusion: Understanding Apple''s Mastery of the Media'
+tags: []
+---
+
+Apple CEO Tim Cook with former VP of Worldwide Communications Katie Cotton
+“Beautifully, unapologetically plastic.”
+“Feature for feature, it’s identical to iPad…

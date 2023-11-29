@@ -1,0 +1,9 @@
+---
+link: http://hypercritical.co/2013/04/26/the-lottery
+date: 2013-04-27 03:09 UTC
+published: true
+title: 'Hypercritical: The Lottery'
+tags: []
+---
+
+

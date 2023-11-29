@@ -1,0 +1,9 @@
+---
+link: https://suzettewoodward.org/2018/03/05/just-culture/
+date: 2019-11-07 15:48 UTC
+published: true
+title: Just Culture – Suzette Woodward
+tags: []
+---
+
+on safety, just and no blame.

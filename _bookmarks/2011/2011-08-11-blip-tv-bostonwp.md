@@ -1,0 +1,10 @@
+---
+link: http://blip.tv/bostonwp
+date: 2011-08-11 08:33 UTC
+published: true
+title: Watch Boston WordPress episodes on blip.tv
+tags:
+- wcbos
+---
+
+The #wcbos videos are up at  until the ones at wordpress.tv are published! Enjoy!

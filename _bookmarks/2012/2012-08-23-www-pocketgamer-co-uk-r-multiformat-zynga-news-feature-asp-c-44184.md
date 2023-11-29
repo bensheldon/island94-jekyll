@@ -1,0 +1,10 @@
+---
+link: http://www.pocketgamer.co.uk/r/Multiformat/Zynga+news/feature.asp?c=44184
+date: 2012-08-23 15:02 UTC
+published: true
+title: 'EA''s revenge: A history of Zynga''s clones and knock-offs | Multiformat |
+  Pocket Gamer'
+tags: []
+---
+
+

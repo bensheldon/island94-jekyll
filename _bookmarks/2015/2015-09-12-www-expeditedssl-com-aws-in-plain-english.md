@@ -1,0 +1,9 @@
+---
+link: https://www.expeditedssl.com/aws-in-plain-english
+date: 2015-09-12 02:32 UTC
+published: true
+title: AWS in Plain English
+tags: []
+---
+
+

@@ -1,0 +1,9 @@
+---
+link: https://uxdesign.cc/the-4px-baseline-grid-89485012dea6
+date: 2019-06-01 16:24 UTC
+published: true
+title: The 4px Baseline Grid — The Present
+tags: []
+---
+
+Why vertically spacing text is hard because text bounding box margins do not fully represent the whitespace

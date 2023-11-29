@@ -1,0 +1,9 @@
+---
+link: http://arstechnica.com/gadgets/2012/07/former-nokia-employees-start-company-to-build-new-meego-devices/
+date: 2012-07-12 19:47 UTC
+published: true
+title: Former Nokia employees start company to build new MeeGo devices | Ars Technica
+tags: []
+---
+
+

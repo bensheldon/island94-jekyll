@@ -1,0 +1,10 @@
+---
+link: http://intherainyseason.tumblr.com/post/114713673581
+date: 2015-03-27 05:36 UTC
+published: true
+title: '""Anarchism is a movement for human freedom. It is concrete, democratic and
+  egalitarian… Anarchism..."'
+tags: []
+---
+
+

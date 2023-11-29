@@ -1,0 +1,10 @@
+---
+link: http://www.network-centricadvocacy.net/2011/10/occupywallstreet-is-not-a-brand-why-does-occupywallstreet-feel-different-the-network-is-occupied-a-riff.html
+date: 2011-10-19 17:49 UTC
+published: true
+title: OccupyWallstreet is not a brand.  Why does Occupywallstreet feel different?
+  The network is occupied. A riff
+tags: []
+---
+
+> "The real test will not be if it stop[s] accepting new ideas and agendas, but the capacity to deliver solidarity when the 'one for all and all for one' comes to the test. In a highly communicative environment and an age of quick alignment, can this new movement deliver power?"

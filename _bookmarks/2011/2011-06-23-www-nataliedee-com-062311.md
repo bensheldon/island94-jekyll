@@ -1,0 +1,9 @@
+---
+link: http://www.nataliedee.com/062311
+date: 2011-06-23 08:00 UTC
+published: true
+title: yay everything is great
+tags: []
+---
+
+

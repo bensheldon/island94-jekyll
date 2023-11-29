@@ -1,0 +1,9 @@
+---
+link: http://reason.com/archives/2010/12/07/the-war-on-cameras
+date: 2010-12-09 14:12 UTC
+published: true
+title: The War on Cameras - Reason Magazine
+tags: []
+---
+
+

@@ -1,0 +1,11 @@
+---
+link: http://www.smashingmagazine.com/2011/08/24/freebie-responsive-jquery-slider-plugin-flexslider/
+date: 2011-09-08 15:38 UTC
+published: true
+title: 'Freebie: Responsive jQuery Slider Plugin Flexslider'
+tags:
+- webdesign
+- jquery
+---
+
+

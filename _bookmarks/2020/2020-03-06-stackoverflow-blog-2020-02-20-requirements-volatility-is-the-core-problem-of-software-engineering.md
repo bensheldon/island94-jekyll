@@ -1,0 +1,10 @@
+---
+link: https://stackoverflow.blog/2020/02/20/requirements-volatility-is-the-core-problem-of-software-engineering/
+date: 2020-03-06 16:04 UTC
+published: true
+title: Requirements volatility is the core problem of software engineering - Stack
+  Overflow Blog
+tags: []
+---
+
+

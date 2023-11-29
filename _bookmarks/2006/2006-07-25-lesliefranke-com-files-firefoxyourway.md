@@ -1,0 +1,14 @@
+---
+link: http://lesliefranke.com/files/firefoxyourway/
+date: 2006-07-25 19:55 UTC
+published: true
+title: Mozilla Firefox - Have it Your Way!
+tags:
+- firefox
+- extensions
+- tutorial
+- internet
+- web
+---
+
+

@@ -1,0 +1,9 @@
+---
+link: http://arstechnica.com/tech-policy/2012/12/government-seeks-to-shut-down-nsa-wiretapping-lawsuit/
+date: 2012-12-14 23:35 UTC
+published: true
+title: Government seeks to shut down NSA wiretapping lawsuit | Ars Technica
+tags: []
+---
+
+

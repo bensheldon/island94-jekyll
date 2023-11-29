@@ -1,0 +1,10 @@
+---
+link: https://medium.com/@ev/a-mile-wide-an-inch-deep-48f36e48d4cb
+date: 2015-01-07 02:37 UTC
+published: true
+title: "‘A Mile Wide, an Inch Deep’"
+tags:
+- advice
+---
+
+

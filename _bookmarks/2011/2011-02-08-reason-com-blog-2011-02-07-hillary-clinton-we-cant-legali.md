@@ -1,0 +1,10 @@
+---
+link: http://reason.com/blog/2011/02/07/hillary-clinton-we-cant-legali
+date: 2011-02-08 00:55 UTC
+published: true
+title: 'Hillary Clinton: We Can''t Legalize Drugs Because ''There Is Just Too Much
+  Money in It'' - Hit & Run : Reason Magazine'
+tags: []
+---
+
+Outlaw oil.

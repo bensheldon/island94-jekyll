@@ -1,0 +1,10 @@
+---
+link: http://boingboing.net/2013/07/13/with-new-news-media-guidel.html
+date: 2013-07-17 18:51 UTC
+published: true
+title: With new "news media" guidelines, White House ever-closer to instituting an
+  Official Press - Boing Boing
+tags: []
+---
+
+

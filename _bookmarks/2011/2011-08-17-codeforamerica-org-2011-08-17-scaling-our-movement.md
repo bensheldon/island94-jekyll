@@ -1,0 +1,9 @@
+---
+link: http://codeforamerica.org/2011/08/17/scaling-our-movement/
+date: 2011-08-17 19:37 UTC
+published: true
+title: Scaling Our Movement
+tags: []
+---
+
+No offense, but it probably is: "Maybe it’s the engineer in me, but we’re really lacking tools for widespread engagement, coordination and replication."<br><br>I'd say we're lacking organizers, space (physical and intellectual) and funding (name one major foundation that funds replication... no, not replicability, replication)

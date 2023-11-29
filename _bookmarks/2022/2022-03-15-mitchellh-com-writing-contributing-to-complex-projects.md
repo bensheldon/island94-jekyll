@@ -1,0 +1,9 @@
+---
+link: https://mitchellh.com/writing/contributing-to-complex-projects
+date: 2022-03-15 14:25 UTC
+published: true
+title: Contributing to Complex Projects – Mitchell Hashimoto
+tags: []
+---
+
+

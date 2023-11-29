@@ -1,0 +1,9 @@
+---
+link: http://feedproxy.google.com/~r/WarIsBoring/~3/-_dncnlsyFU/
+date: 2010-12-29 19:14 UTC
+published: true
+title: 'Matt Bors: Afghan Life, Part Three'
+tags: []
+---
+
+

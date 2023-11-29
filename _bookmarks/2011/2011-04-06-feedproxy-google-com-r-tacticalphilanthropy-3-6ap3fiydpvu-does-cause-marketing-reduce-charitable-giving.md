@@ -1,0 +1,9 @@
+---
+link: http://feedproxy.google.com/~r/TacticalPhilanthropy/~3/6aP3FIYDpVU/does-cause-marketing-reduce-charitable-giving
+date: 2011-04-06 16:49 UTC
+published: true
+title: Does Cause Marketing Reduce Charitable Giving?
+tags: []
+---
+
+

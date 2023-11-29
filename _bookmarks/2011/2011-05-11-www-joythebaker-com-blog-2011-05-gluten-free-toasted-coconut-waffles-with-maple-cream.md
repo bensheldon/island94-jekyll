@@ -1,0 +1,9 @@
+---
+link: http://www.joythebaker.com/blog/2011/05/gluten-free-toasted-coconut-waffles-with-maple-cream/
+date: 2011-05-11 14:28 UTC
+published: true
+title: Gluten-free Toasted Coconut Waffles with maple cream
+tags: []
+---
+
+

@@ -1,0 +1,9 @@
+---
+link: http://nicemohawk.com//blog/2014/08/a-case-study-for-list-app-design/
+date: 2014-08-12 21:38 UTC
+published: true
+title: Ita 2.0 as a Case Study for List App Design - The Fine Edge
+tags: []
+---
+
+Last week we released a big update to our list-making app, Ita. For version 2.0 we redesigned the look of the app, but we also changed some of the interactions…

@@ -1,0 +1,9 @@
+---
+link: https://www.bmcm.org/inspiration/passages/mirror-eternity/
+date: 2021-09-14 03:11 UTC
+published: true
+title: The Mirror of Eternity - Blue Mountain Center of Meditation
+tags: []
+---
+
+

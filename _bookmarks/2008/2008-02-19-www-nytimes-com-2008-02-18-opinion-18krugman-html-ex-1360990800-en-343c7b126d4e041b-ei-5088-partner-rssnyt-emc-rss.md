@@ -1,0 +1,12 @@
+---
+link: http://www.nytimes.com/2008/02/18/opinion/18krugman.html?ex=1360990800&en=343c7b126d4e041b&ei=5088&partner=rssnyt&emc=rss
+date: 2008-02-19 03:18 UTC
+published: true
+title: Poverty Is Poison - New York Times
+tags:
+- poverty
+- economics
+- ctcvista
+---
+
+if a progressive wins this election, it will be by promising to ease the anxiety of the middle class rather than aiding the poor. And for a variety of reasons, health care, not poverty, should be the first priority of a Democratic administration.

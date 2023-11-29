@@ -1,0 +1,9 @@
+---
+link: https://cohost.org/mcc/post/178201-the-baseline-scene
+date: 2022-11-04 16:49 UTC
+published: true
+title: cohost! - "The "baseline" scene was actually written by Ryan Gosling"
+tags: []
+---
+
+

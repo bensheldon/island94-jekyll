@@ -1,0 +1,9 @@
+---
+link: http://fireballed.org/linked/2011/08/04/google/#
+date: 2011-08-04 13:24 UTC
+published: true
+title: Google are pussies | brian s hall
+tags: []
+---
+
+Other than the misogyny...

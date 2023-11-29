@@ -1,0 +1,10 @@
+---
+link: http://www.theatlantic.com/technology/archive/2010/12/wikileaks-exposes-internets-dissent-tax-not-nerd-supremacy/68397/
+date: 2011-01-01 18:15 UTC
+published: true
+title: Wikileaks Exposes Internet’s Dissent Tax, not Nerd Supremacy ("The Wikileaks
+  furore shows us that these institutions of power are slowly and surely taking control...")
+tags: []
+---
+
+

@@ -1,0 +1,9 @@
+---
+link: http://feeds.boingboing.net/~r/boingboing/iBag/~3/gMRniNcTv3s/why-kids-call-homele.html
+date: 2011-02-11 06:02 UTC
+published: true
+title: Why kids call  homeless people hobos
+tags: []
+---
+
+Well, that's offensive.

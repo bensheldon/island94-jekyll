@@ -1,0 +1,10 @@
+---
+link: https://www.schneier.com/blog/archives/2014/11/cooperating_wit.html
+date: 2014-12-02 03:22 UTC
+published: true
+title: 'Schneier on Security: "Cooperating with the Future"'
+tags: []
+---
+
+This is an interesting paper — the full version is behind a paywall — about how we as humans can motivate people to cooperate with future generations.
+Abstract:…

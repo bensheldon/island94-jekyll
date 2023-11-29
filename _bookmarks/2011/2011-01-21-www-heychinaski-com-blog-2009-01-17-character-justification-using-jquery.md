@@ -1,0 +1,12 @@
+---
+link: http://www.heychinaski.com/blog/2009/01/17/character-justification-using-jquery/
+date: 2011-01-21 18:15 UTC
+published: true
+title: Character Justification using JQuery | HeyChinaski.com
+tags:
+- jquery
+- css
+- typography
+---
+
+Justification using pure CSS can be achieved by setting the text-align property to “justify”.  This will tell the browser to attempt to line up the words so that left the and right edges of each line are aligned with those above and below.  This effectiveness of this property can be enhanced by inserting hyphens where necessary to maintain the alignment using Hyphenator

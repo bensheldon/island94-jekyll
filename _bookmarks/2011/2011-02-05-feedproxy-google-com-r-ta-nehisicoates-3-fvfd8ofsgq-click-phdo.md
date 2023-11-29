@@ -1,0 +1,9 @@
+---
+link: http://feedproxy.google.com/~r/Ta-nehisiCoates/~3/-fvFD8OFsgQ/click.phdo
+date: 2011-02-05 01:59 UTC
+published: true
+title: The Wages of Reform
+tags: []
+---
+
+...which is exactly why we need campaign finance reform. The unions and management should be focused on eachother, not rigging the system for either's benefit. But to see this as hypocrisy on the part of the unions is ridiculous. Just like criminal defense lawyers, their role is adversarial

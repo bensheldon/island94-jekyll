@@ -1,0 +1,9 @@
+---
+link: https://cate.blog/2018/05/03/book-org-design-for-design-orgs/
+date: 2018-05-04 05:45 UTC
+published: true
+title: 'Book: Org Design for Design Orgs'
+tags: []
+---
+
+

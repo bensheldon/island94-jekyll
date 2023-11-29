@@ -1,0 +1,9 @@
+---
+link: http://www.themetropreneur.com/columbus/local-pro-launches-digital-consultancy/
+date: 2011-05-02 12:00 UTC
+published: true
+title: Local IT Pro Launches Digital Consultancy
+tags: []
+---
+
+

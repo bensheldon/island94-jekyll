@@ -1,0 +1,10 @@
+---
+link: http://www.digitaldeadend.com/about.html
+date: 2011-03-04 16:24 UTC
+published: true
+title: 'Digital Dead End: Fighting for Social Justice in the Information Age by Virginia
+  Eubanks'
+tags: []
+---
+
+

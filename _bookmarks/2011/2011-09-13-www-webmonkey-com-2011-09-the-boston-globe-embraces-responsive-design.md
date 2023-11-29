@@ -1,0 +1,9 @@
+---
+link: http://www.webmonkey.com/2011/09/the-boston-globe-embraces-responsive-design/
+date: 2011-09-13 19:44 UTC
+published: true
+title: The Boston Globe Embraces Responsive Design
+tags: []
+---
+
+Too bad the redesign is BORING. It's full of naked headlines with not even a byline or publication date/time. Sure, it makes me want to drag my browser window, but it doesn't make me want to click, let alone return and have to re-scan all those headline lists to see what's new.  Maybe $4 will make me more captive, but I'll probably forget about it like Readability (reminder: cancel that).

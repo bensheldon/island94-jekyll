@@ -1,0 +1,10 @@
+---
+link: http://lucaguidi.com/2014/06/09/three-things-to-know-about-composition.html
+date: 2014-06-10 14:00 UTC
+published: true
+title: Three Things To Know About Composition
+tags: []
+---
+
+A few days ago Aaron Patterson wrote a in interesting article about composition vs inheritance with Ruby.
+He says that when inheriting our classes directly from…

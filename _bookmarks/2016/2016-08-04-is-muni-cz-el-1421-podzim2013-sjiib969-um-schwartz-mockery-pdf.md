@@ -1,0 +1,9 @@
+---
+link: http://is.muni.cz/el/1421/podzim2013/SJIIB969/um/Schwartz_Mockery.pdf
+date: 2016-08-04 18:39 UTC
+published: true
+title: Mockery and the appropriation of Spanish in White spaces
+tags: []
+---
+
+

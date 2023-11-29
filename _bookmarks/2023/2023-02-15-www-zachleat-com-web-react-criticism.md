@@ -1,0 +1,9 @@
+---
+link: https://www.zachleat.com/web/react-criticism/
+date: 2023-02-15 02:26 UTC
+published: true
+title: A Historical Reference of React Criticism—zachleat.com
+tags: []
+---
+
+

@@ -1,0 +1,9 @@
+---
+link: http://mobile.smashingmagazine.com/2013/07/12/top-ten-app-part-2-marketing-launch/
+date: 2013-07-14 16:38 UTC
+published: true
+title: top-ten-app-part-2-marketing-launch
+tags: []
+---
+
+

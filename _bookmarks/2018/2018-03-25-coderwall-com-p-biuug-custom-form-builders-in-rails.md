@@ -1,0 +1,9 @@
+---
+link: https://coderwall.com/p/-biuug/custom-form-builders-in-rails
+date: 2018-03-25 17:18 UTC
+published: true
+title: Custom Form Builders in Rails (Example)
+tags: []
+---
+
+<blockquote>A protip by mcmillion about rails, forms, markup, slim, and html.</blockquote>

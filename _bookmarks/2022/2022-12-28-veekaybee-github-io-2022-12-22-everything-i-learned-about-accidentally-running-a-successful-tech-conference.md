@@ -1,0 +1,9 @@
+---
+link: https://veekaybee.github.io/2022/12/22/everything-i-learned-about-accidentally-running-a-successful-tech-conference/
+date: 2022-12-28 17:26 UTC
+published: true
+title: Everything I learned about accidentally running a successful tech conference
+tags: []
+---
+
+Normconf was amazing!

@@ -1,0 +1,9 @@
+---
+link: http://www.newyorker.com/reporting/2011/11/14/111114fa_fact_gladwell?currentPage=all
+date: 2011-11-07 19:37 UTC
+published: true
+title: 'Steve Jobs’s Real Genius : The New Yorker'
+tags: []
+---
+
+

@@ -1,0 +1,11 @@
+---
+link: http://www.ecommercebytes.com/cab/abn/y11/m04/i13/s02
+date: 2013-10-24 05:53 UTC
+published: true
+title: 'Guest Column: Categorizing Ecommerce Expenses on IRS Schedule C'
+tags:
+- business
+- taxes
+---
+
+By far the most popular tax time questions we get over at Outright.com have to do with "How do I categorize Expense X on my Schedule C?" And it truly can be difficult to fit square peg expenses like "web hosting" into Schedule C categories that haven't yet caught up with the way ecommerce sellers do business.

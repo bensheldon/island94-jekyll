@@ -1,0 +1,9 @@
+---
+link: http://www.nybooks.com/blogs/nyrblog/2011/feb/11/this-is-the-truth-of-who-egyptians-are/?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+nybooks+%28The+New+York+Review+of+Books%29
+date: 2011-02-13 19:00 UTC
+published: true
+title: "‘This Is Who Egyptians Are’"
+tags: []
+---
+
+

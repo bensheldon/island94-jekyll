@@ -1,0 +1,9 @@
+---
+link: https://slate.com/technology/2022/03/venting-makes-you-feel-worse-psychology-research.html
+date: 2022-04-15 16:55 UTC
+published: true
+title: Venting doesn’t work.
+tags: []
+---
+
+

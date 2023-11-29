@@ -1,0 +1,9 @@
+---
+link: https://threewayfight.blogspot.com/2020/02/comment-on-foucault-and-iranian.html
+date: 2020-02-29 19:46 UTC
+published: true
+title: Comment on Foucault and the Iranian Revolution
+tags: []
+---
+
+> The challenge for the left is to provide a sense of purpose and fulfillment, without replicating the logic of a death-cult; to create a feeling of belonging without chauvinism, and authenticity without essentializing identities. Our politics must learn to speak, simultaneously, the language of reason and the language of values. Without abandoning the Enlightenment, our movements must be ready, nevertheless, to address our deepest psychological, cultural, and even spiritual needs. Unless we can do so, we may find our demands for material security, social equality, and personal freedom continually outbid by those who promise only a life of sacrifice and a glorious death.

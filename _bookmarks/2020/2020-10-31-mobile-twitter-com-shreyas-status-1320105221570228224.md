@@ -1,0 +1,10 @@
+---
+link: https://mobile.twitter.com/shreyas/status/1320105221570228224
+date: 2020-10-31 15:18 UTC
+published: true
+title: 'Shreyas Doshi on Twitter: "“My team has a prioritization problem. Help!“ Product
+  prioritization, a thread: (1/30)" / Twitter'
+tags: []
+---
+
+lots of product ans strategy lists.

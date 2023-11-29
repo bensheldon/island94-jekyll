@@ -1,0 +1,10 @@
+---
+link: https://statmodeling.stat.columbia.edu/2022/11/21/only-positive-reinforcement-for-researchers-in-some-fields/
+date: 2022-11-22 00:32 UTC
+published: true
+title: Only positive reinforcement for researchers in some fields | Statistical Modeling,
+  Causal Inference, and Social Science
+tags: []
+---
+
+Thought: "action without strategy is chaos"

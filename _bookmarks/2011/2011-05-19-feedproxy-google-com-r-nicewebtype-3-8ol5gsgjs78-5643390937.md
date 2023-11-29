@@ -1,0 +1,9 @@
+---
+link: http://feedproxy.google.com/~r/NiceWebType/~3/8oL5gSGjs78/5643390937
+date: 2011-05-19 19:02 UTC
+published: true
+title: WebKit hardware acceleration and type rendering
+tags: []
+---
+
+

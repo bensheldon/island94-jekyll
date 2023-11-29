@@ -1,0 +1,9 @@
+---
+link: https://github.com/ankane/production_rails
+date: 2017-06-25 18:07 UTC
+published: true
+title: Production Rails Best practices for running Rails in production.
+tags: []
+---
+
+

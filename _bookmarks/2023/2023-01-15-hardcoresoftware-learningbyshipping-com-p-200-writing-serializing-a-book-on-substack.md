@@ -1,0 +1,9 @@
+---
+link: https://hardcoresoftware.learningbyshipping.com/p/200-writing-serializing-a-book-on-substack
+date: 2023-01-15 19:37 UTC
+published: true
+title: 200. Writing a Book on Substack
+tags: []
+---
+
+Substack is a new and improved way to write and distribute a book, communicate, and build a community while doing so.

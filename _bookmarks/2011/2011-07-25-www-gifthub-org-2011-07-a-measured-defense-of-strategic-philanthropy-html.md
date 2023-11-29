@@ -1,0 +1,9 @@
+---
+link: http://www.gifthub.org/2011/07/a-measured-defense-of-strategic-philanthropy.html
+date: 2011-07-25 17:27 UTC
+published: true
+title: A Measured Defense of Strategic Philanthropy
+tags: []
+---
+
+"We measure every student every year and now our society is run by people who have no moral or political tradition beyond pragmatism and expediency. They have been measured and managed for compliance with authority, now they assert it and call it leadership."

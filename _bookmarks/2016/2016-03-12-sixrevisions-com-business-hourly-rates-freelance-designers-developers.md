@@ -1,0 +1,9 @@
+---
+link: http://sixrevisions.com/business/hourly-rates-freelance-designers-developers/
+date: 2016-03-12 06:07 UTC
+published: true
+title: A Look at the Hourly Rates of Freelance Designers and Developers
+tags: []
+---
+
+

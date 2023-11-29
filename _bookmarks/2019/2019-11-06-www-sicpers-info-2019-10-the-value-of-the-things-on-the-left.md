@@ -1,0 +1,11 @@
+---
+link: https://www.sicpers.info/2019/10/the-value-of-the-things-on-the-left/
+date: 2019-11-06 02:39 UTC
+published: true
+title: The value of the things on the left
+tags: []
+---
+
+the state of agile. with a nice point:
+
+> But, importantly, they do the things they do because it helps them release software, not because it helps them hit project milestones. The revolution really did land there.

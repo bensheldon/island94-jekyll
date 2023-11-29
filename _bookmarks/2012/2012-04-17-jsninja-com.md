@@ -1,0 +1,9 @@
+---
+link: http://jsninja.com/
+date: 2012-04-17 21:47 UTC
+published: true
+title: 'Book: Secrets of the JavaScript Ninja by John Resig'
+tags: []
+---
+
+

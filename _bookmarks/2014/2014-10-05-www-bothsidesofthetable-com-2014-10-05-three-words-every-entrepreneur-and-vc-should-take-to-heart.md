@@ -1,0 +1,10 @@
+---
+link: http://www.bothsidesofthetable.com/2014/10/05/three-words-every-entrepreneur-and-vc-should-take-to-heart/
+date: 2014-10-05 15:30 UTC
+published: true
+title: Three Words Entrepreneurs (and VC’s) Should Take to Heart
+tags:
+- advice
+---
+
+"I dont know."

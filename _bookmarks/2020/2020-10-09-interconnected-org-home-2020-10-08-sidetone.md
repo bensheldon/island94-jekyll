@@ -1,0 +1,9 @@
+---
+link: http://interconnected.org/home/2020/10/08/sidetone
+date: 2020-10-09 14:53 UTC
+published: true
+title: http://interconnected.org/home/2020/10/08/sidetone
+tags: []
+---
+
+

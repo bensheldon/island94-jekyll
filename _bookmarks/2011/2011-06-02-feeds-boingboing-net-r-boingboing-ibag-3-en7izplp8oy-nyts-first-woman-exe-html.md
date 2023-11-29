@@ -1,0 +1,10 @@
+---
+link: http://feeds.boingboing.net/~r/boingboing/iBag/~3/eN7izPlp8OY/nyts-first-woman-exe.html
+date: 2011-06-02 19:28 UTC
+published: true
+title: 'NYT''s first woman exec. editor wrote in 2006: "When Will We Stop Saying ''First
+  Woman to _____''?"'
+tags: []
+---
+
+

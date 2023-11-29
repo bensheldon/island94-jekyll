@@ -1,0 +1,9 @@
+---
+link: http://www.lukew.com/ff/entry.asp?1993
+date: 2018-05-16 14:41 UTC
+published: true
+title: 'Google Conversions: Highlights'
+tags: []
+---
+
+> A common pain point across retail sites is find-ability: both search and browse. When we move to mobile, many sites remove their top categories list in order to fit on smaller screens. This creates discoverability issues. One of the first things retail sites should test is adding categories visibly on their home page.

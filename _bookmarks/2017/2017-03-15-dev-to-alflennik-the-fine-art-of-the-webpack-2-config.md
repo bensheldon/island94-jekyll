@@ -1,0 +1,9 @@
+---
+link: https://dev.to/alflennik/the-fine-art-of-the-webpack-2-config
+date: 2017-03-15 13:19 UTC
+published: true
+title: The Fine Art of the Webpack 2 Config
+tags: []
+---
+
+

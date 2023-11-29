@@ -1,0 +1,9 @@
+---
+link: http://www.chefchloe.com/blog/2-blog/47-chocolate-beer-cupcakes-with-irish-whisky-buttercream.html
+date: 2011-03-08 17:37 UTC
+published: true
+title: Chocolate Beer Cupcakes with Irish Whiskey Buttercream
+tags: []
+---
+
+

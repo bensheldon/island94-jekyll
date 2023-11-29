@@ -1,0 +1,9 @@
+---
+link: http://feedproxy.google.com/~r/sparkblog/jIXX/~3/rye8xwXRvaE/organizing-20
+date: 2011-04-01 16:05 UTC
+published: true
+title: Organizing 2.0
+tags: []
+---
+
+To be a pedant, having someone who knows you shouldn't email videos is not a "technology strategist" they're a "technology tactician".<br><br>And to quibble big: there is a huge difference between online and offline organizing. Not because you can't do traditional organizing online, but because most people don't. Not to mention that most online organizer "thought leaders" don't know first thing about power and leadership development (or at least don't show it).

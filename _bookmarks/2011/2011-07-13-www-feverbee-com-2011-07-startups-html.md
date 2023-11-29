@@ -1,0 +1,9 @@
+---
+link: http://www.feverbee.com/2011/07/startups.html
+date: 2011-07-13 15:01 UTC
+published: true
+title: Communities For Start-Ups
+tags: []
+---
+
+"find products for your audience, not audiences for your products"<br><br>Someone needs to tell this to the MIT Media Lab or now the Center for [Future] Civic Media, who present at so many events in the mode of "we built this awesome thing and are now trying to find people to use it"

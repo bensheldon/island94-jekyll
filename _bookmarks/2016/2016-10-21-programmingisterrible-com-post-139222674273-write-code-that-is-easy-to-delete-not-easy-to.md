@@ -1,0 +1,9 @@
+---
+link: http://programmingisterrible.com/post/139222674273/write-code-that-is-easy-to-delete-not-easy-to
+date: 2016-10-21 15:24 UTC
+published: true
+title: Write code that is easy to delete, not easy to extend.
+tags: []
+---
+
+

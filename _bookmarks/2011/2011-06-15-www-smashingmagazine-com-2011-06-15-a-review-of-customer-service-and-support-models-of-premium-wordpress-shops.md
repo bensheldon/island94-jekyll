@@ -1,0 +1,9 @@
+---
+link: http://www.smashingmagazine.com/2011/06/15/a-review-of-customer-service-and-support-models-of-premium-wordpress-shops/
+date: 2011-06-15 21:57 UTC
+published: true
+title: A Review Of Customer Service And Support Models Of Premium WordPress Shops
+tags: []
+---
+
+I'm thinking of creating a "royalty" program for Panlexicon with a low one-time fee ($10) that will give access to some special features... And give me the fund to hire an actual designer to improve design and usability. (contextual ad revenue sucks)

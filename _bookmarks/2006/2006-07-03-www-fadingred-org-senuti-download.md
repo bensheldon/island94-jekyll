@@ -1,0 +1,12 @@
+---
+link: http://www.fadingred.org/senuti/download/
+date: 2006-07-03 03:46 UTC
+published: true
+title: Senuti - Download
+tags:
+- ipod
+- software
+- osx
+---
+
+get files from ipod

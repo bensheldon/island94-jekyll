@@ -1,0 +1,9 @@
+---
+link: https://dehora.net/journal/leverage-in-engineering-organisations
+date: 2019-07-19 15:50 UTC
+published: true
+title: Reasoning about Leverage in Engineering Organisations — Bill de hÓra
+tags: []
+---
+
+thinking as lift

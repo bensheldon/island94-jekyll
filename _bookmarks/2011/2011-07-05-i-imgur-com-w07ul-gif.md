@@ -1,0 +1,9 @@
+---
+link: http://i.imgur.com/W07ul.gif#
+date: 2011-07-05 13:18 UTC
+published: true
+title: Mario World
+tags: []
+---
+
+Via <a href="http://www.reddit.com/r/pics/comments/igy0j/super_mario_earth/">http://www.reddit.com/r/pics/comments/igy0j/super_mario_earth/</a>

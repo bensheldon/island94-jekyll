@@ -1,0 +1,11 @@
+---
+link: https://mobile.twitter.com/sehurlburt/status/1041404938788564994
+date: 2018-09-28 16:15 UTC
+published: true
+title: 'Stephanie Hurlburt on Twitter: "I’ve been doing a lot of mentoring sessions
+  with early stage entrepreneurs, and I tend to ask the same questions every time.
+  I’ll post them here, in case it helps others."'
+tags: []
+---
+
+

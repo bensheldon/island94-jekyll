@@ -1,0 +1,9 @@
+---
+link: https://clearleft.com/posts/telling-the-story-of-performance
+date: 2020-03-03 14:31 UTC
+published: true
+title: Telling the story of performance
+tags: []
+---
+
+list of tools for measuring performance like web page test and pagespeed

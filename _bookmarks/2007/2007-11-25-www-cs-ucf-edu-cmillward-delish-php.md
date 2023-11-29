@@ -1,0 +1,15 @@
+---
+link: http://www.cs.ucf.edu/~cmillward/delish.php
+date: 2007-11-25 17:21 UTC
+published: true
+title: 'Chris Millward :: extended del.icio.us bookmarklets'
+tags:
+- extensions
+- howto
+- internet
+- delicious
+- tools
+- bookmarking
+---
+
+bookmarklets that I've found to extend del.icio.us functionality

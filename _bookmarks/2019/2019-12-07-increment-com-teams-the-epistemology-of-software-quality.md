@@ -1,0 +1,9 @@
+---
+link: https://increment.com/teams/the-epistemology-of-software-quality/
+date: 2019-12-07 15:41 UTC
+published: true
+title: 'The epistemology of software quality – Increment: Teams'
+tags: []
+---
+
+

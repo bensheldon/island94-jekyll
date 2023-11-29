@@ -1,0 +1,10 @@
+---
+link: http://www.npr.org/2012/12/27/167649198/libraries-and-e-lending-the-wild-west-of-digital-licensing
+date: 2012-12-29 18:24 UTC
+published: true
+title: 'Libraries And E-Lending: The ''Wild West'' Of Digital Licensing? : NPR'
+tags: []
+---
+
+NPR provides a nice overview of public libraries, e-books and “Wild West of digital licensing.” Worth a read.
+http://t.co/IbpKzIl4

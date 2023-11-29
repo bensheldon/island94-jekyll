@@ -1,0 +1,9 @@
+---
+link: http://charitylawyerblog.com/2011/06/01/nonprofits-and-the-work-made-for-hire-doctrine/
+date: 2011-06-01 11:21 UTC
+published: true
+title: Nonprofits and the Work Made For Hire Doctrine
+tags: []
+---
+
+"Based upon the holding in CCNV, independent contractors hired to produce work do not necessarily give up their copyrights in the work. Therefore, nonprofits hiring artists, authors, technical writers, designers, website developers, programmers, and others need to ensure they take steps to secure the copyright in the work if that is their intention. "

@@ -1,0 +1,9 @@
+---
+link: https://zwischenzugs.com/2019/11/06/why-everyone-working-in-devops-should-read-the-toyota-way/
+date: 2019-11-16 01:40 UTC
+published: true
+title: Why Everyone Working in DevOps Should Read The Toyota Way – zwischenzugs
+tags: []
+---
+
+Two examples stuck in my mind: the story of the senior leader who did nothing but watch the production line for four hours so he could see for himself what was going on, and the minivan chief designer who insisted on personally driving in all 50 US states and Canada. The minivan designer then went back to the drawing board and made significant changes to the design that made sense in North America, but not in Japan (such as having multiple cup-holders for thelong journeys typical of that region)

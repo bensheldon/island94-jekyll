@@ -1,0 +1,9 @@
+---
+link: https://emotional-labour.superhi.com/
+date: 2020-09-14 00:30 UTC
+published: true
+title: Emotional Labour
+tags: []
+---
+
+

@@ -1,0 +1,9 @@
+---
+link: http://www.christenseninstitute.org/key-concepts/jobs-to-be-done/
+date: 2015-02-04 23:05 UTC
+published: true
+title: Jobs to be Done | Christensen Institute
+tags: []
+---
+
+The jobs-to-be-done framework emerged as a helpful way to look at customer motivations in business settings. Conventional marketing techniques teach us to frame…

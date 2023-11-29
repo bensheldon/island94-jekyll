@@ -1,0 +1,10 @@
+---
+link: http://engineering.foursquare.com/2011/03/22/building-a-recommendation-engine-foursquare-style/
+date: 2011-03-28 13:32 UTC
+published: true
+title: Building a recommendation engine, foursquare style | Foursquare Engineering
+  Blog
+tags: []
+---
+
+

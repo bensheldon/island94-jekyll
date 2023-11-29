@@ -1,0 +1,9 @@
+---
+link: https://martinfowler.com/articles/agileFluency.html
+date: 2018-03-06 20:18 UTC
+published: true
+title: Revised Agile Fluency Model
+tags: []
+---
+
+lifecycle stages for agile.

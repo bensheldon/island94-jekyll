@@ -1,0 +1,9 @@
+---
+link: http://www.shareable.net/blog/can-readability-help-writers-get-paid
+date: 2011-02-02 13:21 UTC
+published: true
+title: Can Readability Help Writers Get Paid?
+tags: []
+---
+
+Does Readability, by adding revenue sharing, remove the incentive for me to create a natively uncluttered and accessible design? Will Readability offer an "I read this" widget for users who visited my website, but didn't need to use Readability's bookmarklet. <br><br>I'm liable to try out the new payment system, but only because I see it as an extension of the blogger Tip Jar (should those concerns above be met).

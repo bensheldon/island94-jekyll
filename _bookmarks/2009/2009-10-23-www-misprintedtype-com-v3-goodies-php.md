@@ -1,0 +1,12 @@
+---
+link: http://www.misprintedtype.com/v3/goodies.php#
+date: 2009-10-23 13:22 UTC
+published: true
+title: Misprinted Type Photoshop Brushes
+tags:
+- photoshop
+- brushes
+- art
+---
+
+

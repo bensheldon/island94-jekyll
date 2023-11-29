@@ -1,0 +1,9 @@
+---
+link: http://arstechnica.com/information-technology/2012/10/why-i-pay-extra-for-business-class-broadband-at-home/
+date: 2012-10-15 23:58 UTC
+published: true
+title: Why I pay extra for “business-class” broadband at home | Ars Technica
+tags: []
+---
+
+

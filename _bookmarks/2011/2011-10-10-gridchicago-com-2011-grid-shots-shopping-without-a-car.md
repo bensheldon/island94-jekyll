@@ -1,0 +1,9 @@
+---
+link: http://gridchicago.com/2011/grid-shots-shopping-without-a-car/
+date: 2011-10-10 00:03 UTC
+published: true
+title: 'Grid Shots: Shopping without a car'
+tags: []
+---
+
+

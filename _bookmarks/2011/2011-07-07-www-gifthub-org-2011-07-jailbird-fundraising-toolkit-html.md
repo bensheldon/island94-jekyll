@@ -1,0 +1,9 @@
+---
+link: http://www.gifthub.org/2011/07/jailbird-fundraising-toolkit.html
+date: 2011-07-07 20:19 UTC
+published: true
+title: Jailbird Fundraising Toolkit
+tags: []
+---
+
+Hat tip: Ben.

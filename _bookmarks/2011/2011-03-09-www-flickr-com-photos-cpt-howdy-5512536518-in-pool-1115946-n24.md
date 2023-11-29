@@ -1,0 +1,9 @@
+---
+link: http://www.flickr.com/photos/cpt-howdy/5512536518/in/pool-1115946@N24
+date: 2011-03-09 16:26 UTC
+published: true
+title: News Corp. assets
+tags: []
+---
+
+

@@ -1,0 +1,9 @@
+---
+link: http://littlebigdetails.com/post/7765654241/microsoft-office-when-editing-rotated-text
+date: 2011-07-18 17:02 UTC
+published: true
+title: Microsoft Office - When editing rotated text, relevant styling...
+tags: []
+---
+
+

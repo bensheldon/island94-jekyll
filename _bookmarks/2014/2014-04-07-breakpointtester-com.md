@@ -1,0 +1,13 @@
+---
+link: http://breakpointtester.com/
+date: 2014-04-07 20:59 UTC
+published: true
+title: BreakpointTester | Test Your Responsive Design By Breakpoints, Not By Device
+  Width
+tags:
+- css
+- responsive
+- webdesign
+---
+
+<blockquote>Basically, It Let's You Check Responsive Designs By Breakpoints Rather Than Fixed Device Widths.</blockquote>

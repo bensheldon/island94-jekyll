@@ -1,0 +1,9 @@
+---
+link: https://clearleft.com/posts/474
+date: 2017-08-06 18:01 UTC
+published: true
+title: A simple approach to improving form design
+tags: []
+---
+
+

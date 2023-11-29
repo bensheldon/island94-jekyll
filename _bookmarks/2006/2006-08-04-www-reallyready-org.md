@@ -1,0 +1,16 @@
+---
+link: http://www.reallyready.org/
+date: 2006-08-04 15:07 UTC
+published: true
+title: 'ReallyReady.org: A Project of the Federation of American Scientists'
+tags:
+- emergency
+- preparedness
+- survival
+- disaster
+---
+
+The Federation of American Scientists hopes to achieve two purposes with ReallyReady.org:
+
+   1. To provide clear and correct information to citizens interested in preparing themselves and their families for an emergency
+   2. To persuade the Departme

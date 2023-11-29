@@ -1,0 +1,10 @@
+---
+link: http://www.tabletmag.com/jewish-news-and-politics/107779/jonah-lehrers-deceptions
+date: 2012-08-01 01:49 UTC
+published: true
+title: New Yorker Writer Jonah Lehrer Fabricated Bob Dylan Quotes in His New Book,
+  Imagine – Tablet Magazine
+tags: []
+---
+
+

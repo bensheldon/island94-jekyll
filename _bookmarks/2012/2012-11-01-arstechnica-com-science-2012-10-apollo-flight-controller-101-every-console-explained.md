@@ -1,0 +1,9 @@
+---
+link: http://arstechnica.com/science/2012/10/apollo-flight-controller-101-every-console-explained/
+date: 2012-11-01 04:38 UTC
+published: true
+title: 'Apollo Flight Controller 101: Every console explained | Ars Technica'
+tags: []
+---
+
+

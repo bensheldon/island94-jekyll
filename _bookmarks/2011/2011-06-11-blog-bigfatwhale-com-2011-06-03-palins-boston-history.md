@@ -1,0 +1,9 @@
+---
+link: http://blog.bigfatwhale.com/2011/06/03/palins-boston-history/
+date: 2011-06-11 19:06 UTC
+published: true
+title: Palin’s Boston History
+tags: []
+---
+
+Evacuation Day usually involves evacuating out the other end.

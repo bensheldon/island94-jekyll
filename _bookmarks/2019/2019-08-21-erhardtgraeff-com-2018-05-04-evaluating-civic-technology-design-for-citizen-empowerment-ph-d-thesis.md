@@ -1,0 +1,10 @@
+---
+link: https://erhardtgraeff.com/2018/05/04/evaluating-civic-technology-design-for-citizen-empowerment-ph-d-thesis/
+date: 2019-08-21 21:08 UTC
+published: true
+title: Evaluating Civic Technology Design for Citizen Empowerment (Ph.D. Thesis) –
+  Erhardt Graeff
+tags: []
+---
+
+

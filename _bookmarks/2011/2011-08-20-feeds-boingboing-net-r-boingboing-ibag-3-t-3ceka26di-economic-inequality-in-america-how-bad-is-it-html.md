@@ -1,0 +1,9 @@
+---
+link: http://feeds.boingboing.net/~r/boingboing/iBag/~3/t-3CekA26dI/economic-inequality-in-america-how-bad-is-it.html
+date: 2011-08-20 13:52 UTC
+published: true
+title: 'Economic inequality in America: how bad is it?'
+tags: []
+---
+
+We'll have to start playing sad piano music in public and organizing flash-queues for people to notice.

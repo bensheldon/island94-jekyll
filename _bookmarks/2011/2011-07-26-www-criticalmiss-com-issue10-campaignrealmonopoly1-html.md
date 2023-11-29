@@ -1,0 +1,9 @@
+---
+link: http://www.criticalmiss.com/issue10/CampaignRealMonopoly1.html
+date: 2011-07-26 17:10 UTC
+published: true
+title: The Campaign For Real Monopoly
+tags: []
+---
+
+

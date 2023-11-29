@@ -1,0 +1,9 @@
+---
+link: https://clearleft.com/posts/takeaways-from-jan-chipchase-field-research-masterclass
+date: 2018-06-09 22:54 UTC
+published: true
+title: Takeaways from Jan Chipchase’s Field Research Masterclass
+tags: []
+---
+
+

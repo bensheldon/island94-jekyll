@@ -1,0 +1,9 @@
+---
+link: http://www.newyorker.com/tech/elements/group-rules-web
+date: 2014-11-25 15:02 UTC
+published: true
+title: On HTML5 and the Group That Rules the Web
+tags: []
+---
+
+You might have read that, on October 28th, W3C officially recommended HTML5. And you might know that this has something to do with apps and the Web. The…

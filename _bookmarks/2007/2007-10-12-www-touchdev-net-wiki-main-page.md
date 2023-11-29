@@ -1,0 +1,15 @@
+---
+link: http://www.touchdev.net/wiki/Main_Page
+date: 2007-10-12 20:59 UTC
+published: true
+title: Main Page - Touchdev
+tags:
+- ipod
+- apple
+- wiki
+- hack
+- development
+- iphone
+---
+
+This website is dedicated to finding additional uses for the iPod Touch by (legitimately) enabling its potential capabilities, and is a place for the community to share ideas, discoveries and solutions. It is for informational purposes only. The iPod Touc

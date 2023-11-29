@@ -1,0 +1,15 @@
+---
+link: http://www.wikihow.com/Main-Page
+date: 2006-12-22 17:38 UTC
+published: true
+title: wikiHow - The How-To Manual That Anyone Can Write or Edit
+tags:
+- HowTo
+- wiki
+- reference
+- diy
+- tips
+- tutorial
+---
+
+wikiHow is a collaborative writing project to build the world's largest how-to manual. With your contributions, we can create a free resource that helps people by offering clear, concise solutions to the problems of everyday life. wikiHow currently contai

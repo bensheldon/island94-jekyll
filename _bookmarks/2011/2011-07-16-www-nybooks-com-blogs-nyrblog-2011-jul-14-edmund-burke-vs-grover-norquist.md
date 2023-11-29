@@ -1,0 +1,9 @@
+---
+link: http://www.nybooks.com/blogs/nyrblog/2011/jul/14/edmund-burke-vs-grover-norquist/
+date: 2011-07-16 11:56 UTC
+published: true
+title: Edmund Burke Against Grover Norquist
+tags: []
+---
+
+"Your representative owes you, not his industry only, but his judgment; and he betrays, instead of serving you, if he sacrifices it to your opinion."

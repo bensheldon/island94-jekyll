@@ -1,0 +1,9 @@
+---
+link: http://flowingdata.com/2011/07/28/open-thread-data-as-cake-and-frosting/
+date: 2011-07-28 07:37 UTC
+published: true
+title: 'Open thread: Data as cake and frosting?'
+tags: []
+---
+
+

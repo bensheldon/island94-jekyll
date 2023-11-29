@@ -1,0 +1,9 @@
+---
+link: http://mentalfloss.com/article/52726/history-trapper-keeper
+date: 2013-11-08 23:55 UTC
+published: true
+title: The History of the Trapper Keeper
+tags: []
+---
+
+

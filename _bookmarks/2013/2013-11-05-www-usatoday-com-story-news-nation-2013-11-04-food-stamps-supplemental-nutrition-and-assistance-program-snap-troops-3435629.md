@@ -1,0 +1,9 @@
+---
+link: http://www.usatoday.com/story/news/nation/2013/11/04/food-stamps-supplemental-nutrition-and-assistance-program-snap-troops/3435629/
+date: 2013-11-05 03:54 UTC
+published: true
+title: Food stamp cuts hit about 5,000 troops
+tags: []
+---
+
+

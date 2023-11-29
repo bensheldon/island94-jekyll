@@ -1,0 +1,9 @@
+---
+link: http://opinionator.blogs.nytimes.com/2012/08/08/hear-all-ye-people-hearken-o-earth/
+date: 2012-08-16 14:37 UTC
+published: true
+title: Hear, All Ye People;  Hearken, O Earth (Part One) - NYTimes.com
+tags: []
+---
+
+

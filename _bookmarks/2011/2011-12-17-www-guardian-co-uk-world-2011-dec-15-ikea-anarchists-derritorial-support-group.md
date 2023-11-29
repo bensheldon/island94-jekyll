@@ -1,0 +1,9 @@
+---
+link: http://www.guardian.co.uk/world/2011/dec/15/ikea-anarchists-derritorial-support-group
+date: 2011-12-17 02:26 UTC
+published: true
+title: 'Meet the ''Ikea anarchists'' (Deterritorial Support Group: lulz and communism)'
+tags: []
+---
+
+

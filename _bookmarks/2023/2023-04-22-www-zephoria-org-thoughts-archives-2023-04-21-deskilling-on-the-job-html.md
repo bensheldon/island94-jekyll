@@ -1,0 +1,9 @@
+---
+link: http://www.zephoria.org/thoughts/archives/2023/04/21/deskilling-on-the-job.html
+date: 2023-04-22 14:47 UTC
+published: true
+title: ''
+tags: []
+---
+
+> Efficiency isn’t simply about maximizing throughput. It’s about finding the optimum balance between quality and quantity. I’m super intrigued by professions that use junk work as a buffer here. Filling out documentation is junk work. Doctors might not have to do that in a future scenario. But is the answer to schedule more surgeries? Or is the answer to let doctors have more downtime? Much to my chagrin, we tend to optimize towards more intense work schedules whenever we introduce new technologies while downgrading the status of the highly skilled person. Why? And at what cost?

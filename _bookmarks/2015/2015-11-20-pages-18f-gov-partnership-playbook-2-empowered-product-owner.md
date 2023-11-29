@@ -1,0 +1,9 @@
+---
+link: https://pages.18f.gov/partnership-playbook/2-empowered-product-owner/
+date: 2015-11-20 02:14 UTC
+published: true
+title: '2. We work with an empowered product owner - 18F Delivery: Partnership Playbook'
+tags: []
+---
+
+

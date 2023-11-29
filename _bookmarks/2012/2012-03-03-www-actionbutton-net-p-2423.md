@@ -1,0 +1,10 @@
+---
+link: http://www.actionbutton.net/?p=2423
+date: 2012-03-03 17:35 UTC
+published: true
+title: 'Action button Dot Net: Angry Birds/Ziggurat'
+tags:
+- gaming
+---
+
+Tetris is about death, in a way, though it’s at least courteous enough to only star geometric shapes and not feature any abstract human scream sounds.

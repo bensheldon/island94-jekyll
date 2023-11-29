@@ -1,0 +1,13 @@
+---
+link: http://liamshow.com/videos.htm
+date: 2006-09-04 12:33 UTC
+published: true
+title: a liam show - videos
+tags:
+- humor
+- video
+---
+
+A Liam Show is a collection of funny short films, monologues, music videos and songs created by comic actor Liam Sullivan.
+
+My goal is to put on a show that people will enjoy, with characters that are fun to watch. My material could be described as “

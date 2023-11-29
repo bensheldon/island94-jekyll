@@ -1,0 +1,10 @@
+---
+link: http://arstechnica.com/business/2012/09/market-demand-knocks-down-regulatory-barriers-in-kansas-city-fiber-deployment/
+date: 2012-09-28 01:51 UTC
+published: true
+title: Market demand knocks down regulatory barriers in Kansas City fiber deployment
+  | Ars Technica
+tags: []
+---
+
+

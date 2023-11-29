@@ -1,0 +1,9 @@
+---
+link: http://www.freakonomics.com/2011/08/22/will-rahm-emanuels-merit-pay-system-work-where-others-havent/
+date: 2011-08-22 15:07 UTC
+published: true
+title: Will Rahm Emanuel’s Merit-pay System Work Where Others Haven’t?
+tags: []
+---
+
+

@@ -1,0 +1,9 @@
+---
+link: https://digitalbydefault.com/2020/11/10/cultural-cheat-codes/
+date: 2020-11-10 15:59 UTC
+published: true
+title: cultural cheet codes
+tags: []
+---
+
+civic tech internal organizational culture change tactics

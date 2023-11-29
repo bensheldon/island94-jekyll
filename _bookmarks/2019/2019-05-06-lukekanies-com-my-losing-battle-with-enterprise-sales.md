@@ -1,0 +1,9 @@
+---
+link: https://lukekanies.com/my-losing-battle-with-enterprise-sales/
+date: 2019-05-06 16:19 UTC
+published: true
+title: My Losing Battle with Enterprise Sales – Writing by Luke Kanies
+tags: []
+---
+
+> https://twitter.com/bensheldon/status/1125434588853968896

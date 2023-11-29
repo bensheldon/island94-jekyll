@@ -1,0 +1,10 @@
+---
+link: http://speakerdeck.com/u/codylindley/p/learn-javascript-the-hard-way
+date: 2012-04-27 17:57 UTC
+published: true
+title: Learn JavaScript - The Hard way // Speaker Deck
+tags:
+- javascript
+---
+
+lots of readi

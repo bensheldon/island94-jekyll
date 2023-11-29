@@ -1,0 +1,11 @@
+---
+link: https://www.baldurbjarnason.com/2021/single-page-app-morality-play/
+date: 2022-01-11 19:08 UTC
+published: true
+title: The Single-Page-App Morality Play – Baldur Bjarnason
+tags:
+- javascript
+- spa
+---
+
+

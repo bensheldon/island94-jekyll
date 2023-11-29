@@ -1,0 +1,9 @@
+---
+link: http://web.mit.edu/krugman/www/virus.html
+date: 2011-09-06 21:52 UTC
+published: true
+title: The Supply-Side Virus
+tags: []
+---
+
+

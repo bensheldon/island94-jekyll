@@ -1,0 +1,9 @@
+---
+link: https://www.citusdata.com/blog/2017/04/28/postgres-tips-for-rails/
+date: 2017-05-01 13:43 UTC
+published: true
+title: Postgres tips for Rails developers | Citus Data
+tags: []
+---
+
+

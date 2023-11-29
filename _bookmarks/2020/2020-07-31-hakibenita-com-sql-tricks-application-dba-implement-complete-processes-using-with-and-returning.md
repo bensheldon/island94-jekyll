@@ -1,0 +1,9 @@
+---
+link: https://hakibenita.com/sql-tricks-application-dba#implement-complete-processes-using-with-and-returning
+date: 2020-07-31 14:53 UTC
+published: true
+title: Some SQL Tricks of an Application DBA | Haki Benita
+tags: []
+---
+
+

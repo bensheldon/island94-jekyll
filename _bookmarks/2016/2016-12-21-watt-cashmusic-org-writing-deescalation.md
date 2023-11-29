@@ -1,0 +1,9 @@
+---
+link: https://watt.cashmusic.org/writing/deescalation
+date: 2016-12-21 17:31 UTC
+published: true
+title: A PRACTICAL WEB TUTORIAL TO BYSTANDER INTERVENTION AND DE-ESCALATION TACTICS
+tags: []
+---
+
+

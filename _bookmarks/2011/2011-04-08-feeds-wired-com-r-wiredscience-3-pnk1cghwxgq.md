@@ -1,0 +1,9 @@
+---
+link: http://feeds.wired.com/~r/wiredscience/~3/PNk1cGHWxGQ/
+date: 2011-04-08 17:09 UTC
+published: true
+title: Real-Time Debate Feedback Distorts Democracy
+tags: []
+---
+
+

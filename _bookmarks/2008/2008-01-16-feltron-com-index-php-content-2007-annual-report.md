@@ -1,0 +1,19 @@
+---
+link: http://feltron.com/index.php?/content/2007_annual_report/
+date: 2008-01-16 17:51 UTC
+published: true
+title: 'Feltron Eight: Designer''s annual report'
+tags:
+- typography
+- awesome
+- article
+- statistics
+- visualization
+- chart
+- data
+- design
+- graphics
+- interesting
+---
+
+Annual Report

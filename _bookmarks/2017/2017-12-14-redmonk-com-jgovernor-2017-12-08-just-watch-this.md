@@ -1,0 +1,9 @@
+---
+link: http://redmonk.com/jgovernor/2017/12/08/just-watch-this/
+date: 2017-12-14 17:33 UTC
+published: true
+title: conference video about principles
+tags: []
+---
+
+Amazon and Sun and Uber’s principles and values

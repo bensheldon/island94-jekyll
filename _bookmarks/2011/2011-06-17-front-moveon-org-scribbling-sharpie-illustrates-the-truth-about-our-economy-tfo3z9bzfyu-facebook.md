@@ -1,0 +1,9 @@
+---
+link: http://front.moveon.org/scribbling-sharpie-illustrates-the-truth-about-our-economy/#.Tfo3Z9BzfyU;facebook
+date: 2011-06-17 11:24 UTC
+published: true
+title: The Truth About The Economy In 2 Minutes | MoveOn.Org
+tags: []
+---
+
+

@@ -1,0 +1,10 @@
+---
+link: https://github.com/pgilad/leasot/blob/master/README.md
+date: 2015-05-27 02:06 UTC
+published: true
+title: leasot
+tags:
+- programming
+---
+
+Parse and output TODOs and FIXMEs from comments in your files

@@ -1,0 +1,9 @@
+---
+link: http://daveaddey.com/appstore/
+date: 2013-07-09 22:38 UTC
+published: true
+title: The apps that get featured on the iOS App Store
+tags: []
+---
+
+

@@ -1,0 +1,9 @@
+---
+link: http://feedproxy.google.com/~r/GiftHub/~3/5ziy0gupuhc/peter-karoff-on-the-poetry-and-practice-of-philanthropy.html
+date: 2011-05-15 12:45 UTC
+published: true
+title: Peter Karoff on The Poetry and Practice of Philanthropy
+tags: []
+---
+
+"untouched capacity"

@@ -1,0 +1,11 @@
+---
+link: https://netguru.co/blog/service-objects-in-rails-will-help
+date: 2014-09-06 03:20 UTC
+published: true
+title: Service objects in Rails will help you design clean and maintainable code.
+  Here's how.
+tags:
+- rails
+---
+
+more service object bludgeoning

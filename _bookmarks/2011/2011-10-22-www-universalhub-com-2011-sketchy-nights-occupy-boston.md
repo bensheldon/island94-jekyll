@@ -1,0 +1,9 @@
+---
+link: http://www.universalhub.com/2011/sketchy-nights-occupy-boston
+date: 2011-10-22 22:12 UTC
+published: true
+title: Sketchy nights at Occupy Boston
+tags: []
+---
+
+Noam Chomsky AND Marshall Ganz this weekend.

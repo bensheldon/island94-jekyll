@@ -1,0 +1,10 @@
+---
+link: http://wordpress.org/plugins/theme-check/
+date: 2014-08-01 15:11 UTC
+published: true
+title: Theme-Check
+tags:
+- wordpress
+---
+
+wordpress best practices checker

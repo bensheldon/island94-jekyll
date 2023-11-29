@@ -1,0 +1,11 @@
+---
+link: http://www.simpleocr.com/
+date: 2006-01-20 15:49 UTC
+published: true
+title: SimpleOCR - the only royalty free OCR engine!
+tags:
+- ocr
+- free
+---
+
+

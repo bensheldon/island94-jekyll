@@ -1,0 +1,9 @@
+---
+link: https://culture.ghost.io/the-x-of-gen-x/
+date: 2022-10-12 14:01 UTC
+published: true
+title: The X of Generation X
+tags: []
+---
+
+

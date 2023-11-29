@@ -1,0 +1,11 @@
+---
+link: https://uxdesign.cc/artificial-affective-intelligence-6f60f9bcb35
+date: 2019-02-15 02:28 UTC
+published: true
+title: Artificial (Affective) Intelligence
+tags: []
+---
+
+Why we should teach machines to help us privately reflect instead of publicly read our minds.
+
+https://webcache.googleusercontent.com/search?q=cache:6eBuPfX3zSMJ:https://uxdesign.cc/artificial-affective-intelligence-6f60f9bcb35+&cd=1&hl=en&ct=clnk&gl=us

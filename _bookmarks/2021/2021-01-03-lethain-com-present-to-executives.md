@@ -1,0 +1,9 @@
+---
+link: https://lethain.com/present-to-executives/
+date: 2021-01-03 03:20 UTC
+published: true
+title: How to present to executives.
+tags: []
+---
+
+

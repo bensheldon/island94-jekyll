@@ -1,0 +1,10 @@
+---
+link: http://clearleft.com/thinks/revisitingsilverbackappcomsheddingbytesandhttprequests/
+date: 2015-01-26 17:09 UTC
+published: true
+title: 'Revisiting silverbackapp.com: Shedding bytes and HTTP requests | Clear Thinking
+  - The Clearleft Blog'
+tags: []
+---
+
+Weeknotes #66 By Jeremy Keith

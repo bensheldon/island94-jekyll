@@ -1,0 +1,9 @@
+---
+link: http://www.newyorker.com/magazine/2014/06/23/the-disruption-machine
+date: 2014-07-30 14:06 UTC
+published: true
+title: The Disruption Machine - The New Yorker
+tags: []
+---
+
+In the last years of the nineteen-eighties, I worked not at startups but at what might be called finish-downs. Tech companies that were dying would hire…

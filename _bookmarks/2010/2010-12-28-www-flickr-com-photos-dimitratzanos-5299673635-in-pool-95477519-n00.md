@@ -1,0 +1,9 @@
+---
+link: http://www.flickr.com/photos/dimitratzanos/5299673635/in/pool-95477519@N00
+date: 2010-12-28 14:28 UTC
+published: true
+title: 'Elephant & Castle: Bakerloo Line'
+tags: []
+---
+
+

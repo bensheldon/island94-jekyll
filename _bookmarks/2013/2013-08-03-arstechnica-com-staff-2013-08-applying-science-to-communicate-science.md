@@ -1,0 +1,9 @@
+---
+link: http://arstechnica.com/staff/2013/08/applying-science-to-communicate-science/
+date: 2013-08-03 21:57 UTC
+published: true
+title: Applying science to communicate science
+tags: []
+---
+
+

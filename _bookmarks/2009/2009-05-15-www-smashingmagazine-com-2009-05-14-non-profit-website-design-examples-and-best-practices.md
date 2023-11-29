@@ -1,0 +1,18 @@
+---
+link: http://www.smashingmagazine.com/2009/05/14/non-profit-website-design-examples-and-best-practices/
+date: 2009-05-15 03:20 UTC
+published: true
+title: 'Non Profit Website Design: Examples and Best Practices | Design Showcase |
+  Smashing Magazine'
+tags:
+- webdesign
+- nonprofit
+- non-profit
+- nptech
+---
+
+Non profit websites share many of the same best practices as any website. They need to be user friendly, easily navigable, and use appropriate fonts, colors, and other design elements. But often a non profit website needs to offer more than your typical corporate site.
+
+A non profit’s website needs to make it easy to find out more about their cause, to donate money, and to become more involved. It needs to make it easy for media contacts to find the information they need and the contact information of key personnel. And it needs to do all this in a way that’s inviting to the organization’s targeted donors and/or volunteers.
+
+Below are a list of best practices for designing non profit websites followed by some examples of non profit websites that are getting things right.

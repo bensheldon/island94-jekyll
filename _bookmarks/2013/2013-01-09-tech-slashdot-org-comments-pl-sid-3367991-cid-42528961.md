@@ -1,0 +1,10 @@
+---
+link: http://tech.slashdot.org/comments.pl?sid=3367991&cid=42528961
+date: 2013-01-09 16:23 UTC
+published: true
+title: 'Slashdot: the problem with online dating'
+tags:
+- dating
+---
+
+

@@ -1,0 +1,9 @@
+---
+link: http://www.webmonkey.com/2011/08/popular-html5-boilerplate-releases-v2-0/
+date: 2011-08-10 20:18 UTC
+published: true
+title: Popular HTML5 Boilerplate Releases v2.0
+tags: []
+---
+
+Cool, normalize.CSS support.

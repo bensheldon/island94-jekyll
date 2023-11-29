@@ -1,0 +1,9 @@
+---
+link: http://metalmother.com/motherboard/index.php/2011/04/the-november-criminals-by-sam-munson/
+date: 2011-04-04 13:15 UTC
+published: true
+title: The November Criminals by Sam Munson
+tags: []
+---
+
+

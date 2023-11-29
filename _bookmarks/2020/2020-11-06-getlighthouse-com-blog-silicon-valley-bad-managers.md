@@ -1,0 +1,9 @@
+---
+link: https://getlighthouse.com/blog/silicon-valley-bad-managers/
+date: 2020-11-06 15:20 UTC
+published: true
+title: Why Silicon Valley has so many Bad Managers (and what to do about it)
+tags: []
+---
+
+Why Silicon Valley has so many Bad Managers (and what to do about it)

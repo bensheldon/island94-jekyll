@@ -1,0 +1,9 @@
+---
+link: http://junkee.com/an-opinion-piece-on-a-controversial-topic/23161
+date: 2013-12-22 05:19 UTC
+published: true
+title: An Opinion Piece On A Controversial Topic
+tags: []
+---
+
+

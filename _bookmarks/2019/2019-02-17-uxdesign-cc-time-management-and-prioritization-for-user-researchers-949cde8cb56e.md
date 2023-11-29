@@ -1,0 +1,9 @@
+---
+link: https://uxdesign.cc/time-management-and-prioritization-for-user-researchers-949cde8cb56e
+date: 2019-02-17 04:43 UTC
+published: true
+title: Time management and prioritization for user researchers
+tags: []
+---
+
+

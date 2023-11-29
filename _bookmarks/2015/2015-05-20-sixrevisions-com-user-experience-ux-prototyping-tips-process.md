@@ -1,0 +1,9 @@
+---
+link: http://sixrevisions.com/user-experience-ux/prototyping-tips-process/
+date: 2015-05-20 17:28 UTC
+published: true
+title: 5 Prototyping Tips That Will Improve Your Process
+tags: []
+---
+
+

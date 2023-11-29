@@ -1,0 +1,11 @@
+---
+link: http://www.ex-bones.com/
+date: 2006-04-01 02:42 UTC
+published: true
+title: ex-bones - home page
+tags:
+- funny
+- comic
+---
+
+"If I were a thetan I would get the hell out of Tom Cruise."

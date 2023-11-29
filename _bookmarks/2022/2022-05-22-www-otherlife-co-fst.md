@@ -1,0 +1,9 @@
+---
+link: https://www.otherlife.co/fst/
+date: 2022-05-22 18:59 UTC
+published: true
+title: The Freedom-Specificity Tradeoff
+tags: []
+---
+
+"indifference curves"

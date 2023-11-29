@@ -1,0 +1,9 @@
+---
+link: http://simplebits.com/notebook/2011/06/23/amp-tee/
+date: 2011-07-07 16:52 UTC
+published: true
+title: 'New in the Shop: Amp Tee'
+tags: []
+---
+
+Gotta put amperlamb on a shirt.

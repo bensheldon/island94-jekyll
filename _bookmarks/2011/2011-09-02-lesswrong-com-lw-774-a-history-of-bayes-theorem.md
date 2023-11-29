@@ -1,0 +1,9 @@
+---
+link: http://lesswrong.com/lw/774/a_history_of_bayes_theorem/
+date: 2011-09-02 22:12 UTC
+published: true
+title: A History of Bayes' Theorem - Less Wrong
+tags: []
+---
+
+

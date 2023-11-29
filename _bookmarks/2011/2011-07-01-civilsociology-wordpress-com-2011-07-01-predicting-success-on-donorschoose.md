@@ -1,0 +1,9 @@
+---
+link: http://civilsociology.wordpress.com/2011/07/01/predicting-success-on-donorschoose/
+date: 2011-07-01 04:21 UTC
+published: true
+title: Predicting Success on DonorsChoose | Civil Sociology
+tags: []
+---
+
+Predicting Success on DonorsChoose

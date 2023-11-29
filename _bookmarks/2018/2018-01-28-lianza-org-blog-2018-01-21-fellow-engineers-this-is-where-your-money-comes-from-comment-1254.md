@@ -1,0 +1,9 @@
+---
+link: https://lianza.org/blog/2018/01/21/fellow-engineers-this-is-where-your-money-comes-from/#comment-1254
+date: 2018-01-28 20:05 UTC
+published: true
+title: 'Fellow Engineers: This is where your money comes from | A Blog'
+tags: []
+---
+
+

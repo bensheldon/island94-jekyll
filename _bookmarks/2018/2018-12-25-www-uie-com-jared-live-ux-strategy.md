@@ -1,0 +1,9 @@
+---
+link: https://www.uie.com/jared-live/#ux-strategy
+date: 2018-12-25 17:50 UTC
+published: true
+title: Jared Live — UX Strategy Means Business
+tags: []
+---
+
+UX Strategy Means Business

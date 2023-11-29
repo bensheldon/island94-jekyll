@@ -1,0 +1,12 @@
+---
+link: http://www.freesoftwaremagazine.com/node/1666
+date: 2006-07-10 20:34 UTC
+published: true
+title: Pay a little now, pay a lot later
+tags:
+- proprietary
+- opensource
+- article
+---
+
+Freedom of choice is an ideal. It’s also increasingly obvious that it’s almost always the most pragmatic approach, whether involving economic issues that affect billions of people or comparison shopping for a pair of jeans. Unfortunately, the people w

@@ -1,0 +1,9 @@
+---
+link: http://archive.pressthink.org/2005/03/01/svd_kpln.html
+date: 2017-06-18 17:03 UTC
+published: true
+title: The Abyss of Observation Alone
+tags: []
+---
+
+“transcending politics is easier done than engaging in them, with the unsatisfactory moral compromises that are entailed.”

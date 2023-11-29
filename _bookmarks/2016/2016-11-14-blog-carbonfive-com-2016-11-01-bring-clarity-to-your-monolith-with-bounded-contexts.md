@@ -1,0 +1,10 @@
+---
+link: http://blog.carbonfive.com/2016/11/01/bring-clarity-to-your-monolith-with-bounded-contexts/
+date: 2016-11-14 15:26 UTC
+published: true
+title: Bring clarity to your monolith with Bounded Contexts
+tags:
+- rails
+---
+
+

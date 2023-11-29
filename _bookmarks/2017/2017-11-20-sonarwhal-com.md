@@ -1,0 +1,9 @@
+---
+link: https://sonarwhal.com/
+date: 2017-11-20 04:21 UTC
+published: true
+title: sonarwhal - build better web sites, lint the web forward
+tags: []
+---
+
+

@@ -1,0 +1,10 @@
+---
+link: http://revdancatt.com/2012/04/07/why-the-new-aesthetic-isnt-about-8bit-retro-the-robot-readable-world-computer-vision-and-pirates/
+date: 2012-04-20 02:29 UTC
+published: true
+title: Why the New Aesthetic isn’t about 8bit retro, the Robot Readable World, computer
+  vision and pirates |
+tags: []
+---
+
+The New Aesthetics, or at least the aspect I’m looking at, is inspired by computer vision. And computer vision is at the point now that computer graphics was at 30 years ago. The New Aesthetics isn’t concerned with retro 8bit graphics of the past, but the 8bit graphics designed for machines of the now.

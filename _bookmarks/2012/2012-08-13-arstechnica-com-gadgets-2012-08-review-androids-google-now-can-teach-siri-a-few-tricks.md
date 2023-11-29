@@ -1,0 +1,9 @@
+---
+link: http://arstechnica.com/gadgets/2012/08/review-androids-google-now-can-teach-siri-a-few-tricks/
+date: 2012-08-13 20:13 UTC
+published: true
+title: 'Review: Android’s “Google Now” can teach Siri a few tricks | Ars Technica'
+tags: []
+---
+
+

@@ -1,0 +1,13 @@
+---
+link: http://digitalhistoryhacks.blogspot.com/search?q=In+the+Trading+Zone
+date: 2007-08-30 03:29 UTC
+published: true
+title: Digital History Hacks
+tags:
+- cybernetics
+- systemstheory
+- book
+- quotes
+---
+
+Legitimacy exchange helped transform cybernetics from a relatively local contact language suited to the particular needs of scientists in wartime Cambridge into a discourse commonly used for coordinating work across multiple research projects and mult

@@ -1,0 +1,9 @@
+---
+link: http://www.underconsideration.com/quipsologies/archives/july_2017/arminvit_62.php
+date: 2017-07-28 01:28 UTC
+published: true
+title: grabient css gradient generatoe
+tags: []
+---
+
+

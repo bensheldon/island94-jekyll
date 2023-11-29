@@ -1,0 +1,9 @@
+---
+link: http://isotope.metafizzy.co/
+date: 2011-02-07 18:39 UTC
+published: true
+title: 'Isotope: jQuery Plugin for Animated Dynamic Layouts'
+tags: []
+---
+
+

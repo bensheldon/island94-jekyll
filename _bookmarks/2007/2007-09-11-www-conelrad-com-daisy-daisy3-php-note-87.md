@@ -1,0 +1,15 @@
+---
+link: http://www.conelrad.com/daisy/daisy3.php#note_87
+date: 2007-09-11 21:31 UTC
+published: true
+title: 'CONELRAD | DAISY: THE COMPLETE HISTORY OF AN INFAMOUS AND ICONIC AD - PART
+  THREE'
+tags:
+- history
+- fear
+- advertising
+- presidents
+- politics
+---
+
+

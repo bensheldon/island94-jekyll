@@ -1,0 +1,10 @@
+---
+link: https://honkathon.com/2019-12-19-seven-habits/
+date: 2020-01-09 14:17 UTC
+published: true
+title: 'The Seven Habits of One Highly Effective Manager of Managers: Things I Learned
+  from Charity Majors | honkathon'
+tags: []
+---
+
+

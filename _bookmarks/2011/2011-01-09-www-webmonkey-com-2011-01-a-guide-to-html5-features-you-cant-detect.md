@@ -1,0 +1,11 @@
+---
+link: http://www.webmonkey.com/2011/01/a-guide-to-html5-features-you-cant-detect/
+date: 2011-01-09 18:07 UTC
+published: true
+title: A Guide to HTML5 Features You Can’t Detect
+tags:
+- html5
+- javascript
+---
+
+

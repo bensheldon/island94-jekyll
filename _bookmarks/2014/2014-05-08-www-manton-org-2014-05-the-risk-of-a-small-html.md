@@ -1,0 +1,9 @@
+---
+link: http://www.manton.org/2014/05/the_risk_of_a_small.html
+date: 2014-05-08 01:49 UTC
+published: true
+title: 'Manton Reece: The risk of a small platform'
+tags: []
+---
+
+

@@ -1,0 +1,9 @@
+---
+link: https://r.bluethl.net/how-to-design-better-apis
+date: 2022-03-21 04:08 UTC
+published: true
+title: How to design better APIs
+tags: []
+---
+
+

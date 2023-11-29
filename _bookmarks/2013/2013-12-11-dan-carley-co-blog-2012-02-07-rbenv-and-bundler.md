@@ -1,0 +1,12 @@
+---
+link: http://dan.carley.co/blog/2012/02/07/rbenv-and-bundler/
+date: 2013-12-11 19:57 UTC
+published: true
+title: Rbenv and Bundler - dan.carley
+tags:
+- bundler
+- gems
+- ruby
+---
+
+

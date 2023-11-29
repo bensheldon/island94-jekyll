@@ -1,0 +1,9 @@
+---
+link: http://boingboing.net/2011/11/26/new-yorker-on-the-origins-of-o.html
+date: 2011-11-27 00:55 UTC
+published: true
+title: New Yorker on the origins of OWS
+tags: []
+---
+
+

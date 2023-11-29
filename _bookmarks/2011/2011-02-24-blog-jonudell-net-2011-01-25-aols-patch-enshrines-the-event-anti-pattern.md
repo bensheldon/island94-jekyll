@@ -1,0 +1,10 @@
+---
+link: http://blog.jonudell.net/2011/01/25/aols-patch-enshrines-the-event-anti-pattern/
+date: 2011-02-24 14:15 UTC
+published: true
+title: AOL’s Patch enshrines the event anti-pattern « Jon Udell
+tags:
+- webdesign
+---
+
+

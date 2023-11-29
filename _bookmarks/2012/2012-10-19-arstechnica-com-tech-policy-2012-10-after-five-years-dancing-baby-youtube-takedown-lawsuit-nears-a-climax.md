@@ -1,0 +1,10 @@
+---
+link: http://arstechnica.com/tech-policy/2012/10/after-five-years-dancing-baby-youtube-takedown-lawsuit-nears-a-climax/
+date: 2012-10-19 23:21 UTC
+published: true
+title: After five years, “dancing baby” YouTube takedown lawsuit nears a climax |
+  Ars Technica
+tags: []
+---
+
+

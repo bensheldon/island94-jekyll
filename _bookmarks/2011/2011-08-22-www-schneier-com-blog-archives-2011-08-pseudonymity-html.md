@@ -1,0 +1,9 @@
+---
+link: http://www.schneier.com/blog/archives/2011/08/pseudonymity.html
+date: 2011-08-22 11:01 UTC
+published: true
+title: Pseudonymity
+tags: []
+---
+
+

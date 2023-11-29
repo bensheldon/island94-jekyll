@@ -1,0 +1,9 @@
+---
+link: http://www.gamefaqs.com/iphone/618271-hot-springs-story/faqs/61941
+date: 2011-04-29 17:38 UTC
+published: true
+title: 'GameFAQs: Hot Springs Story (IP) FAQ/Strategy Guide by phazer'
+tags: []
+---
+
+

@@ -1,0 +1,12 @@
+---
+link: http://www.nybooks.com/articles/archives/2015/sep/24/jewish-terrorists/
+date: 2015-09-16 23:06 UTC
+published: true
+title: Like other romantics of violence and heroism, Greenberg and Ahimeir were blind
+  to the fact that being part of an aggressive, uninhibited movement can also be a
+  form of self-interest. As Isaiah Berlin shrewdly observed, their followers who terrorized
+  the B
+tags: []
+---
+
+Like other romantics of violence and heroism, Greenberg and Ahimeir were blind to the fact that being part of an aggressive, uninhibited movement can also be a form of self-interest. As Isaiah Berlin shrewdly observed, their followers who terrorized the British “seemed to put the satisfaction of their own emotional needs above the attainable goals of the cause which they supported.”3

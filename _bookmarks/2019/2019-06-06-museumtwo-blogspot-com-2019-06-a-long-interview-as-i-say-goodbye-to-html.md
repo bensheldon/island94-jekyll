@@ -1,0 +1,10 @@
+---
+link: http://museumtwo.blogspot.com/2019/06/a-long-interview-as-i-say-goodbye-to.html
+date: 2019-06-06 02:20 UTC
+published: true
+title: A Long Interview as I say Goodbye to the MAH (and Thoughts on the Privilege
+  of Leading Change)
+tags: []
+---
+
+> People often are afraid to lead change because they know that some will resist that change. That’s true. But it’s also true that if you are changing an organization to be more inclusive and relevant, many, many people will fall in love with the change. They will thank you for the change. They will push you to keep changing. I don’t see leading change as hard or painful. I see it as a great privilege and I feel lucky to do it.

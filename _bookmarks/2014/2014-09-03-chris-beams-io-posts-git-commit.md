@@ -1,0 +1,13 @@
+---
+link: http://chris.beams.io/posts/git-commit/
+date: 2014-09-03 23:42 UTC
+published: true
+title: How to Write a Git Commit Message
+tags:
+- git
+- programming
+---
+
+<blockquote>A properly formed git commit subject line should always be able to complete the following sentence:
+
+If applied, this commit will **your subject line here**</blockquote>

@@ -1,0 +1,14 @@
+---
+link: http://womenwhotech.com/women2follow.html
+date: 2009-11-05 20:30 UTC
+published: true
+title: Women Who Tech | Women 2 Follow
+tags:
+- twitter
+- networking
+- nonprofit
+- marketing
+- organizing
+---
+
+We started #Women2Follow on Twitter one Wednesday in February of 2009 in response to the lack of women profiled on top 10 tech and social media lists. Now every Wednesday thousands of people recommend women in their Twitter community to connect and network work with. Below is a twitter feed that follows 75 women in tech.

@@ -1,0 +1,9 @@
+---
+link: http://feeds.harvardbusiness.org/~r/harvardbusiness/pallotta/~3/GVQqm65dric/protest-oregons-proposed-new-f.html
+date: 2011-03-24 15:25 UTC
+published: true
+title: Protest Oregon's Proposed New Fundraising Law
+tags: []
+---
+
+I pretty much agree, though this is a horrible example: "Since these investments take more than three years to bear real fruit — in the way it took Amazon six years to turn a profit — the proposed law kills the kind of growth needed to solve entrenched social problems."

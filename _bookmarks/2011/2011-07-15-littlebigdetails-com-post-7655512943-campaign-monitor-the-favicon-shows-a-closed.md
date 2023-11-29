@@ -1,0 +1,9 @@
+---
+link: http://littlebigdetails.com/post/7655512943/campaign-monitor-the-favicon-shows-a-closed
+date: 2011-07-15 17:09 UTC
+published: true
+title: Campaign Monitor - The favicon shows a closed email when logged...
+tags: []
+---
+
+

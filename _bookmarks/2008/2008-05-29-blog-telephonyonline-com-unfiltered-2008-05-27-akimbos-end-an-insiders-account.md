@@ -1,0 +1,11 @@
+---
+link: http://blog.telephonyonline.com/unfiltered/2008/05/27/akimbos-end-an-insiders-account/
+date: 2008-05-29 21:56 UTC
+published: true
+title: 'Unfiltered » Blog Archive » Akimbo’s End: An Insider’s Account'
+tags:
+- failure
+- advice
+---
+
+kimbo always had its share of issues. Charging for hardware, then charging a monthly service fee, then charging for content, wasn’t exactly a recipe for success. But these issues could have been addressed by putting the Akimbo service on other people’

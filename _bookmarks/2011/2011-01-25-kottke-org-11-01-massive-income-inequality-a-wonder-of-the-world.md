@@ -1,0 +1,9 @@
+---
+link: http://kottke.org/11/01/massive-income-inequality-a-wonder-of-the-world
+date: 2011-01-25 16:33 UTC
+published: true
+title: Massive income inequality named 8th Wonder of the World
+tags: []
+---
+
+

@@ -1,0 +1,9 @@
+---
+link: http://clearleft.com/thinks/405
+date: 2016-09-25 14:45 UTC
+published: true
+title: Misconceptions about "Agile"
+tags: []
+---
+
+

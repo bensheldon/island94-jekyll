@@ -1,0 +1,13 @@
+---
+link: http://howandtao.com/index.html
+date: 2006-10-13 16:16 UTC
+published: true
+title: 'Howandtao.com :: banjo and guitar instruction for everyone'
+tags:
+- guitar
+- instruction
+- lessons
+- music
+---
+
+banjo and guitar instruction for everyone

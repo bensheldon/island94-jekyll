@@ -1,0 +1,9 @@
+---
+link: http://jeremybytes.blogspot.com/2014/12/becoming-social-developer-guide-for.html
+date: 2015-01-26 17:21 UTC
+published: true
+title: 'Jeremy Bytes: Becoming a Social Developer: A Guide for Introverts'
+tags: []
+---
+
+I’m not an extrovert. I know that’s hard to believe for anyone who’s met me at a developer event. When I’m presenting, I appear to be anything but introverted…

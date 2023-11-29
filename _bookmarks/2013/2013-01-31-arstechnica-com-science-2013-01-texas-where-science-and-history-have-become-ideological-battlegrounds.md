@@ -1,0 +1,10 @@
+---
+link: http://arstechnica.com/science/2013/01/texas-where-science-and-history-have-become-ideological-battlegrounds/
+date: 2013-01-31 03:23 UTC
+published: true
+title: Texas, where science and history have become ideological battlegrounds | Ars
+  Technica
+tags: []
+---
+
+

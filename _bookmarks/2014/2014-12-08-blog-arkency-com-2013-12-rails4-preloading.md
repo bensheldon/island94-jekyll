@@ -1,0 +1,11 @@
+---
+link: http://blog.arkency.com/2013/12/rails4-preloading/
+date: 2014-12-08 19:09 UTC
+published: true
+title: 3 ways to do eager loading (preloading) in Rails 3 & 4 - Arkency Blog
+tags:
+- rails
+- activerecord
+---
+
+

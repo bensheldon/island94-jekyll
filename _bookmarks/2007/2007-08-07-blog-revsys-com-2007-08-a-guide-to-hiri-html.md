@@ -1,0 +1,18 @@
+---
+link: http://blog.revsys.com/2007/08/a-guide-to-hiri.html
+date: 2007-08-07 13:20 UTC
+published: true
+title: 'Revolution Systems Blog: A Guide to Hiring Programmers: The High Cost of Low
+  Quality'
+tags:
+- hiring
+- business
+- management
+- technology
+- career
+- programming
+- tips
+- advice
+---
+
+I was invited to a wonderful dinner party (I swear it wasn't too spicy Sarah!) with some St. Louis Perl peoples this week while I'm here on business.  At one point we were talking about hiring programmers, specifically Perl programmers.

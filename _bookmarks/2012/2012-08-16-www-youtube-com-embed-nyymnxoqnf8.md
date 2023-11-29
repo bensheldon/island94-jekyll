@@ -1,0 +1,9 @@
+---
+link: http://www.youtube.com/embed/nYymnxoQnf8
+date: 2012-08-16 17:57 UTC
+published: true
+title: William Buckley Vs Gore Vidal - YouTube
+tags: []
+---
+
+

@@ -1,0 +1,9 @@
+---
+link: https://nickmchardy.com/2019/02/on-being-an-engineering-manager.html
+date: 2019-02-28 17:28 UTC
+published: true
+title: On being an Engineering Manager | Nick McHardy
+tags: []
+---
+
+

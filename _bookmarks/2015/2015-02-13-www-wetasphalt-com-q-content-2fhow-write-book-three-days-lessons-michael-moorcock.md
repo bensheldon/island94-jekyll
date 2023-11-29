@@ -1,0 +1,9 @@
+---
+link: http://www.wetasphalt.com/?q=content%2Fhow-write-book-three-days-lessons-michael-moorcock
+date: 2015-02-13 03:31 UTC
+published: true
+title: 'How to Write a Book in Three Days: Lessons from Michael Moorcock | Wet Asphalt'
+tags: []
+---
+
+How to Write a Book in Three Days: Lessons from Michael Moorcock | Wet Asphalt 1

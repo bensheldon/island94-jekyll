@@ -1,0 +1,11 @@
+---
+link: http://feedproxy.google.com/~r/SixRevisions/~3/vl4bh-G6VNM/
+date: 2011-04-21 13:08 UTC
+published: true
+title: Fine-Tuning WordPress for SEO
+tags:
+- wordpress
+- seo
+---
+
+Good tip about noindex metatag on archive pages

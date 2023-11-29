@@ -1,0 +1,11 @@
+---
+link: http://www.lifeclever.com/
+date: 2006-08-23 16:03 UTC
+published: true
+title: LifeClever ;-) » Tips for design and life
+tags:
+- productivity
+- blog
+---
+
+

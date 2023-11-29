@@ -1,0 +1,10 @@
+---
+link: http://m.guardian.co.uk/books/2011/apr/22/china-mieville-covehithe-short-story?cat=books&type=article
+date: 2012-04-03 14:05 UTC
+published: true
+title: Covehithe by China Miéville
+tags:
+- fiction
+---
+
+giant walking oil rigs

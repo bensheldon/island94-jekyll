@@ -1,0 +1,9 @@
+---
+link: http://www.anandtech.com/show/6292/iphone-5-a6-not-a15-custom-core
+date: 2012-09-16 15:22 UTC
+published: true
+title: 'AnandTech  - The iPhone 5''s A6 SoC: Not A15 or A9, a Custom Apple Core Instead'
+tags: []
+---
+
+

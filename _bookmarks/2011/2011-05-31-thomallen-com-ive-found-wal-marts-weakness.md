@@ -1,0 +1,9 @@
+---
+link: http://thomallen.com/ive-found-wal-marts-weakness/
+date: 2011-05-31 20:02 UTC
+published: true
+title: I’ve found Wal-Mart’s weakness | Thom Allen Weblog
+tags: []
+---
+
+

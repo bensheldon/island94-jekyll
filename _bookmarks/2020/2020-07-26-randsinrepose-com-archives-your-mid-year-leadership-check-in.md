@@ -1,0 +1,26 @@
+---
+link: https://randsinrepose.com/archives/your-mid-year-leadership-check-in/
+date: 2020-07-26 20:44 UTC
+published: true
+title: Your Mid-Year Leadership Check-in – Rands in Repose
+tags: []
+---
+
+Are you a manager, manager of managers, or manager of directors?
+How long have you been in that role? The prior role?
+
+When was your last promotion, and what was your internal headline for that promotion? (Example: “Reliable manager finally gets the promotion to a senior manager after the successful release of X.”)
+
+Who are your credible sources of actionable feedback? What the most recent memorable feedback from one of these sources? Why was it memorable?
+
+What are your areas of strength? How do you know that?
+
+Where are you focusing on improving your leadership skills? Why?
+
+Have you identified your next role? If so, what is it, and what’s your current plan to get there?
+
+What’s your current most significant challenge with your direct reports? (A specific issue with one of your directs or an overall issue with all/many)
+
+What’s your current most significant challenge with your manager?
+
+What do you want to be when you grow up?

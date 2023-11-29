@@ -1,0 +1,9 @@
+---
+link: https://earthly.dev/blog/programming-language-improvements/
+date: 2022-07-17 21:26 UTC
+published: true
+title: The Slow March of Progress in Programming Language Tooling - Earthly Blog
+tags: []
+---
+
+

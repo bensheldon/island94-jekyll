@@ -1,0 +1,12 @@
+---
+link: http://www.mydellmini.com/forum/dell-mini-9-part-numbers-dell-internal-t734s50.html
+date: 2008-12-08 23:41 UTC
+published: true
+title: MyDellMini • Dell mini 9 Part numbers. Dell internal
+tags:
+- dell
+- mini
+- hack
+---
+
+

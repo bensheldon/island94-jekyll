@@ -1,0 +1,11 @@
+---
+link: http://tiku.io/questions/5589294/resize-uicollectionviewcells-to-always-fill-uicollectionview
+date: 2015-01-24 00:18 UTC
+published: true
+title: Resize UICollectionViewCells to always fill UICollectionView
+tags:
+- ios
+- rubymotion
+---
+
+

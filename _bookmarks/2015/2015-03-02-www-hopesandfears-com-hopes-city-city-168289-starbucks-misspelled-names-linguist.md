@@ -1,0 +1,11 @@
+---
+link: http://www.hopesandfears.com/hopes/city/city/168289-starbucks-misspelled-names-linguist
+date: 2015-03-02 00:02 UTC
+published: true
+title: 'Innocent misperception: the linguistics of Starbucks name fails — Hopes&Fears
+  — flow "City"'
+tags:
+- linguistics
+---
+
+

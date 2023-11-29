@@ -1,0 +1,9 @@
+---
+link: http://arstechnica.com/gadgets/2013/10/slow-moving-zombie-technologies-that-refuse-to-die/
+date: 2013-11-05 02:27 UTC
+published: true
+title: Slow-moving zombie technologies that refuse to die
+tags: []
+---
+
+

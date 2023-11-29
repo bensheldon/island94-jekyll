@@ -1,0 +1,12 @@
+---
+link: http://blowmage.com/2012/06/13/presenters-and-decorators-a-code-tour
+date: 2014-01-06 04:01 UTC
+published: true
+title: 'Presenters and Decorators: A Code Tour'
+tags:
+- rails
+- ruby
+- presentations
+---
+
+I gave a session titled "Presenters and Decorators: A Code Tour" at RailsConf 2012. The Presenter and Decorator patterns are very useful approaches to keeping your Rails apps clean. I wanted to talk about presenters for a couple of reasons. First, I think we don't talk about the View layer in our Model-View-Controller apps as much as we should. And second, I think that although "Presenters" have been around for 5+ years, we continue to misunderstand them.

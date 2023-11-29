@@ -1,0 +1,9 @@
+---
+link: http://pandodaily.com/2013/03/06/the-future-of-journalism-its-time-to-pick-a-side/
+date: 2013-03-08 00:19 UTC
+published: true
+title: 'The future of journalism: It’s time to pick a side | PandoDaily'
+tags: []
+---
+
+

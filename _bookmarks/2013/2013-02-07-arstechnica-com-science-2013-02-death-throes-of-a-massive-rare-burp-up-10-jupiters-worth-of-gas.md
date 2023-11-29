@@ -1,0 +1,9 @@
+---
+link: http://arstechnica.com/science/2013/02/death-throes-of-a-massive-rare-burp-up-10-jupiters-worth-of-gas/
+date: 2013-02-07 17:09 UTC
+published: true
+title: death-throes-of-a-massive-rare-burp-up-10-jupiters-worth-of-gas
+tags: []
+---
+
+

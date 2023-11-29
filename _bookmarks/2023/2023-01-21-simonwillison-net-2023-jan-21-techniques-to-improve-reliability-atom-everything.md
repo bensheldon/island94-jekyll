@@ -1,0 +1,9 @@
+---
+link: https://simonwillison.net/2023/Jan/21/techniques-to-improve-reliability/#atom-everything
+date: 2023-01-21 15:27 UTC
+published: true
+title: 'OpenAI Cookbook: Techniques to improve reliability'
+tags: []
+---
+
+

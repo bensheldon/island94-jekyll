@@ -1,0 +1,13 @@
+---
+link: http://jezebel.com/i-demand-pocket-equality-1641765540
+date: 2014-10-04 21:40 UTC
+published: true
+title: I Demand Pocket Equality
+tags:
+- fashion
+- inequality
+---
+
+"""
+She asks, point blank: how could any industry purporting to cater to women actually serve them so poorly? The fashion industry, at least in the mid-range, is male-dominated. Their concerns are design and drape, not form and function.
+ """

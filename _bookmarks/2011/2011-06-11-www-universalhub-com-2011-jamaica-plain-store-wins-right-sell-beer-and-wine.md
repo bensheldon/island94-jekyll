@@ -1,0 +1,9 @@
+---
+link: http://www.universalhub.com/2011/jamaica-plain-store-wins-right-sell-beer-and-wine
+date: 2011-06-11 21:50 UTC
+published: true
+title: Jamaica Plain store wins right to sell beer and wine
+tags: []
+---
+
+City Feed can be pricy, but they know what to stock.

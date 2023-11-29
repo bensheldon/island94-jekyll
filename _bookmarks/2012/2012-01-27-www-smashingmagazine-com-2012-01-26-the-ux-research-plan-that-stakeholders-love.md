@@ -1,0 +1,11 @@
+---
+link: http://www.smashingmagazine.com/2012/01/26/the-ux-research-plan-that-stakeholders-love/
+date: 2012-01-27 16:55 UTC
+published: true
+title: The UX Research Plan That Stakeholders Love
+tags:
+- ux
+- webdesign
+---
+
+

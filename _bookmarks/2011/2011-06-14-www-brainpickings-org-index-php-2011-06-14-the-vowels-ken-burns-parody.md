@@ -1,0 +1,9 @@
+---
+link: http://www.brainpickings.org/index.php/2011/06/14/the-vowels-ken-burns-parody/
+date: 2011-06-14 12:30 UTC
+published: true
+title: 'The Vowels: A Ken Burns Parody'
+tags: []
+---
+
+

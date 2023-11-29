@@ -1,0 +1,9 @@
+---
+link: https://amplitude.com/blog/12-signs-youre-working-in-a-feature-factory-3-years-later
+date: 2019-10-09 01:16 UTC
+published: true
+title: 12 Signs You’re Working in a Feature Factory - 3 Years Later
+tags: []
+---
+
+

@@ -1,0 +1,9 @@
+---
+link: https://twitter.com/johncutlefish/status/1513557745126936577?s=12&t=qDAj-r1glVtWYy7AehgFRw
+date: 2022-04-11 16:44 UTC
+published: true
+title: amplitude 1-pager checklist
+tags: []
+---
+
+

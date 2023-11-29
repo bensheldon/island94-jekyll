@@ -1,0 +1,9 @@
+---
+link: https://blog.intercom.com/siqi-chen-postmates-growth-team/
+date: 2018-01-27 01:05 UTC
+published: true
+title: Siqi Chen, former VP of Growth at Postmates, on scaling a growth team
+tags: []
+---
+
+

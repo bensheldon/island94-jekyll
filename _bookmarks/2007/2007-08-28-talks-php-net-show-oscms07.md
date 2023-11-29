@@ -1,0 +1,12 @@
+---
+link: http://talks.php.net/show/oscms07/
+date: 2007-08-28 00:38 UTC
+published: true
+title: Performance and Security
+tags:
+- drupal
+- php
+- security
+---
+
+Rasmus Lerdorf's presentation slides from the OSCMS conference.  XSS cross site scripting, code injection, sql injection.  Goodies

@@ -1,0 +1,11 @@
+---
+link: http://gigaom.com/apple/loren-brichter-designs-on-the-future-of-ios-apps/
+date: 2012-12-04 21:33 UTC
+published: true
+title: |2-
+
+  Loren Brichter: Designs on the future of iOS apps — Apple News, Tips and Reviews
+tags: []
+---
+
+

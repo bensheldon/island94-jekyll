@@ -1,0 +1,9 @@
+---
+link: https://charitylawyerblog.com/2021/04/26/taking-nonprofit-meeting-minutes-like-a-pro/
+date: 2021-04-27 18:09 UTC
+published: true
+title: Taking Nonprofit Meeting Minutes Like a Pro - CharityLawyer Blog
+tags: []
+---
+
+How to take nonprofit board minutes that move your nonprofit forward and and don't subject your nonprofit to unnecessary risks.

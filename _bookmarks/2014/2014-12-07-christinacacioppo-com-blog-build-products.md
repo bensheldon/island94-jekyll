@@ -1,0 +1,9 @@
+---
+link: http://christinacacioppo.com/blog/build-products
+date: 2014-12-07 17:36 UTC
+published: true
+title: Build products | Christina Cacioppo
+tags: []
+---
+
+Build products | Christina Cacioppo December 4, 2014 Around this time a few years back, I started taking seriously the idea that I – not just one, but literally…

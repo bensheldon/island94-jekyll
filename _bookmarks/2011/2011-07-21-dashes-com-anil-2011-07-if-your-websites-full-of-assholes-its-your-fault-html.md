@@ -1,0 +1,9 @@
+---
+link: http://dashes.com/anil/2011/07/if-your-websites-full-of-assholes-its-your-fault.html
+date: 2011-07-21 20:02 UTC
+published: true
+title: If your website's full of assholes, it's your fault - Anil Dash
+tags: []
+---
+
+

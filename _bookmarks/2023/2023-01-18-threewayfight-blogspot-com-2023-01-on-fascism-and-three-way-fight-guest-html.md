@@ -1,0 +1,9 @@
+---
+link: http://threewayfight.blogspot.com/2023/01/on-fascism-and-three-way-fight-guest.html
+date: 2023-01-18 05:36 UTC
+published: true
+title: On Fascism and the Three Way Fight (Guest Post)
+tags: []
+---
+
+> The only sustainable counter to the fantasy of a lost racial or national solidarity that never was, is to build a real class solidarity in the present.

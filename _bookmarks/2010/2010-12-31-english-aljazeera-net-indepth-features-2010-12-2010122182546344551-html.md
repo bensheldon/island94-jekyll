@@ -1,0 +1,9 @@
+---
+link: http://english.aljazeera.net/indepth/features/2010/12/2010122182546344551.html
+date: 2010-12-31 18:23 UTC
+published: true
+title: Rape rampant in US military - Features - Al Jazeera English
+tags: []
+---
+
+

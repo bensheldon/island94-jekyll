@@ -1,0 +1,9 @@
+---
+link: https://uxdesign.cc/use-plain-language-in-ux-writing-d7d5b0ea35f1
+date: 2019-01-26 19:57 UTC
+published: true
+title: Using plain language in UX Writing
+tags: []
+---
+
+

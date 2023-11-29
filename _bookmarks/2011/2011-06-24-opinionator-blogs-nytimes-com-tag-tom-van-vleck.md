@@ -1,0 +1,9 @@
+---
+link: http://opinionator.blogs.nytimes.com/tag/tom-van-vleck/
+date: 2011-06-24 19:27 UTC
+published: true
+title: TOM VAN VLECK - Opinionator - NYTimes.com
+tags: []
+---
+
+

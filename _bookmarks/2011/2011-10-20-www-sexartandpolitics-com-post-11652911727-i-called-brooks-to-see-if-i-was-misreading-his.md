@@ -1,0 +1,10 @@
+---
+link: http://www.sexartandpolitics.com/post/11652911727/i-called-brooks-to-see-if-i-was-misreading-his
+date: 2011-10-20 02:54 UTC
+published: true
+title: '"I called Brooks to see if I was misreading his work. I told him about my
+  trip to Franklin County,..."'
+tags: []
+---
+
+

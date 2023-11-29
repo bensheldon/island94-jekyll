@@ -1,0 +1,9 @@
+---
+link: http://www.reddit.com/r/AskReddit/comments/k59yy/what_are_your_useful_household_tips_ill_start/#
+date: 2011-09-05 16:53 UTC
+published: true
+title: 'What are your useful household tips? (I''ll start) : AskReddit'
+tags: []
+---
+
+

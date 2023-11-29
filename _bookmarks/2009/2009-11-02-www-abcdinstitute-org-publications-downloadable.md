@@ -1,0 +1,12 @@
+---
+link: http://www.abcdinstitute.org/publications/downloadable/
+date: 2009-11-02 14:17 UTC
+published: true
+title: 'Asset-Based Community Development Institute :: Downloadable Publications'
+tags:
+- nonprofit
+- foundation
+- research
+---
+
+

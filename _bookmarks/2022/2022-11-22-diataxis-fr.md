@@ -1,0 +1,9 @@
+---
+link: https://diataxis.fr/
+date: 2022-11-22 19:13 UTC
+published: true
+title: Diátaxis
+tags: []
+---
+
+A systematic framework for technical documentation authoring.

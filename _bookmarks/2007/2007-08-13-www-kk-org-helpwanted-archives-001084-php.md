@@ -1,0 +1,18 @@
+---
+link: http://www.kk.org/helpwanted/archives/001084.php
+date: 2007-08-13 12:14 UTC
+published: true
+title: Kevin Kelly -- Help Wanted
+tags:
+- environment
+- education
+- awareness
+- community
+- questions
+- Science
+- tools
+- local
+- culture
+---
+
+You live in the big here. Wherever you live, your tiny spot is deeply intertwined within a larger place, imbedded fractal-like into a whole system called a watershed, which is itself integrated with other watersheds into a tightly interdependent biome. (S

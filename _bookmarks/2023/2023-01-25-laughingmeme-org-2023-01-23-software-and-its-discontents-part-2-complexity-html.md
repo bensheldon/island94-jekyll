@@ -1,0 +1,10 @@
+---
+link: https://laughingmeme.org/2023/01/23/software-and-its-discontents-part-2-complexity.html
+date: 2023-01-25 13:44 UTC
+published: true
+title: 'Software and its Discontents, Part 2: An Explosion of Complexity | Kellan
+  Elliott-McCrea: Blog'
+tags: []
+---
+
+

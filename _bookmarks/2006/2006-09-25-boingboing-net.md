@@ -1,0 +1,9 @@
+---
+link: http://boingboing.net/
+date: 2006-09-25 00:59 UTC
+published: true
+title: 'Boing Boing: A Directory of Wonderful Things'
+tags: []
+---
+
+

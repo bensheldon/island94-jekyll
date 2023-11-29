@@ -1,0 +1,9 @@
+---
+link: http://arstechnica.com/apple/2012/07/steve-jobs-on-programming-craftsmanship-software-and-the-web/
+date: 2012-07-08 17:14 UTC
+published: true
+title: Steve Jobs on programming, craftsmanship, software, and the Web
+tags: []
+---
+
+"One of the things that really hurt Apple was after I left, John Sculley got a very serious disease. And that disease—I've seen other people get it, too—it's the disease of thinking that a having a great idea is really 90 percent of the work. And if you just tell people, 'here's this great idea,' then of course they can go off and make it happen. The problem with that is that there's a tremendous amount of craftsmanship between a having a great idea and having a great product."

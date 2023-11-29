@@ -1,0 +1,9 @@
+---
+link: http://www.digiday.com/agencies/how-the-banner-ad-was-born/
+date: 2013-04-12 20:30 UTC
+published: true
+title: How the Banner Ad Was Born | Digiday
+tags: []
+---
+
+

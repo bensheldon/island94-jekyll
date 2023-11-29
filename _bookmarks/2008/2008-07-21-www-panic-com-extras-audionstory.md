@@ -1,0 +1,14 @@
+---
+link: http://www.panic.com/extras/audionstory/
+date: 2008-07-21 02:42 UTC
+published: true
+title: Panic - Extras - The True Story of Audion
+tags:
+- apple
+- audio
+- awesome
+- history
+- mp3
+---
+
+

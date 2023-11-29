@@ -1,0 +1,12 @@
+---
+link: http://www.webdesignerwall.com/trends/css3-examples-and-best-practices/
+date: 2010-07-16 15:25 UTC
+published: true
+title: CSS3 Examples and Best Practices
+tags:
+- webdesign
+- css
+- examples
+---
+
+The CSS3 trend is getting more and more popular. In factCSS3 new features open a lot of new possibilities. Check out my previous post on "CSS3 Animation Demos" to see the things that you can do with it. However, don’t get too excited so soon because it is not fully supported by all browsers yet. But this doesn’t mean you shouldn’t use it at all. So, when should you use CSS3 new features? Well, continue on this post to see some excellent examples.

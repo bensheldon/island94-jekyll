@@ -1,0 +1,9 @@
+---
+link: http://iada.nl/blog/article/rails-tip-display-association-validation-errors-fields
+date: 2017-03-10 04:51 UTC
+published: true
+title: 'Rails tip: display association validation errors on fields'
+tags: []
+---
+
+

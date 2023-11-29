@@ -1,0 +1,11 @@
+---
+link: https://www.consentfultech.io/
+date: 2021-11-14 17:59 UTC
+published: true
+title: The Consentful Tech Project – The Consentful Tech Project raises awareness,
+  develops strategies, and shares skills to help people build and use technology consentfully.
+tags:
+- ethics
+---
+
+

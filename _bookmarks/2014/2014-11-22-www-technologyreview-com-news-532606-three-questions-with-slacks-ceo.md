@@ -1,0 +1,11 @@
+---
+link: http://www.technologyreview.com/news/532606/three-questions-with-slacks-ceo/
+date: 2014-11-22 01:47 UTC
+published: true
+title: An Interview with Flickr cofounder Stewart Butterfield on the Workplace Communication
+  App Slack | MIT Technology Review
+tags: []
+---
+
+Stewart Butterfield
+While apps for work don’t usually inspire much excitement, there’s something almost palpable about the buzz surrounding Slack, a…

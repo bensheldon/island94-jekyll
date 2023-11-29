@@ -1,0 +1,11 @@
+---
+link: http://ctcvista.org/node/1152
+date: 2007-11-08 19:52 UTC
+published: true
+title: MuniWireless and Community Wireless | CTC VISTA Project
+tags:
+- ctcvista
+- fieldreport
+---
+
+

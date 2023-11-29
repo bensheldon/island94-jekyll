@@ -1,0 +1,9 @@
+---
+link: https://blog.codeship.com/capybara-selenium-testing/
+date: 2017-11-30 17:54 UTC
+published: true
+title: Capybara and Selenium for Testing and Scraping
+tags: []
+---
+
+Using Capybara for web driving.

@@ -1,0 +1,9 @@
+---
+link: https://itrevolution.com/understanding-job-burnout-christina-maslach/
+date: 2019-02-19 00:13 UTC
+published: true
+title: Understanding Job Burnout
+tags: []
+---
+
+more from Christina maslach

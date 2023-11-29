@@ -1,0 +1,9 @@
+---
+link: https://dev.to/dvddpl/from-engineer-to-tech-lead-doubts-and-challenges-4n9e
+date: 2021-07-31 03:40 UTC
+published: true
+title: From Engineer to Tech Lead - Doubts and Challenges - DEV Community
+tags: []
+---
+
+

@@ -1,0 +1,9 @@
+---
+link: https://speakerdeck.com/ongres/postgresql-configuration-for-humans
+date: 2017-12-03 17:04 UTC
+published: true
+title: PostgreSQL Configuration for Humans // Speaker Deck
+tags: []
+---
+
+

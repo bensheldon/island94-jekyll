@@ -1,0 +1,10 @@
+---
+link: https://boringrails.com/articles/better-stimulus-controllers/
+date: 2020-08-21 17:22 UTC
+published: true
+title: 'Writing better StimulusJS controllers | Boring Rails: Skip the bullshit and
+  ship fast'
+tags: []
+---
+
+Stimulus sprinkles interactive behavior on top of your boring HTML pages. By keeping your controllers small, generic, and composable you can build a front-end without the typical JavaScript mess.

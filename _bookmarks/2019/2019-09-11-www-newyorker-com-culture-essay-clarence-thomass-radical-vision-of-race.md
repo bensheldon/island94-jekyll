@@ -1,0 +1,9 @@
+---
+link: https://www.newyorker.com/culture/essay/clarence-thomass-radical-vision-of-race
+date: 2019-09-11 13:30 UTC
+published: true
+title: Clarence Thomas’s Radical Vision of Race
+tags: []
+---
+
+> For Thomas, dishonesty was not only about race; it was also about class. However well intentioned white liberals were about remedying racial inequality, their élitism was steadfast. At Yale, some of Thomas’s classmates would query the absence of class rankings and grades. “You do not separate cream from cream,” a professor responded. “It is your fate as a Yale Law School student to become one of the leaders in the legal profession. It will happen, not because of you personally, but because you are here. That is what happens to Yale Law School students.” But Yale’s black students were separated from the cream; indeed, the absence of rankings was used to effect that separation. As he approached graduation, Thomas tried to secure a position at an élite law firm in Atlanta, which had no black associates. One of the marks against him was that he had no grades. Even if he came from Yale, how could his prospective employers know how good he was?

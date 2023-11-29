@@ -1,0 +1,9 @@
+---
+link: https://www.intentionallyadaptive.com/thoughts/2018/3/28/agile-sorta-bores-me-now
+date: 2018-03-31 20:27 UTC
+published: true
+title: '"Agile" Sorta Bores Me Now — intentionally adaptive'
+tags: []
+---
+
+

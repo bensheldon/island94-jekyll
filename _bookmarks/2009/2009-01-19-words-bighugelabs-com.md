@@ -1,0 +1,16 @@
+---
+link: http://words.bighugelabs.com/
+date: 2009-01-19 12:54 UTC
+published: true
+title: 'Big Huge Thesaurus: Synonyms, antonyms, and rhymes (oh my!)'
+tags:
+- thesaurus
+- reference
+- learning
+- language
+- writing
+- panlexicon
+---
+
+Synonyms, antonyms, and rhymes (oh my!)
+(Also blog post ideas and story plot/logline resources for writers.)

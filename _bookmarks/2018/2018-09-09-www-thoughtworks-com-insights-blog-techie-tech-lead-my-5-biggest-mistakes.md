@@ -1,0 +1,9 @@
+---
+link: https://www.thoughtworks.com/insights/blog/techie-tech-lead-my-5-biggest-mistakes
+date: 2018-09-09 14:17 UTC
+published: true
+title: 'Techie to tech lead: My five biggest mistakes | ThoughtWorks'
+tags: []
+---
+
+

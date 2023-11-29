@@ -1,0 +1,10 @@
+---
+link: https://www.nemil.com/musings/shinyandnew.html#footnote-pointer-eleven
+date: 2015-10-05 15:12 UTC
+published: true
+title: chasing the shiny and new | nemil.com
+tags:
+- development
+---
+
+

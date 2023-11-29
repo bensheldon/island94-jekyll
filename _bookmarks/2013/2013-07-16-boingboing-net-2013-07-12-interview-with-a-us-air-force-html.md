@@ -1,0 +1,9 @@
+---
+link: http://boingboing.net/2013/07/12/interview-with-a-us-air-force.html
+date: 2013-07-16 23:55 UTC
+published: true
+title: Interview with a US Air Force drone pilot - Boing Boing
+tags: []
+---
+
+

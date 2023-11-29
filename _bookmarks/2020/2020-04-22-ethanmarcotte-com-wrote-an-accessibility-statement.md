@@ -1,0 +1,9 @@
+---
+link: https://ethanmarcotte.com/wrote/an-accessibility-statement/
+date: 2020-04-22 14:21 UTC
+published: true
+title: Writing my accessibility statement. — Ethan Marcotte
+tags: []
+---
+
+It was long overdue, but I’ve added an accessibility statement to my website. Here are a few reasons why.

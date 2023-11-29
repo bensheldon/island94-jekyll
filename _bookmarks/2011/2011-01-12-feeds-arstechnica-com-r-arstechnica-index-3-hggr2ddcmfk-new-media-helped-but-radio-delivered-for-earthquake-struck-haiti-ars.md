@@ -1,0 +1,9 @@
+---
+link: http://feeds.arstechnica.com/~r/arstechnica/index/~3/HGgr2ddCMfk/new-media-helped-but-radio-delivered-for-earthquake-struck-haiti.ars
+date: 2011-01-12 23:17 UTC
+published: true
+title: New media helped, but radio delivered for earthquake-struck Haiti
+tags: []
+---
+
+

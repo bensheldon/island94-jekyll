@@ -1,0 +1,9 @@
+---
+link: http://www.reddit.com/r/AskReddit/comments/ku0an/wifes_demand_give_her_my_email_and_facebook/
+date: 2011-09-28 21:18 UTC
+published: true
+title: 'Wife''s demand: Give her my email and facebook passwords or move out. : AskReddit'
+tags: []
+---
+
+From the comments, just liked the bit about the belief system.

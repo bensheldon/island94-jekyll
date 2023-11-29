@@ -1,0 +1,11 @@
+---
+link: http://www.talkingquickly.co.uk/2014/06/rails-development-environment-with-vagrant-and-docker/
+date: 2014-08-14 15:18 UTC
+published: true
+title: A Rails Development Environment with Docker and Vagrant
+tags:
+- rails
+- docker
+---
+
+

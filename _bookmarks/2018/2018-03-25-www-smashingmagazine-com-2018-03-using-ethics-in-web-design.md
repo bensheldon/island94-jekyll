@@ -1,0 +1,9 @@
+---
+link: https://www.smashingmagazine.com/2018/03/using-ethics-in-web-design/
+date: 2018-03-25 22:13 UTC
+published: true
+title: Using Ethics In Web Design
+tags: []
+---
+
+

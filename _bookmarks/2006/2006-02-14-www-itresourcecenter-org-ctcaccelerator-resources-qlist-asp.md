@@ -1,0 +1,11 @@
+---
+link: http://www.itresourcecenter.org/ctcaccelerator/resources/qlist.asp
+date: 2006-02-14 21:02 UTC
+published: true
+title: Qlist
+tags:
+- ctcvista
+- resources
+---
+
+Qualified List of Online Resources for CTC's

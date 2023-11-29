@@ -1,0 +1,9 @@
+---
+link: http://feeds.boingboing.net/~r/boingboing/iBag/~3/4g1bDnnaeu8/rickshaws-mini-commu.html
+date: 2011-01-29 17:26 UTC
+published: true
+title: Rickshaw's Mini Commuter Messenger Bag
+tags: []
+---
+
+A nice looking bag, other than the overly-complex front pocket. Does anyone actually use all the pen-holders and zip pouches? I find I fill them up with pens and bandaids and such, then spill my coffee (or go on an airplane where all my pens explode) and have to empty it all out

@@ -1,0 +1,9 @@
+---
+link: https://www.gentlydownthe.stream/
+date: 2021-09-19 01:19 UTC
+published: true
+title: Gently Down the Stream
+tags: []
+---
+
+kafka explained with otters

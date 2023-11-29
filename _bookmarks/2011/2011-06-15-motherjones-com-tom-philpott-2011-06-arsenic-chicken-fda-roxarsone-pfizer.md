@@ -1,0 +1,9 @@
+---
+link: http://motherjones.com/tom-philpott/2011/06/arsenic-chicken-fda-roxarsone-pfizer
+date: 2011-06-15 11:30 UTC
+published: true
+title: Some Arsenic With That Supermarket Chicken?
+tags: []
+---
+
+Ugh! Sorry, chicken-eaters. Also, just this morning I found Tom Philpott's food writing for Mother Jones, and already I love it.

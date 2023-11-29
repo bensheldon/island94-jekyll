@@ -1,0 +1,9 @@
+---
+link: http://slco-2016.github.io/beta_report/
+date: 2016-11-03 18:11 UTC
+published: true
+title: 'CFA: Team Salt Lake Mid-Year Report'
+tags: []
+---
+
+

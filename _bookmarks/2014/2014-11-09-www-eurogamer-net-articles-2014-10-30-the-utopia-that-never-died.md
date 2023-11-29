@@ -1,0 +1,11 @@
+---
+link: http://www.eurogamer.net/articles/2014-10-30-the-utopia-that-never-died
+date: 2014-11-09 18:48 UTC
+published: true
+title: The man who made a game to change the world
+tags: []
+---
+
+“Every MMO is a political statement. I should know: I designed them that way.”
+By Simon Parkin Published 30/10/2014
+There is no one agreed family tree of video…

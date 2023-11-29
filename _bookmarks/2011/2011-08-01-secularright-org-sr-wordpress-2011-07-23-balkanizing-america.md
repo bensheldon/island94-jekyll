@@ -1,0 +1,9 @@
+---
+link: http://secularright.org/SR/wordpress/2011/07/23/balkanizing-america/
+date: 2011-08-01 03:10 UTC
+published: true
+title: Balkanizing America
+tags: []
+---
+
+"Being part of America means having some level of tolerance for people’s different preferences without constantly demanding to secede. Once you start down the road of demanding monetary exceptions for your private moral convictions, there’s nowhere to stop."

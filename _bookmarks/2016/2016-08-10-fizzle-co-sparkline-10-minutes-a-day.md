@@ -1,0 +1,9 @@
+---
+link: https://fizzle.co/sparkline/10-minutes-a-day
+date: 2016-08-10 14:11 UTC
+published: true
+title: '"Productivity Journaling"'
+tags: []
+---
+
+

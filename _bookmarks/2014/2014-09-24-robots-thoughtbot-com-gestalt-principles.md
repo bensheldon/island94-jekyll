@@ -1,0 +1,10 @@
+---
+link: http://robots.thoughtbot.com/gestalt-principles
+date: 2014-09-24 23:00 UTC
+published: true
+title: Using Gestalt Principles for Natural Interactions
+tags:
+- ui
+---
+
+

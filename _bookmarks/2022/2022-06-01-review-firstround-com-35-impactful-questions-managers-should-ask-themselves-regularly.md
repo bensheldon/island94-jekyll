@@ -1,0 +1,10 @@
+---
+link: https://review.firstround.com/35-impactful-questions-managers-should-ask-themselves-regularly
+date: 2022-06-01 02:20 UTC
+published: true
+title: 35 Impactful Questions Managers Should Ask Themselves Regularly | First Round
+  Review
+tags: []
+---
+
+

@@ -1,0 +1,16 @@
+---
+link: http://itre.cis.upenn.edu/~myl/languagelog/
+date: 2007-08-19 21:12 UTC
+published: true
+title: Language Log
+tags:
+- blog
+- linguistics
+- language
+- grammar
+- writing
+- sociology
+- panlexicon
+---
+
+

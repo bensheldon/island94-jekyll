@@ -1,0 +1,9 @@
+---
+link: https://rossta.net/blog/rails-apps-overpacking-with-webpacker.html
+date: 2020-09-08 15:23 UTC
+published: true
+title: These Rails apps are overpacking their JavaScript bundles - rossta.net
+tags: []
+---
+
+

@@ -1,0 +1,9 @@
+---
+link: https://hbr.org/2018/03/the-most-common-type-of-incompetent-leader
+date: 2019-08-05 18:52 UTC
+published: true
+title: The Most Common Type of Incompetent Leader
+tags: []
+---
+
+Absentee leaders are people in leadership roles who are psychologically absent from them. They were promoted into management, and enjoy the privileges and rewards of a leadership role, but avoid meaningful involvement with their teams.

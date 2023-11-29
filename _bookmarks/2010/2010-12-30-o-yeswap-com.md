@@ -1,0 +1,10 @@
+---
+link: http://o.yeswap.com/
+date: 2010-12-30 17:48 UTC
+published: true
+title: Mobile bookmarklets (for pinboard)
+tags:
+- Mobile
+---
+
+

@@ -1,0 +1,13 @@
+---
+link: http://idhana.com/2009/03/29/ajax-in-cakephp-with-jquery/
+date: 2011-01-06 14:00 UTC
+published: true
+title: AJAX Form submission in CakePHP with jQuery « idhana.com
+tags:
+- CakePHP
+- jquery
+- Ajax
+- javascript
+---
+
+

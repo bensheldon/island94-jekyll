@@ -1,0 +1,9 @@
+---
+link: https://medium.com/@Hanna.Thomas/why-dont-we-just-call-agile-what-it-is-feminist-8bdd9193edba
+date: 2019-09-03 23:49 UTC
+published: true
+title: 'Why Don’t We Just Call Agile What It Is: Feminist - Hanna Thomas - Medium'
+tags: []
+---
+
+

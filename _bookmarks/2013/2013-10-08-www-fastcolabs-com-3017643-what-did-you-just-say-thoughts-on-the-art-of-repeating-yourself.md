@@ -1,0 +1,9 @@
+---
+link: http://www.fastcolabs.com/3017643/what-did-you-just-say-thoughts-on-the-art-of-repeating-yourself
+date: 2013-10-08 19:18 UTC
+published: true
+title: What Did You Just Say? Thoughts On The Art Of Repeating Yourself
+tags: []
+---
+
+

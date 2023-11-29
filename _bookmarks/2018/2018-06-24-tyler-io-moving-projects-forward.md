@@ -1,0 +1,9 @@
+---
+link: https://tyler.io/moving-projects-forward/
+date: 2018-06-24 20:15 UTC
+published: true
+title: Moving Projects Forward
+tags: []
+---
+
+> Take a look at the task you’re procrastinating on and move up a level to its parent. Do you remember why you added that to your list? If it’s a project, are you still committed to doing it? If you’re not sure, go up another level. Is it clear why that is important to you?

@@ -1,0 +1,9 @@
+---
+link: http://arstechnica.com/tech-policy/2014/11/how-an-ebay-bookseller-defeated-a-publishing-giant-at-the-supreme-court/
+date: 2014-11-26 06:00 UTC
+published: true
+title: How an eBay bookseller defeated a publishing giant at the Supreme Court
+tags: []
+---
+
+Sometimes all it takes to alter the course of history is one pissed-off person. Supap Kirtsaeng wasn’t a crusader or lone nut; he was just an eBay trader who…

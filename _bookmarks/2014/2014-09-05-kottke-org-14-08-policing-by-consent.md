@@ -1,0 +1,9 @@
+---
+link: http://kottke.org/14/08/policing-by-consent
+date: 2014-09-05 14:26 UTC
+published: true
+title: Policing by consent
+tags: []
+---
+
+In light of the ongoing policing situation in Ferguson, Missouri in the wake of the shooting of an unarmed man by a police officer and how the response to the…

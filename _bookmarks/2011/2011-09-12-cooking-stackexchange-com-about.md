@@ -1,0 +1,9 @@
+---
+link: http://cooking.stackexchange.com/about
+date: 2011-09-12 01:47 UTC
+published: true
+title: About - Cooking - Stack Exchange
+tags: []
+---
+
+A cooking exchange moderated by techies; if you can handle the lack of tact filters (especially  in the moderation-process-heavy stack exchange format), it's pretty good.

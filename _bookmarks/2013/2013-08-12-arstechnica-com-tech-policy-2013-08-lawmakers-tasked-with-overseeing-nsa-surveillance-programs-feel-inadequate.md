@@ -1,0 +1,9 @@
+---
+link: http://arstechnica.com/tech-policy/2013/08/lawmakers-tasked-with-overseeing-nsa-surveillance-programs-feel-inadequate/
+date: 2013-08-12 15:48 UTC
+published: true
+title: Lawmakers tasked with overseeing NSA surveillance programs feel “inadequate”
+tags: []
+---
+
+

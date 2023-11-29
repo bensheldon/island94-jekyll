@@ -1,0 +1,9 @@
+---
+link: http://feedproxy.google.com/~r/Failbooking/~3/ZbExOp9UOpY/
+date: 2011-05-05 19:30 UTC
+published: true
+title: 'Copy Pasta of the Day: Who Deserves Credit?'
+tags: []
+---
+
+

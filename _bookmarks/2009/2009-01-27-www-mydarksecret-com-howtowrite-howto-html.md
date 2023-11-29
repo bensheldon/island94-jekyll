@@ -1,0 +1,13 @@
+---
+link: http://www.mydarksecret.com/HowToWrite/HowTo.html
+date: 2009-01-27 21:48 UTC
+published: true
+title: 'My Dark Secret: How to write a murder mystery'
+tags:
+- writing
+- plot
+- ficting
+- murdermystery
+---
+
+

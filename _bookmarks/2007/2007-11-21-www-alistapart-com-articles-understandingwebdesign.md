@@ -1,0 +1,15 @@
+---
+link: http://www.alistapart.com/articles/understandingwebdesign
+date: 2007-11-21 05:50 UTC
+published: true
+title: 'A List Apart: Articles: Understanding Web Design'
+tags:
+- webdesign
+- web
+- typography
+- article
+- art
+- interesting
+---
+
+

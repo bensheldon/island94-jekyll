@@ -1,0 +1,9 @@
+---
+link: http://randsinrepose.com/archives/everything-breaks/
+date: 2018-12-12 01:55 UTC
+published: true
+title: Everything Breaks - scaling a simple game
+tags: []
+---
+
+simple rules can play out radically differently vased on team size

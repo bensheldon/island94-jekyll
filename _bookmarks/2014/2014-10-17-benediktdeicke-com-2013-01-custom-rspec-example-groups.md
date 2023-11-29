@@ -1,0 +1,13 @@
+---
+link: http://benediktdeicke.com/2013/01/custom-rspec-example-groups/
+date: 2014-10-17 14:29 UTC
+published: true
+title: Cleaner specs with custom RSpec example groups | Benedikt Deicke - Software
+  Engineer
+tags:
+- rspec
+- ruby
+- testing
+---
+
+Using ActiveSupport::Concerns to extract methods

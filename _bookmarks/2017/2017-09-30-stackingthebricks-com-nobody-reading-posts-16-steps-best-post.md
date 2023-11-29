@@ -1,0 +1,9 @@
+---
+link: https://stackingthebricks.com//nobody-reading-posts-16-steps-best-post/
+date: 2017-09-30 22:26 UTC
+published: true
+title: Austin Church's 17 step mega-guide to writing blog posts people love & share.
+tags: []
+---
+
+

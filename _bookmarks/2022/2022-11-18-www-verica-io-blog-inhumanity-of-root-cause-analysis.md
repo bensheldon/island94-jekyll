@@ -1,0 +1,9 @@
+---
+link: https://www.verica.io/blog/inhumanity-of-root-cause-analysis/
+date: 2022-11-18 15:41 UTC
+published: true
+title: Verica - Inhumanity of Root Cause Analysis
+tags: []
+---
+
+

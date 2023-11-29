@@ -1,0 +1,11 @@
+---
+link: http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/
+date: 2014-09-07 02:42 UTC
+published: true
+title: MindBEMding – getting your head ’round BEM syntax – CSS Wizardry – CSS, OOCSS,
+  front-end architecture, performance and more, by Harry Roberts
+tags:
+- css
+---
+
+

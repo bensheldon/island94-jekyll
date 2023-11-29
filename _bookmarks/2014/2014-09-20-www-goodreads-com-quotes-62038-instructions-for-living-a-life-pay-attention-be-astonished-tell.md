@@ -1,0 +1,13 @@
+---
+link: http://www.goodreads.com/quotes/62038-instructions-for-living-a-life-pay-attention-be-astonished-tell
+date: 2014-09-20 18:41 UTC
+published: true
+title: Instructions for living a life
+tags:
+- quote
+---
+
+Instructions for living a life.
+Pay attention.
+Be astonished.
+Tell about it.

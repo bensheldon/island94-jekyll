@@ -1,0 +1,12 @@
+---
+link: http://thc.segfault.net/root/phun/unmaintain.html
+date: 2006-08-20 12:28 UTC
+published: true
+title: How To Write Unmaintainable Code
+tags:
+- programming
+- humor
+- reference
+---
+
+

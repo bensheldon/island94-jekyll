@@ -1,0 +1,12 @@
+---
+link: http://www.zacker.org/magic-groups-screencast
+date: 2006-05-27 18:11 UTC
+published: true
+title: Magic Groups - A ScreenCast | Zacker.org
+tags:
+- groups
+- email
+- drupal
+---
+
+

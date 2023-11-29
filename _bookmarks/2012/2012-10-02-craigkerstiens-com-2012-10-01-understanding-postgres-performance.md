@@ -1,0 +1,12 @@
+---
+link: http://craigkerstiens.com/2012/10/01/understanding-postgres-performance/
+date: 2012-10-02 22:37 UTC
+published: true
+title: Understanding Postgres Performance - Craig Kerstiens
+tags:
+- postgres
+- development
+- software
+---
+
+

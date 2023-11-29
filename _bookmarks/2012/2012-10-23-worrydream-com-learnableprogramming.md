@@ -1,0 +1,9 @@
+---
+link: http://worrydream.com/LearnableProgramming/
+date: 2012-10-23 14:27 UTC
+published: true
+title: Learnable Programming
+tags: []
+---
+
+

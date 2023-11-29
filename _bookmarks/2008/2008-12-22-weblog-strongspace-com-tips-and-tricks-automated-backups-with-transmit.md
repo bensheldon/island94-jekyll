@@ -1,0 +1,13 @@
+---
+link: http://weblog.strongspace.com/tips-and-tricks/automated-backups-with-transmit
+date: 2008-12-22 18:48 UTC
+published: true
+title: Strongspace™ Weblog
+tags:
+- backup
+- osx
+- mac
+- web
+---
+
+

@@ -1,0 +1,11 @@
+---
+link: http://thenuschool.com/how-much/#/hourrates
+date: 2014-10-11 21:58 UTC
+published: true
+title: How Much Should I Charge?
+tags:
+- freelance
+- entrepreneurship
+---
+
+Fresh Education For Creative Professionals Search for: Let's Go

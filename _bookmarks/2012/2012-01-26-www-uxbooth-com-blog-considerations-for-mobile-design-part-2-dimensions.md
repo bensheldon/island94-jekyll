@@ -1,0 +1,11 @@
+---
+link: http://www.uxbooth.com/blog/considerations-for-mobile-design-part-2-dimensions/
+date: 2012-01-26 15:26 UTC
+published: true
+title: 'Considerations for Mobile Design (Part 2): Dimensions | UX Booth'
+tags:
+- websesign
+- responsivedesign
+---
+
+To quote David Leggett, "The most reasonable case for omitting objects from a mobile site is when the object wasn’t essential to the desktop site in the first place."

@@ -1,0 +1,9 @@
+---
+link: http://littlebigdetails.com/post/9746513433/google-translate-when-translating-a-beatbox
+date: 2011-09-03 14:30 UTC
+published: true
+title: Google Translate - When translating a beatbox sound in German,...
+tags: []
+---
+
+

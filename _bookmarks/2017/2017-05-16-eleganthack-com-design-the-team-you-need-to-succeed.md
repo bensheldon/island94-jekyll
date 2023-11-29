@@ -1,0 +1,9 @@
+---
+link: http://eleganthack.com/design-the-team-you-need-to-succeed/
+date: 2017-05-16 15:18 UTC
+published: true
+title: Design the Team You Need to Succeed
+tags: []
+---
+
+

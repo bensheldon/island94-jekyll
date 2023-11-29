@@ -1,0 +1,9 @@
+---
+link: http://programmingdigest.net/links/2938/redirect
+date: 2016-08-14 14:49 UTC
+published: true
+title: Why I'm not a big fan of Scrum
+tags: []
+---
+
+

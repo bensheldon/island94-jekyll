@@ -1,0 +1,11 @@
+---
+link: http://www.gyford.com/phil/writing/2014/05/20/idiot.php
+date: 2014-05-21 00:38 UTC
+published: true
+title: Clumsy-footed idiot
+tags:
+- d3
+- charts
+---
+
+D3 is awful.

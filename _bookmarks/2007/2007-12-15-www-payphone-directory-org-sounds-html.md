@@ -1,0 +1,17 @@
+---
+link: http://www.payphone-directory.org/sounds.html
+date: 2007-12-15 16:56 UTC
+published: true
+title: Phone Recording Archive
+tags:
+- audio
+- sounds
+- sound
+- technology
+- free
+- mp3
+- Media
+- samples
+---
+
+

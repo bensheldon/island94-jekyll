@@ -1,0 +1,9 @@
+---
+link: http://boston.snowmag
+date: 2010-12-27 20:18 UTC
+published: true
+title: "(500) http://boston.snowmag"
+tags: []
+---
+
+RT @cozimek: RT @picnet: You asked for it, you get it: Boston gets dedicated @ushahidi Snowmageddon Clean Up site!  ...

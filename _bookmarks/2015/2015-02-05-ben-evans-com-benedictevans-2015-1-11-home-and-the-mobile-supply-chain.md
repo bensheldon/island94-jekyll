@@ -1,0 +1,9 @@
+---
+link: http://ben-evans.com/benedictevans/2015/1/11/home-and-the-mobile-supply-chain
+date: 2015-02-05 02:59 UTC
+published: true
+title: The home and the mobile supply chain
+tags: []
+---
+
+For the last 30 years PCs and the PC supply chain dominated the technology industry, and PCs and their components were used for all sorts of things that weren’t…

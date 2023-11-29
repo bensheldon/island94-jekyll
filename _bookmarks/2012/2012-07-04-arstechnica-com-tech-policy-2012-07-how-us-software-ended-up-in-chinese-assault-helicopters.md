@@ -1,0 +1,9 @@
+---
+link: http://arstechnica.com/tech-policy/2012/07/how-us-software-ended-up-in-chinese-assault-helicopters/
+date: 2012-07-04 02:15 UTC
+published: true
+title: How US software ended up powering Chinese assault helicopters | Ars Technica
+tags: []
+---
+
+

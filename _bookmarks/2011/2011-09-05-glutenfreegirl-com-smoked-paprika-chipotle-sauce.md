@@ -1,0 +1,9 @@
+---
+link: http://glutenfreegirl.com/smoked-paprika-chipotle-sauce/
+date: 2011-09-05 22:08 UTC
+published: true
+title: smoked paprika-chipotle sauce
+tags: []
+---
+
+

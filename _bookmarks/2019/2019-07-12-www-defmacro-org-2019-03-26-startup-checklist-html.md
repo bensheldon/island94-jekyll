@@ -1,0 +1,9 @@
+---
+link: https://www.defmacro.org/2019/03/26/startup-checklist.html
+date: 2019-07-12 15:09 UTC
+published: true
+title: Startup idea checklist | defmacro
+tags: []
+---
+
+

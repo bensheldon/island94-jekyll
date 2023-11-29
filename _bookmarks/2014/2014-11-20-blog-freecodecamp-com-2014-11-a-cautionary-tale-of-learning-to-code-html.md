@@ -1,0 +1,11 @@
+---
+link: http://blog.freecodecamp.com/2014/11/a-cautionary-tale-of-learning-to-code.html
+date: 2014-11-20 00:38 UTC
+published: true
+title: 'The Free Code Camp Blog: A Cautionary Tale of Learning to Code. My own.'
+tags:
+- programming
+- learning
+---
+
+

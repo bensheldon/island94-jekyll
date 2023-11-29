@@ -1,0 +1,9 @@
+---
+link: http://blog.jaredsinclair.com/post/183568059785
+date: 2019-03-20 15:58 UTC
+published: true
+title: iOS App Analytics a Necessary Evil, or Maybe Just an Evil
+tags: []
+---
+
+

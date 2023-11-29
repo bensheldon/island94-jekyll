@@ -1,0 +1,9 @@
+---
+link: http://www.startup-marketing.com/deconstructing-pr-advice-from-a-former-venturebeat-writer/
+date: 2013-12-18 05:48 UTC
+published: true
+title: 'Deconstructing PR: Advice From A Former VentureBeat Writer'
+tags: []
+---
+
+

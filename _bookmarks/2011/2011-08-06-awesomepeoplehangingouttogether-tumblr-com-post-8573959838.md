@@ -1,0 +1,9 @@
+---
+link: http://awesomepeoplehangingouttogether.tumblr.com/post/8573959838
+date: 2011-08-06 22:41 UTC
+published: true
+title: Prince and Prince Charles
+tags: []
+---
+
+

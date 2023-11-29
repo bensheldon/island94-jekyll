@@ -1,0 +1,13 @@
+---
+link: http://www.copyright.cornell.edu/public_domain/
+date: 2008-07-21 12:22 UTC
+published: true
+title: Copyright Term and the Public Domain in the United States
+tags:
+- copyright
+- cheatsheet
+- charts
+- free
+---
+
+
