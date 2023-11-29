@@ -8,7 +8,11 @@ layout: default
   {% endif %}
 
   {% for post in paginator.posts %}
-    {% include post.html post=post %}
+    {% if post.layout == "book" %}
+      {% include book.html book=post %}
+    {% else %}
+      {% include post.html post=post %}
+    {% endif %}
 
     {% if forloop.last == false %}<hr>{% endif %}
   {% endfor %}

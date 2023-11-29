@@ -3,6 +3,7 @@ layout: default
 ---
 
 {% assign post = page %}
+
 {% include post.html post=post %}
 
 <div class="card my-4 text-dark bg-light">
@@ -13,10 +14,9 @@ layout: default
     </p>
 
     <p>Related Posts:</p>
-
     <ul>
       {% for related_post in site.related_posts limit: 5 %}
-      <li><a href="{{related_post.url}}">{{related_post.title}}</a></li>
+        <li><a href="{{related_post.url}}">{{related_post.title}}</a></li>
       {% endfor %}
     </ul>
   </div>

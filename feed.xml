@@ -13,10 +13,10 @@ layout: null
     <generator>Jekyll v{{ jekyll.version }}</generator>
     {% assign documents = site.documents | sort: 'date' | reverse | where_exp: 'document', 'document.collection != "bookmarks"' %}
     {% for document in documents limit: 10 %}
-      {% if document.collection == "posts" %}
-        {% include post.xml post=document %}
-      {% elsif document.collection == "books" %}
+      {% if document.layout == "book" %}
         {% include book.xml book=document %}
+      {% else %}
+        {% include post.xml post=document %}
       {% endif %}
     {% endfor %}
   </channel>
