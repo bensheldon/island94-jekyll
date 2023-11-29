@@ -34,20 +34,12 @@ defaults:
       layout: "post"
   - scope:
       path: ""
-      type: "books"
-    values:
-      layout: "book"
-  - scope:
-      path: ""
       type: "bookmarks"
     values:
       layout: "bookmark"
       sitemap: false
 
 collections:
-  books:
-    output: true
-    permalink: "/:year/:month/:title"
   bookmarks:
     output: true
     permalink: "/bookmarks/:year/:month/:title"

@@ -69,7 +69,7 @@ task :new_book, [:title, :author, :link, :rating, :review] do |_t, args|
   MARKDOWN
 
   filename = "#{Time.new.strftime('%Y-%m-%d')}-#{title.parameterize}.md"
-  path = File.join("_books", filename)
+  path = File.join("_posts", filename)
   File.write(path, content)
 
   $stdout.puts "=== Generating book review ==="

@@ -10,17 +10,7 @@
         <li class="nav-item"><a class="nav-link {% if page.url == "/archives/" %}active{% endif %}" href="{{ '/archives/' | prepend: site.baseurl }}">Archives</a></li>
         <li class="nav-item"><a class="nav-link {% if page.url == "/books/" %}active{% endif %}" href="{{ '/books/' | prepend: site.baseurl }}">Books</a></li>
         <li class="nav-item"><a class="nav-link {% if page.url == "/tags/" %}active{% endif %}" href="{{ '/tags/' | prepend: site.baseurl }}">Tags</a></li>
-
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Feeds <span class="fa fa-rss"></span>
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><a href="{{ "/feed.xml" | prepend: site.baseurl }}" class="dropdown-item">Everything RSS <span class="fa fa-rss"></span></a></li>
-            <li><a href="{{ "/posts.xml" | prepend: site.baseurl }}" class="dropdown-item">Posts RSS <span class="fa fa-rss"></span></a></li>
-            <li><a href="{{ "/books.xml" | prepend: site.baseurl }}" class="dropdown-item">Books RSS <span class="fa fa-rss"></span></a></li>
-          </ul>
-        </li>
+        <li class="nav-item"><a class="nav-link" href="{{ "/feed.xml" | prepend: site.baseurl }}">RSS Feed <span class="fa fa-rss"></span></a></li>
       </ul>
 
       <form id="search" class="d-flex" action="/search" method="get">

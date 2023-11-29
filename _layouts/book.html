@@ -3,5 +3,14 @@ layout: default
 ---
 
 {% assign book = page %}
+
 {% include book.html book=book %}
-<hr>
+
+<div class="card my-4 text-dark bg-light">
+  <div class="card-body">
+    <p>
+      Discuss this with me on <a href="https://twitter.com/{{site.twitter_username}}"><span class="fa fa-twitter"></span> Twitter</a>
+      or suggest a <a href="{{site.repository_url}}/blob/main/{{book.path}}"><span class="fa fa-github-alt"></span> change</a>.
+    </p>
+  </div>
+</div>

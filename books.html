@@ -13,7 +13,7 @@ permalink: /books/
     </tr>
   </thead>
   <tbody>
-    {% assign sorted_books = site.books | sort: 'date' | reverse %}
+    {% assign sorted_books = site.posts | where: "layout", "book" | sort: 'date' | reverse %}
     {% for book in sorted_books %}
       <tr>
         <td>
