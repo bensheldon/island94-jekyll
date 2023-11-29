@@ -49,17 +49,7 @@
         <li class="nav-item"><a class="nav-link " href="/archives/">Archives</a></li>
         <li class="nav-item"><a class="nav-link " href="/books/">Books</a></li>
         <li class="nav-item"><a class="nav-link " href="/tags/">Tags</a></li>
-
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Feeds <span class="fa fa-rss"></span>
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><a href="/feed.xml" class="dropdown-item">Everything RSS <span class="fa fa-rss"></span></a></li>
-            <li><a href="/posts.xml" class="dropdown-item">Posts RSS <span class="fa fa-rss"></span></a></li>
-            <li><a href="/books.xml" class="dropdown-item">Books RSS <span class="fa fa-rss"></span></a></li>
-          </ul>
-        </li>
+        <li class="nav-item"><a class="nav-link" href="/feed.xml">RSS Feed <span class="fa fa-rss"></span></a></li>
       </ul>
 
       <form id="search" class="d-flex" action="/search" method="get">
@@ -87,7 +77,7 @@
       <li class="page-item"><a href="/" class="page-link"><span aria-hidden="true">&larr; </span>Newer</a></li>
     
 
-    <li class="page-item disabled"><span class="page-link">Page 2 of 65</span></li>
+    <li class="page-item disabled"><span class="page-link">Page 2 of 66</span></li>
 
     
       <li class="page-item"><a href="/page/3/" class="page-link">Older<span aria-hidden="true"> &rarr;</span></a></li>
@@ -103,6 +93,244 @@
 
   
     
+      
+
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2023/05/whatever-you-do-don-t-autoload-rails-lib">Whatever you do, don't autoload Rails `lib/`</a>
+    </h1>
+    <p class="post-meta text-muted">
+      <time datetime="2023-05-02T14:09:00+00:00" itemprop="datePublished">May 2, 2023</time>
+      
+      
+
+
+
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p><em><strong>Update:</strong> Rails v7.1 will introduce a new configuration method <a href="https://github.com/rails/rails/pull/48572"><code class="language-plaintext highlighter-rouge">config.autoload_lib</code></a> to make it safer and easier to autoload the <code class="language-plaintext highlighter-rouge">/lib</code> directory and explicitly exclude directories from autoloading. When released, this advice may no longer be relevant, though I imagine it will still be possible for developers to twist themselves into knots and cause outages with autoloading overrides.</em></p>
+
+<p>One of the most common problems I encounter consulting on Rails projects is that developers have previously added <code class="language-plaintext highlighter-rouge">lib/</code> to autoload paths and then twisted themselves into knots creating error-prone, project-specific conventions for subsequently un-autoloading a subset of files also in <code class="language-plaintext highlighter-rouge">lib/</code>.</p>
+
+<p><em>Don’t do it. Don’t add your Rails project’s <code class="language-plaintext highlighter-rouge">lib/</code> to autoload paths.</em></p>
+
+<h3 id="how-does-this-happen">How does this happen?</h3>
+
+<p>A growing Rails application will accumulate a lot of ruby classes and files that don’t cleanly fit into the default <code class="language-plaintext highlighter-rouge">app/</code> directories of <code class="language-plaintext highlighter-rouge">controllers</code>, <code class="language-plaintext highlighter-rouge">helpers</code>, <code class="language-plaintext highlighter-rouge">jobs</code>, or <code class="language-plaintext highlighter-rouge">models</code>. Developers should also be creating new directories in <code class="language-plaintext highlighter-rouge">app/*</code> to organize like-with-like files (your <code class="language-plaintext highlighter-rouge">app/services/</code> or <code class="language-plaintext highlighter-rouge">app/merchants/</code>, etc.). That’s ok!</p>
+
+<p>But frequently there are one-off classes that don’t seem to rise to the level of their own directory in <code class="language-plaintext highlighter-rouge">app/</code>. From looking through the cruft of projects like <a href="https://github.com/mastodon/mastodon/tree/c62604b5f69c3ad7f5449e0a7dc26606adebb777/app/lib">Mastodon</a> or applications <a href="https://github.com/codeforamerica/vita-min/tree/2f5faf06f586d1ea3915af262aab7683240f4727/app/lib">I’ve</a> <a href="https://github.com/bensheldon/open311status/blob/2cd70e391770f64d734f462624222fb8f8bc14a4/app/lib/service_requests_pager.rb">worked</a> <a href="https://github.com/bensheldon/open311status/tree/2cd70e391770f64d734f462624222fb8f8bc14a4/app/lib">on</a>, these files look like:</p>
+
+<ul>
+  <li>A lone form builder</li>
+  <li>POROs (“Plain old Ruby objects”) like <code class="language-plaintext highlighter-rouge">PhoneNumberFormatter</code>, or <code class="language-plaintext highlighter-rouge">ZipCodes</code> or <code class="language-plaintext highlighter-rouge">Seeder</code>, or <code class="language-plaintext highlighter-rouge">Pagination</code>. Objects that serve a single purpose and are largely singletons/identity objects within the application.</li>
+  <li>Boilerplate classes for 3rd party gems, e.g. <code class="language-plaintext highlighter-rouge">ApplicationResponder</code> for the <code class="language-plaintext highlighter-rouge">responders gem</code>.</li>
+</ul>
+
+<p>That these files accumulate in a project is a fact of life. When choosing where to put them, that’s when things can go wrong.</p>
+
+<p>In a newly built Rails project <code class="language-plaintext highlighter-rouge">lib/</code> looks like the natural place for these. But <code class="language-plaintext highlighter-rouge">lib/</code> has a downside: <code class="language-plaintext highlighter-rouge">lib/</code> is not autoloaded. This can come as a surprise, even to experienced developers, because they have been accustomed to the convenience of autoloaded files in <code class="language-plaintext highlighter-rouge">app/</code>. It’s not difficult to add an explicit <code class="language-plaintext highlighter-rouge">require</code> statement into <code class="language-plaintext highlighter-rouge">application.rb</code> or in an initializer, but that may not be one’s first thought.</p>
+
+<p>That’s when people jump to googling “how to autoload <code class="language-plaintext highlighter-rouge">lib/</code>”. Don’t do it! <code class="language-plaintext highlighter-rouge">lib/</code> should not be autoloaded.</p>
+
+<p>The problem with autoloading <code class="language-plaintext highlighter-rouge">lib/</code> is that there will subsequently be files added to <code class="language-plaintext highlighter-rouge">lib/</code> that should <em>not</em> be autoloaded; because they should only be provisionally loaded in a certain environment or context, or deferred, for behavioral, performance, or memory reasons. If your project has already enabled autoloading on <code class="language-plaintext highlighter-rouge">lib/</code>, it’s now likely you’ll then add additional configuration to un-autoload the new files. These overrides and counter-overrides accumulate over time and become difficult to understand and unwind, and they cause breakage because someone’s intuition of what will or won’t be loaded in a certain environment or context is wrong.</p>
+
+<p>What should you do instead?</p>
+
+<h3 id="an-omakase-solution">An omakase solution</h3>
+
+<p>DHH <a href="https://github.com/rails/rails/pull/47843#issuecomment-1515367267">writes</a>:</p>
+
+<blockquote>
+  <p><code class="language-plaintext highlighter-rouge">lib/</code> is intended to be for non-app specific library code that just happens to live in the app for now (usually pending extraction into open source or whatever). Everything app specific that’s part of the domain model should live in <code class="language-plaintext highlighter-rouge">app/models</code> (that directory is for POROs as much as ARs)… Stuff like a generic PhoneNumberFormatter is exactly what <code class="language-plaintext highlighter-rouge">lib/</code> is intended for. And if it’s app specific, for some reason, then <code class="language-plaintext highlighter-rouge">app/models</code> is fine.</p>
+</blockquote>
+
+<p>The omakase solution is to manually require files from <code class="language-plaintext highlighter-rouge">lib/</code> or use <code class="language-plaintext highlighter-rouge">app/models</code> generically to mean “Domain Models” rather than solely Active Record models. That’s great! Do that.</p>
+
+<h3 id="a-best-practice">A best practice</h3>
+
+<p>Xavier Noria, Zeitwerk’s creator <a href="https://github.com/rails/rails/issues/37835#issuecomment-757367812">writes</a>:</p>
+
+<blockquote>
+  <p>The best practice to accomplish that nowadays is to move that code to <code class="language-plaintext highlighter-rouge">app/lib</code>. Only the Ruby code you want to reload, tasks or other auxiliary files are OK in <code class="language-plaintext highlighter-rouge">lib</code>.</p>
+</blockquote>
+
+<p>Sidekiq’s Problems and Troubleshooting <a href="https://github.com/sidekiq/sidekiq/wiki/Problems-and-Troubleshooting#autoloading">explains</a>:</p>
+
+<blockquote>
+  <p>A <code class="language-plaintext highlighter-rouge">lib/</code> directory will only cause pain. Move the code to <code class="language-plaintext highlighter-rouge">app/lib/</code> and make sure the code inside follows the class/filename conventions.</p>
+</blockquote>
+
+<p>The best practice is to create an <code class="language-plaintext highlighter-rouge">app/lib/</code> directory to home these files. <a href="https://github.com/mastodon/mastodon/tree/c62604b5f69c3ad7f5449e0a7dc26606adebb777/app/lib">Mastodon</a> does it, as do <a href="https://github.com/search?type=code&amp;auto_enroll=true&amp;q=path%3A%2F%5Eapp%5C%2Flib%5C%2F.*%5C.rb%2F">many others</a>.</p>
+
+<p>This “best practice” is not without contention, as usually anything in Rails that deviates from omakase does, like RSpec instead of MiniTest or FactoryBot instead of Fixtures. But creating <code class="language-plaintext highlighter-rouge">app/lib</code> as a convention for Rails apps works for me and many others.</p>
+
+<h3 id="really-dont-autoload-lib">Really, don’t autoload <code class="language-plaintext highlighter-rouge">lib/</code></h3>
+
+<p>Whatever path you take, don’t take the path of autoloading <code class="language-plaintext highlighter-rouge">lib/</code>.</p>
+
+  </div>
+</article>
+
+    
+
+    <hr>
+  
+    
+      
+
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2023/04/the-constant-rabbit">
+        I read "The Constant Rabbit" by Jasper Fforde
+      </a>
+    </h1>
+    <p>
+      <time datetime="2023-04-30T03:29:00+00:00" itemprop="datePublished">April 30, 2023</time>
+      |
+      Review
+      |
+      ★★★★★
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>An “Event” has caused rabbits to become anthropomophic. This exchange is the book in a walnut-shell:</p>
+
+<blockquote>
+
+  <p>So while we ate the excellent walnut cake that the Venerable Bunty’s mother’s sister’s daughter’s husband’s son had baked, Venerable Bunty and Connie told us about life inside the colonies, which despite the lack of freedom and limited space were the only areas within the United Kingdom that ran themselves entirely on rabbit socio-egalitarian principles.</p>
+
+  <p>‘It’s occasionally aggressive and often uncompromising,’ said Finkle, ‘but from what I’ve seen of both systems, a country run on rabbit principles would be a step forward – although to be honest, I’m not sure we’d be neurologically suited to the regime. While most humans are wired to be reasonably decent, a few are wired to be utter shits – and they do tend to tip the balance.’</p>
+
+  <p>‘The decent humans are generally supportive of doing the right thing,’ said the Venerable Bunty, ‘but never take it much farther than that. You’re trashing the ecosystem for no reason other than a deluded sense of anthropocentric manifest destiny, and until you stop talking around the issue and actually feel some genuine guilt, there’ll be no change.’</p>
+
+  <p>‘Shame, for want of a better word, is good,’ said Finkle. ‘Shame is right, shame works. Shame is the gateway emotion to increased self-criticism, which leads to realisation, an apology, outrage and eventually meaningful action. We’re not holding our breaths that any appreciable numbers can be arsed to make the journey along that difficult chain of emotional honesty – many good people get past realisation, only to then get horribly stuck at apology – but we live in hope.’</p>
+
+  <p>‘I understand,’ I said, having felt that I too had yet to make the jump to apology.</p>
+
+  <p>‘It’s further evidence of satire being the engine of the Event,’ said Connie, ‘although if that’s true, we’re not sure for whose benefit.’</p>
+
+  <p>‘Certainly not humans’,’ said Finkle, ‘since satire is meant to highlight faults in a humorous way to achieve betterment, and if anything, the presence of rabbits has actually made humans worse.’</p>
+
+  <p>‘Maybe it’s the default position of humans when they feel threatened,’ I ventured, ‘although if I’m honest, I know a lot of people who claim to have “nothing against rabbits” but tacitly do nothing against the overt leporiphobia that surrounds them.’</p>
+
+  <p>‘Or maybe it’s just satire for comedy’s sake and nothing else,’ added Connie, ‘or even more useless, satire that provokes a few guffaws but only low to middling outrage – but is coupled with more talk and no action. A sort of  . . . empty cleverness.’</p>
+
+  <p>‘Maybe a small puff in the right moral direction is the best that could be hoped for,’ added Finkle thoughtfully. ‘Perhaps that’s what satire does – not change things wholesale but nudge the collective consciousness in a direction that favours justice and equality. Is there any more walnut cake?’</p>
+
+  <p>‘I’m afraid I had the last slice,’ I said, ‘but I did ask if anyone else wanted it.’</p>
+
+</blockquote>
+
+  </div>
+</article>
+
+    
+
+    <hr>
+  
+    
+      
+
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2023/04/the-dawn-of-everything">
+        I read "The Dawn of Everything" by David Graeber and David Wengrow
+      </a>
+    </h1>
+    <p>
+      <time datetime="2023-04-30T02:56:00+00:00" itemprop="datePublished">April 30, 2023</time>
+      |
+      Review
+      |
+      ★★★★
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <blockquote>
+
+  <p>If there is a particular story we should be telling, a big question we should be asking of human history (instead of the ‘origins of social inequality’), is it precisely this: how did we find ourselves stuck in just one form of social reality, and how did relations based ultimately on violence and domination come to be normalized within it?</p>
+
+  <p>…</p>
+
+  <p>What happens if we treat the rejection of urban life, or of slavery, [or of certain technologies] in certain times and places as something just as significant as the emergence of those same phenomena in others.</p>
+
+  <p>…</p>
+
+  <p>What is the purpose of all this new knowledge, if not to reshape our conceptions of who we are and what we might yet become? If not, in other words, to rediscover the meaning of our third basic freedom: the freedom to create new and different forms of social reality?</p>
+
+</blockquote>
+
+<p>I imagine I’m already on board with David Graeber’s political project, so while I greatly enjoyed it, I found it too long by about a third.</p>
+
+<p>The overall thrust is that people are much more interesting and creative than we give them credit for, and there’s a lot (too much for me in this book) of historical evidence that this is the case. And that it’s bunk to claim that increasing social complexity and scale requires an authoritarian state or bureacracy. I guess it’s an argument to unstick the “End of History”-framing we’re mired in.</p>
+
+<p>Of various things I learned / was confronted with:</p>
+
+<ul>
+  <li>Indulging children is Native American practice. Makes sense cause it’s a common theme in Kim Stanley Robinson books of which the Haudenosaunee make frequent appearance too.</li>
+  <li>Roman-style property ownership (of which we inherit), is pretty fucked up when stared directly at, based on a patriarch’s relations with household slaves.</li>
+  <li>It seems like a pretty legit critique of Western society to point out that there are a lot of <em>legitimate</em> ways poeple are free to harm other people during their every day life, and that’s got to be pretty warpy.</li>
+  <li>Spending more time imagining and debating the society and politics you want to live in… probably makes for a better society and politics. One of those, if it’s hard do it a lot sorts of things. And if that sounds annoying in the context of the present, that’s probably because we’ve severely narrowed the scope of debate and possibility.</li>
+</ul>
+
+<p>There’s a lot of history and anthropology to boil down:</p>
+
+<blockquote>
+
+  <p>…the key point to remember is that we are not talking here about ‘freedom’ as an abstract ideal or formal principle (as in ‘Liberty, Equality and Fraternity!’). Over the course of these chapters we have instead talked about basic forms of social liberty which one might actually put into practice:</p>
+
+  <ol>
+    <li>the freedom to move away or relocate from one’s surroundings;</li>
+    <li>the freedom to ignore or disobey commands issued by others; and</li>
+    <li>the freedom to shape entirely new social realities, or shift back and forth between different ones</li>
+  </ol>
+
+  <p>….three elementary principles of domination:</p>
+
+  <ol>
+    <li>control of violence (or sovereignty),</li>
+    <li>control of knowledge, and</li>
+    <li>charismatic politics</li>
+  </ol>
+
+</blockquote>
+
+<p>…and a lot of historical and anthropoligical critique:</p>
+
+<blockquote>
+
+  <p>Environmental determinists have an unfortunate tendency to treat humans as little more than automata, living out some economist’s fantasy of rational calculation. To be fair, they don’t deny that human beings are quirky and imaginative creatures – they just seem to reason that, in the long run, this fact makes very little difference.</p>
+
+  <p>…</p>
+
+  <p>For much of the twentieth century, anthropologists tended to describe the societies they studied in ahistorical terms, as living in a kind of eternal present. Some of this was an effect of the colonial situation under which much ethnographic research was carried out. The British Empire, for instance, maintained a system of indirect rule in various parts of Africa, India and the Middle East where local institutions like royal courts, earth shrines, associations of clan elders, men’s houses and the like were maintained in place, indeed fixed by legislation. Major political change – forming a political party, say, or leading a prophetic movement – was in turn entirely illegal, and anyone who tried to do such things was likely to be put in prison. This obviously made it easier to describe the people anthropologists studied as having a way of life that was timeless and unchanging.</p>
+
+  <p>….</p>
+
+  <p>Social science has been largely a study of the ways in which human beings are not free: the way that our actions and understandings might be said to be determined by forces outside our control. Any account which appears to show human beings collectively shaping their own destiny, or even expressing freedom for its own sake, will likely be written off as illusory, awaiting ‘real’ scientific explanation; or if none is forthcoming (why do people dance?), as outside the scope of social theory entirely. This is one reason why most ‘big histories’ place such a strong focus on technology. Dividing up the human past according to the primary material from which tools and weapons were made (Stone Age, Bronze Age, Iron Age) or else describing it as a series of revolutionary breakthroughs (Agricultural Revolution, Urban Revolution, Industrial Revolution), they then assume that the technologies themselves largely determine the shape that human societies will take for centuries to come – or at least until the next abrupt and unexpected breakthrough comes along to change everything again.</p>
+
+  <p>…</p>
+
+  <p>Choosing to describe history the other way round, as a series of abrupt technological revolutions, each followed by long periods when we were prisoners of our own creations, has consequences. Ultimately it is a way of representing our species as decidedly less thoughtful, less creative, less free than we actually turn out to have been. It means not describing history as a continual series of new ideas and innovations, technical or otherwise, during which different communities made collective decisions about which technologies they saw fit to apply to everyday purposes, and which to keep confined to the domain of experimentation or ritual play. What is true of technological creativity is, of course, even more true of social creativity. One of the most striking patterns we discovered while researching this book – indeed, one of the patterns that felt most like a genuine breakthrough to us – was how, time and again in human history, that zone of ritual play has also acted as a site of social experimentation – even, in some ways, as an encyclopaedia of social possibilities.</p>
+
+</blockquote>
+
+  </div>
+</article>
+
+    
+
+    <hr>
+  
+    
+      
 
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
@@ -262,10 +490,12 @@
   </div>
 </article>
 
+    
 
     <hr>
   
     
+      
 
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
@@ -302,10 +532,12 @@
   </div>
 </article>
 
+    
 
     <hr>
   
     
+      
 
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
@@ -388,10 +620,12 @@
   </div>
 </article>
 
+    
 
     <hr>
   
     
+      
 
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
@@ -422,10 +656,12 @@
   </div>
 </article>
 
+    
 
     <hr>
   
     
+      
 
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
@@ -553,10 +789,12 @@ q=verybadstuff  &lt;== oh, but with a request body
   </div>
 </article>
 
+    
 
     <hr>
   
     
+      
 
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
@@ -651,10 +889,12 @@ q=verybadstuff  &lt;== oh, but with a request body
   </div>
 </article>
 
+    
 
     <hr>
   
     
+      
 
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
@@ -732,161 +972,7 @@ something many applications could benefit from.</li>
   </div>
 </article>
 
-
-    <hr>
-  
     
-
-<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">
-      <a class="post-link" href="/2023/01/how-goodjob-s-cron-does-distributed-locks">How GoodJob's Cron does distributed locks</a>
-    </h1>
-    <p class="post-meta text-muted">
-      <time datetime="2023-01-22T18:18:00+00:00" itemprop="datePublished">January 22, 2023</time>
-      
-      
-
-
-  
-
-  
-
-  • Tagged <a href="/tags/#goodjob">GoodJob</a>
-
-
-    </p>
-  </header>
-
-  <div class="post-content" itemprop="articleBody">
-    <p><a href="https://github.com/bensheldon/good_job">GoodJob</a> is a multithreaded, Postgres-based, Active Job backend for Ruby on Rails. GoodJob has many features that take it beyond Active Job. One such feature is <a href="https://github.com/bensheldon/good_job/blob/994ecff5323bf0337e10464841128fda100750e6/README.md#cron-style-repeatingrecurring-jobs">cron-like functionality</a> that allows scheduling repeated jobs on a fixed schedule.</p>
-
-<p>This post is a brief technical story of how GoodJob prevents duplicated cron jobs from running in a multi-process, distributed environment.</p>
-
-<p><em>This is all true as of GoodJob’s current version, 3.7.4.</em></p>
-
-<h3 id="briefly-how-goodjobs-cron-works">Briefly, how GoodJob’s cron works</h3>
-
-<p>GoodJob heavily leans on <code class="language-plaintext highlighter-rouge">Concurrent::Ruby</code> high-level primitives, and the cron implementation is no different. <a href="https://github.com/bensheldon/good_job/blob/994ecff5323bf0337e10464841128fda100750e6/lib/good_job/cron_manager.rb"><code class="language-plaintext highlighter-rouge">GoodJob::CronManager</code></a> accepts a fixed hash of schedule configuration and feeds them into <code class="language-plaintext highlighter-rouge">Concurrent::ScheduledTask</code>s, which then trigger <code class="language-plaintext highlighter-rouge">perform_later</code> on the job classes at the prescribed times.</p>
-
-<p>A locking strategy is necessary. GoodJob can be running across multiple processes, across numerous isolated servers or containers, in one application. GoodJob should guarantee that at the scheduled time, only a single scheduled job is enqueued.</p>
-
-<h3 id="initially-advisory-locks">Initially, advisory locks</h3>
-
-<p>When <a href="https://github.com/bensheldon/good_job/pull/297">GoodJob’s cron feature was first introduced in version 1.12</a>, Cron used an existing feature of GoodJob: <a href="https://github.com/bensheldon/good_job/blob/994ecff5323bf0337e10464841128fda100750e6/README.md#activejob-concurrency">Concurrency Control</a>. Concurrency Control places limits on how many jobs can be enqueued or performed at the same time.</p>
-
-<p>Concurrency Control works by assigning jobs a “key” which is simply a queryable string. Before enqueuing jobs, GoodJob will count how many job records already exist with that same key and prevent the action if the count exceeds the configured limit. GoodJob uses advisory locks to avoid race conditions during this accounting phase.</p>
-
-<p>There were some downsides to using Concurrency Control for Cron.</p>
-
-<ul>
-  <li>It was a burden on developers. Concurrency Control extends <code class="language-plaintext highlighter-rouge">ActiveJob::Base</code> and required the developer to configure Concurrency Control rules separately from the Cron configuration.</li>
-  <li>It wasn’t very performant. Concurrency Control’s design is pessimistic and works best when collisions are rare or infrequent. But a large, clock-synchronized formation of GoodJob processes will frequently produce collisions and it could take several seconds of advisory locking and unlocking across all the processes to insert a single job.</li>
-</ul>
-
-<h3 id="then-a-unique-index">Then, a unique index</h3>
-
-<p>GoodJob v2.5.0 <a href="https://github.com/bensheldon/good_job/pull/423">changed the cron locking strategy</a>. Instead of using Concurrency Control’s advisory locks, GoodJob uses a unique compound index to prevent the same cron job from being enqueued/<code class="language-plaintext highlighter-rouge">INSERT</code>ed into the database multiple times.</p>
-
-<ul>
-  <li>In addition to the existing <code class="language-plaintext highlighter-rouge">cron_key</code> column in job records, the change added a new timestamp column, <code class="language-plaintext highlighter-rouge">cron_at</code> to  store when the cron job is enqueued.</li>
-  <li>Added a unique index on <code class="language-plaintext highlighter-rouge">[cron_key, cron_at]</code> to ensure that only one job is inserted for the given key and time.</li>
-  <li>Handled the expected <code class="language-plaintext highlighter-rouge">ActiveRecord::RecordNotUnique</code> when multiple cron processes try to enqueue the same cron job simultaneously and the unique index prevents the <code class="language-plaintext highlighter-rouge">INSERT</code> from taking place</li>
-</ul>
-
-<p>Now, when a thundering herd of GoodJob processes tries to enqueue the same cron job at the same time, the database uses its unique index constraint to prevent multiple job records from being created. Great!</p>
-
-<h3 id="does-it-do-a-good-job">Does it do a good job?</h3>
-
-<p>Yes! I’ve received lots of positive feedback in the year+ since GoodJob’s cron moved to a unique index locking strategy. From the application perspective, there’s much less enqueueing latency using a unique index than when using advisory locks. And from the developer’s perspective, it does <em>just work</em> without additional configuration beyond the schedule.</p>
-
-<p>The main benefit is that the strategy is <em>optimistic</em>. GoodJob just goes for it and lets the database’s unique indexing and built-in locks sort it out. That allows removing the application-level locking and querying and branching logic in the GoodJob client; only handling the potential <code class="language-plaintext highlighter-rouge">ActiveRecord::RecordNotUnique</code> exception is necessary.</p>
-
-<p>Using a unique index does require preserving the job records for a bit after the jobs have been performed. Otherwise, poor clock synchronization across processes could lead to a duplicate job being inserted again if the job has already been performed and removed from the table/index. Fortunately, preserving job records should not be too burdensome because GoodJob will <a href="https://github.com/bensheldon/good_job/blob/994ecff5323bf0337e10464841128fda100750e6/README.md#monitor-and-preserve-worked-jobs">automatically clean them up</a> too.</p>
-
-<p>Lastly, one goal of writing this is the hope/fear that a Database Administrator will tell me this is a terrible strategy and provide a better one. Until that happens, I have confidence GoodJob’s cron is good. <a href="https://github.com/bensheldon/good_job/discussions/806">I’d love your feedback!</a></p>
-
-<p><strong>Edit:</strong> In an earlier version of this post, I mixed up “optimistic” and “pessimistic” locking; that has been corrected.</p>
-
-  </div>
-</article>
-
-
-    <hr>
-  
-    
-
-<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">
-      <a class="post-link" href="/2023/01/conflict-at-work">Conflict, at work</a>
-    </h1>
-    <p class="post-meta text-muted">
-      <time datetime="2023-01-04T05:17:00+00:00" itemprop="datePublished">January 4, 2023</time>
-      
-      
-
-
-
-    </p>
-  </header>
-
-  <div class="post-content" itemprop="articleBody">
-    <ul>
-  <li>I had a conversation with a coworker that reminded me (again!) of this <a href="https://island94.org/2022/03/over-rapported">Foreign Affairs essay</a>. It was about receiving feedback that seemed to focus on minimizing interpersonal conflict over things like achieving goals and strategy and impact; it felt familiar.</li>
-  <li>I’ve had coworkers and executives in other jobs that were like “people need to be more comfortable with conflict”. I’ve also been screamed at in a postmortem at a different job. So like, my feelings are mixed. Like are we talking about the absence of psychological safety, or too much of it? I dunno, I could never draw out specifics. I’m now thinking it was actually about the previous bullet point.</li>
-  <li><a href="https://island94.org/2022/02/it-asks-you-to-be-interactive">Schulman</a> makes the point that you’re either in a relationship with someone, or you aren’t.</li>
-  <li>
-    <p>I read this <a href="https://harpers.org/archive/2023/01/exit-technologists-libertarianism/">Harper’s essay about working at Wired UK</a> by Hari Kunzru with the line:</p>
-
-    <blockquote>
-      <p>The political economist Albert O. Hirschman famously characterized the choice that is faced by people within declining institutions as being between “voice” and “exit.” Either you speak up to change things, or you leave and look for something better.’</p>
-    </blockquote>
-  </li>
-  <li>
-    <p>Which led me to find <a href="https://www.robkhenderson.com/past-newsletter/exit-voice-and-loyalty-a-review">this essay about the book</a> which pulls this lovely quote from Hirschman:</p>
-
-    <blockquote>
-      <p>The ultimate in unhappiness and paradoxical loyalist behavior occurs when the public evil produced by the organization promises to accelerate or to reach some intolerable level as the organization deteriorates; then…the decision to exit will become ever more difficult the longer one fails to exit. The conviction that one has to stay on to prevent the worst grows all the time.</p>
-    </blockquote>
-  </li>
-  <li>But this is maybe now more about disfunction than exit. But I’ve also been in the position of being in difficult conflict when explaining that a certain set of strategies will lead to difficulties in attracting and retaining talent. And then most of my favorite people were gone. And then so was I.</li>
-</ul>
-
-  </div>
-</article>
-
-
-    <hr>
-  
-    
-
-<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">
-      <a class="post-link" href="/2023/01/2022-in-review">2022 in review</a>
-    </h1>
-    <p class="post-meta text-muted">
-      <time datetime="2023-01-03T01:19:00+00:00" itemprop="datePublished">January 3, 2023</time>
-      
-      
-
-
-
-    </p>
-  </header>
-
-  <div class="post-content" itemprop="articleBody">
-    <ul>
-  <li>Family: My mom passed away; first parent to go. Of a plus, we spent a lot of time with my brother and his young family. We had to cancel a big family trip to Europe, but hope to make up with a trip in 2023.</li>
-  <li>Community: Turned 40 this year; celebrated 11 years in SF; coming up on 3 years on Nob Hill. Things feel good. We were approved as a foster/adopt Resource Family, but with everything that happened with my mom, we haven’t yet begun hosting children yet. I’m going into year three of strategic planning committee at St. Francis.</li>
-  <li>Work: Started at GitHub after five years at Code for America. Still feels a bit like a dream that I get to continue to do what I want technically (Ruby and Rails) while also working with good people. I’ve continued to work with my leadership coach, which has been nice continuity.</li>
-  <li>Projects &amp; Consulting: It’s now been 10 years since I registered as a small business in SF, which I did when I first started earning money with Day of the Shirt and doing various consulting jobs. GoodJob is floating along, and become a small source of GitHub Sponsors funds. The other constellation of projects continued in maintenance: Brompt, Panlexicon, etc.</li>
-</ul>
-
-  </div>
-</article>
-
 
     
   
@@ -901,7 +987,7 @@ something many applications could benefit from.</li>
       <li class="page-item"><a href="/" class="page-link"><span aria-hidden="true">&larr; </span>Newer</a></li>
     
 
-    <li class="page-item disabled"><span class="page-link">Page 2 of 65</span></li>
+    <li class="page-item disabled"><span class="page-link">Page 2 of 66</span></li>
 
     
       <li class="page-item"><a href="/page/3/" class="page-link">Older<span aria-hidden="true"> &rarr;</span></a></li>

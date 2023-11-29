@@ -49,17 +49,7 @@
         <li class="nav-item"><a class="nav-link " href="/archives/">Archives</a></li>
         <li class="nav-item"><a class="nav-link " href="/books/">Books</a></li>
         <li class="nav-item"><a class="nav-link " href="/tags/">Tags</a></li>
-
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Feeds <span class="fa fa-rss"></span>
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><a href="/feed.xml" class="dropdown-item">Everything RSS <span class="fa fa-rss"></span></a></li>
-            <li><a href="/posts.xml" class="dropdown-item">Posts RSS <span class="fa fa-rss"></span></a></li>
-            <li><a href="/books.xml" class="dropdown-item">Books RSS <span class="fa fa-rss"></span></a></li>
-          </ul>
-        </li>
+        <li class="nav-item"><a class="nav-link" href="/feed.xml">RSS Feed <span class="fa fa-rss"></span></a></li>
       </ul>
 
       <form id="search" class="d-flex" action="/search" method="get">
@@ -87,7 +77,7 @@
       <li class="page-item"><a href="/page/28/" class="page-link"><span aria-hidden="true">&larr; </span>Newer</a></li>
     
 
-    <li class="page-item disabled"><span class="page-link">Page 29 of 65</span></li>
+    <li class="page-item disabled"><span class="page-link">Page 29 of 66</span></li>
 
     
       <li class="page-item"><a href="/page/30/" class="page-link">Older<span aria-hidden="true"> &rarr;</span></a></li>
@@ -103,14 +93,15 @@
 
   
     
+      
 
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
     <h1 class="post-title" itemprop="name headline">
-      <a class="post-link" href="/2010/02/Good-enough-data.html">Good enough data</a>
+      <a class="post-link" href="/2010/04/Leaders-and-privileged-voices.html">Leaders and privileged voices</a>
     </h1>
     <p class="post-meta text-muted">
-      <time datetime="2010-02-22T00:00:00+00:00" itemprop="datePublished">February 22, 2010</time>
+      <time datetime="2010-04-06T00:00:00+00:00" itemprop="datePublished">April 6, 2010</time>
       
       
 
@@ -119,48 +110,36 @@
 
   
 
-  • Tagged <a href="/tags/#ability">ability</a>, <a href="/tags/#data">data</a>, <a href="/tags/#navigation">navigation</a>, <a href="/tags/#parsing">parsing</a>, <a href="/tags/#portfolio">portfolio</a>, and <a href="/tags/#yawn">yawn</a>
+  • Tagged <a href="/tags/#leadership">leadership</a>, <a href="/tags/#privilege">privilege</a>, and <a href="/tags/#rhetoric">rhetoric</a>
 
 
     </p>
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p><img src="/uploads/2010-02-22-Good-enough-data/btop-map-combined-500x462.png" alt="" title="btop-map-combined" /></p>
+    <p>From <em>Active Voices: Composing a Rhetoric for Social Movements</em> by Sharon McKenzie Stevens. <a href="http://books.google.com/books?id=_l7PoDouA4IC&amp;lpg=PP1&amp;pg=PA25#v=onepage&amp;q&amp;f=false">Chapter 2</a>, “Vernacular Rhetoric and Social Movements: Performances of Resistance in the Rhetoric of the Everyday”, by Gerard A Hauser and Erin Daina McClellan (emphasis mine):</p>
 
-<p>I’ve been spending some time at work scraping data. Long story short: government transparency is not transparent when the only access they give you is a pile of poorly structured html. That’s better than government opacity but not past the level of frosted glass: titillating but unsatisfying. If your expected audience is pencil pushers, please release your data in a spreadsheet. <a href="http://transmissionproject.org/current/2009/11/ntia-broadband-access-data">That’s what I did</a>.</p>
-
-<p>Notes for nerds:</p>
-
-<p>**Regular Expressions vs. Parsing Engines: **I wrote a the first parser in Python with Regular Expressions, then rewrote it in BeautifulSoup (a Python parser). It took me about 2 hours to write it the first time with RegExp. It took me about 2 days to do it with BeautifulSoup. It’s slightly easier to maintain now, but you tell me which one is more semantically correct:</p>
-
-<p><code class="language-plaintext highlighter-rouge">project_title = re.search('&lt;tr&gt;&lt;td&gt;&lt;b&gt;Project&amp;nbsp;title&lt;/b&gt;&lt;/td&gt;&lt;td&gt;(.+)&lt;/td&gt;&lt;/tr&gt;', line)</code></p>
-
-<p>versus</p>
-
-<p><code class="language-plaintext highlighter-rouge">project_title = app.find(text="Project&amp;nbsp;title").parent.parent.nextSibling.string</code></p>
-
-<p>Yep, it’s written in 2-column tables with each row being a different data-set: the first column holds a key (if there is a key; sometimes there isn’t) and the second column being the data . With RegExp, I know exactly what I’m looking for. With the parser, I have to find the element in the tree, then traverse up, over and down (if there isn’t a key, I have to go up, up, over, over, over, down, over, down). The data itself is a big set of applications (about 2000+ total) and each application has about 15 different data-sets (some with keys, some just follow a consistent-ish pattern).</p>
-
-<p>Fortunately, I have an <a href="http://www.media-democracy.net/">appreciative audience</a> for my troubles and it lets me <a href="http://transmissionproject.org/current/2010/2/btop-applications-and-awards-by-state">draw pretty maps</a> like the ones above. Also  <a href="http://flowingdata.com/2009/11/12/how-to-make-a-us-county-thematic-map-using-free-tools/">done with Python</a> by parsing an SVG vector image.</p>
-
-<p><strong>Michigan boaters beware</strong>: there is now an isthmus between Mackinaw City and St. Ignace. Rather than rewrite the process for grouped-shapes—Michigan being in 2 parts—it was good enough to make Michigan 1. Hawaii somehow endured.</p>
+<blockquote>
+  <p>In the communication tradition of rhetoric, studies of social movements mostly have focused on the discourse of leaders, on single events, or on movement strategies. Although leader rhetoric is signiﬁcant in shaping a movement and explaining its causes and objectives to an observing public, it provides a speciﬁc interpretation of what caused the movement, what it means to those involved, and what it aspires to achieve. As Touraine (1983) has shown, when the movement’s rank-and-ﬁle is invited to explain it, they often give different accounts once the leader leaves the room. <strong>Ignoring rank-and-ﬁle voices in the rhetorical criticism of social movements is problematic. It leads to a skewed picture of the public sphere by deﬁning it in terms of privileged voices.</strong> Even in social movements, leaders have greater access to the podium, press,and public attention than those whose resistance is expressed in rhetorical exchanges of the everyday. Second, it misses resistance found in seemingly mundane expressions, such as modes of politeness that, to the knowing eye of the oppressed, convey an ironic critique of domination but, to the blind eye of the censor, evade detection. Third, they ignore Bakhtinian-like dialogizing exchanges between the dominant and dominated within and across classes. Fourth, a focus on leader statements interprets bodily displays of opposition through the ﬁlter of a movement’s formal rhetoric rather than regarding them as rhetorical performances in their own right. FinallyL ignoring rank-and-ﬁle voices deﬂects attention from the hidden transcripts of resistance developed in hush harbors and the underground that later puncture the patina of the ofﬁcial realm as public expressions of discontent. Here we wish to clarify that our point is not to dismiss leader-focused studies of movements, but rather to indicate the need for greater attention to the vernacular rhetoric that occurs among social actors who are part of a movement.</p>
+</blockquote>
 
   </div>
 </article>
 
+    
 
     <hr>
   
     
+      
 
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
     <h1 class="post-title" itemprop="name headline">
-      <a class="post-link" href="/2010/02/Cleaving-the-visual-experience.html">Cleaving the visual experience</a>
+      <a class="post-link" href="/2010/04/Quotes-on-self.html">Quotes on self</a>
     </h1>
     <p class="post-meta text-muted">
-      <time datetime="2010-02-18T00:00:00+00:00" itemprop="datePublished">February 18, 2010</time>
+      <time datetime="2010-04-05T00:00:00+00:00" itemprop="datePublished">April 5, 2010</time>
       
       
 
@@ -169,90 +148,157 @@
 
   
 
-  • Tagged <a href="/tags/#cleaving">cleaving</a>, <a href="/tags/#french">french</a>, <a href="/tags/#language">language</a>, <a href="/tags/#photography">photography</a>, and <a href="/tags/#visuals">visuals</a>
+  • Tagged <a href="/tags/#humanism">humanism</a>, <a href="/tags/#quotes">quotes</a>, and <a href="/tags/#self">self</a>
 
 
     </p>
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p>From Jacques Racière’s <em>The Future of the Image</em> (translated by Gregory Elliot):</p>
+    <p><em>Tales of the Hasidim</em> by Martin Buber:</p>
 
 <blockquote>
-  <p>The imprint of the thing, the naked identity of its alterity in place of its imitation, the wordless, senseless materiality of the visible instead of the figures of discourse–this is what is demanded by the contemporary celebration of the image or its nostalgic evocation: an immanent transcendence, a glorious essence of the image guaranteed by the very mode of its material production. Doubtless no one has expressed this view better than the Barthes of <em>Camera Lucida</em>, a work that ironically has become the bible of those who wish to think about photographic art, whereas it aims to show that photography is not an art. Against the dispersive multiplicity of the operations of art and games of signification, Barthes wants to assert the immediate alterity of the image—that is, in the strictest sense, the alterity of the One. He wants to establish a direct relationship between the indexical nature of the photographic image and the material way it affects us: the <em>punctum</em>, the immediate pathetic effect that he contrasts with the <em>studium</em>, or the information transmitted by the photograph and the meanings it receives. The <em>studium</em> makes the photograph a material to be decoded and explained. The <em>punctum</em> immediately strikes us with the affective power of the that was: that —i.e. the entity which was unquestionably in front of the aperture of the camera obscura, whose body has emitted radiation, captured and registered by the black chamber, which affects us here and now through the ‘carnal medium’ of light ‘like the delayed rays of a star.</p>
+  <p><em>The Query of Queries</em>: Before his death, Rabbi Zusya said, ‘In the coming world, they will not ask me, “Why were you not Moses?” They will ask me “Why were you not Zusya?”’</p>
 </blockquote>
 
-<p>Fortunately, Racière repudiates a hierarchical distinction:</p>
+<p>Carl Rogers on the seven stages of change (cribbed from <a href="http://www.behik.com/2009/04/rogers-and-the-path-to-personal-growth/">here</a>, who cribbed it from <em>Making Sense of Change Management</em> by Esther Cameron and Mike Green):</p>
 
 <blockquote>
-  <p>…the semiologist who read the encoded message of images and the theoretician of the <em>punctum</em> of the wordless image base themselves on the same principle: a principle of reversible equivalence between the silence of images and what they say. The former demonstrated that the image was in fact a vehicle for a silent discourse which endeavored to translate into sentences. The latter tells us that the image speaks to us precisely when it is silent, when it no longer transmits any message to us. Both conceive the image as speech which holds its tongue. The former mad its silence speak; the latter makes this silence the abolition of all chatter. But both play on the same inter-convertibility between two potentialities of the image: the image as raw, material presence and the image as discourse encoding a history.</p>
+  <p>One:</p>
+
+  <ul>
+    <li>an unwillingness to communicate about self, only externals;</li>
+    <li>no desire for change;</li>
+    <li>feelings neither recognized nor owned;</li>
+    <li>problems neither recognized nor perceived.</li>
+  </ul>
+
+  <p>Two:</p>
+
+  <ul>
+    <li>expressions begin to flow;</li>
+    <li>feelings may be shown but not owned;</li>
+    <li>problems perceived but seen as external;</li>
+    <li>no sense of personal responsibility;</li>
+    <li>experience more in terms of the past not the present.</li>
+  </ul>
+
+  <p>Three:</p>
+
+  <ul>
+    <li>a little talk about the self, but only as an object;</li>
+    <li>expression of feelings, but in the past;</li>
+    <li>non-acceptance of feelings; seen as bad, shameful, abnormal;</li>
+    <li>recognition of contradictions;</li>
+    <li>personal choice seen as ineffective.</li>
+  </ul>
+
+  <p>Four:</p>
+
+  <ul>
+    <li>more intense past feelings;</li>
+    <li>occasional expression of current feelings;</li>
+    <li>distrust and fear of direct expression of feelings;</li>
+    <li>a little acceptance of feelings;</li>
+    <li>possible current experiencing;</li>
+    <li>some discovery of personal constructs;</li>
+    <li>some feelings of self-responsibility in problems;</li>
+    <li>close relationships seen as dangerous;</li>
+    <li>some small risk-taking.</li>
+  </ul>
+
+  <p>Five:</p>
+
+  <ul>
+    <li>feelings freely expressed in the present;</li>
+    <li>surprise and fright at emerging feelings;</li>
+    <li>increasing ownership of feelings;</li>
+    <li>increasing self-responsibility;</li>
+    <li>clear facing up to contradictions and incongruence.</li>
+  </ul>
+
+  <p>Six:</p>
+
+  <ul>
+    <li>previously stuck feelings experienced in the here and now;</li>
+    <li>the self seen as less of an object, more of a feeling;</li>
+    <li>some physiological loosening;</li>
+    <li>some psychological loosening – that is, new ways of seeing the world and the self;</li>
+    <li>incongruence between experience and awareness reduced.</li>
+  </ul>
+
+  <p>Seven:</p>
+
+  <ul>
+    <li>new feelings experienced and accepted in the present;</li>
+    <li>basic trust in the process;</li>
+    <li>self becomes confidently felt in the process;</li>
+    <li>personal constructs reformulated but much less rigid;</li>
+    <li>strong feelings of choice and self-responsibility.</li>
+  </ul>
+</blockquote>
+
+<p><em>Brooklyn Follies</em> by Paul Auster:</p>
+
+<blockquote>
+  <p>All men contain several men inside them, and most of us bounce from one self to another without ever knowing who we are. Up one day and down the next; morose and silent in the morning, laughing and cracking jokes at night. Harry had been low when he talked to Tom, but now that his business venture was in the works, he was flying high with me.</p>
 </blockquote>
 
   </div>
 </article>
 
+    
 
     <hr>
   
     
+      
 
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
     <h1 class="post-title" itemprop="name headline">
-      <a class="post-link" href="/2010/02/Quality-of-life-mind-and-language.html">Quality of life, mind and language</a>
+      <a class="post-link" href="/2010/04/Internships-and-the-media.html">Internships and the media</a>
     </h1>
     <p class="post-meta text-muted">
-      <time datetime="2010-02-17T00:00:00+00:00" itemprop="datePublished">February 17, 2010</time>
+      <time datetime="2010-04-05T00:00:00+00:00" itemprop="datePublished">April 5, 2010</time>
       
       
 
-
-  
-
-  
-
-  • Tagged <a href="/tags/#definitions">definitions</a>, <a href="/tags/#language">language</a>, and <a href="/tags/#wordplay">wordplay</a>
 
 
     </p>
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p><img src="/uploads/2010-02-17-Quality-of-life-mind-and-language/Definitions.png" alt="" title="Definitions" /></p>
-
-<p>From “Business of Design”, a section of David Barringer’s excellent book <em>There’s nothing funny about design</em>:</p>
+    <p>An exceprt from “Internment Camp: The Intern Economy and the Culture Trust (Interns Built the Pyramids)” by Jim Federick in <a href="http://www.thebaffler.com/archive"><em>The Baffler</em></a> ( <a href="http://www.thebaffler.com/issue/33">1997: Vol. 1, No. 9.</a>) - mentioned by  <a href="http://www.localpolitechs.com/">Henri Makembe</a> on the <a href="http://groups.yahoo.com/group/Mission-Based-Massachusetts/">Mission Based Massachusetts listserv</a>.</p>
 
 <blockquote>
-  <p><strong>Definitions</strong></p>
+  <p><strong>All Internships Lead to MTV</strong></p>
 
-  <p>Quality of life depends on quality of mind, which depends on quality of language. Heightened experience requires both practiced sensory perception and the vocabulary with which to render its significance to yourself and others.</p>
+  <p>Given the fact that they benefit so handsomely from the intern economy, it is no surprise that the media routinely run stories on the virtues of internships. The stories always seem to follow the same pattern. First comes the bad news about how tough it is out there: “For 17 years straight, A. Todd Iannucelli made a late summer trip to the stationary store to buy loose-leafsheets for classroom note-taking,” goes one cautionary tale that appeared in August 1995 in the Washington Post. “This year, he went to replenish a dwindling supply of resume paper, having joined a growing number of college grads who, as fall approaches, remain jobless and planless.” Then they assure us that internships are the only way a college kid is going to get by in the cutthroat world of the Culture Trust: “Consultants say the route has become a popular one with savvy jobseekers,” the Post continues. “For a new entrant into the job market, volunteering or unpaid internships may be the only ways to amass credentials”</p>
 
-  <p>To convey impressions of your own experience to others, you are often bound to language as the ﬂatbed truck for that conveyance, even when your experience is not linguistic or textual but visual, auditory, tactile, and olfactory.</p>
+  <p>It should hardly surprise us, given the amount they stand to gain from the unfettered operating of the intern economy, that the hippest publications are among the most regular and most sanguine chroniclers of the intern’s happy lot. Rolling Stone, a notorious intern abuser, runs gooey features on the glories of unpaid internships in its annual college issue. One year it profiled the lucky guy who drove the Oscar Meyer weinermobile, the even luckier guy who got to fetch lunch for Howard Stern, and, luckiest of all, the New York Knicks towel guy. But Rolling Stone doesn’t want Chip and Jessica getting swollen heads just because they get to sweat for the stars, and so on occasion it will tincture the standard categories of the intern story with a certain wholesome contempt for the young people who put themselves out for the glamour business. “You would be surprised how many intelligent people cannot take a cohesive phone message or Xerox more than one copy of a document,” it quoted Victoria Rowan, a woman who had risen from internhood to be a powerful and glamorous assistant editor at Mirabella, as saying back in 1993. “It’s not a game of shit on the peon. Coffee has to be ordered.” Indeed it does, gentle Victoria. But if you’re not paying the peon minimum you are, in fact, shitting on her. Even girl-empowering Sassy gets in on the act, following in 1995 the heroic exploits of an intern at - surprise - MTV: “Biggest perk: We got to go to Madonna’a Bedtime Story Pajama Party at Webster Hall (a huge club in New York City). Worst part of the job: We have to go up to the 50th floor a lot, and the elevator makes me nauseous.</p>
 
-  <p>To savor experience you must deﬁne experience, and definitions involve the abuse of words.</p>
-
-  <p>It is for future designers to convey odors that summarize a poem, sounds that describe the texture of a touch, and images that deﬁne an odor.</p>
-
-  <p>To enhance your perception, you must exercise your imagination. Expand the control room of your mind to include maps of the surrounding dimensions of experience, as measured and reduced by sight, sound smell, touch, etc. Construct these maps in leisure, with ﬁne concentration, to guide your judgments in times of haste and fury.</p>
+  <p>But to read the most addle-eyed intern-economy glorification of all you have to turn to the new New Yorker, which in October 1994 ran Rocking in Shangri-La: a story by John Seabrook about interns at - you guessed it - MTV. The story actually attempts to convince readers that “the real power brokers at MTV are not President Shirley McGrath, Chair Tom Freston, or even Viacom Chair Sumner Redstone, but its “employees under the age of twenty-five.” “When you are in your early twenties and you are working for MTV,” Seabrook writes, in one of the most appallingly misguided tributes to the Culture Trust to appear to date, “you carry in your brain, muscles, and gonads a kind of mystical authority that your bosses don’t possess.” After 14 long pages it turns out that the “authority” possessed by the low-paid production assistants and the unpaid interns boils down to this: They are walking, talking demographic surveys who tell executives what ia cool and what sucks. In exchange, they get free MTV stuff! And they’re allowed to listen to music as loud as they want! Often, observes the venerable New Yorker, interns will “rock out together for a moment before continuing along the hall,” because, we are told, “employees who think that a particular song ‘rules’ are encouraged to crank it.”</p>
 </blockquote>
-
-<p>I love that first paragraph for its similarity to previous musings on <a href="http://www.island94.org/2009/02/self-language-and-consciousness/">self, language and consciousness</a>.</p>
 
   </div>
 </article>
 
+    
 
     <hr>
   
     
+      
 
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
     <h1 class="post-title" itemprop="name headline">
-      <a class="post-link" href="/2010/02/Mount-Vernon-Port-Huron-and-Sharon-Statements-in-Comparison.html">Mount Vernon, Port Huron and Sharon Statements in Comparison</a>
+      <a class="post-link" href="/2010/04/Do-what-I-say.html">Do what I say</a>
     </h1>
     <p class="post-meta text-muted">
-      <time datetime="2010-02-17T00:00:00+00:00" itemprop="datePublished">February 17, 2010</time>
+      <time datetime="2010-04-05T00:00:00+00:00" itemprop="datePublished">April 5, 2010</time>
       
       
 
@@ -261,128 +307,124 @@
 
   
 
-  • Tagged <a href="/tags/#language">language</a>, <a href="/tags/#politics">politics</a>, and <a href="/tags/#statements">statements</a>
+  • Tagged <a href="/tags/#criticism">criticism</a>, <a href="/tags/#genius">genius</a>, <a href="/tags/#practice">practice</a>, and <a href="/tags/#society">society</a>
 
 
     </p>
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p>Apparently conservatives have a new statement named for Mount Vernon, George Washington’s home. The new <a href="http://www.themountvernonstatement.com/">Mount Vernon Statement</a> is modeled on the 1960s conservative <a href="http://www.yaf.com/statement/"><em>Sharon Statement</em></a> (named for William F. Buckley’s home), though it’s slightly ironic considering the <em>Sharon Statement</em> was quite firm on state’s rights and Washington was a Federalist. From comparing the statements, it appears that the conservatives have made their peace with the Federal government:</p>
-
-<p><em>Mount Vernon Statement:</em></p>
+    <p>Peter Klausler’s <a href="http://klausler.com/cargo.html">“Principles of the American Cargo Cult”</a> is one of my favorite statements (even more when applied to the idea of “best practices”).</p>
 
 <blockquote>
-  <p>The conservatism of the Constitution limits government’s powers but ensures that government performs its proper job effectively. It refines popular will through the filter of representation. It provides checks and balances through the several branches of government and a federal republic.</p>
+  <p><strong>II. Causality is selectable</strong></p>
+
+  <p><strong>All interconnection is apparent</strong></p>
+
+  <p><strong>Otherwise, complicated explanations would be necessary.</strong></p>
+
+  <p><strong>The end supports the explanation of the means</strong></p>
+
+  <p><strong>A successful person’s explanation of the means of his success is highly credible by the very fact of his success.</strong></p>
+
+  <p><strong>You can succeed by emulating the purported behavior of successful people</strong></p>
+
+  <p>This is the key to the cargo cult. To enjoy the success of another, just mimic the rituals he claims to follow.</p>
+
+  <p>Your idol gets the blame if things don’t work out, not you.</p>
+
+  <p><strong>You have a right to your share</strong></p>
+
+  <p>You get to define your share.</p>
+
+  <p>Your share is the least you will accept without crying injustice.</p>
+
+  <p>Celebrate getting more than your share.</p>
 </blockquote>
-
-<p><em>Sharon Statement:</em></p>
-
-<blockquote>
-  <p>THAT the genius of the Constitution - the division of powers - is summed up in the clause that reserves primacy to the several states, or to the people in those spheres not specifically delegated to the Federal government;</p>
-</blockquote>
-
-<p>And of course we need to compare that to the liberal <em><a href="http://www.campusactivism.org/server-new/uploads/porthuron.htm">Port Huron Statement</a></em> (named for the SDS conference where it was written):</p>
-
-<blockquote>
-  <p>How shall the “public sector” be made public, and not the arena of a ruling bureaucracy of “public servants”? By steadfast opposition to bureaucratic coagulation, and to definitions of human needs according to problems easiest for computers to solve. Second, the bureaucratic pileups must be at least minimized by local, regional, and national economic planning – responding to the interconnection of public problems by comprehensive programs of solution. Third, and most important, by experiments in decentralization, based on the vision of man as master of his machines and his society.</p>
-</blockquote>
-
-<p>In both style and content, the <em>Mount Vernon Statement</em> is much closer to the lefty <em>Port Huron Statement</em> than the <em>Sharon Statement</em>. Today’s conservatives are about “recommitment” and “natural fusion”; they ask rhetorical questions (“Isn’t this idea of change an empty promise or even a dangerous deception?”); and feel the need to buttress arguments by appealing to the authority of our founders: “The self-evident truths of 1776 have been supplanted by the notion that no such truths exist.”</p>
-
-<p>Those kids in the 60s were a kick-to-the-face. Today, not so much.</p>
-
-<p>…Ok, one more:</p>
-
-<p><em>Mount Vernon Statement:</em></p>
-
-<blockquote>
-  <p>A Constitutional conservatism based on first principles provides the framework for a consistent and meaningful policy agenda. … It encourages free enterprise, the individual entrepreneur, and economic reforms grounded in market solutions.</p>
-</blockquote>
-
-<p><em>Sharon Statement:</em></p>
-
-<blockquote>
-  <p>THAT the market economy, allocating resources by the free play of supply and demand, is the single economic system compatible with the requirements of personal freedom and constitutional government, and that it is at the same time the most productive supplier of human needs;</p>
-</blockquote>
-
-<p>In comparison, a verb like “encourages” sounds pretty weak.</p>
 
   </div>
 </article>
 
+    
 
     <hr>
   
     
+      
 
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
     <h1 class="post-title" itemprop="name headline">
-      <a class="post-link" href="/2010/02/Motivated-design.html">Motivated design</a>
+      <a class="post-link" href="/2010/03/If-you-dont-know-how-to-notice-you-cant-do-anything-well.html">"If you don't know how to notice, you can't do anything well"</a>
     </h1>
     <p class="post-meta text-muted">
-      <time datetime="2010-02-16T00:00:00+00:00" itemprop="datePublished">February 16, 2010</time>
+      <time datetime="2010-03-23T00:00:00+00:00" itemprop="datePublished">March 23, 2010</time>
       
       
 
-
-  
-
-  
-
-  • Tagged <a href="/tags/#design">design</a>, <a href="/tags/#dialogue">dialogue</a>, and <a href="/tags/#philosophy">philosophy</a>
 
 
     </p>
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p>From David Barringer’s “Myths of the Self-Taught Designer” in his book of essays and more, _There’s Nothing Funny about Design _(and available online in parts  <a href="http://www.aiga.org/content.cfm/myths-of-the-self-taught-designer-the-first-conversation-between">1</a>, <a href="http://www.aiga.org/content.cfm/myths-of-the-self-taught-designer-the-second-conversation-betwee">2</a> and <a href="http://www.aiga.org/content.cfm/myths-of-the-self-taught-designer-the-third-conversation-between">3</a>).</p>
-
-<p>Designed as a dialogue, this piece is, as Barringer says, “a hybrid mess of a literary shenanigan, inspired by the dialogues of the philosopher Denis Diderot (1713-1784). If you think I took the conversation too far, see Diderot’s <em>Jacques the Fatalist</em> (1782).”</p>
-
-<p>Jumping in…</p>
+    <p>A subchapter on art from K.C. Cole’s <em>Something incredibly wonderful happens: Frank Oppenheimer and the world he made up</em>.</p>
 
 <blockquote>
-  <p><strong>Ego</strong>: So, to sum up, anyone with the intent to design can claim to be a graphic designer in our messy age of design pluralism. You don’t need the degree, the tools, the status, the employer, or even a client. You certainly don’t need to be good or even competent. You just need the intent. So what is at stake, and for whom, in defining the identity of the designer? Credentials are one way to define identity, and credentials matter to some. They signify to potential employers; signify less to potential clients; and always make our mothers proud. But what is at stake for the individual designer? I think that’s where we need to go next.</p>
+  <p><strong>A Matter of Urgency</strong></p>
 
-  <p><strong>Devil</strong>: I agree. Design pluralism recognizes the diversity of individuals working in some measure in a field we’ve agreed to call graphic design, itself a broad category, its membrane permeable enough to absorb the practitioners of the year’s latest digital arts. Together, this pluralism and the attendant technological advances that impact the practice of graphic design disturb the discipline and unsettle the individual. In a steady profession and stable economy—</p>
+  <p><em>“It’s through familiarity with the arts that I think we will make the kinds of changes that make life stay human.”</em></p>
 
-  <p><strong>Ego</strong>: Both concepts being theoretical— </p>
+  <p>A respect for aesthetics, Frank thought, should be a central part of sound decision-making. He didn’t think it would be out of place — though he admitted it would be impractical — if Congress, unable to decide on a difﬁcult matter, took a recess to visit the National Gallery for guidance. “Art,” he liked to say, “is not valid merely to decorate our surroundings with statues in the plazas of skyscrapers, any more than science is valid because it provides the conveniences of electric shavers.”</p>
 
-  <p><strong>Devil</strong>: Many are content to let their jobs define them. Who am I? I am my job. But graphic design is not a steady profession, and the economy is not stable. Uncertainty is the order of the day. Undeterred, people may cling to a mere skill set as an indicator of who they are, defining themselves in ever more narrow and conditional terms. In a moral panic, a designer might crave the next seminar in web design as if it were a personality upgrade, the next slogan from the best-selling business pundit as if it were a reprieve from a death sentence. Why? Because today’s skill set is tomorrow’s software template. And today’s job is tomorrow’s downsized nod to the stockholders. </p>
+  <p>When people said, “We need more art,” Frank complained, they tended to say it in the same tone of voice they used to say, “We need more trees.” True, both art and trees make our surroundings more pleasant, but artists also make discoveries about nature and human nature that are on the same level as the discoveries scientists make. And in the same way that we can make better decisions about global warming if we know what scientists have discovered about the earth’s changing climate, so we can make better decisions about human affairs and environments if we pay better attention to what artists have learned.</p>
 
-  <p><strong>Ego</strong>: So this is why self-definition is so urgent and infuriating. The economic is personal. Who you are today may not even be who you are tomorrow. </p>
+  <p>Frank worried a lot that the arts were undervalued, and that aesthetic considerations were largely ignored whether people were designing schools, supermarkets, bridges, or “topless dance joints, nuclear weapons, and homes for the aged.” If money was tight, aesthetics was the ﬁrst thing to go. “We’re in terrible trouble because of that,” he said. Historically, places that respected the arts and based decisions on aesthetics were also places where “better things happen,” he argued. If art were considered more important, he wrote to David Rockefeller, “many of the things that now shock or degrade people’s sensitivities would not be tolerated.”</p>
 
-  <p><strong>Devil</strong>: I’m an expert in Pagemaker. I mean, Quark. Oops, InDesign. Flash. No, wait, I’m a problem-solver! A branding consultant! A, a. . . . </p>
+  <p>Of course, as a physicist Frank had learned to trust aesthetics. Scientists often try things because they “smell right.” They believe in theories because the mathematics behind them are “beautiful,” even when they contradict evidence. Like artists, scientists develop an eye (and ear) for nature, a sense of what is true and what is not. Laypeople, too, should be encouraged to rely on their aesthetic sense to guide their decisions, Frank thought; if a certain course of action or behavior struck them as “ugly,” then it probably was.</p>
 
-  <p><strong>Ego</strong>: In this environment, you are not saved by what you know. </p>
+  <p>Artists and scientists, Frank liked to say, are the ofﬁcial “noticers” of society — those who help us pay attention to things we’ve either never learned to see or have learned to ignore. Artists of all ages and in all lands have traditionally sensitized people to nature through their poetry and painting, sculpture and drama, and, less obviously, through their music. Without art, “one even ignores what people’s faces are like,” Frank said, “but by seeing paintings of people’s faces you begin to look at them again, and I think that the same thing is true of science. You look at the sky and you see the stars, and it is just an amorphous mass; but suddenly somebody talks to you about it and you see that some stars move with respect to other stars.”</p>
 
-  <p><strong>Devil</strong>: What you know is only what you knew. And that’s why it feels, to me, like there is no such thing as art or design, jobs or retirement. There is only the work that you do and the you who is doing it. What is at stake in all this is the individual designer’s self-definition. </p>
+  <p>He gave artists credit for teaching us great human truths. Without art we might not have recognized the universality of the feeling between mother and child, he said, or the emotion between man and woman.</p>
 
-  <p><strong>Ego</strong>: And let me guess. What we are dismantling here is the overarching myth of the self-taught, which is that the label of being self-taught no longer functions as a meaningful symbol of the designer’s identity, whether as a romantic symbol or a derogatory one. Regarding yourself as self-taught, as a self-motivated learner, as you said before, is more and more coming to be an essential component of that self-definition, no matter what kind of graphic designer you are. </p>
+  <p>“If you don’t know how to notice, you can’t do anything well,” Frank said. “You can’t even relate to people well.” You can’t tell if someone is angry or amused or hurt, or if the weather is about to change and maybe you should get an umbrella. You’ll miss that guy lurking in the shadows, and Saturn shining overhead.</p>
 
-  <p><strong>Devil</strong>: Did I say that?</p>
+  <p>Frank wondered why urban planners didn’t look at paintings in order to learn how to design cities; why architects didn’t look at Cezannes to design cafés; why people didn’t look at portraits to ﬁnd meaning and wonder in the transformations that occur in aging faces and bodies. Why didn’t people realize that paintings enable us to ﬁnd pattern and structure in scenes that would otherwise seem shapeless, amorphous, and emotionless?</p>
+
+  <p>So above all else, the Exploratorium was a place that encouraged the kind of everyday noticing that helped people develop an eye and ear and feel for the social and physical universe aroundthem — an almost artistic sensibility.</p>
+
+  <p>Visitors to the Exploratorium certainly build up intuitive feelings for physical phenomena as much from artistic works as from “science” exhibits — whether the subject is wave mechanics or the nature of light or ﬂuid dynamics or the quantum properties of matter. To this day, when I imagine stars being born from swirling interstellar clouds, I think of Ned Kahn’s “Whirlpool”; when I think of exotic bits of matter coming into being seemingly out of nothing, I see his “Visible Effects of the Invisible.” Most of my intuitive feel for light and color and shadow and reﬂection comes from Bob Miller, and there is a lot of the spinning black hole in Doug Hollis’s “Vortex.”</p>
+
+  <p>Even in terms of process, Frank pointed out, artists and scientists work in similar ways. They both start by noticing patterns in space and time, trying to make sense of them, rearranging them, and then linking patterns together in ways no one had thought to do before. They make sketches with equations or charcoal. They elaborate and synthesize. “They end up with a composition which means more than what they started with,” Frank wrote — melodies and theories. In essence, they make patterns of patterns that reveal new insights. Their compositions, theories, and other works separate relevancies from trivialities; provide a framework for memory; reassure by creating order out of confusion.</p>
+
+  <p>Of course, all people spend much of their time perceiving and making sense of patterns; even animals do it (the dog knows exactly what follows the fetching of the leash). Frank once told me that when he can’t see a pattern, he gets “miserable.” But artists and scientists spend their whole lives looking for patterns in nature, and so perhaps learn to see more than the rest of us.</p>
+
+  <p>To Frank, artists were people who looked at human experience in the same way astronomers looked at the sky through telescopes. Just as astronomers collect, codify, interpret, and communicate what is known about the stars, so artists collect, codify, interpret, and communicate what we know about human feelings.</p>
+
+  <p>The reason we need this knowledge so much, he argued, is the rapid pace of change. If things didn’t change, then perhaps education could simply be a matter of learning to conduct business and follow directions. But everything in nature changes. People inevitably change the world in which they live. They change themselves. And as people(s) change, at some level there’s always a worry that we might lose some of that indeﬁnable and extraordinary specialness that makes people human. And who can define that essential nature of humanity we so want to preserve? Who can tell us (or remind us) what is ﬁne, what is beautiful, what is important, in humankind? Frank claimed that was the role of artists.</p>
+
+  <p>Decisions about how to adapt to inevitable changes are based, by necessity, on what we believe is possible. Science tells us what is possible in the physical realm, and in doing so, gives us a basis for action. If we don’t know that it’s possible to make antibiotics, for example, we won’t learn how to protect ourselves against disease. In the same way, Frank thought, art tells us what is possible in human experience. What’s more, it tells us how we feel about the various possibilities or at least how an individual artist feels, and therefore one way it is possible to feel. “If you don’t know those things, you are not going to make good decisions,” he said.</p>
+
+  <p>And just as technological inventions help us cope with changes in the external environment, we need “heightened social and emotional awareness and invention,” Frank said, to cope with changes in the human environment.</p>
 </blockquote>
-
-<p>The section of the book that includes this is entitled “Design is a hug at a distance”.</p>
 
   </div>
 </article>
 
+    
 
     <hr>
   
     
+      
 
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
     <h1 class="post-title" itemprop="name headline">
-      <a class="post-link" href="/2010/02/A-temperance-of-words.html">A temperance of words</a>
+      <a class="post-link" href="/2010/03/The-author-function-and-the-internet.html">The author function and the internet</a>
     </h1>
     <p class="post-meta text-muted">
-      <time datetime="2010-02-12T00:00:00+00:00" itemprop="datePublished">February 12, 2010</time>
+      <time datetime="2010-03-22T00:00:00+00:00" itemprop="datePublished">March 22, 2010</time>
       
       
 
@@ -391,136 +433,118 @@
 
   
 
-  • Tagged <a href="/tags/#god">god</a>, <a href="/tags/#greek-orthodox">greek-orthodox</a>, <a href="/tags/#language">language</a>, <a href="/tags/#length">length</a>, <a href="/tags/#parsing">parsing</a>, <a href="/tags/#tao">tao</a>, and <a href="/tags/#zen">zen</a>
+  • Tagged <a href="/tags/#authority">authority</a>, <a href="/tags/#authorship">authorship</a>, <a href="/tags/#philosophy">philosophy</a>, and <a href="/tags/#postmodern">postmodern</a>
 
 
     </p>
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p>From Karen Armstrong’s <em>A History of God</em>:</p>
+    <p>I rediscovered this wonderful paper by Siân Bayne of the University of Edinburgh entitled “ <a href="http://www.wwwords.co.uk/rss/abstract.asp?j=elea&amp;aid=2728">Temptation, Trash and Trust: the authorship and authority of digital texts</a>”.</p>
 
 <blockquote>
-  <p>In 529 the emperor Justinian closed the ancient school of philosophy in Athens, the last bastion of intellectual paganism: its last great master had been Proclus (412-485), an ardent disople of Plotinus. Pagan philosophy went underground and seemed defeated by the new religion of Christianity. Four years later, however, four mystical treatises appeared which were purportedly written by Denys the Areopagite, St. Paul’s ﬁrst Athenian convert. They were, in fact, written by a sixth-century Greek Christian, who has preserved his anonymity. The pseudonym had a symbolic power, however, which was more important than the identity of the author Pseudo-Denys managed to baptize the insights of Neoplatonism and wed the God of the Greeks to the Semitic God of the Bible.</p>
+  <p>In his influential essay ‘What is an Author?’ (Foucault, 1977), Foucault explores the notion of the author – conventionally taken for granted as a knowable entity existing in a stable relation to a discrete body of texts – and exposes it rather as a historically specific and therefore fluctuating function of discourse. For Foucault, the individualisation of the author is a particularly resonant instance of the working of discourse, representing as it does a ‘privileged moment’ in the history of ideas (p. 115). Foucault in this essay replaces the figure of the humanistic, individualised author with the concept of the ‘author function’.</p>
 
-  <p>Denys was also the heir of the Cappadocian Fathers. Like Basil, he took the distinction between <em>kerygma</em> and <em>dogma</em> very seriously. In one of a his letters, he affirmed that there were two theological traditions, both of which derived from the apostles. The kerygmatic gospel was clear and knowable; the dogmatic gospel was silent and mystical. Both were mutually interdependent, however, and essential to the Christian faith. One was “symbolic and presupposing initiation,” the other “philosophical and capable of proof—and the ineffable is woven with what can be uttered.” The <em>kerygma</em> persuades and exhorts by its clear, manifest truth, but the silent or hidden tradition of <em>dogma</em> was a mystery that required initiation: “It effects and establishes the soul with God by initiations that do not teach anything,” Denys insisted, in words that recalled Aristotle. There was a religious truth which could not adequately be conveyed by words, logic or rational discourse. It was expressed symbolically, through the language and gestures of the liturgy or by doctrines which were “sacred veils” that hid the ineffable meaning from view but which also adapted the utterly mysterious God to the limitations of human nature and expressed the Reality in terms that could he grasped imaginatively if not conceptually.</p>
+  <p>In what sense does the concept of the author function problematise the Romantic image of the author as an individual in possession of a creative soul from which the unified text emanates? Foucault’s historicising approach reveals, as just one example, the way in which we use the name of the author to perform a classificatory function, permitting us to group together certain texts, define them, and contrast them with others. An example might be the Iliad and the Odyssey – products of centuries of collective oral storytelling, quite possibly ‘authored’ by two or more individuals, one of whom may or may not have been the blind poet, who may or may not have actually inscribed the epics with his own hand (Nagy, 1996; de Jong, 1999), which are nonetheless attributed by modernity to ‘Homer’ as though ambiguity in the issue of authorship were something intolerable.</p>
 
-  <p>The hidden or esoteric meaning was not for a privileged elite but for all Christians. Denys was not advocating an abstruse discipline that was suitable for monks and ascetics only. The liturgy, attended by all the faithful, was the chief path to God and dominated his theology. The reason that these thruths were hidden behind a protective veil was not to occlude men and women of goodwill but to lift all Christians above sense perceptions and concepts to the inexpressible reality of God himself. The humility which had inspired the Cappodocians to claim that all theology should be apophatic became for Denys a bold method of ascending to the inexpressible God.</p>
+  <p>Certain discourses, certain texts are endowed with the author-function while others are not (Foucault, 1977, p. 202). Novels, textbooks, monographs and poems are all authored. Private letters, public notices (Foucault’s examples), graffiti, advertisements, emails and many websites, though they may have writers, can not be said to have authors. We might write and send fifty individual emails every day, yet we would still not be able to say, ‘I am an author’.</p>
 
-  <p>In fact, Denys did not like to use the word “God” at all—probably because it had acquired such inadequate and anthropomorphic connotations. He preferred to use Proclus’s term <em>theurgy</em>, which was primarily liturgical: <em>theurgy</em> in the pagan world had been a tapping of the divine <em>mana</em> by means of sacriﬁce and divination. Denys applied this to God-talk, which, properly understood, could also release the divine <em>energeiai</em> inherent in the revealed symbols. He agreed with the Cappedociens that all our words and concepts for God were inadequate and must not be taken as an accurate description of a reality which lies beyond our ken.</p>
-
-  <p>Even the word “God” itself was faulty, since God was “above God,” a “mystery beyond being.” Christians must realize that God is not the Supreme Being, the highest being of all heading a hierarchy of lesser beings. Things and people do not stand over against God as a separate reality or an alternative being, which can be the object of knowledge. God is not one of the things that exist and is quite unlike anything else in our experience. In fact, it is more accurate to call God “Nothing”: we should not even call him a Trinity since he is “neither a unity nor a trinity in the sense in which we know them.” He is above all names just as he is above all being. Yet we can use our incapacity to speak about God as a method of achieving a union with him, which is nothing less than a “deification” (<em>theosis</em>) of our own nature. God had revealed some of his Names to us in scripture, such as “Father,” “Son” and “Spirit,” yet the purpose of this had not been to import information <em>about</em> him but to draw men and women toward himself and enable them to share his divine, nature.</p>
-
-  <p>In each chapter of his treatise <em>The Divine Names</em>, Denys begins with a <em>kerygmatic</em> truth, revealed by God: his goodness, wisdom, paternity and so forth. He then proceeds to show that although God has revealed something of himself in these titles, what he means is not himself. If we really want to understand God, we must go on to deny those attributes and names. Thus we must say that he is both “God” and “not-God,” “good” and then go on to say that he is “not-good” The shock of this paradox, a process that includes both knowing and unknowing, will lift us above the world of mundane ideas to the inexpressible reality itself. Thus, we begin by saying that:</p>
-
-  <p>of him there is understanding, reason, knowledge, touch, perception, imagination, name and many other things. But he is not understood, nothing can be said of him, he cannot be named. He is not one of the things that are [nor is he known in any of the things that are: he is all things in everything and nothing in anything].”</p>
-
-  <p>Reading the Scriptures is not a process of discovering facts about God, therefore, but should be a paradoxical discipline that turns the <em>kerygma</em> into <em>dogma</em>. This method is a <em>theurgy</em>, a tapping of the divine power that enables us to ascend to God himself and, as Platonists had always taught, become ourselves divine. It is a method to stop is thinking! “We have to leave behind us all our conceptions of the divine. We call a halt to the activities of our minds!’” We even have to have our denials of God’s attributes behind. Then and only than shall we achieve an ecstatic union with God.</p>
-
-  <p>When Denys talks about ecstasy, he is not referring to a peculiar state of mind or an alternative form of consciousness achieved by an obscure yogic discipline. This is something that every Christian can manage in this paradoxical method of prayer and theoria. It will stop us talking and bring us to the place of silence: “As we plunge into that darkness which is beyond intellect, we shall ﬁnd ourselves not simply running short of words but actually speechless and unknowing” Like Gregory of Nyssa, he found the story of Moses’ ascent of Mount Sinai instructive. Moses had climbed the mountain, he did not see God himself on the summit but had only been brought to the place where God was. He had been enveloped by a thick cloud of obscurity and could see nothing: thus everything that we cm see or understand is only a symbol (the word Denys uses is “paradigm”) which reveals the presence of a reality beyond all thought. Moses had passed into the darkness of ignorance and thus achieved union with that which surpasses all understanding: we will achieve a similar ecstasy that will “take us out of ourselves” and unite us to God.</p>
+  <p>In the case of websites the terminology of authorship is made even more complex by the way we designate ‘authorship’ to the process of generating the design and code behind the web page, rather than its ‘content’. Within the context of the printed and bound artefact, to say ‘I am an author’ is to claim the privileged status of a generator of a uniquely meaningful text. Within the context of the Web, to say ‘I am an author’ is to take a relatively lowly position as a practitioner of behind-the-scenes geekery. If ‘authorship’ is the activity ‘behind’ the Web, perhaps other terms are needed to designate the discourses which operate on the surfaces of our screens.</p>
 </blockquote>
 
-<p>The preceding’s length can be compared to the first 14 lines of Lao Tzu’s <em><a href="http://acc6.its.brooklyn.cuny.edu/~phalsall/texts/taote-v3.html">Tao Te Ching </a></em> <a href="http://acc6.its.brooklyn.cuny.edu/~phalsall/texts/taote-v3.html">(translation by S. Mitchell)</a>:</p>
+<p>This paper also quotes from <a href="http://www.hnet.uci.edu/mposter/">Mark Poster</a>’s text “ <a href="http://www.cddc.vt.edu/lol/pdf/vpi.pdf">What’s the Matter with the Internet?</a>”:</p>
 
 <blockquote>
-  <p>The tao that can be told</p>
+  <p>Foucault’s future eviscerates the author’s presence from the text, shifting interpretive focus on the relation of the reader to a discourse understood in its exteriority, without resort to a founding creator, without reference to the patriarchal insemination of text with meaning. His utopia of writing would seem to contravene both Benjaminian aura and culture industry celebrity. Here in his own words is the Foucaultian heterotopia:</p>
 
-  <p>is not the eternal Tao</p>
+  <p>All discourses… would then develop in the anonymity of a murmur. We would no longer hear the questions that have been rehashed for so long: Who really spoke? Is it really he and not someone else? With what authenticity or originality? And what part of his deepest self did he express in his discourse? Instead there would be other questions, like these: What are the modes of existence of this discourse? Where has it been used, how can it circulate, and who can appropriate it for himself? What are the places in it where there is room for possible subjects? Who can assume these various subject functions? And behind all these questions, we would hear hardly anything but the stirring of an indifference: What difference does it make who is speaking? (pp. 119-120)</p>
 
-  <p>The name that can be named</p>
-
-  <p>is not the eternal Name.</p>
-
-  <p>The unnamable is the eternally real.</p>
-
-  <p>Naming is the origin</p>
-
-  <p>of all particular things.</p>
-
-  <p>Free from desire, you realize the mystery.</p>
-
-  <p>Caught in desire, you see only the manifestations.</p>
-
-  <p>Yet mystery and manifestations</p>
-
-  <p>arise from the same source.</p>
-
-  <p>This source is called darkness.</p>
-
-  <p>Darkness within darkness.</p>
-
-  <p>The gateway to all understanding.</p>
+  <p>I contend that digital writing, linked to electronic networks, is the mediation Foucault anticipated but did not recognize. Digital writing separates the author from the text, as does print, but also mobilizes the text so that the reader transforms it, not simply in his or her mind or in his or her marginalia, but in the text itself so that it may be redistributed as another text. Digital writing functions to extract the author from the text, to remove from its obvious meaning, his or her intentions, style, concepts, rhetoric, mind, in short, to disrupt the analogue circuit through which the author makes the text his or her own, through which the mechanisms of property solidified a link between creator and object, a theological link that remains in its form even if its content changed from the age of God to the age of Man. Digital writing produces the indifference to the question who speaks that Foucault dreamt of and brings to the fore in its place preoccupations with links, associations, dispersions of meaning throughout the Web of discourse. And this is so not simply for alphabetic text but for sounds and images as well. The issue rests with the mediation, with the change from analogue to digital techniques.</p>
 </blockquote>
 
-<p>So where does that leave us (emphasis mine):</p>
-
-<blockquote>
-
-</blockquote>
-
-<p>Dessys’s method became normative in Greek theology. In the West, however, theologians would continue to talk and explain. Some imagined that when they said “God,” the divine reality actually coincided with the idea in their minds. Some would attribute their own thoughts and ideas to God—saying that God wanted this, forbade that and had planned the other—in a way that was dangerously idolatrous. The God of Greek Othodoxy, however, would remain mysterious, and the Trinity would continue to remind Eastern Christians of the provisional nature of their doctrines. <strong>Eventually, the Greeks decided that an authentic theology must meet Denys’s two criteria: it must be silent and paradoxical.</strong></p>
+<p>But can you monetize it?</p>
 
   </div>
 </article>
 
+    
 
     <hr>
   
     
+      
 
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
     <h1 class="post-title" itemprop="name headline">
-      <a class="post-link" href="/2010/02/Washing-of-dishes-requires-great-peace-of-mind.html">Washing of dishes requires great peace of mind</a>
+      <a class="post-link" href="/2010/03/A-rhetoric-for-writing-in-the-post-digital-era.html">A rhetoric for writing in the post-digital era</a>
     </h1>
     <p class="post-meta text-muted">
-      <time datetime="2010-02-11T00:00:00+00:00" itemprop="datePublished">February 11, 2010</time>
+      <time datetime="2010-03-22T00:00:00+00:00" itemprop="datePublished">March 22, 2010</time>
       
       
 
-
-  
-
-  
-
-  • Tagged <a href="/tags/#cleanliness">cleanliness</a>, <a href="/tags/#dishes">dishes</a>, <a href="/tags/#mindfullness">mindfullness</a>, <a href="/tags/#peace">peace</a>, and <a href="/tags/#zen">zen</a>
 
 
     </p>
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p>From Thicht Nhat Hanh’s <em>The Miracle of Mindfulness:</em></p>
+    <p>I love this rhetoric from Georgetown University’s <a href="http://www9.georgetown.edu/faculty/irvinem/">Martin Irvine</a> entitled “ <a href="http://www9.georgetown.edu/faculty/irvinem/articles/WritingtobeRead.html">Writing to be Read: A rhetoric for writing in the post-digital era</a>”. It’s written for academic writing, but I appreciate any approach that pushes the <a href="http://en.wikipedia.org/wiki/Dialogism">dialogic</a>. An excerpt:</p>
 
 <blockquote>
-  <p>In the United States, I have a close friend name Jim Forest. When I first met him eight years ago, he was working with the Catholic Peace Fellowship. Last winter, Jim came to visit. I usually wash the dishes after we’ve finished the evening meal, before sitting down an d drinking tea with everyone also. One night, Jim asked if he might do the dishes. I said, “Go ahead, but if you wash the dishes you must know the way to wash them.” Jim replied, “Come on, you think I don’t know how to wash the dishes?” I answered, “There are two ways to wash the dishes. The first is to wash the dishes in order to have clean dishes and the second is to wash the dishes in order to wash the dishes.” Jim was delighted and said, “I choose the second way – to wash the dishes to wash the dishes.From then on, Jim knew how to wash the dishes. I transferred the “responsibility” to him for an entire week.</p>
+  <p><strong>Rhetoric 101a: What It Is and Why it Holds</strong></p>
 
-  <p>If while washing dishes, we think only of the cup of tea that awaits us, thus hurrying to get the dishes out of the way as they were a nuisance, then we are not “washing the dishes to wash the dishes.” What’s more, we are not alive during the time we are washing the dishes. In fact we are completely incapable of realizing the miracle of life while standing at the sink. If we can’t wash the dishes, the chances are we won’t be able to drink our tea either…. Thus, we are sucked away into the future – and we are incapable of actually living one minute of life.”</p>
+  <p>Rhetoric is a learned technique for making an intended effect on an audience or readers. Writers, of course, want to maximize intended effects and minimize unintended ones. The way to do this is to use shared structures and procedures for organizing ideas; this is rhetoric.</p>
 
+  <p>Semiotics shows us that meaning and social significance circulate beyond a writer’s/producer’s intentions, and that meaning or value is ultimately determined by an audience’s reception of a discourse as it resonates in a larger context of similar messages, genres, styles, and prior discourses.</p>
+
+  <p>Writers work by inhabiting this same social space and sharing expectations about language, discourse, and genres of writing. This is why learning the structure and rules of the genre are essential to making a positive impression on your readers.</p>
+
+  <p>Today we write with cross-media sources that need to be cited and documented. The more information sources you can document, the greater your credibility in entering the discussion or debate surrounding your topic.</p>
+
+  <p><strong>Rhetoric 101b: Meeting the Expectations of Your Readers and Audience</strong></p>
+
+  <p>Some of the rules for this genre of writing are part of our cultural expectations for any kind of discourse or communicative act: a coherent discourse has a beginning (intro, setting up the idea), middle (the argument itself with examples, support of claims, support of prior research, and/or close analysis of material) , and an end (a conclusion that ties up the argument and/or suggests broader implications or wider significance of the “middle”.)</p>
+
+  <p>So, to be a good writer of a researched or interpretive paper, or any other genre, you need to keep these rules foremost in mind:</p>
+
+  <ul>
+    <li>
+      <ol>
+        <li><strong>Write to be read, not to “express yourself” or “get your ideas out.”</strong> Use the rhetorical structure of explanatory or interpretive writing, and provide a sense of entering a shared dialogue on your topic.</li>
+      </ol>
+    </li>
+    <li>
+      <ol>
+        <li><strong>Meet your reader’s/audience’s expectations for the genre you are writing.</strong> Know the structure and rules of the genre you are writing.</li>
+      </ol>
+    </li>
+    <li>
+      <ol>
+        <li><strong>Develop your “voice” as reliable and authoritative</strong> by providing the standard signs of this reliability and authority: documentation of evidence and references to other research that allows a reader to locate your argument in a context of information (shows that you’ve done your homework and background research), clear examples for illustrating your points, logical transitions between points.</li>
+      </ol>
+    </li>
+  </ul>
 </blockquote>
-
-<p>Directly preceding this:</p>
-
-<blockquote>
-  <p>While washing the dishes one should only be washing the dishes, which means that while washing the dishes one should be completely aware of the fact that one is washing the dishes. At first glance, that might seem a little silly: why put so much stress on a simple thing? But that’s precisely the point. The fact that I am standing there and washing these bowls is a wondrous reality. I’m being completely myself, following my breath, conscious of my presence, and conscious of my thoughts and actions. There’s no way I can be tossed around mindlessly like a bottle slapped here and there on the waves.</p>
-</blockquote>
-
 
   </div>
 </article>
 
+    
 
     <hr>
   
     
+      
 
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
     <h1 class="post-title" itemprop="name headline">
-      <a class="post-link" href="/2010/02/Criticism-for-everyone.html">Criticism for everyone</a>
+      <a class="post-link" href="/2010/03/Two-of-charts.html">Two of charts</a>
     </h1>
     <p class="post-meta text-muted">
-      <time datetime="2010-02-11T00:00:00+00:00" itemprop="datePublished">February 11, 2010</time>
+      <time datetime="2010-03-05T00:00:00+00:00" itemprop="datePublished">March 5, 2010</time>
       
       
 
@@ -529,46 +553,38 @@
 
   
 
-  • Tagged <a href="/tags/#art">art</a>, <a href="/tags/#criticism">criticism</a>, <a href="/tags/#imperative">imperative</a>, <a href="/tags/#technology">technology</a>, and <a href="/tags/#zen">zen</a>
+  • Tagged <a href="/tags/#charts">charts</a>, <a href="/tags/#graphics">graphics</a>, <a href="/tags/#nerd">nerd</a>, and <a href="/tags/#stacy-q">stacy-q</a>
 
 
     </p>
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p>From <em>Zen and the Art of Motorcycle Maintenance</em>:</p>
+    <p><a href="/uploads/2010-03-05-Two-of-charts/Chart-Chooser.png"> <img src="/uploads/2010-03-05-Two-of-charts/Chart-Chooser-500x374.png" alt="" title="Chart Chooser" /> </a></p>
 
-<blockquote>
-  <p>At present we’re snowed under with an irrational expansion of blind data-gathering in the sciences because there’s no rational format for an understanding of scientific creativity. At present we are also snowed under with a lot of stylishness in the arts—thin art—because there’s very little assimilation or extension into underlying form. We have artists with no scientific knowledge and scientists with no artistic knowledge and both with no spiritual sense of gravity at all, and the result is not just bad, it is ghastly.</p>
-</blockquote>
+<p>The first is by  <a href="http://www.extremepresentation.com/book/">Andrew Abela</a> from his book <em>Advanced Presentations by Design</em>. Also available in <a href="http://extremepresentation.typepad.com/blog/2009/11/diagramvalasztasi-javaslatok-chart-chooser-in-hungarian.html">Hungarian</a>.</p>
 
-<p>The following precedes the former, but if I put it in order the people who care about technology will stop reading when they hit romance (you know who you are!) and vice versa (same!) and the people who can grok both won’t care either way (yeah!):</p>
+<p>The second is from Dan Roam’s book <em><a href="http://www.thebackofthenapkin.com/tools.php">The Back of the Napkin</a>.</em></p>
 
-<blockquote>
-  <p>In the past our common universe of reason has been in the process of escaping, rejecting the romantic, irrational world of prehistoric man. It’s been necessary since before the time of Socrates to reject the passions, the emotions, in order to free the rational mind for an understanding of nature’s order which was as yet unknown. Now it’s time to further an understanding of nature’s order by reassimilating those passions which were originally fled from. The passions, the emotions, the affective domain of man’s consciousness are a part of nature’s order too. The central part.</p>
-
-  <p>…</p>
-
-  <p>The time for a real unification of art and technology is really long overdue.</p>
-</blockquote>
-
-<p>So go make something lovely (that’s for the people who can grok both; the rest of you are grousing).</p>
+<p>_ <a href="/uploads/2010-03-05-Two-of-charts/backofnapkin-codex.png"> <img src="/uploads/2010-03-05-Two-of-charts/backofnapkin-codex-500x599.png" alt="" title="backofnapkin-codex" /> </a>And of course, what you <a href="http://www.youtube.com/watch?v=aINmJ5ieM6Y">really came for</a>._</p>
 
   </div>
 </article>
 
+    
 
     <hr>
   
     
+      
 
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
     <h1 class="post-title" itemprop="name headline">
-      <a class="post-link" href="/2010/02/Ethical-flexibility-for-export.html">Ethical flexibility for export</a>
+      <a class="post-link" href="/2010/03/Numerical-Indifference.html">Numerical Indifference</a>
     </h1>
     <p class="post-meta text-muted">
-      <time datetime="2010-02-01T00:00:00+00:00" itemprop="datePublished">February 1, 2010</time>
+      <time datetime="2010-03-04T00:00:00+00:00" itemprop="datePublished">March 4, 2010</time>
       
       
 
@@ -577,46 +593,94 @@
 
   
 
-  • Tagged <a href="/tags/#ethics">ethics</a>, <a href="/tags/#generosity">generosity</a>, <a href="/tags/#nonprofits">nonprofits</a>, <a href="/tags/#philanthropy">philanthropy</a>, and <a href="/tags/#spam">spam</a>
+  • Tagged <a href="/tags/#journalism">journalism</a>, <a href="/tags/#language">language</a>, <a href="/tags/#long">long</a>, <a href="/tags/#math">math</a>, <a href="/tags/#navigation">navigation</a>, <a href="/tags/#portfolio">portfolio</a>, and <a href="/tags/#rhetoric">rhetoric</a>
 
 
     </p>
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p>I greatly enjoy this leap of ethics in my spam folder over the weekend:</p>
+    <p>I was really proud of myself last week when I made what I felt was a valid and illuminating numerical comparison: I wrote that the <a href="http://transmissionproject.org/current/2010/2/btop-applicants-awards-and-poverty-analysis">amount of Broadband Stimulus money</a> requested for projects within the state of Alaska—projects serving rural and underserved communities—was on a per-capita basis <em>about equal to the federal poverty level for a 2-person household</em>. For those of us who work on access and inclusion (and even those that don’t), that’s a much more meaningful statement than writing “about $15,000”.</p>
+
+<p>I have a degree in math, but at the post-calculus level numbers serve little specialized purpose other than to check your work. One of the professors I now work beside, <a href="http://www.cpcs.umb.edu/faculty/frankenstein.htm">Marilyn Frankenstein</a>, <a href="http://www.amazon.com/gp/product/1853430919/qid=1139546552/sr=1-1/ref=sr_1_1/102-8262015-0691332?s=books&amp;v=glance&amp;n=283155">teaches</a> how to make numbers relevant and meaningful by contextualizing them. She does her studies integrating mathematics and numerical literacy into social justice work (I do work within the College of Public and Community Service, after all), which all falls under <a href="http://www.radicalmath.org">Radical Math</a> (which is a funny name if you find math funny).</p>
+
+<p>That all being said, <strong>you shouldn’t provide a number without a reason</strong>. And since you’re providing the number for a reason, that reason should be apparent. If you expect someone to think “That’s a really big number” you should tell them it’s a really big number and help them understand just how big it is. A number without meaning is just data, and data is boring. If you’re giving someone data and expecting it to have meaning you’re making someone else do extra work by analyzing that data and coming to the conclusion you already have: the reason you thought the number was important in the first place.</p>
+
+<p>The problem with numbers is that within the sphere of other numbers, there isn’t any reference points (other than perhaps zero). And there are a lot of numbers. More than you can count (hah!).</p>
+
+<p>The problem with people is that <a href="http://www.dailygalaxy.com/my_weblog/2008/04/the-limits-of-m.html">we can only remember 3 or 4 things at a time</a>. This means that we tend to bunch the infinite space of numbers into a very small number of groups: nothing, a little, a bunch, and a whole heck of a lot. The way we group things is not by some property of the number itself, but rather by the context it’s given in. By contextualizing numbers and giving them meaning, you move them from data (boring!) to useable information: it is not the numbers themselves that will stick with us, but the meaning they represent.</p>
+
+<p>To show this, I made up 2 different surveys and sent them to my friends on Facebook and whoever happens to follow me on <a href="http://twitter.com/bensheldon">Twitter</a>. In the first survey I asked people to place someone who makes $1 Million/year and someone who makes $1 Billion/year on a 10 point scale of Poor to Rich. Nearly all responses placed $1 Million/year between 7 and 10; and placed $1 Billion/year between 8 and 10; both very Rich. Nearly half of the responses placed both incomes as equivalent at a 10: the mostest richest.</p>
+
+<p><img src="/uploads/2010-03-04-Numerical-Indifference/richpoor-survey-499x373.png" alt="" title="richpoor-survey" /></p>
+
+<p>I admit that many of my friends are Americorps alums, nonprofitty folks and other liberal ilk, but the point I want to make is that there isn’t a whole lot of difference, within the context of rich and poor, between someone who makes $1 Million/year and someone who makes $1 Billion/year. Myself, I split incomes into about 5 different levels:</p>
+
+<ul>
+  <li>
+    <p><strong>less than $12k/year:</strong> been there, done that</p>
+  </li>
+  <li>
+    <p><strong>$12k - $30k/year:</strong> limited fun</p>
+  </li>
+  <li>
+    <p><strong>$30k - $50k/year:</strong> the expected earnings potential for my career trajectory</p>
+  </li>
+  <li>
+    <p><strong>$50k-$100k:</strong> The job of my dreams and/or did I just go corporate?</p>
+  </li>
+  <li>
+    <p><strong>$100k+:</strong> Cloud 9</p>
+  </li>
+</ul>
+
+<p>Now I didn’t ask people specifically about themselves, but there are a few things to notice using myself as an example. There are only a few levels (I condensed 100,000 whole numbers into just 4 groups, plus a 5th group for everything else) and there are more groups for smaller numbers than there are for larger numbers (it’s logarithmic-ish: the group sizes are 12, 18, 20, 50, infinity). Also, the numbers are in relation to what I know: what I’m making right now is in the middle and there are 2 groups above and 2 groups below.</p>
+
+<p>So on to the 2nd survey: I asked people where the number 1 Million would fall on a number line between 0 and 1 Billion. This is actually a pretty  typical “aha!” classroom example and a good number of people got it right (many of my friends are also nerds). What’s interesting is the 25% percent of people (1 out of 4) who got it wrong; they chose 3, 5 or 7: exactly where you would divide a 10 point scale into quarters or maybe a few did it by thirds. That’s the expected thing to do if you don’t know this particular trick (and is also a good strategy in Trivial Pursuit).</p>
+
+<p>So what’s the answer? On a 10 point scale, the answer is actually <strong>zero</strong>, but since that wasn’t an option in my survey, the most correct answer was 1.</p>
+
+<p><img src="/uploads/2010-03-04-Numerical-Indifference/millionbillion-survey-500x307.png" alt="" title="millionbillion-survey" /></p>
+
+<p><strong>The number 1 Billion is 1,000 times larger than the number 1 Million</strong>: and 1,000 still is a big number (hilariously, large numbers are made up of many zeros). Compared to 1 Billion, the number 1 Million is rather pale and insignificant….</p>
+
+<p>…unless you’re talking about something meaningful like someone’s salary. In which case, they’re very much the same.</p>
+
+<p>And if you place them in terms of money that’s been wasted through <a href="http://online.wsj.com/article/BT-CO-20100301-712782.html">fraud</a>, for example, then the differences <em>should</em> be made apparent because as I’ve shown adding a bunch of zeros just won’t do it on their own.</p>
+
+<p>When numbers are placed in context to things we know and have experience with, they take on actual meaning. This is from the Pew Research Center’s Excellence in Journalism Project’s <a href="http://www.journalism.org/resources/principles">Principles of Journalism</a>:</p>
 
 <blockquote>
-  <p>Hi,</p>
+  <ol>
+    <li>IT MUST STRIVE TO MAKE THE SIGNIFICANT INTERESTING AND RELEVANT</li>
+  </ol>
 
-  <p>My name is David Smith, I am a Project Coordinator with UNICEF’s Office of Emergency Programs (EMOPS) we are the focal point for emergency Assistance, humanitarian policies, staff security and support to UNICEF Offices in the field, as well as strategic coordination with external Humanitarian partners both within and outside the United Nations system. It is indeed with great optimism that I am writing you because I had to ensure that whoever I would contact in regards to this transaction must be someone I can trust.</p>
-
-  <p>Last year, series of donations amounting to US$5.8M (Five Million Eight Hundred Thousand Dollars) were made to our organization. These donations were later earmarked for developmental projects in two West African countries. The problem is when funds are released for these sort of projects especially In Africa, they are most often misused or in some cases believe it or not, embezzled by corrupt government officials there.</p>
-
-  <p>This practice has gone on for so long and not very much has been done about it and  I have always been made to understand that my work is based on humanitarian grounds and I have done this work to the best of my ability but there is very little to show for it for somebody in my position.</p>
-
-  <p><strong>As a result, I have painstakingly decided to divert some of these funds as a retirement benefit because even if this money is released, it will still  be stolen by officials in Africa anyway.</strong></p>
-
-  <p>This is why I am contacting you, because I need your acceptance and co-operation in allowing these funds to be transferred to you as the Sub-contractor of these projects in Africa.</p>
+  <p>Journalism is storytelling with a purpose. It should do more than gather an audience or catalogue the important. For its own survival, it must balance what readers know they want with what they cannot anticipate but need. In short, it must strive to make the significant interesting and relevant. The effectiveness of a piece of journalism is measured both by how much a work engages its audience and enlightens it. This means journalists must continually ask what information has most value to citizens and in what form. While journalism should reach beyond such topics as government and public safety, a journalism overwhelmed by trivia and false significance ultimately engenders a trivial society.</p>
 </blockquote>
 
-<p>At least he goes on to offer a 50/50 split.</p>
+<p>I’m not saying we all should strive to be journalists, but I think we should strive to make the significant interesting and relevant. To be fair, false significance can be a powerful rhetorical device when it comes to numbers: just watch your evening news the next time they breathlessly “break” a story about public employees making “gasp!” $60k/year. “How dare they make <em>twice</em> the local average income level?!” …because that’s how averages work.</p>
+
+<p>Another example: in my <a href="http://www.island94.org/2010/02/laying-out-latest-layout/">last post</a> about doing the layout for <a href="http://survivorsinc.org">Survival News (“the voices of low income women”)</a>, I noted that if the newspapers in circulation were spread out, they would completely cover the John Hancock Building in Boston up to its 20th floor. That’s much more fun and meaningful than only writing “4,000 copies” (the building has already been <a href="http://en.wikipedia.org/wiki/John_Hancock_Tower#Falling_glass_panes">covered with plywood</a>, so why not?).</p>
+
+<p>And now to the entire reason I wrote this post: I would like to point out that at 40 tabloid-sized pages, the latest edition of Survival News has 52 square feet of copy and graphics: <em>that’s about the same surface area as your refrigerator.</em></p>
 
   </div>
 </article>
 
+    
 
     <hr>
   
     
+      
 
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
     <h1 class="post-title" itemprop="name headline">
-      <a class="post-link" href="/2010/01/Hippostrophe.html">Hippostrophe</a>
+      <a class="post-link" href="/2010/03/Frequency-of-occurrence-of-letters-in-English.html">Frequency of occurrence of letters in English</a>
     </h1>
     <p class="post-meta text-muted">
-      <time datetime="2010-01-28T00:00:00+00:00" itemprop="datePublished">January 28, 2010</time>
+      <time datetime="2010-03-04T00:00:00+00:00" itemprop="datePublished">March 4, 2010</time>
       
       
 
@@ -625,18 +689,21 @@
 
   
 
-  • Tagged <a href="/tags/#amperlamb">amperlamb</a>, <a href="/tags/#animal">animal</a>, <a href="/tags/#hippostrophe">hippostrophe</a>, and <a href="/tags/#punctuation">punctuation</a>
+  • Tagged <a href="/tags/#language">language</a>, <a href="/tags/#math">math</a>, <a href="/tags/#numbers">numbers</a>, and <a href="/tags/#scrabble">scrabble</a>
 
 
     </p>
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p><img src="/uploads/2010-01-28-Hippostrophe/hippostrophe-500x500.png" alt="" title="hippostrophe" /></p>
+    <p><img src="/uploads/2010-03-04-Frequency-of-occurrence-of-letters-in-English/frequency-of-letters-in-english.png" alt="" title="frequency of letters in english" /></p>
+
+<p>I’ve already posted the <a href="http://www.island94.org/2008/10/popco-cake-recipe/">cake recipe</a> from <em>PopCo</em>—a great novel by Alice Butler—so here another part of the back matter: a table of the frequency of occurrence of letters in English from Fletcher Pratt’s S_ecret and Urgent: the story of codes and ciphers_, Blue Ribbon Books, 1939. To be fair, the table above is actually from the only place I could find it on the internet: a 1997 patent for a <a href="http://www.google.com/patents/about?id=WDsaAAAAEBAJ">chordic keyboard</a> who cites “Pratt Fetcher”. <a href="http://en.wikipedia.org/wiki/Fletcher_Pratt">Fletcher Pratt</a> also established a dining club upon which Asimov’s <em>Black Widowers</em> series was based. <strong>Update</strong>: Apparently the numbers above are different than what was published in <em>PopCo:</em> <img src="/uploads/2010-03-04-Frequency-of-occurrence-of-letters-in-English/popco-frequency-of-letters-in-english.png" alt="" title="popco-frequency of letters in english" /></p>
 
   </div>
 </article>
 
+    
 
     
   
@@ -651,7 +718,7 @@
       <li class="page-item"><a href="/page/28/" class="page-link"><span aria-hidden="true">&larr; </span>Newer</a></li>
     
 
-    <li class="page-item disabled"><span class="page-link">Page 29 of 65</span></li>
+    <li class="page-item disabled"><span class="page-link">Page 29 of 66</span></li>
 
     
       <li class="page-item"><a href="/page/30/" class="page-link">Older<span aria-hidden="true"> &rarr;</span></a></li>
