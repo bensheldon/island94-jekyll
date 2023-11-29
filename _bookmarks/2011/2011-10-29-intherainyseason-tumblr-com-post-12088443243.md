@@ -1,0 +1,10 @@
+---
+link: http://intherainyseason.tumblr.com/post/12088443243
+date: 2011-10-29 21:24 UTC
+published: true
+title: '"….One of the most fatuous themes of mainstream OWS coverage is the endless
+  loop of media bafflement..."'
+tags: []
+---
+
+

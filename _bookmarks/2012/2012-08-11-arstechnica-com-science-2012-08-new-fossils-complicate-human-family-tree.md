@@ -1,0 +1,9 @@
+---
+link: http://arstechnica.com/science/2012/08/new-fossils-complicate-human-family-tree/
+date: 2012-08-11 03:15 UTC
+published: true
+title: New fossils complicate human family tree | Ars Technica
+tags: []
+---
+
+

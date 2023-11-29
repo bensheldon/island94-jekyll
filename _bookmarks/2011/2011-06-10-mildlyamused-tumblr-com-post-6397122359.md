@@ -1,0 +1,9 @@
+---
+link: http://mildlyamused.tumblr.com/post/6397122359
+date: 2011-06-10 22:09 UTC
+published: true
+title: Huzzah pointless talent!
+tags: []
+---
+
+

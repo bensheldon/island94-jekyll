@@ -1,0 +1,10 @@
+---
+link: http://alistapart.com/blog/post/15-years-of-dao
+date: 2015-04-08 02:58 UTC
+published: true
+title: 15 Years of Dao
+tags: []
+---
+
+by ALA Staff · April 07, 2015
+A note from the editors: 15 years ago, we published John Allsopp’s seminal article, “A Dao of Web Design.” Today, John looks back…

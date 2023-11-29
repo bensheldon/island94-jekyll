@@ -1,0 +1,9 @@
+---
+link: http://martinfowler.com/videos.html#2015-oscon
+date: 2015-08-05 15:18 UTC
+published: true
+title: 'OSCON Keynote: Making Architecture Matter'
+tags: []
+---
+
+

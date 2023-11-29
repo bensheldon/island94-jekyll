@@ -1,0 +1,9 @@
+---
+link: http://sunlightfoundation.com/blog/2013/04/12/epic-failure-by-the-senate-on-transparency-provisions-in-stock-act/
+date: 2013-04-14 22:34 UTC
+published: true
+title: http://bit.ly/ZuUP7p
+tags: []
+---
+
+

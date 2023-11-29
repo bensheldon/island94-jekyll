@@ -1,0 +1,9 @@
+---
+link: http://onlinejournalismblog.com/2011/09/06/gathering-data-a-flow-chart-for-data-journalists/
+date: 2011-09-06 10:30 UTC
+published: true
+title: 'Gathering data: a flow chart for data journalists'
+tags: []
+---
+
+

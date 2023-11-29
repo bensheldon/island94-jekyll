@@ -1,0 +1,9 @@
+---
+link: https://uxplanet.org/best-practices-for-cards-fa45e3ad94dd#.1kh5hd96u
+date: 2017-01-22 17:15 UTC
+published: true
+title: Best Practices for Cards
+tags: []
+---
+
+

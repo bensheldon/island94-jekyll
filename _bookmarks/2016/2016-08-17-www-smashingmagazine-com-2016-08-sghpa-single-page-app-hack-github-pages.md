@@ -1,0 +1,9 @@
+---
+link: https://www.smashingmagazine.com/2016/08/sghpa-single-page-app-hack-github-pages/
+date: 2016-08-17 04:21 UTC
+published: true
+title: 'S(GH)PA: The Single-Page App Hack For GitHub Pages – Smashing Magazine'
+tags: []
+---
+
+

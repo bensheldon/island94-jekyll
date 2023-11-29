@@ -1,0 +1,10 @@
+---
+link: http://www.wired.com/opinion/2012/12/why-hp-dell-and-ibm-are-on-the-wrong-side-of-history/
+date: 2012-12-21 02:00 UTC
+published: true
+title: Why HP, Dell and IBM Are on the Wrong Side of Internet History | Wired Opinion
+  | Wired.com
+tags: []
+---
+
+

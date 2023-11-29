@@ -1,0 +1,9 @@
+---
+link: http://www.christopherspenn.com/2017/01/your-2017-marketing-quick-tuneup-checklist/
+date: 2017-01-04 15:54 UTC
+published: true
+title: Your 2017 Marketing Quick Tuneup Checklist
+tags: []
+---
+
+

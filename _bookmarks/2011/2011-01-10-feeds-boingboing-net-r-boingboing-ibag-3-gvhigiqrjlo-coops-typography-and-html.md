@@ -1,0 +1,9 @@
+---
+link: http://feeds.boingboing.net/~r/boingboing/iBag/~3/GvhiGiQrjLo/coops-typography-and.html
+date: 2011-01-10 22:28 UTC
+published: true
+title: Coop's typography and signpainting swipe file
+tags: []
+---
+
+I'm always more interested in designer's and copywriter's swipe files than their portfolios. A portfolio demonstrates competency, a swipe file demonstrates engagement, growth and critique.

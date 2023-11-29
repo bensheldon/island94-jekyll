@@ -1,0 +1,17 @@
+---
+link: http://www.wired.com/politics/security/magazine/15-12/ff_futurewar?currentPage=1
+date: 2007-11-29 13:07 UTC
+published: true
+title: 'How Technology Almost Lost the War: In Iraq, the Critical Networks Are Social
+  — Not Electronic'
+tags:
+- politics
+- cybernetics
+- war
+- technology
+- networks
+- article
+- social
+---
+
+Noah Shachtman

@@ -1,0 +1,9 @@
+---
+link: http://arstechnica.com/science/2013/01/powerful-stellar-outbursts-could-be-sign-of-dual-core-stars/
+date: 2013-01-31 02:50 UTC
+published: true
+title: Powerful stellar outbursts could be sign of dual-core stars | Ars Technica
+tags: []
+---
+
+

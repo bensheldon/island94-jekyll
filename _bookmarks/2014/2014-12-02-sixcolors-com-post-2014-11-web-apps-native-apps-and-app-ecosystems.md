@@ -1,0 +1,10 @@
+---
+link: http://sixcolors.com/post/2014/11/web-apps-native-apps-and-app-ecosystems/
+date: 2014-12-02 03:22 UTC
+published: true
+title: Web apps, native apps, and app ecosystems
+tags: []
+---
+
+November 27, 2014 6:56 AM PT
+By Glenn Fleishman [Glenn Fleishman writes regularly for the Economist, Boing Boing, and Macworld, and tweets incessantly—oh why…

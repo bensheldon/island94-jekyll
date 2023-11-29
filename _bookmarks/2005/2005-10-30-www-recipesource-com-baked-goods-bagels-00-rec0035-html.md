@@ -1,0 +1,9 @@
+---
+link: http://www.recipesource.com/baked-goods/bagels/00/rec0035.html
+date: 2005-10-30 22:55 UTC
+published: true
+title: Bagel Recipe
+tags: []
+---
+
+recipe

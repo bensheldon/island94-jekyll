@@ -1,0 +1,10 @@
+---
+link: http://blogs.citypages.com/blotter/2011/02/michele_bachmann_lila_rose_live_action_planned_parenthood.php
+date: 2011-02-03 03:28 UTC
+published: true
+title: Michele Bachmann promotes video smear of Planned Parenthood [UPDATE] - Minneapolis
+  / St. Paul News - The Blotter
+tags: []
+---
+
+It worked on ACORN....

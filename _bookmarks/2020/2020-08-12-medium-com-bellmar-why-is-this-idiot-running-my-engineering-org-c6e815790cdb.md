@@ -1,0 +1,10 @@
+---
+link: https://medium.com/@bellmar/why-is-this-idiot-running-my-engineering-org-c6e815790cdb
+date: 2020-08-12 04:48 UTC
+published: true
+title: Why is This Idiot Running My Engineering Org? | by Marianne Bellotti | Aug,
+  2020 | Medium
+tags: []
+---
+
+

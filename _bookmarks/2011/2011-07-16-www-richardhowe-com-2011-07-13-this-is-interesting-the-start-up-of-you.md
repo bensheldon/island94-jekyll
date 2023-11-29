@@ -1,0 +1,9 @@
+---
+link: http://www.richardhowe.com/2011/07/13/this-is-interesting-the-start-up-of-you/
+date: 2011-07-16 23:14 UTC
+published: true
+title: 'This Is Interesting: ‘The Start-Up of You’'
+tags: []
+---
+
+The NYT article is a bunch of Friedman-esque (ha!) nothings, but this <a href="http://dh.com">dh.com</a> remark is good: <br><br>"Can the notions of labor solidarity or implied social contract between employer and employee be transferred to something community based while the workforce turns into a collection of independent contractors?"

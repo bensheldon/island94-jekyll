@@ -1,0 +1,9 @@
+---
+link: http://www.universalhub.com/2011/how-creative-gloucester-lobstermen-are-beating-hig
+date: 2011-06-22 13:19 UTC
+published: true
+title: How creative Gloucester lobstermen are beating high fuel costs
+tags: []
+---
+
+Great photo

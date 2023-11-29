@@ -1,0 +1,10 @@
+---
+link: http://www.wired.com/threatlevel/2012/05/ff_libya/all/1
+date: 2012-06-11 00:55 UTC
+published: true
+title: 'Jamming Tripoli: Inside Moammar Gadhafi''s Secret Surveillance Network | Threat
+  Level | Wired.com'
+tags: []
+---
+
+

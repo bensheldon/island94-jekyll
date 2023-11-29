@@ -1,0 +1,9 @@
+---
+link: http://www.vanityfair.com/hollywood/2013/03/making-of-pulp-fiction-oral-history.print
+date: 2014-05-16 05:06 UTC
+published: true
+title: The Making of <i>Pulp Fiction:</i> Quentin Tarantino’s and the Cast’s Retelling
+tags: []
+---
+
+The first independent film to gross more than $200 million, Pulp Fiction was a shot of adrenaline to Hollywood’s heart, reviving John Travolta’s career, making…

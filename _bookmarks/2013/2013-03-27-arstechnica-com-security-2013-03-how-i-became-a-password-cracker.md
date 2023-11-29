@@ -1,0 +1,9 @@
+---
+link: http://arstechnica.com/security/2013/03/how-i-became-a-password-cracker/
+date: 2013-03-27 04:44 UTC
+published: true
+title: How I became a password cracker | Ars Technica
+tags: []
+---
+
+

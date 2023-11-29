@@ -1,0 +1,9 @@
+---
+link: http://feeds.gawker.com/~r/lifehacker/full/~3/U0mvutYKuLM/repel-mosquitoes-with-a-bubble-machine
+date: 2011-05-31 16:00 UTC
+published: true
+title: Repel Mosquitoes with a Bubble Machine [Clever Uses]
+tags: []
+---
+
+

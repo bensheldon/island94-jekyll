@@ -1,0 +1,9 @@
+---
+link: https://www.nngroup.com/articles/footers/
+date: 2019-02-27 02:33 UTC
+published: true
+title: 'Web Page Footers 101: Design Patterns and When to Use Each'
+tags: []
+---
+
+

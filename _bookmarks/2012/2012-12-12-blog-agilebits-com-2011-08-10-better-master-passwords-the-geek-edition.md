@@ -1,0 +1,9 @@
+---
+link: http://blog.agilebits.com/2011/08/10/better-master-passwords-the-geek-edition/
+date: 2012-12-12 15:57 UTC
+published: true
+title: 'Better Master Passwords: The geek edition | Agile Blog'
+tags: []
+---
+
+

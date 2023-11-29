@@ -1,0 +1,10 @@
+---
+link: https://jakobgreenfeld.com/gut
+date: 2020-10-22 14:11 UTC
+published: true
+title: The Grand Unified Theory of Product Ideation – Jakob Greenfeld – Experiments
+  in Entrepreneurship and Learning
+tags: []
+---
+
+

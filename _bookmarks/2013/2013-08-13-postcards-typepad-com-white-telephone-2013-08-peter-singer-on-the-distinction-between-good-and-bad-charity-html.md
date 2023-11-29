@@ -1,0 +1,10 @@
+---
+link: http://postcards.typepad.com/white_telephone/2013/08/peter-singer-on-the-distinction-between-good-and-bad-charity.html
+date: 2013-08-13 04:18 UTC
+published: true
+title: 'White Courtesy Telephone: Peter Singer on the Distinction Between Good and
+  Bad Charity'
+tags: []
+---
+
+

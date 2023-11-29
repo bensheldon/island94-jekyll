@@ -1,0 +1,10 @@
+---
+link: http://24ways.org/2014/meet-for-learning/
+date: 2015-01-26 16:50 UTC
+published: true
+title: Meet for Learning ◆ 24 ways
+tags: []
+---
+
+“I’ve never worked in a place like this,” said one of my direct reports during our daily stand-up meeting.
+And with that statement, my mind raced to the most…

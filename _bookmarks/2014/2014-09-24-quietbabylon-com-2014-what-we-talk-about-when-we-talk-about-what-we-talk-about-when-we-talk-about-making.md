@@ -1,0 +1,11 @@
+---
+link: http://quietbabylon.com/2014/what-we-talk-about-when-we-talk-about-what-we-talk-about-when-we-talk-about-making/
+date: 2014-09-24 06:05 UTC
+published: true
+title: What We Talk About When We Talk About What We Talk About When We Talk About
+  Making
+tags:
+- ideology
+---
+
+"

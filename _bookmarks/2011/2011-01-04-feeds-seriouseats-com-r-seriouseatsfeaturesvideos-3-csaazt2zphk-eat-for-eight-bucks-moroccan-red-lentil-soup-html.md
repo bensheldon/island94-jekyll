@@ -1,0 +1,9 @@
+---
+link: http://feeds.seriouseats.com/~r/seriouseatsfeaturesvideos/~3/CSaazt2zPHk/eat-for-eight-bucks-moroccan-red-lentil-soup.html
+date: 2011-01-04 14:45 UTC
+published: true
+title: 'Eat For Eight Bucks: Moroccan Red Lentil Soup'
+tags: []
+---
+
+

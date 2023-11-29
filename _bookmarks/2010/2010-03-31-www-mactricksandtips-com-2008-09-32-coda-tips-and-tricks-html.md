@@ -1,0 +1,12 @@
+---
+link: http://www.mactricksandtips.com/2008/09/32-coda-tips-and-tricks.html
+date: 2010-03-31 17:08 UTC
+published: true
+title: 32 Coda Tips and Tricks | Mac Tricks And Tips
+tags:
+- webdesign
+- css
+- programming
+---
+
+Anyway I have been collecting tips for over the last week or so about Coda. These tips and tricks are designed to help you work with Coda and get stuff done, as well as this some of the tips are designed to point out the obvious task to you, that aren’t quite as obvious. They are in no real order. If you have any more Coda tips and tricks please leave a comment.

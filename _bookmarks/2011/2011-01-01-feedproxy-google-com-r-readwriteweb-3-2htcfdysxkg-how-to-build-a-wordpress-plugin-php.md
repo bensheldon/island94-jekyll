@@ -1,0 +1,9 @@
+---
+link: http://feedproxy.google.com/~r/readwriteweb/~3/2hTcfDySXKg/how-to-build-a-wordpress-plugin.php
+date: 2011-01-01 17:41 UTC
+published: true
+title: How to Build a WordPress Plugin in 10 Minutes
+tags: []
+---
+
+This is an example of why the wordpress ecosystem is weak compared to Drupal. Not only is the tutorial empty, it refers to the codex which is a stubbed and outdated wiki format (unlike <a href="http://API.Drupal.org">API.Drupal.org</a>). Also, it doesn't propose good practices, like structuring your plugin with OOP, or even using the Settings API. Wordpress has an awesome hook system (actions and filters) and yet this tutorial doesn't explore what it actually means on a functional level. <br><br>Of course, Wordpress has a much more active theme/template community than Drupal, so go figure.

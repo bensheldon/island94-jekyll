@@ -1,0 +1,11 @@
+---
+link: http://www.independent.co.uk/news/world/americas/american-spy-who-led-ring-passing-soviets-information-for-17-years-during-cold-war-dies-in-prison-9701184.html
+date: 2014-08-30 20:08 UTC
+published: true
+title: American spy who led ring passing Soviets information for 17 years during Cold
+  War dies in prison
+tags: []
+---
+
+John Walker, a retired Navy Warrant Officer, died on Thursday at the Federal Medical Centre, a prison hospital, in North Carolina aged 77.
+His cause of death…

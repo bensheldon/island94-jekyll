@@ -1,0 +1,9 @@
+---
+link: http://arstechnica.com/information-technology/2013/02/who-needs-hp-and-dell-facebook-now-designs-all-its-own-servers/
+date: 2013-02-17 17:45 UTC
+published: true
+title: Who needs HP and Dell? Facebook now designs all its own servers | Ars Technica
+tags: []
+---
+
+

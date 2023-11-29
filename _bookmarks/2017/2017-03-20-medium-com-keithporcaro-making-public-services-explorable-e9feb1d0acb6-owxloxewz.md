@@ -1,0 +1,11 @@
+---
+link: https://medium.com/@keithporcaro/making-public-services-explorable-e9feb1d0acb6#.owxloxewz
+date: 2017-03-20 13:34 UTC
+published: true
+title: Making Public Services Explorable
+tags:
+- forms
+- design
+---
+
+Making forms more accessible and descriptive of the application process as a whole.

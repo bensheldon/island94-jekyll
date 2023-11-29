@@ -1,0 +1,16 @@
+---
+link: http://namac.org/category.cfm?cid=101&id=8&monly=0
+date: 2008-05-12 14:38 UTC
+published: true
+title: 'NAMAC: TeleSalon Podcasts'
+tags:
+- ctcvista
+- media
+- nonprofit
+---
+
+Sustaining Community Media through Mission Centered Service
+presented by Laurie Cirivello, Grand Rapids Community Media
+Recorded April 30, 2008
+
+While traditional funding models for Community Media are eroding, the need for empowerment of local voices

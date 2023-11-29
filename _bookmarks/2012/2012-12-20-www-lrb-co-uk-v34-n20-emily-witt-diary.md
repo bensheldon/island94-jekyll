@@ -1,0 +1,9 @@
+---
+link: http://www.lrb.co.uk/v34/n20/emily-witt/diary
+date: 2012-12-20 21:59 UTC
+published: true
+title: 'Emily Witt · Diary: Online Dating · LRB 25 October 2012'
+tags: []
+---
+
+

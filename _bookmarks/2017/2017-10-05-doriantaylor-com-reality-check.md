@@ -1,0 +1,9 @@
+---
+link: https://doriantaylor.com/reality-check
+date: 2017-10-05 13:30 UTC
+published: true
+title: Reality Check — Dorian Taylor
+tags: []
+---
+
+

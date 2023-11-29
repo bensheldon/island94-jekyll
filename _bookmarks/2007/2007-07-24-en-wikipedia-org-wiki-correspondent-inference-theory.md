@@ -1,0 +1,12 @@
+---
+link: http://en.wikipedia.org/wiki/Correspondent_inference_theory
+date: 2007-07-24 14:04 UTC
+published: true
+title: Correspondent inference theory - Wikipedia, the free encyclopedia
+tags:
+- theory
+- social
+- wikipedia
+---
+
+Correspondent inference theory is a psychological theory proposed by Edward E. Jones and Keith Davis that argues we use the consequences of a person's behaviour as a basis for inferring intentions. For example, consider a third party who observes one pers

@@ -1,0 +1,10 @@
+---
+link: http://www.amberbit.com/blog/2013/12/20/similar-images-detection-in-ruby-with-phash/
+date: 2014-07-19 23:06 UTC
+published: true
+title: Similar images detection in Ruby - Part 1
+tags:
+- ruby
+---
+
+At AmberBit we develop Ruby on Rails web applications for clients that are start-ups in different areas. One of the clients required detection of near-duplicate images, which allowed us to explore…

@@ -1,0 +1,10 @@
+---
+link: https://blog.pragmaticengineer.com/advice-to-myself-when-starting-as-a-software-developer/
+date: 2020-08-02 20:14 UTC
+published: true
+title: Advice to Myself When Starting Out as a Software Developer - The Pragmatic
+  Engineer
+tags: []
+---
+
+

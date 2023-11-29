@@ -1,0 +1,10 @@
+---
+link: https://apple.news/A71_rQgmHQ3CNmGUqAdWJpQ
+date: 2018-01-22 01:29 UTC
+published: true
+title: 16 Cooking Tips That'll Make You Say "Why Didn't I Know About These Sooner"?
+  - BuzzFeed
+tags: []
+---
+
+

@@ -1,0 +1,10 @@
+---
+link: https://medium.com/@duretti/how-to-get-engineering-teams-to-eat-their-vegetables-83e0f83af71a#.3mx1zujmm
+date: 2016-09-01 20:02 UTC
+published: true
+title: How to get engineering teams to eat their vegetables
+tags:
+- work
+---
+
+

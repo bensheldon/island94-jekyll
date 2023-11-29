@@ -1,0 +1,10 @@
+---
+link: http://blog.arkency.com/2015/02/the-beginners-guide-to-jquery-deferred-and-promises-for-ruby-programmers/
+date: 2015-03-01 20:26 UTC
+published: true
+title: The Beginners Guide to jQuery.Deferred and Promises for Ruby programmers
+tags:
+- javascript
+---
+
+

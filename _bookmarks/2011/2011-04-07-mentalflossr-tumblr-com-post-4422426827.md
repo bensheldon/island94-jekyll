@@ -1,0 +1,9 @@
+---
+link: http://mentalflossr.tumblr.com/post/4422426827
+date: 2011-04-07 20:36 UTC
+published: true
+title: Now You Know
+tags: []
+---
+
+

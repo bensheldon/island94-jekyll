@@ -1,0 +1,9 @@
+---
+link: http://blog.stuffedguys.com/
+date: 2005-04-17 12:46 UTC
+published: true
+title: The Chronicles of Stuffed Guys
+tags: []
+---
+
+

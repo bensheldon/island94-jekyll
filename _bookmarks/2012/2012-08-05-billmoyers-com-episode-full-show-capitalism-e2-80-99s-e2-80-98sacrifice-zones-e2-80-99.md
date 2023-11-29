@@ -1,0 +1,10 @@
+---
+link: http://billmoyers.com/episode/full-show-capitalism%E2%80%99s-%E2%80%98sacrifice-zones%E2%80%99/
+date: 2012-08-05 02:25 UTC
+published: true
+title: "Full Show: Capitalismâ\x80\x99s â\x80\x98Sacrifice Zonesâ\x80\x99 | Moyers
+  & Company | BillMoyers.com"
+tags: []
+---
+
+

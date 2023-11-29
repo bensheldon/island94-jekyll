@@ -1,0 +1,12 @@
+---
+link: http://cake.allrecipes.com/az/BlckRssnCk.asp
+date: 2005-12-24 18:15 UTC
+published: true
+title: Black Russian Cake I - All Recipes - Cake
+tags:
+- cake
+- cooking
+- recipe
+---
+
+Steve Brogan made this at LTC and it was moist and delicious

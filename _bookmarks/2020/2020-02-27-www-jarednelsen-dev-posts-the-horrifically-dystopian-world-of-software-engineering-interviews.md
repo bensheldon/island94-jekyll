@@ -1,0 +1,10 @@
+---
+link: https://www.jarednelsen.dev/posts/The-horrifically-dystopian-world-of-software-engineering-interviews
+date: 2020-02-27 21:58 UTC
+published: true
+title: The Horrifically Dystopian World of Software Engineering Interviews - Blog
+  by Jared Nelsen
+tags: []
+---
+
+

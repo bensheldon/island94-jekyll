@@ -1,0 +1,11 @@
+---
+link: https://speakerdeck.com/sferik/writing-fast-ruby
+date: 2014-09-25 14:13 UTC
+published: true
+title: Writing fast Ruby
+tags:
+- ruby
+- rails
+---
+
+

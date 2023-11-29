@@ -1,0 +1,9 @@
+---
+link: http://feeds.boingboing.net/~r/boingboing/iBag/~3/exZzq6mKNhs/bolt-and-fastener-ch.html
+date: 2011-02-01 14:28 UTC
+published: true
+title: 'Bolt and fastener chart: what''s that dingus called?'
+tags: []
+---
+
+sexy

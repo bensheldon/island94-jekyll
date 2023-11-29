@@ -1,0 +1,9 @@
+---
+link: http://hivelogic.com/articles/6-faces-of-bond
+date: 2011-09-08 22:36 UTC
+published: true
+title: The 6 Faces of Bond
+tags: []
+---
+
+For the Islamaphobes...

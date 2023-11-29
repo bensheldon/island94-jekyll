@@ -1,0 +1,9 @@
+---
+link: http://arstechnica.com/business/2012/12/dear-itu-please-dont-bill-internet-use-like-phone-calls/
+date: 2012-12-02 03:55 UTC
+published: true
+title: Dear ITU, please don’t bill Internet use like phone calls | Ars Technica
+tags: []
+---
+
+

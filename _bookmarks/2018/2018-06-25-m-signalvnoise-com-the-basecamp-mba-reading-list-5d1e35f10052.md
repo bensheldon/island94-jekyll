@@ -1,0 +1,9 @@
+---
+link: https://m.signalvnoise.com/the-basecamp-mba-reading-list-5d1e35f10052
+date: 2018-06-25 21:44 UTC
+published: true
+title: The “Basecamp MBA” Reading List
+tags: []
+---
+
+

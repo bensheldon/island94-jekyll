@@ -1,0 +1,12 @@
+---
+link: http://raygunrobot.com/archives/On-Democracy-Player-Whats-in-a-name
+date: 2007-03-13 14:55 UTC
+published: true
+title: 'Garrett Albright''s Ray Gun Robot — On Democracy Player: What''s in a name?'
+tags:
+- naming
+- advice
+- marketing
+---
+
+I'm no expert on this matter, but it seems there's a few things that are apparent when it comes to naming a product. Roughly in order of importance, they'd be…

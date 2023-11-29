@@ -1,0 +1,9 @@
+---
+link: http://www.confreaks.com/videos/988-goruco2012-power-rake
+date: 2013-12-10 22:25 UTC
+published: true
+title: Power Rake - Jim Weirich - GORUCO 2012
+tags: []
+---
+
+

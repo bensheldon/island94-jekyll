@@ -1,0 +1,9 @@
+---
+link: https://css-tricks.com/writing-animations-that-bring-your-site-to-life/
+date: 2019-02-25 05:03 UTC
+published: true
+title: Writing Animations That Bring Your Site to Life | CSS-Tricks
+tags: []
+---
+
+

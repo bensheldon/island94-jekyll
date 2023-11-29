@@ -1,0 +1,9 @@
+---
+link: http://stdout.be/2011/10/19/a-wild-success-and-an-utter-failure/#
+date: 2011-10-20 02:55 UTC
+published: true
+title: stdout.be | A wild success and an utter failure
+tags: []
+---
+
+Summary - Wikipedia is about people, not technology, which is why Wikipedia is successful; but being about people is boring and repetitive, so Wikipedia should  be more about technology because... umm... then they'd have even more success.... despite what I wrote earlier... just wave your hands over that... technology, that's the ticket... yes, sir.

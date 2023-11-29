@@ -1,0 +1,12 @@
+---
+link: https://hbr.org/2016/07/why-diversity-programs-fail
+date: 2016-10-07 23:34 UTC
+published: true
+title: Why Diversity Programs Fail
+tags:
+- management
+---
+
+<blockquote>
+A number of companies have gotten consistently positive results with tactics that don’t focus on control. They apply three basic principles: engage managers in solving the problem, expose them to people from different groups, and encourage social accountability for change.
+</blockquote

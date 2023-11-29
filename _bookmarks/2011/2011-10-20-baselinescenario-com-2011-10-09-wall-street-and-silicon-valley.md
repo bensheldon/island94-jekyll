@@ -1,0 +1,9 @@
+---
+link: http://baselinescenario.com/2011/10/09/wall-street-and-silicon-valley/
+date: 2011-10-20 13:42 UTC
+published: true
+title: Wall Street and Silicon Valley
+tags: []
+---
+
+

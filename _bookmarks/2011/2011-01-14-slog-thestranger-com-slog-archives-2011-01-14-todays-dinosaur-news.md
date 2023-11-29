@@ -1,0 +1,9 @@
+---
+link: http://slog.thestranger.com/slog/archives/2011/01/14/todays-dinosaur-news
+date: 2011-01-14 18:00 UTC
+published: true
+title: Today's Dinosaur News
+tags: []
+---
+
+

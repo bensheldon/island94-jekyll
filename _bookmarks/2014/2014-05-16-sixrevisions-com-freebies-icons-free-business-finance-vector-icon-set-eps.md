@@ -1,0 +1,10 @@
+---
+link: http://sixrevisions.com/freebies/icons/free-business-finance-vector-icon-set-eps/
+date: 2014-05-16 15:09 UTC
+published: true
+title: Free Business & Finance Vector Icon Set (EPS)
+tags:
+- icons
+---
+
+

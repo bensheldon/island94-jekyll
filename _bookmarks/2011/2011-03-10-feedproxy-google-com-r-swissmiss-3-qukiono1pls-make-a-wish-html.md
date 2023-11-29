@@ -1,0 +1,9 @@
+---
+link: http://feedproxy.google.com/~r/Swissmiss/~3/qukIOno1Pls/make-a-wish.html
+date: 2011-03-10 19:41 UTC
+published: true
+title: Make A Wish
+tags: []
+---
+
+How much wax would 2 months of salary buy?

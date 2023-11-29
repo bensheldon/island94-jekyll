@@ -1,0 +1,9 @@
+---
+link: https://www.colemanm.org/post/meditation-its-not-about-the-number/
+date: 2019-03-06 06:04 UTC
+published: true
+title: It’s Not About the Number
+tags: []
+---
+
+on streaks and stats and gamification

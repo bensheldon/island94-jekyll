@@ -1,0 +1,9 @@
+---
+link: https://uxdesign.cc/getting-unhooked-from-technology-86ca8beff451
+date: 2018-07-30 00:50 UTC
+published: true
+title: Getting UnHooked from Technology
+tags: []
+---
+
+nice set of browser extensions for overriding UI to be less clicky

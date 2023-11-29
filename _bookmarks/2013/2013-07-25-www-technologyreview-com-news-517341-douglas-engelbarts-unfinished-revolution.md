@@ -1,0 +1,9 @@
+---
+link: http://www.technologyreview.com/news/517341/douglas-engelbarts-unfinished-revolution/
+date: 2013-07-25 01:22 UTC
+published: true
+title: Douglas Engelbart’s Unfinished Revolution | MIT Technology Review
+tags: []
+---
+
+

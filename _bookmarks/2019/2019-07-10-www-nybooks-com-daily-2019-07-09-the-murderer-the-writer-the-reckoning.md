@@ -1,0 +1,9 @@
+---
+link: https://www.nybooks.com/daily/2019/07/09/the-murderer-the-writer-the-reckoning/
+date: 2019-07-10 16:09 UTC
+published: true
+title: The Murderer, the Writer, the Reckoning
+tags: []
+---
+
+> No doubt, Alex’s mother had hopes for him—he was insightful and ambitious. He could’ve done more with his life, even if he were in prison like me. It’s wrong for me to take a snapshot of Alex as he was before he died and tell myself I’m not so bad because I killed a criminal—and then, in the same breath, say that my character should not be defined by my crime. I finally realized that I had to fully account for the murder before I could gain acceptance as a writer.

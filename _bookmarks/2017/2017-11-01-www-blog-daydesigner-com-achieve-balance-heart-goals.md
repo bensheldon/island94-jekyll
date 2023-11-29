@@ -1,0 +1,9 @@
+---
+link: http://www.blog.daydesigner.com/achieve-balance-heart-goals/
+date: 2017-11-01 15:53 UTC
+published: true
+title: Achieve Balance through HEART Goals • Day Designer® • 2017-2018 Daily Planners
+tags: []
+---
+
+

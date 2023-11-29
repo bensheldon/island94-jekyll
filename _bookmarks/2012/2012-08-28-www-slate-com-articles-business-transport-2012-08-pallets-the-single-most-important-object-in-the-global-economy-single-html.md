@@ -1,0 +1,9 @@
+---
+link: http://www.slate.com/articles/business/transport/2012/08/pallets_the_single_most_important_object_in_the_global_economy_.single.html
+date: 2012-08-28 04:05 UTC
+published: true
+title: 'Pallets: The single most important object in the global economy. - Slate Magazine'
+tags: []
+---
+
+

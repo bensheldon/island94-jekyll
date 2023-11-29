@@ -1,0 +1,9 @@
+---
+link: https://goberoi.com/on-writing-product-roadmaps-a4d72f96326c
+date: 2017-10-09 16:39 UTC
+published: true
+title: On Writing Product Roadmaps – Gaurav Oberoi
+tags: []
+---
+
+

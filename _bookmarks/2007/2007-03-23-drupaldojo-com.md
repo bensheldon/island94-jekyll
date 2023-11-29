@@ -1,0 +1,16 @@
+---
+link: http://drupaldojo.com/
+date: 2007-03-23 18:34 UTC
+published: true
+title: Drupal Dojo
+tags:
+- drupal
+- cms
+- lessons
+- tutorial
+- tutorials
+- webdesign
+- howto
+---
+
+Drupal dojo was founded by Josh_k with the intent to gather a few Drupal ninjas and a couple dozen eager ninjannabees that would eventually form a series of training sessions. While these unscheduled sessions were originally teaching what Josh knew from h

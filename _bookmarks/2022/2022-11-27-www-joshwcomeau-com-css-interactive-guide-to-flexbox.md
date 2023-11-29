@@ -1,0 +1,9 @@
+---
+link: https://www.joshwcomeau.com/css/interactive-guide-to-flexbox/
+date: 2022-11-27 17:40 UTC
+published: true
+title: An Interactive Guide to Flexbox
+tags: []
+---
+
+When we truly learn the secrets of the Flexbox layout mode, we can build absolutely incredible things. Fluid layouts that stretch and shrink without arbitrary breakpoints. In this action-packed interactive tutorial, we'll pop the hood on the Flexbox algorithm and learn how to do remarkable things with it. ✨

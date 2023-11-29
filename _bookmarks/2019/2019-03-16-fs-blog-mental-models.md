@@ -1,0 +1,9 @@
+---
+link: https://fs.blog/mental-models/
+date: 2019-03-16 18:36 UTC
+published: true
+title: 'Mental Models: The Best Way to Make Intelligent Decisions (109 Models Explained)'
+tags: []
+---
+
+

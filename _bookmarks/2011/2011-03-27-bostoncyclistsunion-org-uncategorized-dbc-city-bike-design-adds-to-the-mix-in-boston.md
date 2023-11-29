@@ -1,0 +1,9 @@
+---
+link: http://bostoncyclistsunion.org/uncategorized/dbc-city-bike-design-adds-to-the-mix-in-boston/
+date: 2011-03-27 13:48 UTC
+published: true
+title: DBC City Bike Design adds to the mix in Boston
+tags: []
+---
+
+A bit complicated but a nice looking bike:<br><a href="http://www.dbccitybikedesign.com/swift.php">http://www.dbccitybikedesign.com/swift.php</a>

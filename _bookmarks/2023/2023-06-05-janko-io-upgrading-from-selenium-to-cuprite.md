@@ -1,0 +1,9 @@
+---
+link: https://janko.io/upgrading-from-selenium-to-cuprite/
+date: 2023-06-05 15:02 UTC
+published: true
+title: ''
+tags: []
+---
+
+Cuprite configuration

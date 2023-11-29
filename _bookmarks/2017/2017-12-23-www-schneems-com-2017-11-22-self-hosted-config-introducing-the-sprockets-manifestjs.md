@@ -1,0 +1,9 @@
+---
+link: https://www.schneems.com/2017/11/22/self-hosted-config-introducing-the-sprockets-manifestjs/
+date: 2017-12-23 20:34 UTC
+published: true
+title: 'Self Hosted Config: Introducing the Sprockets manifest.js'
+tags: []
+---
+
+

@@ -1,0 +1,14 @@
+---
+link: http://www.informationweek.com/news/showArticle.jhtml?articleID=204203573
+date: 2007-12-05 16:42 UTC
+published: true
+title: How Your Creepy Ex-Co-Workers Will Kill Facebook -- Facebook -- InformationWeek
+tags:
+- identity
+- culture
+- internet
+- article
+- privacy
+---
+
+

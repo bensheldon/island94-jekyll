@@ -1,0 +1,9 @@
+---
+link: http://www.guardian.co.uk/business/2011/feb/20/is-this-the-start-of-the-second-dotcom-bubble
+date: 2011-02-20 20:14 UTC
+published: true
+title: Is this the start of the second dotcom bubble? | Business | The Observer
+tags: []
+---
+
+Nah, we can never predict a bubble.

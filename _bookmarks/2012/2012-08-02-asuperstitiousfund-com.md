@@ -1,0 +1,9 @@
+---
+link: http://asuperstitiousfund.com/
+date: 2012-08-02 05:55 UTC
+published: true
+title: A Superstitious Fund
+tags: []
+---
+
+

@@ -1,0 +1,9 @@
+---
+link: https://iximiuz.com/en/posts/container-learning-path/
+date: 2021-11-29 00:55 UTC
+published: true
+title: Learning Containers From The Bottom Up - Ivan Velichko
+tags: []
+---
+
+

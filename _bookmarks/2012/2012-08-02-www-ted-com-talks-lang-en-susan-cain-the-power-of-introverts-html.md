@@ -1,0 +1,9 @@
+---
+link: http://www.ted.com/talks/lang/en/susan_cain_the_power_of_introverts.html
+date: 2012-08-02 15:58 UTC
+published: true
+title: TED talk by Susan Cain (Introverts UNITE!)
+tags: []
+---
+
+

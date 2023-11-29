@@ -1,0 +1,11 @@
+---
+link: http://yh.yayhooray.com/thread/90661/yh-collab:-redesign-famous-logos-in-web-2-0-format?page=1
+date: 2006-08-22 14:55 UTC
+published: true
+title: Redesign famous logos in web 2.0 format!
+tags:
+- web2.0
+- ctcvista
+---
+
+Great examples of Web2.0 style and design, humorously used on traditional brand logos

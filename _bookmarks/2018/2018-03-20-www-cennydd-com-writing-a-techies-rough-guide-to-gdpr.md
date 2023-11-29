@@ -1,0 +1,9 @@
+---
+link: https://www.cennydd.com/writing/a-techies-rough-guide-to-gdpr
+date: 2018-03-20 18:45 UTC
+published: true
+title: A techie’s rough guide to GDPR — Cennydd Bowles
+tags: []
+---
+
+

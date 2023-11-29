@@ -1,0 +1,9 @@
+---
+link: https://aworkinglibrary.com/writing/consenting-to-decisions
+date: 2022-11-18 16:58 UTC
+published: true
+title: Consenting to decisions | A Working Library
+tags: []
+---
+
+

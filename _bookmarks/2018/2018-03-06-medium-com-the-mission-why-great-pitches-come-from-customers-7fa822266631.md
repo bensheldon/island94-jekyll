@@ -1,0 +1,9 @@
+---
+link: https://medium.com/the-mission/why-great-pitches-come-from-customers-7fa822266631
+date: 2018-03-06 15:51 UTC
+published: true
+title: Why Great Pitches Come From Customers
+tags: []
+---
+
+

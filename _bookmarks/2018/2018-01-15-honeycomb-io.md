@@ -1,0 +1,9 @@
+---
+link: https://honeycomb.io/
+date: 2018-01-15 19:39 UTC
+published: true
+title: Honeycomb says…
+tags: []
+---
+
+a logging monitoring tool ive seen before

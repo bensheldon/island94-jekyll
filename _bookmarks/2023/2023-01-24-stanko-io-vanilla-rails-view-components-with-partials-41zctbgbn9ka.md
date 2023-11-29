@@ -1,0 +1,9 @@
+---
+link: https://stanko.io/vanilla-rails-view-components-with-partials-41zctBGbN9ka
+date: 2023-01-24 17:01 UTC
+published: true
+title: Vanilla Rails view components with partials | Stanko K.R.
+tags: []
+---
+
+

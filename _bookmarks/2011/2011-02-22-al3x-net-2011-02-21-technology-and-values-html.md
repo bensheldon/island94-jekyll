@@ -1,0 +1,11 @@
+---
+link: http://al3x.net/2011/02/21/technology-and-values.html
+date: 2011-02-22 14:13 UTC
+published: true
+title: What Technology Values
+tags:
+- technology
+- dumbpipes
+---
+
+Dumb pipes

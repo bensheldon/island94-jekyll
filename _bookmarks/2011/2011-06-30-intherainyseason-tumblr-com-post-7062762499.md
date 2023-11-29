@@ -1,0 +1,12 @@
+---
+link: http://intherainyseason.tumblr.com/post/7062762499
+date: 2011-06-30 00:17 UTC
+published: true
+title: |-
+  redlightpolitics:
+
+  Apropos of the news that Christine Lagarde...
+tags: []
+---
+
+

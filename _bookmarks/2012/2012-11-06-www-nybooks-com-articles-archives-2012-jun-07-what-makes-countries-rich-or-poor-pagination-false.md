@@ -1,0 +1,10 @@
+---
+link: http://www.nybooks.com/articles/archives/2012/jun/07/what-makes-countries-rich-or-poor/?pagination=false
+date: 2012-11-06 05:20 UTC
+published: true
+title: What Makes Countries Rich or Poor? by Jared Diamond | The New York Review of
+  Books
+tags: []
+---
+
+

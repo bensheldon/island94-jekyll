@@ -1,0 +1,9 @@
+---
+link: https://www.farnamstreetblog.com/2016/10/iverson-cure-for-the-common-mba/
+date: 2016-10-05 13:09 UTC
+published: true
+title: 'Ken Iverson: The Cure for the Common MBA'
+tags: []
+---
+
+

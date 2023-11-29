@@ -1,0 +1,9 @@
+---
+link: https://css-tricks.com/everything-you-need-to-know-about-date-in-javascript/
+date: 2019-06-26 13:13 UTC
+published: true
+title: Everything You Need to Know About Date in JavaScript | CSS-Tricks
+tags: []
+---
+
+

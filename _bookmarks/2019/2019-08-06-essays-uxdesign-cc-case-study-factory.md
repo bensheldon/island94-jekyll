@@ -1,0 +1,9 @@
+---
+link: https://essays.uxdesign.cc/case-study-factory/
+date: 2019-08-06 02:52 UTC
+published: true
+title: The case study factory
+tags: []
+---
+
+

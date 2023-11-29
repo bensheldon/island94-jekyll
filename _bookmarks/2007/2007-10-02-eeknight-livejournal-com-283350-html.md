@@ -1,0 +1,16 @@
+---
+link: http://eeknight.livejournal.com/283350.html
+date: 2007-10-02 13:20 UTC
+published: true
+title: Bohemian Word Werks - Writing blunders
+tags:
+- writing
+- tips
+- howto
+- interesting
+- literature
+- books
+- fiction
+---
+
+Anyway, here's a list of errors I (and some editors I know) see over, and over, and over again, ad desperandum. Plus a few that maybe just bug me. Feel free to add your own in comments...

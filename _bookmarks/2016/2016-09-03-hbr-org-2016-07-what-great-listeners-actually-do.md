@@ -1,0 +1,9 @@
+---
+link: https://hbr.org/2016/07/what-great-listeners-actually-do
+date: 2016-09-03 13:10 UTC
+published: true
+title: What Great Listeners Actually Do
+tags: []
+---
+
+

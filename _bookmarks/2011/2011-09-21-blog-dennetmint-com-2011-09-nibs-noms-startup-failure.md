@@ -1,0 +1,9 @@
+---
+link: http://blog.dennetmint.com/2011/09/nibs-noms-startup-failure/
+date: 2011-09-21 11:38 UTC
+published: true
+title: Failure to launch
+tags: []
+---
+
+How many ostensibly "civically focused" tech projects start like this? <br><br>> "On New Year’s 2010, I shared the idea with a partner-in-crime, and by summer, the N+N team had facilitated several community brainstorms. We had a few bake sales while a prominent Grand Rapidian business owner was looking into fundraising to put out our first issue. Eateries and businesses expressed interest in carrying the zine and a popular arts institution offered to double one of their quarterly socials as a launch party for N+N."

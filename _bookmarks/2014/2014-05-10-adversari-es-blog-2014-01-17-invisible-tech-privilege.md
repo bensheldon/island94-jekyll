@@ -1,0 +1,9 @@
+---
+link: http://adversari.es/blog/2014/01/17/invisible-tech-privilege
+date: 2014-05-10 15:42 UTC
+published: true
+title: Breaking Down Tech Privilege from the inside - Adversarial Thinking
+tags: []
+---
+
+

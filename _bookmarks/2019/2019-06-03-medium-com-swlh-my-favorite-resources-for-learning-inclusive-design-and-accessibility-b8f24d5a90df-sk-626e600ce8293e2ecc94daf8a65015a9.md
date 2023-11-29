@@ -1,0 +1,11 @@
+---
+link: https://medium.com/swlh/my-favorite-resources-for-learning-inclusive-design-and-accessibility-b8f24d5a90df?sk=626e600ce8293e2ecc94daf8a65015a9
+date: 2019-06-03 17:15 UTC
+published: true
+title: My Favorite Resources for Learning Inclusive Design and Accessibility
+tags:
+- accessibility
+- inclusion
+---
+
+<blockquote>At Center Centre, the UX design school where I’m a faculty member, I get to review many resources on inclusivity and accessible design. I collect the best resources I find and review them with my…</blockquote>

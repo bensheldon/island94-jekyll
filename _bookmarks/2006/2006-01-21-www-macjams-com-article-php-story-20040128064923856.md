@@ -1,0 +1,11 @@
+---
+link: http://www.macjams.com/article.php?story=20040128064923856
+date: 2006-01-21 23:06 UTC
+published: true
+title: MacJams.com - MIDI Basics for Apple GarageBand Users
+tags:
+- midi
+- garageband
+---
+
+

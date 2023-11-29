@@ -1,0 +1,9 @@
+---
+link: http://blog.ushahidi.com/index.php/2011/06/28/wrong-assumptions-technology/
+date: 2011-07-06 11:02 UTC
+published: true
+title: A List of Completely Wrong Assumptions About Technology Use in Emerging Economies
+tags: []
+---
+
+"...there is absolutely nothing inherently intuitive about satellite images. Most people on this planet have not been on an airplane or a tall building. So why would a bird’s eye view of their village be anything remotely recognizable?"

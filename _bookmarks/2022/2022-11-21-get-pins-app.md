@@ -1,0 +1,9 @@
+---
+link: https://get-pins.app/
+date: 2022-11-21 16:44 UTC
+published: true
+title: Pins app for pinboard.in
+tags: []
+---
+
+A modern Pinboard app for 2022.

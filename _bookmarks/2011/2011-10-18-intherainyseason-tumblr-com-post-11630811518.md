@@ -1,0 +1,10 @@
+---
+link: http://intherainyseason.tumblr.com/post/11630811518
+date: 2011-10-18 23:34 UTC
+published: true
+title: 'Betteridge''s Law of Headlines: "Any headline which ends in a question mark
+  can be answered by the word ''no''".'
+tags: []
+---
+
+

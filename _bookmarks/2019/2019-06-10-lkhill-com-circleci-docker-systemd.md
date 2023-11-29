@@ -1,0 +1,9 @@
+---
+link: https://lkhill.com/circleci-docker-systemd/
+date: 2019-06-10 16:30 UTC
+published: true
+title: CircleCI, Docker and Systemd · Lindsay Hill
+tags: []
+---
+
+smoke testing ansible playbooks

@@ -1,0 +1,9 @@
+---
+link: http://www.gyford.com/phil/writing/2011/05/03/easter-reading.php
+date: 2011-05-03 15:35 UTC
+published: true
+title: What I read on my holiday
+tags: []
+---
+
+"A society divided by wealth and inheritance cannot redress this injustice by camouflaging it in educational institutions — by denying distinctions of ability or by restricting selective opportunity — while favouring a steadily widening income gap in the name of the free market."

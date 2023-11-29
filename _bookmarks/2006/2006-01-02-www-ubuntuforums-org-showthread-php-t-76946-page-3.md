@@ -1,0 +1,10 @@
+---
+link: http://www.ubuntuforums.org/showthread.php?t=76946&page=3
+date: 2006-01-02 17:35 UTC
+published: true
+title: 'General - HOWTO: replace totem with mplayer - Page 3 - Ubuntu Forums'
+tags:
+- ubuntu
+---
+
+mplayer repositories

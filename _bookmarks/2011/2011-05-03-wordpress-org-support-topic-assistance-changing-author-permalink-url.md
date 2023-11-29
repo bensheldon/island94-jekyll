@@ -1,0 +1,20 @@
+---
+link: http://wordpress.org/support/topic/assistance-changing-author-permalink-url
+date: 2011-05-03 13:14 UTC
+published: true
+title: WordPress » Assistance Changing Author Permalink / URL
+tags:
+- wordpress
+---
+
+function change_author_permalinks() {
+
+    global $wp_rewrite;
+
+    // Change the value of the author permalink base to whatever you want here
+    $wp_rewrite->author_base = 'artist';
+
+    $wp_rewrite->flush_rules();
+}
+
+add_action('init','change_author_permalinks');

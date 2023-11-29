@@ -1,0 +1,9 @@
+---
+link: http://feeds.benton.org/~r/headlines/feed/~3/SJLsE02PDcw/59030
+date: 2011-05-06 13:35 UTC
+published: true
+title: Technology Widens Gap Between Rich and Poor
+tags: []
+---
+
+Or, technology changes labor and industrial practices. Social structures fail to adapt, widening the gap between rich and poor.

@@ -1,0 +1,14 @@
+---
+link: http://acko.net/blog/drupal-opensearch-aggregator
+date: 2007-02-26 21:01 UTC
+published: true
+title: Drupal OpenSearch Aggregator | Steven Wittens - Acko.net
+tags:
+- opensearch
+- drupal
+- search
+---
+
+I just committed a working version of my new OpenSearch Aggregator module to Drupal Contrib CVS.
+
+OpenSearch is a standard by Amazon which allows you to share search results through RSS. The feeds are valid RSS, they just contain extra meta-data for sea

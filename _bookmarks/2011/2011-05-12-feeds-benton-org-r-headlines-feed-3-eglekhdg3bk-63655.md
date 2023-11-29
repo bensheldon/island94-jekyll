@@ -1,0 +1,10 @@
+---
+link: http://feeds.benton.org/~r/headlines/feed/~3/egLEkHdg3Bk/63655
+date: 2011-05-12 16:01 UTC
+published: true
+title: Should Text Message Revenue be Consider Telecommunications or Non-telecommunications
+  Revenue
+tags: []
+---
+
+Important minutiae.

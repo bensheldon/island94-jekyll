@@ -1,0 +1,11 @@
+---
+link: http://digg.com/business_finance/Building_a_Life_on_25_and_a_Gym_Bag
+date: 2008-02-18 17:12 UTC
+published: true
+title: Digg - Building a Life on $25 and a Gym Bag
+tags:
+- poverty
+- ctcvista
+---
+
+He's not taking into account the concept of "learned helplessness" that unfortunately is common among second, third, and fourth generation welfare recipients. He had hope if for no other reason because he has a degree, a family of some means, and a way ou

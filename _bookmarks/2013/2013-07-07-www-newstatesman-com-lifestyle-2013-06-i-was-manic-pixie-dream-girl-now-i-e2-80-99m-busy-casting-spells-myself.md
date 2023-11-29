@@ -1,0 +1,9 @@
+---
+link: http://www.newstatesman.com/lifestyle/2013/06/i-was-manic-pixie-dream-girl-now-i%E2%80%99m-busy-casting-spells-myself
+date: 2013-07-07 21:05 UTC
+published: true
+title: i-was-manic-pixie-dream-girl-now-i%E2%80%99m-busy-casting-spells-myself
+tags: []
+---
+
+

@@ -1,0 +1,15 @@
+---
+link: http://www.smashingmagazine.com/2010/02/09/applying-mathematics-to-web-design/
+date: 2010-02-12 18:10 UTC
+published: true
+title: Applying Mathematics To Web Design
+tags:
+- webdesign
+- css
+- design
+- mathematics
+- math
+- goldenratio
+---
+
+

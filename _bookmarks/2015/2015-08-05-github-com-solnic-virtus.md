@@ -1,0 +1,14 @@
+---
+link: https://github.com/solnic/virtus
+date: 2015-08-05 16:07 UTC
+published: true
+title: solnic/virtus (ActiveModel defaults that never were)
+tags:
+- ruby
+- attributes
+- rails
+---
+
+<blockquote>Virtus allows you to define attributes on classes, modules or class instances with optional information about types, reader/writer method visibility and coercion behavior. It supports a lot of coercions and advanced mapping of embedded objects and collections.
+
+</blockquote>

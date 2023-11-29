@@ -1,0 +1,12 @@
+---
+link: http://24ways.org/2009/make-your-mockup-in-markup#
+date: 2010-02-15 20:26 UTC
+published: true
+title: '24 ways: Make Your Mockup in Markup'
+tags:
+- css
+- webdesign
+- productivity
+---
+
+In the past we’ve put up with Photoshop because it was vital to achieving our beloved rounded corners, drop shadows, outer glows, and gradients. However, with the recent adaptation of CSS3 in major browsers, and the slow, joyous death of IE6, browsers can render mockups that are just as beautiful as those created in an image editor. With the power of RGBA, text-shadow, box-shadow, border-radius, transparent PNGs, and @font-face combined, you can create a prototype that radiates shiny awesomeness right in the browser. If you can see this epic article through to the end, I’ll show you step by step how to create a gorgeous mockup using mostly markup.

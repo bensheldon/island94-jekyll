@@ -1,0 +1,9 @@
+---
+link: https://blog.intercom.com/12-steps-to-creating-landing-pages-that-convert/
+date: 2017-06-10 23:36 UTC
+published: true
+title: 12 steps to creating landing pages that convert
+tags: []
+---
+
+

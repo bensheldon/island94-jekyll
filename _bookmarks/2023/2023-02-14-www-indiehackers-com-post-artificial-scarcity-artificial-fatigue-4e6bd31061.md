@@ -1,0 +1,9 @@
+---
+link: https://www.indiehackers.com/post/artificial-scarcity-artificial-fatigue-4e6bd31061
+date: 2023-02-14 04:27 UTC
+published: true
+title: Artificial scarcity, artificial fatigue
+tags: []
+---
+
+

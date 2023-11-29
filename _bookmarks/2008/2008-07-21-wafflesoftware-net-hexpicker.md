@@ -1,0 +1,14 @@
+---
+link: http://wafflesoftware.net/hexpicker/
+date: 2008-07-21 14:38 UTC
+published: true
+title: Hex Color Picker
+tags:
+- color
+- apple
+- designs
+- design
+---
+
+Lets you get and edit hexadecimal HTML color codes
+in the standard Mac OS X color panel.

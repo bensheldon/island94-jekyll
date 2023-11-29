@@ -1,0 +1,9 @@
+---
+link: http://feeds.wired.com/~r/wiredscience/~3/DRgLIJc1cHo/
+date: 2011-05-10 11:49 UTC
+published: true
+title: Free iPhone App Identifies Tree Leaves
+tags: []
+---
+
+I've been waiting for this app. Too bad leafshape is only one step in identifying a tree.

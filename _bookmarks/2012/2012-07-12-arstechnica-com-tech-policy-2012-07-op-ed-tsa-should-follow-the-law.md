@@ -1,0 +1,9 @@
+---
+link: http://arstechnica.com/tech-policy/2012/07/op-ed-tsa-should-follow-the-law/
+date: 2012-07-12 02:56 UTC
+published: true
+title: 'Op-ed: TSA should follow the law'
+tags: []
+---
+
+

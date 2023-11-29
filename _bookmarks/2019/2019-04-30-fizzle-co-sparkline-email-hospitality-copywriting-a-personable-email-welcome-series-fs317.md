@@ -1,0 +1,9 @@
+---
+link: https://fizzle.co/sparkline/email-hospitality-copywriting-a-personable-email-welcome-series-fs317
+date: 2019-04-30 14:37 UTC
+published: true
+title: 'Email Hospitality: Copywriting A Personable Email Welcome Series (FS317)'
+tags: []
+---
+
+

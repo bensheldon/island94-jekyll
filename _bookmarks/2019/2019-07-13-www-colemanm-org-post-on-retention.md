@@ -1,0 +1,9 @@
+---
+link: https://www.colemanm.org/post/on-retention/
+date: 2019-07-13 18:50 UTC
+published: true
+title: On Retention
+tags: []
+---
+
+> It’s easier to accelerate growth with world class retention than fix retention while maintaining rapid growth.

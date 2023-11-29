@@ -1,0 +1,9 @@
+---
+link: http://arstechnica.com/science/2013/05/divide-conquer-makes-quantum-light-a-breeze-to-detect/
+date: 2013-05-18 01:54 UTC
+published: true
+title: Divide & conquer makes quantum light a breeze to detect | Ars Technica
+tags: []
+---
+
+

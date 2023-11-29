@@ -1,0 +1,9 @@
+---
+link: https://frantic.im/leaving-facebook/
+date: 2022-01-23 02:37 UTC
+published: true
+title: On Leaving Facebook / frantic.im
+tags: []
+---
+
+

@@ -1,0 +1,9 @@
+---
+link: https://www.fabriders.net/ncrnotesopenreferralgregbloom/
+date: 2019-02-26 15:56 UTC
+published: true
+title: Greg Bloom, Open Referral, on co-creating data standards. | FabRiders
+tags: []
+---
+
+

@@ -1,0 +1,15 @@
+---
+link: http://www.presentationzen.com/presentationzen/2007/03/ira_glasstips_o.html
+date: 2007-03-07 12:15 UTC
+published: true
+title: 'Presentation Zen: Ira Glass:Tips on storytelling'
+tags:
+- storytelling
+- digitalstorytelling
+- thisamericanlife
+- stories
+- anecdotes
+- howto
+---
+
+Ira Glass:Tips on storytelling

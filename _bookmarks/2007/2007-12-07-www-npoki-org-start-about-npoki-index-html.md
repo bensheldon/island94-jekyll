@@ -1,0 +1,13 @@
+---
+link: http://www.npoki.org/start/about-npoki/index.html
+date: 2007-12-07 16:23 UTC
+published: true
+title: NPOKI - Performance Management for Non-Profit Organizations
+tags:
+- health
+- nonprofit
+- benchmarks
+- publichealth
+---
+
+We provide information management and support systems that can track the performance of large numbers of projects in a variety of countries against strategic goals, align financial investment with results, and allow NPOs to collect, analyze and share info

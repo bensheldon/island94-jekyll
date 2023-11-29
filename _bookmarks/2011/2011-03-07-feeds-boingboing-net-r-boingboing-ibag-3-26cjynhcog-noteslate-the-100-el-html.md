@@ -1,0 +1,9 @@
+---
+link: http://feeds.boingboing.net/~r/boingboing/iBag/~3/-26cjyNhCog/noteslate-the-100-el.html
+date: 2011-03-07 19:00 UTC
+published: true
+title: NoteSlate, the $100 electronic drawing pad
+tags: []
+---
+
+

@@ -1,0 +1,11 @@
+---
+link: https://www.jacobinmag.com/2014/08/love-me-ferguson-im-a-liberal/
+date: 2014-08-22 03:38 UTC
+published: true
+title: Love Me, Ferguson, I’m A Liberal | Jacobin
+tags: []
+---
+
+A 1979 Communist Workers’ Party-led rally against the KKK that would culminate in the Greensboro massacre.
+“Outside agitator.”
+These words were spoken by…

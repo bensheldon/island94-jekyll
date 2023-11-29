@@ -1,0 +1,12 @@
+---
+link: http://jroller.com/page/rolsen/20060419/
+date: 2006-04-21 16:04 UTC
+published: true
+title: 'Technology As If People Mattered : Weblog'
+tags:
+- programming
+- software
+- blog
+---
+
+

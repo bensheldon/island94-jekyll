@@ -1,0 +1,10 @@
+---
+link: http://www.smashingmagazine.com/2014/09/08/improving-smashing-magazine-performance-case-study/
+date: 2014-09-17 15:32 UTC
+published: true
+title: 'Improving Smashing Magazine’s Performance: A Case Study'
+tags:
+- webdesign
+---
+
+

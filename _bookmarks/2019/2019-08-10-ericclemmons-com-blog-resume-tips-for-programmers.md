@@ -1,0 +1,9 @@
+---
+link: https://ericclemmons.com/blog/resume-tips-for-programmers
+date: 2019-08-10 22:43 UTC
+published: true
+title: Résumé Tips for Programmers
+tags: []
+---
+
+

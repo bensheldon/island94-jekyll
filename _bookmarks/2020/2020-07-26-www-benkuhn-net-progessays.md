@@ -1,0 +1,9 @@
+---
+link: https://www.benkuhn.net/progessays/
+date: 2020-07-26 20:32 UTC
+published: true
+title: Essays on programming I think about a lot | benkuhn.net
+tags: []
+---
+
+

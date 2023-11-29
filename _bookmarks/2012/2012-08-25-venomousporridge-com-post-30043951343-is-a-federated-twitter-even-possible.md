@@ -1,0 +1,9 @@
+---
+link: http://venomousporridge.com/post/30043951343/is-a-federated-twitter-even-possible
+date: 2012-08-25 01:22 UTC
+published: true
+title: venomous porridge - Is a federated Twitter even possible?
+tags: []
+---
+
+

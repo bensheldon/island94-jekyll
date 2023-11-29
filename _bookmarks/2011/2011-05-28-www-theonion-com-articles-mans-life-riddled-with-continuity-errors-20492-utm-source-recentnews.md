@@ -1,0 +1,10 @@
+---
+link: http://www.theonion.com/articles/mans-life-riddled-with-continuity-errors,20492/?utm_source=recentnews
+date: 2011-05-28 18:30 UTC
+published: true
+title: Man's Life Riddled With Continuity Errors | The Onion - America's Finest News
+  Source
+tags: []
+---
+
+

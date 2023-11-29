@@ -1,0 +1,14 @@
+---
+link: http://en.wikipedia.org/wiki/Steps_to_an_Ecology_of_Mind
+date: 2007-08-16 16:58 UTC
+published: true
+title: Steps to an Ecology of Mind - Wikipedia, the free encyclopedia
+tags:
+- psychology
+- ecology
+- cybernetics
+- book
+- wikipedia
+---
+
+a collection of Gregory Bateson's short works over his long and varied career. Subject matter includes essays on anthropology, cybernetics, psychiatry and epistemology. It was originally published by Chandler Publishing Company in 1972.

@@ -1,0 +1,9 @@
+---
+link: https://mikeindustries.com/blog/archive/2019/06/superhuman-is-spying-on-you
+date: 2019-07-04 03:52 UTC
+published: true
+title: Superhuman is Spying on You » Mike Industries
+tags: []
+---
+
+good stuff on product ethics

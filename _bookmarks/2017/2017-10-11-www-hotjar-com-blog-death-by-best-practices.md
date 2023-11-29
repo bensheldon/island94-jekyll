@@ -1,0 +1,9 @@
+---
+link: https://www.hotjar.com/blog/death-by-best-practices
+date: 2017-10-11 13:49 UTC
+published: true
+title: 'Death by ''Best Practices'': Why They Can Kill Your Business'
+tags: []
+---
+
+

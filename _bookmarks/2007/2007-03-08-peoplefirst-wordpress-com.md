@@ -1,0 +1,14 @@
+---
+link: http://peoplefirst.wordpress.com/
+date: 2007-03-08 17:57 UTC
+published: true
+title: Overall Strategy « People First
+tags:
+- cableaccess
+- pegtv
+- blog
+- franchising
+- legislation
+---
+
+Verizon has introduced a bill into the Massachusetts State Legislature which is a disaster in more ways than one could even count, and they are putting a full-court lobbying and media press on to pass it, with extraordinary local and national dollars behi

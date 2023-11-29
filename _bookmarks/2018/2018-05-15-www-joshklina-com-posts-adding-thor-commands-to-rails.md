@@ -1,0 +1,9 @@
+---
+link: http://www.joshklina.com/posts/adding-thor-commands-to-rails
+date: 2018-05-15 20:54 UTC
+published: true
+title: Adding Thor Commands to Rails
+tags: []
+---
+
+> Rails provides a nice documented way of adding Rake tasks to your engine, however sometimes you may want a command line operation that requires sophisticated interaction with the user, which can be tedious in Rake. [Thor](http://whatisthor.com/ "Thor"), is a great Ruby library designed for this purpose and its already built into Rails. In this post I'll go over how to create Thor commands and make them available through the `rails` command. If you're unfamiliar with Thor, take a look...

@@ -1,0 +1,9 @@
+---
+link: http://blog.mrmeyer.com/2015/if-math-is-the-aspirin-then-how-do-you-create-the-headache/
+date: 2015-11-01 15:09 UTC
+published: true
+title: If Math Is The Aspirin, Then How Do You Create The Headache?
+tags: []
+---
+
+

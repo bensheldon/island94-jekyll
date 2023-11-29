@@ -1,0 +1,9 @@
+---
+link: http://www.nytimes.com/2013/12/10/business/media/if-a-story-is-viral-truth-may-be-taking-a-beating.html?pagewanted=all
+date: 2013-12-12 03:51 UTC
+published: true
+title: If a Story Is Viral, Truth May Be Taking a Beating
+tags: []
+---
+
+

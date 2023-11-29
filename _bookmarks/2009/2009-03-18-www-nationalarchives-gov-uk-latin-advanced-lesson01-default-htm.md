@@ -1,0 +1,12 @@
+---
+link: http://www.nationalarchives.gov.uk/latin/advanced/lesson01/default.htm
+date: 2009-03-18 15:16 UTC
+published: true
+title: Advanced Latin | Lesson 1 | Imperfect - part 1
+tags:
+- language
+- free
+- tutorial
+---
+
+

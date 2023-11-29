@@ -1,0 +1,9 @@
+---
+link: http://www.gamasutra.com/blogs/PhilippeRinguetteAngrignon/20090606/1708/Why_quotNextGen_Gamesquot_Went_Gray_Brown_And_Grey.php
+date: 2013-02-25 05:58 UTC
+published: true
+title: 'Gamasutra: Phil RA''s Blog - Why "Next-Gen Games" Went Gray, Brown, And Grey.'
+tags: []
+---
+
+

@@ -1,0 +1,10 @@
+---
+link: https://choosenear.me
+date: 2011-07-01 06:04 UTC
+published: true
+title: choosenear.me
+tags:
+- hackedu
+---
+
+project submitted! -- we are LIVE!  -- @DonorsChoose #hackedu /cc @jorgeortiz85 @paulfryzel @johnkpaul

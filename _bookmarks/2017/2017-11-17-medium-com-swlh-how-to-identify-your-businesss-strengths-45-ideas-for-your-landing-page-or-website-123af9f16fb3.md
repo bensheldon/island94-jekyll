@@ -1,0 +1,10 @@
+---
+link: https://medium.com/swlh/how-to-identify-your-businesss-strengths-45-ideas-for-your-landing-page-or-website-123af9f16fb3
+date: 2017-11-17 02:21 UTC
+published: true
+title: 'How to identify your business’s strengths: 45 ideas for your landing page
+  or website'
+tags: []
+---
+
+

@@ -1,0 +1,9 @@
+---
+link: http://www.businessweek.com/printer/magazine/apples-supplychain-secret-hoard-lasers-11032011.html
+date: 2011-11-07 03:33 UTC
+published: true
+title: Apple's Supply-Chain Secret? Hoard Lasers - BusinessWeek
+tags: []
+---
+
+

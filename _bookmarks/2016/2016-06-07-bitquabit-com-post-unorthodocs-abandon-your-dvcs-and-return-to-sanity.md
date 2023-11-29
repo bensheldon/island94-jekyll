@@ -1,0 +1,9 @@
+---
+link: https://bitquabit.com/post/unorthodocs-abandon-your-dvcs-and-return-to-sanity/
+date: 2016-06-07 05:50 UTC
+published: true
+title: 'Unorthodocs: Abandon your DVCS and Return to Sanity'
+tags: []
+---
+
+

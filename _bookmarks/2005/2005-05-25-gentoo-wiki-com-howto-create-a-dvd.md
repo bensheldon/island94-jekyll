@@ -1,0 +1,9 @@
+---
+link: http://gentoo-wiki.com/HOWTO_Create_a_DVD
+date: 2005-05-25 19:59 UTC
+published: true
+title: HOWTO Create a DVD - Gentoo Linux Wiki
+tags: []
+---
+
+

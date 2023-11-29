@@ -1,0 +1,9 @@
+---
+link: https://medium.freecodecamp.org/how-to-write-a-good-software-design-document-66fcf019569c
+date: 2018-07-29 19:01 UTC
+published: true
+title: How to write a good software design doc – freeCodeCamp
+tags: []
+---
+
+

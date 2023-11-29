@@ -1,0 +1,12 @@
+---
+link: https://hacks.mozilla.org/2015/09/subresource-integrity-in-firefox-43/
+date: 2015-10-03 00:35 UTC
+published: true
+title: 'Do not let your CDN betray you: Use Subresource Integrity ✩ Mozilla Hacks
+  – the Web developer blog'
+tags:
+- rails
+- html
+---
+
+

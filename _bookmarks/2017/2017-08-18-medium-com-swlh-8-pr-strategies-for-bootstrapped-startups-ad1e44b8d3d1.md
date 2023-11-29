@@ -1,0 +1,9 @@
+---
+link: https://medium.com/swlh/8-pr-strategies-for-bootstrapped-startups-ad1e44b8d3d1
+date: 2017-08-18 15:14 UTC
+published: true
+title: 8 PR Strategies for Bootstrapped Startups
+tags: []
+---
+
+

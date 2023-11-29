@@ -1,0 +1,12 @@
+---
+link: http://marnen.github.com/webmock-presentation/webmock.html#(1)
+date: 2013-01-28 23:37 UTC
+published: true
+title: Testing Remote Services with WebMock and VCR (1)
+tags:
+- ruby
+- rails
+- testing
+---
+
+

@@ -1,0 +1,9 @@
+---
+link: http://blog.twowholecakes.com/2011/07/margins-of-error/
+date: 2011-07-14 17:21 UTC
+published: true
+title: Margins of Error
+tags: []
+---
+
+

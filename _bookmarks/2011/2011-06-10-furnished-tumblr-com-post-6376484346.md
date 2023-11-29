@@ -1,0 +1,9 @@
+---
+link: http://furnished.tumblr.com/post/6376484346
+date: 2011-06-10 05:20 UTC
+published: true
+title: THE LOVER OF MAPS BY SHERMAN ALEXIE
+tags: []
+---
+
+

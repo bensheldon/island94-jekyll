@@ -1,0 +1,9 @@
+---
+link: http://www.jordanpouille.com/2010/12/22/foxconn-young-workers-christmas/
+date: 2010-12-29 20:40 UTC
+published: true
+title: "  In the life of the Foxconn young workers* / \r\nJordan Pouille"
+tags: []
+---
+
+

@@ -1,0 +1,9 @@
+---
+link: http://web.archive.org/web/20140405220327/https%3A//medium.com/about-work/65d4740f7a2f
+date: 2014-08-27 03:58 UTC
+published: true
+title: http://web.archive.org/web/20140405220327/https%3A//medium.com/about-work/65d4740f7a2f
+tags: []
+---
+
+

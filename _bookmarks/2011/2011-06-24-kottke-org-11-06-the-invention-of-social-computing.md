@@ -1,0 +1,9 @@
+---
+link: http://kottke.org/11/06/the-invention-of-social-computing
+date: 2011-06-24 19:26 UTC
+published: true
+title: The invention of social computing
+tags: []
+---
+
+I love that the final aphorism is based on a fictional story '...and just as "nature finds a way" in Jurassic Park, "social finds a way" with technology.'<br><br>(what's with all the cyber-utopia stuff recently?)

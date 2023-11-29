@@ -1,0 +1,10 @@
+---
+link: https://medium.com/@freshtilledsoil/the-myth-of-the-design-studio-turned-product-company-fceb670aa74a
+date: 2014-06-27 21:16 UTC
+published: true
+title: The Myth of the Design Studio Turned Product Company — Medium
+tags:
+- business
+---
+
+

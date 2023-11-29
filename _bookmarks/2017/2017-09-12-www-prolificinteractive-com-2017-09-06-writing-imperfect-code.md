@@ -1,0 +1,9 @@
+---
+link: https://www.prolificinteractive.com/2017/09/06/writing-imperfect-code/
+date: 2017-09-12 15:25 UTC
+published: true
+title: Writing Imperfect Code – Prolific Interactive
+tags: []
+---
+
+

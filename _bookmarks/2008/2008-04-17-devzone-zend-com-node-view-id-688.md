@@ -1,0 +1,14 @@
+---
+link: http://devzone.zend.com/node/view/id/688
+date: 2008-04-17 12:19 UTC
+published: true
+title: SimpleXML
+tags:
+- php
+- rss
+- xml
+- code
+- development
+---
+
+When people ask me "What is SimpleXML?" I often quip, "XML is the solution to all your problems; SimpleXML ensures it isn't the root of your problems!"

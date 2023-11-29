@@ -1,0 +1,9 @@
+---
+link: https://www.commonwealmagazine.org/taming-demon
+date: 2019-02-24 22:34 UTC
+published: true
+title: Taming the Demon | Commonweal Magazine
+tags: []
+---
+
+“Getting over it is a spiritual discipline”

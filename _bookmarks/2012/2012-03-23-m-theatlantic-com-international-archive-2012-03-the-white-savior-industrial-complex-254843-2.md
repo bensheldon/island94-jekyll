@@ -1,0 +1,9 @@
+---
+link: http://m.theatlantic.com/international/archive/2012/03/the-white-savior-industrial-complex/254843/2/
+date: 2012-03-23 06:25 UTC
+published: true
+title: The White Savior Industrial Complex - Atlantic Mobile
+tags: []
+---
+
+Let us begin our activism right here: with the money-driven villainy at the heart of American foreign policy. To do this would be to give up the illusion that the sentimental need to "make a difference" trumps all other considerations. What innocent heroes don't always understand is that they play a useful role for people who have much more cynical motives. The White Savior Industrial Complex is a valve for releasing the unbearable pressures that build in a system built on pillage. We can participate in the economic destruction of Haiti over long years, but when the earthquake strikes it feels good to send $10 each to the rescue fund. I have no opposition, in principle, to such donations (I frequently make them myself), but we must do such things only with awareness of what else is involved. If we are going to interfere in the lives of others, a little due diligence is a minimum requirement.

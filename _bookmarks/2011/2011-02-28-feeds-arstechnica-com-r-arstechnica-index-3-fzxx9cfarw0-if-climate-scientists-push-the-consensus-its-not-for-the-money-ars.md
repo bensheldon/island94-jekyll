@@ -1,0 +1,9 @@
+---
+link: http://feeds.arstechnica.com/~r/arstechnica/index/~3/FZXX9cfarw0/if-climate-scientists-push-the-consensus-its-not-for-the-money.ars
+date: 2011-02-28 14:34 UTC
+published: true
+title: If climate scientists are in it for the money, they're doing it wrong
+tags: []
+---
+
+The real racket is what goes to universities in overhead. My university's federal negotiated overhead (indirect cost) is 54%. That means for every dollar in federal grant money, only 46 cents of it comes to my project/program. (and people call nonprofits inefficient at 20% overhead)

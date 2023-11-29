@@ -1,0 +1,9 @@
+---
+link: http://blog.targeterapp.com/post/22984987832/why-we-moved-from-nodejs-to-ror
+date: 2014-05-13 02:10 UTC
+published: true
+title: Why we moved from NodeJS to RoR
+tags: []
+---
+
+

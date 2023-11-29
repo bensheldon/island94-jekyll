@@ -1,0 +1,9 @@
+---
+link: https://blog.alexewerlof.com/p/tech-debt-day
+date: 2023-01-25 04:01 UTC
+published: true
+title: We invested 10% to pay back tech debt; Here's what happened
+tags: []
+---
+
+

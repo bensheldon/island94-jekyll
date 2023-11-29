@@ -1,0 +1,9 @@
+---
+link: https://github.com/davetron5000/rails-app-template-sustainable/blob/main/template.rb
+date: 2022-12-27 16:43 UTC
+published: true
+title: David Copeland's Rails new template
+tags: []
+---
+
+

@@ -1,0 +1,10 @@
+---
+link: http://engineering.linkedin.com/distributed-systems/log-what-every-software-engineer-should-know-about-real-time-datas-unifying
+date: 2014-05-10 17:53 UTC
+published: true
+title: 'The Log: What every software engineer should know about real-time data''s
+  unifying abstraction | LinkedIn Engineering'
+tags: []
+---
+
+

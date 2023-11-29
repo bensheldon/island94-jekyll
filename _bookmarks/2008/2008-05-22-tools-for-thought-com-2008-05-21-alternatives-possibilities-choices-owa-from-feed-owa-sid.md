@@ -1,0 +1,16 @@
+---
+link: http://tools-for-thought.com/2008/05/21/alternatives-possibilities-choices/?&owa_from=feed&owa_sid=
+date: 2008-05-22 02:10 UTC
+published: true
+title: Alternatives, Possibilities, Choices
+tags:
+- decisionmaking
+- innovation
+- lifehacks
+- process
+- processoutcome
+- planning
+- productivity
+---
+
+The acronym, which stands for Alternatives, Possibilities, Choices, was designed as a handle for common usage — as in “Do an APC on reducing utility costs.” Each word in the acronym has slightly different connotations, but for practical purposes the

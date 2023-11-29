@@ -1,0 +1,9 @@
+---
+link: https://flaviocopes.com/chrome-devtools-tips/
+date: 2018-03-31 00:25 UTC
+published: true
+title: A list of cool Chrome DevTools Tips and Tricks
+tags: []
+---
+
+

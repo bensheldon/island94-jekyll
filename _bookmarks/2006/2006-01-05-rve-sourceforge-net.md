@@ -1,0 +1,12 @@
+---
+link: http://rve.sourceforge.net/
+date: 2006-01-05 20:34 UTC
+published: true
+title: 'RVE: Realtime Video Effects'
+tags:
+- mplayer
+- image
+- overlay
+---
+
+

@@ -1,0 +1,9 @@
+---
+link: http://feeds.harvardbusiness.org/~r/harvardbusiness/pallotta/~3/PPMu9H11SJc/if-you-want-people-to-actually.html
+date: 2011-04-14 17:48 UTC
+published: true
+title: If You Want People to Actually Read What You Write
+tags: []
+---
+
+Writers who make self-help lists need to reflect more on what they're trying to actually communicate (myself being in graphorhea recovery). Like what are you supposed to do with this: <br><br>"- Reduce the number of hard returns, especially in e-mails. They create visual noise.<br>- Avoid huge monolithic blocks of text. No one will read them."<br><br>What?! Why not just write "think about the physical structure of documents in context that effectively communicate to <b>you</b>. Try to copy that structure." Writing is about empathy with your reader so unless you are psychic (or psychopathic), self-knowledge is your best guide. <br><br>Of course, one sentence of advice doesn't sell books or juice ad impressions.

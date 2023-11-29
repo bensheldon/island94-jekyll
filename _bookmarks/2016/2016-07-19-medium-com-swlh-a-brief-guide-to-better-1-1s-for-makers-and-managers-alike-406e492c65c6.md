@@ -1,0 +1,9 @@
+---
+link: https://medium.com/swlh/a-brief-guide-to-better-1-1s-for-makers-and-managers-alike-406e492c65c6
+date: 2016-07-19 16:03 UTC
+published: true
+title: A Brief Guide to Better 1:1’s — For Makers and Managers Alike
+tags: []
+---
+
+

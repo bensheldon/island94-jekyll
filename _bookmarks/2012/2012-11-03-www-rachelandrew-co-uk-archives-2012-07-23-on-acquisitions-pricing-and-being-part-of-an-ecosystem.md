@@ -1,0 +1,9 @@
+---
+link: http://www.rachelandrew.co.uk/archives/2012/07/23/on-acquisitions-pricing-and-being-part-of-an-ecosystem/
+date: 2012-11-03 16:50 UTC
+published: true
+title: On acquisitions, pricing and being part of an ecosystem
+tags: []
+---
+
+

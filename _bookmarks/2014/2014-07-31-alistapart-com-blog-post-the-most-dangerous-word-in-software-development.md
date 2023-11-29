@@ -1,0 +1,12 @@
+---
+link: http://alistapart.com/blog/post/the-most-dangerous-word-in-software-development
+date: 2014-07-31 12:31 UTC
+published: true
+title: The Most Dangerous Word In Software Development
+tags: []
+---
+
+by Anthony Colangelo · July 30, 2014
+“Just put it up on a server somewhere.”
+“Just add a favorite button to the right side of the item.”
+“Just add [insert…

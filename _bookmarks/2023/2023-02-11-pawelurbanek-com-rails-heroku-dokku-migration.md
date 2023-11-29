@@ -1,0 +1,9 @@
+---
+link: https://pawelurbanek.com/rails-heroku-dokku-migration
+date: 2023-02-11 16:55 UTC
+published: true
+title: Migrate a Rails App from Heroku to Dokku [Step by Step Tutorial]
+tags: []
+---
+
+<blockquote>Dokku is dev ops for dummies and a cheaper alternative to Heroku. Recently I've migrated a couple of my projects to it. In this blog post, I will describe how to setup and migrate a Rails app to Dokku with PostgreSQL, Sidekiq, Redis and Let's Encrypt or Cloudflare for free SSL.</blockquote>

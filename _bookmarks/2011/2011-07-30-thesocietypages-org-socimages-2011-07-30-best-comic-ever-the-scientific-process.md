@@ -1,0 +1,9 @@
+---
+link: http://thesocietypages.org/socimages/2011/07/30/best-comic-ever-the-scientific-process/
+date: 2011-07-30 16:51 UTC
+published: true
+title: 'Best Comic Ever: The Scientific Process'
+tags: []
+---
+
+

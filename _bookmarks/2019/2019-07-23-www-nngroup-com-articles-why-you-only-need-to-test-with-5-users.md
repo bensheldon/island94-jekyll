@@ -1,0 +1,9 @@
+---
+link: https://www.nngroup.com/articles/why-you-only-need-to-test-with-5-users/
+date: 2019-07-23 12:39 UTC
+published: true
+title: Why You Only Need to Test with 5 Users
+tags: []
+---
+
+

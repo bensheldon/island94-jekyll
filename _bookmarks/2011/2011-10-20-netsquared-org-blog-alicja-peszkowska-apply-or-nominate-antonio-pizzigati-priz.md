@@ -1,0 +1,9 @@
+---
+link: http://netsquared.org/blog/alicja-peszkowska/apply-or-nominate-antonio-pizzigati-priz
+date: 2011-10-20 02:55 UTC
+published: true
+title: Apply or nominate for the Antonio Pizzigati Prize!
+tags: []
+---
+
+When I go, I hope y'all will make a prize celebrating people who make great effort to recognize lived human experiences within the context of technological "progress". Use that section from the Port Huron Statement that warns about reducing problems to those most easily solvable by computers. Not that I have any intention of going soon, but that'd be real nice.

@@ -1,0 +1,9 @@
+---
+link: https://uxdesign.cc/what-i-learned-at-google-as-a-designer-7e3a12b7a82e
+date: 2018-05-02 01:09 UTC
+published: true
+title: What I have learned at Google as a designer
+tags: []
+---
+
+

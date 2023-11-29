@@ -1,0 +1,9 @@
+---
+link: https://www.joshwcomeau.com/css/rules-of-margin-collapse/
+date: 2020-12-13 19:39 UTC
+published: true
+title: The Rules of CSS Margin Collapse
+tags: []
+---
+
+css

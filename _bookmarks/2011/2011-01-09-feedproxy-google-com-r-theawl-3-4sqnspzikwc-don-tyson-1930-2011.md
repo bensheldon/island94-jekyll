@@ -1,0 +1,9 @@
+---
+link: http://feedproxy.google.com/~r/TheAwl/~3/4SQNSpzIkWc/don-tyson-1930-2011
+date: 2011-01-09 03:15 UTC
+published: true
+title: Don Tyson, 1930-2011
+tags: []
+---
+
+"He saw that if you added more convenience by further processing the chicken, consumers would pay for it."

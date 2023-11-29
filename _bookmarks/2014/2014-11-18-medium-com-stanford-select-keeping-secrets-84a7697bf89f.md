@@ -1,0 +1,10 @@
+---
+link: https://medium.com/stanford-select/keeping-secrets-84a7697bf89f
+date: 2014-11-18 05:58 UTC
+published: true
+title: Keeping Secrets
+tags: []
+---
+
+BY HENRY CORRIGAN-GIBBS
+ILLUSTRATIONS BY BRIAN STAUFFER WHAT IF your research could help solve a looming national problem, but government officials thought…

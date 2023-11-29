@@ -1,0 +1,9 @@
+---
+link: http://www.nytimes.com/2014/02/18/opinion/vhs-vs-communism.html
+date: 2014-02-19 00:21 UTC
+published: true
+title: "‘VHS vs. Communism’"
+tags: []
+---
+
+

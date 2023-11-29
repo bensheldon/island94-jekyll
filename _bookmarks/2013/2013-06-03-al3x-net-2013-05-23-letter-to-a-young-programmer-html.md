@@ -1,0 +1,9 @@
+---
+link: http://al3x.net/2013/05/23/letter-to-a-young-programmer.html
+date: 2013-06-03 04:08 UTC
+published: true
+title: Alex Payne — Letter To A Young Programmer Considering A Startup
+tags: []
+---
+
+

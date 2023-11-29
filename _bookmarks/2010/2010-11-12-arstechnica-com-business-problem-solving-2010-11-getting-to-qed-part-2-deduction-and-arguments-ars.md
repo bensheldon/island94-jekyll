@@ -1,0 +1,9 @@
+---
+link: http://arstechnica.com/business/problem-solving/2010/11/getting-to-qed-part-2-deduction-and-arguments.ars
+date: 2010-11-12 18:22 UTC
+published: true
+title: 'Feature: Getting to QED, part 2: deduction and arguments'
+tags: []
+---
+
+

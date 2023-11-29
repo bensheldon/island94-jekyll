@@ -1,0 +1,11 @@
+---
+link: http://www.chicityclerk.com/standingcommettee.php#economicCapitalTechDevelopment
+date: 2012-01-23 22:45 UTC
+published: true
+title: Office of the Chicago City Clerk -- Committee Members and Jurisdictions
+tags:
+- cfa
+- cfa-chicago
+---
+
+The Committee on Economic, Capital and Technology Development has jurisdiction over those matters which directly affect the economic and technological expansion and development of the City and economic attraction to the City; and shall work with those public and private organizations that are similarly engaged. The Committee also has jurisdiction over the consideration, identification, goals, plan and approach to the annual and five year Capital Improvement Programs. The Committee may hold community hearings to determine the priorities to be considered in the formulation of such programs.

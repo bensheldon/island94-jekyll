@@ -1,0 +1,9 @@
+---
+link: http://arstechnica.com/security/2013/08/gone-in-30-seconds-new-attack-plucks-secrets-from-https-protected-pages/
+date: 2013-08-03 21:59 UTC
+published: true
+title: 'Gone in 30 seconds: New attack plucks secrets from HTTPS-protected pages'
+tags: []
+---
+
+

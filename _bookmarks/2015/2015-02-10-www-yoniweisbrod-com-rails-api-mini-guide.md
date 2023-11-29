@@ -1,0 +1,9 @@
+---
+link: http://www.yoniweisbrod.com/rails-api-mini-guide/
+date: 2015-02-10 02:45 UTC
+published: true
+title: The Rails API Mini Guide
+tags: []
+---
+
+

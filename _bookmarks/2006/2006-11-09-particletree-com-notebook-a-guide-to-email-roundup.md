@@ -1,0 +1,12 @@
+---
+link: http://particletree.com/notebook/a-guide-to-email-roundup/
+date: 2006-11-09 17:14 UTC
+published: true
+title: Particletree » A Guide to Email Roundup
+tags:
+- email
+- productivity
+- Tips
+---
+
+Email is fantastic. We use it to stay in touch with friends, contact clients, and handle support requests. It’s easy to use, low cost, and less intrusive than a phone call or meeting. But with email being such an integral part of our lives, are we using

@@ -1,0 +1,9 @@
+---
+link: http://feeds.boingboing.net/~r/boingboing/iBag/~3/g24LWc82P-o/yahoo-logo-and-the-y.html
+date: 2011-06-27 17:12 UTC
+published: true
+title: Yahoo! logo and an early Yippies logo
+tags: []
+---
+
+

@@ -1,0 +1,9 @@
+---
+link: https://thebias.com/2019/06/19/accountability-equity-and-flat-teams-in-tech/
+date: 2019-08-26 14:13 UTC
+published: true
+title: Accountability, Equity, and Flat Teams in Tech | The Bias
+tags: []
+---
+
+decision making from a quaker perspective

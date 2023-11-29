@@ -1,0 +1,19 @@
+---
+link: http://www.centernetworks.com/sxsw-panel-how-to-bluff-your-way-in-web-2-0
+date: 2007-03-12 03:29 UTC
+published: true
+title: 'SXSW Panel: How to bluff your way in Web 2.0 - CenterNetworks - News, Reviews,
+  Insights and Interviews'
+tags:
+- web2.0
+- sxsw
+- design
+- tutorial
+- fun
+- howto
+- humor
+- webdesign
+- web
+---
+
+

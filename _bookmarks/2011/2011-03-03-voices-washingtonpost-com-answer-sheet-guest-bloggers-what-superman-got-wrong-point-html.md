@@ -1,0 +1,9 @@
+---
+link: http://voices.washingtonpost.com/answer-sheet/guest-bloggers/what-superman-got-wrong-point.html
+date: 2011-03-03 21:01 UTC
+published: true
+title: The Answer Sheet - What ‘Superman’ got wrong, point by point
+tags: []
+---
+
+

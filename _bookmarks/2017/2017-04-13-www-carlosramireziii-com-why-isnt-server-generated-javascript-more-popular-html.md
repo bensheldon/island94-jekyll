@@ -1,0 +1,9 @@
+---
+link: http://www.carlosramireziii.com/why-isnt-server-generated-javascript-more-popular.html
+date: 2017-04-13 16:50 UTC
+published: true
+title: Why isn't Rails Server Generated JavaScript Responses more popular
+tags: []
+---
+
+

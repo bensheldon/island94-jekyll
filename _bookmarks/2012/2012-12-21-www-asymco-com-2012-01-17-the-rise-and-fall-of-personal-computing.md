@@ -1,0 +1,9 @@
+---
+link: http://www.asymco.com/2012/01/17/the-rise-and-fall-of-personal-computing/
+date: 2012-12-21 20:53 UTC
+published: true
+title: "[Updated] The rise and fall of personal computing  | asymco"
+tags: []
+---
+
+

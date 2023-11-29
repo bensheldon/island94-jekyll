@@ -1,0 +1,15 @@
+---
+link: http://blogs.adobe.com/acrolaw/2005/10/batch_ocr_using_1.html
+date: 2008-07-03 02:55 UTC
+published: true
+title: 'Acrobat for Legal Professionals: Batch OCR using Acrobat Professional'
+tags:
+- ocr
+- productivity
+- howto
+- tips
+---
+
+What do you do when you have hundreds of TIFFs and Image-only PDFs file that you need to search for a big case? Working with these documents one at a time is not efficient.
+
+If you have Acrobat Professional, you can batch OCR and let you computer do the w

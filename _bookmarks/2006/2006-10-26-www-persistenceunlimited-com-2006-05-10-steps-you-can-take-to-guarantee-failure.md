@@ -1,0 +1,14 @@
+---
+link: http://www.persistenceunlimited.com/2006/05/10-steps-you-can-take-to-guarantee-failure/
+date: 2006-10-26 12:00 UTC
+published: true
+title: 10 Steps You Can Take To Guarantee Failure » Achieve IT! - Helping you achieve
+  your goals
+tags:
+- advice
+- humor
+- planning
+- strategy
+---
+
+

@@ -1,0 +1,9 @@
+---
+link: http://kanewj.com/wbc/?Timeagain
+date: 2011-02-21 16:20 UTC
+published: true
+title: Fred Phelps is a Con Man
+tags: []
+---
+
+

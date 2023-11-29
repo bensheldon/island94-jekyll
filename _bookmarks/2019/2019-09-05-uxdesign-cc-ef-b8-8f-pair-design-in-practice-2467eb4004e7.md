@@ -1,0 +1,9 @@
+---
+link: https://uxdesign.cc/%EF%B8%8F-pair-design-in-practice-2467eb4004e7
+date: 2019-09-05 03:38 UTC
+published: true
+title: "✌️ Pair Design in practice"
+tags: []
+---
+
+

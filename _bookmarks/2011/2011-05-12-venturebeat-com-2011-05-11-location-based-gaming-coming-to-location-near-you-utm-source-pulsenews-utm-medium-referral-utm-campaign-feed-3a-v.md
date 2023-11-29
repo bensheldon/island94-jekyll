@@ -1,0 +1,9 @@
+---
+link: http://venturebeat.com/2011/05/11/location-based-gaming-coming-to-location-near-you/?utm_source=pulsenews&utm_medium=referral&utm_campaign=Feed%3A+Venturebeat+%28VentureBeat%29
+date: 2011-05-12 11:50 UTC
+published: true
+title: 'Location-based gaming: coming to location near you | VentureBeat'
+tags: []
+---
+
+Location-based gaming: coming to location near you

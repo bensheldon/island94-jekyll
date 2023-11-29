@@ -1,0 +1,9 @@
+---
+link: http://www.richardhowe.com/2011/05/28/54th-massachusetts-regiment/
+date: 2011-05-28 09:22 UTC
+published: true
+title: 54th Massachusetts Regiment ~ Marches Through Boston May 27, 1863
+tags: []
+---
+
+

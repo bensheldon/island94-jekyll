@@ -1,0 +1,9 @@
+---
+link: http://eleganthack.com/bad-advice/
+date: 2017-06-15 15:42 UTC
+published: true
+title: Receivinf advice and heuristics for living
+tags: []
+---
+
+

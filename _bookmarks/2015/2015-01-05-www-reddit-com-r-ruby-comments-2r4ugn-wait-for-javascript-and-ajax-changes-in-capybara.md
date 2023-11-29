@@ -1,0 +1,10 @@
+---
+link: http://www.reddit.com/r/ruby/comments/2r4ugn/wait_for_javascript_and_ajax_changes_in_capybara/
+date: 2015-01-05 06:29 UTC
+published: true
+title: 'Wait for Javascript and AJAX changes in Capybara : ruby'
+tags:
+- rails
+---
+
+<blockquote>I've ran into a handful of things capybara doesn't automatically wait for, and had to roll my own waitloops. The names should be pretty self explanatory.</blockquote>

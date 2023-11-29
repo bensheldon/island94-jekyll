@@ -1,0 +1,22 @@
+---
+link: https://appcasts.io/blog/a-look-at-enumerators-and-laziness
+date: 2014-02-19 22:47 UTC
+published: true
+title: A look at Enumerators and Laziness | AppCasts
+tags:
+- ruby
+---
+
+<blockquote>def data_entries(query_options={})
+  query_options[:page] = 1
+  results = {}
+
+  Enumerator.new do |yielder|
+    loop do
+      raise StopIteration if results[:last_page] == true
+      results = call_api(query_options)
+      results[:data_entries].each { |entry| yielder.yield entry }
+      query_options[:page] += 1
+    end
+  end
+end</blockquote>

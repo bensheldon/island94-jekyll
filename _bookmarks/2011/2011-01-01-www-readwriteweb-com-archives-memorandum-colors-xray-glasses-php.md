@@ -1,0 +1,11 @@
+---
+link: http://www.readwriteweb.com/archives/memorandum_colors_xray_glasses.php
+date: 2011-01-01 20:11 UTC
+published: true
+title: Memeorandum Colors (Data Hacker Pageranks Members of the US Congress)
+tags:
+- data
+- algorithm
+---
+
+colorcode political blogs

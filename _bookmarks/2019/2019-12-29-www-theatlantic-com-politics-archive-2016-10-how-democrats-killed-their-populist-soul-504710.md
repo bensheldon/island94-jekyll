@@ -1,0 +1,10 @@
+---
+link: https://www.theatlantic.com/politics/archive/2016/10/how-democrats-killed-their-populist-soul/504710/
+date: 2019-12-29 00:28 UTC
+published: true
+title: How Post-Watergate Liberals Killed Their Populist Soul - The Atlantic
+tags:
+- monopoly
+---
+
+

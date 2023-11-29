@@ -1,0 +1,10 @@
+---
+link: http://www.smashingmagazine.com/2014/09/29/balancing-line-length-font-size-responsive-web-design/
+date: 2014-09-29 14:17 UTC
+published: true
+title: 'Size Matters: Balancing Line Length And Font Size In Responsive Web Design'
+tags:
+- webdesign
+---
+
+still not a solid recommendation.

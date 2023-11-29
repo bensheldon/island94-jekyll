@@ -1,0 +1,14 @@
+---
+link: http://gnosis.cx/publish/programming/regular_expressions.html
+date: 2006-01-07 14:15 UTC
+published: true
+title: Learning to Use Regular Expressions
+tags:
+- regex
+- tutor
+- tutorial
+- regexp
+- regularexpressions
+---
+
+

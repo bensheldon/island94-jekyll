@@ -1,0 +1,9 @@
+---
+link: http://lifehacker.com/5824693/use-cayenne-pepper-to-stop-injuries-from-bleeding
+date: 2011-08-08 13:14 UTC
+published: true
+title: Use Cayenne Pepper to Stop Injuries from Bleeding
+tags: []
+---
+
+

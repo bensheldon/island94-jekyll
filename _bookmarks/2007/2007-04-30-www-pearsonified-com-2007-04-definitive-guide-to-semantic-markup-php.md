@@ -1,0 +1,14 @@
+---
+link: http://www.pearsonified.com/2007/04/definitive-guide-to-semantic-markup.php
+date: 2007-04-30 21:03 UTC
+published: true
+title: The Definitive Guide to Semantic Web Markup for Blogs
+tags:
+- webdesign
+- web
+- tutorials
+- css
+- design
+---
+
+

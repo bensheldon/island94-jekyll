@@ -1,0 +1,9 @@
+---
+link: http://blog.arkency.com/2016/12/techniques-for-dealing-with-uncertainity/
+date: 2016-12-04 21:35 UTC
+published: true
+title: Computer Patterns for dealing with uncertainity
+tags: []
+---
+
+

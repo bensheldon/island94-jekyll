@@ -1,0 +1,9 @@
+---
+link: https://medium.com/javascript-scene/the-typescript-tax-132ff4cb175b
+date: 2019-02-25 16:10 UTC
+published: true
+title: The TypeScript Tax – JavaScript Scene – Medium
+tags: []
+---
+
+

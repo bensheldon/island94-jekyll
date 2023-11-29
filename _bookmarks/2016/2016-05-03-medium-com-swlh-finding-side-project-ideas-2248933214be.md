@@ -1,0 +1,9 @@
+---
+link: https://medium.com/swlh/finding-side-project-ideas-2248933214be
+date: 2016-05-03 04:25 UTC
+published: true
+title: Finding side project ideas
+tags: []
+---
+
+

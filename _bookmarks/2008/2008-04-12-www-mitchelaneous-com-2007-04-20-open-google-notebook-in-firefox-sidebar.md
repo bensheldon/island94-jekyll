@@ -1,0 +1,15 @@
+---
+link: http://www.mitchelaneous.com/2007/04/20/open-google-notebook-in-firefox-sidebar/
+date: 2008-04-12 17:28 UTC
+published: true
+title: Open Google Notebook in Firefox Sidebar | Mitchelaneous
+tags:
+- google
+- extensions
+- firefox
+- lifehacks
+- plugin
+- sidebar
+---
+
+I like using Google’s Notebook feature but the extension they give you is a little lacking. I think it is too small and doesn’t allow me to open and shut it very quickly. What’s the solution? Well I took the Google personalized homepage widget for G

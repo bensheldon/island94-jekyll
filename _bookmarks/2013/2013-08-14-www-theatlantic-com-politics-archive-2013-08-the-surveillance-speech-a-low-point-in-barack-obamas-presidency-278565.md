@@ -1,0 +1,9 @@
+---
+link: http://www.theatlantic.com/politics/archive/2013/08/the-surveillance-speech-a-low-point-in-barack-obamas-presidency/278565/
+date: 2013-08-14 14:36 UTC
+published: true
+title: 'The Surveillance Speech: A Low Point in Barack Obama''s Presidency'
+tags: []
+---
+
+

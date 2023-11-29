@@ -1,0 +1,9 @@
+---
+link: https://opensource.guide/best-practices/
+date: 2021-06-17 14:31 UTC
+published: true
+title: Best Practices for Maintainers | Open Source Guides
+tags: []
+---
+
+

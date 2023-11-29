@@ -1,0 +1,9 @@
+---
+link: http://deconstructoroffun.blogspot.co.uk/2012/09/clash-of-clans-winning-formula.html
+date: 2013-01-04 20:50 UTC
+published: true
+title: 'Deconstructor of Fun: Clash of Clans - the Winning Formula'
+tags: []
+---
+
+

@@ -1,0 +1,9 @@
+---
+link: https://martinfowler.com/articles/on-pair-programming.html
+date: 2020-01-15 13:53 UTC
+published: true
+title: On Pair Programming
+tags: []
+---
+
+

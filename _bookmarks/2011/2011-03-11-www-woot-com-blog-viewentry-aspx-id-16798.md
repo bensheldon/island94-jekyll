@@ -1,0 +1,9 @@
+---
+link: http://www.woot.com/Blog/ViewEntry.aspx?Id=16798
+date: 2011-03-11 19:40 UTC
+published: true
+title: This Pile Of Bills Is Making Me Touch My Head
+tags: []
+---
+
+

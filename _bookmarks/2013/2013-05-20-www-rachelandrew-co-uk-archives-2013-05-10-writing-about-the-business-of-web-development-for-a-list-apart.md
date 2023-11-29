@@ -1,0 +1,9 @@
+---
+link: http://www.rachelandrew.co.uk/archives/2013/05/10/writing-about-the-business-of-web-development-for-a-list-apart/
+date: 2013-05-20 04:56 UTC
+published: true
+title: Writing about the business of web development for A List Apart
+tags: []
+---
+
+

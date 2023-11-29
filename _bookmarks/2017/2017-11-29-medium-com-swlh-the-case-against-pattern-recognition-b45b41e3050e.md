@@ -1,0 +1,9 @@
+---
+link: https://medium.com/swlh/the-case-against-pattern-recognition-b45b41e3050e
+date: 2017-11-29 02:47 UTC
+published: true
+title: The Case Against Pattern Recognition
+tags: []
+---
+
+

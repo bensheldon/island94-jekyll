@@ -1,0 +1,9 @@
+---
+link: http://web.archive.org/web/20070313205440/http://www.fawcette.com/interviews/beck_cooper/
+date: 2017-06-29 00:59 UTC
+published: true
+title: Extreme Programming vs. Interaction Design
+tags: []
+---
+
+When two development design visionaries meet, there's room for consensus—but not much. Kent Beck and Alan Cooper

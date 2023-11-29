@@ -1,0 +1,10 @@
+---
+link: https://blog.pragmaticengineer.com/can-you-measure-developer-productivity/
+date: 2020-07-08 19:39 UTC
+published: true
+title: 'Ask the EM: Can You Really Measure Individual Developer Productivity? - The
+  Pragmatic Engineer'
+tags: []
+---
+
+

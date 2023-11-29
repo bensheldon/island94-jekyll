@@ -1,0 +1,12 @@
+---
+link: http://www.bio.vu.nl/nvtb/Contents.html
+date: 2007-09-18 16:58 UTC
+published: true
+title: MATHEMATICS and BIOLOGY
+tags:
+- biology
+- mathematics
+- reference
+---
+
+

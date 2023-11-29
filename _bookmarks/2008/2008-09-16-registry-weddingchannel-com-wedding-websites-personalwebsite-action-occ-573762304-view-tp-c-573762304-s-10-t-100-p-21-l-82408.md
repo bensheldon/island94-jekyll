@@ -1,0 +1,11 @@
+---
+link: http://registry.weddingchannel.com/wedding_websites/PersonalWebsite.action?occ=573762304&view=tp&c=573762304&s=10&t=100&p=21&l=82408
+date: 2008-09-16 13:11 UTC
+published: true
+title: NICOLE & DANIEL's Wedding Website and Registries on WeddingChannel.com - Guest
+  Hotels & Travel
+tags:
+- wedding
+---
+
+San Luis Obispo and Atascadero, but there are certainly more options (pricier and cheaper) than provided below. *Please contact Dan and Nicole directly if you need more help making arrangements*

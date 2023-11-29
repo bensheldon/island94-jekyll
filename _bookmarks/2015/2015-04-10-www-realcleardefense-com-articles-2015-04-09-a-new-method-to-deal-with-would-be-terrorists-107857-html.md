@@ -1,0 +1,10 @@
+---
+link: http://www.realcleardefense.com/articles/2015/04/09/a_new_method_to_deal_with_would-be_terrorists_107857.html
+date: 2015-04-10 23:58 UTC
+published: true
+title: A New Method to Deal With Would-Be Terrorists | RealClearDefense
+tags:
+- politics
+---
+
+give em a scare

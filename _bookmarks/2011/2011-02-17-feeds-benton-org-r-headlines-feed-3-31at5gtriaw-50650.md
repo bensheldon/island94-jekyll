@@ -1,0 +1,9 @@
+---
+link: http://feeds.benton.org/~r/headlines/feed/~3/31at5GtRIAw/50650
+date: 2011-02-17 14:03 UTC
+published: true
+title: Have Media Companies Destroyed Their Copyrights With The ‘Share’ Button?
+tags: []
+---
+
+Shared.

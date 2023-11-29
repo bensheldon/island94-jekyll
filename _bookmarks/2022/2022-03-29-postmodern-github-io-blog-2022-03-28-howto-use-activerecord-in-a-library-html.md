@@ -1,0 +1,9 @@
+---
+link: https://postmodern.github.io/blog/2022/03/28/howto-use-activerecord-in-a-library.html
+date: 2022-03-29 16:01 UTC
+published: true
+title: postmodern - how to use activerecord in a library
+tags: []
+---
+
+

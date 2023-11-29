@@ -1,0 +1,11 @@
+---
+link: http://ui-patterns.com/blog/making-the-hook-model-actionable?goal=0_c33280c49f-620e79ced5-349147111&mc_cid=620e79ced5&mc_eid=ef25fadce3
+date: 2019-04-12 15:26 UTC
+published: true
+title: Making the Hook Model actionable
+tags:
+- product
+---
+
+<blockquote>Motivating toward a behavior
+Motivation can be defined as the energy for an action5: how much we want to do something. Fogg suggests 3 core motivation drives to focus our motivation efforts toward:</blockquote>

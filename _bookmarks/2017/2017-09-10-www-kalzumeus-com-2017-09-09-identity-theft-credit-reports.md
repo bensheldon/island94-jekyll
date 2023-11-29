@@ -1,0 +1,9 @@
+---
+link: http://www.kalzumeus.com/2017/09/09/identity-theft-credit-reports/
+date: 2017-09-10 01:40 UTC
+published: true
+title: Identity Theft, Credit Reports, and You
+tags: []
+---
+
+

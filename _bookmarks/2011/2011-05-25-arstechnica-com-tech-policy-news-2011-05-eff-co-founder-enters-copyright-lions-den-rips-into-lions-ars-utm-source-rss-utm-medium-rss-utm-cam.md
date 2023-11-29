@@ -1,0 +1,9 @@
+---
+link: http://arstechnica.com/tech-policy/news/2011/05/eff-co-founder-enters-copyright-lions-den-rips-into-lions.ars?utm_source=rss&utm_medium=rss&utm_campaign=rss
+date: 2011-05-25 04:38 UTC
+published: true
+title: 'Copyfight: EFF co-founder enters e-G8 "lion''s den," rips into lions'
+tags: []
+---
+
+

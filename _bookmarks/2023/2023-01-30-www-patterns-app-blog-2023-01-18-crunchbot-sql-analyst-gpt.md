@@ -1,0 +1,9 @@
+---
+link: https://www.patterns.app/blog/2023/01/18/crunchbot-sql-analyst-gpt/
+date: 2023-01-30 16:09 UTC
+published: true
+title: Replacing a SQL analyst with 26 recursive GPT prompts | Patterns
+tags: []
+---
+
+

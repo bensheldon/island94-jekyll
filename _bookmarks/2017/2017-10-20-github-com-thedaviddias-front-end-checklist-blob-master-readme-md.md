@@ -1,0 +1,10 @@
+---
+link: https://github.com/thedaviddias/Front-End-Checklist/blob/master/README.md
+date: 2017-10-20 15:22 UTC
+published: true
+title: Front-End-Checklist/README.md at master · thedaviddias/Front-End-Checklist
+  · GitHub
+tags: []
+---
+
+

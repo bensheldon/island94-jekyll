@@ -1,0 +1,24 @@
+---
+link: http://www.paintercreativity.com/articles/top-10-lies.html
+date: 2009-02-19 15:03 UTC
+published: true
+title: Painter Creativity -Top 10 Lies told to Naive Artists and Designers
+tags:
+- design
+- tips
+- art
+- advice
+- money
+---
+
+Top 10 Lies Told to Naive Artists & Designers
+
+Mark W. Lewis © 2005
+
+
+1 "Do this one cheap (or free) and we'll make it up on the next one."
+
+No reputable business person would first give away their work and time or merchandise on the hope of making it up later. Can you imagine what a plumber would say if you said "come in, provide and install the sink for free and next time we'll make it up when we need a sink." You would be laughed at! Also the likelyhood is that if something important came along, they wouldn't use you.
+2 "We never pay a cent until we see the final product."
+
+This is a croc, unless the person is leaving the door open to cheat you out of your pay. Virtually every profession requres a deposit or incremental payment during anything but the smallest project. Once you have a working relationship, you may work out another arrangement with a client. But a new client should not ask you to go beyond an initial meeting and, perhaps some preliminary sketches without pay on the

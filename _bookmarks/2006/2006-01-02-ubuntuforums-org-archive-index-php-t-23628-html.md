@@ -1,0 +1,12 @@
+---
+link: http://ubuntuforums.org/archive/index.php/t-23628.html
+date: 2006-01-02 23:20 UTC
+published: true
+title: 'HOWTO: TV-out in Hoary (nVidia?) [Archive] - Ubuntu Forums'
+tags:
+- ubuntu
+- tv
+- out
+---
+
+

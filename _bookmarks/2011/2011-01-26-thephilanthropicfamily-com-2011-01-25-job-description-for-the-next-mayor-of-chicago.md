@@ -1,0 +1,9 @@
+---
+link: http://thephilanthropicfamily.com/2011/01/25/job-description-for-the-next-mayor-of-chicago/
+date: 2011-01-26 03:44 UTC
+published: true
+title: Job Description for the Next Mayor of Chicago
+tags: []
+---
+
+

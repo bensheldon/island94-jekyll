@@ -1,0 +1,10 @@
+---
+link: http://stores.ebay.com/DataAlliance_W0QQssPageNameZVIStoreHeaderLinksQQtZkm?
+date: 2005-05-17 00:31 UTC
+published: true
+title: 'eBay Store - DataAlliance: Wireless Cards-laptop PCMCIA, Antennas, Adapters
+  for Jack Protection'
+tags: []
+---
+
+

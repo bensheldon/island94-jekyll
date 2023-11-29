@@ -1,0 +1,11 @@
+---
+link: https://medium.com/@rickhanlonii/understanding-jest-mocks-f0046c68e53c
+date: 2019-03-01 15:45 UTC
+published: true
+title: Understanding Jest Mocks – Rick Hanlon II – Medium
+tags:
+- react-native
+- javascript
+---
+
+<blockquote>GitHub is where people build software. More than 28 million people use GitHub to discover, fork, and contribute to over 79 million projects.</blockquote>

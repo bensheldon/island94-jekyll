@@ -1,0 +1,9 @@
+---
+link: http://www.bookslut.com/features/2012_09_019363.php
+date: 2012-09-28 06:52 UTC
+published: true
+title: 'Bookslut | WE WILL CONVERT THE KING IF POSSIBLE: The Greatness of Little Magazines'
+tags: []
+---
+
+

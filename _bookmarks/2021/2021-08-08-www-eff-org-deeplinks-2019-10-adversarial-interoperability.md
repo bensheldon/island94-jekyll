@@ -1,0 +1,9 @@
+---
+link: https://www.eff.org/deeplinks/2019/10/adversarial-interoperability
+date: 2021-08-08 17:23 UTC
+published: true
+title: Adversarial Interoperability | Electronic Frontier Foundation
+tags: []
+---
+
+

@@ -1,0 +1,9 @@
+---
+link: http://feeds.benton.org/~r/headlines/feed/~3/4GulvUy6GVo/56940
+date: 2011-04-25 00:04 UTC
+published: true
+title: SimpleGeo Makes Location Data Free, Complicates Smartphone Tracking Worries
+tags: []
+---
+
+SimpleGeo is great, but it's also<br>clear what this article is: a Press Release with a weakly tacked on fear narrative.

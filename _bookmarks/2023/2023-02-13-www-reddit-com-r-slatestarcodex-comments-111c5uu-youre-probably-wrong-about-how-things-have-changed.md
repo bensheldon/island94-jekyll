@@ -1,0 +1,9 @@
+---
+link: https://www.reddit.com/r/slatestarcodex/comments/111c5uu/youre_probably_wrong_about_how_things_have_changed/
+date: 2023-02-13 20:25 UTC
+published: true
+title: 'You''re probably wrong about how things have changed: slatestarcodex'
+tags: []
+---
+
+

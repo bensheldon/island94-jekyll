@@ -1,0 +1,9 @@
+---
+link: http://flavorwire.com/480134/dont-work-for-free-or-even-cheap-for-rich-people
+date: 2014-10-06 21:30 UTC
+published: true
+title: Don't Work for Free -- or Even Cheap -- for Rich People
+tags: []
+---
+
+Lena Dunham, the New York Times revealed Monday, was not planning to pay the seven artists she selected via YouTube auditions to open for her on her Not That…

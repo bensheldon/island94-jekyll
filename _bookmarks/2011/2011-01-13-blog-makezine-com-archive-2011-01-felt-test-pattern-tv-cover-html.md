@@ -1,0 +1,10 @@
+---
+link: http://blog.makezine.com/archive/2011/01/felt_test_pattern_tv_cover.html
+date: 2011-01-13 19:05 UTC
+published: true
+title: Felt test pattern TV cover
+tags:
+- project
+---
+
+

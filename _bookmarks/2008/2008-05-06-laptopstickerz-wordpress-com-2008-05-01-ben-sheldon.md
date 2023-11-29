@@ -1,0 +1,13 @@
+---
+link: http://laptopstickerz.wordpress.com/2008/05/01/ben-sheldon/
+date: 2008-05-06 14:39 UTC
+published: true
+title: Ben Sheldon « Laptop Deco
+tags:
+- me
+- laptop
+- image
+- stickers
+---
+
+

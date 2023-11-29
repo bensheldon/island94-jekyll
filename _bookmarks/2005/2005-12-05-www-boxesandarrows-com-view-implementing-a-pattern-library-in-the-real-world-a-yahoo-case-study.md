@@ -1,0 +1,12 @@
+---
+link: http://www.boxesandarrows.com/view/implementing_a_pattern_library_in_the_real_world_a_yahoo_case_study
+date: 2005-12-05 20:09 UTC
+published: true
+title: Boxes & Arrows
+tags:
+- drupal
+- workflow
+- webdesign
+---
+
+

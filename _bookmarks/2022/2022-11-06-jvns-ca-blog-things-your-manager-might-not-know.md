@@ -1,0 +1,9 @@
+---
+link: https://jvns.ca/blog/things-your-manager-might-not-know/
+date: 2022-11-06 18:05 UTC
+published: true
+title: Things your manager might not know
+tags: []
+---
+
+

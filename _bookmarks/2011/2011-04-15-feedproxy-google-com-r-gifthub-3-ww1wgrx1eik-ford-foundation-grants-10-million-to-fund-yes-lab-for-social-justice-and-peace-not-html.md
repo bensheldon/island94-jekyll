@@ -1,0 +1,10 @@
+---
+link: http://feedproxy.google.com/~r/GiftHub/~3/WW1wGRx1eIk/ford-foundation-grants-10-million-to-fund-yes-lab-for-social-justice-and-peace-not.html
+date: 2011-04-15 02:23 UTC
+published: true
+title: Ford Foundation Grants $10 million to Fund Yes Lab for Social Justice and Peace
+  (not)
+tags: []
+---
+
+

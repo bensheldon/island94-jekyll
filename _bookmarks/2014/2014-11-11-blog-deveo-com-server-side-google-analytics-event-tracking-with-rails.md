@@ -1,0 +1,11 @@
+---
+link: http://blog.deveo.com/server-side-google-analytics-event-tracking-with-rails/
+date: 2014-11-11 02:23 UTC
+published: true
+title: Server-Side Google Analytics Event Tracking with Rails
+tags:
+- ga
+- tracking
+---
+
+

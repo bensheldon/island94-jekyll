@@ -1,0 +1,9 @@
+---
+link: https://clearleft.com/posts/506
+date: 2017-10-24 15:05 UTC
+published: true
+title: The Relationship Between Service Design and UX Design - Part 2
+tags: []
+---
+
+

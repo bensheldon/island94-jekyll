@@ -1,0 +1,19 @@
+---
+link: http://www.thefreshloaf.com/recipes/pitabread
+date: 2009-05-04 01:50 UTC
+published: true
+title: Pita Bread | The Fresh Loaf
+tags:
+- recipe
+- food
+- cooking
+- recipes
+- bread
+---
+
+3 cups flour
+1 1/2 teaspoons salt
+1 Tablespoon sugar or honey
+1 packet yeast (or, if from bulk, 2 teaspoons yeast)
+1 1/4 to 1 1/2 cups water, roughly at room temperature
+2 tablespoons olive oil, vegetable oil, butter, or shortening

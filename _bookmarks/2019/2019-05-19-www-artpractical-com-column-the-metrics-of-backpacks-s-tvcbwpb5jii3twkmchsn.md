@@ -1,0 +1,9 @@
+---
+link: https://www.artpractical.com/column/the-metrics-of-backpacks/?__s=tvcbwpb5jii3twkmchsn
+date: 2019-05-19 16:24 UTC
+published: true
+title: The Metrics of Backpacks | Art Practical
+tags: []
+---
+
+

@@ -1,0 +1,9 @@
+---
+link: http://feeds.boingboing.net/~r/boingboing/iBag/~3/CQIfgkUcpg8/man-sets-fire-to-mot.html
+date: 2011-03-16 21:20 UTC
+published: true
+title: Man sets fire to motel room he shared with the devil
+tags: []
+---
+
+"The Lost Room" was a good miniseries.

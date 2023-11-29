@@ -1,0 +1,9 @@
+---
+link: http://www.rachelandrew.co.uk/archives/2011/09/16/complying-with-pci-dss-when-using-a-hosted-payment-page/
+date: 2011-09-16 10:25 UTC
+published: true
+title: Complying with PCI DSS when using a hosted payment page
+tags: []
+---
+
+

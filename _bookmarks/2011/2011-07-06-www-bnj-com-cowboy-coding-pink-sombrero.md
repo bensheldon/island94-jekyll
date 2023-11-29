@@ -1,0 +1,9 @@
+---
+link: http://www.bnj.com/cowboy-coding-pink-sombrero/
+date: 2011-07-06 13:25 UTC
+published: true
+title: Cowboy Coding and the Pink Sombrero | Babcock & Jenkins
+tags: []
+---
+
+

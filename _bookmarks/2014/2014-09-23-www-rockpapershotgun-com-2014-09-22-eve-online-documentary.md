@@ -1,0 +1,9 @@
+---
+link: http://www.rockpapershotgun.com/2014/09/22/eve-online-documentary/
+date: 2014-09-23 01:33 UTC
+published: true
+title: 'EVE At War: Documenting The Pipebomb | Rock, Paper, Shotgun'
+tags: []
+---
+
+EVE Online would make a poor spectator sport. Reading written reports about huge battles and stalking Titans can be jolly fascinating, but they’re no fun to…

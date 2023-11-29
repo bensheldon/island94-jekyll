@@ -1,0 +1,10 @@
+---
+link: http://feedproxy.google.com/~r/TheAwl/~3/Ge9PDpI-e-0/ten-songs-for-young-active-cats-to-force-their-extroverted-woman-owners-to-sing-for-them-on-a-rainy-stay-at-home-friday
+date: 2011-02-25 19:10 UTC
+published: true
+title: Ten Songs For Young, Active Cats To Force Their Extroverted Woman Owners To
+  Sing For Them (On A Rainy Stay-At-Home Friday)
+tags: []
+---
+
+

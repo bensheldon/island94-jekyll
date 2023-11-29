@@ -1,0 +1,9 @@
+---
+link: http://checksandspots.com/check-it-out/switcheroo-photography/
+date: 2011-08-15 20:00 UTC
+published: true
+title: Switcheroo
+tags: []
+---
+
+

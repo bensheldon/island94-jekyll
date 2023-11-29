@@ -1,0 +1,11 @@
+---
+link: http://www.kk.org/cooltools/index.php
+date: 2005-10-11 15:38 UTC
+published: true
+title: Kevin Kelly -- Cool Tools
+tags:
+- blog
+- fun
+---
+
+

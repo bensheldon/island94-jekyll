@@ -1,0 +1,15 @@
+---
+link: http://bassistance.de/jquery-plugins/jquery-plugin-tooltip/
+date: 2008-07-27 00:35 UTC
+published: true
+title: 'bassistance.de » jQuery plugin: Tooltip'
+tags:
+- css
+- design
+- development
+- drupal
+- javascript
+- panlexicon
+---
+
+jQuery plugin: Tooltip

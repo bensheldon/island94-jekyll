@@ -1,0 +1,11 @@
+---
+link: http://articles.chicagotribune.com/2012-01-24/business/chi-mcic-for-chicago-nonprofits-closing-20120124_1_profits-donors-chicago-area
+date: 2012-01-26 22:16 UTC
+published: true
+title: MCIC for Chicago non-profits closing - Chicago Tribune
+tags:
+- cfa-chicago
+- cfa
+---
+
+Revenue earned providing low-cost demographic data to local non-profits and research for commissioned projects from larger philanthropic clients such as the MacArthur Foundation and the Sprague Foundation, isn't enough to keep the organization going according to Carlson. In addition, funding from donors has declined in recent years.  "Data infrastructure is a tough sell for a donor," said Carlson. "We are hearing more that [donors] were choosing direct service organizations, which is understandable given the economy."

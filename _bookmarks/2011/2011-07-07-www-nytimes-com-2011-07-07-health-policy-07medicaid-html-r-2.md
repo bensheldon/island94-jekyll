@@ -1,0 +1,9 @@
+---
+link: http://www.nytimes.com/2011/07/07/health/policy/07medicaid.html?_r=2
+date: 2011-07-07 15:29 UTC
+published: true
+title: Study Finds Benefits in Health Insurance for the Poor - NYTimes.com
+tags: []
+---
+
+If there is anything I believe without evidence, it's that people living in poverty are not monsters. Glad there is data now to back that up.

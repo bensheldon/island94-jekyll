@@ -1,0 +1,9 @@
+---
+link: http://feedproxy.google.com/~r/matthewyglesias/~3/9ORYgalcp70/
+date: 2011-01-21 15:29 UTC
+published: true
+title: You’ve Got Ripped Off! AOL’s Scam Economics
+tags: []
+---
+
+

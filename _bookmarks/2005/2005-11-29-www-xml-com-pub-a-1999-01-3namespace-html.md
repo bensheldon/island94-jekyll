@@ -1,0 +1,11 @@
+---
+link: http://www.xml.com/pub/a/1999/01/3namespace.html
+date: 2005-11-29 16:18 UTC
+published: true
+title: 'XML.com: Namespaces in XML Adopted by W3C'
+tags:
+- xml
+- rss
+---
+
+

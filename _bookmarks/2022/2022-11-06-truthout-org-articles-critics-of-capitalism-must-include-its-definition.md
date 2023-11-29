@@ -1,0 +1,9 @@
+---
+link: https://truthout.org/articles/critics-of-capitalism-must-include-its-definition/
+date: 2022-11-06 04:21 UTC
+published: true
+title: Richard D. Wolff | Critics of Capitalism Must Include Its Definition
+tags: []
+---
+
+

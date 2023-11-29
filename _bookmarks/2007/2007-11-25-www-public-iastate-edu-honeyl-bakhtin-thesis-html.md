@@ -1,0 +1,17 @@
+---
+link: http://www.public.iastate.edu/~honeyl/bakhtin/thesis.html
+date: 2007-11-25 22:44 UTC
+published: true
+title: What Hath Bakhtin Wrought?
+tags:
+- philosophy
+- literature
+- education
+- english
+- rhetoric
+- Bakhtin
+- narrative
+- collaboration
+---
+
+The growing influence of critical theory in English studies has produced a host of difficult and confusing ideas about philosophy of language as applied to written texts. Especially frustrating for many has been Jacques Derrida's theory of deconstruction,

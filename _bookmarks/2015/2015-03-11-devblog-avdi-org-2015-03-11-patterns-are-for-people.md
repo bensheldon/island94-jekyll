@@ -1,0 +1,10 @@
+---
+link: http://devblog.avdi.org/2015/03/11/patterns-are-for-people/
+date: 2015-03-11 14:47 UTC
+published: true
+title: Patterns are for People
+tags:
+- programming
+---
+
+

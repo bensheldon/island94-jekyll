@@ -1,0 +1,9 @@
+---
+link: https://www.interfluidity.com/v2/8930.html
+date: 2021-08-21 17:42 UTC
+published: true
+title: interfluidity » We’re already paying for it
+tags: []
+---
+
+argues letting the rich keep their money can be deflationary as taxing it.

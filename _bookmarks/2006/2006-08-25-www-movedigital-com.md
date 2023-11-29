@@ -1,0 +1,12 @@
+---
+link: http://www.movedigital.com/
+date: 2006-08-25 17:21 UTC
+published: true
+title: MoveDigital
+tags:
+- ctcvista
+- bittorrent
+- distribution
+---
+
+Bittorrent distribution service run by Prodigem

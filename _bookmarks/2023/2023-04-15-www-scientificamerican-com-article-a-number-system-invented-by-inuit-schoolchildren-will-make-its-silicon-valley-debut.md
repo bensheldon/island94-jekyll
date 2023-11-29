@@ -1,0 +1,9 @@
+---
+link: https://www.scientificamerican.com/article/a-number-system-invented-by-inuit-schoolchildren-will-make-its-silicon-valley-debut/
+date: 2023-04-15 17:01 UTC
+published: true
+title: ''
+tags: []
+---
+
+Math is great.

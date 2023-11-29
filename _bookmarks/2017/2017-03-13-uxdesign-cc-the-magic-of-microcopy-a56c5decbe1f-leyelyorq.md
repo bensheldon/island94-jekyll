@@ -1,0 +1,9 @@
+---
+link: https://uxdesign.cc/the-magic-of-microcopy-a56c5decbe1f#.leyelyorq
+date: 2017-03-13 14:52 UTC
+published: true
+title: The magic of microcopy
+tags: []
+---
+
+

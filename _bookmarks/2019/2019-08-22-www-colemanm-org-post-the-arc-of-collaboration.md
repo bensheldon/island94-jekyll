@@ -1,0 +1,9 @@
+---
+link: https://www.colemanm.org/post/the-arc-of-collaboration/
+date: 2019-08-22 14:47 UTC
+published: true
+title: The Arc of Collaboration - collaboration modes with slack
+tags: []
+---
+
+

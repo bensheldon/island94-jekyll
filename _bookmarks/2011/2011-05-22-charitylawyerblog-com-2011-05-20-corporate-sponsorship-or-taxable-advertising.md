@@ -1,0 +1,9 @@
+---
+link: http://charitylawyerblog.com/2011/05/20/corporate-sponsorship-or-taxable-advertising/
+date: 2011-05-22 12:30 UTC
+published: true
+title: Corporate Sponsorship or Taxable Advertising?
+tags: []
+---
+
+IRS respect:<br><br>"If... the nonprofit promotes or markets the goods or services of a sponsor, the sponsorship will be treated as advertising and the income may be taxable as UBI and will not count as public support. ... Payments that are contingent on the level of attendance at events, broadcast ratings, or other factors indicating the degree of public exposure will not qualify for the sponsorship safe harbor."

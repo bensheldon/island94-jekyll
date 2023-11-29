@@ -1,0 +1,9 @@
+---
+link: http://www.outsideonline.com/outdoor-adventure/media/books/Keyes-hamilton-the-secret-race.html?page=all
+date: 2012-09-10 02:06 UTC
+published: true
+title: "\r\nTyler Hamilton on Lance Armstrong: The Secret Is Out | Books | OutsideOnline.com\r\n"
+tags: []
+---
+
+

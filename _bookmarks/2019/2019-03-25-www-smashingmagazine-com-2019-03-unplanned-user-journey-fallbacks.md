@@ -1,0 +1,9 @@
+---
+link: https://www.smashingmagazine.com/2019/03/unplanned-user-journey-fallbacks/
+date: 2019-03-25 14:33 UTC
+published: true
+title: How To Find And Make The Most Of The Unplanned User Journey
+tags: []
+---
+
+pretty good breakdown of how to use analytics to think through dropoff points

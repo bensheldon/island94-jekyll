@@ -1,0 +1,9 @@
+---
+link: https://www.stephendiehl.com/blog/disconnect.html
+date: 2021-11-28 16:40 UTC
+published: true
+title: The Token Disconnect
+tags: []
+---
+
+> On the most basic human level, I suspect our generation still hasn’t processed our shared collective trauma of the 2008 Global Financial Crisis and our anger is now still coming out in very unhealthy ways. With crypto we’ve decided to do the most American thing ever, to commoditize our rage at the financial system into a financial product. Because after all, we’re just temporarily embarrassed millionaires and the only problem with CDOs wasn’t the moral hazard, but that you didn’t have a piece of the action. This time you have a choice, but I suspect history is going to have the same lesson to teach us about the perils of greed untempered by reason.

@@ -1,0 +1,13 @@
+---
+link: http://www.ibm.com/developerworks/rational/library/4751.html
+date: 2007-08-13 14:50 UTC
+published: true
+title: 'Program management: Different from project management'
+tags:
+- management
+- advice
+- project
+- strategy
+---
+
+Many enterprise IT organizations are tackling large, complex efforts that combine the delivery of software elements, new and changed business models, and overall changes to organizational structure and capabilities. Typically these efforts involve several

@@ -1,0 +1,9 @@
+---
+link: http://www.dangerousminds.net/comments/stephen_colbert_on_american_republican-style_christianity/
+date: 2011-01-02 03:56 UTC
+published: true
+title: Stephen Colbert on American, Republican-style Christianity
+tags: []
+---
+
+

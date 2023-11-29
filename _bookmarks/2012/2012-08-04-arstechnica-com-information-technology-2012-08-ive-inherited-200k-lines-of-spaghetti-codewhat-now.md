@@ -1,0 +1,9 @@
+---
+link: http://arstechnica.com/information-technology/2012/08/ive-inherited-200k-lines-of-spaghetti-codewhat-now/
+date: 2012-08-04 22:04 UTC
+published: true
+title: I’ve inherited 200K lines of spaghetti code—what now? | Ars Technica
+tags: []
+---
+
+

@@ -1,0 +1,9 @@
+---
+link: http://openplans.org/2012/05/25/b-roll-aaron/
+date: 2012-06-01 17:59 UTC
+published: true
+title: 'b-roll: Aaron maps some future bike share trips | OpenPlans'
+tags: []
+---
+
+moving map markers

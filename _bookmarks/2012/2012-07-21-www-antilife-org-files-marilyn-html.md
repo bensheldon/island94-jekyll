@@ -1,0 +1,9 @@
+---
+link: http://www.antilife.org/files/marilyn.html
+date: 2012-07-21 04:54 UTC
+published: true
+title: " Rolling Stone : Columbine: Whose Fault Is It?"
+tags: []
+---
+
+

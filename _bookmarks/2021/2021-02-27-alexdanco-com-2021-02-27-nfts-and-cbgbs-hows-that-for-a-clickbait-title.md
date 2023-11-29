@@ -1,0 +1,9 @@
+---
+link: https://alexdanco.com/2021/02/27/nfts-and-cbgbs-hows-that-for-a-clickbait-title/
+date: 2021-02-27 22:40 UTC
+published: true
+title: 'NFTs and CBGBs: How’s that for a clickbait title – alexdanco.com'
+tags: []
+---
+
+scheduling points

@@ -1,0 +1,9 @@
+---
+link: http://arstechnica.com/tech-policy/2012/07/millions-of-americans-now-fall-within-governments-digital-dragnet/
+date: 2012-07-25 01:24 UTC
+published: true
+title: Millions of Americans now fall within government’s digital dragnet | Ars Technica
+tags: []
+---
+
+

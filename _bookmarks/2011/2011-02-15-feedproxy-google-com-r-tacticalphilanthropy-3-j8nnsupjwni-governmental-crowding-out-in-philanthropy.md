@@ -1,0 +1,9 @@
+---
+link: http://feedproxy.google.com/~r/TacticalPhilanthropy/~3/j8NnsuPJWNI/governmental-crowding-out-in-philanthropy
+date: 2011-02-15 04:35 UTC
+published: true
+title: Governmental “Crowding Out” in Philanthropy
+tags: []
+---
+
+That won't last long...

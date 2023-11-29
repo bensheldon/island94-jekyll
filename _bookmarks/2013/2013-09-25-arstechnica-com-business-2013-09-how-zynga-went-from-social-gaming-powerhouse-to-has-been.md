@@ -1,0 +1,9 @@
+---
+link: http://arstechnica.com/business/2013/09/how-zynga-went-from-social-gaming-powerhouse-to-has-been/
+date: 2013-09-25 01:43 UTC
+published: true
+title: How Zynga went from social gaming powerhouse to has-been
+tags: []
+---
+
+

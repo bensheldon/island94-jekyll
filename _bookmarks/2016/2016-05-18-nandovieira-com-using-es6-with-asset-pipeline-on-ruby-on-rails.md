@@ -1,0 +1,12 @@
+---
+link: http://nandovieira.com/using-es6-with-asset-pipeline-on-ruby-on-rails
+date: 2016-05-18 05:47 UTC
+published: true
+title: Using ES6 with Asset Pipeline on Ruby on Rails - Nando Vieira
+tags:
+- rails
+- es6
+- javascript
+---
+
+

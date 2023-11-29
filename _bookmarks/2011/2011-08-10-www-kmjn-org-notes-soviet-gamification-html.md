@@ -1,0 +1,9 @@
+---
+link: http://www.kmjn.org/notes/soviet_gamification.html
+date: 2011-08-10 12:01 UTC
+published: true
+title: Soviet Gamification
+tags: []
+---
+
+

@@ -1,0 +1,10 @@
+---
+link: https://thedigitalprojectmanager.com/working-backwards/
+date: 2020-06-03 04:24 UTC
+published: true
+title: 'Working Backwards: A New Version Of Amazon’s “Press Release” Approach To Plan
+  Customer-Centric Projects - The Digital Project Manager'
+tags: []
+---
+
+

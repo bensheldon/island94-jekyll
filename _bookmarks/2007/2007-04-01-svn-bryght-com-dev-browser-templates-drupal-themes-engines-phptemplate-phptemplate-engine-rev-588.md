@@ -1,0 +1,15 @@
+---
+link: https://svn.bryght.com/dev/browser/templates/drupal/themes/engines/phptemplate/phptemplate.engine?rev=588
+date: 2007-04-01 03:44 UTC
+published: true
+title: "/templates/drupal/themes/engines/phptemplate/phptemplate.engine - Bryght Public
+  Repository - Trac"
+tags:
+- drupal
+- bryght
+- theming
+- phptemplate
+- variables
+---
+
+phptemplate_node variables

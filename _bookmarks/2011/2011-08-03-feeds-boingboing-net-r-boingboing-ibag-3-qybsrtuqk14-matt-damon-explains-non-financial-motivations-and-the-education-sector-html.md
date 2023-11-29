@@ -1,0 +1,9 @@
+---
+link: http://feeds.boingboing.net/~r/boingboing/iBag/~3/qYbSrtuQK14/matt-damon-explains-non-financial-motivations-and-the-education-sector.html
+date: 2011-08-03 12:33 UTC
+published: true
+title: Matt Damon explains non-financial motivations and the education sector
+tags: []
+---
+
+From the comments: "People who say teachers don't work hard, mainly care about themselves and the ideology that they personally identify with. Selfish people will always have problems understanding selflessness."

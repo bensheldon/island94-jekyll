@@ -1,0 +1,9 @@
+---
+link: http://www.alamut.com/subj/ideologies/pessimism/califIdeo_II.html
+date: 2011-10-19 17:11 UTC
+published: true
+title: Rebuttal of the Californian Ideology
+tags: []
+---
+
+

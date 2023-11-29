@@ -1,0 +1,9 @@
+---
+link: http://www.stopjunkcalls.com/script.htm
+date: 2005-09-12 16:04 UTC
+published: true
+title: What To Do for Junk Calls
+tags: []
+---
+
+

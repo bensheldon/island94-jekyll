@@ -1,0 +1,9 @@
+---
+link: http://publiceditor.blogs.nytimes.com/2011/07/06/times-curbs-pogues-pr-appearances/
+date: 2011-07-10 15:49 UTC
+published: true
+title: Times curbs Pogue's P.R. appearances - NYTimes.com
+tags: []
+---
+
+Excerpt.

@@ -1,0 +1,10 @@
+---
+link: http://www.lawyersgunsmoneyblog.com/2013/07/this-day-in-labor-history-july-17-1944
+date: 2013-07-19 01:38 UTC
+published: true
+title: "   This Day in Labor History: July 17, 1944 - Lawyers, Guns & Money  : Lawyers,
+  Guns & Money"
+tags: []
+---
+
+

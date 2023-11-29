@@ -1,0 +1,9 @@
+---
+link: http://www.copyblogger.com/opening-sentences/
+date: 2015-04-08 02:58 UTC
+published: true
+title: David Sedaris's Guide to Writing Brilliant First Sentences - Copyblogger
+tags: []
+---
+
+David Sedaris’s Guide to Writing Brilliant First Sentences - Copyblogger

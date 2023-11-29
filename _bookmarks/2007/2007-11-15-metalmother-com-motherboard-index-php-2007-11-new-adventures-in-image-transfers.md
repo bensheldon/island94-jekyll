@@ -1,0 +1,9 @@
+---
+link: http://metalmother.com/motherboard/index.php/2007/11/new-adventures-in-image-transfers/
+date: 2007-11-15 05:33 UTC
+published: true
+title: New Adventures in Image Transfers
+tags: []
+---
+
+

@@ -1,0 +1,10 @@
+---
+link: http://blog.frankchimero.com/post/8658149031
+date: 2011-08-20 16:33 UTC
+published: true
+title: '"The Russian polymath Mikhail Bakhtin, one of the titanic minds of the twentieth
+  century, though too..."'
+tags: []
+---
+
+It's odd to describe the diologic using the language of the dialectic: "in a dialogue the position of primacy is with the person who listens rather than the one who first speaks."

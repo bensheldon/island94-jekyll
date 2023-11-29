@@ -1,0 +1,9 @@
+---
+link: https://janbosch.com/blog/index.php/2017/11/25/structure-eats-strategy/
+date: 2021-09-04 00:30 UTC
+published: true
+title: Structure Eats Strategy – Software Driven World
+tags: []
+---
+
+

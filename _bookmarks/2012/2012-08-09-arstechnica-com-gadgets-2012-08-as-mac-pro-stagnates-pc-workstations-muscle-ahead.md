@@ -1,0 +1,9 @@
+---
+link: http://arstechnica.com/gadgets/2012/08/as-mac-pro-stagnates-pc-workstations-muscle-ahead/
+date: 2012-08-09 03:12 UTC
+published: true
+title: As Mac Pro stagnates, PC workstations muscle ahead | Ars Technica
+tags: []
+---
+
+

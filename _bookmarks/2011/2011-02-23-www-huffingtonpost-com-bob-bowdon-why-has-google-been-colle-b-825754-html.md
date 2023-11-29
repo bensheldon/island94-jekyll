@@ -1,0 +1,10 @@
+---
+link: http://www.huffingtonpost.com/bob-bowdon/why-has-google-been-colle_b_825754.html
+date: 2011-02-23 13:40 UTC
+published: true
+title: Why Has Google Been Collecting Kids’ Social Security Numbers Under the Guise
+  of an Art Contest?
+tags: []
+---
+
+Clearly software engineers:<br> - everyone must have a unique ID: "We'll use their SSN!"<br>- never trust the user: "We'll silently filter  based on a secret criteria."<br>- legal implications: "Well, you filled it in."<br>- updates & notifications: "It's on our website."<br>- children: "We push enabling innovations to all our market units."

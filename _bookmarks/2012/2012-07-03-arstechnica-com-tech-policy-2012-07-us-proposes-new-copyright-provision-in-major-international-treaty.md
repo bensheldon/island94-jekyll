@@ -1,0 +1,9 @@
+---
+link: http://arstechnica.com/tech-policy/2012/07/us-proposes-new-copyright-provision-in-major-international-treaty/
+date: 2012-07-03 23:32 UTC
+published: true
+title: US proposes new copyright provision in major international treaty | Ars Technica
+tags: []
+---
+
+

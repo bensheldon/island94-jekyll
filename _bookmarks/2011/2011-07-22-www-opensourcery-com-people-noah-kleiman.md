@@ -1,0 +1,9 @@
+---
+link: http://www.opensourcery.com/people/noah-kleiman
+date: 2011-07-22 15:44 UTC
+published: true
+title: Noah Kleiman | OpenSourcery
+tags: []
+---
+
+Yes!

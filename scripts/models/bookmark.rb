@@ -1,3 +1,4 @@
+require "jekyll"
 require 'yaml'
 require 'securerandom'
 require 'time'
@@ -8,16 +9,17 @@ require 'time'
 #
 
 class Bookmark
-  attr_accessor :link, :title, :tags, :notes, :date, :published, :id
+  attr_accessor :link, :title, :tags, :notes, :date, :published, :slug
 
   def self.load_all
-    Dir.glob("_bookmarks/*.md").map do |path|
+    Dir.glob("_bookmarks/**/*.md").map do |path|
+      puts path
       load(path)
     end.sort_by(&:date)
   end
 
   def self.load(path)
-    id = File.basename(path, ".md").split("_")[1]
+    slug = File.basename(path, ".md")
 
     contents = File.read(path)
     documents = contents.split("---").map(&:strip).reject(&:empty?)
@@ -34,30 +36,31 @@ class Bookmark
       notes: body,
       date: Time.parse(frontmatter["date"]),
       published: frontmatter["published"],
-      id: id
+      slug: slug
     )
   end
 
-  def initialize(link:, title: nil, tags: nil, notes: nil, date: nil, published: true, id: nil)
+  def initialize(link:, title: nil, tags: nil, notes: nil, date: nil, published: true, slug: nil)
     @link = link
     @title = title
     @tags = tags
     @notes = notes
     @date = date || Time.new
     @published = published
-    @id = id || SecureRandom.uuid
+    @slug = slug || generate_slug
   end
 
   def save
+    FileUtils.mkdir_p(File.dirname(filepath))
     File.write(filepath, to_s)
   end
 
   def filepath
-    "_bookmarks/#{filename}"
+    "_bookmarks/#{date.strftime("%Y")}/#{filename}"
   end
 
   def filename
-    "#{date.strftime('%Y-%m-%d')}_#{id}.md"
+    "#{slug}.md"
   end
 
   def to_s
@@ -76,5 +79,15 @@ class Bookmark
 
       #{body}
     MARKDOWN
+  end
+
+  private
+
+  def generate_slug
+    parameterized_link = (link || "").strip.gsub(/https?:\/\//, "")
+    parameterized_link = Jekyll::Utils.slugify(parameterized_link, mode: "latin")
+    parameterized_link = Jekyll::Utils.slugify(parameterized_link, mode: "ascii")
+    parameterized_link = parameterized_link[0..150].sub(/-$/, "")
+    "#{date.strftime('%Y-%m-%d')}-#{parameterized_link}"
   end
 end

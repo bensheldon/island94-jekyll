@@ -1,0 +1,11 @@
+---
+link: http://softwaredevelopmenttoday.com/2017/10/a-noestimates-tool-the-slicing-meeting-replacing-estimation-meetings-while-creating-shared-understanding/
+date: 2017-10-16 15:55 UTC
+published: true
+title: 'A #NoEstimates tool: The slicing meeting, replacing estimation meetings while
+  creating shared understanding - Software Development Today'
+tags:
+- NoEstimates
+---
+
+

@@ -1,0 +1,9 @@
+---
+link: http://blog.groundswellcollective.com/2010/11/20/what-is-critique-a-platypus-affiliated-society-symposium-at-the-new-school/
+date: 2010-11-21 21:27 UTC
+published: true
+title: What is Critique? – A Platypus Affiliated Society Symposium at The New School
+tags: []
+---
+
+

@@ -1,0 +1,9 @@
+---
+link: http://www.gyford.com/phil/links/2011/05/12/
+date: 2011-05-14 01:58 UTC
+published: true
+title: Links for 12 May 2011
+tags: []
+---
+
+"<a href="http://Alpha.gov.uk">Alpha.gov.uk</a> is an experimental prototype of a single UK Government website. It aims to be as simple as possible, and to place the needs of citizens first.<br><br>"Developed in under three months by a small team within the Government Digital Service, it is a direct response to Martha Lane Fox's recent review of <a href="http://gov.uk">gov.uk</a>, which demanded revolution, not evolution, in the way Government services are delivered online.<br><br>"The prototype is not complete and may not be accurate. Please don't rely on it.<br><br>"The purpose of putting this early prototype public is to test what are relatively radical design ideas before a huge amount of time and public money has been spent. We need your feedback!"

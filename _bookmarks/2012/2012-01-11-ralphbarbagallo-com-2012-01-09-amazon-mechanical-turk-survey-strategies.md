@@ -1,0 +1,12 @@
+---
+link: http://ralphbarbagallo.com/2012/01/09/amazon-mechanical-turk-survey-strategies/
+date: 2012-01-11 17:49 UTC
+published: true
+title: Amazon Mechanical Turk Survey Strategies
+tags:
+- surveys
+- users
+- testing
+---
+
+I recently crafted a survey to collect data on the consumption habits of gamers. I wanted to identify different types of gamers and drill down further with future surveys targeted at specific categories of game players. To do this, I used a combination of SurveyMonkey and Amazon Mechanical Turk.

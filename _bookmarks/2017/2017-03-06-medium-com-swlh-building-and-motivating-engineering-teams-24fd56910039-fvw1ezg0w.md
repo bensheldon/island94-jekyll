@@ -1,0 +1,9 @@
+---
+link: https://medium.com/swlh/building-and-motivating-engineering-teams-24fd56910039#.fvw1ezg0w
+date: 2017-03-06 15:23 UTC
+published: true
+title: Building and Motivating Engineering Teams
+tags: []
+---
+
+Nice comments of treating software engineers as adults and collaborators.

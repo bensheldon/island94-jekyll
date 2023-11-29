@@ -1,0 +1,12 @@
+---
+link: http://css-tricks.com/examples/ShapesOfCSS/?=derp
+date: 2011-08-12 15:16 UTC
+published: true
+title: The Shapes of CSS
+tags:
+- html
+- webdesign
+- css3
+---
+
+All of the below use only a single HTML element. Any kind of CSS goes, as long as it's supported in at least one browser.

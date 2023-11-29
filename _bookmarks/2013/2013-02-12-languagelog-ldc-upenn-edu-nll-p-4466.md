@@ -1,0 +1,9 @@
+---
+link: http://languagelog.ldc.upenn.edu/nll/?p=4466
+date: 2013-02-12 17:16 UTC
+published: true
+title: Language Log » The cyberpragmatics of bounding asterisks
+tags: []
+---
+
+

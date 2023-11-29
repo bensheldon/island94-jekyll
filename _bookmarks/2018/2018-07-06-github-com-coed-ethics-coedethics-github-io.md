@@ -1,0 +1,9 @@
+---
+link: https://github.com/coed-ethics/coedethics.github.io
+date: 2018-07-06 01:34 UTC
+published: true
+title: 'GitHub - coed-ethics/coedethics.github.io: Ethical Resources for Developers'
+tags: []
+---
+
+

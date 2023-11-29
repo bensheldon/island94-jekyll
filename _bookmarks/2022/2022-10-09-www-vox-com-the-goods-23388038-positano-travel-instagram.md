@@ -1,0 +1,9 @@
+---
+link: https://www.vox.com/the-goods/23388038/positano-travel-instagram
+date: 2022-10-09 14:55 UTC
+published: true
+title: Positano, the Instagram capital of the world, is a terrible place to be - Vox
+tags: []
+---
+
+

@@ -1,0 +1,9 @@
+---
+link: http://alanvanroemburg.tumblr.com/post/6550997276/apple-icloud-icon-golden-ratio-alan-van-roemburg
+date: 2011-06-16 16:27 UTC
+published: true
+title: Some Clouds Have a Golden Lining
+tags: []
+---
+
+

@@ -1,0 +1,11 @@
+---
+link: http://uchicagoadmissions.tumblr.com/post/37809971913/indiana-jones-mystery-package-we-dont-really
+date: 2012-12-15 01:11 UTC
+published: true
+title: |-
+  UChicago College Admissions, Indiana Jones Mystery Package
+   We don’t really...
+tags: []
+---
+
+

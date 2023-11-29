@@ -1,0 +1,12 @@
+---
+link: http://sleepnaked.org/
+date: 2007-03-04 15:38 UTC
+published: true
+title: sleepnaked.org
+tags:
+- sleep
+- css
+- webdesign
+---
+
+Sleeping naked and a good clean layout.

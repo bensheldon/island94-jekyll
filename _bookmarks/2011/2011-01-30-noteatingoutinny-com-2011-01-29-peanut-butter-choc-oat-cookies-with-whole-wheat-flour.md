@@ -1,0 +1,10 @@
+---
+link: http://noteatingoutinny.com/2011/01/29/peanut-butter-choc-oat-cookies-with-whole-wheat-flour/
+date: 2011-01-30 14:43 UTC
+published: true
+title: Peanut Butter Choc-Oat Cookies with Whole Wheat Flour
+tags:
+- recipe
+---
+
+

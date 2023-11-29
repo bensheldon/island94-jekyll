@@ -1,0 +1,9 @@
+---
+link: https://www.annashipman.co.uk/jfdi/finance-part-1.html
+date: 2021-03-10 17:04 UTC
+published: true
+title: 'Finance for non-finance directors: Part 1'
+tags: []
+---
+
+Finance for non-finance directors: Part 1

@@ -1,0 +1,9 @@
+---
+link: http://firstround.com/article/why-most-startups-dont-get-press
+date: 2013-10-03 00:17 UTC
+published: true
+title: Why Most Startups Don't 'Get' Press
+tags: []
+---
+
+

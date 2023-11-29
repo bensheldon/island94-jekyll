@@ -1,0 +1,19 @@
+---
+link: http://www.fieggen.com/shoelace/index.htm
+date: 2007-03-13 13:28 UTC
+published: true
+title: Ian's Shoelace Site - Introduction
+tags:
+- shoelaces
+- knots
+- howto
+- shoes
+- lifehacks
+- tips
+- tutorial
+- style
+- guide
+- Fun
+---
+
+Fun, fashion & science in this quirky site about shoelaces. Whether you want to learn to lace shoes, tie shoelaces, stop shoelaces from coming undone, calculate shoelace lengths or even repair aglets, Ian's Shoelace Site has the answer!

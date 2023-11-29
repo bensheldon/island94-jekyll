@@ -1,0 +1,11 @@
+---
+link: https://shubox.io/blog/2016/08/29/form-objects-and-rails-form-builders
+date: 2016-09-01 16:58 UTC
+published: true
+title: Form Objects and Rails' Form Builders | shubox.io
+tags:
+- rails
+- forms
+---
+
+How to get the proper form url into the form object

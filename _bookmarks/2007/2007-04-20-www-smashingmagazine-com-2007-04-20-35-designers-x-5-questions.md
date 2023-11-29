@@ -1,0 +1,17 @@
+---
+link: http://www.smashingmagazine.com/2007/04/20/35-designers-x-5-questions/
+date: 2007-04-20 12:17 UTC
+published: true
+title: 35 Designers x 5 Questions | Smashing Magazine
+tags:
+- webdesign
+- questions
+- interview
+- css
+- design
+- advice
+- fonts
+- howto
+---
+
+

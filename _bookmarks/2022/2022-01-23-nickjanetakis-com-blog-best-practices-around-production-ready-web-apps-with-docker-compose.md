@@ -1,0 +1,10 @@
+---
+link: https://nickjanetakis.com/blog/best-practices-around-production-ready-web-apps-with-docker-compose
+date: 2022-01-23 21:11 UTC
+published: true
+title: Best Practices Around Production Ready Web Apps with Docker Compose — Nick
+  Janetakis
+tags: []
+---
+
+

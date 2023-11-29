@@ -1,0 +1,9 @@
+---
+link: http://www.bethkanter.org/fish-nonprofit/
+date: 2011-07-13 21:53 UTC
+published: true
+title: How Helpful is Teaching Nonprofits How to Fish?
+tags: []
+---
+
+It takes a lot more than sharing "the best way to bate a hook" to teach a person to fish. Then again, it's difficult to develop the necessary coursework in hunger, for example, through a best-practices framework. And if we're going evidence based, foundations probably wouldn't be the best folks to develop it.

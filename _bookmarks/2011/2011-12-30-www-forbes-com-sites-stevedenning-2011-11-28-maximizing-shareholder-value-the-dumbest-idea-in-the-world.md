@@ -1,0 +1,9 @@
+---
+link: http://www.forbes.com/sites/stevedenning/2011/11/28/maximizing-shareholder-value-the-dumbest-idea-in-the-world/
+date: 2011-12-30 03:22 UTC
+published: true
+title: 'The Dumbest Idea in the World: Maximizing Shareholder Value'
+tags: []
+---
+
+

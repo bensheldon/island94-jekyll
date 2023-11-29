@@ -1,0 +1,16 @@
+---
+link: http://codex.wordpress.org/Pages
+date: 2007-08-22 13:45 UTC
+published: true
+title: Pages « WordPress Codex
+tags:
+- wordpress
+- cms
+- css
+- howto
+- article
+---
+
+Making your blog appear in a non-root folder
+
+Suppose you have Wordpress running at http://example.com/. Suppose further that you want your blog to be located at http://example.com/blog/ and that you want other pages to be available at http://example.com/

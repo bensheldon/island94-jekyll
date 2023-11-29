@@ -1,0 +1,9 @@
+---
+link: http://www.gyford.com/phil/links/2011/08/31/
+date: 2011-09-02 14:27 UTC
+published: true
+title: Links for 31 August 2011
+tags: []
+---
+
+The Gidsy instructions (1st Link) is very nice.

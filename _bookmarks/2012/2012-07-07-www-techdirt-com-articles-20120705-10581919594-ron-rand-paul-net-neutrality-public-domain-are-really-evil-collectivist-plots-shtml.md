@@ -1,0 +1,10 @@
+---
+link: http://www.techdirt.com/articles/20120705/10581919594/ron-rand-paul-net-neutrality-public-domain-are-really-evil-collectivist-plots.shtml
+date: 2012-07-07 03:31 UTC
+published: true
+title: 'Ron And Rand Paul: Net Neutrality And The Public Domain Are Really Evil Collectivist
+  Plots | Techdirt'
+tags: []
+---
+
+

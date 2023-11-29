@@ -1,0 +1,9 @@
+---
+link: http://www.developerdotstar.com/mag/articles/reeves_design_main.html
+date: 2015-03-25 20:46 UTC
+published: true
+title: '"What is Software Design?"'
+tags: []
+---
+
+

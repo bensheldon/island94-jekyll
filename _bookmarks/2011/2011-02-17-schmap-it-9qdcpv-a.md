@@ -1,0 +1,9 @@
+---
+link: http://schmap.it/9qDCPv?a
+date: 2011-02-17 23:38 UTC
+published: true
+title: Schmap.it - Boston Public Library
+tags: []
+---
+
+RT @bensheldon I love that the Boston Public Library has a sign by the elevator that says exercise and y...  <--MAP

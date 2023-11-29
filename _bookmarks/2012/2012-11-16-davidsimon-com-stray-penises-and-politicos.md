@@ -1,0 +1,9 @@
+---
+link: http://davidsimon.com/stray-penises-and-politicos/
+date: 2012-11-16 05:21 UTC
+published: true
+title: David Simon |   Stray penises and politicos
+tags: []
+---
+
+

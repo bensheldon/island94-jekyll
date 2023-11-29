@@ -1,0 +1,12 @@
+---
+link: http://www.javaworld.com/javaworld/jw-07-2001/jw-0713-regex-p3.html
+date: 2006-08-21 22:53 UTC
+published: true
+title: Matchmaking with regular expressions
+tags:
+- Regex
+- php
+- parse
+---
+
+

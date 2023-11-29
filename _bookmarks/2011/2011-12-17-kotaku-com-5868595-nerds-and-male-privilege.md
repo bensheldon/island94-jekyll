@@ -1,0 +1,9 @@
+---
+link: http://kotaku.com/5868595/nerds-and-male-privilege
+date: 2011-12-17 02:25 UTC
+published: true
+title: Nerds and Male Privilege
+tags: []
+---
+
+

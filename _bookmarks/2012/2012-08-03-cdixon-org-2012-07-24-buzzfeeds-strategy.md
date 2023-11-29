@@ -1,0 +1,9 @@
+---
+link: http://cdixon.org/2012/07/24/buzzfeeds-strategy/
+date: 2012-08-03 01:47 UTC
+published: true
+title: "  BuzzFeed’s strategy - Chris Dixon"
+tags: []
+---
+
+

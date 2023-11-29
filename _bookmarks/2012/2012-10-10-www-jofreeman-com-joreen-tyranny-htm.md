@@ -1,0 +1,9 @@
+---
+link: http://www.jofreeman.com/joreen/tyranny.htm
+date: 2012-10-10 15:35 UTC
+published: true
+title: The Tyranny of Stuctureless
+tags: []
+---
+
+

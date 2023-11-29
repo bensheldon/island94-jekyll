@@ -1,0 +1,9 @@
+---
+link: https://medium.com/maker-to-manager/why-your-programmers-just-want-to-code-36da9973388e
+date: 2017-12-06 15:59 UTC
+published: true
+title: Why your programmers just want to code – Maker to Manager – Medium
+tags: []
+---
+
+why “build the right thing” turns into “build the thing right”

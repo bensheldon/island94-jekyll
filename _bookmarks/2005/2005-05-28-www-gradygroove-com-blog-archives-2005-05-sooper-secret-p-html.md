@@ -1,0 +1,9 @@
+---
+link: http://www.gradygroove.com/blog/archives/2005/05/sooper_secret_p.html
+date: 2005-05-28 11:21 UTC
+published: true
+title: 'The ''Groove: Digital Picture Fram & Control'
+tags: []
+---
+
+

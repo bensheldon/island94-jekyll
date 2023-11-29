@@ -1,0 +1,14 @@
+---
+link: http://www.endyourif.com/how-to-add-comments-with-ajax-in-cakephp/
+date: 2011-01-05 04:48 UTC
+published: true
+title: How to add comments with AJAX in CakePHP | End Your If
+tags:
+- php
+- cakephp
+- development
+- ajax
+- javascript
+---
+
+In today’s article we are going to create a very basic blog that allows people to create a post and posts comments on that post via AJAX.  We are going to keep it extremely basic and just focus on that actual AJAX functionality.

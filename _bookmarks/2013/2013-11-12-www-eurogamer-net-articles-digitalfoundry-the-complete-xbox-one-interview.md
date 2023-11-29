@@ -1,0 +1,9 @@
+---
+link: http://www.eurogamer.net/articles/digitalfoundry-the-complete-xbox-one-interview
+date: 2013-11-12 04:41 UTC
+published: true
+title: 'Digital Foundry: the complete Xbox One architects interview'
+tags: []
+---
+
+

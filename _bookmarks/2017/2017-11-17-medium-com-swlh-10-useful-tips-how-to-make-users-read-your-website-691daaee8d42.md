@@ -1,0 +1,9 @@
+---
+link: https://medium.com/swlh/10-useful-tips-how-to-make-users-read-your-website-691daaee8d42
+date: 2017-11-17 16:26 UTC
+published: true
+title: '10 Useful Tips: How to make users read your website'
+tags: []
+---
+
+

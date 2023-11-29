@@ -1,0 +1,11 @@
+---
+link: http://webinnovatorsgroup.com/
+date: 2006-03-17 00:46 UTC
+published: true
+title: Web Innovators Group
+tags:
+- internet
+- networking
+---
+
+The Web Innovators Group (WebInno) is comprised of people engaged in internet and mobile innovation in the Boston area.  We aim to support entrepreneurs, visionaries, and creative thinkers in the field by holding events which foster community interaction.

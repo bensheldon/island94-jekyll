@@ -1,0 +1,9 @@
+---
+link: http://blog.plataformatec.com.br/2018/05/setting-up-rails-with-webpacker-react-and-jest/
+date: 2018-05-07 22:57 UTC
+published: true
+title: Setting up Rails with Webpack(er), React and Jest.
+tags: []
+---
+
+has jest/enzyme test configuration too

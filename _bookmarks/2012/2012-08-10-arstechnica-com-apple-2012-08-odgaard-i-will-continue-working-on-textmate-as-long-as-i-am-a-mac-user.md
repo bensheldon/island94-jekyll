@@ -1,0 +1,10 @@
+---
+link: http://arstechnica.com/apple/2012/08/odgaard-i-will-continue-working-on-textmate-as-long-as-i-am-a-mac-user/
+date: 2012-08-10 23:02 UTC
+published: true
+title: 'Odgaard: “I will continue working on TextMate as long as I am a Mac user”
+  | Ars Technica'
+tags: []
+---
+
+

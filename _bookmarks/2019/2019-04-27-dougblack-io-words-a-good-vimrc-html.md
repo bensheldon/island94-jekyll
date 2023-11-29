@@ -1,0 +1,9 @@
+---
+link: https://dougblack.io/words/a-good-vimrc.html
+date: 2019-04-27 14:22 UTC
+published: true
+title: A Good Vimrc
+tags: []
+---
+
+

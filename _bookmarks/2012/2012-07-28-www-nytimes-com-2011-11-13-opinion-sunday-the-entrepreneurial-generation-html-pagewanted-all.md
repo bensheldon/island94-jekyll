@@ -1,0 +1,9 @@
+---
+link: http://www.nytimes.com/2011/11/13/opinion/sunday/the-entrepreneurial-generation.html?pagewanted=all
+date: 2012-07-28 17:11 UTC
+published: true
+title: Log In - The New York Times
+tags: []
+---
+
+

@@ -1,0 +1,10 @@
+---
+link: http://www.columbusunderground.com/forums/topic/homeless-man-at-i-71-and-hudson-offramp-has-unbelievable-golden-radio-voice/page/7#post-348605
+date: 2011-01-12 14:28 UTC
+published: true
+title: scottlitch on "Homeless Man at I-71 and Hudson Offramp Has Unbelievable Golden
+  Radio Voice"
+tags: []
+---
+
+Good for him, but I'm totally grossed out by the questions he gets asked, like "I bet you never thought you'd be here?" Because we all know once you go homeless, you're hopelessly polluted unless you're ungraciously rescued by the rich.

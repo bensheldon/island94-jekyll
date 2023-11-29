@@ -1,0 +1,9 @@
+---
+link: http://feedproxy.google.com/~r/Ta-nehisiCoates/~3/wCr346aLrL8/click.phdo
+date: 2011-01-12 14:31 UTC
+published: true
+title: A Brief History of Welfare for Middle-Class Americans
+tags: []
+---
+
+"the American middle class is a direct product of targeted federal policy"--as is tr upper and lower classes, and the nonprofit sector, for that matter. To talk about taxes without redistribution is ridiculous. Unless we're only worried about pirates in Tripoli.

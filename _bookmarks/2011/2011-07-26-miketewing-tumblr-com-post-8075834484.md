@@ -1,0 +1,13 @@
+---
+link: http://miketewing.tumblr.com/post/8075834484
+date: 2011-07-26 05:54 UTC
+published: true
+title: |-
+  Negotiation fail.
+  soupsoup:
+
+  via @dancastellano
+tags: []
+---
+
+

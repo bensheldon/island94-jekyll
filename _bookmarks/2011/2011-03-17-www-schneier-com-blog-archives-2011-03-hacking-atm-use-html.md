@@ -1,0 +1,9 @@
+---
+link: http://www.schneier.com/blog/archives/2011/03/hacking_atm_use.html
+date: 2011-03-17 11:50 UTC
+published: true
+title: Hacking ATM Users by Gluing Down Keys
+tags: []
+---
+
+

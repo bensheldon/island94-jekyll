@@ -1,0 +1,11 @@
+---
+link: http://blog.bandzarewicz.com/slides/krug-the-perfect-rspec/#1
+date: 2013-08-30 05:56 UTC
+published: true
+title: The perfect RSpec
+tags:
+- rails
+- development
+---
+
+

@@ -1,0 +1,9 @@
+---
+link: http://feedproxy.google.com/~r/swombat/~3/FCE04884ImU/swombat~The-Lean-Canvas-wrong-tool-for-the-job
+date: 2014-08-05 05:06 UTC
+published: true
+title: The Lean Canvas - wrong tool for the job?
+tags: []
+---
+
+For early-stage and market driven assumption spotting, I've found Giff Constable's Assumptions Exercise to be much faster and more effective.

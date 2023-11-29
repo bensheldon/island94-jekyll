@@ -1,0 +1,9 @@
+---
+link: http://arstechnica.com/business/problem-solving/2010/11/part-3-analogies-in-argument.ars
+date: 2010-11-18 17:33 UTC
+published: true
+title: 'Feature: Getting to QED, Part 3: Analogies in Argument'
+tags: []
+---
+
+

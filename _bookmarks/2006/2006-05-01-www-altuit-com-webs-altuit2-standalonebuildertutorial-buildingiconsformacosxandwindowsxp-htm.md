@@ -1,0 +1,10 @@
+---
+link: http://www.altuit.com/webs/altuit2/StandaloneBuilderTutorial/BuildingIconsforMacOSXandWindowsXP.htm
+date: 2006-05-01 18:13 UTC
+published: true
+title: Building Icons for MacOSX and WindowsXP
+tags:
+- icons
+---
+
+

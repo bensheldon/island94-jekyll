@@ -1,0 +1,9 @@
+---
+link: http://www.fastcompany.com/node/641124/print
+date: 2011-04-05 14:13 UTC
+published: true
+title: Is the Tipping Point Toast?
+tags: []
+---
+
+

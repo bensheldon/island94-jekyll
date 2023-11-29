@@ -1,0 +1,10 @@
+---
+link: http://ericstoller.com/blog/2006/03/31/the-common-elements-of-oppressions/
+date: 2011-10-06 20:42 UTC
+published: true
+title: The Common Elements of Oppressions at Eric Stoller – Writing, Speaking, Consulting
+  – Higher Education
+tags: []
+---
+
+

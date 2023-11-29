@@ -1,0 +1,9 @@
+---
+link: http://everydayrails.com/2014/01/15/outside-in-example-ruby-tapas.html
+date: 2014-01-21 04:00 UTC
+published: true
+title: A great example of outside-in testing from Ruby Tapas
+tags: []
+---
+
+

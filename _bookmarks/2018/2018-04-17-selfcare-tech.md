@@ -1,0 +1,9 @@
+---
+link: http://selfcare.tech/
+date: 2018-04-17 19:02 UTC
+published: true
+title: selfcare.tech - developer resources for self-care
+tags: []
+---
+
+

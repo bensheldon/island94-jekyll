@@ -1,0 +1,9 @@
+---
+link: https://lethain.com/measures-of-engineering-impact/
+date: 2021-02-28 18:15 UTC
+published: true
+title: Measures of engineering impact.
+tags: []
+---
+
+

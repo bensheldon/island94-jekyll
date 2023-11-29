@@ -1,0 +1,9 @@
+---
+link: https://www.smashingmagazine.com/2017/05/enhancing-mobile-design-ux/
+date: 2017-05-18 16:28 UTC
+published: true
+title: Low-Hanging Fruits For Enhancing Mobile UX
+tags: []
+---
+
+

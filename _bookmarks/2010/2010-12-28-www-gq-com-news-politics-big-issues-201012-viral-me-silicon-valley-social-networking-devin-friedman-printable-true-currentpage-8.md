@@ -1,0 +1,10 @@
+---
+link: http://www.gq.com/news-politics/big-issues/201012/viral-me-silicon-valley-social-networking-devin-friedman?printable=true&currentPage=8
+date: 2010-12-28 19:22 UTC
+published: true
+title: 'The Viral Me: Devin Friedman Investigates the New World of Social Networking:
+  Big Issues: GQ'
+tags: []
+---
+
+

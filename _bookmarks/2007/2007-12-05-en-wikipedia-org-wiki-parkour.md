@@ -1,0 +1,20 @@
+---
+link: http://en.wikipedia.org/wiki/Parkour
+date: 2007-12-05 20:56 UTC
+published: true
+title: Parkour - Wikipedia, the free encyclopedia
+tags:
+- culture
+- dance
+- awesome
+- article
+- wikipedia
+- social
+- life
+- interesting
+- health
+- games
+- fun
+---
+
+

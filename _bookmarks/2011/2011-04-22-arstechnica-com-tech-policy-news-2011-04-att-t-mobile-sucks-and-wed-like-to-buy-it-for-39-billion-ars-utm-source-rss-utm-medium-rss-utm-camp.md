@@ -1,0 +1,9 @@
+---
+link: http://arstechnica.com/tech-policy/news/2011/04/att-t-mobile-sucks-and-wed-like-to-buy-it-for-39-billion.ars?utm_source=rss&utm_medium=rss&utm_campaign=rss
+date: 2011-04-22 01:47 UTC
+published: true
+title: 'AT&T: T-Mobile sucks (and we''d like to buy it for $39 billion)'
+tags: []
+---
+
+Excellent bullshittery: "With sharply declining prices, dazzling innovation, soaring output, enormous product differentiation, new entr[ies], and fierce advertising, the intensity of the competition in the US wireless marketplace is extraordinary."

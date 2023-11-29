@@ -1,0 +1,9 @@
+---
+link: http://www.avc.com/a_vc/2011/07/things-that-tweet.html
+date: 2011-07-28 16:49 UTC
+published: true
+title: Things That Tweet
+tags: []
+---
+
+"I believe that devices and sensors that broadcast their data via social media channels are an important source of social data and engagement."<br><br>Yes. I wish there were more public data projects that generated outbound messages (not just "explore moar data bettuh"). As much as I dislike DontEat.at, I respect that it pushes data (albeit data whose value I disagree with). My stuff like @panlexicon and @dayoftheshirt drive a lot of click-thrus, but are dumb algorithms (Panlexicon's daily word is just the previous day's most clicked word). I don't use those accounts for  "social engagement" though, so it's unclear whether one should mix data with other engagement on the same account (though I try to write my tweeting algorithms to make the tweet not necessarily require external context: "We had 24 visitors today." would be dumb as all get out. <br><br>Long story short, I would totally follow a FoodGenius account that auto-tweeted something like "Today 36 people ate burritos."

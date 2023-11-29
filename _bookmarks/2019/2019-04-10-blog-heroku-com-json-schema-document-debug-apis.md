@@ -1,0 +1,10 @@
+---
+link: https://blog.heroku.com/json-schema-document-debug-apis
+date: 2019-04-10 01:13 UTC
+published: true
+title: 'Saved by the Schema: Using JSON Schema to Document, Test, and Debug APIs'
+tags:
+- open311
+---
+
+using JSON Schema to validate an API

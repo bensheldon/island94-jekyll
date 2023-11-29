@@ -1,0 +1,13 @@
+---
+link: http://net.tutsplus.com/tutorials/wordpress/create-wordpress-plugins-with-oop-techniques/
+date: 2011-07-23 16:28 UTC
+published: true
+title: Create WordPress Plugins with OOP Techniques | Nettuts+
+tags:
+- wordpress
+- php
+- tutorial
+- development
+---
+
+Object-oriented code, among other things, can help organize and add reusability to your code. In this tutorial, I will teach you the basics of writing a WordPress plugin using object oriented techniques. We’ll be using Dribbble’s API as an example for this tutorial. Ready?

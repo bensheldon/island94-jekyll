@@ -1,0 +1,9 @@
+---
+link: http://feeds.benton.org/~r/headlines/feed/~3/ZxLtDDnhFPc/100167
+date: 2011-10-31 12:03 UTC
+published: true
+title: War of words breaks out over Silicon Valley diversity debate
+tags: []
+---
+
+> "When I did raise venture capital, my buddies' advice to me was, they said, 'Get a white guy to be your front man.' And I did that. I hired a very impressive, six-foot-tall, impressive, polished white guy, and let him do all the talking," [Vivek] Wadhwa told a group of aspiring entrepreneurs. "That's the way the system works here. You might as well understand it, and then use it to your advantage."

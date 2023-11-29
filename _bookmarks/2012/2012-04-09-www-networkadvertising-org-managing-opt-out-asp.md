@@ -1,0 +1,10 @@
+---
+link: http://www.networkadvertising.org/managing/opt_out.asp
+date: 2012-04-09 04:19 UTC
+published: true
+title: behavioral advertising opt-out tool
+tags:
+- ads
+---
+
+

@@ -1,0 +1,10 @@
+---
+link: https://medium.com/message/lets-talk-about-margins-14646574c385
+date: 2014-09-05 02:16 UTC
+published: true
+title: Let’s talk about margins
+tags: []
+---
+
+CRAIG MOD
+I saw a film recently on an airplane that made me cry. The film was a love story but the love part of the story didn’t make me cry. No, the scene that…

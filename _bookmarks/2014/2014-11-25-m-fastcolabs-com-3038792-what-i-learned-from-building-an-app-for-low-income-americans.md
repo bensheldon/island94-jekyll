@@ -1,0 +1,9 @@
+---
+link: http://m.fastcolabs.com/3038792/what-i-learned-from-building-an-app-for-low-income-americans
+date: 2014-11-25 16:13 UTC
+published: true
+title: What I Learned From Building An App For Low-Income Americans
+tags: []
+---
+
+Better than average apps-for-poverty article

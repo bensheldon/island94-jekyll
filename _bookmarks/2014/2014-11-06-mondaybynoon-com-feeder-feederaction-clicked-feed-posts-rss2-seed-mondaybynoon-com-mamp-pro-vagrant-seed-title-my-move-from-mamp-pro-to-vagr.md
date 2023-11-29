@@ -1,0 +1,12 @@
+---
+link: http://mondaybynoon.com/feeder/?FeederAction=clicked&feed=Posts+(RSS2)&seed=https://mondaybynoon.com/mamp-pro-vagrant/&seed_title=My+Move+from+MAMP+Pro+to+Vagrant+for+WordPress+Development
+date: 2014-11-06 03:01 UTC
+published: true
+title: My Move from MAMP Pro to Vagrant for WordPress Development
+tags:
+- wordpress
+- vagrant
+- containers
+---
+
+

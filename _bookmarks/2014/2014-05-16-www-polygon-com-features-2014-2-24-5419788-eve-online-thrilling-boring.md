@@ -1,0 +1,10 @@
+---
+link: http://www.polygon.com/features/2014/2/24/5419788/eve-online-thrilling-boring
+date: 2014-05-16 05:06 UTC
+published: true
+title: 'Eve: The most thrilling boring game in the universe'
+tags: []
+---
+
+“All of it surprises me.”
+Alex “The Mittani” Gianturco is a long-time Eve Online player. In real life, he’s a retired DC attorney. In Eve, he’s a ruthless space…

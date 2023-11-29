@@ -1,0 +1,10 @@
+---
+link: https://www.urban.org/research/publication/what-it-apply-snap-and-other-work-supports
+date: 2017-09-12 00:02 UTC
+published: true
+title: What Is It Like to Apply for SNAP and Other Work Supports?
+tags:
+- calfresh
+---
+
+

@@ -1,0 +1,9 @@
+---
+link: http://www.webmonkey.com/2010/08/write-your-readme-before-your-code/
+date: 2012-09-07 21:24 UTC
+published: true
+title: Write Your README Before Your Code | Webmonkey | Wired.com
+tags: []
+---
+
+

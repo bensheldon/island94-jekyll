@@ -1,0 +1,9 @@
+---
+link: http://heapsdecent.com/
+date: 2011-08-25 03:32 UTC
+published: true
+title: Heaps Decent
+tags: []
+---
+
+Diplo's nonprofit; .org is for the shitmunchers.

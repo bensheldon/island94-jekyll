@@ -1,0 +1,11 @@
+---
+link: http://www.garlikov.com/Soc_Meth.html
+date: 2015-11-05 17:19 UTC
+published: true
+title: The Socratic Method
+tags:
+- learning
+- education
+---
+
+<blockquote>        For the Socratic method to work as a teaching tool and not just as a magic trick to get kids to give right answers with no real understanding, it is crucial that the important questions in the sequence must be logically leading rather than psychologically leading.</blockquote>

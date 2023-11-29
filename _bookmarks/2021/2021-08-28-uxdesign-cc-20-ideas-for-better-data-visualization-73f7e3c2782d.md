@@ -1,0 +1,10 @@
+---
+link: https://uxdesign.cc/20-ideas-for-better-data-visualization-73f7e3c2782d
+date: 2021-08-28 22:14 UTC
+published: true
+title: 20 ideas for better data visualization | by Taras Bakusevych | Aug, 2021 |
+  UX Collective
+tags: []
+---
+
+

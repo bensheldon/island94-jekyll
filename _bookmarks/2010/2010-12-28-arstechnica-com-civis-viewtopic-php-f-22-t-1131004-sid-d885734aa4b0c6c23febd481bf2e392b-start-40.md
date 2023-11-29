@@ -1,0 +1,9 @@
+---
+link: http://arstechnica.com/civis/viewtopic.php?f=22&t=1131004&sid=d885734aa4b0c6c23febd481bf2e392b&start=40
+date: 2010-12-28 00:54 UTC
+published: true
+title: 'Revenge of the Titans: Your new tower defense addiction - Ars Technica OpenForum'
+tags: []
+---
+
+I love this game, because of exactly the mechanic that is being complained about: unlike other Tower Defense games the baddies adapt to your defenses and will try to flank you.

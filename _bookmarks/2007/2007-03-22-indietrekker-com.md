@@ -1,0 +1,13 @@
+---
+link: http://indietrekker.com/
+date: 2007-03-22 18:03 UTC
+published: true
+title: Video | Indietrekker
+tags:
+- travel
+- video
+- drupal
+- fun
+---
+
+A weblog of independent travel

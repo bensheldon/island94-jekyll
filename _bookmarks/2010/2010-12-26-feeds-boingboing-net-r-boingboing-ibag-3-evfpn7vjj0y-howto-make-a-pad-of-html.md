@@ -1,0 +1,11 @@
+---
+link: http://feeds.boingboing.net/~r/boingboing/iBag/~3/evfpN7VjJ0Y/howto-make-a-pad-of.html
+date: 2010-12-26 14:43 UTC
+published: true
+title: HOWTO make a pad of $2 bills
+tags:
+- project
+- art
+---
+
+

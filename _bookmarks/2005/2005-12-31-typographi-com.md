@@ -1,0 +1,11 @@
+---
+link: http://typographi.com/
+date: 2005-12-31 16:30 UTC
+published: true
+title: Typographica. A Journal of Typography.
+tags:
+- typography
+- design
+---
+
+

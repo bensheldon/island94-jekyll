@@ -1,0 +1,9 @@
+---
+link: https://www.producttalk.org/2019/12/adopting-opportunity-solution-trees/
+date: 2019-12-11 15:47 UTC
+published: true
+title: 'Product in Practice: Getting Started with Opportunity Solution Trees at SuperAwesome'
+tags: []
+---
+
+

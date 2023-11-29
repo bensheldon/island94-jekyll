@@ -1,0 +1,9 @@
+---
+link: http://mediaqueri.es/pal/
+date: 2011-10-04 13:45 UTC
+published: true
+title: Palantir
+tags: []
+---
+
+

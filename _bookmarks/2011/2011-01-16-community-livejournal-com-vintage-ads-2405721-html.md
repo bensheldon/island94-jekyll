@@ -1,0 +1,9 @@
+---
+link: http://community.livejournal.com/vintage_ads/2405721.html
+date: 2011-01-16 00:20 UTC
+published: true
+title: 1915 - Suffrage
+tags: []
+---
+
+Good thing the "cmon, be like New Jersey" argument had little sway.

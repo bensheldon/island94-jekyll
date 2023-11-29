@@ -1,0 +1,11 @@
+---
+link: http://brewhouse.io/blog/2014/04/30/gourmet-service-objects.html
+date: 2014-05-02 17:02 UTC
+published: true
+title: Gourmet Service Objects
+tags:
+- rails
+- ruby
+---
+
+Building services with only a single interface: `call`

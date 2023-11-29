@@ -1,0 +1,9 @@
+---
+link: http://littlebigdetails.com/post/8175994528/visualhub-installation-window-put-app-inside
+date: 2011-07-29 22:30 UTC
+published: true
+title: 'VisualHub - Installation window: Put app inside the Applications...'
+tags: []
+---
+
+Nostalgia...

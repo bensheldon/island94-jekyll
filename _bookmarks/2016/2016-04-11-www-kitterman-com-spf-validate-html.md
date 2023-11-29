@@ -1,0 +1,11 @@
+---
+link: http://www.kitterman.com/spf/validate.html?
+date: 2016-04-11 23:19 UTC
+published: true
+title: SPF Query Tool
+tags:
+- email
+- tools
+---
+
+

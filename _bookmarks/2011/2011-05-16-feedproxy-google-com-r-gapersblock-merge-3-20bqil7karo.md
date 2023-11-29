@@ -1,0 +1,9 @@
+---
+link: http://feedproxy.google.com/~r/gapersblock/merge/~3/20BQiL7KAro/
+date: 2011-05-16 18:11 UTC
+published: true
+title: CFD Holds the Line
+tags: []
+---
+
+What Bec said: "Consistent staffing levels allow an organization to build and maintain institutional knowledge. The funding "increases" illustrated in this article are in line with inflation."

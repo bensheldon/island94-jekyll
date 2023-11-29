@@ -1,0 +1,10 @@
+---
+link: http://arstechnica.com/science/2012/06/exoplanets-in-neighboring-orbits-have-radically-different-sizes-masses/
+date: 2012-06-25 01:59 UTC
+published: true
+title: Exoplanets in neighboring orbits have radically different sizes, masses | Ars
+  Technica
+tags: []
+---
+
+

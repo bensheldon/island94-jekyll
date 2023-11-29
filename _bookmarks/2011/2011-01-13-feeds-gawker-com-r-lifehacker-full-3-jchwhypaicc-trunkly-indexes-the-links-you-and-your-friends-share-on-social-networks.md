@@ -1,0 +1,9 @@
+---
+link: http://feeds.gawker.com/~r/lifehacker/full/~3/jchwhyPAicc/trunkly-indexes-the-links-you-and-your-friends-share-on-social-networks
+date: 2011-01-13 15:35 UTC
+published: true
+title: Trunk.ly Indexes The Links You and Your Friends Share on Social Networks [Links]
+tags: []
+---
+
+

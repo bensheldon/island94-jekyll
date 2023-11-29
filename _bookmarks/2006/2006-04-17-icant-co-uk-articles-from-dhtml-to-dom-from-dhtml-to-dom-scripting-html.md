@@ -1,0 +1,18 @@
+---
+link: http://icant.co.uk/articles/from-dhtml-to-dom/from-dhtml-to-dom-scripting.html
+date: 2006-04-17 12:51 UTC
+published: true
+title: From DHTML to DOM scripting - an example of how to replace outdated JavaScript
+  techniques.
+tags:
+- css
+- html
+- tutorial
+- webdesign
+- web
+- dhtml
+- dom
+- javascript
+---
+
+

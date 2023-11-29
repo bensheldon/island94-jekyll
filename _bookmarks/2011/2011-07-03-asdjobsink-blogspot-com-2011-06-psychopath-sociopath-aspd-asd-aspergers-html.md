@@ -1,0 +1,9 @@
+---
+link: http://asdjobsink.blogspot.com/2011/06/psychopath-sociopath-aspd-asd-aspergers.html
+date: 2011-07-03 22:49 UTC
+published: true
+title: 'Job Sink: Spotting Psychopaths in the workplace.'
+tags: []
+---
+
+

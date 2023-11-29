@@ -1,0 +1,9 @@
+---
+link: http://blog.pragmaticengineer.com/things-ive-learned-transitioning-from-engineer-to-engineering-manager/
+date: 2017-10-04 15:49 UTC
+published: true
+title: Things I've learned transitioning from engineer to engineering manager
+tags: []
+---
+
+

@@ -1,0 +1,9 @@
+---
+link: https://jacobinmag.com/2020/10/trump-coup-florida-2000-recount
+date: 2020-10-15 15:30 UTC
+published: true
+title: To Stop an Electoral Coup, Study What Went Wrong in the 2000 Florida Recount
+tags: []
+---
+
+

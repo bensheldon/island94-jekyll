@@ -1,0 +1,9 @@
+---
+link: http://www.good.is/post/should-an-11-year-old-boy-go-to-jail-for-life/
+date: 2011-01-27 14:07 UTC
+published: true
+title: Should an 11-Year-Old Boy Go to Jail for Life? - Culture - GOOD
+tags: []
+---
+
+Not written by a millennial?<br><br>"...most important brain development doesn't stop until a person's late teens and early twenties. And even then you're still years away from real self-awareness."

@@ -1,0 +1,9 @@
+---
+link: http://feeds.killeraces.com/~r/wisebread/~3/Uc2PPhexk4U/25-things-to-do-with-rotisserie-chicken
+date: 2011-10-11 10:24 UTC
+published: true
+title: 25 Things to Do With Rotisserie Chicken
+tags: []
+---
+
+

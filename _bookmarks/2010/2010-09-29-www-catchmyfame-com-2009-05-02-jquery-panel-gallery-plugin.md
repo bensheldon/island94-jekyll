@@ -1,0 +1,11 @@
+---
+link: http://www.catchmyfame.com/2009/05/02/jquery-panel-gallery-plugin/
+date: 2010-09-29 02:14 UTC
+published: true
+title: Catch My Fame » jQuery Panel Gallery Plugin
+tags:
+- jquery
+- photography
+---
+
+I was mainly looking for a simple way to take a group of images and transition from one to the other in a smooth, visually appealing way.

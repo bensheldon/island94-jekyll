@@ -1,0 +1,9 @@
+---
+link: http://www.lrb.co.uk/v33/n11/howard-hotson/short-cuts
+date: 2011-06-02 13:09 UTC
+published: true
+title: LRB · Howard Hotson · Short Cuts
+tags: []
+---
+
+"...according to government statistics, the six-year completion rate at [University of] Phoenix is 9 per cent."

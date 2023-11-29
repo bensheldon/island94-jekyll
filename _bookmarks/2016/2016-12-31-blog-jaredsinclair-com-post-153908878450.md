@@ -1,0 +1,9 @@
+---
+link: http://blog.jaredsinclair.com/post/153908878450
+date: 2016-12-31 15:28 UTC
+published: true
+title: How To Write The Software
+tags: []
+---
+
+> Don’t waste energy on something you have a solution for. You’ve got a lot of things to worry about already: how to keep the glass from melting at speed, how to keep the engines running at high speeds for long periods, how do you keep the fuel from exploding. If someone had a simple solution to something, then that’s what they did. A very unique, very pragmatic approach.

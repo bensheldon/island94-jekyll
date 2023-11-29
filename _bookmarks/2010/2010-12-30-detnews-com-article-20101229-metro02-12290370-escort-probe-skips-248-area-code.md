@@ -1,0 +1,9 @@
+---
+link: http://detnews.com/article/20101229/METRO02/12290370/Escort-probe-skips-248-area-code
+date: 2010-12-30 02:51 UTC
+published: true
+title: Escort probe skips 248 area code | detnews.com | The Detroit News
+tags: []
+---
+
+

@@ -1,0 +1,10 @@
+---
+link: https://copyconstruct.medium.com/know-how-your-org-works-or-how-to-become-a-more-effective-engineer-1a3287d1f58d
+date: 2022-01-09 19:51 UTC
+published: true
+title: know how your org works (or how to become a more effective engineer) | by Cindy
+  Sridharan | Jan, 2022 | Medium
+tags: []
+---
+
+

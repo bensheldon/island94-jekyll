@@ -1,0 +1,9 @@
+---
+link: https://medium.com/columbus-egg/agile-as-a-corollary-to-twymans-law-3ec547192ab2
+date: 2019-04-04 13:18 UTC
+published: true
+title: Agile as a Corollary to Twyman’s Law – Columbus’ Egg – Medium
+tags: []
+---
+
+

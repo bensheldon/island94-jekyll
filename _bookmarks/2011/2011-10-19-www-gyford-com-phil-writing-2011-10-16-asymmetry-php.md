@@ -1,0 +1,9 @@
+---
+link: http://www.gyford.com/phil/writing/2011/10/16/asymmetry.php
+date: 2011-10-19 15:15 UTC
+published: true
+title: Asymmetry
+tags: []
+---
+
+This should be required reading and discussion:<br><a href="http://en.wikipedia.org/wiki/List_of_cognitive_biases">http://en.wikipedia.org/wiki/List_of_cognitive_biases</a>

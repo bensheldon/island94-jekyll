@@ -1,0 +1,10 @@
+---
+link: http://owni.eu/2011/01/25/fred-wilson%E2%80%99s-10-golden-principles-of-successful-web-apps/
+date: 2011-07-08 14:57 UTC
+published: true
+title: Fred Wilson’s 10 Golden Principles of Successful Web Apps » OWNI.eu, News,
+  Augmented
+tags: []
+---
+
+I was trying to find the opposite example, but oh well.

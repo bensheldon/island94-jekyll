@@ -1,0 +1,9 @@
+---
+link: http://codeforamerica.org/2011/05/20/humility-and-trust-in-the-omidyar-network/
+date: 2011-05-21 01:36 UTC
+published: true
+title: Humility and Trust in the Omidyar Network
+tags: []
+---
+
+Omidyar, TED, GBN. What am I missing?

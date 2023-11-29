@@ -1,0 +1,9 @@
+---
+link: http://superherojs.com/
+date: 2014-04-11 03:16 UTC
+published: true
+title: Superhero.js
+tags: []
+---
+
+

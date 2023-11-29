@@ -1,0 +1,9 @@
+---
+link: https://filingdb.com/b/pdf-text-extraction
+date: 2020-09-27 22:37 UTC
+published: true
+title: What's so hard about PDF text extraction?
+tags: []
+---
+
+

@@ -1,0 +1,10 @@
+---
+link: http://feeds.feedburner.com/globalnerdy
+date: 2008-12-31 01:08 UTC
+published: true
+title: Global Nerdy
+tags:
+- firefox:rss
+---
+
+Joey deVilla's blog on nerdy life, work and play

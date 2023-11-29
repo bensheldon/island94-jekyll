@@ -1,0 +1,10 @@
+---
+link: https://www.poetry-chaikhana.com/blog/2011/02/25/clare-of-assisi-place-your-mind-before-the-mirror-of-eternity-2/
+date: 2021-09-14 03:18 UTC
+published: true
+title: Poetry Chaikhana Blog » Clare of Assisi – Place your mind before the mirror
+  of eternity
+tags: []
+---
+
+

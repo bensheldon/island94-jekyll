@@ -1,0 +1,9 @@
+---
+link: http://sb129.wordpress.com/2012/09/12/the-importance-of-not-knowing/
+date: 2012-09-23 03:32 UTC
+published: true
+title: 'The importance of not knowing: reflections of a designer tutor « SB129'
+tags: []
+---
+
+

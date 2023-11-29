@@ -1,0 +1,10 @@
+---
+link: https://thebaffler.com/salvos/hamilton-hustle-stoller
+date: 2019-12-29 00:28 UTC
+published: true
+title: The Hamilton Hustle | Matt Stoller
+tags:
+- monopoly
+---
+
+

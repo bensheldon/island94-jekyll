@@ -1,0 +1,9 @@
+---
+link: https://medium.com/message/ahimsa-online-ef09b9c072
+date: 2015-08-07 22:45 UTC
+published: true
+title: Ahimsa Online — The Message — Medium
+tags: []
+---
+
+"never internet angry"

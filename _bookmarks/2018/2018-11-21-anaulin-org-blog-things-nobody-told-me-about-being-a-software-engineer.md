@@ -1,0 +1,9 @@
+---
+link: https://anaulin.org/blog/things-nobody-told-me-about-being-a-software-engineer/
+date: 2018-11-21 23:20 UTC
+published: true
+title: Things Nobody Told Me About Being a Software Engineer · Ana Ulin
+tags: []
+---
+
+

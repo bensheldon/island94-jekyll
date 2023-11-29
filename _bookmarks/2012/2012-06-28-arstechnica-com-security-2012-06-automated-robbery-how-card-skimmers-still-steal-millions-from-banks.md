@@ -1,0 +1,10 @@
+---
+link: http://arstechnica.com/security/2012/06/automated-robbery-how-card-skimmers-still-steal-millions-from-banks/
+date: 2012-06-28 04:33 UTC
+published: true
+title: 'Automated robbery: how card skimmers (still) steal millions from banks | Ars
+  Technica'
+tags: []
+---
+
+

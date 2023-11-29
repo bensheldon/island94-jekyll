@@ -1,0 +1,9 @@
+---
+link: https://timkadlec.com/remembers/2019-03-07-performance-budgets-that-stick/
+date: 2019-03-15 18:20 UTC
+published: true
+title: Performance Budgets That Stick - TimKadlec.com
+tags: []
+---
+
+

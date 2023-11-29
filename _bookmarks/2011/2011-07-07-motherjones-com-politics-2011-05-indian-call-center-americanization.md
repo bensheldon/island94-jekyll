@@ -1,0 +1,9 @@
+---
+link: http://motherjones.com/politics/2011/05/indian-call-center-americanization
+date: 2011-07-07 16:26 UTC
+published: true
+title: My Summer at an Indian Call Center (Life in an Indian call center)
+tags: []
+---
+
+

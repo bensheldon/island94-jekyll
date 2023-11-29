@@ -1,0 +1,9 @@
+---
+link: http://blog.programmableweb.com/2013/07/01/pw-interview-nathan-kontnys-draft-takes-on-google-microsoft-apple/
+date: 2013-07-09 18:03 UTC
+published: true
+title: pw-interview-nathan-kontnys-draft-takes-on-google-microsoft-apple
+tags: []
+---
+
+

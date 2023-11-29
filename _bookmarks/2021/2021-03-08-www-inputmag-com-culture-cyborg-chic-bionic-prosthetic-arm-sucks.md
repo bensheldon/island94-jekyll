@@ -1,0 +1,9 @@
+---
+link: https://www.inputmag.com/culture/cyborg-chic-bionic-prosthetic-arm-sucks
+date: 2021-03-08 15:57 UTC
+published: true
+title: I have one of the most advanced prosthetic arms in the world — and I hate it
+tags: []
+---
+
+

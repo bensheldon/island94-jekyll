@@ -1,0 +1,9 @@
+---
+link: http://changecharity.blogspot.com/2011/07/kill-charity-solve-budget-crisis.html
+date: 2011-08-02 14:09 UTC
+published: true
+title: Kill Charity, Solve the Budget Crisis?
+tags: []
+---
+
+This: "...many people who donate never see those tax write-offs anyways. I try to donate about five percent of my income to nonprofits each year, but I have never seen any tax benefit from my donations. I've never written them off because the amount I give is always less than the standard deduction (since five percent of what I make isn't that much), and since I don't have a mortgage, I don't have any real reason to do line-item deductions."

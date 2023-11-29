@@ -1,0 +1,10 @@
+---
+link: http://insideintercom.io/difficult-conversations-will-grow-your-product/
+date: 2014-09-17 04:29 UTC
+published: true
+title: Difficult conversations will grow your product - Inside Intercom
+tags: []
+---
+
+An inherent challenge for all early stage startups is deciding whether to focus on growth or product/market fit.
+It’s a false choice, as Rob Go says in his post…

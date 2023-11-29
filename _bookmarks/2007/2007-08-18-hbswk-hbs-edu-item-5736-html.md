@@ -1,0 +1,13 @@
+---
+link: http://hbswk.hbs.edu/item/5736.html
+date: 2007-08-18 13:37 UTC
+published: true
+title: How Will Millennials Manage? — HBS Working Knowledge
+tags:
+- management
+- trends
+- Millennials
+- education
+---
+
+Nothing seems to set off managers I talk with more than the topic of managing Gen Yers, otherwise known as "millennials," those born beginning in the late 1970s. Here's what they tell me:

@@ -1,0 +1,9 @@
+---
+link: http://gridchicago.com/2011/chicagos-first-cargo-bike-roll-call/
+date: 2011-09-14 13:59 UTC
+published: true
+title: Chicago’s first Cargo Bike Roll Call
+tags: []
+---
+
+
