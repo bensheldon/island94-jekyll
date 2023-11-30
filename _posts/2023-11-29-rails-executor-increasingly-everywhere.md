@@ -29,7 +29,7 @@ I recently [fixed a bunch of flaky GoodJob unit tests](https://github.com/benshe
 
 At my day job, GitHub, we've also been double-checking that all of our Rails-invoking scripts and daemons are wrapped with Rails Executors. Doing so has fixed flukey constant lookups, reduced our database connection error rate and increased successful query retries, and necessitated updating a bunch of tests that counted queries that now hit the query cache. 
 
-Rails Executors are great! Your code is probably already wrapped by the Rails framework, but anytime you start writing scripts or daemons that `require_relative "./config/environment.rb"` you should double-check, and _definitely_ if you're using `Thread.new`.
+Rails Executors are great! Your code is probably already wrapped by the Rails framework, but anytime you start writing scripts or daemons that `require_relative "./config/environment.rb"` you should double-check, and _definitely_ if you're using `Thread.new`, `Concurrent::Future` or anything that runs in a background thread.
 
 I used the following code in GoodJob to debug that database connection checkout occurs in a Rails Executor, maybe you should adopt something similar too:
 
