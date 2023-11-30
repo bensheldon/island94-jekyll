@@ -156,6 +156,8 @@
 <span class="k">end</span>
 </code></pre></div></div>
 
+<p><strong>Update:</strong> I offered a <a href="https://github.com/rails/rails/pull/50223">Rails PR to make the script runner’s Executor conditional</a> because the introduction of an Executor around <code class="language-plaintext highlighter-rouge">bin/rails runner script.rb</code> could introduce problems if the script is long-running/looping/daemon-like; developers would still need to use an Executor, but to wrap individual units of work in their longrunning script.</p>
+
   </div>
 </article>
 

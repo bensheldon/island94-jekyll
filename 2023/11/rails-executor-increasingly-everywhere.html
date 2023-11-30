@@ -152,6 +152,8 @@
 <span class="k">end</span>
 </code></pre></div></div>
 
+<p><strong>Update:</strong> I offered a <a href="https://github.com/rails/rails/pull/50223">Rails PR to make the script runner’s Executor conditional</a> because the introduction of an Executor around <code class="language-plaintext highlighter-rouge">bin/rails runner script.rb</code> could introduce problems if the script is long-running/looping/daemon-like; developers would still need to use an Executor, but to wrap individual units of work in their longrunning script.</p>
+
   </div>
 </article>
 
@@ -166,9 +168,9 @@
     <p>Related Posts:</p>
     <ul>
       
-        <li><a href="/2023/06/rebuilding-concurrent-ruby-scheduledtask-event-and-timerset">Rebuilding Concurrent Ruby: ScheduledTask, Event, and TimerSet</a></li>
-      
         <li><a href="/2012/12/A-gentle-conceptual-introduction-to-Nodejs.html">A gentle & conceptual introduction to Node.js</a></li>
+      
+        <li><a href="/2023/06/rebuilding-concurrent-ruby-scheduledtask-event-and-timerset">Rebuilding Concurrent Ruby: ScheduledTask, Event, and TimerSet</a></li>
       
         <li><a href="/2023/10/reflections-on-good-job-for-solid-queue">Reflections on GoodJob for Solid Queue</a></li>
       

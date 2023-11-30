@@ -6,8 +6,8 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 30 Nov 2023 06:00:18 +0000</pubDate>
-    <lastBuildDate>Thu, 30 Nov 2023 06:00:18 +0000</lastBuildDate>
+    <pubDate>Thu, 30 Nov 2023 20:48:29 +0000</pubDate>
+    <lastBuildDate>Thu, 30 Nov 2023 20:48:29 +0000</lastBuildDate>
     <generator>Jekyll v4.3.2</generator>
     
     
@@ -80,6 +80,8 @@
   &lt;span class=&quot;no&quot;&gt;Rails&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;application&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;executor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;wrap&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;MyModel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;do_something&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Update:&lt;/strong&gt; I offered a &lt;a href=&quot;https://github.com/rails/rails/pull/50223&quot;&gt;Rails PR to make the script runner’s Executor conditional&lt;/a&gt; because the introduction of an Executor around &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bin/rails runner script.rb&lt;/code&gt; could introduce problems if the script is long-running/looping/daemon-like; developers would still need to use an Executor, but to wrap individual units of work in their longrunning script.&lt;/p&gt;
 
   &lt;br&gt;&lt;br&gt;
   &lt;hr&gt;
