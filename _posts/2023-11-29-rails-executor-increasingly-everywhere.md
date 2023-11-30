@@ -62,3 +62,5 @@ loop do
   Rails.application.executor.wrap { MyModel.do_something }
 end
 ```
+
+**Update:** I offered a [Rails PR to make the script runner's Executor conditional](https://github.com/rails/rails/pull/50223) because the introduction of an Executor around `bin/rails runner script.rb` could introduce problems if the script is long-running/looping/daemon-like; developers would still need to use an Executor, but to wrap individual units of work in their longrunning script.
