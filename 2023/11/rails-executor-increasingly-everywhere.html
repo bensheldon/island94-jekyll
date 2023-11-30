@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>The Rails Executor: increasingly everywhere</title>
+  <meta name="description" content="The Rails Executor rules everything around you your code.">
+
+  <link rel="stylesheet" href="/assets/stylesheets/main.css">
+  <script src="/assets/javascripts/main.js"></script>
+
+  <link rel="canonical" href="https://island94.org/2023/11/rails-executor-increasingly-everywhere">
+
+  <link rel="alternate" type="application/rss+xml" title="Island94.org Posts" href="https://island94.org/feed.xml">
+  <link rel="alternate" type="application/rss+xml" title="Island94.org Book Reviews" href="https://island94.org/books.xml">
+
+  
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-870047-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+</head>
+
+
+  <body>
+
+    <nav class="navbar navbar-expand-lg navbar-light mb-2 flex-column">
+  <div class="container">
+    <a class="navbar-brand" href="/">Island94.org</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link " href="/about/">About</a></li>
+        <li class="nav-item"><a class="nav-link " href="/archives/">Archives</a></li>
+        <li class="nav-item"><a class="nav-link " href="/books/">Books</a></li>
+        <li class="nav-item"><a class="nav-link " href="/tags/">Tags</a></li>
+        <li class="nav-item"><a class="nav-link" href="/feed.xml">RSS Feed <span class="fa fa-rss"></span></a></li>
+      </ul>
+
+      <form id="search" class="d-flex" action="/search" method="get">
+        <input id="search-box" class="form-control search" role="search" name="q" placeholder="Search" aria-label="Search" results="0" type="text">
+        <button class="sr-only" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+  <div class="container">
+    <div class="text-muted fst-italic">
+      — Ben Sheldon's personal blog and <a href="/2012/04/A-Commonplace-Book.html">commonplace book</a>.
+    </div>
+  </div>
+</nav>
+
+
+    <div class="container container-body">
+      
+
+
+
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2023/11/rails-executor-increasingly-everywhere">The Rails Executor: increasingly everywhere</a>
+    </h1>
+    <p class="post-meta text-muted">
+      <time datetime="2023-11-30T05:37:00+00:00" itemprop="datePublished">November 30, 2023</time>
+      
+      
+
+
+  
+
+  
+
+  • Tagged <a href="/tags/#rails">Rails</a> and <a href="/tags/#ruby">Ruby</a>
+
+
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p><em>The Rails Executor rules everything around <del>you</del> your code.</em></p>
+
+<p>If you write multithreaded-Rails code—like me, author of <a href="https://github.com/bensheldon/good_job">GoodJob</a>—you’re probably familiar with the Rails Executor which is described in the <a href="https://guides.rubyonrails.org/v7.1/threading_and_code_execution.html">Rails Multithreading Guide</a>.</p>
+
+<p>If you’re new to the Rails Executor: it sets up and tears down a lot of Rails’ framework magic. Code wrapped with a Rails Executor or its sibling, the Reloader, pick up a lot of powerful behavior:</p>
+
+<ul>
+  <li>Constant autoloading and reloading</li>
+  <li>Database connection/connection-pool management and query retries</li>
+  <li>Query Cache</li>
+  <li>Query Logging</li>
+  <li>CurrentAttributes</li>
+  <li>Error reporting</li>
+</ul>
+
+<p>You usually won’t think about it. The Rails framework already wraps every Controller Action and Active Job with an Executor. Recently, as of Rails v7.1, it’s showing up everywhere within the Rails codebase:</p>
+
+<ul>
+  <li><a href="https://github.com/rails/rails/pull/44999">Rails runner scripts are now wrapped with an Executor</a></li>
+  <li><a href="https://github.com/rails/rails/pull/43550">Minitest test cases are now wrapped with an Executor</a> (I’m working on getting <a href="https://github.com/rspec/rspec-rails/issues/2713">parity in rspec-rails</a>). It has a nice little explanation why “This helps to better simulate request or job local state being reset around tests and prevent state to leak from one test to another.”</li>
+</ul>
+
+<p>The effect of these small changes could be surprising:</p>
+
+<ul>
+  <li>I came to write this blog post because I saw a Rails Discussion asking how <a href="https://discuss.rubyonrails.org/t/rails-7-1-uses-query-cache-for-runner-scripts/84275">“Rails 7.1 uses query cache for runner scripts”</a> and aha, I knew the answer: the Executor.</li>
+  <li>I recently <a href="https://github.com/bensheldon/good_job/pull/1124">fixed a bunch of flaky GoodJob unit tests</a> by wrapping each RSpec example in a Rails Executor. This is a problem specific to GoodJob, which uses connection-based Advisory Locks, but I discovered that if an Executor context was passed through (for example, executing an Active Job inline), the current database connection would be returned to the pool, sometimes breaking the Advisory Locks when a different connection was checked back out to continue the test. This was only a fluke of the tests, but was a longtime annoyance. I’ve previously had to <a href="https://github.com/bensheldon/good_job/blob/c6d3aa4906783498ed6296060666d350ac2e288c/lib/good_job/current_thread.rb#L6-L7">work around a similar reset of CurrentAttributes</a> that occurs too.</li>
+  <li>At my day job, GitHub, we’ve also been double-checking that all of our Rails-invoking scripts and daemons are wrapped with Rails Executors. Doing so has fixed flukey constant lookups, reduced our database connection error rate and increased successful query retries, and necessitated updating a bunch of tests that counted queries that now hit the query cache.</li>
+</ul>
+
+<p>The Rails Executor is great! Your code is probably already wrapped by the Rails framework, but anytime you start writing scripts or daemons that <code class="language-plaintext highlighter-rouge">require_relative "./config/environment.rb"</code> you should double-check, and <em>definitely</em> if you’re using <code class="language-plaintext highlighter-rouge">Thread.new</code>, <code class="language-plaintext highlighter-rouge">Concurrent::Future</code> or anything that runs in a background thread.</p>
+
+<p>I used the following code in GoodJob to debug that database connection checkout occurs in a Rails Executor, maybe you could adopt something similar too:</p>
+
+<div class="language-rb highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># config/initializers/debug_executors.rb</span>
+
+<span class="no">ActiveSupport</span><span class="p">.</span><span class="nf">on_load</span> <span class="ss">:active_record</span> <span class="k">do</span>
+  <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">ConnectionAdapters</span><span class="o">::</span><span class="no">AbstractAdapter</span><span class="p">.</span><span class="nf">set_callback</span> <span class="ss">:checkout</span><span class="p">,</span> <span class="ss">:before</span><span class="p">,</span> <span class="p">(</span><span class="nb">lambda</span> <span class="k">do</span> <span class="o">|</span><span class="n">conn</span><span class="o">|</span>
+    <span class="k">unless</span> <span class="no">ActiveSupport</span><span class="o">::</span><span class="no">Executor</span><span class="p">.</span><span class="nf">active?</span>
+      <span class="vg">$stdout</span><span class="p">.</span><span class="nf">puts</span> <span class="s2">"WARNING: Connection pool checkout occurred outside of a Rails Executor"</span>
+    <span class="k">end</span>
+  <span class="k">end</span><span class="p">)</span>
+<span class="k">end</span>
+
+</code></pre></div></div>
+
+<p>One last thing about Executors, you want to make sure that you’re <a href="https://guides.rubyonrails.org/v7.1/threading_and_code_execution.html#wrapping-application-code">wrapping individual units of work</a>, so the execution context has a chance to reset itself (check-in database connections, unload and reload code, etc.):</p>
+
+<div class="language-rb highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># scripts/do_all_the_things.rb</span>
+<span class="c1"># ...</span>
+
+<span class="c1"># bad</span>
+<span class="no">Rails</span><span class="p">.</span><span class="nf">application</span><span class="p">.</span><span class="nf">executor</span><span class="p">.</span><span class="nf">wrap</span> <span class="k">do</span>
+  <span class="kp">loop</span> <span class="p">{</span> <span class="no">MyModel</span><span class="p">.</span><span class="nf">do_something</span> <span class="p">}</span>
+<span class="k">end</span>
+
+<span class="c1"># good</span>
+<span class="kp">loop</span> <span class="k">do</span>
+  <span class="no">Rails</span><span class="p">.</span><span class="nf">application</span><span class="p">.</span><span class="nf">executor</span><span class="p">.</span><span class="nf">wrap</span> <span class="p">{</span> <span class="no">MyModel</span><span class="p">.</span><span class="nf">do_something</span> <span class="p">}</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+  </div>
+</article>
+
+
+<div class="card my-4 text-dark bg-light">
+  <div class="card-body">
+    <p>
+      Discuss this with me on <a href="https://twitter.com/bensheldon"><span class="fa fa-twitter"></span> Twitter</a>
+      or suggest a <a href="https://github.com/bensheldon/island94-jekyll/blob/main/_posts/2023-11-29-rails-executor-increasingly-everywhere.md"><span class="fa fa-github-alt"></span> change</a>.
+    </p>
+
+    <p>Related Posts:</p>
+    <ul>
+      
+        <li><a href="/2023/06/rebuilding-concurrent-ruby-scheduledtask-event-and-timerset">Rebuilding Concurrent Ruby: ScheduledTask, Event, and TimerSet</a></li>
+      
+        <li><a href="/2012/12/A-gentle-conceptual-introduction-to-Nodejs.html">A gentle & conceptual introduction to Node.js</a></li>
+      
+        <li><a href="/2023/10/reflections-on-good-job-for-solid-queue">Reflections on GoodJob for Solid Queue</a></li>
+      
+        <li><a href="/2022/03/let-the-record-show-a-political-history-of-act-up-new-york,-1987-1993">Let the Record Show: A Political History of ACT UP New York, 1987-1993</a></li>
+      
+        <li><a href="/2022/07/four-dumb-cringe-tech-interview-stories">Four dumb-cringe tech interview stories</a></li>
+      
+    </ul>
+  </div>
+</div>
+
+
+    </div>
+
+    <footer class="site-footer">
+
+</footer>
+
+
+  </body>
+
+</html>
