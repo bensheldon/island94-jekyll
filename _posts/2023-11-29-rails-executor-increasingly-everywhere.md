@@ -18,7 +18,7 @@ If you're new to the Rails Executor: it sets up and tears down a lot of Rails' f
 - CurrentAttributes
 - Error reporting
 
-You usually won't think about it. The Rails Executor already wraps every Controller Action and Active Job execution. Recently, as of Rails v7.1, it's showing up everywhere within the Rails codebase.
+You usually won't think about it. The Rails framework already wraps every Controller Action and Active Job with an Executor. Recently, as of Rails v7.1, it's showing up everywhere within the Rails codebase:
 
 - [Rails runner scripts are now wrapped with an Executor](https://github.com/rails/rails/pull/44999)
 - [Minitest test cases are now wrapped with an Executor](https://github.com/rails/rails/pull/43550) (I'm working on getting [parity in rspec-rails](https://github.com/rspec/rspec-rails/issues/2713)). It has a nice little explanation why "This helps to better simulate request or job local state being reset around tests and prevent state to leak from one test to another."
@@ -31,7 +31,7 @@ At my day job, GitHub, we've also been double-checking that all of our Rails-inv
 
 Rails Executors are great! Your code is probably already wrapped by the Rails framework, but anytime you start writing scripts or daemons that `require_relative "./config/environment.rb"` you should double-check, and _definitely_ if you're using `Thread.new`, `Concurrent::Future` or anything that runs in a background thread.
 
-I used the following code in GoodJob to debug that database connection checkout occurs in a Rails Executor, maybe you should adopt something similar too:
+I used the following code in GoodJob to debug that database connection checkout occurs in a Rails Executor, maybe you could adopt something similar too:
 
 ```rb
 # config/initializers/debug_executors.rb
