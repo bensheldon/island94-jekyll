@@ -77,7 +77,7 @@
       <li class="page-item"><a href="/page/2/" class="page-link"><span aria-hidden="true">&larr; </span>Newer</a></li>
     
 
-    <li class="page-item disabled"><span class="page-link">Page 3 of 66</span></li>
+    <li class="page-item disabled"><span class="page-link">Page 3 of 67</span></li>
 
     
       <li class="page-item"><a href="/page/4/" class="page-link">Older<span aria-hidden="true"> &rarr;</span></a></li>
@@ -91,6 +91,106 @@
 
   
 
+  
+    
+      
+
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2023/02/introducing-goodjob-bulk-and-batch">Introducing GoodJob Bulk and Batch</a>
+    </h1>
+    <p class="post-meta text-muted">
+      <time datetime="2023-02-05T22:37:00+00:00" itemprop="datePublished">February 5, 2023</time>
+      
+      
+
+
+  
+
+  
+
+  • Tagged <a href="/tags/#goodjob">GoodJob</a>
+
+
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>GoodJob is a multithreaded, Postgres-based, ActiveJob backend for Ruby on Rails. I recently released two new features:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">GoodJob::Bulk</code> to optimize enqueuing large numbers of jobs (released in GoodJob v3.9)</li>
+  <li><code class="language-plaintext highlighter-rouge">GoodJob::Batch</code> to coordinate parallelized sets of jobs (released in GoodJob v3.10)</li>
+</ul>
+
+<p>Big thanks to @julik, @mollerhoj, @v2kovac, @danielwestendorf, @jrochkind, @mperham and others for your help and counsel!</p>
+
+<h3 id="bulk-enqueue">Bulk enqueue</h3>
+
+<p><a href="https://github.com/bensheldon/good_job#bulk-enqueue">GoodJob’s Bulk-enqueue functionality</a> can buffer and enqueue multiple jobs at once, using a single INSERT statement. This can be more performant when enqueuing a large number of jobs.</p>
+
+<p>I was inspired by a discussion within a Rails pull request to implement <a href="https://github.com/rails/rails/pull/46603"><code class="language-plaintext highlighter-rouge">perform_all_later</code> within Active Job</a>. I wanted to both support the way most people enqueue Active Job jobs with <code class="language-plaintext highlighter-rouge">perform_later</code> and also <a href="https://github.com/rails/rails/pull/43434">encourage people to work directly with Active Job instances too</a>.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># perform_later within a block</span>
+<span class="n">active_jobs</span> <span class="o">=</span> <span class="no">GoodJob</span><span class="o">::</span><span class="no">Bulk</span><span class="p">.</span><span class="nf">enqueue</span> <span class="k">do</span>
+  <span class="no">MyJob</span><span class="p">.</span><span class="nf">perform_later</span>
+  <span class="no">AnotherJob</span><span class="p">.</span><span class="nf">perform_later</span>
+<span class="k">end</span>
+<span class="c1"># or with Active Job instances</span>
+<span class="n">active_jobs</span> <span class="o">=</span> <span class="p">[</span><span class="no">MyJob</span><span class="p">.</span><span class="nf">new</span><span class="p">,</span> <span class="no">AnotherJob</span><span class="p">.</span><span class="nf">new</span><span class="p">]</span>
+<span class="no">GoodJob</span><span class="o">::</span><span class="no">Bulk</span><span class="p">.</span><span class="nf">enqueue</span><span class="p">(</span><span class="n">active_jobs</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Releasing Bulk functionality was a two-step: I initially implemented it while working on Batch functionality, and then with @julik’s initiative and help, we extracted and polished it to be used on its own.</p>
+
+<h3 id="batches">Batches</h3>
+
+<p><a href="https://github.com/bensheldon/good_job#batches">GoodJob’s Batch functionality</a> coordinates parallelized sets of jobs. The ability to coordinate a set of jobs, and run callbacks during lifecycle events, has been a highly demanded feature. Most people who talked to me about job batches were familiar with <a href="https://sidekiq.org/products/pro.html">Sidekiq Pro</a> ‘s <a href="https://github.com/mperham/sidekiq/wiki/Batches]">batch functionality</a>, which I didn’t want to simply recreate (Sidekiq Pro is excellent!). So I’ve been collecting use cases and thinking about what’s most in the spirit of Rails, Active Job, and Postgres:</p>
+
+<ul>
+  <li>Batches are mutable, database-backed objects with foreign-key relationships to sets of job records.</li>
+  <li>Batches have  <code class="language-plaintext highlighter-rouge">properties</code> which use Active Job’s serializer, so they can contain and rehydrate any GlobalID object, like Active Record models.</li>
+  <li>Batches have callbacks, which are themselves Active Job jobs</li>
+</ul>
+
+<p>Here’s a simple example:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">GoodJob</span><span class="o">::</span><span class="no">Batch</span><span class="p">.</span><span class="nf">enqueue</span><span class="p">(</span><span class="ss">on_finish: </span><span class="no">MyBatchCallbackJob</span><span class="p">,</span> <span class="ss">user: </span><span class="n">current_user</span><span class="p">)</span> <span class="k">do</span>
+  <span class="no">MyJob</span><span class="p">.</span><span class="nf">perform_later</span>
+  <span class="no">OtherJob</span><span class="p">.</span><span class="nf">perform_later</span>
+<span class="k">end</span>
+
+<span class="c1"># When these jobs have finished, it will enqueue your `MyBatchCallbackJob.perform_later(batch, options)`</span>
+<span class="k">class</span> <span class="nc">MyBatchCallbackJob</span> <span class="o">&lt;</span> <span class="no">ApplicationJob</span>
+  <span class="c1"># Callback jobs must accept a `batch` and `params` argument</span>
+  <span class="k">def</span> <span class="nf">perform</span><span class="p">(</span><span class="n">batch</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
+    <span class="c1"># The batch object will contain the Batch's properties, which are mutable</span>
+    <span class="n">batch</span><span class="p">.</span><span class="nf">properties</span><span class="p">[</span><span class="ss">:user</span><span class="p">]</span> <span class="c1"># =&gt; &lt;User id: 1, ...&gt;</span>
+    <span class="c1"># Params is a hash containing additional context (more may be added in the future)</span>
+    <span class="n">params</span><span class="p">[</span><span class="ss">:event</span><span class="p">]</span> <span class="c1"># =&gt; :finish, :success, :discard</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>There’s more depth and examples in the <a href="https://github.com/bensheldon/good_job#batches">GoodJob Batch documentation</a>.</p>
+
+<h3 id="please-help">Please help!</h3>
+
+<p>Batches are definitely a work in progress, and I’d love your feedback:</p>
+
+<ul>
+  <li>What is the Batch functionality missing? Tell me your use cases.</li>
+  <li>Help improve the <a href="https://goodjob-demo.herokuapp.com/good_job/jobs">Web Dashboard UI</a> (it’s rough but functional!)</li>
+  <li>Find bugs! I’m sure there are some edge cases I overlooked.</li>
+</ul>
+
+  </div>
+</article>
+
+    
+
+    <hr>
   
     
       
@@ -760,47 +860,6 @@ something many applications could benefit from.</li>
 
     
 
-    <hr>
-  
-    
-      
-
-<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">
-      <a class="post-link" href="/2022/10/worknotes-october-23-2022">Worknotes - October 23, 2022</a>
-    </h1>
-    <p class="post-meta text-muted">
-      <time datetime="2022-10-23T21:22:00+00:00" itemprop="datePublished">October 23, 2022</time>
-      
-      
-
-
-  
-
-  
-
-  • Tagged <a href="/tags/#worknotes">worknotes</a> and <a href="/tags/#weeknotes">weeknotes</a>
-
-
-    </p>
-  </header>
-
-  <div class="post-content" itemprop="articleBody">
-    <ul>
-  <li>During my absence, my team was reorganized and I moved under a new director and from developer experience to the product development organization. It’s been exciting (new people, new relationships, new opportunities) and also tiring (new people, new relationships, new opportunities). My team was an odd duck in the old structure, and less-so but still odd in the new structure. My verdict is out if that’s an improvement. I think it can be sometimes be easier to stick out hugely instead of subtly: it’s called whackamole, not whackagiraffe.</li>
-  <li>My team, Ruby Architecture, moved from “Build &amp; Test” within DX, to “UI and Monolith Platform” within Core Productivity. In my old group I was figuring out collaborations with the testing and CI platform. With the new group, we’re figuring out how to better explain “platforms” ourselves. I see a lot of “Shifting Left” in my future and I’m here for it.</li>
-  <li>“A feeling you don’t act upon isn’t real.” I’ve picked up this quote from nearly every Kim Stanley Robinson novel I’ve read. I shared it with a few of my reports this week; I’ve been (gently, I hope!) pushing people to share feedback more actively outside the team.</li>
-  <li>“It’s ok to be mad, it’s not ok to be mean”. Angelina and I had dinner this week with family friends who have a 10-year old and they’ve been a resource during our foster parenting journey. This phrase came up and I have been thinking about this as a better alternative to “Assume good intent.” I’m a big fan of Non-Violent Communication and it fits right in there.</li>
-  <li>Performance Review Season is kicking off again. I’m eligible. It feels like no time has passed but this week is my 6 month anniversary at GitHub! It’s still fun.</li>
-  <li>With my leadership coach, we’ve been talking about <a href="https://www.goodreads.com/en/book/show/279812.Moral_Mazes">Moral Mazes</a>, which led to <a href="https://slatestarcodex.com/2014/07/30/meditations-on-moloch/">Meditations on Moloch</a>. The overall theme, and I’ve now been working with the coach for three (!) years is (my words): taking action authentically. And then exploring different shapes of that. <a href="https://en.wikipedia.org/wiki/Ikigai">Ikigai</a>.</li>
-</ul>
-
-  </div>
-</article>
-
-    
-
     
   
 
@@ -814,7 +873,7 @@ something many applications could benefit from.</li>
       <li class="page-item"><a href="/page/2/" class="page-link"><span aria-hidden="true">&larr; </span>Newer</a></li>
     
 
-    <li class="page-item disabled"><span class="page-link">Page 3 of 66</span></li>
+    <li class="page-item disabled"><span class="page-link">Page 3 of 67</span></li>
 
     
       <li class="page-item"><a href="/page/4/" class="page-link">Older<span aria-hidden="true"> &rarr;</span></a></li>

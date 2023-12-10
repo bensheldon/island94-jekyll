@@ -6,10 +6,57 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 30 Nov 2023 20:48:29 +0000</pubDate>
-    <lastBuildDate>Thu, 30 Nov 2023 20:48:29 +0000</lastBuildDate>
+    <pubDate>Sun, 10 Dec 2023 16:49:05 +0000</pubDate>
+    <lastBuildDate>Sun, 10 Dec 2023 16:49:05 +0000</lastBuildDate>
     <generator>Jekyll v4.3.2</generator>
     
+    
+      
+        
+
+
+
+
+<item>
+  <title>Recently</title>
+  <description>&lt;ul&gt;
+  &lt;li&gt;One of my coworkers said this week “You’ve been an engineering director and in leadership before, right? I appreciate your perspective; any advice and resources you’d recommend?” So that set my mind racing. I dunno. On one hand, it’s like, well, first, you grind out 10 years of 1-year of experience 10 times, but do it &lt;a href=&quot;https://transmissionproject.org/projects.html&quot;&gt;50 times a year&lt;/a&gt;.  On the other, &lt;a href=&quot;https://medium.com/@livlab/dont-work-with-psychopaths-b1a848914455&quot;&gt;keep a delta file&lt;/a&gt; and I also think about &lt;a href=&quot;https://www.goodreads.com/en/book/show/566213&quot;&gt;Secrets of Consulting&lt;/a&gt; quite a lot (content warning: I haven’t re-read it in a long time; I tried reading the same author’s &lt;em&gt;The Psychology of Computer Programming&lt;/em&gt; more recently and couldn’t do it).&lt;/li&gt;
+  &lt;li&gt;Work otherwise is in the final marathon of promo packets and performance reviews and quarterly planning and a reorg and oh, the next version of Ruby is released in 3 weeks and it’s go time. Then we do it all again. I love my team so much.&lt;/li&gt;
+  &lt;li&gt;I finished reading &lt;a href=&quot;https://www.goodreads.com/series/305076-the-final-architecture&quot;&gt;The Final Architecture&lt;/a&gt; series. I didn’t enjoy it as much as Children of Time (“the octopus books”). After reading all the Gateway books and 3-body problem books, I’m a bit over the idea that there’s a malicious (or at least self-interested) group of people who are unhappy with the current value of the Planck constant &lt;em&gt;and are doing something about it&lt;/em&gt;. I was into the subplot of alien criminality.&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;I finished Talos Principle 2, but I screwed up the golden gates thing, so I have to beat it again just to get the special special ending. I’ve been playing it in parallel with a friend and appreciate our back and forth:&lt;/p&gt;
+
+    &lt;blockquote&gt;
+      &lt;p&gt;Me: I’m personally more worried about environmental catastrophe than AI, but i guess they’re intertwined. Material conditions that are unfit for life. Like some of the talos robots seem to touch on my philosophical question which is like: how do we maximize individual agency+satisfaction while also avoiding collective/systemic fucking-around-and-finding-out.&lt;/p&gt;
+
+      &lt;p&gt;Friend: we can see from the game the answer lies somewhere on the spectrum between having 1000 robits around a crumbling power source vs having a magic 3D printing pyramid for use to conquer the stars&lt;/p&gt;
+    &lt;/blockquote&gt;
+
+    &lt;p&gt;I also started playing Talos 1 and it’s much less chill than the 2nd game. I may not finish it.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;For GoodJob, all of the things I want have been labeled &lt;a href=&quot;https://github.com/bensheldon/good_job/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22&quot;&gt;“Help Wanted”&lt;/a&gt;. I do want to get the row-locking foundations in place myself, though I think the safe upgrade path for it might take a little while to straighten out. I think I have finally &lt;a href=&quot;https://github.com/bensheldon/good_job/discussions/831#discussioncomment-7283545&quot;&gt;mastered advisory locks&lt;/a&gt;, so, of course, that means change it all up.&lt;/li&gt;
+  &lt;li&gt;I ran &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bundle update&lt;/code&gt; on Day of the Shirt, which means I also upgraded to Shakapacker, which means that I have, once again, spent an entire weekend fumbling with Webpack configuration to get &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;window.$&lt;/code&gt; working. I also got a nice email from the owner of a t-shirt website that validated my &lt;a href=&quot;https://dayoftheshirt.com/news/state-of-the-shirt-2020&quot;&gt;thesis&lt;/a&gt; that no one visits websites anymore, let alone to buy t-shirts: the website owner got a (different) full-time job.&lt;/li&gt;
+&lt;/ul&gt;
+
+  &lt;br&gt;&lt;br&gt;
+  &lt;hr&gt;
+  &lt;p&gt;
+    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2023/12/recently&quot;&gt;Recently&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
+    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
+  &lt;/p&gt;
+</description>
+  <pubDate>Sun, 10 Dec 2023 15:44:00 +0000</pubDate>
+  <link>https://island94.org/2023/12/recently</link>
+  <guid isPermaLink="true">https://island94.org/2023/12/recently</guid>
+  
+    <category>recently</category>
+  
+    <category>weeknotes</category>
+  
+  
+</item>
+
+      
     
       
         
@@ -819,94 +866,6 @@
   <pubDate>Thu, 13 Jul 2023 15:24:00 +0000</pubDate>
   <link>https://island94.org/2023/07/systems-of-utopia</link>
   <guid isPermaLink="true">https://island94.org/2023/07/systems-of-utopia</guid>
-  
-  
-</item>
-
-      
-    
-      
-        
-
-
-
-
-<item>
-  <title>19 sales &amp; marketing strategies in 19 weeks</title>
-  <description>&lt;p&gt;The book &lt;a href=&quot;https://www.goodreads.com/pt/book/show/24693635-traction&quot;&gt;&lt;em&gt;Traction&lt;/em&gt;&lt;/a&gt;, by Gabriel Weinberg and Justin Mares has an unstated thesis I find compelling:&lt;/p&gt;
-
-&lt;p&gt;Comprehensive, grinding, tryhard mediocrity over narrow, stabby, hopeful genius.&lt;/p&gt;
-
-&lt;p&gt;Or: boil the sales &amp;amp; marketing ocean with these spreadsheets and punchlists (a marketing lifestyle I associate with Penny Arcade’s &lt;a href=&quot;https://www.reddit.com/r/IAmA/comments/nx0bs/comment/c3cm3zm/&quot;&gt;former business manager&lt;/a&gt; with &lt;a href=&quot;https://web.archive.org/web/20120107151014/http://penny-arcade.com/khoo/viral&quot;&gt;stuff like this&lt;/a&gt;).&lt;/p&gt;
-
-&lt;p&gt;There are lots of quotes from like Paul Graham, Peter Thiel, Marc Andreesen. This is what one signs up for in a book like this. Also replace “traction” with “sales and marketing”:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;…spend your time constructing your product or service and testing traction channels &lt;em&gt;in parallel&lt;/em&gt;…. We strongly believe that many startups give up way too early… You should always have an explicit traction goal you’re working toward.&lt;/p&gt;
-
-  &lt;p&gt;…The importance of choosing the right traction goal cannot be overstated. Are you going for growth or “profitability, or something in between? If you need to raise money in X months, what traction do you need to show to do so? These are the types of questions that help you determine the right traction goal.&lt;/p&gt;
-
-  &lt;p&gt;Once that is defined, you can work backward and set clear quantitative and time-based traction subgoals, such as reaching one thousand customers by next quarter or hitting 20 percent monthly growth targets. Clear subgoals provide accountability. By placing traction activities on the same calendar as product development and other company milestones, you ensure that enough of your time will be spent on traction.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;It feels a little dumb pulling out quotes, but also I get security from seeing it not be overthought:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Put half your efforts into getting traction&lt;/li&gt;
-  &lt;li&gt;Learn what growth numbers potential investors respect&lt;/li&gt;
-  &lt;li&gt;Set your growth goals: Set quantitative numbers.&lt;/li&gt;
-  &lt;li&gt;Find your bright spots: if not hitting quantitative numbers, who is qualitively excited and try to learn from them and replan.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;And then the spreadsheets. There are pictures of spreadsheets, and descriptions of columns in spreadsheets. It’s great!&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;How much will it cost to acquire customers through this channel?&lt;/li&gt;
-  &lt;li&gt;How many customers are available through this channel&lt;/li&gt;
-  &lt;li&gt;Are the customers that you are getting through this channel the kind of customers that you want right now?&lt;/li&gt;
-  &lt;li&gt;What’s the lifetime value of this customer&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;“…we encourage you to be as quantitative as possible, even if it is just guesstimating at first.”&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;And the 19 strategies:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;&lt;strong&gt;Targeting Blogs&lt;/strong&gt;: building up from tiny outlets to large&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Publicity&lt;/strong&gt;: building relationships with journalists, HARO.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Unconventional PR&lt;/strong&gt;: stunts, customer appreciation&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Search Engine Marketing&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Social and Display Ads&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Offline Ads&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Search Engine Optimization&lt;/strong&gt;: fat-head (narrow ranking) and long-tail (lots of landing page content, content marketing farming) strategies. Google Adword’s Keyword Planner,  Open Site Explorer.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Content Marketing&lt;/strong&gt;. Spend 6 months blogging do stuff that doesn’t scale (contact influential people, do guest posts, write about recent news events, nerd out)&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Email Marketing&lt;/strong&gt;: with your own mailing list or advertise on other mailing lists. Transactional funnel reminders, retention, upselling/expansion, referral emails too.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Viral Marketing&lt;/strong&gt;: map out the loop.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Engineering as Marketing&lt;/strong&gt;: giveaway tools/services (lol, examples are all SEO companies building free SEO tools for marketers, not necessarily engineering)&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Business Development&lt;/strong&gt;: partnerships, joint ventures, licensing, distribution, supply. Boil the ocean of potential partners, spreadsheet and pipeline it.  Identify who is in charge of the partner’s metric you’re targeting, and make your cold emails forwardable. Write a memo to yourself afterwords “how the deal was done” (how long it took to get to milestones, key contacts, sticking points, partner’s specific interests and influences)&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Sales&lt;/strong&gt;. It’s sales! lol, about time wasters (“have you ever brought other technology into your company?”)&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Affiliate Programs&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Existing Platforms&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Trade Shows&lt;/strong&gt;. Prep, prep, prep.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Offline Events&lt;/strong&gt;. Conferences.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Speaking Engagements&lt;/strong&gt;. Answer upfront “Why are you important enough to be the one giving the talk? What value can you offer me? …then… what your startup is doing, why you’re doing it, specifically how you got to where you are or where things are going.” Recycle and reuse the same 1 or 2 talks.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Community Building&lt;/strong&gt;. Nurturing connections among your customers.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;There’s not even a conclusion! Just an acknowledgement and an appendix with specific suggested goals for each category in case the short chapters weren’t boiled enough. It’s not hard, it just takes work.&lt;/p&gt;
-
-  &lt;br&gt;&lt;br&gt;
-  &lt;hr&gt;
-  &lt;p&gt;
-    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2023/06/19-sales-marketing-strategies-in-19-weeks&quot;&gt;19 sales &amp; marketing strategies in 19 weeks&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
-    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
-  &lt;/p&gt;
-</description>
-  <pubDate>Sun, 11 Jun 2023 22:37:00 +0000</pubDate>
-  <link>https://island94.org/2023/06/19-sales-marketing-strategies-in-19-weeks</link>
-  <guid isPermaLink="true">https://island94.org/2023/06/19-sales-marketing-strategies-in-19-weeks</guid>
   
   
 </item>

@@ -77,7 +77,7 @@
       <li class="page-item"><a href="/page/36/" class="page-link"><span aria-hidden="true">&larr; </span>Newer</a></li>
     
 
-    <li class="page-item disabled"><span class="page-link">Page 37 of 66</span></li>
+    <li class="page-item disabled"><span class="page-link">Page 37 of 67</span></li>
 
     
       <li class="page-item"><a href="/page/38/" class="page-link">Older<span aria-hidden="true"> &rarr;</span></a></li>
@@ -91,6 +91,50 @@
 
   
 
+  
+    
+      
+
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2009/10/Millenial-Nonprofity-Exposition.html">Millenial Nonprofity Exposition</a>
+    </h1>
+    <p class="post-meta text-muted">
+      <time datetime="2009-10-13T00:00:00+00:00" itemprop="datePublished">October 13, 2009</time>
+      
+      
+
+
+  
+
+  
+
+  • Tagged <a href="/tags/#exposition">exposition</a>, <a href="/tags/#narrative">narrative</a>, <a href="/tags/#nonprofit">nonprofit</a>, <a href="/tags/#service">service</a>, and <a href="/tags/#storytelling">storytelling</a>
+
+
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>I was recently invited to participate in a <a href="http://entrylevelliving.wordpress.com/2009/10/13/nonprofit-millenial-bloggers/">blogging alliance of millennial nonprofity folks</a>. Which is pretty fitting considering I am of the appropriate age range, employment and that “nonprofit” is the largest tag in the tag cloud in the sidebar of this blog.</p>
+
+<p>I can’t speak to any teleological path leading me to where I am today. I can though give the short and contextualized version:</p>
+
+<p>In 2001, as I was preparing to graduate from high school I really wanted to do AmeriCorps (or the military, but my parents were strongly against that). I also hedged my bets and applied to some state colleges—being in California I had some decent options. Unfortunately my AmeriCorps dreams were cut short when my entire application packet (motivational essays, letters of reference, etc.) was lost by the USPS… or so I assumed since no one from AmeriCorps was ever able to consistently return my phone calls. So I went to college.</p>
+
+<p>Three years later, as I was preparing to graduate from college I was looking for things to do. My parents were strongly against me enlisting the previous year (when I <em>really</em> wanted to go) and my friends now in the officer’s program weren’t singing many praises either. I was accepted into Teach for America; but after taking their welcome packet’s advice and calling some alumni, I was told that the benefits I really wanted—structured personal and professional development—weren’t there. The post-graduation internship I really wanted at a local defense contractor didn’t come through either. So I (re)applied to AmeriCorps. To my glee, the new application packet now came with a FedEx envelope. So I moved to Boston to serve in AmeriCorps.</p>
+
+<p>Five years later, I haven’t moved far from that. Working within and with nonprofit organizations has afforded me a lot of flexibility in the work I do and the people I do it with. I find myself driven more by excellence than by mission. Mostly I enjoy the direct problem solving and latitude I have: I haven’t worked myself out of a job yet, so there is obviously room for innovation.</p>
+
+<p>If that’s not a millenial memoir, I don’t know what is.</p>
+
+  </div>
+</article>
+
+    
+
+    <hr>
   
     
       
@@ -598,50 +642,6 @@ I am auditing a class this semester on Quantitative Reasoning with Prof. Marilyn
 
     
 
-    <hr>
-  
-    
-      
-
-<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">
-      <a class="post-link" href="/2009/08/Drupal-Adding-a-geocoding-failure-message-to-Location-Module.html">Drupal: Adding a geocoding failure message to Location Module</a>
-    </h1>
-    <p class="post-meta text-muted">
-      <time datetime="2009-08-13T00:00:00+00:00" itemprop="datePublished">August 13, 2009</time>
-      
-      
-
-
-  
-
-  
-
-  • Tagged <a href="/tags/#drupal">Drupal</a>, <a href="/tags/#location">location</a>, <a href="/tags/#mapping">mapping</a>, <a href="/tags/#maps">maps</a>, <a href="/tags/#navigation">navigation</a>, <a href="/tags/#portfolio">portfolio</a>, <a href="/tags/#stupid">stupid</a>, and <a href="/tags/#warning">warning</a>
-
-
-    </p>
-  </header>
-
-  <div class="post-content" itemprop="articleBody">
-    <p>One of the coolest pieces of Drupal is how simple it is to quickly enter a street address and have it show up on a dynamic map on your website using <a href="http://drupal.org/project/location">Location</a> and <a href="http://drupal.org/project/gmap">GMap</a> modules. To make it happen, a lot of stuff goes on behind the scenes. Unfortunately, in typical Drupal fashion, when something goes wrong, you aren’t provided much information to fix it.</p>
-
-<p>A big issue if you’re having regular users enter information into your website is <em>malformed</em> addresses that can’t be automatically converted into latitude/longitude coordinates (geocoding) for display on a map. Out of the box, the Location module doesn’t give you a warning if it’s unable to geocode an address. On my website <a href="http://mappingaccess.org">MappingAccess.org</a>–a community maintained directory of Cable Access Television stations—I average about an email a week from a visitor saying “I added my station but it’s not showing up on the map”. Usually it’s a simple matter of using a PO Box or wacky abbreviation, but the website itself should be telling them there is a problem, not me.</p>
-
-<p>So I whipped up a simple module that checks everytime a new station is submitted to see if the address was properly geocoded. If not, it displays a message with some tips on how to correct the issue.</p>
-
-<p><img src="/uploads/2009-08-13-Drupal-Adding-a-geocoding-failure-message-to-Location-Module/Picture-3-500x136.png" alt="Geocode Warning Message" title="Geocode Warning Message" /></p>
-
-<p>You can download the module for Drupal 6.x by <a href="/uploads/2009-08-13-Drupal-Adding-a-geocoding-failure-message-to-Location-Module/geocode_warn.zip"><strong>clicking here</strong></a><strong>.</strong></p>
-
-<p>To be nitpicky, I’d rather the message show up during the validation stage—before the node is submitted—with the option to say “Please edit the address or press submit again to publish with the understanding that it will not show up on the map.” Unfortunately, in Drupal 6 you <a href="http://drupal.org/node/241364">can’t make changes to node form during the validation stage</a>—which I would use to set a flag in a hidden form element so that the validation message only gets triggered once. The current implementation calls a drupal_set_message in hook_nodeapi’s insert/update operations. It can be enabled on a per-content-type basis (on the Content Type Configuration screen).</p>
-
-  </div>
-</article>
-
-    
-
     
   
 
@@ -655,7 +655,7 @@ I am auditing a class this semester on Quantitative Reasoning with Prof. Marilyn
       <li class="page-item"><a href="/page/36/" class="page-link"><span aria-hidden="true">&larr; </span>Newer</a></li>
     
 
-    <li class="page-item disabled"><span class="page-link">Page 37 of 66</span></li>
+    <li class="page-item disabled"><span class="page-link">Page 37 of 67</span></li>
 
     
       <li class="page-item"><a href="/page/38/" class="page-link">Older<span aria-hidden="true"> &rarr;</span></a></li>
