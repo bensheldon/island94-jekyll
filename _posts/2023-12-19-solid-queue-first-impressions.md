@@ -5,13 +5,11 @@ published: true
 tags: [Rails, GoodJob]
 ---
 
-# First impressions of Solid Queue: looks nice!
-
 [Solid Queue](https://github.com/basecamp/solid_queue) was [released yesterday](https://dev.37signals.com/introducing-solid-queue/), a new relational-database backend for Active Job.
 
 I'm the author of [GoodJob](https://github.com/bensheldon/good_job) and I've been [following along](https://island94.org/2023/10/reflections-on-good-job-for-solid-queue) and am very interested and excited about Solid Queue. These are some things I noticed when first going through it.
 
-**tl;dr;** It's nice! I learned some things. It makes a few different choices than GoodJob and I'm very curious how they turn out (in a good way!)
+**tl;dr;** It's nice! I learned some things. It makes a few different choices than GoodJob and I'm very curious how they turn out (in a good way!).
 
 I admit, I didn't run Solid Queue in production. I poked through the code, got the development environment set up (spent the majority of my time trying to get `mysql2` to compile, which is no surprise for me; [Trilogy is my day job](https://github.blog/2022-08-25-introducing-trilogy-a-new-database-adapter-for-ruby-on-rails/)), ran the test suite and tried TDDing a new feature for it: `perform_all_later` support. These are just my notes, something to refer back to.
 
@@ -21,7 +19,7 @@ _Note: I wasn't successfully able to implement `perform_all_later` in my 1 hour 
 
 _Aside: One of the very first comments I got when I launched GoodJob 3 years ago was like "your design assumptions are less than ideal" and then they never replied to any of my follow-ups. That sucked! This is not that. Nothing in Solid Queue is particularly concerning, just different (sometimes better!). Kudos to Rosa Gutiérrez and the Solid Queue developers; you're doing great work! 💖_ 
 
-**Again, lots of database tables:** GoodJob is easy mode just targeting Postgres, because there are Advisory Locks and lots of Postgres-only niceties. I do not envy Solid Queue being multi-database, because it has to implement a bunch of stuff with a coarser tool set. For example, there is a `semaphores` table, which is used for the Concurrency Controls feature (🎉). I think the "SOLID" libraries (also Solid Cache) are interesting because they have to implement behavior in a relational database that come for free in in-memory databases (example: TTL/record expiration/purging). 
+**Again, lots of database tables:** GoodJob is easy mode just targeting Postgres, because there are Advisory Locks and lots of Postgres-only niceties. I do not envy Solid Queue being multi-database, because it has to implement a bunch of stuff with a coarser toolbox. For example, there is a `semaphores` table, which is used for the Concurrency Controls feature (🎉). I think the "SOLID" libraries (also Solid Cache) are interesting because they have to implement behavior in a relational database that come for free in in-memory databases (example: TTL/record expiration/purging). 
 
 **Puma Plugin:** TIL. Looks nicer and more explicit than GoodJob trying to transparently detect it's in the webserver to run asynchronously 
 
@@ -35,5 +33,6 @@ _Aside: One of the very first comments I got when I launched GoodJob 3 years ago
 
 - No Dashboard yet. Waiting on Mission Control. GoodJob definitely got more twisty as I learned all of the things of "you want a button to do what now with those jobs? ...oh, I guess that makes sense. hmm."
 - No LISTEN/NOTIFY (yet?). Seems possible, but would be Postgres only so maybe not. That means latency will never be less than the polling frequency, though an example shows `0.1` seconds which seems good to me.
+- No cron-like functionality. It took me a minute to [come around to the the necessity of this](https://github.com/bensheldon/good_job/issues/255), maybe Solid Queue will too.
 
 **Final thoughts:** Path dependency is hard, so I don't imagine lots of people should swap out their job backend just because there is something new (please, don't let me ever read a "3 job backends in 4 years" blog post). New projects and applications will be more likely making these choices (and they shouldn't be valueless choices, hence my excitement for Solid Queue becoming first party to Rails) and I'm really excited to see how Solid Queue grows up with them, and alongside other options like GoodJob and Sidekiq and Delayed et al.
