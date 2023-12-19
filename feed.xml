@@ -6,10 +6,72 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 10 Dec 2023 16:49:05 +0000</pubDate>
-    <lastBuildDate>Sun, 10 Dec 2023 16:49:05 +0000</lastBuildDate>
+    <pubDate>Tue, 19 Dec 2023 17:28:05 +0000</pubDate>
+    <lastBuildDate>Tue, 19 Dec 2023 17:28:05 +0000</lastBuildDate>
     <generator>Jekyll v4.3.2</generator>
     
+    
+      
+        
+
+
+
+
+<item>
+  <title>Solid Queue first impressions: Nice!</title>
+  <description>&lt;p&gt;&lt;a href=&quot;https://github.com/basecamp/solid_queue&quot;&gt;Solid Queue&lt;/a&gt; was &lt;a href=&quot;https://dev.37signals.com/introducing-solid-queue/&quot;&gt;released yesterday&lt;/a&gt;, a new relational-database backend for Active Job.&lt;/p&gt;
+
+&lt;p&gt;I’m the author of &lt;a href=&quot;https://github.com/bensheldon/good_job&quot;&gt;GoodJob&lt;/a&gt; and I’ve been &lt;a href=&quot;https://island94.org/2023/10/reflections-on-good-job-for-solid-queue&quot;&gt;following along&lt;/a&gt; and am very interested and excited about Solid Queue. These are some things I noticed when first going through it.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;tl;dr;&lt;/strong&gt; It’s nice! I learned some things. It makes a few different choices than GoodJob and I’m very curious how they turn out (in a good way!).&lt;/p&gt;
+
+&lt;p&gt;I admit, I didn’t run Solid Queue in production. I poked through the code, got the development environment set up (spent the majority of my time trying to get &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mysql2&lt;/code&gt; to compile, which is no surprise for me; &lt;a href=&quot;https://github.blog/2022-08-25-introducing-trilogy-a-new-database-adapter-for-ruby-on-rails/&quot;&gt;Trilogy is my day job&lt;/a&gt;), ran the test suite and tried TDDing a new feature for it: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;perform_all_later&lt;/code&gt; support. These are just my notes, something to refer back to.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Lots of database tables:&lt;/strong&gt; Solid Queue has many database tables. There is a “hot” table (my terminology) in which job records are queued/dequeued/locked from by all the workers, and then several other tables where job records are staged (e.g. they’re scheduled in the future, so don’t insert them into the hot table yet) or archived after they complete/error.  This seems smart because that hot table and its indexes stays compact and single purpose, which is good for performance. Compare that to GoodJob in which the jobs table has like 8 indexes to cover both queue/dequeue and Dashboard listings and everything else, which &lt;em&gt;does&lt;/em&gt; slow down inserts and updates. I’ve had the impression with GoodJob that orchestrating across multiple tables would be more difficult (everything is tradeoffs!), so I’m very curious to see an alternative implementation in Solid Queue.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Note: I wasn’t successfully able to implement &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;perform_all_later&lt;/code&gt; in my 1 hour timebox because it was more complicated than an &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;insert_all&lt;/code&gt; because of the necessity of writing to multiple tables.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Aside: One of the very first comments I got when I launched GoodJob 3 years ago was like “your design assumptions are less than ideal” and then they never replied to any of my follow-ups. That sucked! This is not that. Nothing in Solid Queue is particularly concerning, just different (sometimes better!). Kudos to Rosa Gutiérrez and the Solid Queue developers; you’re doing great work! 💖&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Again, lots of database tables:&lt;/strong&gt; GoodJob is easy mode just targeting Postgres, because there are Advisory Locks and lots of Postgres-only niceties. I do not envy Solid Queue being multi-database, because it has to implement a bunch of stuff with a coarser toolbox. For example, there is a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;semaphores&lt;/code&gt; table, which is used for the Concurrency Controls feature (🎉). I think the “SOLID” libraries (also Solid Cache) are interesting because they have to implement behavior in a relational database that come for free in in-memory databases (example: TTL/record expiration/purging).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Puma Plugin:&lt;/strong&gt; TIL. Looks nicer and more explicit than GoodJob trying to transparently detect it’s in the webserver to run asynchronously&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Multiprocess.&lt;/strong&gt; A nice surprise to me, Solid Queue has a multiprocess supervisor. It does seem like even the Puma plugin forks off another process though; that could have implications for memory constrained environments (e.g. Heroku dynos). I’m nearly 4 years into GoodJob and haven’t tackled multiprocess yet, so exciting to see this in Solid Queue’s first release.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Queue priority:&lt;/strong&gt; Nice! I have &lt;em&gt;opinions&lt;/em&gt; about how people set up their application’s queues, along the lines of: many people do it wrong, imo. Solid Queue looks like it provides a lot of good flexibility to let people easily migrate and configure their queues initially (though wrongly, by dependency, imo), but then reorient them more performantly (by latency, again imo). A single thread-pool/worker can pull from multiple queues.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Care&lt;/strong&gt;. I notice lots of little things that are nice in Solid Queue. The code is clean. The indexes are named for their purpose/usage rather than just like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;index_table_column_column&lt;/code&gt;.  The Puma Plugin is nice. There are things in GoodJob that I dream about what a clean-room, lessons-learned reimplementation would look like, but it’s never top of my priorities, and some things are never going back in the stable (table names are basically forever). Reading the Solid Queue code was a vicarious-nice! experience.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Differences.&lt;/strong&gt; Do they even matter? I dunno:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;No Dashboard yet. Waiting on Mission Control. GoodJob definitely got more twisty as I learned all of the things of “you want a button to do what now with those jobs? …oh, I guess that makes sense. hmm.”&lt;/li&gt;
+  &lt;li&gt;No LISTEN/NOTIFY (yet?). Seems possible, but would be Postgres only so maybe not. That means latency will never be less than the polling frequency, though an example shows &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0.1&lt;/code&gt; seconds which seems good to me.&lt;/li&gt;
+  &lt;li&gt;No cron-like functionality. It took me a minute to &lt;a href=&quot;https://github.com/bensheldon/good_job/issues/255&quot;&gt;come around to the the necessity of this&lt;/a&gt;, maybe Solid Queue will too.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Final thoughts:&lt;/strong&gt; Path dependency is hard, so I don’t imagine lots of people should swap out their job backend just because there is something new (please, don’t let me ever read a “3 job backends in 4 years” blog post). New projects and applications will be more likely making these choices (and they shouldn’t be valueless choices, hence my excitement for Solid Queue becoming first party to Rails) and I’m really excited to see how Solid Queue grows up with them, and alongside other options like GoodJob and Sidekiq and Delayed et al.&lt;/p&gt;
+
+  &lt;br&gt;&lt;br&gt;
+  &lt;hr&gt;
+  &lt;p&gt;
+    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2023/12/solid-queue-first-impressions&quot;&gt;Solid Queue first impressions: Nice!&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
+    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
+  &lt;/p&gt;
+</description>
+  <pubDate>Tue, 19 Dec 2023 16:24:00 +0000</pubDate>
+  <link>https://island94.org/2023/12/solid-queue-first-impressions</link>
+  <guid isPermaLink="true">https://island94.org/2023/12/solid-queue-first-impressions</guid>
+  
+    <category>Rails</category>
+  
+    <category>GoodJob</category>
+  
+  
+</item>
+
+      
     
       
         
@@ -823,51 +885,6 @@
   <pubDate>Thu, 17 Aug 2023 13:51:00 +0000</pubDate>
   <link>https://island94.org/2023/08/recoding-america</link>
   <guid isPermaLink="true">https://island94.org/2023/08/recoding-america</guid>
-</item>
-
-      
-    
-      
-        
-
-
-
-
-<item>
-  <title>Systems of utopia</title>
-  <description>&lt;p&gt;I found these two essays juxtaposed in my feed reader and they both rang true. The first is Matt Stoller’s &lt;a href=&quot;https://www.thebignewsletter.com/p/the-long-annoying-tradition-of-anti&quot;&gt;“The Long Annoying Tradition of Anti-Patriotism”&lt;/a&gt;, with a particular emphasis on a disordered appeal to utopia in society at large (emphasis mine):&lt;/p&gt;
-
-&lt;blockquote&gt;
-
-  &lt;p&gt;Anti-populism, and its cousin of anti-patriotism, is alluring for our elites. Many lack faith in fellow citizens, and think the work of convincing a large complex country isn’t worth it, or may not even be possible. &lt;strong&gt;Others can’t imagine politics itself as a useful endeavor because they believe in a utopia.&lt;/strong&gt; Indeed, those who believe in certain forms of socialism and libertarianism believe that politics itself shouldn’t exist, that one must perfect the soul of human-kind, and then the messy work of making a society will become unnecessary. In this frame, political institutions, like courts, corporations, and government agencies, are unimportant except as aesthetic objects.&lt;/p&gt;
-
-  &lt;p&gt;Anti-populism and anti-patriotism leads nowhere, because these attitudes are about convincing citizens to give up their power, to give up on the idea that America is a place we can do politics to make a society.&lt;/p&gt;
-
-&lt;/blockquote&gt;
-
-&lt;p&gt;And then closer to work, on engineering leadership in Will Larsen’s &lt;a href=&quot;https://lethain.com/building-prestige/&quot;&gt;“Building personal and organizational prestige”&lt;/a&gt;:&lt;/p&gt;
-
-&lt;blockquote&gt;
-
-  &lt;p&gt;In my experience, &lt;strong&gt;engineers confronted with a new problem often leap to creating a system to solve that problem rather than addressing it directly&lt;/strong&gt;. I’ve found this particularly true when engineers approach a problem domain they don’t yet understand well, including building prestige.&lt;/p&gt;
-
-  &lt;p&gt;For example, when an organization decides to invest into its engineering brand, the initial plan will often focus on project execution. It’ll include a goal for publishing frequency, ensuring content is representationally accurate across different engineering sub-domains, and how to incentivize participants to contribute. If you follow the project plan carefully, you will technically have built an engineering brand, but my experience is that it’ll be both more work and less effective than a less systematic approach.&lt;/p&gt;
-
-&lt;/blockquote&gt;
-
-
-  &lt;br&gt;&lt;br&gt;
-  &lt;hr&gt;
-  &lt;p&gt;
-    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2023/07/systems-of-utopia&quot;&gt;Systems of utopia&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
-    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
-  &lt;/p&gt;
-</description>
-  <pubDate>Thu, 13 Jul 2023 15:24:00 +0000</pubDate>
-  <link>https://island94.org/2023/07/systems-of-utopia</link>
-  <guid isPermaLink="true">https://island94.org/2023/07/systems-of-utopia</guid>
-  
-  
 </item>
 
       

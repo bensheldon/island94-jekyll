@@ -98,6 +98,139 @@
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
     <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2023/02/prevent-cdn-poisoning-from-fat-get-head-requests-in-ruby-on-rails">Prevent CDN poisoning from Fat GET/HEAD Requests in Ruby on Rails</a>
+    </h1>
+    <p class="post-meta text-muted">
+      <time datetime="2023-02-12T20:32:00+00:00" itemprop="datePublished">February 12, 2023</time>
+      
+      
+
+
+  
+
+  
+
+  • Tagged <a href="/tags/#rails">rails</a>
+
+
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>There are many different flavors of <a href="https://portswigger.net/research/web-cache-entanglement">web cache poisoning discovered by Security Researcher James Kettle</a>. Read on for an explanation of one I’ve run across…</p>
+
+<p><strong>What is a Fat GET/HEAD Request?</strong> A GET or HEAD request is “fat” when it has a request body. It’s unexpected! Typically one sees a request body with a POST or PUT request because the body contains form data. The HTTP specification says that including a request body with GET or HEAD requests is <a href="https://stackoverflow.com/a/983458"><em>undefined</em></a>. You can do it, and it’s up to the application to figure out what that means. Sometimes it’s bad!</p>
+
+<p>You can get a sense of the applications that intentionally support Fat Requests (and how grumpy it makes some people) by reading through this <a href="https://github.com/postmanlabs/postman-app-support/issues/131">Postman issue</a>.</p>
+
+<p><strong>Fat Requests can lead to CDN and cache poisoning in Rails.</strong> CDNs and caching web proxies (like Varnish) are frequently configured to cache the response from a GET or HEAD request based solely on the request’s URL and not the contents of the request body (they don’t cache POSTs or PUTs at all). If an application isn’t deliberately handling the request body, it may cause unexpected content to be cached and served.</p>
+
+<p>For example, you have a <code class="language-plaintext highlighter-rouge">/search</code> endpoint:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">GET /search</code> shows a landing page with some explanatory content</li>
+  <li><code class="language-plaintext highlighter-rouge">GET /search?q=foo</code> shows the search results for “foo”.</li>
+  <li>
+    <p>Here’s what a Fat Request looks like:</p>
+
+    <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET /search     &lt;== the url for the landing page
+
+q=verybadstuff  &lt;== oh, but with a request body
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>In a Rails Controller, <code class="language-plaintext highlighter-rouge">parameters</code> (alias <code class="language-plaintext highlighter-rouge">params</code>) merges query parameters (that’s the URL values) with request parameters (that’s the body values) into a single data structure. If your controller uses the presence of <code class="language-plaintext highlighter-rouge">params[:q]</code> to determine whether to show the landing page or the search results, it’s possible that when someone sends that Fat Request, your CDN may cache and subsequently serve the results for <code class="language-plaintext highlighter-rouge">verybadstuff</code> every time someone visits the <code class="language-plaintext highlighter-rouge">/search</code> landing page. That’s bad!</p>
+
+<p>Here’s how to Curl it:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-XGET</span> <span class="nt">-H</span> <span class="s2">"Content-Type: application/x-www-form-urlencoded"</span> <span class="nt">-d</span> <span class="s2">"q=verybadstuff"</span> http://localhost:3000/search
+</code></pre></div></div>
+
+<p>Here are 3 ways to fix it…</p>
+
+<h2 id="solution-1-fix-at-the-cdn">Solution #1: Fix at the CDN</h2>
+
+<p>The most straightforward place to fix this should be at the caching layer, but it’s not always easy.</p>
+
+<p>With Cloudflare, you could rewrite the GET request’s <code class="language-plaintext highlighter-rouge">Content-Type</code> header if it is <code class="language-plaintext highlighter-rouge">application/x-www-form-urlencoded</code> or <code class="language-plaintext highlighter-rouge">multipart/form-data</code>. Or use a Cloudflare Worker to drop the request body.</p>
+
+<p>Varnish makes it easy to drop the request body for any GET request.</p>
+
+<p>Other CDNs or proxies may be easier or more difficult. It depends!</p>
+
+<p>Update via <a href="https://github.com/Mr0grog">Mr0grog</a>: AWS Cloudfront returns a <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#RequestCustom-get-body">403 by default</a>.</p>
+
+<h2 id="solution-2-deliberately-use-query_parameters">Solution #2: Deliberately use <code class="language-plaintext highlighter-rouge">query_parameters</code></h2>
+
+<p>Rails provides three different methods for accessing parameters:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">query_parameters</code> for the values in the request URL</li>
+  <li><code class="language-plaintext highlighter-rouge">request_parameters</code> ) for the values in the request body</li>
+  <li><code class="language-plaintext highlighter-rouge">parameters</code> (alias <code class="language-plaintext highlighter-rouge">params</code>) for the problematic combination of them both. Values in <code class="language-plaintext highlighter-rouge">query_parameters</code> take precedence over values in <code class="language-plaintext highlighter-rouge">request_parameters</code> when they are merged together.</li>
+</ul>
+
+<p>Developers could be diligent and make sure to only use <code class="language-plaintext highlighter-rouge">query_parameters</code> in <code class="language-plaintext highlighter-rouge">#index</code> or <code class="language-plaintext highlighter-rouge">#show</code> , or <code class="language-plaintext highlighter-rouge">get</code> routed actions. Here’s an example from the <a href="https://github.com/git/git-scm.com/issues/1551"><code class="language-plaintext highlighter-rouge">git-scm</code> project</a>.</p>
+
+<h2 id="solution-3-patch-rails">Solution #3: Patch Rails</h2>
+
+<p>Changes were <a href="https://github.com/rails/rails/issues/39974">proposed in Rails</a> to not have <code class="language-plaintext highlighter-rouge">parameters</code> merge in the body values for GET and HEAD requests; it was rejected because it’s more a problem with the upstream cache than it is with Rails.</p>
+
+<p>You can patch your own version of Rails. Here’s an example that patches the method in <a href="https://github.com/rails/rails/blob/21a3b52ba0b7d94b4903e02b6ac537a7d1d1c817/actionpack/lib/action_dispatch/http/parameters.rb#L49-L63"><code class="language-plaintext highlighter-rouge">ActionDispatch::Request</code></a>:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># config/initializers/sanitize_fat_requests.rb</span>
+<span class="k">module</span> <span class="nn">SanitizeFatRequests</span>
+  <span class="k">def</span> <span class="nf">parameters</span>
+    <span class="n">params</span> <span class="o">=</span> <span class="n">get_header</span><span class="p">(</span><span class="s2">"action_dispatch.request.parameters"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">params</span> <span class="k">if</span> <span class="n">params</span>
+
+    <span class="k">if</span> <span class="n">get?</span> <span class="o">||</span> <span class="n">head?</span>
+      <span class="n">params</span> <span class="o">=</span> <span class="n">query_parameters</span><span class="p">.</span><span class="nf">dup</span>
+      <span class="n">params</span><span class="p">.</span><span class="nf">merge!</span><span class="p">(</span><span class="n">path_parameters</span><span class="p">)</span>
+      <span class="n">set_header</span><span class="p">(</span><span class="s2">"action_dispatch.request.parameters"</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
+      <span class="n">params</span>
+    <span class="k">else</span>
+      <span class="k">super</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+  <span class="k">alias</span> <span class="ss">:params</span> <span class="ss">:parameters</span>
+<span class="k">end</span>
+
+<span class="no">ActionDispatch</span><span class="o">::</span><span class="no">Request</span><span class="p">.</span><span class="nf">include</span><span class="p">(</span><span class="no">SanitizeFatRequests</span><span class="p">)</span>
+
+<span class="c1"># Some RSpec tests to verify this</span>
+<span class="nb">require</span> <span class="s1">'rails_helper'</span>
+
+<span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="no">SanitizeFatRequests</span><span class="p">,</span> <span class="ss">type: :request</span> <span class="k">do</span>
+  <span class="n">it</span> <span class="s1">'does not merge body params in GET requests'</span> <span class="k">do</span>
+    <span class="n">get</span> <span class="s2">"/search"</span><span class="p">,</span> <span class="ss">headers: </span><span class="p">{</span><span class="s1">'CONTENT_TYPE'</span> <span class="o">=&gt;</span> <span class="s1">'application/x-www-form-urlencoded'</span><span class="p">},</span> <span class="ss">env: </span><span class="p">{</span><span class="s1">'rack.input'</span><span class="p">:</span> <span class="no">StringIO</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s1">'q=verybadstuff'</span><span class="p">)</span> <span class="p">}</span>
+
+    <span class="c1"># verify that the request is correctly shaped because</span>
+    <span class="c1"># the test helpers don't expect this kind of request</span>
+    <span class="n">expect</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="nf">request_parameters</span><span class="p">).</span><span class="nf">to</span> <span class="n">eq</span><span class="p">(</span><span class="s2">"q"</span> <span class="o">=&gt;</span> <span class="s2">"verybadstuff"</span><span class="p">)</span>
+    <span class="n">expect</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="nf">parameters</span><span class="p">).</span><span class="nf">to</span> <span class="n">eq</span><span class="p">({</span><span class="s2">"action"</span><span class="o">=&gt;</span><span class="s2">"panlexicon"</span><span class="p">,</span> <span class="s2">"controller"</span><span class="o">=&gt;</span><span class="s2">"search"</span><span class="p">})</span>
+
+    <span class="c1"># the behavioral expectation</span>
+    <span class="n">expect</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="nf">body</span><span class="p">).</span><span class="nf">not_to</span> <span class="kp">include</span> <span class="s2">"verybadstuff"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+
+  </div>
+</article>
+
+    
+
+    <hr>
+  
+    
+      
+
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
       <a class="post-link" href="/2023/02/introducing-goodjob-bulk-and-batch">Introducing GoodJob Bulk and Batch</a>
     </h1>
     <p class="post-meta text-muted">
@@ -807,52 +940,6 @@ something many applications could benefit from.</li>
 
 <blockquote>
   <p>Every mature institution or organization—industrial, governmental or educational—functions according to laws which make up its policy. For example, every company has its own “laws” about personnel, procurement, borrowing money, sales, production, salaries, quality control, customer relations, product line, budgets, advertising, etc. If the laws represent a true response to reality, they will be useful. But often, particularly in the case of an old established company, the laws are habits carried forward from a glittering past. Long-term employees from a middle management level up constitute an intra-organizational community which derives comfort from these familiar laws—obsolete or not. This community is the keeper of the scrolls. The laws are the anthropological shibboleths by which the industrial tribe conducts its ritual of business. A Synectics group is a fifth column acting from within the organization community to make the familiar “laws” strange.</p>
-</blockquote>
-
-  </div>
-</article>
-
-    
-
-    <hr>
-  
-    
-      
-
-<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">
-      <a class="post-link" href="/2022/10/productive-struggle">Productive Struggle</a>
-    </h1>
-    <p class="post-meta text-muted">
-      <time datetime="2022-10-30T21:34:00+00:00" itemprop="datePublished">October 30, 2022</time>
-      
-      
-
-
-  
-
-  
-
-  • Tagged <a href="/tags/#education">education</a> and <a href="/tags/#learning">learning</a>
-
-
-    </p>
-  </header>
-
-  <div class="post-content" itemprop="articleBody">
-    <p>From Logic #17, in <a href="https://logicmag.io/home/the-edtech-gold-rush/">“The Edtech Gold Rush”</a> by Kevin Miller (emphasis mine):</p>
-
-<blockquote>
-
-  <p>One of the companies, Imagine Learning, distinguished itself by claiming that, on their platform, students could demonstrate their knowledge of English language and literature by “com-posing a rap song or creating a TikTok.” Some students seemed intrigued. Others groaned over their laptops. Yet another edtech firm was promising to uplift marginalized students by filling the classroom with the kind of entertainment media they consumed at home.</p>
-
-  <p>Such products can make educational content more accessible, especially at home, but they cannot actually address academic shortcomings any more than pen and paper. <strong>This is because learning happens through what educators call “productive struggle,” not merely the consumption of educational content. Productive struggle is the profession’s term for problem-solving at a level that is difficult for a student, but possible with effort and limited assistance. Educators refer to this magical window of learning as the “zone of proximal development.” Any education technology that is able to employ entertainment to transcend the difficulty inherent in learning ceases to be educational.</strong></p>
-
-  <p>But even if such a technology is able to elicit productive struggle among students, it still runs up against a deeper challenge: pov-erty. The real reason that students have difficulty in the classroom is not due to the lack of thoughtful UX design, but because the trauma and instability wrought by the material circumstances of their home and community make engaging in productive struggle difficult. This does not mean that edtech products are useless. But they are not able to address the core cause of educational inequality any more than traditional instruction.</p>
-
-  <p>The recent growth in school funding from Covid relief measures gives educators a long-overdue opportunity to confront the material roots of educational inequality. But this influx of public money also represents a potential payday for a fast-growing edtech sector. The edtech market in the US is expected to grow to about $60 billion by 2026, according to an estimate from Global Industry Analysts, more than doubling its 2021 valuation and drastically outpacing the growth of the education sector as a whole. At a moment when governments are committing real resources to public education, companies touting disruptive digital approaches see a gold rush. They plan to win lucrative contracts by promising to solve a problem they can’t possibly solve.</p>
-
 </blockquote>
 
   </div>
