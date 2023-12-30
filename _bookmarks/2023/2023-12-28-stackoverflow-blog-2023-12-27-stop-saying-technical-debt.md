@@ -2,7 +2,7 @@
 link: https://stackoverflow.blog/2023/12/27/stop-saying-technical-debt/
 date: 2023-12-28 16:02 UTC
 published: true
-title: ''
+title: Stop saying “technical debt” - Stack Overflow
 tags: []
 ---
 

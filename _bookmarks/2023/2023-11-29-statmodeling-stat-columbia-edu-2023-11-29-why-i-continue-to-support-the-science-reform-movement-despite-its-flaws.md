@@ -2,7 +2,8 @@
 link: https://statmodeling.stat.columbia.edu/2023/11/29/why-i-continue-to-support-the-science-reform-movement-despite-its-flaws/
 date: 2023-11-29 16:02 UTC
 published: true
-title: ''
+title: Why I continue to support the science reform movement despite its flaws | Statistical
+  Modeling, Causal Inference, and Social Science
 tags: []
 ---
 

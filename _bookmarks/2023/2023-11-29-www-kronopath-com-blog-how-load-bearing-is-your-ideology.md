@@ -2,7 +2,7 @@
 link: https://www.kronopath.com/blog/how-load-bearing-is-your-ideology/
 date: 2023-11-29 14:18 UTC
 published: true
-title: ''
+title: How Load-Bearing Is Your Ideology? | Kronopath
 tags: []
 ---
 

@@ -2,7 +2,7 @@
 link: https://blog.trailofbits.com/2022/06/21/are-blockchains-decentralized/
 date: 2023-04-03 00:34 UTC
 published: true
-title: ''
+title: Are blockchains decentralized?
 tags: []
 ---
 

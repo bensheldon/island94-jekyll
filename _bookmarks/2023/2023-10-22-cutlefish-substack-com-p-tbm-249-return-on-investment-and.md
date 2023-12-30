@@ -2,7 +2,7 @@
 link: https://cutlefish.substack.com/p/tbm-249-return-on-investment-and
 date: 2023-10-22 15:30 UTC
 published: true
-title: ''
+title: 'TBM 249: Return on Investment (and Allocation)'
 tags: []
 ---
 

@@ -2,7 +2,7 @@
 link: https://diataxis.fr/
 date: 2023-05-17 19:33 UTC
 published: true
-title: ''
+title: Diátaxis
 tags: []
 ---
 

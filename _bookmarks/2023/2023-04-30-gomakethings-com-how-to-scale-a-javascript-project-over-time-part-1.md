@@ -2,7 +2,7 @@
 link: https://gomakethings.com/how-to-scale-a-javascript-project-over-time-part-1/
 date: 2023-04-30 18:03 UTC
 published: true
-title: ''
+title: How to scale a JavaScript project over time (part 1)
 tags: []
 ---
 

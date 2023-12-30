@@ -2,7 +2,7 @@
 link: https://critter.blog/2023/04/17/9-slide-presentations/
 date: 2023-04-18 19:55 UTC
 published: true
-title: ''
+title: 9-slide presentations
 tags: []
 ---
 

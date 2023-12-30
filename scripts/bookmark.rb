@@ -5,6 +5,8 @@ require 'optparse'
 require 'octokit'
 require_relative 'models/bookmark'
 
+binding.irb
+
 options = {}
 OptionParser.new do |opts|
   opts.banner = "Usage: bookmark.rb [options]"
@@ -35,6 +37,12 @@ options[:notes] = ENV['BOOKMARK_NOTES'] if options[:notes].nil? || options[:note
 
 bookmark = Bookmark.new(link: options[:link], title: options[:title], notes: options[:notes], tags: options[:tags])
 puts bookmark.to_s
+
+if bookmark.title.empty?
+  puts "\n\n=== Fetching title \n\n"
+  bookmark.fetch_title
+  puts bookmark.title
+end
 
 puts "\n\n========================\n\n"
 

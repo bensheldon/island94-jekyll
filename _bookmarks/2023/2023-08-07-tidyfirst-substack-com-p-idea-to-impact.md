@@ -2,7 +2,7 @@
 link: https://tidyfirst.substack.com/p/idea-to-impact
 date: 2023-08-07 14:08 UTC
 published: true
-title: ''
+title: Idea To Impact
 tags: []
 ---
 

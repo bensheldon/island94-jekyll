@@ -2,7 +2,7 @@
 link: https://www.nngroup.com/articles/AI-conversation-types/
 date: 2023-11-24 19:12 UTC
 published: true
-title: ''
+title: The 6 Types of Conversations with Generative AI
 tags: []
 ---
 

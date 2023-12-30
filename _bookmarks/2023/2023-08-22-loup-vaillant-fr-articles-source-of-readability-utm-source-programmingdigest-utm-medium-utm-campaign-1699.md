@@ -2,7 +2,7 @@
 link: https://loup-vaillant.fr/articles/source-of-readability?utm_source=programmingdigest&utm_medium&utm_campaign=1699
 date: 2023-08-22 20:36 UTC
 published: true
-title: ''
+title: The Source of Readability
 tags: []
 ---
 

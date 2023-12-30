@@ -2,7 +2,7 @@
 link: https://defector.com/keys-to-the-vip-unlocked-the-modern-manosphere
 date: 2023-04-06 18:54 UTC
 published: true
-title: ''
+title: "'Keys To The VIP' Unlocked The Modern Manosphere | Defector"
 tags: []
 ---
 

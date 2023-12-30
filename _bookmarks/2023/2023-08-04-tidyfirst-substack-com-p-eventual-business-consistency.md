@@ -2,7 +2,7 @@
 link: https://tidyfirst.substack.com/p/eventual-business-consistency
 date: 2023-08-04 17:45 UTC
 published: true
-title: ''
+title: Eventual Business Consistency
 tags: []
 ---
 

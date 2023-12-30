@@ -2,6 +2,7 @@ require "jekyll"
 require 'yaml'
 require 'securerandom'
 require 'time'
+require 'metainspector'
 
 #
 # require './scripts/models/bookmark.rb'
@@ -61,6 +62,14 @@ class Bookmark
 
   def filename
     "#{slug}.md"
+  end
+
+  def fetch_title
+    page = MetaInspector.new(@link)
+    self.title = page.best_title
+  rescue StandardError => e
+    puts e
+    nil
   end
 
   def to_s

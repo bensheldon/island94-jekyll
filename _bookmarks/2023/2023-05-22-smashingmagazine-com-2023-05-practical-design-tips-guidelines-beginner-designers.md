@@ -2,7 +2,7 @@
 link: https://smashingmagazine.com/2023/05/practical-design-tips-guidelines-beginner-designers/
 date: 2023-05-22 14:39 UTC
 published: true
-title: ''
+title: Practical Design Tips And Guidelines For Beginner Designers — Smashing Magazine
 tags: []
 ---
 

@@ -2,7 +2,7 @@
 link: https://defector.com/the-eternal-mystery-of-a-rich-mans-politics
 date: 2023-03-25 17:00 UTC
 published: true
-title: ''
+title: The Eternal Mystery Of A Rich Man's Politics | Defector
 tags: []
 ---
 

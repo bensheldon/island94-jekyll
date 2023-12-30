@@ -2,7 +2,7 @@
 link: https://infrequently.org/2023/02/the-market-for-lemons/
 date: 2023-12-25 17:45 UTC
 published: true
-title: ''
+title: The Market for Lemons - Infrequently Noted
 tags: []
 ---
 

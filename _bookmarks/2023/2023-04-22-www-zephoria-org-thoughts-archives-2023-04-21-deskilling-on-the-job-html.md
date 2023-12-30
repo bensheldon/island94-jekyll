@@ -2,7 +2,7 @@
 link: http://www.zephoria.org/thoughts/archives/2023/04/21/deskilling-on-the-job.html
 date: 2023-04-22 14:47 UTC
 published: true
-title: ''
+title: Deskilling on the Job | danah boyd | apophenia
 tags: []
 ---
 

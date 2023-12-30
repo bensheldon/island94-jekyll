@@ -2,7 +2,7 @@
 link: https://www.bitsaboutmoney.com/archive/seeing-like-a-bank/
 date: 2023-11-10 15:21 UTC
 published: true
-title: ''
+title: Seeing like a Bank
 tags: []
 ---
 

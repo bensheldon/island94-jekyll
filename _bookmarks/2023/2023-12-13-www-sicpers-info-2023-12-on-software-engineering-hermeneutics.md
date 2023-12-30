@@ -2,7 +2,8 @@
 link: https://www.sicpers.info/2023/12/on-software-engineering-hermeneutics/
 date: 2023-12-13 14:50 UTC
 published: true
-title: ''
+title: On software engineering hermeneutics | Structure and Interpretation of Computer
+  Programmers
 tags: []
 ---
 

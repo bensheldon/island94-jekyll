@@ -2,7 +2,7 @@
 link: https://pxlnv.com/linklog/tesla-cybertruck-cultural-critique/
 date: 2023-12-12 14:52 UTC
 published: true
-title: ''
+title: A Cultural Critique of the Tesla Cybertruck – Pixel Envy
 tags: []
 ---
 

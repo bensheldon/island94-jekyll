@@ -2,7 +2,8 @@
 link: https://statmodeling.stat.columbia.edu/2023/03/31/the-behavioral-economists-researcher-degree-of-freedom/
 date: 2023-04-01 04:36 UTC
 published: true
-title: ''
+title: The behavioral economists’ researcher degree of freedom | Statistical Modeling,
+  Causal Inference, and Social Science
 tags: []
 ---
 

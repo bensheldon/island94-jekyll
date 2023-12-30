@@ -2,7 +2,7 @@
 link: https://www.readtpa.com/p/against-the-eat-your-vegetables-approach
 date: 2023-07-12 14:18 UTC
 published: true
-title: ''
+title: Against the "Eat Your Vegetables" Approach to Timeline Curation
 tags: []
 ---
 

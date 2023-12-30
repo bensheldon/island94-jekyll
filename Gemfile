@@ -15,6 +15,9 @@ gem 'octokit'
 gem 'classifier-reborn'
 gem 'gsl', github: 'SciRuby/rb-gsl', branch: 'master'
 
+# for fetching bookmarks
+gem "metainspector", "~> 5.15"
+
 group :development, :test do
   gem 'capybara'
   gem 'cuprite'

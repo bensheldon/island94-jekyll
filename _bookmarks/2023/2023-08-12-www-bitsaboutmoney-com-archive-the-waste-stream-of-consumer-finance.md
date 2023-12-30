@@ -2,7 +2,7 @@
 link: https://www.bitsaboutmoney.com/archive/the-waste-stream-of-consumer-finance/
 date: 2023-08-12 04:37 UTC
 published: true
-title: ''
+title: Credit card debt collection
 tags: []
 ---
 

@@ -2,7 +2,7 @@
 link: https://www.winstonhearn.com/wrote/2022/design-without-designers/
 date: 2023-05-29 00:58 UTC
 published: true
-title: ''
+title: Design without Designers
 tags: []
 ---
 

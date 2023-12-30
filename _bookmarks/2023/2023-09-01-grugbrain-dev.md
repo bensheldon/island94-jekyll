@@ -2,7 +2,7 @@
 link: https://grugbrain.dev/
 date: 2023-09-01 01:28 UTC
 published: true
-title: ''
+title: The Grug Brained Developer
 tags: []
 ---
 

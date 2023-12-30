@@ -2,7 +2,7 @@
 link: https://cutlefish.substack.com/p/tbm-242-the-simplicity-fetish
 date: 2023-09-11 03:34 UTC
 published: true
-title: ''
+title: 'TBM 242: The Simplicity Fetish'
 tags: []
 ---
 
