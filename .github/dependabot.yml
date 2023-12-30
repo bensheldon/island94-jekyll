@@ -8,7 +8,9 @@ updates:
   - package-ecosystem: "bundler"
     directory: "/"
     schedule:
-      interval: "monthly"
+      interval: "weekly"
+    allow:
+      - dependency-type: "all"
     groups:
       bundler-dependencies:
         patterns:

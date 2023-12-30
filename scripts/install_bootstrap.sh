@@ -1,4 +1,4 @@
-export VERSION=5.3.0
+export VERSION=5.3.2
 
 # Clean slate
 rm bootstrap.tar.gz
