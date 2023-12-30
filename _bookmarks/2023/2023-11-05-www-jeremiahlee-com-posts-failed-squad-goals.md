@@ -2,7 +2,7 @@
 link: https://www.jeremiahlee.com/posts/failed-squad-goals/
 date: 2023-11-05 21:58 UTC
 published: true
-title: ''
+title: 'Spotify’s Failed #SquadGoals'
 tags: []
 ---
 

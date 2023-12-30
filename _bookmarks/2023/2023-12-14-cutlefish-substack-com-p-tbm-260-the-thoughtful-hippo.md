@@ -2,7 +2,7 @@
 link: https://cutlefish.substack.com/p/tbm-260-the-thoughtful-hippo
 date: 2023-12-14 15:18 UTC
 published: true
-title: ''
+title: 'TBM 260: The Thoughtful HIPPO'
 tags: []
 ---
 

@@ -2,7 +2,7 @@
 link: https://sarahendren.com/2023/09/14/an-enabling-form-of-limit/
 date: 2023-09-14 20:28 UTC
 published: true
-title: ''
+title: an enabling form of limit | sara hendren
 tags: []
 ---
 

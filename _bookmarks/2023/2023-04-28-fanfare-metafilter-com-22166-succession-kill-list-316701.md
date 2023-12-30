@@ -2,7 +2,7 @@
 link: https://fanfare.metafilter.com/22166/Succession-Kill-List#316701
 date: 2023-04-28 03:58 UTC
 published: true
-title: ''
+title: 'Succession: Kill List'
 tags: []
 ---
 

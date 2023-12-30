@@ -2,7 +2,7 @@
 link: https://explosion.ai/blog/against-llm-maximalism
 date: 2023-09-10 16:34 UTC
 published: true
-title: ''
+title: Against LLM maximalism · Explosion
 tags: []
 ---
 

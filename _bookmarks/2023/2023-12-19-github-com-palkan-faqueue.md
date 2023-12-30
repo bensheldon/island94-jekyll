@@ -2,7 +2,7 @@
 link: https://github.com/palkan/faqueue
 date: 2023-12-19 21:50 UTC
 published: true
-title: ''
+title: 'GitHub - palkan/faqueue: Researching background jobs fairness'
 tags: []
 ---
 

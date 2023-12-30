@@ -2,7 +2,7 @@
 link: https://cra.mr/optimizing-for-taste
 date: 2023-09-27 12:51 UTC
 published: true
-title: ''
+title: Optimizing for Taste / Cra.mr
 tags: []
 ---
 

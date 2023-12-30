@@ -2,7 +2,7 @@
 link: https://www.svpg.com/from-projects-to-products/
 date: 2023-09-17 15:39 UTC
 published: true
-title: ''
+title: From Projects to Products | Silicon Valley Product Group
 tags: []
 ---
 

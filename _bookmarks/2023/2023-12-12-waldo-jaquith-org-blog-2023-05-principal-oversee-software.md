@@ -2,7 +2,8 @@
 link: https://waldo.jaquith.org/blog/2023/05/principal-oversee-software/
 date: 2023-12-12 21:13 UTC
 published: true
-title: ''
+title: How an agency principal should oversee a major custom software project. – Waldo
+  Jaquith
 tags: []
 ---
 

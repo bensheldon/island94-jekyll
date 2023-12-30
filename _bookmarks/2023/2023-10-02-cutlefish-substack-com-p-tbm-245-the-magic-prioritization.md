@@ -2,7 +2,7 @@
 link: https://cutlefish.substack.com/p/tbm-245-the-magic-prioritization
 date: 2023-10-02 17:51 UTC
 published: true
-title: ''
+title: 'TBM 245: The Magic Prioritization Trick'
 tags: []
 ---
 

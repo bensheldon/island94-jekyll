@@ -2,7 +2,7 @@
 link: https://www.garbageday.email/p/the-king-of-brand-safe-nothingness
 date: 2023-06-02 01:40 UTC
 published: true
-title: ''
+title: The king of brand safe nothingness
 tags: []
 ---
 

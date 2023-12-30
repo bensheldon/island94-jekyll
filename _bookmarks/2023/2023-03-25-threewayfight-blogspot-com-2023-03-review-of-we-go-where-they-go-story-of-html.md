@@ -2,7 +2,7 @@
 link: http://threewayfight.blogspot.com/2023/03/review-of-we-go-where-they-go-story-of.html
 date: 2023-03-25 16:28 UTC
 published:
-title: ''
+title: 'Review of "We Go Where They Go: The Story of Anti Racist Action"'
 tags: []
 ---
 

@@ -2,7 +2,7 @@
 link: https://www.semianalysis.com/p/google-we-have-no-moat-and-neither
 date: 2023-05-08 18:17 UTC
 published: true
-title: ''
+title: Google "We Have No Moat, And Neither Does OpenAI"
 tags: []
 ---
 

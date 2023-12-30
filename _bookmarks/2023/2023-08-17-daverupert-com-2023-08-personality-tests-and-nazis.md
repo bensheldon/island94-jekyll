@@ -2,7 +2,7 @@
 link: https://daverupert.com/2023/08/personality-tests-and-nazis/
 date: 2023-08-17 19:12 UTC
 published: true
-title: ''
+title: Personality tests and nazis
 tags: []
 ---
 

@@ -2,7 +2,8 @@
 link: https://statmodeling.stat.columbia.edu/2021/06/30/test-roll-profit-maximizing-a-b-tests-by-feit-and-berman/
 date: 2023-04-08 15:23 UTC
 published: true
-title: ''
+title: "“Test & Roll: Profit-Maximizing A/B Tests” by Feit and Berman | Statistical
+  Modeling, Causal Inference, and Social Science"
 tags: []
 ---
 
