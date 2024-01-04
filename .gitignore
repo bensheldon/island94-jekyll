@@ -6,3 +6,4 @@ _site
 .jekyll-metadata
 .jekyll-cache
 Brewfile.lock.json
+.env

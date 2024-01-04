@@ -32,7 +32,7 @@ jobs:
           BOOKMARK_TAGS: ${{ github.event.inputs.bookmark_tags }}
           BOOKMARK_NOTES: ${{ github.event.inputs.bookmark_notes }}
         run: |
-          echo ${{ toJSON(format('- Bookmark URL: {0}', github.event.inputs.bookmark_url)) }} >> $GITHUB_STEP_SUMMARY
+          echo ${{ toJSON(format('- Bookmark Link: {0}', github.event.inputs.bookmark_link)) }} >> $GITHUB_STEP_SUMMARY
           echo ${{ toJSON(format('- Bookmark Title: {0}', github.event.inputs.bookmark_title)) }} >> $GITHUB_STEP_SUMMARY
           echo ${{ toJSON(format('- Bookmark Tags: {0}', github.event.inputs.bookmark_tags)) }} >> $GITHUB_STEP_SUMMARY
           echo ${{ toJSON(format('- Bookmark Notes: {0}', github.event.inputs.bookmark_notes)) }} >> $GITHUB_STEP_SUMMARY

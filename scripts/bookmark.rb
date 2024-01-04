@@ -36,7 +36,7 @@ options[:notes] = ENV['BOOKMARK_NOTES'] if options[:notes].nil? || options[:note
 bookmark = Bookmark.new(link: options[:link], title: options[:title], notes: options[:notes], tags: options[:tags])
 puts bookmark.to_s
 
-if bookmark.title.empty?
+if bookmark.title.nil? || bookmark.title.empty?
   puts "\n\n=== Fetching title \n\n"
   bookmark.fetch_title
   puts bookmark.title
