@@ -5,8 +5,6 @@ require 'optparse'
 require 'octokit'
 require_relative 'models/bookmark'
 
-binding.irb
-
 options = {}
 OptionParser.new do |opts|
   opts.banner = "Usage: bookmark.rb [options]"
