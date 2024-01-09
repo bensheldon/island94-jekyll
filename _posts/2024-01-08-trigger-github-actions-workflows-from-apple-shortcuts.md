@@ -31,4 +31,4 @@ Use `Get Contents of URL` Action:
 
 Here's what it looks like all together (btw, [Dictionary-type inputs were broken in iOS 16 / Mac 13](https://www.reddit.com/r/shortcuts/comments/zlhva2/dictionaries_broken_in_162/) 😨) :
 
-![Screenshot of Apple Shortcut with the previous configuration](/uploads/2024-01/apple-shortcut.png)
+[![Screenshot of Apple Shortcut with the previous configuration](/uploads/2024-01/apple-shortcut.png)](/uploads/2024-01/apple-shortcut.png)
