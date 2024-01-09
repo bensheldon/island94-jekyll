@@ -1,6 +1,15 @@
 
 {
   
+    "2024-01-trigger-github-actions-workflows-from-apple-shortcuts": {
+      "title": "Trigger GitHub Actions workflows with inputs from Apple Shortcuts",
+      "published": "January 8, 2024",
+      "tags": [],
+      "content": "I’ve been using Apple Shortcuts to invoke GitHub Actions workflows to create webpage bookmarks. It’s been great! (disclosure: I do work at GitHub)  My use case: I’ve been wanting to quit Pinboard.in, so I needed an alternative way to create and host my web bookmarks, some of which date back to ~2005 del.icio.us vintage. It’s been easy enough for me to export of all my bookmarks (settings -&gt; backup -&gt; JSON) and convert them to YAML files to be served by Jekyll and GitHub Pages. But I also needed an easy way to create new bookmarks that would work on all my Apple devices. I ended up with:     Bookmarks are organized as individual yaml files, in this blog’s repository.   A Ruby script to take some simple inputs (url, title, notes), generate a new yaml file, and commit it to the repo using Octokit.   A GitHub Actions workflow that accepts those same inputs  and can be manually triggered, that runs the script. One thing to note is that I echo the inputs to $GITHUB_STEP_SUMMARY early in the workflow in case a later step errors, so I won’t lose the bookmark details and can go back later and manually fix it up.   An Apple Shortcut that asks for those inputs (either implicitly via the Share Sheet or via text inputs) and then manually triggers the GitHub Actions workflow via the GitHub API.   The only difficult part for me was getting Apple Shortcuts to work nicely with the GitHub REST API. Here’s what worked for me:  Use Get Contents of URL Action:     URL: https://api.github.com/repos/USER/REPOSITORY/actions/workflows/WORKFLOW.yml/dispatches   Method: POST   Headers:            Accept: application/vnd.github.v3+jsonp       Authorization: Bearer GITHUB_ACCESS_TOKEN           Request Body: JSON            ref: main (or whatever branch you’re using)       inputs (Dictionary):                    INPUT: VALUE           … and your other GitHub Actions workflow inputs                           Here’s what it looks like all together (btw, Dictionary-type inputs were broken in iOS 16 / Mac 13 😨) :",
+      "url": "/2024/01/trigger-github-actions-workflows-from-apple-shortcuts"
+    }
+    ,
+  
     "2024-01-recently": {
       "title": "Recently, January 3, 2023",
       "published": "January 4, 2024",

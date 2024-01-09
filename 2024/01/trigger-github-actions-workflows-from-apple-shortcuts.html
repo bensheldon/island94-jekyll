@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Trigger GitHub Actions workflows with inputs from Apple Shortcuts</title>
+  <meta name="description" content="I’ve been using Apple Shortcuts to invoke GitHub Actions workflows to create webpage bookmarks. It’s been great! (disclosure: I do work at GitHub)">
+
+  <link rel="stylesheet" href="/assets/stylesheets/main.css">
+  <script src="/assets/javascripts/main.js"></script>
+
+  <link rel="canonical" href="https://island94.org/2024/01/trigger-github-actions-workflows-from-apple-shortcuts">
+
+  <link rel="alternate" type="application/rss+xml" title="Island94.org Posts" href="https://island94.org/feed.xml">
+  <link rel="alternate" type="application/rss+xml" title="Island94.org Book Reviews" href="https://island94.org/books.xml">
+
+  
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-870047-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+</head>
+
+
+  <body>
+
+    <nav class="navbar navbar-expand-lg navbar-light mb-2 flex-column">
+  <div class="container">
+    <a class="navbar-brand" href="/">Island94.org</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link " href="/about/">About</a></li>
+        <li class="nav-item"><a class="nav-link " href="/archives/">Archives</a></li>
+        <li class="nav-item"><a class="nav-link " href="/books/">Books</a></li>
+        <li class="nav-item"><a class="nav-link " href="/tags/">Tags</a></li>
+        <li class="nav-item"><a class="nav-link" href="/feed.xml">RSS Feed <span class="fa fa-rss"></span></a></li>
+      </ul>
+
+      <form id="search" class="d-flex" action="/search" method="get">
+        <input id="search-box" class="form-control search" role="search" name="q" placeholder="Search" aria-label="Search" results="0" type="text">
+        <button class="sr-only" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+  <div class="container">
+    <div class="text-muted fst-italic">
+      — Ben Sheldon's personal blog and <a href="/2012/04/A-Commonplace-Book.html">commonplace book</a>.
+    </div>
+  </div>
+</nav>
+
+
+    <div class="container container-body">
+      
+
+
+
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2024/01/trigger-github-actions-workflows-from-apple-shortcuts">Trigger GitHub Actions workflows with inputs from Apple Shortcuts</a>
+    </h1>
+    <p class="post-meta text-muted">
+      <time datetime="2024-01-08T23:18:00+00:00" itemprop="datePublished">January 8, 2024</time>
+      
+      
+
+
+
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>I’ve been using Apple Shortcuts to invoke GitHub Actions workflows to create webpage bookmarks. It’s been great! (disclosure: I do work at GitHub)</p>
+
+<p>My use case: I’ve been wanting to quit Pinboard.in, so I needed an alternative way to create and host my web bookmarks, some of which date back to ~2005 del.icio.us vintage. It’s been easy enough for me to export of all my bookmarks (<code class="language-plaintext highlighter-rouge">settings -&gt; backup -&gt; JSON</code>) and <a href="https://github.com/bensheldon/bookmarks/blob/bc85a68ea61844ad0b11b823bef355a1879b0462/script/import_pinboard.rb#L7-L20">convert them to YAML files</a> to be served by Jekyll and GitHub Pages. But I also needed an easy way to create new bookmarks that would work on all my Apple devices. I ended up with:</p>
+
+<ol>
+  <li>Bookmarks are organized as individual yaml files, in this <a href="https://github.com/bensheldon/island94-jekyll/tree/a524b8fce50bb315d1a1f1e9c27e572a7af31ccc/_bookmarks">blog’s repository</a>.</li>
+  <li>A <a href="https://github.com/bensheldon/island94-jekyll/blob/a524b8fce50bb315d1a1f1e9c27e572a7af31ccc/scripts/bookmark.rb">Ruby script</a> to take some simple inputs (url, title, notes), generate a new yaml file, and commit it to the repo using Octokit.</li>
+  <li>A GitHub Actions <a href="https://github.com/bensheldon/island94-jekyll/blob/a524b8fce50bb315d1a1f1e9c27e572a7af31ccc/.github/workflows/bookmark.yml#L3-L20">workflow that accepts those same inputs</a>  and can be manually triggered, that runs the script. One thing to note is that I echo the inputs to <code class="language-plaintext highlighter-rouge">$GITHUB_STEP_SUMMARY</code> early in the workflow in case a later step errors, so I won’t lose the bookmark details and can go back later and manually fix it up.</li>
+  <li>An Apple Shortcut that asks for those inputs (either implicitly via the Share Sheet or via text inputs) and then manually triggers the GitHub Actions workflow via the GitHub API.</li>
+</ol>
+
+<p>The only difficult part for me was getting Apple Shortcuts to work nicely with the GitHub REST API. Here’s what worked for me:</p>
+
+<p>Use <code class="language-plaintext highlighter-rouge">Get Contents of URL</code> Action:</p>
+
+<ul>
+  <li>URL: <code class="language-plaintext highlighter-rouge">https://api.github.com/repos/USER/REPOSITORY/actions/workflows/WORKFLOW.yml/dispatches</code></li>
+  <li>Method: <code class="language-plaintext highlighter-rouge">POST</code></li>
+  <li>Headers:
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">Accept: application/vnd.github.v3+jsonp</code></li>
+      <li><code class="language-plaintext highlighter-rouge">Authorization: Bearer GITHUB_ACCESS_TOKEN</code></li>
+    </ul>
+  </li>
+  <li>Request Body: <code class="language-plaintext highlighter-rouge">JSON</code>
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">ref: main</code> (or whatever branch you’re using)</li>
+      <li><code class="language-plaintext highlighter-rouge">inputs (Dictionary):</code>
+        <ul>
+          <li><code class="language-plaintext highlighter-rouge">INPUT: VALUE</code></li>
+          <li>… and your other GitHub Actions workflow inputs</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p>Here’s what it looks like all together (btw, <a href="https://www.reddit.com/r/shortcuts/comments/zlhva2/dictionaries_broken_in_162/">Dictionary-type inputs were broken in iOS 16 / Mac 13</a> 😨) :</p>
+
+<p><img src="/uploads/2024-01/apple-shortcut.png" alt="Screenshot of Apple Shortcut with the previous configuration" /></p>
+
+  </div>
+</article>
+
+
+<div class="card my-4 text-dark bg-light">
+  <div class="card-body">
+    <p>
+      Discuss this with me on <a href="https://twitter.com/bensheldon"><span class="fa fa-twitter"></span> Twitter</a>
+      or suggest a <a href="https://github.com/bensheldon/island94-jekyll/blob/main/_posts/2024-01-08-trigger-github-actions-workflows-from-apple-shortcuts.md"><span class="fa fa-github-alt"></span> change</a>.
+    </p>
+
+    <p>Related Posts:</p>
+    <ul>
+      
+        <li><a href="/2007/08/Geekout-Video-on-Maps-for-Cable-Access-TV.html">Geekout: Video on Maps for Cable Access TV</a></li>
+      
+        <li><a href="/2012/12/A-gentle-conceptual-introduction-to-Nodejs.html">A gentle & conceptual introduction to Node.js</a></li>
+      
+        <li><a href="/2022/03/let-the-record-show-a-political-history-of-act-up-new-york,-1987-1993">Let the Record Show: A Political History of ACT UP New York, 1987-1993</a></li>
+      
+        <li><a href="/2023/06/rebuilding-concurrent-ruby-scheduledtask-event-and-timerset">Rebuilding Concurrent Ruby: ScheduledTask, Event, and TimerSet</a></li>
+      
+        <li><a href="/2007/08/Verb-to-do.html">Verb to do</a></li>
+      
+    </ul>
+  </div>
+</div>
+
+
+    </div>
+
+    <footer class="site-footer">
+
+</footer>
+
+
+  </body>
+
+</html>
