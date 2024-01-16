@@ -1,5 +1,5 @@
 ---
-title: "The answer is in your heap: debugging a big memory increase in Rails"
+title: "The answer is in your heap: debugging a big memory increase in Ruby on Rails"
 date: 2024-01-16 14:41 PST
 published: true
 tags: [ruby, rails]
@@ -17,7 +17,7 @@ We worked through a bunch of questions:
 
 * Was the memory increase at startup or over time? Not at boot, but memory increased very quickly.
 * Did anything change with Puma configuration?  Nope.
-* Get set up with [￼`derailed_benchmarks`￼](https://github.com/zombocom/derailed_benchmarks), and create a `bin/profile` Rails binstub to make it easy to boot into a production-like configuration for profiling. Here’s what my very polished one looks like:
+* Get set up with [`derailed_benchmarks`](https://github.com/zombocom/derailed_benchmarks), and create a `bin/profile` Rails binstub to make it easy to boot into a production-like configuration for profiling. Here’s what my very polished one looks like:
 
   ```ruby
   #!/usr/bin/env ruby
@@ -55,7 +55,7 @@ You can read along to all of this here: https://github.com/sciencehistory/scihis
 
 ### Analyzing memory with Sheap*
 
-I used Derailed Benchmark’s [￼`perf:heap`￼](https://github.com/zombocom/derailed_benchmarks/blob/main/README.md#i-want-more-heap-dumps) to generate heap dumps (also possible using [￼￼`rbtrace --heapdump`￼￼](https://github.com/tmm1/rbtrace)), and then plugged those into Sheap. Sheap is a relatively new tool, and where it shines is being _interactive_. Instead of outputting a static report, Sheap allows for exploring a heap dump (or diff: to identify retained objects), and ask questions of the dump. In our case: *what objects are referencing this object and why is it being retained?*
+I used Derailed Benchmark’s [`perf:heap`](https://github.com/zombocom/derailed_benchmarks/blob/main/README.md#i-want-more-heap-dumps) to generate heap dumps (also possible using [`rbtrace --heapdump`](https://github.com/tmm1/rbtrace)), and then plugged those into Sheap. Sheap is a relatively new tool, and where it shines is being _interactive_. Instead of outputting a static report, Sheap allows for exploring a heap dump (or diff: to identify retained objects), and ask questions of the dump. In our case: *what objects are referencing this object and why is it being retained?*
 
 ```ruby
 # $ irb
@@ -137,21 +137,21 @@ diff.after.at("0x12197c080").data
 diff.after.at("0x122ddba08").klass.data["real_class_name"]
 => "ActionDispatch::Routing::RoutesProxy"
 ```
- 
+
 Sheap is pretty great! In the above example, we were able to find a `Work` model instance in the heap, and then using `find_path` identify what was referencing it all the way back to the heap’s root, which is what causes the object to be “retained”; if there was no path to the root, the object would be garbage collected.
 
 (I have the huge benefit of having John as a colleague at GitHub and he helped me out _a lot_ with this. Thank you, John!)
 
-What we’re looking at is something in Rails’ `RoutesProxy` holding onto a reference to that `Work` object, via a callcache, a method entry ([￼`ment`￼](https://tenderlovemaking.com/2018/01/23/reducing-memory-usage-in-ruby.html)), a singleton class, a RouteSet, and then a Controller. What the heck?! 
+What we’re looking at is something in Rails’ `RoutesProxy` holding onto a reference to that `Work` object, via a callcache, a method entry ([`ment`](https://tenderlovemaking.com/2018/01/23/reducing-memory-usage-in-ruby.html)), a singleton class, a RouteSet, and then a Controller. What the heck?!
 
-### The explanation 
+### The explanation
 
-Using Rails’ git history, we were able to find that a [change](https://github.com/rails/rails/pull/46974) had been made to the `RoutesProxy` ’s behavior of dynamically creating a new method: a `class_eval`  had been changed to an `instance_eval`.  
+Using Rails’ git history, we were able to find that a [change](https://github.com/rails/rails/pull/46974) had been made to the `RoutesProxy` ’s behavior of dynamically creating a new method: a `class_eval`  had been changed to an `instance_eval`.
 
 Calling `instance_eval "def method...."` is what introduced a new singleton class, because that new method is only defined on that one object instance. Singleton classes can be cached by the Ruby VM (they’ll be purged when the cache fills up), and that’s what, through that chain of objects, was causing the model instances to stick around longer than expected and bloat up the memory! It’s not that `instance_eval`ing new methods is itself inherently problematic, but when those singleton methods are defined on an object that references an instance of an Action Controller, which has many instance variables that contained big Active Record objects…. that’s a problem.
 
 (Big props, again, to John Hawthorn who connected these dots.)
 
-Having tracked down the problem, we submitted a [patch to Rails](https://github.com/rails/rails/pull/50298) to change the behavior and remove the `instance_eval` -defined methods. It’s been accepted and it should be released in the next Rails patch (probably v7.1.3); the project temporarily [monkey-patched in that change](https://github.com/sciencehistory/scihist_digicoll/pull/2466) too. 
+Having tracked down the problem, we submitted a [patch to Rails](https://github.com/rails/rails/pull/50298) to change the behavior and remove the `instance_eval` -defined methods. It’s been accepted and it should be released in the next Rails patch (probably v7.1.3); the project temporarily [monkey-patched in that change](https://github.com/sciencehistory/scihist_digicoll/pull/2466) too.
 
 _I realize that’s all a big technical mouthful, but the takeaway should be: [Sheap](https://github.com/jhawthorn/sheap) is a really great tool, and exploring your Ruby heap can be very satisfying._ 
