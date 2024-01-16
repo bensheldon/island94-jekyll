@@ -6,8 +6,8 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 16 Jan 2024 23:12:57 +0000</pubDate>
-    <lastBuildDate>Tue, 16 Jan 2024 23:12:57 +0000</lastBuildDate>
+    <pubDate>Tue, 16 Jan 2024 23:48:25 +0000</pubDate>
+    <lastBuildDate>Tue, 16 Jan 2024 23:48:25 +0000</lastBuildDate>
     <generator>Jekyll v4.3.3</generator>
     
     
@@ -23,7 +23,7 @@
 
 &lt;h3 id=&quot;how-it-started-reddit&quot;&gt;How it started: Reddit&lt;/h3&gt;
 
-&lt;p&gt;Lots of people ask for help on r/rails, and it can be difficult to debug at a distance. &lt;a href=&quot;https://www.reddit.com/r/rails/comments/185b2wr/comment/kb1toyp/&quot;&gt;This time it was a little different&lt;/a&gt;. I recognized the username’s owner, John Rochkind, because he’s been a familiar and helpful face in GoodJob’s discussions. The observed problem was that after upgrading from Rails 7.0 to Rails 7.1, their application’s memory footprint increased by about 25%. Weird!&lt;/p&gt;
+&lt;p&gt;Lots of people ask for help on r/rails, and it can be difficult to debug at a distance. &lt;a href=&quot;https://www.reddit.com/r/rails/comments/185b2wr/comment/kb1toyp/&quot;&gt;This time it was a little different&lt;/a&gt;. I recognized the username’s owner, &lt;a href=&quot;https://bibwild.wordpress.com&quot;&gt;Jonathan Rochkind&lt;/a&gt;, because he’s been a familiar and helpful face in GoodJob’s discussions and I’ve sponsored his aggregator &lt;a href=&quot;https://rubyland.news/&quot;&gt;Rubyland News&lt;/a&gt;. The observed problem was that after upgrading from Rails 7.0 to Rails 7.1, their application’s memory footprint increased by about 25%. Weird!&lt;/p&gt;
 
 &lt;h3 id=&quot;working-the-problem&quot;&gt;Working the problem&lt;/h3&gt;
 
