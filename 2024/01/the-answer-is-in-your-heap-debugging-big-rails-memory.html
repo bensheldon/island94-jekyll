@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>The answer is in your heap: debugging a big memory increase in Rails</title>
+  <title>The answer is in your heap: debugging a big memory increase in Ruby on Rails</title>
   <meta name="description" content="I recently participated in an interesting series of debugging sessions tracking down the source of a large increase in memory when upgrading a Rails applicat...">
 
   <link rel="stylesheet" href="/assets/stylesheets/main.css">
@@ -71,7 +71,7 @@
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
     <h1 class="post-title" itemprop="name headline">
-      <a class="post-link" href="/2024/01/the-answer-is-in-your-heap-debugging-big-rails-memory">The answer is in your heap: debugging a big memory increase in Rails</a>
+      <a class="post-link" href="/2024/01/the-answer-is-in-your-heap-debugging-big-rails-memory">The answer is in your heap: debugging a big memory increase in Ruby on Rails</a>
     </h1>
     <p class="post-meta text-muted">
       <time datetime="2024-01-16T22:41:00+00:00" itemprop="datePublished">January 16, 2024</time>
@@ -104,7 +104,7 @@
   <li>Was the memory increase at startup or over time? Not at boot, but memory increased very quickly.</li>
   <li>Did anything change with Puma configuration?  Nope.</li>
   <li>
-    <p>Get set up with <a href="https://github.com/zombocom/derailed_benchmarks">￼<code class="language-plaintext highlighter-rouge">derailed_benchmarks</code>￼</a>, and create a <code class="language-plaintext highlighter-rouge">bin/profile</code> Rails binstub to make it easy to boot into a production-like configuration for profiling. Here’s what my very polished one looks like:</p>
+    <p>Get set up with <a href="https://github.com/zombocom/derailed_benchmarks"><code class="language-plaintext highlighter-rouge">derailed_benchmarks</code></a>, and create a <code class="language-plaintext highlighter-rouge">bin/profile</code> Rails binstub to make it easy to boot into a production-like configuration for profiling. Here’s what my very polished one looks like:</p>
 
     <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#!/usr/bin/env ruby</span>
   
@@ -143,7 +143,7 @@
 
 <h3 id="analyzing-memory-with-sheap">Analyzing memory with Sheap*</h3>
 
-<p>I used Derailed Benchmark’s <a href="https://github.com/zombocom/derailed_benchmarks/blob/main/README.md#i-want-more-heap-dumps">￼<code class="language-plaintext highlighter-rouge">perf:heap</code>￼</a> to generate heap dumps (also possible using <a href="https://github.com/tmm1/rbtrace">￼￼<code class="language-plaintext highlighter-rouge">rbtrace --heapdump</code>￼￼</a>), and then plugged those into Sheap. Sheap is a relatively new tool, and where it shines is being <em>interactive</em>. Instead of outputting a static report, Sheap allows for exploring a heap dump (or diff: to identify retained objects), and ask questions of the dump. In our case: <em>what objects are referencing this object and why is it being retained?</em></p>
+<p>I used Derailed Benchmark’s <a href="https://github.com/zombocom/derailed_benchmarks/blob/main/README.md#i-want-more-heap-dumps"><code class="language-plaintext highlighter-rouge">perf:heap</code></a> to generate heap dumps (also possible using <a href="https://github.com/tmm1/rbtrace"><code class="language-plaintext highlighter-rouge">rbtrace --heapdump</code></a>), and then plugged those into Sheap. Sheap is a relatively new tool, and where it shines is being <em>interactive</em>. Instead of outputting a static report, Sheap allows for exploring a heap dump (or diff: to identify retained objects), and ask questions of the dump. In our case: <em>what objects are referencing this object and why is it being retained?</em></p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># $ irb</span>
 <span class="nb">require</span> <span class="s1">'./lib/sheap.rb
@@ -229,7 +229,7 @@ diff = Sheap::Diff.new("/Users/bensheldon/Repositories/sciencehistory/scihist_di
 
 <p>(I have the huge benefit of having John as a colleague at GitHub and he helped me out <em>a lot</em> with this. Thank you, John!)</p>
 
-<p>What we’re looking at is something in Rails’ <code class="language-plaintext highlighter-rouge">RoutesProxy</code> holding onto a reference to that <code class="language-plaintext highlighter-rouge">Work</code> object, via a callcache, a method entry (<a href="https://tenderlovemaking.com/2018/01/23/reducing-memory-usage-in-ruby.html">￼<code class="language-plaintext highlighter-rouge">ment</code>￼</a>), a singleton class, a RouteSet, and then a Controller. What the heck?!</p>
+<p>What we’re looking at is something in Rails’ <code class="language-plaintext highlighter-rouge">RoutesProxy</code> holding onto a reference to that <code class="language-plaintext highlighter-rouge">Work</code> object, via a callcache, a method entry (<a href="https://tenderlovemaking.com/2018/01/23/reducing-memory-usage-in-ruby.html"><code class="language-plaintext highlighter-rouge">ment</code></a>), a singleton class, a RouteSet, and then a Controller. What the heck?!</p>
 
 <h3 id="the-explanation">The explanation</h3>
 

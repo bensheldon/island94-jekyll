@@ -6,8 +6,8 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 16 Jan 2024 23:02:57 +0000</pubDate>
-    <lastBuildDate>Tue, 16 Jan 2024 23:02:57 +0000</lastBuildDate>
+    <pubDate>Tue, 16 Jan 2024 23:12:57 +0000</pubDate>
+    <lastBuildDate>Tue, 16 Jan 2024 23:12:57 +0000</lastBuildDate>
     <generator>Jekyll v4.3.3</generator>
     
     
@@ -18,7 +18,7 @@
 
 
 <item>
-  <title>The answer is in your heap: debugging a big memory increase in Rails</title>
+  <title>The answer is in your heap: debugging a big memory increase in Ruby on Rails</title>
   <description>&lt;p&gt;I recently participated in an &lt;a href=&quot;https://github.com/sciencehistory/scihist_digicoll/issues/2449&quot;&gt;interesting series of debugging sessions&lt;/a&gt; tracking down the source of a large increase in memory when upgrading a Rails application. We ultimately tracked down the cause using John Hawthorn’s &lt;a href=&quot;https://github.com/jhawthorn/sheap&quot;&gt;Sheap heap analyzer&lt;/a&gt; and successfully submitted a &lt;a href=&quot;https://github.com/rails/rails/pull/50298&quot;&gt;patch to Rails&lt;/a&gt;. I thought it was interesting enough to write up because maybe the general approach to debugging memory issues would be helpful (and this is the kind of stuff that I very quickly forget unless I write it down).&lt;/p&gt;
 
 &lt;h3 id=&quot;how-it-started-reddit&quot;&gt;How it started: Reddit&lt;/h3&gt;
@@ -33,7 +33,7 @@
   &lt;li&gt;Was the memory increase at startup or over time? Not at boot, but memory increased very quickly.&lt;/li&gt;
   &lt;li&gt;Did anything change with Puma configuration?  Nope.&lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;Get set up with &lt;a href=&quot;https://github.com/zombocom/derailed_benchmarks&quot;&gt;￼&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;derailed_benchmarks&lt;/code&gt;￼&lt;/a&gt;, and create a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bin/profile&lt;/code&gt; Rails binstub to make it easy to boot into a production-like configuration for profiling. Here’s what my very polished one looks like:&lt;/p&gt;
+    &lt;p&gt;Get set up with &lt;a href=&quot;https://github.com/zombocom/derailed_benchmarks&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;derailed_benchmarks&lt;/code&gt;&lt;/a&gt;, and create a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bin/profile&lt;/code&gt; Rails binstub to make it easy to boot into a production-like configuration for profiling. Here’s what my very polished one looks like:&lt;/p&gt;
 
     &lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;#!/usr/bin/env ruby&lt;/span&gt;
   
@@ -72,7 +72,7 @@
 
 &lt;h3 id=&quot;analyzing-memory-with-sheap&quot;&gt;Analyzing memory with Sheap*&lt;/h3&gt;
 
-&lt;p&gt;I used Derailed Benchmark’s &lt;a href=&quot;https://github.com/zombocom/derailed_benchmarks/blob/main/README.md#i-want-more-heap-dumps&quot;&gt;￼&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;perf:heap&lt;/code&gt;￼&lt;/a&gt; to generate heap dumps (also possible using &lt;a href=&quot;https://github.com/tmm1/rbtrace&quot;&gt;￼￼&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rbtrace --heapdump&lt;/code&gt;￼￼&lt;/a&gt;), and then plugged those into Sheap. Sheap is a relatively new tool, and where it shines is being &lt;em&gt;interactive&lt;/em&gt;. Instead of outputting a static report, Sheap allows for exploring a heap dump (or diff: to identify retained objects), and ask questions of the dump. In our case: &lt;em&gt;what objects are referencing this object and why is it being retained?&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;I used Derailed Benchmark’s &lt;a href=&quot;https://github.com/zombocom/derailed_benchmarks/blob/main/README.md#i-want-more-heap-dumps&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;perf:heap&lt;/code&gt;&lt;/a&gt; to generate heap dumps (also possible using &lt;a href=&quot;https://github.com/tmm1/rbtrace&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rbtrace --heapdump&lt;/code&gt;&lt;/a&gt;), and then plugged those into Sheap. Sheap is a relatively new tool, and where it shines is being &lt;em&gt;interactive&lt;/em&gt;. Instead of outputting a static report, Sheap allows for exploring a heap dump (or diff: to identify retained objects), and ask questions of the dump. In our case: &lt;em&gt;what objects are referencing this object and why is it being retained?&lt;/em&gt;&lt;/p&gt;
 
 &lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# $ irb&lt;/span&gt;
 &lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;./lib/sheap.rb
@@ -158,7 +158,7 @@ diff = Sheap::Diff.new(&quot;/Users/bensheldon/Repositories/sciencehistory/scihi
 
 &lt;p&gt;(I have the huge benefit of having John as a colleague at GitHub and he helped me out &lt;em&gt;a lot&lt;/em&gt; with this. Thank you, John!)&lt;/p&gt;
 
-&lt;p&gt;What we’re looking at is something in Rails’ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RoutesProxy&lt;/code&gt; holding onto a reference to that &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Work&lt;/code&gt; object, via a callcache, a method entry (&lt;a href=&quot;https://tenderlovemaking.com/2018/01/23/reducing-memory-usage-in-ruby.html&quot;&gt;￼&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ment&lt;/code&gt;￼&lt;/a&gt;), a singleton class, a RouteSet, and then a Controller. What the heck?!&lt;/p&gt;
+&lt;p&gt;What we’re looking at is something in Rails’ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RoutesProxy&lt;/code&gt; holding onto a reference to that &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Work&lt;/code&gt; object, via a callcache, a method entry (&lt;a href=&quot;https://tenderlovemaking.com/2018/01/23/reducing-memory-usage-in-ruby.html&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ment&lt;/code&gt;&lt;/a&gt;), a singleton class, a RouteSet, and then a Controller. What the heck?!&lt;/p&gt;
 
 &lt;h3 id=&quot;the-explanation&quot;&gt;The explanation&lt;/h3&gt;
 
@@ -175,7 +175,7 @@ diff = Sheap::Diff.new(&quot;/Users/bensheldon/Repositories/sciencehistory/scihi
   &lt;br&gt;&lt;br&gt;
   &lt;hr&gt;
   &lt;p&gt;
-    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2024/01/the-answer-is-in-your-heap-debugging-big-rails-memory&quot;&gt;The answer is in your heap: debugging a big memory increase in Rails&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
+    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2024/01/the-answer-is-in-your-heap-debugging-big-rails-memory&quot;&gt;The answer is in your heap: debugging a big memory increase in Ruby on Rails&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
     Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
   &lt;/p&gt;
 </description>
