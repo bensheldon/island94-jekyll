@@ -9,7 +9,7 @@ I recently participated in an [interesting series of debugging sessions](https:/
 
 ### How it started: Reddit
 
-Lots of people ask for help on r/rails, and it can be difficult to debug at a distance. [This time it was a little different](https://www.reddit.com/r/rails/comments/185b2wr/comment/kb1toyp/). I recognized the username’s owner, Jonathan Rochkind, because he’s been a familiar and helpful face in GoodJob’s discussions. The observed problem was that after upgrading from Rails 7.0 to Rails 7.1, their application’s memory footprint increased by about 25%. Weird!
+Lots of people ask for help on r/rails, and it can be difficult to debug at a distance. [This time it was a little different](https://www.reddit.com/r/rails/comments/185b2wr/comment/kb1toyp/). I recognized the username’s owner, [Jonathan Rochkind](https://bibwild.wordpress.com), because he’s been a familiar and helpful face in GoodJob’s discussions. The observed problem was that after upgrading from Rails 7.0 to Rails 7.1, their application’s memory footprint increased by about 25%. Weird!
 
 ### Working the problem
 
