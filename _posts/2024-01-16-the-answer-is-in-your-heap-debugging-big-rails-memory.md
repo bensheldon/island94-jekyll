@@ -21,19 +21,19 @@ We worked through a bunch of questions:
 
   ```ruby
   #!/usr/bin/env ruby
-  
+
   # This file is a wrapper around the rails and derailed executables
   # to make it easier to boot in PRODUCTION mode.
   #
   # Usage: bin/profile [rails|derailed] [command]
-  
+
   ENV["RAILS_ENV"] = ENV.fetch("RAILS_ENV", "production")
   ENV["RACK_ENV"] = "production"
   ENV["RAILS_LOG_TO_STDOUT"] = "true"
   ENV["RAILS_SERVE_STATIC_FILES"] = "true"
   ENV["FORCE_SSL"] = "false"
   ## ^^ Put ENV to boot in production mode here ^^
-  
+
   executable = ARGV.shift
   if executable == "rails"
     load File.join(File.dirname(__FILE__), "rails")
@@ -81,7 +81,7 @@ diff.after.find_path(model)
 
 # What is that initial callcache being referenced by the ROOT?
 diff.after.at("0x126c9ab68").data
-=> 
+=>
 {"address"=>"0x126c9ab68",
  "type"=>"IMEMO",
  "shape_id"=>0,
@@ -97,7 +97,7 @@ diff.after.at("0x126c9ab68").data
 
 # And then a method entry
 irb(main):015> diff.after.at("0x126c9acf8").data
-=> 
+=>
 {"address"=>"0x126c9acf8",
  "type"=>"IMEMO",
  "shape_id"=>0,
@@ -114,7 +114,7 @@ irb(main):015> diff.after.at("0x126c9acf8").data
 
 # Aha, and a singleton for RoutesProxy!
 diff.after.at("0x12197c080").data
-=> 
+=>
 {"address"=>"0x12197c080",
  "type"=>"CLASS",
  "shape_id"=>14,
@@ -152,6 +152,6 @@ Calling `instance_eval "def method...."` is what introduced a new singleton clas
 
 (Big props, again, to John Hawthorn who connected these dots.)
 
-Having tracked down the problem, we submitted a [patch to Rails](https://github.com/rails/rails/pull/50298) to change the behavior and remove the `instance_eval` -defined methods. It’s been accepted and ~it should be released in the next Rails patch (probably v7.1.3); the project temporarily [monkey-patched in that change](https://github.com/sciencehistory/scihist_digicoll/pull/2466) too~ has been released [as part of Rails 7.1.3](https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionpack/lib/action_dispatch/routing/routes_proxy.rb#L30-L47).
+Having tracked down the problem, we submitted a [patch to Rails](https://github.com/rails/rails/pull/50298) to change the behavior and remove the `instance_eval` -defined methods. It’s been accepted and ~~it should be released in the next Rails patch (probably v7.1.3); the project temporarily [monkey-patched in that change](https://github.com/sciencehistory/scihist_digicoll/pull/2466) too~~ has been released [as part of Rails 7.1.3](https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionpack/lib/action_dispatch/routing/routes_proxy.rb#L30-L47).
 
-_I realize that’s all a big technical mouthful, but the takeaway should be: [Sheap](https://github.com/jhawthorn/sheap) is a really great tool, and exploring your Ruby heap can be very satisfying._ 
+_I realize that’s all a big technical mouthful, but the takeaway should be: [Sheap](https://github.com/jhawthorn/sheap) is a really great tool, and exploring your Ruby heap can be very satisfying._
