@@ -6,8 +6,8 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 17 Jan 2024 03:18:05 +0000</pubDate>
-    <lastBuildDate>Wed, 17 Jan 2024 03:18:05 +0000</lastBuildDate>
+    <pubDate>Wed, 17 Jan 2024 14:27:42 +0000</pubDate>
+    <lastBuildDate>Wed, 17 Jan 2024 14:27:42 +0000</lastBuildDate>
     <generator>Jekyll v4.3.3</generator>
     
     
@@ -171,6 +171,8 @@ diff = Sheap::Diff.new(&quot;/Users/bensheldon/Repositories/sciencehistory/scihi
 &lt;p&gt;Having tracked down the problem, we submitted a &lt;a href=&quot;https://github.com/rails/rails/pull/50298&quot;&gt;patch to Rails&lt;/a&gt; to change the behavior and remove the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;instance_eval&lt;/code&gt; -defined methods. It’s been accepted and &lt;del&gt;it should be released in the next Rails patch (probably v7.1.3); the project temporarily &lt;a href=&quot;https://github.com/sciencehistory/scihist_digicoll/pull/2466&quot;&gt;monkey-patched in that change&lt;/a&gt; too&lt;/del&gt; has been released &lt;a href=&quot;https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionpack/lib/action_dispatch/routing/routes_proxy.rb#L30-L47&quot;&gt;as part of Rails 7.1.3&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;I realize that’s all a big technical mouthful, but the takeaway should be: &lt;a href=&quot;https://github.com/jhawthorn/sheap&quot;&gt;Sheap&lt;/a&gt; is a really great tool, and exploring your Ruby heap can be very satisfying.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Update:&lt;/strong&gt; Jean Boussier pointed me to the fix in Ruby 3.3 for &lt;a href=&quot;https://bugs.ruby-lang.org/issues/19436&quot;&gt;call Cache for singleton methods can lead to “memory leaks”&lt;/a&gt; 🎉 And suggested looking at &lt;a href=&quot;https://github.com/csfrancis/harb&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;harb&lt;/code&gt;&lt;/a&gt; too as a Sheap-like.&lt;/p&gt;
 
   &lt;br&gt;&lt;br&gt;
   &lt;hr&gt;
