@@ -152,6 +152,6 @@ Calling `instance_eval "def method...."` is what introduced a new singleton clas
 
 (Big props, again, to John Hawthorn who connected these dots.)
 
-Having tracked down the problem, we submitted a [patch to Rails](https://github.com/rails/rails/pull/50298) to change the behavior and remove the `instance_eval` -defined methods. It’s been accepted and it should be released in the next Rails patch (probably v7.1.3); the project temporarily [monkey-patched in that change](https://github.com/sciencehistory/scihist_digicoll/pull/2466) too.
+Having tracked down the problem, we submitted a [patch to Rails](https://github.com/rails/rails/pull/50298) to change the behavior and remove the `instance_eval` -defined methods. It’s been accepted and ~it should be released in the next Rails patch (probably v7.1.3); the project temporarily [monkey-patched in that change](https://github.com/sciencehistory/scihist_digicoll/pull/2466) too~ has been released [as part of Rails 7.1.3](https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionpack/lib/action_dispatch/routing/routes_proxy.rb#L30-L47).
 
 _I realize that’s all a big technical mouthful, but the takeaway should be: [Sheap](https://github.com/jhawthorn/sheap) is a really great tool, and exploring your Ruby heap can be very satisfying._ 
