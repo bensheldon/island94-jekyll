@@ -53,7 +53,7 @@ At this point, we had a general understanding of the application memory footprin
 
 You can read along to all of this here: https://github.com/sciencehistory/scihist_digicoll/issues/2449
 
-### Analyzing memory with Sheap*
+### Analyzing memory with Sheap
 
 I used Derailed Benchmark’s [`perf:heap`](https://github.com/zombocom/derailed_benchmarks/blob/main/README.md#i-want-more-heap-dumps) to generate heap dumps (also possible using [`rbtrace --heapdump`](https://github.com/tmm1/rbtrace)), and then plugged those into Sheap. Sheap is a relatively new tool, and where it shines is being _interactive_. Instead of outputting a static report, Sheap allows for exploring a heap dump (or diff: to identify retained objects), and ask questions of the dump. In our case: *what objects are referencing this object and why is it being retained?*
 
