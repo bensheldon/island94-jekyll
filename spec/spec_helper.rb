@@ -9,7 +9,7 @@ RSpec.configure do |config|
   config.include Capybara::DSL
 
   Capybara.register_driver(:cuprite) do |app|
-    Capybara::Cuprite::Driver.new(app, window_size: [1200, 800], inspector: ENV['INSPECTOR'])
+    Capybara::Cuprite::Driver.new(app, window_size: [1200, 800], process_timeout: 30, inspector: ENV['INSPECTOR'])
   end
 
   Capybara.server = :webrick
