@@ -155,3 +155,5 @@ Calling `instance_eval "def method...."` is what introduced a new singleton clas
 Having tracked down the problem, we submitted a [patch to Rails](https://github.com/rails/rails/pull/50298) to change the behavior and remove the `instance_eval` -defined methods. It’s been accepted and ~~it should be released in the next Rails patch (probably v7.1.3); the project temporarily [monkey-patched in that change](https://github.com/sciencehistory/scihist_digicoll/pull/2466) too~~ has been released [as part of Rails 7.1.3](https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionpack/lib/action_dispatch/routing/routes_proxy.rb#L30-L47).
 
 _I realize that’s all a big technical mouthful, but the takeaway should be: [Sheap](https://github.com/jhawthorn/sheap) is a really great tool, and exploring your Ruby heap can be very satisfying._
+
+**Update:** Jean Boussier pointed me to the fix in Ruby 3.3 for [call Cache for singleton methods can lead to "memory leaks"](https://bugs.ruby-lang.org/issues/19436) 🎉 And suggested looking at [`harb`](https://github.com/csfrancis/harb) too as a Sheap-like.
