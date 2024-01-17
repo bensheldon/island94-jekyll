@@ -145,7 +145,7 @@
 
 <p>You can read along to all of this here: https://github.com/sciencehistory/scihist_digicoll/issues/2449</p>
 
-<h3 id="analyzing-memory-with-sheap">Analyzing memory with Sheap*</h3>
+<h3 id="analyzing-memory-with-sheap">Analyzing memory with Sheap</h3>
 
 <p>I used Derailed Benchmark’s <a href="https://github.com/zombocom/derailed_benchmarks/blob/main/README.md#i-want-more-heap-dumps"><code class="language-plaintext highlighter-rouge">perf:heap</code></a> to generate heap dumps (also possible using <a href="https://github.com/tmm1/rbtrace"><code class="language-plaintext highlighter-rouge">rbtrace --heapdump</code></a>), and then plugged those into Sheap. Sheap is a relatively new tool, and where it shines is being <em>interactive</em>. Instead of outputting a static report, Sheap allows for exploring a heap dump (or diff: to identify retained objects), and ask questions of the dump. In our case: <em>what objects are referencing this object and why is it being retained?</em></p>
 

@@ -6,8 +6,8 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 17 Jan 2024 02:10:24 +0000</pubDate>
-    <lastBuildDate>Wed, 17 Jan 2024 02:10:24 +0000</lastBuildDate>
+    <pubDate>Wed, 17 Jan 2024 03:18:05 +0000</pubDate>
+    <lastBuildDate>Wed, 17 Jan 2024 03:18:05 +0000</lastBuildDate>
     <generator>Jekyll v4.3.3</generator>
     
     
@@ -70,7 +70,7 @@
 
 &lt;p&gt;You can read along to all of this here: https://github.com/sciencehistory/scihist_digicoll/issues/2449&lt;/p&gt;
 
-&lt;h3 id=&quot;analyzing-memory-with-sheap&quot;&gt;Analyzing memory with Sheap*&lt;/h3&gt;
+&lt;h3 id=&quot;analyzing-memory-with-sheap&quot;&gt;Analyzing memory with Sheap&lt;/h3&gt;
 
 &lt;p&gt;I used Derailed Benchmark’s &lt;a href=&quot;https://github.com/zombocom/derailed_benchmarks/blob/main/README.md#i-want-more-heap-dumps&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;perf:heap&lt;/code&gt;&lt;/a&gt; to generate heap dumps (also possible using &lt;a href=&quot;https://github.com/tmm1/rbtrace&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rbtrace --heapdump&lt;/code&gt;&lt;/a&gt;), and then plugged those into Sheap. Sheap is a relatively new tool, and where it shines is being &lt;em&gt;interactive&lt;/em&gt;. Instead of outputting a static report, Sheap allows for exploring a heap dump (or diff: to identify retained objects), and ask questions of the dump. In our case: &lt;em&gt;what objects are referencing this object and why is it being retained?&lt;/em&gt;&lt;/p&gt;
 
