@@ -6,8 +6,8 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 17 Jan 2024 00:14:04 +0000</pubDate>
-    <lastBuildDate>Wed, 17 Jan 2024 00:14:04 +0000</lastBuildDate>
+    <pubDate>Wed, 17 Jan 2024 02:10:24 +0000</pubDate>
+    <lastBuildDate>Wed, 17 Jan 2024 02:10:24 +0000</lastBuildDate>
     <generator>Jekyll v4.3.3</generator>
     
     
@@ -36,19 +36,19 @@
     &lt;p&gt;Get set up with &lt;a href=&quot;https://github.com/zombocom/derailed_benchmarks&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;derailed_benchmarks&lt;/code&gt;&lt;/a&gt;, and create a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bin/profile&lt;/code&gt; Rails binstub to make it easy to boot into a production-like configuration for profiling. Here’s what my very polished one looks like:&lt;/p&gt;
 
     &lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;#!/usr/bin/env ruby&lt;/span&gt;
-  
+
 &lt;span class=&quot;c1&quot;&gt;# This file is a wrapper around the rails and derailed executables&lt;/span&gt;
 &lt;span class=&quot;c1&quot;&gt;# to make it easier to boot in PRODUCTION mode.&lt;/span&gt;
 &lt;span class=&quot;c1&quot;&gt;#&lt;/span&gt;
 &lt;span class=&quot;c1&quot;&gt;# Usage: bin/profile [rails|derailed] [command]&lt;/span&gt;
-  
+
 &lt;span class=&quot;no&quot;&gt;ENV&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;RAILS_ENV&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ENV&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;fetch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;RAILS_ENV&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;production&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;no&quot;&gt;ENV&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;RACK_ENV&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;production&quot;&lt;/span&gt;
 &lt;span class=&quot;no&quot;&gt;ENV&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;RAILS_LOG_TO_STDOUT&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;true&quot;&lt;/span&gt;
 &lt;span class=&quot;no&quot;&gt;ENV&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;RAILS_SERVE_STATIC_FILES&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;true&quot;&lt;/span&gt;
 &lt;span class=&quot;no&quot;&gt;ENV&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;FORCE_SSL&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;false&quot;&lt;/span&gt;
 &lt;span class=&quot;c1&quot;&gt;## ^^ Put ENV to boot in production mode here ^^&lt;/span&gt;
-  
+
 &lt;span class=&quot;n&quot;&gt;executable&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ARGV&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;shift&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;executable&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;rails&quot;&lt;/span&gt;
   &lt;span class=&quot;nb&quot;&gt;load&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;File&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;File&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;dirname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;__FILE__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;rails&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
@@ -97,7 +97,7 @@ diff = Sheap::Diff.new(&quot;/Users/bensheldon/Repositories/sciencehistory/scihi
 
 &lt;span class=&quot;c1&quot;&gt;# What is that initial callcache being referenced by the ROOT?&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;diff&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;after&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;at&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;0x126c9ab68&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;data&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; 
+&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;address&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;0x126c9ab68&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
  &lt;span class=&quot;s2&quot;&gt;&quot;type&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;IMEMO&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
  &lt;span class=&quot;s2&quot;&gt;&quot;shape_id&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
@@ -113,7 +113,7 @@ diff = Sheap::Diff.new(&quot;/Users/bensheldon/Repositories/sciencehistory/scihi
 
 &lt;span class=&quot;c1&quot;&gt;# And then a method entry&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;&lt;span class=&quot;mo&quot;&gt;015&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;diff&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;after&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;at&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;0x126c9acf8&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;data&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; 
+&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;address&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;0x126c9acf8&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
  &lt;span class=&quot;s2&quot;&gt;&quot;type&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;IMEMO&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
  &lt;span class=&quot;s2&quot;&gt;&quot;shape_id&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
@@ -130,7 +130,7 @@ diff = Sheap::Diff.new(&quot;/Users/bensheldon/Repositories/sciencehistory/scihi
 
 &lt;span class=&quot;c1&quot;&gt;# Aha, and a singleton for RoutesProxy!&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;diff&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;after&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;at&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;0x12197c080&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;data&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; 
+&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;address&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;0x12197c080&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
  &lt;span class=&quot;s2&quot;&gt;&quot;type&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;CLASS&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
  &lt;span class=&quot;s2&quot;&gt;&quot;shape_id&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;14&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
@@ -168,7 +168,7 @@ diff = Sheap::Diff.new(&quot;/Users/bensheldon/Repositories/sciencehistory/scihi
 
 &lt;p&gt;(Big props, again, to John Hawthorn who connected these dots.)&lt;/p&gt;
 
-&lt;p&gt;Having tracked down the problem, we submitted a &lt;a href=&quot;https://github.com/rails/rails/pull/50298&quot;&gt;patch to Rails&lt;/a&gt; to change the behavior and remove the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;instance_eval&lt;/code&gt; -defined methods. It’s been accepted and ~it should be released in the next Rails patch (probably v7.1.3); the project temporarily &lt;a href=&quot;https://github.com/sciencehistory/scihist_digicoll/pull/2466&quot;&gt;monkey-patched in that change&lt;/a&gt; too~ has been released &lt;a href=&quot;https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionpack/lib/action_dispatch/routing/routes_proxy.rb#L30-L47&quot;&gt;as part of Rails 7.1.3&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Having tracked down the problem, we submitted a &lt;a href=&quot;https://github.com/rails/rails/pull/50298&quot;&gt;patch to Rails&lt;/a&gt; to change the behavior and remove the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;instance_eval&lt;/code&gt; -defined methods. It’s been accepted and &lt;del&gt;it should be released in the next Rails patch (probably v7.1.3); the project temporarily &lt;a href=&quot;https://github.com/sciencehistory/scihist_digicoll/pull/2466&quot;&gt;monkey-patched in that change&lt;/a&gt; too&lt;/del&gt; has been released &lt;a href=&quot;https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionpack/lib/action_dispatch/routing/routes_proxy.rb#L30-L47&quot;&gt;as part of Rails 7.1.3&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;I realize that’s all a big technical mouthful, but the takeaway should be: &lt;a href=&quot;https://github.com/jhawthorn/sheap&quot;&gt;Sheap&lt;/a&gt; is a really great tool, and exploring your Ruby heap can be very satisfying.&lt;/em&gt;&lt;/p&gt;
 
@@ -343,7 +343,7 @@ diff = Sheap::Diff.new(&quot;/Users/bensheldon/Repositories/sciencehistory/scihi
 &lt;ul&gt;
   &lt;li&gt;No Dashboard yet. Waiting on Mission Control. GoodJob definitely got more twisty as I learned all of the things of “you want a button to do what now with those jobs? …oh, I guess that makes sense. hmm.”&lt;/li&gt;
   &lt;li&gt;No LISTEN/NOTIFY (yet?). Seems possible, but would be Postgres only so maybe not. That means latency will never be less than the polling frequency, though an example shows &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0.1&lt;/code&gt; seconds which seems good to me.&lt;/li&gt;
-  &lt;li&gt;~No cron-like functionality. It took me a minute to &lt;a href=&quot;https://github.com/bensheldon/good_job/issues/255&quot;&gt;come around to the the necessity of this&lt;/a&gt;, maybe Solid Queue will too.~ 🤦 I missed this on first read through: “Unique jobs and recurring, cron-like tasks are coming very soon.” 🙌&lt;/li&gt;
+  &lt;li&gt;&lt;del&gt;No cron-like functionality. It took me a minute to &lt;a href=&quot;https://github.com/bensheldon/good_job/issues/255&quot;&gt;come around to the the necessity of this&lt;/a&gt;, maybe Solid Queue will too.&lt;/del&gt; 🤦 I missed this on first read through: “Unique jobs and recurring, cron-like tasks are coming very soon.” 🙌&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;strong&gt;Final thoughts:&lt;/strong&gt; Path dependency is hard, so I don’t imagine lots of people should swap out their job backend just because there is something new (please, don’t let me ever read a “3 job backends in 4 years” blog post). New projects and applications will be more likely making these choices (and they shouldn’t be valueless choices, hence my excitement for Solid Queue becoming first party to Rails) and I’m really excited to see how Solid Queue grows up with them, and alongside other options like GoodJob and Sidekiq and Delayed et al.&lt;/p&gt;

@@ -107,19 +107,19 @@
     <p>Get set up with <a href="https://github.com/zombocom/derailed_benchmarks"><code class="language-plaintext highlighter-rouge">derailed_benchmarks</code></a>, and create a <code class="language-plaintext highlighter-rouge">bin/profile</code> Rails binstub to make it easy to boot into a production-like configuration for profiling. Here’s what my very polished one looks like:</p>
 
     <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#!/usr/bin/env ruby</span>
-  
+
 <span class="c1"># This file is a wrapper around the rails and derailed executables</span>
 <span class="c1"># to make it easier to boot in PRODUCTION mode.</span>
 <span class="c1">#</span>
 <span class="c1"># Usage: bin/profile [rails|derailed] [command]</span>
-  
+
 <span class="no">ENV</span><span class="p">[</span><span class="s2">"RAILS_ENV"</span><span class="p">]</span> <span class="o">=</span> <span class="no">ENV</span><span class="p">.</span><span class="nf">fetch</span><span class="p">(</span><span class="s2">"RAILS_ENV"</span><span class="p">,</span> <span class="s2">"production"</span><span class="p">)</span>
 <span class="no">ENV</span><span class="p">[</span><span class="s2">"RACK_ENV"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"production"</span>
 <span class="no">ENV</span><span class="p">[</span><span class="s2">"RAILS_LOG_TO_STDOUT"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"true"</span>
 <span class="no">ENV</span><span class="p">[</span><span class="s2">"RAILS_SERVE_STATIC_FILES"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"true"</span>
 <span class="no">ENV</span><span class="p">[</span><span class="s2">"FORCE_SSL"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"false"</span>
 <span class="c1">## ^^ Put ENV to boot in production mode here ^^</span>
-  
+
 <span class="n">executable</span> <span class="o">=</span> <span class="no">ARGV</span><span class="p">.</span><span class="nf">shift</span>
 <span class="k">if</span> <span class="n">executable</span> <span class="o">==</span> <span class="s2">"rails"</span>
   <span class="nb">load</span> <span class="no">File</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="no">File</span><span class="p">.</span><span class="nf">dirname</span><span class="p">(</span><span class="kp">__FILE__</span><span class="p">),</span> <span class="s2">"rails"</span><span class="p">)</span>
@@ -168,7 +168,7 @@ diff = Sheap::Diff.new("/Users/bensheldon/Repositories/sciencehistory/scihist_di
 
 <span class="c1"># What is that initial callcache being referenced by the ROOT?</span>
 <span class="n">diff</span><span class="p">.</span><span class="nf">after</span><span class="p">.</span><span class="nf">at</span><span class="p">(</span><span class="s2">"0x126c9ab68"</span><span class="p">).</span><span class="nf">data</span>
-<span class="o">=&gt;</span> 
+<span class="o">=&gt;</span>
 <span class="p">{</span><span class="s2">"address"</span><span class="o">=&gt;</span><span class="s2">"0x126c9ab68"</span><span class="p">,</span>
  <span class="s2">"type"</span><span class="o">=&gt;</span><span class="s2">"IMEMO"</span><span class="p">,</span>
  <span class="s2">"shape_id"</span><span class="o">=&gt;</span><span class="mi">0</span><span class="p">,</span>
@@ -184,7 +184,7 @@ diff = Sheap::Diff.new("/Users/bensheldon/Repositories/sciencehistory/scihist_di
 
 <span class="c1"># And then a method entry</span>
 <span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">015</span><span class="o">&gt;</span> <span class="n">diff</span><span class="p">.</span><span class="nf">after</span><span class="p">.</span><span class="nf">at</span><span class="p">(</span><span class="s2">"0x126c9acf8"</span><span class="p">).</span><span class="nf">data</span>
-<span class="o">=&gt;</span> 
+<span class="o">=&gt;</span>
 <span class="p">{</span><span class="s2">"address"</span><span class="o">=&gt;</span><span class="s2">"0x126c9acf8"</span><span class="p">,</span>
  <span class="s2">"type"</span><span class="o">=&gt;</span><span class="s2">"IMEMO"</span><span class="p">,</span>
  <span class="s2">"shape_id"</span><span class="o">=&gt;</span><span class="mi">0</span><span class="p">,</span>
@@ -201,7 +201,7 @@ diff = Sheap::Diff.new("/Users/bensheldon/Repositories/sciencehistory/scihist_di
 
 <span class="c1"># Aha, and a singleton for RoutesProxy!</span>
 <span class="n">diff</span><span class="p">.</span><span class="nf">after</span><span class="p">.</span><span class="nf">at</span><span class="p">(</span><span class="s2">"0x12197c080"</span><span class="p">).</span><span class="nf">data</span>
-<span class="o">=&gt;</span> 
+<span class="o">=&gt;</span>
 <span class="p">{</span><span class="s2">"address"</span><span class="o">=&gt;</span><span class="s2">"0x12197c080"</span><span class="p">,</span>
  <span class="s2">"type"</span><span class="o">=&gt;</span><span class="s2">"CLASS"</span><span class="p">,</span>
  <span class="s2">"shape_id"</span><span class="o">=&gt;</span><span class="mi">14</span><span class="p">,</span>
@@ -239,7 +239,7 @@ diff = Sheap::Diff.new("/Users/bensheldon/Repositories/sciencehistory/scihist_di
 
 <p>(Big props, again, to John Hawthorn who connected these dots.)</p>
 
-<p>Having tracked down the problem, we submitted a <a href="https://github.com/rails/rails/pull/50298">patch to Rails</a> to change the behavior and remove the <code class="language-plaintext highlighter-rouge">instance_eval</code> -defined methods. It’s been accepted and ~it should be released in the next Rails patch (probably v7.1.3); the project temporarily <a href="https://github.com/sciencehistory/scihist_digicoll/pull/2466">monkey-patched in that change</a> too~ has been released <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionpack/lib/action_dispatch/routing/routes_proxy.rb#L30-L47">as part of Rails 7.1.3</a>.</p>
+<p>Having tracked down the problem, we submitted a <a href="https://github.com/rails/rails/pull/50298">patch to Rails</a> to change the behavior and remove the <code class="language-plaintext highlighter-rouge">instance_eval</code> -defined methods. It’s been accepted and <del>it should be released in the next Rails patch (probably v7.1.3); the project temporarily <a href="https://github.com/sciencehistory/scihist_digicoll/pull/2466">monkey-patched in that change</a> too</del> has been released <a href="https://github.com/rails/rails/blob/36c1591bcb5e0ee3084759c7f42a706fe5bb7ca7/actionpack/lib/action_dispatch/routing/routes_proxy.rb#L30-L47">as part of Rails 7.1.3</a>.</p>
 
 <p><em>I realize that’s all a big technical mouthful, but the takeaway should be: <a href="https://github.com/jhawthorn/sheap">Sheap</a> is a really great tool, and exploring your Ruby heap can be very satisfying.</em></p>
 
