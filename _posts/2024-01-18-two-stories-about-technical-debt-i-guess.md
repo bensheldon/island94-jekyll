@@ -8,7 +8,7 @@ tags: []
 One activity I don't enjoy very much: griping about "technical debt"; that label just never seems descriptive enough. And the things people gripe about seem to mostly fall into:
 
 - Deferred maintenance: we haven't updated to the latest version of X, or it's written in A language/framework but now everyone is much more familiar with B, or we know M raises an exception at N when they O while P)
-- Just not the quality we expect, [because _reasons](https://cutlefish.substack.com/p/tbm-267-debt-and-bridge-building)_. It's ok, we're all winging it.
+- Just not the quality we expect, [because _reasons_](https://cutlefish.substack.com/p/tbm-267-debt-and-bridge-building). It's ok, we're all winging it.
 
 ...and those categories crowds out the real sweaty palms stuff, the "we did do a good job but we know more now" that I think is the real deal. I can talk about that.
 
