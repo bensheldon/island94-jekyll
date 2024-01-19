@@ -6,10 +6,113 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 17 Jan 2024 14:27:42 +0000</pubDate>
-    <lastBuildDate>Wed, 17 Jan 2024 14:27:42 +0000</lastBuildDate>
+    <pubDate>Fri, 19 Jan 2024 02:00:05 +0000</pubDate>
+    <lastBuildDate>Fri, 19 Jan 2024 02:00:05 +0000</lastBuildDate>
     <generator>Jekyll v4.3.3</generator>
     
+    
+      
+        
+
+
+
+
+<item>
+  <title>Two stories about technical debt, I guess</title>
+  <description>&lt;p&gt;One activity I don’t enjoy very much: griping about “technical debt”; that label just never seems descriptive enough. And the things people gripe about seem to mostly fall into:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Deferred maintenance: we haven’t updated to the latest version of X, or it’s written in A language/framework but now everyone is much more familiar with B, or we know M raises an exception at N when they O while P)&lt;/li&gt;
+  &lt;li&gt;Just not the quality we expect, [because &lt;em&gt;reasons](https://cutlefish.substack.com/p/tbm-267-debt-and-bridge-building)&lt;/em&gt;. It’s ok, we’re all winging it.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;…and those categories crowds out the real sweaty palms stuff, the “we did do a good job but we know more now” that I think is the real deal. I can talk about that.&lt;/p&gt;
+
+&lt;p&gt;I’ve never found the particular post/video/talk? again (I’ve looked!), but it described technical debt as like: the distance between the current understanding of the business domain and the technical implementation’s modeling of the business domain. It had a chart that has stuck in my mind; it looked something like this:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/uploads/2024-01/technical-debt.png&quot;&gt;&lt;img src=&quot;/uploads/2024-01/technical-debt.png&quot; alt=&quot;A chart that shows the coming together and divergence of business and technical domain knowledge&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;That definition of “technical debt” clicked for me. For myself and the high performing teams I’ve worked with, we’re most productive, pushing value, when we’re asking ourselves: does this make sense? Given what we know now, and what we know about where we’re going, do the objects and their interactions conceptually map to how the business is being talked about by the non-technical people? Are we adapting &lt;a href=&quot;https://codeforamerica.org/news/engineering-principles-at-code-for-america/#:~:text=Optimize%20for%20speed%20of%20learning&quot;&gt;at the same rate we’re learning&lt;/a&gt;? If yes, we’re golden; if sorta with some tweaks that’s good; when no… that’s bad, disordered, schismatic: carrying a burden of always translating between the language and models in the technical system and the language and concepts in the business domain. That sucks!&lt;/p&gt;
+
+&lt;p&gt;Aside: There’s a funny/terrifying/random thing this makes me think of: &lt;a href=&quot;https://www.vulture.com/article/an-oral-history-of-disney-the-emperors-new-groove.html&quot;&gt;“We’ll Never Make That Kind of Movie Again”: An oral history of The Emperor’s New Groove, a raucous Disney animated film that almost never happened&lt;/a&gt;. One of the screenwriters describes the process of making an animated film:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;In a normal four-year process, you’ve got meetings, you’ve got development people going, “What if the girl was a boy? What if the bird was a flower?” And then you have to run all those ideas.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The software projects I’ve worked on are a conveyor belt of “What if the bird was a flower?” decision making and idea running. Extend that object, repurpose this method, bolt on that, change this, swap that, rename this, better leave a comment on that. When it’s going well, it doesn’t matter that it was a bird yesterday and a flower today… as long as it’s not retaining so much birdliness that it compromises its flowerability. It’s when you’re having to remember and callback “hey, well, um, it &lt;em&gt;was&lt;/em&gt; once a bird, fyi, that’s why it’s so much trouble to do this flower stuff”, then you’re sunk.&lt;/p&gt;
+
+&lt;p&gt;It’s a bad sign when forward development requires telling stories about the past.&lt;/p&gt;
+
+&lt;p&gt;Here’s two stories…&lt;/p&gt;
+
+&lt;h3 id=&quot;the-isolated-component&quot;&gt;The isolated component&lt;/h3&gt;
+
+&lt;p&gt;When I was working at a website hosting startup, we had one component that I could just never get the support to integrate into the larger application. It was the form that would create a new website project for the user.  When the startup began, the original technical architecture was a bunch of interlinked but separated components: User Registration, User Account Management, Website Creation, Website Management, Organization Management, Agency/Reseller Management, etc. It made sense early as the business was figuring out what worked as a business, and then during my tenure we brought those components together into a unified application. Well, almost all of them.&lt;/p&gt;
+
+&lt;p&gt;There was a lot of give and take in the product integration; sometimes me and the other engineers would just &lt;em&gt;do it&lt;/em&gt; and other times we’d defer it until there was a particular feature that necessitated it, and then we’d include that extra work in our estimates. It frequently took a &lt;a href=&quot;https://speakerdeck.com/bensheldon/real-world-dashboard&quot;&gt;couple passes&lt;/a&gt; of &lt;a href=&quot;https://speakerdeck.com/bensheldon/dashboard-performance-brownbag&quot;&gt;code cleanup&lt;/a&gt; and bringing it onto the design system, and that was ok. That’s the job!&lt;/p&gt;
+
+&lt;p&gt;That last, last, last component of Website Creation eluded us though, and it was outside our control. At that point, development was transitioning from “engineering led” to “product management and design led” and I had been instructed that engineering couldn’t make any product changes unless they were connected to an active PRD (Product Requirements Document) controlled by the PMs.&lt;/p&gt;
+
+&lt;p&gt;There was plenty of demand to make changes to Website Creation: smooth out the first-time account registration flow into creating a website; allow the user to do some activities in parallel while the website was spinning up like inviting team members or perusing billing levels; decouple the concept of “a website is a marketing strategy” from “upload your code and have some containers and a load balancer provisioned” so that non-developers could still &lt;em&gt;plan&lt;/em&gt; a website without invoking all the technical bits.&lt;/p&gt;
+
+&lt;p&gt;But not enough appetite to get it done.&lt;/p&gt;
+
+&lt;p&gt;Of “technical debt”: everyone except our little engineering team maintaining the frontend didn’t think anything special of Website Creation. It wasn’t obvious unless you carefully watched for the hard-browser refresh, or noticed the navigation bar change slightly. Conceptually it was a unified product (heck, I even remember a product launch called “One”), but the work hadn’t yet been done on the application side and we engineers carried the burden.&lt;/p&gt;
+
+&lt;p&gt;It was funny because every time a product change that touched Website creation was discussed, the same thing happened:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;PM:&lt;/strong&gt; Your effort estimate seems really high. What’s going on?
+&lt;br /&gt;&lt;strong&gt;Me:&lt;/strong&gt; Well, this involves Website Creation and it’s still its own component and can’t access any of those other systems that are necessary to build the feature. We’d need to bring it into the rest of the application. It’s definitely possible! There’s a few open questions with product and design implications, so we’d need to work together on that.
+&lt;br /&gt;&lt;strong&gt;PM:&lt;/strong&gt; Oh, well, huh, I didn’t expect that. Hmm, we don’t have the bandwidth for all that. Let’s pass on it for now.&lt;/p&gt;
+
+&lt;p&gt;This happened multiple times! It was weird too because the particular project being planned would be spiked, and then the engineering team would have to wait around while a new project was spun up and that likely took just as long as it would have taken to do the work on the Website Creation component. If I hadn’t been explicitly told to sit on my hands otherwise, I would have probably just done this as off-the-books, shucks-I-didn’t-think-it-would-be-a-big-deal, shadow-work.&lt;/p&gt;
+
+&lt;p&gt;It never got done during my tenure; I think they later decided the problem was that the whole thing wasn’t written in React 🤷&lt;/p&gt;
+
+&lt;h3 id=&quot;the-campaign-message&quot;&gt;The campaign message&lt;/h3&gt;
+
+&lt;p&gt;When I was a developer on GetCalFresh, the functionality with perpetually unexpected estimations was “Campaign Messages”.&lt;/p&gt;
+
+&lt;p&gt;GetCalFresh would help people apply for their initial food stamp application, at which point it would be sent to the applicant’s county for processing. Over the next 14 to 28 days the county would schedule an in-person or telephone interview, and request various documents like pay stubs and rental leases, and the applicant would have to navigate all of that. (The administrative state &lt;a href=&quot;https://daveguarino.substack.com/p/state-snap-agencies-are-overloaded&quot;&gt;suuuuucks&lt;/a&gt;!) To help, GetCalFresh would send a sequence of email and/or SMS messages to the applicant over this time period explaining what was needed and what to expect next. A messaging campaign, y’know, of “campaign messages”&lt;/p&gt;
+
+&lt;p&gt;When GetCalFresh was first laid down in code, there were two “types” of campaign messages: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;General&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Expedited&lt;/code&gt;. Under a couple of different circumstances, if an applicant is homeless or at risk of being homeless, or has no cash-on-hand to purchase food, their application is eligible for expedited processing and thus we’d send them a message sequence over ~14 days; everyone else would receive a message sequence over ~28 days. We were sending the same messages, just on a different schedule.&lt;/p&gt;
+
+&lt;p&gt;So when we engineers were then asked to customize a message, like “if the applicant is a student, add this description about their special eligibility”… we just &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;if/elsed&lt;/code&gt; it on in there. Oh, now this county is piloting a special process, let’s make a little carve out for them too and swap this message. Still, same sequence, just tweaks, right? Well, all those small tweaks and carve-outs build up, and all of a sudden we’re having to ask “ok, so you want us to rewrite this one itty bitty message, well we also need you to specify what it should be for students, who do and don’t qualify for County X’s special process too”. It got twistier and twistier. And when requests like “don’t send that message in this special circumstance” or “add a totally new message but just as this one-off” came in, we’d be like “totally possible! and that’s gonna take more work than you think!”&lt;/p&gt;
+
+&lt;p&gt;GetCalFresh had the best Product Managers I have ever worked with in my life, and we still got locked into a similar loop as the last story: we’d do our estimation with the PMs, it exposed the fruit hung more high than low, and the change would be deprioritized. I think the PMs got it, but the challenge was that the other folks, client support and the folks coordinating with the counties and the datascience team, would be like “we heard that Engineering doesn’t want to build it.” So weird! Not engineering’s call! (Aside: I spent so much time coaching non-technical stakeholders on how to work in a PM-led system, but always more coaching to do.)&lt;/p&gt;
+
+&lt;p&gt;I remember making a Google Doc to analyze why and explain how the system we initially designed for (same sequence of messages with different schedules) didn’t match our understanding of the problem today. The doc listed out all of the different reasons we knew of why we might customize the message. It was at least 10 bullet points. And there were a lot of other learnings too: initially we designed around customizing for just 3 major county systems (State Automated Welfare Systems - SAWS), but later found ourselves doing county-by-county customizations (California has 52 counties). I advocated for configuring each county in its own object despite the &lt;em&gt;scale&lt;/em&gt; brainworms demanding a singular and infinitely abstracted model (I call these things “spreadsheet problems” when you can simply list the entire domain in a spreadsheet).&lt;/p&gt;
+
+&lt;p&gt;Of “technical debt”, I still can replay in my brain the deliberate mental spatial shift of imagining the campaign model as a 2-column array (General and Expedited) with 10+ rows of logic shifts and then flopping it onto its side to make a change. All that mental context has a huge carrying cost that all of us had to budget for when making a change.&lt;/p&gt;
+
+&lt;p&gt;During my tenure, we never did the significant reworking to how campaign messages were implemented, though some bold colleagues did their best to make changes as safe and simple as possible with DSLs and test macros. Thank you! 🙏&lt;/p&gt;
+
+&lt;h3 id=&quot;thats-it&quot;&gt;That’s it&lt;/h3&gt;
+
+&lt;p&gt;Sorry, no great lessons here. Just stories to share (&lt;a href=&quot;https://island94.org/2024/01/recently#:~:text=try%20to%20see%20it%20as%20a%20funny%20story&quot;&gt;“ideally you’d try to see it as a funny story you can tell friends rather than a hurtful snub that needs to bother you”&lt;/a&gt;) I mentioned coaching folks on working with PMs, and I think the frequent advice I gave non-technical folks probably holds true for engineers too when asking:&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Always have your top 3 ranked work items ready to go when talking to decision makers (the PM?). Don’t bring new stuff unless it changes those top 3.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;(I mean sure, share context and adapt, but allow yourself no doubt that you’ve’ clearly and consistently communicated what your top priorities are before they get dumped in with everyone else’s.)&lt;/p&gt;
+
+&lt;p&gt;(But also, if you’re an engineer and you can and no one is breathing down your neck, simply get it done and celebrate. The PM doesn’t have to lead everything. You can do it! 👍)&lt;/p&gt;
+
+  &lt;br&gt;&lt;br&gt;
+  &lt;hr&gt;
+  &lt;p&gt;
+    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2024/01/two-stories-about-technical-debt-i-guess&quot;&gt;Two stories about technical debt, I guess&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
+    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
+  &lt;/p&gt;
+</description>
+  <pubDate>Thu, 18 Jan 2024 17:37:00 +0000</pubDate>
+  <link>https://island94.org/2024/01/two-stories-about-technical-debt-i-guess</link>
+  <guid isPermaLink="true">https://island94.org/2024/01/two-stories-about-technical-debt-i-guess</guid>
+  
+  
+</item>
+
+      
     
       
         
@@ -765,146 +868,6 @@ diff = Sheap::Diff.new(&quot;/Users/bensheldon/Repositories/sciencehistory/scihi
   <pubDate>Mon, 18 Sep 2023 02:30:00 +0000</pubDate>
   <link>https://island94.org/2023/09/in-defense-of-consensus</link>
   <guid isPermaLink="true">https://island94.org/2023/09/in-defense-of-consensus</guid>
-  
-  
-</item>
-
-      
-    
-      
-        
-
-
-
-
-<item>
-  <title>Appropriately using Ruby’s Thread.handle_interrupt</title>
-  <description>&lt;p&gt;Working on &lt;a href=&quot;https://github.com/bensheldon/good_job&quot;&gt;GoodJob&lt;/a&gt;, I spend a lot of time thinking about multithreaded behavior in Ruby. One piece of Ruby functionality that I don’t see written about very often is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Thread.handle_interrupt&lt;/code&gt;. &lt;em&gt;Big thanks to John Bachir and Matthew Draper for talking through its usage with me.&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Some background about interrupts:&lt;/strong&gt; In Ruby, exceptions can be raised anywhere and at anytime in a thread by other threads (including the main thread, that’s how &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;timeout&lt;/code&gt; works). Even &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rescue&lt;/code&gt; and  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ensure&lt;/code&gt; blocks can be interrupted. Everywhere. Most of the time this isn’t something you need to think about (unless you’re &lt;a href=&quot;https://github.com/ankane/the-ultimate-guide-to-ruby-timeouts&quot;&gt;using Timeout&lt;/a&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rack-timeout&lt;/code&gt; or doing explicit multithreaded code). But if you are, it’s important to think and code defensively.&lt;/p&gt;
-
-&lt;p&gt;Starting with an example:&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;thread&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Thread&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; 
-  &lt;span class=&quot;n&quot;&gt;open_work&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;do_work&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;ensure&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;close_work&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# wait some time&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;thread&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;kill&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# or thread.raise&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;In this example, it’s possible that the exception raised by &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;thread.kill&lt;/code&gt; will interrupt the middle of the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ensure&lt;/code&gt; block. That’s bad! And can leave that work in an inconsistent state.&lt;/p&gt;
-
-&lt;p&gt;Ruby’s &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Thread.handle_interrupt&lt;/code&gt; is the defensive tool to use. It allows for modifying when those interrupting exceptions are raised:&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# :immediate is the default and will interrupt immediately&lt;/span&gt;
-&lt;span class=&quot;no&quot;&gt;Thread&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;handle_interrupt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Exception&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:immediate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;close_work&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# :on_blocking interrupts only when the GVL is released &lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# e.g. IO outside Ruby&lt;/span&gt;
-&lt;span class=&quot;no&quot;&gt;Thread&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;handle_interrupt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Exception&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:on_blocking&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;close_work&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# :never will never interrupt during that block&lt;/span&gt;
-&lt;span class=&quot;no&quot;&gt;Thread&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;handle_interrupt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Exception&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:never&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;close_work&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Thread.handle_interrupt&lt;/code&gt; will modify behavior for the duration of the block, and it will then raise the interrupt after the block exits. It can be nested too:&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;no&quot;&gt;Thread&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;handle_interrupt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Exception&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:on_blocking&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;ruby_stuff&lt;/span&gt;
-  
-  &lt;span class=&quot;no&quot;&gt;Thread&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;handle_interrupt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Exception&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:never&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
-   &lt;span class=&quot;n&quot;&gt;really_important_work&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-  
-  &lt;span class=&quot;n&quot;&gt;file_io&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# &amp;lt;= this can be interrupted&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;  
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;strong&gt;FYI BE AWARE:&lt;/strong&gt; Remember, the interrupt behavior is only affected &lt;em&gt;within&lt;/em&gt; the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;handle_interrupt&lt;/code&gt; block. The following code &lt;strong&gt;has a problem&lt;/strong&gt;:&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;thread&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Thread&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; 
-  &lt;span class=&quot;n&quot;&gt;open_work&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;do_work&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;ensure&lt;/span&gt;
-  &lt;span class=&quot;no&quot;&gt;Thread&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;handle_interrupt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Exception&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:never&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;close_work&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Can you spot it? It’s right here:&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;ensure&lt;/span&gt;
-  &lt;span class=&quot;c1&quot;&gt;# &amp;lt;- Interrupts can happen right here&lt;/span&gt;
-  &lt;span class=&quot;no&quot;&gt;Thread&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;handle_interrupt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Exception&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:never&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;There’s a “seam” right there between the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ensure&lt;/code&gt; and the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Thread.handle_interrupt&lt;/code&gt; where interrupts &lt;em&gt;can happen!&lt;/em&gt; Sure, it’s probably rare that an interrupt would hit right then and there, but if you went to the trouble to guard against it, it’s likely very bad if it did happen. And it happens!  &lt;a href=&quot;https://itnext.io/why-puma-workers-constantly-hung-and-how-we-fixed-by-discovering-the-bug-of-ruby-v2-5-8-and-v2-6-6-7fa0fd0a1958&quot;&gt;“Why puma workers constantly hung, and how we fixed by discovering the bug of Ruby v2.5.8 and v2.6.6”&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;HOW TO USE IT APPROPRIATELY:&lt;/strong&gt; This is the pattern you likely want:&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;thread&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Thread&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; 
-  &lt;span class=&quot;no&quot;&gt;Thread&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;handle_interrupt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Exception&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:never&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
-    &lt;span class=&quot;no&quot;&gt;Thread&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;handle_interrupt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Exception&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:immediately&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;open_work&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;do_work&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;ensure&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;close_work&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;That’s right: have the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ensure&lt;/code&gt; block nested within the outer &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Thread.handle_interrupt(Exception: :never)&lt;/code&gt; so that interrupts cannot happen in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ensure&lt;/code&gt;, and then use a second &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Thread.handle_interrupt(Exception: :immediately)&lt;/code&gt; to allow the interrupts to take place in the code &lt;em&gt;before&lt;/em&gt; the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ensure&lt;/code&gt; block.&lt;/p&gt;
-
-&lt;p&gt;There’s another pattern you might also be able to use with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;:on_blocking&lt;/code&gt;:&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;thread&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Thread&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; 
-  &lt;span class=&quot;no&quot;&gt;Thread&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;handle_interrupt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Exception&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:on_blocking&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;open_work&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;do_work&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;ensure&lt;/span&gt;
-    &lt;span class=&quot;no&quot;&gt;Thread&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;handle_interrupt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Exception&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:never&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;close_work&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Doesn’t that have the problematic seam? Nope, because when under &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;:on_blocking&lt;/code&gt; there isn’t an operation taking place right there would release the GVL (e.g. no IO).&lt;/p&gt;
-
-&lt;p&gt;But it does get tricky if, for example, the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;do_work&lt;/code&gt; is some Ruby calculation that is unbounded (I dunno, maybe a problematic regex or someone accidentally decided to calculate prime numbers or something). Then the Ruby code will not be interrupted at all and your thread will hang. That’s bad too. So you’d then need to do something like this:&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;thread&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Thread&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; 
-  &lt;span class=&quot;no&quot;&gt;Thread&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;handle_interrupt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Exception&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:on_blocking&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;open_work&lt;/span&gt;
-    &lt;span class=&quot;no&quot;&gt;Thread&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;handle_interrupt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Exception&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:immediately&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;do_work&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;ensure&lt;/span&gt;
-    &lt;span class=&quot;no&quot;&gt;Thread&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;handle_interrupt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Exception&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:never&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;close_work&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;See, it’s ok to nest &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Thread.handle_interrupt&lt;/code&gt; and likely &lt;em&gt;necessary&lt;/em&gt; to achieve the safety and defensiveness you’re expecting.&lt;/p&gt;
-
-  &lt;br&gt;&lt;br&gt;
-  &lt;hr&gt;
-  &lt;p&gt;
-    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2023/08/appropriately-using-rubys-thread-handle_interrupt&quot;&gt;Appropriately using Ruby’s Thread.handle_interrupt&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
-    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
-  &lt;/p&gt;
-</description>
-  <pubDate>Thu, 31 Aug 2023 00:41:00 +0000</pubDate>
-  <link>https://island94.org/2023/08/appropriately-using-rubys-thread-handle_interrupt</link>
-  <guid isPermaLink="true">https://island94.org/2023/08/appropriately-using-rubys-thread-handle_interrupt</guid>
   
   
 </item>
