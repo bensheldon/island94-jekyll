@@ -6,8 +6,8 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 19 Jan 2024 04:11:01 +0000</pubDate>
-    <lastBuildDate>Fri, 19 Jan 2024 04:11:01 +0000</lastBuildDate>
+    <pubDate>Fri, 19 Jan 2024 15:36:41 +0000</pubDate>
+    <lastBuildDate>Fri, 19 Jan 2024 15:36:41 +0000</lastBuildDate>
     <generator>Jekyll v4.3.3</generator>
     
     
@@ -22,7 +22,7 @@
   <description>&lt;p&gt;One activity I don’t enjoy very much: griping about “technical debt”; that label just never seems descriptive enough. And the things people gripe about seem to mostly fall into:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Deferred maintenance: we haven’t updated to the latest version of X, or it’s written in A language/framework but now everyone is much more familiar with B, or we know M raises an exception at N when they O while P)&lt;/li&gt;
+  &lt;li&gt;Deferred maintenance: we haven’t updated to the latest version of X, or it’s written in A language/framework but now everyone is much more familiar with B, or we know M raises an exception at N when they O while P&lt;/li&gt;
   &lt;li&gt;Just not the quality we expect, &lt;a href=&quot;https://cutlefish.substack.com/p/tbm-267-debt-and-bridge-building&quot;&gt;because &lt;em&gt;reasons&lt;/em&gt;&lt;/a&gt;. It’s ok, we’re all winging it.&lt;/li&gt;
 &lt;/ul&gt;
 
