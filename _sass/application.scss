@@ -1,9 +1,8 @@
-//// Font Awesome
-$fa-font-path: "../fonts/fontawesome";
-
-@import "vendor/syntax-highlighting";
 @import "vendor/bootstrap/bootstrap";
-@import "vendor/fontawesome/font-awesome";
+$bootstrap-icons-font-dir: "../fonts/bootstrap-icons";
+@import "vendor/bootstrap-icons/bootstrap-icons";
+@import "vendor/rouge/magritte_light";
+@import "vendor/rouge/molokai_dark";
 @import "posts";
 
 .navbar-brand {
