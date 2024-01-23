@@ -42,6 +42,7 @@ GEM
     colorator (1.1.0)
     concurrent-ruby (1.2.3)
     connection_pool (2.4.1)
+    csv (3.2.8)
     cuprite (0.15)
       capybara (~> 3.0)
       ferrum (~> 0.14.0)
@@ -81,8 +82,7 @@ GEM
       websocket-driver (>= 0.6, < 0.8)
     ffi (1.16.3)
     forwardable-extended (2.6.0)
-    google-protobuf (3.25.2-arm64-darwin)
-    google-protobuf (3.25.2-x86_64-linux)
+    google-protobuf (3.25.2)
     http-cookie (1.0.5)
       domain_name (~> 0.5)
     http_parser.rb (0.8.0)
@@ -212,12 +212,14 @@ GEM
 
 PLATFORMS
   arm64-darwin-22
+  arm64-darwin-23
   x86_64-linux
 
 DEPENDENCIES
   activesupport
   capybara
   classifier-reborn
+  csv
   cuprite
   gsl!
   jekyll
@@ -237,7 +239,7 @@ DEPENDENCIES
   webrick
 
 RUBY VERSION
-   ruby 3.2.2p53
+   ruby 3.3.0p0
 
 BUNDLED WITH
-   2.4.8
+   2.5.4
