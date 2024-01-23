@@ -50,6 +50,7 @@ exclude:
   - .editorconfig
   - .gitignore
   - .ruby-version
+  - bin
   - Brewfile*
   - Gemfile*
   - Rakefile
