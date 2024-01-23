@@ -14,8 +14,8 @@
 
   <link rel="canonical" href="https://island94.org/2010/10/No-wonder-you-werent-good-at-it.html">
 
-  <link rel="alternate" type="application/rss+xml" title="Island94.org Posts" href="https://island94.org/feed.xml">
-  <link rel="alternate" type="application/rss+xml" title="Island94.org Book Reviews" href="https://island94.org/books.xml">
+  <link rel="alternate" type="application/rss+xml" title="Island94.org Posts" href="/feed.xml">
+  <link rel="alternate" type="application/rss+xml" title="Island94.org Book Reviews" href="/books.xml">
 
   
 
@@ -46,12 +46,42 @@
         <li class="nav-item"><a class="nav-link " href="/archives/">Archives</a></li>
         <li class="nav-item"><a class="nav-link " href="/books/">Books</a></li>
         <li class="nav-item"><a class="nav-link " href="/tags/">Tags</a></li>
-        <li class="nav-item"><a class="nav-link" href="/feed.xml">RSS Feed <span class="fa fa-rss"></span></a></li>
+        <li class="nav-item"><a class="nav-link" href="/feed.xml">RSS Feed <i class="bi bi-rss-fill"></i></a></li>
+
+        <li class="nav-item py-2 py-lg-1 col-12 col-lg-auto">
+          <div class="vr d-none d-lg-flex h-100 mx-lg-2 text-light-500"></div>
+          <hr class="d-lg-none my-0 text-light-500">
+        </li>
+
+        <li class="nav-item dropdown">
+          <button id="bd-theme" class="btn btn-link nav-link dropdown-toggle" type="button" aria-expanded="false" data-bs-toggle="dropdown"  aria-label="Theme (Auto)">
+            <i data-bd-theme-active-icon class="bi bi-circle-half"></i>
+            <span data-bd-theme-label>Theme</span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="bd-theme-text">
+            <li>
+              <button type="button" class="dropdown-item" data-bs-theme-value="light" aria-pressed="false">
+                <i class="bi bi-sun"></i> Light
+              </button>
+            </li>
+            <li>
+              <button type="button" class="dropdown-item" data-bs-theme-value="dark" aria-pressed="false">
+                <i class="bi bi-moon-stars-fill"></i> Dark
+              </button>
+            </li>
+            <li>
+              <button type="button" class="dropdown-item" data-bs-theme-value="auto" aria-pressed="true">
+                <i class="bi bi-circle-half"></i> Auto
+              </button>
+            </li>
+          </ul>
+        </li>
+
       </ul>
 
       <form id="search" class="d-flex" action="/search" method="get">
         <input id="search-box" class="form-control search" role="search" name="q" placeholder="Search" aria-label="Search" results="0" type="text">
-        <button class="sr-only" type="submit">Search</button>
+        <button class="visually-hidden" type="submit">Search</button>
       </form>
     </div>
   </div>
@@ -112,11 +142,11 @@
 </article>
 
 
-<div class="card my-4 text-dark bg-light">
+<div class="card my-4">
   <div class="card-body">
     <p>
-      Discuss this with me on <a href="https://twitter.com/bensheldon"><span class="fa fa-twitter"></span> Twitter</a>
-      or suggest a <a href="https://github.com/bensheldon/island94-jekyll/blob/main/_posts/2010-10-17-No-wonder-you-werent-good-at-it.html.markdown"><span class="fa fa-github-alt"></span> change</a>.
+      Discuss this with me on <a href="https://twitter.com/bensheldon"><i class="bi bi-twitter"></i> Twitter</a>
+      or suggest a <a href="https://github.com/bensheldon/island94-jekyll/blob/main/_posts/2010-10-17-No-wonder-you-werent-good-at-it.html.markdown"><i class="bi bi-github"></i> change</a>.
     </p>
 
     <p>Related Posts:</p>
