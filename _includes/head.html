@@ -3,20 +3,18 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
-  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
-
   <link rel="stylesheet" href="{{ "/assets/stylesheets/main.css" | relative_url }}">
   <script src="{{ "/assets/javascripts/main.js" | relative_url }}"></script>
 
+  <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+
   <link rel="canonical" href="{{ page.url | replace: 'index.html', '' | absolute_url }}">
 
-  <link rel="alternate" type="application/rss+xml" title="{{ site.title }} Posts" href="{{ "/feed.xml" | base_url }}">
-  <link rel="alternate" type="application/rss+xml" title="{{ site.title }} Book Reviews" href="{{ "/books.xml" | base_url }}">
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title }} Posts" href="{{ "/feed.xml" | absolute_url }}">
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title }} Book Reviews" href="{{ "/books.xml" | absolute_url }}">
 
   {% if paginator and paginator.page != 1 %}
     <meta name="robots" content="noindex, follow">
   {% endif %}
-
-  {% include google_analytics.html %}
 </head>
