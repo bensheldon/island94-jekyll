@@ -6,8 +6,8 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 27 Jan 2024 16:24:12 +0000</pubDate>
-    <lastBuildDate>Sat, 27 Jan 2024 16:24:12 +0000</lastBuildDate>
+    <pubDate>Sat, 27 Jan 2024 16:45:19 +0000</pubDate>
+    <lastBuildDate>Sat, 27 Jan 2024 16:45:19 +0000</lastBuildDate>
     <generator>Jekyll v4.3.3</generator>
     
     
@@ -27,7 +27,7 @@
 &lt;ul&gt;
   &lt;li&gt;Greater compatibility with Rails &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;main&lt;/code&gt;. My &lt;a href=&quot;https://github.blog/2023-04-06-building-github-with-ruby-and-rails/&quot;&gt;day job runs Rails &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;main&lt;/code&gt;&lt;/a&gt;, and I’m more frequently contributing to Rails development; I’d like to run my personal projects on Rails &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;main&lt;/code&gt; too. When I looked back on upgrade-blocking gems, Devise (and its dependencies, like Responders) topped my list.&lt;/li&gt;
   &lt;li&gt;More creative onboarding flows. I’ve twisted Devise quite a bit (it’s great!) to handle the different ways I want users to be able to register (elaborate onboarding flows, email-only subscriptions, optional passwords, magic logins). I’ve already customized or overloaded nearly every Devise controller and many model methods, so it didn’t seem like such a big change anyway.&lt;/li&gt;
-  &lt;li&gt;Hubris. I’ve built enterprise auth systems from scratch, managed the Bug Bounty program, and worked with security researchers. I have seen and caused and fixed some shit. (Fun fact: I have been paid for reporting auth vulnerabilities on the bug bounty platforms themselves.) I know that even if it’s not a bad idea &lt;em&gt;for me&lt;/em&gt;, it’s not a great idea either. Go read &lt;a href=&quot;http://blog.plataformatec.com.br/search/Devise/&quot;&gt;all of the Devise CVEs&lt;/a&gt;; seriously, it’s a responsibility.&lt;/li&gt;
+  &lt;li&gt;Hubris. I’ve built enterprise auth systems from scratch, managed the Bug Bounty program, and worked with security researchers. I have seen and caused and fixed some shit. (Fun fact: I have been paid for reporting auth vulnerabilities on the bug bounty platforms themselves.) I know that even if it’s not a bad idea &lt;em&gt;for me&lt;/em&gt;, it’s not a great idea either. Go read &lt;a href=&quot;https://github.com/advisories?query=devise+ecosystem%3Arubygems&quot;&gt;all of the Devise-related CVEs&lt;/a&gt;; seriously, it’s a responsibility.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;That last bit is why this blog post will not be like, “Here’s everything you need to know and do to ditch Devise.” Don’t do it! Instead, here’s some stuff I learned that I want to remember for the next app I work on.&lt;/p&gt;
