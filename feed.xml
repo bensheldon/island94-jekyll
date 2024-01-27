@@ -6,10 +6,300 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 23 Jan 2024 15:29:09 +0000</pubDate>
-    <lastBuildDate>Tue, 23 Jan 2024 15:29:09 +0000</lastBuildDate>
+    <pubDate>Sat, 27 Jan 2024 16:09:16 +0000</pubDate>
+    <lastBuildDate>Sat, 27 Jan 2024 16:09:16 +0000</lastBuildDate>
     <generator>Jekyll v4.3.3</generator>
     
+    
+      
+        
+
+
+
+
+<item>
+  <title>Replacing Devise with Rails `has_secure_password` and friends</title>
+  <description>&lt;p&gt;I love the &lt;a href=&quot;https://github.com/heartcombo/devise&quot;&gt;Devise user-authentication gem&lt;/a&gt;. I’ve used it for years, and I recently moved off of it in one of my personal apps and replaced it with Rails’s built-in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;has_secure_password&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;generates_secure_token&lt;/code&gt; and a whole bunch of custom controllers and helpers and code that I now maintain myself. &lt;strong&gt;I do not recommend this! User authentication is hard! Security is hard!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;And…&lt;/strong&gt; maybe you need to walk the same path too. So I want to share what I learned through the process.&lt;/p&gt;
+
+&lt;p&gt;Ok, so to back up, why did I do this?&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Greater compatibility with Rails &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;main&lt;/code&gt;. My &lt;a href=&quot;https://github.blog/2023-04-06-building-github-with-ruby-and-rails/&quot;&gt;day job runs Rails ￼&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;main&lt;/code&gt;￼&lt;/a&gt;, and I’m more frequently contributing to Rails development; I’d like to run my personal projects on Rails &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;main&lt;/code&gt; too. When I looked back on upgrade-blocking gems, Devise (and its dependencies, like Responders) topped my list.&lt;/li&gt;
+  &lt;li&gt;More creative onboarding flows. I’ve twisted Devise quite a bit (it’s great!) to handle the different ways I want users to be able to register (elaborate onboarding flows, email-only subscriptions, optional passwords, magic logins). I’ve already customized or overloaded nearly every Devise controller and many model methods, so it didn’t seem like such a big change anyway.&lt;/li&gt;
+  &lt;li&gt;Hubris. I’ve built enterprise auth systems from scratch, managed the Bug Bounty program, and worked with security researchers. I have seen and caused and fixed some shit. (Fun fact: I have been paid for reporting auth vulnerabilities on the bug bounty platforms themselves.) I know that even if it’s not a bad idea &lt;em&gt;for me&lt;/em&gt;, it’s not a great idea either. Go read &lt;a href=&quot;http://blog.plataformatec.com.br/search/Devise/&quot;&gt;all of the Devise CVEs&lt;/a&gt;; seriously, it’s a responsibility.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;That last bit is why this blog post will not be like, “Here’s everything you need to know and do to ditch Devise.” Don’t do it! Instead, here’s some stuff I learned that I want to remember for the next app I work on.&lt;/p&gt;
+
+&lt;h3 id=&quot;a-test-regime&quot;&gt;A test regime&lt;/h3&gt;
+
+&lt;p&gt;I went back through all of my system tests for auth, and here is a cleaned-up, though not exhaustive list of my scenarios and assertions. It seems like a lot. It is! There are also unit tests for models and controllers and mailers and separate API tests for the iOS and Android apps. Don’t take this lightly! (Remember, many of these are specific to my custom onboarding flows).&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;When a new user signs up for an account
+    &lt;ul&gt;
+      &lt;li&gt;Their email is valid, present and stored; password is nil.&lt;/li&gt;
+      &lt;li&gt;They are not confirmed&lt;/li&gt;
+      &lt;li&gt;They receive a confirmation email&lt;/li&gt;
+      &lt;li&gt;If not confirmed, registering again with the same email resends the confirmation email but does not leak account presence&lt;/li&gt;
+      &lt;li&gt;If the email associated account already exists and is confirmed, sends a “you already have an account” email and does not leak account presence.&lt;/li&gt;
+      &lt;li&gt;Following the link in the confirmation email confirms the new account and redirects to the account setup page.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;When a user sets up their account
+    &lt;ul&gt;
+      &lt;li&gt;They can assign a username and password&lt;/li&gt;
+      &lt;li&gt;A password cannot be assigned if a password already exists&lt;/li&gt;
+      &lt;li&gt;A username cannot be assigned if a username already exists&lt;/li&gt;
+      &lt;li&gt;If a username and password already exist, the setup page redirects to the account update page&lt;/li&gt;
+      &lt;li&gt;The account update page redirects to the setup page if a username or password does not yet exist&lt;/li&gt;
+      &lt;li&gt;Signing in with an unsetup account redirects to setup page&lt;/li&gt;
+      &lt;li&gt;Resetting password with an unsetup account redirects to setup page&lt;/li&gt;
+      &lt;li&gt;Adding a password invalidates reset-password links.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;When a user updates their account
+    &lt;ul&gt;
+      &lt;li&gt;The current password is required to update email, username, or password.&lt;/li&gt;
+      &lt;li&gt;When the email address is changed, a new confirmation email is sent out to that email address.&lt;/li&gt;
+      &lt;li&gt;An email change confirmation can be confirmed with or without an active session.&lt;/li&gt;
+      &lt;li&gt;If the email address is already confirmed by a different account, send the “you already have an account” email and do not leak account presence.&lt;/li&gt;
+      &lt;li&gt;Multiple accounts can have the same unconfirmed email address.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;When a user performs a password reset
+    &lt;ul&gt;
+      &lt;li&gt;Can’t be accessed with an active session&lt;/li&gt;
+      &lt;li&gt;Link is invalidated after 20 minutes, or when email, or password changes.&lt;/li&gt;
+      &lt;li&gt;Can be performed on an unsetup account&lt;/li&gt;
+      &lt;li&gt;Confirms an email but not an email change&lt;/li&gt;
+      &lt;li&gt;Signs in the user&lt;/li&gt;
+      &lt;li&gt;Does not leak account presence&lt;/li&gt;
+      &lt;li&gt;Is throttled to only send once a minute.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;When a user performs or resends an email confirmation
+    &lt;ul&gt;
+      &lt;li&gt;Can be accessed with an active session.&lt;/li&gt;
+      &lt;li&gt;Cannot resend confirmation of an email change without an active session.&lt;/li&gt;
+      &lt;li&gt;Link is invalidated after 20 minutes, or when email, unconfirmed email, confirmed at, or password changes.&lt;/li&gt;
+      &lt;li&gt;Signs in the user&lt;/li&gt;
+      &lt;li&gt;Does not leak account presence&lt;/li&gt;
+      &lt;li&gt;Is throttled to only send once a minute.&lt;/li&gt;
+      &lt;li&gt;When user is already confirmed, send them an email with a link to reset their password&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;When a user signs into a session
+    &lt;ul&gt;
+      &lt;li&gt;Requires a valid email or username, and password&lt;/li&gt;
+      &lt;li&gt;Cannot sign in with a nil, blank, or absent password param (unsetup account)&lt;/li&gt;
+      &lt;li&gt;Session is invalidated when email or password changes.&lt;/li&gt;
+      &lt;li&gt;Does not leak account presence with missing or invalid credentials&lt;/li&gt;
+      &lt;li&gt;Redirects to the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;session[:return_to]&lt;/code&gt; path if present, otherwise the root path.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;using-has_secure_password&quot;&gt;Using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;has_secure_password&lt;/code&gt;&lt;/h3&gt;
+
+&lt;p&gt;This was a fairly simple change. I had to explicitly add &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bcrypt&lt;/code&gt; to the gemfile, and then add to my &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;User&lt;/code&gt; model:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# models/user.rb&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;alias_attribute&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:password_digest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:encrypted_password&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;has_secure_password&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:password&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;I’ll eventually rename the database column, but this was a zero-migration change.&lt;/p&gt;
+
+&lt;p&gt;Also, you might need to use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;validations: false&lt;/code&gt;  on &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;has_secure_password&lt;/code&gt; and implement your own validations if you have custom onboarding flows like me. Read &lt;a href=&quot;https://api.rubyonrails.org/classes/ActiveModel/SecurePassword/ClassMethods.html&quot;&gt;the docs&lt;/a&gt; and the &lt;a href=&quot;https://github.com/rails/rails/blob/68eade83c87ae309191add6dfa4959d7d7e07464/activemodel/lib/active_model/secure_password.rb#L114&quot;&gt;Rails code&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;When authenticating on sign in, you’ll want to use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;User.authenticate_by(email:, password:)&lt;/code&gt;, which is intended to avoid timing attacks.&lt;/p&gt;
+
+&lt;h3 id=&quot;using-generates_token_for&quot;&gt;Using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;generates_token_for&lt;/code&gt;&lt;/h3&gt;
+
+&lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;generates_token_for&lt;/code&gt; methods are new in Rails 7.1 and &lt;a href=&quot;https://github.com/rails/rails/pull/44189&quot;&gt;really nice&lt;/a&gt;. They create a signed token containing the user id and additional matching attributes and it doesn’t need to be stored in the database:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# models/user.rb&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;generates_token_for&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:email_confirmation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;expires_in: &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;minutes&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;confirmed_at&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;unconfirmed_email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;password_salt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;generates_token_for&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:password_reset&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;expires_in: &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;minutes&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;password_salt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;I’ll explain that &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;password_salt&lt;/code&gt; in a bit.&lt;/p&gt;
+
+&lt;p&gt;To verify this, you want to do use something like this: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;User.find_by_token_for(:email_confirmation, value_from_the_link)&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;btw security: when you put a link in an email message, you can only use a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GET&lt;/code&gt; , because emails can’t reliably submit web forms (some clients can, but it’s weird and unreliable). So your link is going to look like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;https://example.com/account/reset_password?token=blahblahblahblahblah&lt;/code&gt;. If there is any links to 3rd party resources like script tags or off-domain images, you will &lt;a href=&quot;https://portswigger.net/kb/issues/00500400_cross-domain-referer-leakage&quot;&gt;leak the token through the ￼&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;referrer&lt;/code&gt;￼&lt;/a&gt;  when the page is loaded with the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;?token=&lt;/code&gt; in the URL. &lt;a href=&quot;https://github.com/heartcombo/devise/pull/4366&quot;&gt;Devise never fixed it (😱)&lt;/a&gt; . What you should do is take value out of the query param and put it in the session and redirect back to the same page without the query parameter and use the session value instead. (Fun fact: this is a bug bounty that got me paid.)&lt;/p&gt;
+&lt;h3 id=&quot;authenticatable-salts&quot;&gt;Authenticatable salts&lt;/h3&gt;
+
+&lt;p&gt;Here’s where I explain that &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;password_salt&lt;/code&gt; value.&lt;/p&gt;
+
+&lt;p&gt;There’s several places I’ve mentioned where tokens and sessions should be invalidated when the account password changes. When &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bcrypt&lt;/code&gt; stores the password digest in the database, it also generates and includes a random “salt” value that changes every time the password changes. Comparing that salt is a proxy for “did the password change?” and it’s safer to embed that random salt in cookies and tokens instead of the user’s hashed password.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/heartcombo/devise/blob/e2242a95f3bb2e68ec0e9a064238ff7af6429545/lib/devise/models/database_authenticatable.rb#L15C6-L158C1&quot;&gt;Devise uses the first 29 characters&lt;/a&gt; of the encrypted password (which is technically the &lt;a href=&quot;https://en.wikipedia.org/wiki/Bcrypt#Description&quot;&gt;algorithm, cost and salt&lt;/a&gt;):&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# models/user.rb&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;authenticatable_salt&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;encrypted_password&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;29&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;encrypted_password&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;But it’s also possible to simply get the salt. I dunno if the difference matters (tell me!):&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# models/user.rb&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;password_salt&lt;/span&gt;
+  &lt;span class=&quot;no&quot;&gt;BCrypt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Password&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;password_digest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;salt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;..&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;password_digest&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;a-nice-session&quot;&gt;A nice session&lt;/h3&gt;
+
+&lt;p&gt;There’s a lot to write about creating sessions and remember-me cookies, that I won’t be writing here. The main thing to note is that I’m storing and verifying both the user id &lt;em&gt;and&lt;/em&gt; their password salt in the session; that means all of their session are invalidated when they change their password:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# app/controllers/application_controller.rb&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;UNASSIGNED&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;USER_SESSION_KEY&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;_yoursite_user&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;freeze&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initialize&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;super&lt;/span&gt;
+  &lt;span class=&quot;vi&quot;&gt;@_current_user&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;UNASSIGNED&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;sign_in&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;session&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;USER_SESSION_KEY&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;password_salt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;current_user&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@_current_user&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;unless&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@_current_user&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;UNASSIGNED&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;# Check if the user was already loaded by route helpers&lt;/span&gt;
+  &lt;span class=&quot;vi&quot;&gt;@_current_user&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;key?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;current_user&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+                     &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;current_user&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+                   &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
+                     &lt;span class=&quot;n&quot;&gt;user_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;password_salt&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;session&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;USER_SESSION_KEY&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+                     &lt;span class=&quot;no&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;find_by_id_and_password_salt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;user_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;password_salt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;user_id&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;password_salt&lt;/span&gt;
+                   &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;In doing this project I learned that Rail’s cookies will magically serialize/deserialize arrays and hashes. I’ve been manually and laboriously converting them into JSON strings &lt;em&gt;for years&lt;/em&gt; 🥵&lt;/p&gt;
+
+&lt;p&gt;btw, if that &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;UNASSIGNED&lt;/code&gt; stuff is new to you, go read my &lt;a href=&quot;https://island94.org/2023/10/writing-object-shape-friendly-code-in-ruby&quot;&gt;Writing Object Shape friendly code in Ruby&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;rotating-active-sessions&quot;&gt;Rotating active sessions&lt;/h3&gt;
+
+&lt;p&gt;This is a little &lt;em&gt;extra&lt;/em&gt; but I wanted the switchover to be transparent to users. To do so, I read from Devise’s active sessions and then create a session cookie using the new format. It looks something like this:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# controllers/application_controller.rb&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;before_action&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:upgrade_devise_session&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;upgrade_devise_session&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;# Devise session structure: [[USER_ID],&quot;AUTHENTICATABLE_SALT&quot;]&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;session&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;warden.user.user.key&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;present?&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;user_id&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;session&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;warden.user.user.key&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;dig&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;user_salt&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;session&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;warden.user.user.key&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;dig&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;elsif&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cookies&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;signed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;remember_user_token&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;present?&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;user_id&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cookies&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;signed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;remember_user_token&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;dig&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;user_salt&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cookies&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;signed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;remember_user_token&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;dig&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;unless&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;user_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;present?&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;user_salt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;present?&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;# Depending on your deploy/rollout strategy ,&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;# you may want need to retain and dual-write both&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;# Devise and new user session values instead of this.&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;session&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;delete&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;warden.user.user.key&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;cookies&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;delete&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;remember_user_token&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+  &lt;span class=&quot;n&quot;&gt;user&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;find_by&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;id: &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;user_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;sign_in&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;user&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;devise_authenticatable_salt&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;user_salt&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;route-helpers&quot;&gt;Route helpers&lt;/h3&gt;
+
+&lt;p&gt;Devise mixes some nice helper methods into Rails’s routing DSL like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;authenticated&lt;/code&gt;; they’re even &lt;em&gt;necessary&lt;/em&gt; if you need to authenticate Rails Engines that can’t easily access the app’s ApplicationController methods. Here’s how to recreate them using &lt;a href=&quot;https://guides.rubyonrails.org/routing.html#advanced-constraints&quot;&gt;Route Constraints&lt;/a&gt; and monkeypatching &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ActionDispatch::Routing::Mapper&lt;/code&gt; (that’s &lt;a href=&quot;https://github.com/heartcombo/devise/blob/e2242a95f3bb2e68ec0e9a064238ff7af6429545/lib/devise/rails/routes.rb#L28&quot;&gt;how Devise does it&lt;/a&gt;)&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# app/constraints/current_user_constraint.rb&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;CurrentUserConstraint&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;matches?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;matches?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initialize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;block&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@block&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;block&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;matches?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;current_user&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;key?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;current_user&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+                      &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;current_user&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+                    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
+                      &lt;span class=&quot;n&quot;&gt;user_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;password_salt&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;session&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;USER_SESSION_KEY&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+                      &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;current_user&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;find_by_id_and_password_salt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;user_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;password_salt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;user_id&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;password_salt&lt;/span&gt;
+                   &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@block&lt;/span&gt;
+      &lt;span class=&quot;vi&quot;&gt;@block&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;call&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;current_user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;current_user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;present?&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+
+&lt;span class=&quot;c1&quot;&gt;# config/routes.rb&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;module&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;ActionDispatch&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;module&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;Routing&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Mapper&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;authenticated&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;constraints: &lt;/span&gt;&lt;span class=&quot;no&quot;&gt;CurrentUserConstraint&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+      &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;unauthenticated&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;constraints: &lt;/span&gt;&lt;span class=&quot;no&quot;&gt;CurrentUserConstraint&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;blank?&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+      &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;admin_only&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;constraints: &lt;/span&gt;&lt;span class=&quot;no&quot;&gt;CurrentUserConstraint&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;admin?&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Because routing happens &lt;em&gt;before&lt;/em&gt; a controller is initialized, the current user is put into &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;request.env&lt;/code&gt; so that the controller won’t have to query it a second time from the database. This could also be done in a custom Rack Middleware.&lt;/p&gt;
+
+&lt;p&gt;If you want to put stuff into not-the-session cookies, those cookies can be accessed via &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;request.cookie_jar,&lt;/code&gt; e.g., &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;request.cookie_jar.permanent.encrypted[&quot;_my_cookie&quot;]&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;closing-thoughts&quot;&gt;Closing thoughts&lt;/h3&gt;
+
+&lt;p&gt;That was all the interesting bits for me. I also learned quite a bit poking around Dave Kimura’s &lt;a href=&quot;https://github.com/kobaltz/action_auth&quot;&gt;ActionAuth&lt;/a&gt; (thank you!), and am thankful for the many years of service I’ve gotten from Devise.&lt;/p&gt;
+
+
+  &lt;br&gt;&lt;br&gt;
+  &lt;hr&gt;
+  &lt;p&gt;
+    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2024/01/replacing-devise-with-rails-has_secure_password-and-friends&quot;&gt;Replacing Devise with Rails `has_secure_password` and friends&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
+    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
+  &lt;/p&gt;
+</description>
+  <pubDate>Sat, 27 Jan 2024 15:43:00 +0000</pubDate>
+  <link>https://island94.org/2024/01/replacing-devise-with-rails-has_secure_password-and-friends</link>
+  <guid isPermaLink="true">https://island94.org/2024/01/replacing-devise-with-rails-has_secure_password-and-friends</guid>
+  
+    <category>rails</category>
+  
+    <category>ruby</category>
+  
+  
+</item>
+
+      
     
       
         
@@ -809,65 +1099,6 @@ diff = Sheap::Diff.new(&quot;/Users/bensheldon/Repositories/sciencehistory/scihi
   <guid isPermaLink="true">https://island94.org/2023/10/writing-object-shape-friendly-code-in-ruby</guid>
   
     <category>Ruby</category>
-  
-  
-</item>
-
-      
-    
-      
-        
-
-
-
-
-<item>
-  <title>In defense of consensus</title>
-  <description>&lt;p&gt;There’s a style of reactionary meme that takes a photo of like, empty store-shelves or a trash-strewn street, and applies the image macro “This is what Communism looks like”. But upon closer inspection (and social media lampooning), it’s a photo of America, capitalist America, very much not under communism. We’ll come back to this.&lt;/p&gt;
-
-&lt;p&gt;Let’s talk about “consensus”. Not a week goes by in my Bay Area tech worklife where I don’t read or hear someone dragging consensus. Consensus is pilloried: weak, indecisive, lowest-common denominator, unclear, drawn out… consensus is bad, they say.&lt;/p&gt;
-
-&lt;p&gt;Working in tech for a decade, I have to admit this struck me as strange the first time I heard a coworker complain about that bogeyman “consensus”. I’ve been a facilitator of consensus-based practice for &lt;a href=&quot;https://island94.org/2010/04/I-am-now-a-Technology-of-Participation-facilitator-.html&quot;&gt;13 years&lt;/a&gt;. These practices, taught to me through the &lt;a href=&quot;https://www.ica-usa.org&quot;&gt;Institute for Cultural Affair’s ToP (“Technology of Participation”)&lt;/a&gt; series, served me well when I was doing nonprofit and community work, serving on boards and facilitating offsites. And consensus-based practices have served me well in tech and business too: using its methods to do discovery, lead meetings, get feedback, and drive decision-making and action. I do strategic planning consultation too.&lt;/p&gt;
-
-&lt;p&gt;The consensus-based practices I’ve learned take a group through a process: beginning with a prompt or need, then collecting facts and inputs, understanding people’s reactions to them, their interpretations and implications, and ultimately describing a series of actions and commitments to take. This can be a simple conversation, or a multi-day event that builds fractally on itself: a preceding session’s final actions could be deciding on what will be the following session’s initial inputs. When I’m working with leaders to design the process, we’ll discuss what responsibilities we want to delegate to the group, and what decisions will be retained among leadership. Leadership remains &lt;em&gt;accountable&lt;/em&gt;, in the sense that there is a legible decision-making process, which is a strong benefit of deliberative practice. That’s “consensus”.&lt;/p&gt;
-
-&lt;p&gt;Alternatively, the Bay Area tech process, not “consensus”, oh no, seems to follow these recipes:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Plan and socialize&lt;/li&gt;
-  &lt;li&gt;Disagree and commit&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;I was introduced to “plan and socialize” in my second tech job, being mentored by the Director of Engineering. To “socialize” is more than informing people, it’s having conversations and helping them understand how a plan or proposal will affect their work, and getting feedback that might lead to adjustments or compensatory actions. It’s also somewhat vague: asking people to leave comments in a google doc, attend an office hours, or a loosely moderated feedback session. Decisions, once made, are also socialized: explained, defended, adjusted, or white-knuckled through.&lt;/p&gt;
-
-&lt;p&gt;Depending on their power level, leaders may then ask people to “disagree and commit” meaning that the (negative) feedback has been heard but those underlings must commit to carrying the plan out regardless. Suck it up, professionally, so to speak. Sometimes this is used as performance feedback: “I’m aware you’ve been sharing your dislike of the plan with coworkers. That lack of trust is undermining the business. I need you to disagree and commit”… and keep your thoughts to yourself.&lt;/p&gt;
-
-&lt;p&gt;Under the spotlight, these approaches look less like bold and steely decision-making, and more like mumbly plan shifting backed by blusterful threats. Like the “this is what communism looks like”-meme, the scary-othered threat is not “consensus” but simply the current reality: confused, inadequate, probationary, triangulating, embarrassing, shameful.&lt;/p&gt;
-
-&lt;p&gt;There’s a joke in civic tech: government tech projects may say they can’t do incremental development, but that’s exactly what happens after their big-bang waterfall launch crashes-and-burns and they end up having to fix it one piece at a time. Clay Shirky captures it in &lt;a href=&quot;https://www.politico.com/magazine/story/2013/11/the-willful-ignorance-that-doomed-healthcaregov-100290/&quot;&gt;“How Willful Ignorance Doomed HealthCare.gov”&lt;/a&gt;:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;It is hard for policy people to imagine that HealthCare.gov could have had a phased rollout, &lt;em&gt;even while it is having one&lt;/em&gt;. At launch, on Oct. 1, only a tiny fraction of potential users could actually try the service. They generated errors. Those errors were handed to a team whose job was to improve the site, already public but only partially working. The resulting improvements are incremental and put in place over a period of months. That &lt;em&gt;is&lt;/em&gt; a phased rollout, just one conducted in the worst possible way.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Bay Area tech has the same relationship to decisions and consensus: by “socializing” plans and decisions, leaders are trying to craft a deliberativeu process for information sharing, feedback gathering, and alignment building. They’re simply doing it &lt;em&gt;after&lt;/em&gt; they’ve already written and decided on an insufficient course of action and are grasping for a fix. Ultimately they are reaching for consensus, just consensus conducted in the worst possible way.&lt;/p&gt;
-
-&lt;p&gt;Please think of this the next time you hear (or say) something bad about consensus. Consensus is pretty great, and even better when used from the start.&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;The Institute for Cultural Affairs has &lt;a href=&quot;https://www.top-training.net/w/schedule/&quot;&gt;lots of trainings&lt;/a&gt;  on consensus-based facilitation. The &lt;a href=&quot;https://strategicfacilitation.com&quot;&gt;Center for Strategic Facilitation&lt;/a&gt; is the Bay Area’s local trainer and service provider, but there are trainers and service providers all over the globe.&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;There is a system known as &lt;a href=&quot;https://en.wikipedia.org/wiki/Formal_consensus&quot;&gt;“Formal Consensus”&lt;/a&gt; which gained some notability during the &lt;a href=&quot;https://en.wikipedia.org/wiki/1999_Seattle_WTO_protests&quot;&gt;1999 “Battle of Seattle” WTO protests&lt;/a&gt; as a means of empowering small groups, particularly indigenous representatives, by providing a limited and fixed number of “blocks” during deliberations to stop actions proposed by far larger groups. Also how my buddy organized &lt;a href=&quot;https://github.com/freegeekchicago/fgc-docs/blob/4dc37cbb76eaf766274f30fcb1f9df9d5bc199df/constitution.md#governance&quot;&gt;FreeGeek Chicago&lt;/a&gt;. I have &lt;strong&gt;never&lt;/strong&gt; heard anyone in Bay Area tech reference any of this in regards to what they mean by consensus.&lt;/em&gt;&lt;/p&gt;
-
-  &lt;br&gt;&lt;br&gt;
-  &lt;hr&gt;
-  &lt;p&gt;
-    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2023/09/in-defense-of-consensus&quot;&gt;In defense of consensus&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
-    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
-  &lt;/p&gt;
-</description>
-  <pubDate>Mon, 18 Sep 2023 02:30:00 +0000</pubDate>
-  <link>https://island94.org/2023/09/in-defense-of-consensus</link>
-  <guid isPermaLink="true">https://island94.org/2023/09/in-defense-of-consensus</guid>
   
   
 </item>
