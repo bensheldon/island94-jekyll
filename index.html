@@ -355,14 +355,21 @@
         <span class="n">scope</span><span class="p">(</span><span class="ss">constraints: </span><span class="no">CurrentUserConstraint</span><span class="p">,</span> <span class="o">&amp;</span><span class="p">)</span>
       <span class="k">end</span>
 
-      <span class="k">def</span> <span class="nf">unauthenticated</span>
+      <span class="k">def</span> <span class="nf">unauthenticated</span><span class="p">(</span><span class="o">&amp;</span><span class="p">)</span>
         <span class="n">scope</span><span class="p">(</span><span class="ss">constraints: </span><span class="no">CurrentUserConstraint</span><span class="p">.</span><span class="nf">new</span> <span class="p">{</span> <span class="o">|</span><span class="n">user</span><span class="o">|</span> <span class="n">user</span><span class="p">.</span><span class="nf">blank?</span> <span class="p">},</span> <span class="o">&amp;</span><span class="p">)</span>
       <span class="k">end</span>
 
-      <span class="k">def</span> <span class="nf">admin_only</span>
+      <span class="k">def</span> <span class="nf">admin_only</span><span class="p">(</span><span class="o">&amp;</span><span class="p">)</span>
         <span class="n">scope</span><span class="p">(</span><span class="ss">constraints: </span><span class="no">CurrentUserConstraint</span><span class="p">.</span><span class="nf">new</span> <span class="p">{</span> <span class="o">|</span><span class="n">user</span><span class="o">|</span> <span class="n">user</span><span class="o">&amp;</span><span class="p">.</span><span class="nf">admin?</span> <span class="p">},</span> <span class="o">&amp;</span><span class="p">)</span>
       <span class="k">end</span>
     <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="no">Rails</span><span class="p">.</span><span class="nf">application</span><span class="p">.</span><span class="nf">routes</span><span class="p">.</span><span class="nf">draw</span> <span class="k">do</span>
+  <span class="c1"># ...</span>
+  <span class="n">authenticated</span> <span class="k">do</span>
+    <span class="n">resources</span> <span class="ss">:special_somethings</span>
   <span class="k">end</span>
 <span class="k">end</span>
 </code></pre></div></div>
