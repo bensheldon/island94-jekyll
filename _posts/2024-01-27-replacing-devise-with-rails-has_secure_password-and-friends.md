@@ -1,5 +1,5 @@
 ---
-title: "Replacing Devise with Rails has_secure_password and friends"
+title: "Replacing Devise with Rails `has_secure_password` and friends"
 date: 2024-01-27 07:43 PST
 published: true
 tags: [rails, ruby]
@@ -9,8 +9,8 @@ I love the [Devise user-authentication gem](https://github.com/heartcombo/devise
 
 **And...** maybe you need to walk the same path too. So I want to share what I learned through the process.
 
-Ok, so to back up, why did I do this? 
-- Greater compatibility with Rails `main`. My [day job runs Rails ￼`main`￼](https://github.blog/2023-04-06-building-github-with-ruby-and-rails/), and I'm more frequently contributing to Rails development; I'd like to run my personal projects on Rails `main` too. When I looked back on upgrade-blocking gems, Devise (and its dependencies, like Responders) topped my list. 
+Ok, so to back up, why did I do this?
+- Greater compatibility with Rails `main`. My [day job runs Rails ￼`main`￼](https://github.blog/2023-04-06-building-github-with-ruby-and-rails/), and I'm more frequently contributing to Rails development; I'd like to run my personal projects on Rails `main` too. When I looked back on upgrade-blocking gems, Devise (and its dependencies, like Responders) topped my list.
 - More creative onboarding flows. I've twisted Devise quite a bit (it's great!) to handle the different ways I want users to be able to register (elaborate onboarding flows, email-only subscriptions, optional passwords, magic logins). I've already customized or overloaded nearly every Devise controller and many model methods, so it didn't seem like such a big change anyway.
 - Hubris. I've built enterprise auth systems from scratch, managed the Bug Bounty program, and worked with security researchers. I have seen and caused and fixed some shit. (Fun fact: I have been paid for reporting auth vulnerabilities on the bug bounty platforms themselves.) I know that even if it's not a bad idea _for me_, it's not a great idea either. Go read [all of the Devise CVEs](http://blog.plataformatec.com.br/search/Devise/); seriously, it's a responsibility.
 
@@ -38,15 +38,15 @@ I went back through all of my system tests for auth, and here is a cleaned-up, t
   - Adding a password invalidates reset-password links.
 - When a user updates their account
   - The current password is required to update email, username, or password.
-  - When the email address is changed, a new confirmation email is sent out to that email address. 
-  - An email change confirmation can be confirmed with or without an active session. 
+  - When the email address is changed, a new confirmation email is sent out to that email address.
+  - An email change confirmation can be confirmed with or without an active session.
   - If the email address is already confirmed by a different account, send the "you already have an account" email and do not leak account presence.
-  - Multiple accounts can have the same unconfirmed email address. 
+  - Multiple accounts can have the same unconfirmed email address.
 - When a user performs a password reset
   - Can't be accessed with an active session
   - Link is invalidated after 20 minutes, or when email, or password changes.
   - Can be performed on an unsetup account
-  - Confirms an email but not an email change  
+  - Confirms an email but not an email change
   - Signs in the user
   - Does not leak account presence
   - Is throttled to only send once a minute.
@@ -57,7 +57,7 @@ I went back through all of my system tests for auth, and here is a cleaned-up, t
   - Signs in the user
   - Does not leak account presence
   - Is throttled to only send once a minute.
-  - When user is already confirmed, send them an email with a link to reset their password 
+  - When user is already confirmed, send them an email with a link to reset their password
 - When a user signs into a session
   - Requires a valid email or username, and password
   - Cannot sign in with a nil, blank, or absent password param (unsetup account)
@@ -65,7 +65,7 @@ I went back through all of my system tests for auth, and here is a cleaned-up, t
   - Does not leak account presence with missing or invalid credentials
   - Redirects to the `session[:return_to]` path if present, otherwise the root path.
 
-### Using `has_secure_password` 
+### Using `has_secure_password`
 
 This was a fairly simple change. I had to explicitly add `bcrypt` to the gemfile, and then add to my `User` model:
 
@@ -75,11 +75,11 @@ alias_attribute :password_digest, :encrypted_password
 has_secure_password :password
 ```
 
-I'll eventually rename the database column, but this was a zero-migration change. 
+I'll eventually rename the database column, but this was a zero-migration change.
 
-Also, you might need to use `validations: false`  on `has_secure_password` and implement your own validations if you have custom onboarding flows like me. Read [the docs](https://api.rubyonrails.org/classes/ActiveModel/SecurePassword/ClassMethods.html) and the [Rails code](https://github.com/rails/rails/blob/68eade83c87ae309191add6dfa4959d7d7e07464/activemodel/lib/active_model/secure_password.rb#L114). 
+Also, you might need to use `validations: false`  on `has_secure_password` and implement your own validations if you have custom onboarding flows like me. Read [the docs](https://api.rubyonrails.org/classes/ActiveModel/SecurePassword/ClassMethods.html) and the [Rails code](https://github.com/rails/rails/blob/68eade83c87ae309191add6dfa4959d7d7e07464/activemodel/lib/active_model/secure_password.rb#L114).
 
-When authenticating on sign in, you'll want to use `User.authenticate_by(email:, password:)`, which is intended to avoid timing attacks. 
+When authenticating on sign in, you'll want to use `User.authenticate_by(email:, password:)`, which is intended to avoid timing attacks.
 
 ### Using `generates_token_for`
 
@@ -96,14 +96,14 @@ generates_token_for :password_reset, expires_in: 30.minutes do
 end
 ```
 
-I'll explain that `password_salt` in a bit. 
+I'll explain that `password_salt` in a bit.
 
 To verify this, you want to do use something like this: `User.find_by_token_for(:email_confirmation, value_from_the_link)`.
 
 btw security: when you put a link in an email message, you can only use a `GET` , because emails can't reliably submit web forms (some clients can, but it's weird and unreliable). So your link is going to look like `https://example.com/account/reset_password?token=blahblahblahblahblah`. If there is any links to 3rd party resources like script tags or off-domain images, you will [leak the token through the ￼`referrer`￼](https://portswigger.net/kb/issues/00500400_cross-domain-referer-leakage)  when the page is loaded with the `?token=` in the URL. [Devise never fixed it (😱)](https://github.com/heartcombo/devise/pull/4366) . What you should do is take value out of the query param and put it in the session and redirect back to the same page without the query parameter and use the session value instead. (Fun fact: this is a bug bounty that got me paid.)
 ### Authenticatable salts
 
-Here's where I explain that `password_salt` value. 
+Here's where I explain that `password_salt` value.
 
 There's several places I've mentioned where tokens and sessions should be invalidated when the account password changes. When `bcrypt` stores the password digest in the database, it also generates and includes a random "salt" value that changes every time the password changes. Comparing that salt is a proxy for "did the password change?" and it's safer to embed that random salt in cookies and tokens instead of the user's hashed password.
 
@@ -180,7 +180,7 @@ def upgrade_devise_session
   end
   return unless user_id.present? && user_salt.present?
 
-  # Depending on your deploy/rollout strategy , 
+  # Depending on your deploy/rollout strategy ,
   # you may want need to retain and dual-write both
   # Devise and new user session values instead of this.
   session.delete("warden.user.user.key")
@@ -251,5 +251,5 @@ If you want to put stuff into not-the-session cookies, those cookies can be acce
 
 That was all the interesting bits for me. I also learned quite a bit poking around Dave Kimura’s [ActionAuth](https://github.com/kobaltz/action_auth) (thank you!), and am thankful for the many years of service I’ve gotten from Devise.
 
- 
+
 
