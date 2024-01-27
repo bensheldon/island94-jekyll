@@ -193,7 +193,7 @@ end
 
 ### Route helpers
 
-Devise mixes some nice helper methods into Rails's routing DSL like `authenticated`; they're even _necessary_ if you need to authenticate Rails Engines that can't easily access the app's ApplicationController methods. Here’s how to recreate them using [Route Constraints](https://guides.rubyonrails.org/routing.html#advanced-constraints) and monkeypatching `ActionDispatch::Routing::Mappe`r` (that’s [how Devise does it](https://github.com/heartcombo/devise/blob/e2242a95f3bb2e68ec0e9a064238ff7af6429545/lib/devise/rails/routes.rb#L28))
+Devise mixes some nice helper methods into Rails's routing DSL like `authenticated`; they're even _necessary_ if you need to authenticate Rails Engines that can't easily access the app's ApplicationController methods. Here’s how to recreate them using [Route Constraints](https://guides.rubyonrails.org/routing.html#advanced-constraints) and monkeypatching `ActionDispatch::Routing::Mapper` (that’s [how Devise does it](https://github.com/heartcombo/devise/blob/e2242a95f3bb2e68ec0e9a064238ff7af6429545/lib/devise/rails/routes.rb#L28))
 
 ```ruby
 # app/constraints/current_user_constraint.rb
