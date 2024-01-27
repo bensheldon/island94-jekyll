@@ -231,14 +231,21 @@ module ActionDispatch
         scope(constraints: CurrentUserConstraint, &)
       end
 
-      def unauthenticated
+      def unauthenticated(&)
         scope(constraints: CurrentUserConstraint.new { |user| user.blank? }, &)
       end
 
-      def admin_only
+      def admin_only(&)
         scope(constraints: CurrentUserConstraint.new { |user| user&.admin? }, &)
       end
     end
+  end
+end
+
+Rails.application.routes.draw do
+  # ...
+  authenticated do
+    resources :special_somethings
   end
 end
 ```
