@@ -6,11 +6,11 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item"><a class="nav-link {% if page.url == "/about/" %}active{% endif %}" href="{{ '/about/' | prepend: site.baseurl }}">About</a></li>
-        <li class="nav-item"><a class="nav-link {% if page.url == "/archives/" %}active{% endif %}" href="{{ '/archives/' | prepend: site.baseurl }}">Archives</a></li>
-        <li class="nav-item"><a class="nav-link {% if page.url == "/books/" %}active{% endif %}" href="{{ '/books/' | prepend: site.baseurl }}">Books</a></li>
-        <li class="nav-item"><a class="nav-link {% if page.url == "/tags/" %}active{% endif %}" href="{{ '/tags/' | prepend: site.baseurl }}">Tags</a></li>
-        <li class="nav-item"><a class="nav-link" href="{{ "/feed.xml" | prepend: site.baseurl }}">RSS Feed <i class="bi bi-rss-fill"></i></a></li>
+        <li class="nav-item"><a class="nav-link {% if page.url == "/about/" %}active{% endif %}" href="{{ '/about/' | relative_url }}">About</a></li>
+        <li class="nav-item"><a class="nav-link {% if page.url == "/archives/" %}active{% endif %}" href="{{ '/archives/' | relative_url }}">Archives</a></li>
+        <li class="nav-item"><a class="nav-link {% if page.url == "/books/" %}active{% endif %}" href="{{ '/books/' | relative_url }}">Books</a></li>
+        <li class="nav-item"><a class="nav-link {% if page.url == "/tags/" %}active{% endif %}" href="{{ '/tags/' | relative_url }}">Tags</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ "/feed.xml" | relative_url }}">RSS Feed <i class="bi bi-rss-fill"></i></a></li>
 
         <li class="nav-item py-2 py-lg-1 col-12 col-lg-auto">
           <div class="vr d-none d-lg-flex h-100 mx-lg-2 text-light-500"></div>

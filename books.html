@@ -17,7 +17,7 @@ permalink: /books/
     {% for book in sorted_books %}
       <tr>
         <td>
-          <a class="post-link" href="{{ book.url | prepend: site.baseurl }}">
+          <a class="post-link" href="{{ book.url | relative_url }}">
             {{ book.title }}
           </a>
         </td>

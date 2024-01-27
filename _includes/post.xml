@@ -1,6 +1,6 @@
 {% assign post = include.post %}
 
-{% assign link_url = post.url | prepend: site.baseurl | prepend: site.url %}
+{% assign link_url = post.url | absolute_url %}
 {% capture post_footer %}
   <br><br>
   <hr>

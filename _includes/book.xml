@@ -1,6 +1,6 @@
 {% assign book = include.book %}
 
-{% assign link_url = book.url | prepend: site.baseurl | prepend: site.url %}
+{% assign link_url = book.url | absolute_url %}
 {% capture post_footer %}
   <br><br>
   <hr>
