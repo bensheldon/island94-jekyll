@@ -5,7 +5,7 @@ published: true
 tags: [Ruby]
 ---
 
-**Update:** Jean Boussier wrote a [deeper explaination of how Ruby Object Shapes are implemented](https://railsatscale.com/2023-10-24-memoization-pattern-and-object-shapes/) (and more up-to-date for Ruby 3.3) and when and how to optimize for them.
+**Update:** Jean Boussier wrote a [deeper explaination of how Ruby Object Shapes are implemented](https://railsatscale.com/2023-10-24-memoization-pattern-and-object-shapes/) (and more up-to-date for Ruby 3.3, unreleased as of October 23, 2023) and when and how to optimize for them.
 
 > My rule of thumb is that one or two memoized variables in a class are fine, but more than that likely deserve a quick refactor.
 
