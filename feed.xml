@@ -6,8 +6,8 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 27 Jan 2024 16:49:08 +0000</pubDate>
-    <lastBuildDate>Sat, 27 Jan 2024 16:49:08 +0000</lastBuildDate>
+    <pubDate>Mon, 29 Jan 2024 16:53:55 +0000</pubDate>
+    <lastBuildDate>Mon, 29 Jan 2024 16:53:55 +0000</lastBuildDate>
     <generator>Jekyll v4.3.3</generator>
     
     
@@ -970,7 +970,15 @@ diff = Sheap::Diff.new(&quot;/Users/bensheldon/Repositories/sciencehistory/scihi
 
 <item>
   <title>Writing Object Shape friendly code in Ruby</title>
-  <description>&lt;p&gt;Ruby 3.2 includes a performance optimization called Object Shapes, that changes how the Ruby VM stores, looks up, and caches instances variables (the variables that look like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@ivar&lt;/code&gt;) . YJIT also takes advantage of Object Shapes, and the upcoming Ruby 3.3 has further improvements that improve the performance of Object Shapes.&lt;/p&gt;
+  <description>&lt;p&gt;&lt;strong&gt;Update:&lt;/strong&gt; Jean Boussier wrote a &lt;a href=&quot;https://railsatscale.com/2023-10-24-memoization-pattern-and-object-shapes/&quot;&gt;deeper explaination of how Ruby Object Shapes are implemented&lt;/a&gt; (and more up-to-date for Ruby 3.3, unreleased as of October 23, 2023) and when and how to optimize for them.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;My rule of thumb is that one or two memoized variables in a class are fine, but more than that likely deserve a quick refactor.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;My original post is below…&lt;/p&gt;
+
+&lt;p&gt;Ruby 3.2 includes a performance optimization called Object Shapes, that changes how the Ruby VM stores, looks up, and caches instances variables (the variables that look like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@ivar&lt;/code&gt;) . YJIT also takes advantage of Object Shapes, and the upcoming Ruby 3.3 has further improvements that improve the performance of Object Shapes.&lt;/p&gt;
 
 &lt;p&gt;This is a brief blog post about how to write your own Ruby application code that is optimized for Object Shapes. If instead you’d like to learn more about how Object Shapes is implemented in Ruby, watch &lt;a href=&quot;https://www.youtube.com/watch?v=R0oxlyVUpDw&quot;&gt;Aaron Patterson’s RubyConf 2022 video&lt;/a&gt; or read this &lt;a href=&quot;https://poddarayush.com/posts/object-shapes-improve-ruby-code-performance/&quot;&gt;explanation from Ayush Poddar&lt;/a&gt; .&lt;/p&gt;
 
