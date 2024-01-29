@@ -5,6 +5,12 @@ published: true
 tags: [Ruby]
 ---
 
+**Update:** Jean Boussier wrote a [deeper explaination of how Ruby Object Shapes are implemented](https://railsatscale.com/2023-10-24-memoization-pattern-and-object-shapes/) (and more up-to-date for Ruby 3.3) and when and how to optimize for them.
+
+> My rule of thumb is that one or two memoized variables in a class are fine, but more than that likely deserve a quick refactor.
+
+My original post is below...
+
 Ruby 3.2 includes a performance optimization called Object Shapes, that changes how the Ruby VM stores, looks up, and caches instances variables (the variables that look like `@ivar`) . YJIT also takes advantage of Object Shapes, and the upcoming Ruby 3.3 has further improvements that improve the performance of Object Shapes.
 
 This is a brief blog post about how to write your own Ruby application code that is optimized for Object Shapes. If instead you'd like to learn more about how Object Shapes is implemented in Ruby, watch [Aaron Patterson's RubyConf 2022 video](https://www.youtube.com/watch?v=R0oxlyVUpDw) or read this [explanation from Ayush Poddar](https://poddarayush.com/posts/object-shapes-improve-ruby-code-performance/) .
