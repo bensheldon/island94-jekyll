@@ -1,7 +1,7 @@
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
     <h1 class="post-title" itemprop="name headline">
-      <a class="post-link" href="{{ bookmark.url | prepend: site.baseurl }}">
+      <a class="post-link" href="{{ bookmark.url | relative_url }}">
         {{ bookmark.title | default: bookmark.link }}
       </a>
     </h1>

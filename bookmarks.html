@@ -25,7 +25,7 @@ permalink: /bookmarks/
           </td>
           <td style="max-width: 20em">{{ bookmark.content | markdownify }}</td>
           <td>
-            <a href="{{ bookmark.url | prepend: site.baseurl }}">Permalink</a> / <a href="{{ site.repository_url}}/blob/main/{{bookmark.path }}"><i class="bi bi-github"></i></a>
+            <a href="{{ bookmark.url | relative_url }}">Permalink</a> / <a href="{{ site.repository_url}}/blob/main/{{bookmark.path }}"><i class="bi bi-github"></i></a>
           </td>
         </tr>
       {% endfor %}
