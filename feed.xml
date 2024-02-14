@@ -6,10 +6,309 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 14 Feb 2024 01:49:10 +0000</pubDate>
-    <lastBuildDate>Wed, 14 Feb 2024 01:49:10 +0000</lastBuildDate>
+    <pubDate>Wed, 14 Feb 2024 02:34:44 +0000</pubDate>
+    <lastBuildDate>Wed, 14 Feb 2024 02:34:44 +0000</lastBuildDate>
     <generator>Jekyll v4.3.3</generator>
     
+    
+      
+        
+
+
+
+
+<item>
+  <title>Farewell Brompt</title>
+  <description>&lt;p&gt;I planning to shut down Brompt, which I previously wrote about in &lt;a href=&quot;https://island94.org/2008/04/Brompt-is-a-blog-reminder.html&quot;&gt;2008&lt;/a&gt;, &lt;a href=&quot;https://island94.org/2011/03/A-form-from-my-favorites.html&quot;&gt;2011&lt;/a&gt;, and &lt;a href=&quot;https://island94.org/2022/09/reflections-on-brompt-2022&quot;&gt;2022&lt;/a&gt;. Let’s drop a &lt;a href=&quot;#&quot; onclick=&quot;event.preventDefault(); c = Confetti(); c.initialize(); c.drop();&quot;&gt;confetti 🎉&lt;/a&gt; together:&lt;/p&gt;
+
+&lt;blockquote&gt;
+
+  &lt;p&gt;Farewell 👋 Brompt is shutting down&lt;/p&gt;
+
+  &lt;p&gt;I have some sad news to share: I’m planning to shut down this service, Brompt, at the end of the month (February, 2024).&lt;/p&gt;
+
+  &lt;p&gt;Shutting down Brompt means that you’ll no longer receive these automated reminders for your blog or writing. I’ve been running Brompt since 2008 and unfortunately, I haven’t been able to make it sustainable. You’re one of about 80 people who are still using the service, though I’m never sure if you or anyone ever opens the emails regularly.&lt;/p&gt;
+
+  &lt;p&gt;Regardless of Brompt shutting down, I hope you’re doing well and I’d love to stay in touch. Send me an email at bensheldon@gmail.com or read my own blog at https://island94.org&lt;/p&gt;
+
+  &lt;p&gt;All the best,&lt;/p&gt;
+
+  &lt;p&gt;Ben (the person who made Brompt)&lt;/p&gt;
+
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href=&quot;/uploads/2024-02/brompt.jpg&quot;&gt;&lt;img src=&quot;/uploads/2024-02/brompt.jpg&quot; alt=&quot;Screenshots from Brompt&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;canvas id=&quot;canvas&quot; style=&quot;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    pointer-events: none;
+&quot;&gt;&lt;/canvas&gt;
+
+&lt;script&gt;
+// https://jsfiddle.net/hcxabsgh/
+// Usage: window.confetti.drop();
+window.Confetti = function () {
+  // globals
+  var canvas;
+  var ctx;
+  var W;
+  var H;
+  var mp = 150; //max particles
+  var particles = [];
+  var angle = 0;
+  var tiltAngle = 0;
+  var confettiActive = true;
+  var animationComplete = true;
+  var deactivationTimerHandler;
+  var reactivationTimerHandler;
+  var animationHandler;
+
+  // objects
+
+  var particleColors = {
+    colorOptions: [&quot;DodgerBlue&quot;, &quot;OliveDrab&quot;, &quot;Gold&quot;, &quot;pink&quot;, &quot;SlateBlue&quot;, &quot;lightblue&quot;, &quot;Violet&quot;, &quot;PaleGreen&quot;, &quot;SteelBlue&quot;, &quot;SandyBrown&quot;, &quot;Chocolate&quot;, &quot;Crimson&quot;],
+    colorIndex: 0,
+    colorIncrementer: 0,
+    colorThreshold: 10,
+    getColor: function () {
+      if (this.colorIncrementer &gt;= 10) {
+        this.colorIncrementer = 0;
+        this.colorIndex++;
+        if (this.colorIndex &gt;= this.colorOptions.length) {
+          this.colorIndex = 0;
+        }
+      }
+      this.colorIncrementer++;
+      return this.colorOptions[this.colorIndex];
+    }
+  }
+
+  function confettiParticle(color) {
+    this.x = Math.random() * W; // x-coordinate
+    this.y = (Math.random() * H) - H; //y-coordinate
+    this.r = RandomFromTo(10, 30); //radius;
+    this.d = (Math.random() * mp) + 10; //density;
+    this.color = color;
+    this.tilt = Math.floor(Math.random() * 10) - 10;
+    this.tiltAngleIncremental = (Math.random() * 0.07) + .05;
+    this.tiltAngle = 0;
+
+    this.draw = function () {
+      ctx.beginPath();
+      ctx.lineWidth = this.r / 2;
+      ctx.strokeStyle = this.color;
+      ctx.moveTo(this.x + this.tilt + (this.r / 4), this.y);
+      ctx.lineTo(this.x + this.tilt, this.y + this.tilt + (this.r / 4));
+      return ctx.stroke();
+    }
+  }
+
+  // $(document).ready(function () {
+  //   SetGlobals();
+  //   InitializeConfetti();
+  //
+  //   $(window).resize(function () {
+  //     W = window.innerWidth;
+  //     H = window.innerHeight;
+  //     canvas.width = W;
+  //     canvas.height = H;
+  //   });
+  // });
+
+  function SetGlobals() {
+    canvas = document.getElementById(&quot;canvas&quot;);
+    ctx = canvas.getContext(&quot;2d&quot;);
+    W = window.innerWidth;
+    H = window.innerHeight;
+    canvas.width = W;
+    canvas.height = H;
+  }
+
+  function InitializeConfetti() {
+    particles = [];
+    animationComplete = false;
+    for (var i = 0; i &lt; mp; i++) {
+      var particleColor = particleColors.getColor();
+      particles.push(new confettiParticle(particleColor));
+    }
+    StartConfetti();
+  }
+
+  function Draw() {
+    ctx.clearRect(0, 0, W, H);
+    var results = [];
+    for (var i = 0; i &lt; mp; i++) {
+      (function (j) {
+        results.push(particles[j].draw());
+      })(i);
+    }
+    Update();
+
+    return results;
+  }
+
+  function RandomFromTo(from, to) {
+    return Math.floor(Math.random() * (to - from + 1) + from);
+  }
+
+
+  function Update() {
+    var remainingFlakes = 0;
+    var particle;
+    angle += 0.01;
+    tiltAngle += 0.1;
+
+    for (var i = 0; i &lt; mp; i++) {
+      particle = particles[i];
+      if (animationComplete) return;
+
+      if (!confettiActive &amp;&amp; particle.y &lt; -15) {
+        particle.y = H + 100;
+        continue;
+      }
+
+      stepParticle(particle, i);
+
+      if (particle.y &lt;= H) {
+        remainingFlakes++;
+      }
+      CheckForReposition(particle, i);
+    }
+
+    if (remainingFlakes === 0) {
+      StopConfetti();
+    }
+  }
+
+  function CheckForReposition(particle, index) {
+    if ((particle.x &gt; W + 20 || particle.x &lt; -20 || particle.y &gt; H) &amp;&amp; confettiActive) {
+      if (index % 5 &gt; 0 || index % 2 == 0) //66.67% of the flakes
+      {
+        repositionParticle(particle, Math.random() * W, -10, Math.floor(Math.random() * 10) - 20);
+      } else {
+        if (Math.sin(angle) &gt; 0) {
+          //Enter from the left
+          repositionParticle(particle, -20, Math.random() * H, Math.floor(Math.random() * 10) - 20);
+        } else {
+          //Enter from the right
+          repositionParticle(particle, W + 20, Math.random() * H, Math.floor(Math.random() * 10) - 20);
+        }
+      }
+    }
+  }
+  function stepParticle(particle, particleIndex) {
+    particle.tiltAngle += particle.tiltAngleIncremental;
+    particle.y += (Math.cos(angle + particle.d) + 3 + particle.r / 2) / 2;
+    particle.x += Math.sin(angle);
+    particle.tilt = (Math.sin(particle.tiltAngle - (particleIndex / 3))) * 15;
+  }
+
+  function repositionParticle(particle, xCoordinate, yCoordinate, tilt) {
+    particle.x = xCoordinate;
+    particle.y = yCoordinate;
+    particle.tilt = tilt;
+  }
+
+  function StartConfetti() {
+    W = window.innerWidth;
+    H = window.innerHeight;
+    canvas.width = W;
+    canvas.height = H;
+    (function animloop() {
+      if (animationComplete) return null;
+      animationHandler = requestAnimFrame(animloop);
+      return Draw();
+    })();
+  }
+
+  function ClearTimers() {
+    clearTimeout(reactivationTimerHandler);
+    clearTimeout(animationHandler);
+  }
+
+  function DeactivateConfetti() {
+    confettiActive = false;
+    ClearTimers();
+  }
+
+  function StopConfetti() {
+    animationComplete = true;
+    if (ctx == undefined) return;
+    ctx.clearRect(0, 0, W, H);
+  }
+
+  function RestartConfetti() {
+    ClearTimers();
+    StopConfetti();
+    reactivationTimerHandler = setTimeout(function () {
+      confettiActive = true;
+      animationComplete = false;
+      InitializeConfetti();
+    }, 100);
+
+  }
+
+  window.requestAnimFrame = (function () {
+    return window.requestAnimationFrame ||
+      window.webkitRequestAnimationFrame ||
+      window.mozRequestAnimationFrame ||
+      window.oRequestAnimationFrame ||
+      window.msRequestAnimationFrame ||
+      function (callback) {
+        return window.setTimeout(callback, 1000 / 60);
+      };
+  })();
+
+  return {
+    initialize: function() {
+      SetGlobals();
+      InitializeConfetti();
+
+      // $(window).resize(function () {
+      //   W = window.innerWidth;
+      //   H = window.innerHeight;
+      //   canvas.width = W;
+      //   canvas.height = H;
+      // });
+    },
+    start: function() {
+      RestartConfetti();
+    },
+    stop: function() {
+      DeactivateConfetti();
+    },
+    drop: function(duration) {
+      RestartConfetti();
+      window.setTimeout(function() {
+        DeactivateConfetti();
+      }, duration || 1500);
+    },
+  }
+};
+&lt;/script&gt;
+
+
+  &lt;br&gt;&lt;br&gt;
+  &lt;hr&gt;
+  &lt;p&gt;
+    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2024/02/farewell-brompt&quot;&gt;Farewell Brompt&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
+    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
+  &lt;/p&gt;
+</description>
+  <pubDate>Wed, 14 Feb 2024 01:49:00 +0000</pubDate>
+  <link>https://island94.org/2024/02/farewell-brompt</link>
+  <guid isPermaLink="true">https://island94.org/2024/02/farewell-brompt</guid>
+  
+    <category>Brompt</category>
+  
+  
+</item>
+
+      
     
       
         
@@ -954,164 +1253,6 @@ diff = Sheap::Diff.new(&quot;/Users/bensheldon/Repositories/sciencehistory/scihi
   <guid isPermaLink="true">https://island94.org/2023/10/reflections-on-good-job-for-solid-queue</guid>
   
     <category>GoodJob</category>
-  
-    <category>Ruby</category>
-  
-  
-</item>
-
-      
-    
-      
-        
-
-
-
-
-<item>
-  <title>Writing Object Shape friendly code in Ruby</title>
-  <description>&lt;p&gt;&lt;strong&gt;Update:&lt;/strong&gt; Jean Boussier wrote a &lt;a href=&quot;https://railsatscale.com/2023-10-24-memoization-pattern-and-object-shapes/&quot;&gt;deeper explaination of how Ruby Object Shapes are implemented&lt;/a&gt; (and more up-to-date for Ruby 3.3, unreleased as of October 23, 2023) and when and how to optimize for them.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;My rule of thumb is that one or two memoized variables in a class are fine, but more than that likely deserve a quick refactor.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;My original post is below…&lt;/p&gt;
-
-&lt;p&gt;Ruby 3.2 includes a performance optimization called Object Shapes, that changes how the Ruby VM stores, looks up, and caches instances variables (the variables that look like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@ivar&lt;/code&gt;) . YJIT also takes advantage of Object Shapes, and the upcoming Ruby 3.3 has further improvements that improve the performance of Object Shapes.&lt;/p&gt;
-
-&lt;p&gt;This is a brief blog post about how to write your own Ruby application code that is optimized for Object Shapes. If instead you’d like to learn more about how Object Shapes is implemented in Ruby, watch &lt;a href=&quot;https://www.youtube.com/watch?v=R0oxlyVUpDw&quot;&gt;Aaron Patterson’s RubyConf 2022 video&lt;/a&gt; or read this &lt;a href=&quot;https://poddarayush.com/posts/object-shapes-improve-ruby-code-performance/&quot;&gt;explanation from Ayush Poddar&lt;/a&gt; .&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Big thank you to my colleagues John Hawthorn and Matthew Draper for feedback on the coding strategies described here. And John Bachir, Nate Matykiewicz, Josh Nichols, and Jean Boussier whose conversation in &lt;a href=&quot;https://www.speedshop.co/rails-performance-workshop.html&quot;&gt;Rails Performance Slack&lt;/a&gt; inspired it.&lt;/em&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;the-general-rule-define-your-instance-variables-in-the-same-order-every-time&quot;&gt;The general rule: define your instance variables in the same order every time&lt;/h3&gt;
-
-&lt;p&gt;To take advantage of Object Shape optimizations in your own Ruby Code, the goal is to minimize the number of different shapes of objects that are created and minimize the number of object shape transitions that occur while your application is running:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Ensure that instances of the same class share the same object shape&lt;/li&gt;
-  &lt;li&gt;Ensure that objects do not frequently or unnecessarily transition or change their shape&lt;/li&gt;
-  &lt;li&gt;Help objects that &lt;em&gt;could&lt;/em&gt; share the same object shape (e.g. substitutable child classes) to do so, with reasonable effort and without compromising readability and maintainability.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;This succinct explanation is from &lt;a href=&quot;https://poddarayush.com/posts/object-shapes-improve-ruby-code-performance/&quot;&gt;Ayush Poddar&lt;/a&gt;, and explains the conditions that allow objects to share a shape:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;New objects with the same [instance variable] transitions will end up with the same shape. This is independent of the class of the object. This also includes the child classes since they, too, can re-use the shape transitions of the parent class. But, &lt;strong&gt;two objects can share the same shape only if the order in which their instance variables are set is the same.&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;That’s it, that’s what you have to do: if you want to ensure that two objects share the same shape, make sure they define their instance variables in the same order. Let’s start with a counterexample:&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# Bad: Object Shape unfriendly&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;GroceryStore&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;fruit&lt;/span&gt;
-    &lt;span class=&quot;vi&quot;&gt;@fruit&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;apple&quot;&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;vegetable&lt;/span&gt;
-    &lt;span class=&quot;vi&quot;&gt;@vegetable&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;broccoli&quot;&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# The &quot;Application&quot;&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;alpha_store&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;GroceryStore&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;alpha_store&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;fruit&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# defines @fruit first&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;alpha_store&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;vegetable&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# defines @vegetable second&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;beta_store&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;GroceryStore&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;beta_store&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;vegetable&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# defines @vegetable first&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;beta_store&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;fruit&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# defines #fruit second &lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;In this example, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;alpha_store&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;beta_store&lt;/code&gt; do not share the same object shape because the order in which their instance variables are defined depends on the order the application calls their methods. This code is not Object Shape friendly.&lt;/p&gt;
-
-&lt;h3 id=&quot;pattern-define-your-instance-variables-in-initialize&quot;&gt;Pattern: Define your instance variables in initialize&lt;/h3&gt;
-
-&lt;p&gt;The simplest way to ensure instance variables are defined in the same order every time is to define the instance variables in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;#initialize&lt;/code&gt;:&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# Good: Object Shape friendly&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;GroceryStore&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initialize&lt;/span&gt;
-    &lt;span class=&quot;vi&quot;&gt;@fruit&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;apple&quot;&lt;/span&gt;
-    &lt;span class=&quot;vi&quot;&gt;@vegetable&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# declare but assign later&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;fruit&lt;/span&gt;
-    &lt;span class=&quot;vi&quot;&gt;@fruit&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;vegetable&lt;/span&gt;
-    &lt;span class=&quot;vi&quot;&gt;@vegetable&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||=&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;broccoli&quot;&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;del&gt;It’s also ok to define instance variables implicitly with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;attr_*&lt;/code&gt; methods in the class body, which has the same outcome of always defining the instance variables in the same order.&lt;/del&gt; &lt;strong&gt;Update&lt;/strong&gt;: Ufuk Kayserilioglu informed me that &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;attr_*&lt;/code&gt; do not define the instance variable until they are first called, meaning that these methods or their associated instance variables should also be declared with a value in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;#initialize&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;Now I realize this is a very simplistic example, but that’s really all there is to it. If it makes you feel better, at GitHub where I work, we have classes with upwards of 200 instance variables. In hot code, where we have profiled, we go to a negligible effort of making sure those instance variables are defined in the same order; it’s really not that bad!&lt;/p&gt;
-
-&lt;h3 id=&quot;pattern-null-memoization&quot;&gt;Pattern: Null memoization&lt;/h3&gt;
-
-&lt;p&gt;Using instance variables to memoize values in your code may present a challenge when nil is a valid memoized value. This is a common pattern in Ruby that is not Object Shape friendly:&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# Bad: Object Shape unfriendly&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;GroceryStore&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;fruit&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@fruit&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;defined?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@fruit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;vi&quot;&gt;@fruit&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;an_expensive_operation&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Rewrite this by creating a unique &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NULL&lt;/code&gt; constant and check for its presence instead:&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# Good: Object Shape friendly&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;GroceryStore&lt;/span&gt;
-  &lt;span class=&quot;no&quot;&gt;NULL&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Object&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;
-  &lt;span class=&quot;no&quot;&gt;NULL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;freeze&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# not strictly necessary, but makes it Ractor-safe&lt;/span&gt;
-
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initialize&lt;/span&gt;
-    &lt;span class=&quot;vi&quot;&gt;@fruit&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;NULL&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;fruit&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@fruit&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;unless&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@fruit&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;NULL&lt;/span&gt;
-    &lt;span class=&quot;vi&quot;&gt;@fruit&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;an_expensive_operation&lt;/span&gt; 
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Alternatively, if you’re doing a lot of meta or variable programming and you need an arbitrary number of memoized values, use a hash and key check instead:&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# Good: Object Shape friendly&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;GroceryStore&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initialize&lt;/span&gt;
-    &lt;span class=&quot;vi&quot;&gt;@produce&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;produce&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@produce&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@produce&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;key?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;vi&quot;&gt;@produce&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;an_expensive_operation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; 
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;thats-it&quot;&gt;That’s it&lt;/h3&gt;
-
-&lt;p&gt;Creating Object Shape friendly code is not very complicated!&lt;/p&gt;
-
-&lt;p&gt;Please reach out if there’s other patterns I’m missing: bensheldon@gmail.com / &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;twitter.com/@bensheldon&lt;/a&gt; / &lt;a href=&quot;https://ruby.social/@bensheldon&quot;&gt;ruby.social/@bensheldon&lt;/a&gt;&lt;/p&gt;
-
-  &lt;br&gt;&lt;br&gt;
-  &lt;hr&gt;
-  &lt;p&gt;
-    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2023/10/writing-object-shape-friendly-code-in-ruby&quot;&gt;Writing Object Shape friendly code in Ruby&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
-    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
-  &lt;/p&gt;
-</description>
-  <pubDate>Sun, 01 Oct 2023 15:05:00 +0000</pubDate>
-  <link>https://island94.org/2023/10/writing-object-shape-friendly-code-in-ruby</link>
-  <guid isPermaLink="true">https://island94.org/2023/10/writing-object-shape-friendly-code-in-ruby</guid>
   
     <category>Ruby</category>
   
