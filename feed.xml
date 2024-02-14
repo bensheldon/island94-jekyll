@@ -6,8 +6,8 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 14 Feb 2024 02:34:44 +0000</pubDate>
-    <lastBuildDate>Wed, 14 Feb 2024 02:34:44 +0000</lastBuildDate>
+    <pubDate>Wed, 14 Feb 2024 19:28:48 +0000</pubDate>
+    <lastBuildDate>Wed, 14 Feb 2024 19:28:48 +0000</lastBuildDate>
     <generator>Jekyll v4.3.3</generator>
     
     
@@ -19,7 +19,9 @@
 
 <item>
   <title>Farewell Brompt</title>
-  <description>&lt;p&gt;I planning to shut down Brompt, which I previously wrote about in &lt;a href=&quot;https://island94.org/2008/04/Brompt-is-a-blog-reminder.html&quot;&gt;2008&lt;/a&gt;, &lt;a href=&quot;https://island94.org/2011/03/A-form-from-my-favorites.html&quot;&gt;2011&lt;/a&gt;, and &lt;a href=&quot;https://island94.org/2022/09/reflections-on-brompt-2022&quot;&gt;2022&lt;/a&gt;. Let’s drop a &lt;a href=&quot;#&quot; onclick=&quot;event.preventDefault(); c = Confetti(); c.initialize(); c.drop();&quot;&gt;confetti 🎉&lt;/a&gt; together:&lt;/p&gt;
+  <description>&lt;p&gt;I’m planning to shut down Brompt, which I previously wrote about in &lt;a href=&quot;https://island94.org/2008/04/Brompt-is-a-blog-reminder.html&quot;&gt;2008&lt;/a&gt;, &lt;a href=&quot;https://island94.org/2011/03/A-form-from-my-favorites.html&quot;&gt;2011&lt;/a&gt;, and &lt;a href=&quot;https://island94.org/2022/09/reflections-on-brompt-2022&quot;&gt;2022&lt;/a&gt;. I &lt;a href=&quot;https://github.com/bensheldon/brompt-archive&quot;&gt;archived the code&lt;/a&gt; on GitHub.&lt;/p&gt;
+
+&lt;p&gt;Let’s do a final &lt;a href=&quot;#&quot; onclick=&quot;event.preventDefault(); c = Confetti(); c.initialize(); c.drop();&quot;&gt;confetti drop 🎉&lt;/a&gt; together.&lt;/p&gt;
 
 &lt;blockquote&gt;
 
