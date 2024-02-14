@@ -5,7 +5,7 @@ published: true
 tags: [Brompt]
 ---
 
-I planning to shut down Brompt, which I previously wrote about in [2008](https://island94.org/2008/04/Brompt-is-a-blog-reminder.html), [2011](https://island94.org/2011/03/A-form-from-my-favorites.html), and [2022](https://island94.org/2022/09/reflections-on-brompt-2022). Let's drop a <a href="#" onclick="event.preventDefault(); c = Confetti(); c.initialize(); c.drop();">confetti 🎉</a> together:
+I'm planning to shut down Brompt, which I previously wrote about in [2008](https://island94.org/2008/04/Brompt-is-a-blog-reminder.html), [2011](https://island94.org/2011/03/A-form-from-my-favorites.html), and [2022](https://island94.org/2022/09/reflections-on-brompt-2022). Let's drop a <a href="#" onclick="event.preventDefault(); c = Confetti(); c.initialize(); c.drop();">confetti 🎉</a> together:
 
 <blockquote markdown="1">
 
