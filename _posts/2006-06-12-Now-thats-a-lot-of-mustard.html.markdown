@@ -17,7 +17,7 @@ redirect_from:
 
 _Staying in the condiment vein..._
 
-I am in San Francisco this weekend for [Vloggercon](http://vloggercon.com), a yearly meetup of the video blogging community. The conference went Saturday and Sunday, but I flew in Thursday afternoon and so had all of Friday free. I decided to spend it hiking in the Presidio.
+I am in San Francisco this weekend for [Vloggercon](https://web.archive.org/web/20060612200519/http://vloggercon.com:80/), a yearly meetup of the video blogging community. The conference went Saturday and Sunday, but I flew in Thursday afternoon and so had all of Friday free. I decided to spend it hiking in the Presidio.
 
 I'm staying with an old friend just North of Golden Gate Park; I just started walking North and eventually I reached the path that runs just beneath the Presidio golf course. This path I took up past Mountain Lake and out to Baker Beach. Just topping a rise, I saw my first view of the Pacific Ocean in over a year; it's been a long time.
 
