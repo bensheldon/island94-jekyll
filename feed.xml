@@ -6,8 +6,8 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 31 Mar 2024 18:35:43 +0000</pubDate>
-    <lastBuildDate>Sun, 31 Mar 2024 18:35:43 +0000</lastBuildDate>
+    <pubDate>Sun, 31 Mar 2024 18:43:37 +0000</pubDate>
+    <lastBuildDate>Sun, 31 Mar 2024 18:43:37 +0000</lastBuildDate>
     <generator>Jekyll v4.3.3</generator>
     
     
@@ -78,7 +78,7 @@
   &lt;li&gt;Wrapping the value in an &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ActiveRecord::Relation::QueryAttribute&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Note that many Active Record queries will automatically do this for you, but &lt;em&gt;not all of them&lt;/em&gt;. In this particular case, it’s because of the I want to use “less than” operator, whereas equality does make it preparable. &lt;strong&gt;You’ll have to inspect each query yourself.&lt;/strong&gt; For example, it’s also necessary with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Arel#matches&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ILIKE&lt;/code&gt;. It’s also possible to temporarily disable prepared statements within a block in the &lt;a href=&quot;https://github.com/rails/rails/blob/6f0d1ad14b92b9f5906e44740fce8b4f1c7075dc/activerecord/lib/active_record/connection_adapters/abstract_adapter.rb#L368-L373&quot;&gt;undocumented&lt;/a&gt; (!) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Model.connection.unprepared_statement { your_query }&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Note that many Active Record queries will automatically do this for you, but &lt;em&gt;not all of them&lt;/em&gt;. In this particular case, it’s because I use the “less than” operator, whereas equality does make it preparable. &lt;strong&gt;You’ll have to inspect each query yourself.&lt;/strong&gt; For example, it’s also necessary with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Arel#matches&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ILIKE&lt;/code&gt;. It’s also possible to temporarily disable prepared statements within a block in the &lt;a href=&quot;https://github.com/rails/rails/blob/6f0d1ad14b92b9f5906e44740fce8b4f1c7075dc/activerecord/lib/active_record/connection_adapters/abstract_adapter.rb#L368-L373&quot;&gt;undocumented&lt;/a&gt; (!) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Model.connection.unprepared_statement { your_query }&lt;/code&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;The above code is true as of Rails 7.1. &lt;a href=&quot;https://github.com/rails/rails/pull/51139&quot;&gt;Jean Boussier has improved Active Record&lt;/a&gt; in newer (currently unreleased) Rails to also properly bind &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Job.where(&quot;scheduled_at &amp;lt; ?&quot;, Time.current)&lt;/code&gt; query syntax too 🙇&lt;/strong&gt;&lt;/p&gt;
 
