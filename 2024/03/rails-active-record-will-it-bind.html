@@ -175,6 +175,17 @@
 
 <p><strong>The above code is true as of Rails 7.1. <a href="https://github.com/rails/rails/pull/51139">Jean Boussier has improved Active Record</a> in newer (currently unreleased) Rails to also properly bind <code class="language-plaintext highlighter-rouge">Job.where("scheduled_at &lt; ?", Time.current)</code> query syntax too 🙇</strong></p>
 
+<p>Update: I realized I didn’t try beginless/endless range values. Good news: they create bind parameters 🎉</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Experiment 3: Arel query with QueryAttribute</span>
+<span class="n">relation</span> <span class="o">=</span> <span class="no">Job</span><span class="p">.</span><span class="nf">where</span><span class="p">(</span><span class="ss">scheduled_at: </span><span class="o">...</span><span class="no">Time</span><span class="p">.</span><span class="nf">current</span><span class="p">)</span>
+<span class="c1"># =&gt;  Job Load (0.1ms)  SELECT "good_jobs".* FROM "good_jobs" WHERE scheduled_at &lt; $1  [["scheduled_at", "2024-03-31 16:34:11.064614"]]</span>
+<span class="n">expect</span><span class="p">(</span><span class="n">relation</span><span class="p">.</span><span class="nf">to_a</span><span class="p">).</span><span class="nf">to</span> <span class="n">eq</span><span class="p">([</span><span class="n">job</span><span class="p">])</span>
+<span class="n">_query</span><span class="p">,</span> <span class="n">binds</span><span class="p">,</span> <span class="n">prepared</span> <span class="o">=</span> <span class="no">Job</span><span class="p">.</span><span class="nf">connection</span><span class="p">.</span><span class="nf">send</span><span class="p">(</span><span class="ss">:to_sql_and_binds</span><span class="p">,</span> <span class="n">relation</span><span class="p">.</span><span class="nf">arel</span><span class="p">)</span>
+<span class="n">expect</span><span class="p">(</span><span class="n">binds</span><span class="p">.</span><span class="nf">size</span><span class="p">).</span><span class="nf">to</span> <span class="n">eq</span> <span class="mi">1</span> <span class="c1"># &lt;-- Looking good! 🙌</span>
+<span class="n">expect</span><span class="p">(</span><span class="n">prepared</span><span class="p">).</span><span class="nf">to</span> <span class="n">eq</span> <span class="kp">true</span> <span class="c1"># &lt;-- Yes! 👏</span>
+</code></pre></div></div>
+
   </div>
 </article>
 
@@ -197,7 +208,7 @@
       
         <li><a href="/2023/12/solid-queue-first-impressions">Solid Queue first impressions: Nice!</a></li>
       
-        <li><a href="/2023/10/reflections-on-good-job-for-solid-queue">Reflections on GoodJob for Solid Queue</a></li>
+        <li><a href="/2022/03/let-the-record-show-a-political-history-of-act-up-new-york,-1987-1993">Let the Record Show: A Political History of ACT UP New York, 1987-1993</a></li>
       
     </ul>
   </div>
