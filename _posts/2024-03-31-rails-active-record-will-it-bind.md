@@ -66,3 +66,15 @@ That very last option is the good one because it has the bind parameter (`$1`) a
 Note that many Active Record queries will automatically do this for you, but _not all of them_. In this particular case, it’s because I use the “less than” operator, whereas equality does make it preparable. **You’ll have to inspect each query yourself.** For example, it’s also necessary with `Arel#matches`/`ILIKE`. It’s also possible to temporarily disable prepared statements within a block in the [undocumented](https://github.com/rails/rails/blob/6f0d1ad14b92b9f5906e44740fce8b4f1c7075dc/activerecord/lib/active_record/connection_adapters/abstract_adapter.rb#L368-L373) (!) `Model.connection.unprepared_statement { your_query }`.
 
 **The above code is true as of Rails 7.1. [Jean Boussier has improved Active Record](https://github.com/rails/rails/pull/51139) in newer (currently unreleased) Rails to also properly bind `Job.where("scheduled_at < ?", Time.current)` query syntax too 🙇**
+
+Update: I realized I didn't try beginless/endless range values. Good news: they create bind parameters 🎉
+
+```ruby
+# Experiment 3: Arel query with QueryAttribute
+relation = Job.where(scheduled_at: ...Time.current)
+# =>  Job Load (0.1ms)  SELECT "good_jobs".* FROM "good_jobs" WHERE scheduled_at < $1  [["scheduled_at", "2024-03-31 16:34:11.064614"]]
+expect(relation.to_a).to eq([job])
+_query, binds, prepared = Job.connection.send(:to_sql_and_binds, relation.arel)
+expect(binds.size).to eq 1 # <-- Looking good! 🙌
+expect(prepared).to eq true # <-- Yes! 👏
+```
