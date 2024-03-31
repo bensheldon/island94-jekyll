@@ -6,10 +6,97 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 26 Mar 2024 13:45:50 +0000</pubDate>
-    <lastBuildDate>Tue, 26 Mar 2024 13:45:50 +0000</lastBuildDate>
+    <pubDate>Sun, 31 Mar 2024 18:14:40 +0000</pubDate>
+    <lastBuildDate>Sun, 31 Mar 2024 18:14:40 +0000</lastBuildDate>
     <generator>Jekyll v4.3.3</generator>
     
+    
+      
+        
+
+
+
+
+<item>
+  <title>Rails Active Record: Will it bind?</title>
+  <description>&lt;p&gt;Active Record, Ruby on Rail’s ORM, has support for Prepared Statements that work &lt;em&gt;if you structure your query for it&lt;/em&gt;. Because of my work on GoodJob, which can make a lot of nearly identical database queries every second to pop its job queue, I’ve invested a lot of time trying to make those queries as efficient as possible.&lt;/p&gt;
+
+&lt;p&gt;Prepared Statements are a database feature that allow the database to reuse query parsing and planning when queries are structurally the same. Prepared statements, at least in Postgres, are linked to the database connection/session and stored in memory in the database. This implies some things:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;There can be a &lt;strong&gt;performance benefit&lt;/strong&gt; to making queries “preparable” for Prepared Statements which Active Record will decide for you based on how a query is structured.&lt;/li&gt;
+  &lt;li&gt;There can be a &lt;strong&gt;performance harm&lt;/strong&gt; (or at least non-useful database processing and &lt;a href=&quot;https://github.com/rails/rails/issues/14645&quot;&gt;memory growth&lt;/a&gt;) if your application produces a lot of preparable queries that are never reused again.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;By default, Rails will have the database store 1,000 queries (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;statement_limit: 1000&lt;/code&gt;). Many huge Rails monoliths (like GitHub, where I work) disable prepared statements (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;prepared_statements: false&lt;/code&gt;) because there is too much query heterogeneity to get a performance benefit and the database spends extra and unnecessary cycles storing and evicting unused prepared statements.  But that’s maybe not your application!&lt;/p&gt;
+
+&lt;p&gt;Structurally similar queries can still have variable values inside of them: these are called &lt;strong&gt;bind parameters&lt;/strong&gt;. For example, in GoodJob, I want pop jobs that are scheduled to run right now. In SQL that might look like:&lt;/p&gt;
+
+&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;good_jobs&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;WHERE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;scheduled_at&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;2024-03-31 16:44:11.047499`
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;That query has the downside of the timestamp changing multiple times a second as new queries are emitted. What I want to do is extract out the timestamp into a bind parameter (a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;?&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$1&lt;/code&gt; depending on the database adapter) instead of embedded in the query:&lt;/p&gt;
+
+&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;good_jobs&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;WHERE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;scheduled_at&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;?&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;That’s the good stuff! That’s ideal and preparable 👍&lt;/p&gt;
+
+&lt;p&gt;But that’s raw SQL, now how to do that in Active Record? In the following exploration, I’m using the private &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;to_sql_and_binds&lt;/code&gt; method in Active Record; I’m also using the private Arel API. This is all private and subject to change, so be sure to write some tests around this behavior if you do choose to use it.  Here’s some &lt;a href=&quot;https://github.com/bensheldon/rails_tricks/blob/6c686c987ee9996bbad8a6ade1f92184c5a9ebf6/bind_params.rb&quot;&gt;quick experiments&lt;/a&gt; I’ve done:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;job&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Job&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;scheduled_at: &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;minutes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ago&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Experiment 1: string with ?&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;relation&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Job&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;where&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;scheduled_at &amp;lt; ?&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;current&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# =&amp;gt;  Job Load (0.1ms)  SELECT &quot;good_jobs&quot;.* FROM &quot;good_jobs&quot; WHERE (scheduled_at &amp;lt; &apos;2024-03-31 16:34:11.064614&apos;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;relation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to_a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;eq&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;job&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;_query&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;binds&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;prepared&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Job&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;connection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;send&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:to_sql_and_binds&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;relation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;arel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;binds&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;eq&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# &amp;lt;-- Not a bind parameter&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;prepared&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;eq&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# &amp;lt;-- Not preparable&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Experiment 2: Arel query with value&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;relation&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Job&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Job&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;arel_table&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;scheduled_at&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;lt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;current&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# =&amp;gt;  Job Load (0.1ms)  SELECT &quot;good_jobs&quot;.* FROM &quot;good_jobs&quot; WHERE scheduled_at &amp;lt; &apos;2024-03-31 16:34:11.064614&apos;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;relation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to_a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;eq&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;job&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;_query&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;binds&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;prepared&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Job&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;connection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;send&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:to_sql_and_binds&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;relation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;arel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;binds&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;eq&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# &amp;lt;-- Not a bind parameter&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;prepared&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;eq&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# &amp;lt;-- Yikes 🥵&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Experiment 3: Arel query with QueryAttribute&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;relation&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Job&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;where&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Job&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;arel_table&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;scheduled_at&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;lt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;ActiveRecord&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Relation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;QueryAttribute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;scheduled_at&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;current&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ActiveRecord&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;DateTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# =&amp;gt;  Job Load (0.1ms)  SELECT &quot;good_jobs&quot;.* FROM &quot;good_jobs&quot; WHERE scheduled_at &amp;lt; $1  [[&quot;scheduled_at&quot;, &quot;2024-03-31 16:34:11.064614&quot;]]&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;relation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to_a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;eq&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;job&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;_query&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;binds&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;prepared&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Job&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;connection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;send&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:to_sql_and_binds&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;relation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;arel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;binds&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;eq&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# &amp;lt;-- Looking good! 🙌&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;prepared&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;eq&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# &amp;lt;-- Yes! 👏&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;That very last option is the good one because it has the bind parameter (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$1&lt;/code&gt;) and then the Active Record logger will show the values in the nested array next to the query. The successful combination uses:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Arel comparable syntax&lt;/li&gt;
+  &lt;li&gt;Wrapping the value in an &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ActiveRecord::Relation::QueryAttribute&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Note that many Active Record queries will automatically do this for you, but &lt;em&gt;not all of them&lt;/em&gt;. In this particular case, it’s because of the I want to use “less than” operator, whereas equality does make it preparable. &lt;strong&gt;You’ll have to inspect each query yourself.&lt;/strong&gt; For example, it’s also necessary with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Arel#matches&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ILIKE&lt;/code&gt;. It’s also possible to temporarily disable prepared statements within a block in the &lt;a href=&quot;https://github.com/rails/rails/blob/6f0d1ad14b92b9f5906e44740fce8b4f1c7075dc/activerecord/lib/active_record/connection_adapters/abstract_adapter.rb#L368-L373&quot;&gt;undocumented&lt;/a&gt; (!) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Model.connection.unprepared_statement { your_query }&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;The above code is true as of Rails 7.1. &lt;a href=&quot;https://github.com/rails/rails/pull/51139&quot;&gt;Jean Boussier has improved Active Record&lt;/a&gt; in newer (currently unreleased) Rails to also properly bind &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Job.where(&quot;scheduled_at &amp;lt; ?&quot;, Time.current)&lt;/code&gt; query syntax too 🙇&lt;/strong&gt;&lt;/p&gt;
+
+  &lt;br&gt;&lt;br&gt;
+  &lt;hr&gt;
+  &lt;p&gt;
+    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2024/03/rails-active-record-will-it-bind&quot;&gt;Rails Active Record: Will it bind?&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
+    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
+  &lt;/p&gt;
+</description>
+  <pubDate>Sun, 31 Mar 2024 17:15:00 +0000</pubDate>
+  <link>https://island94.org/2024/03/rails-active-record-will-it-bind</link>
+  <guid isPermaLink="true">https://island94.org/2024/03/rails-active-record-will-it-bind</guid>
+  
+  
+</item>
+
+      
     
       
         
@@ -1162,98 +1249,6 @@ diff = Sheap::Diff.new(&quot;/Users/bensheldon/Repositories/sciencehistory/scihi
     <category>recently</category>
   
     <category>weeknotes</category>
-  
-  
-</item>
-
-      
-    
-      
-        
-
-
-
-
-<item>
-  <title>The Rails Executor: increasingly everywhere</title>
-  <description>&lt;p&gt;&lt;em&gt;The Rails Executor rules everything around &lt;del&gt;you&lt;/del&gt; your code.&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;If you write multithreaded-Rails code—like me, author of &lt;a href=&quot;https://github.com/bensheldon/good_job&quot;&gt;GoodJob&lt;/a&gt;—you’re probably familiar with the Rails Executor which is described in the &lt;a href=&quot;https://guides.rubyonrails.org/v7.1/threading_and_code_execution.html&quot;&gt;Rails Multithreading Guide&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;If you’re new to the Rails Executor: it sets up and tears down a lot of Rails’ framework magic. Code wrapped with a Rails Executor or its sibling, the Reloader, pick up a lot of powerful behavior:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Constant autoloading and reloading&lt;/li&gt;
-  &lt;li&gt;Database connection/connection-pool management and query retries&lt;/li&gt;
-  &lt;li&gt;Query Cache&lt;/li&gt;
-  &lt;li&gt;Query Logging&lt;/li&gt;
-  &lt;li&gt;CurrentAttributes&lt;/li&gt;
-  &lt;li&gt;Error reporting&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;You usually won’t think about it. The Rails framework already wraps every Controller Action and Active Job with an Executor. Recently, as of Rails v7.1, it’s showing up everywhere within the Rails codebase:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/rails/rails/pull/44999&quot;&gt;Rails runner scripts are now wrapped with an Executor&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/rails/rails/pull/43550&quot;&gt;Minitest test cases are now wrapped with an Executor&lt;/a&gt; (I’m working on getting &lt;a href=&quot;https://github.com/rspec/rspec-rails/issues/2713&quot;&gt;parity in rspec-rails&lt;/a&gt;). It has a nice little explanation why “This helps to better simulate request or job local state being reset around tests and prevent state to leak from one test to another.”&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;The effect of these small changes could be surprising:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;I came to write this blog post because I saw a Rails Discussion asking how &lt;a href=&quot;https://discuss.rubyonrails.org/t/rails-7-1-uses-query-cache-for-runner-scripts/84275&quot;&gt;“Rails 7.1 uses query cache for runner scripts”&lt;/a&gt; and aha, I knew the answer: the Executor.&lt;/li&gt;
-  &lt;li&gt;I recently &lt;a href=&quot;https://github.com/bensheldon/good_job/pull/1124&quot;&gt;fixed a bunch of flaky GoodJob unit tests&lt;/a&gt; by wrapping each RSpec example in a Rails Executor. This is a problem specific to GoodJob, which uses connection-based Advisory Locks, but I discovered that if an Executor context was passed through (for example, executing an Active Job inline), the current database connection would be returned to the pool, sometimes breaking the Advisory Locks when a different connection was checked back out to continue the test. This was only a fluke of the tests, but was a longtime annoyance. I’ve previously had to &lt;a href=&quot;https://github.com/bensheldon/good_job/blob/c6d3aa4906783498ed6296060666d350ac2e288c/lib/good_job/current_thread.rb#L6-L7&quot;&gt;work around a similar reset of CurrentAttributes&lt;/a&gt; that occurs too.&lt;/li&gt;
-  &lt;li&gt;At my day job, GitHub, we’ve also been double-checking that all of our Rails-invoking scripts and daemons are wrapped with Rails Executors. Doing so has fixed flukey constant lookups, reduced our database connection error rate and increased successful query retries, and necessitated updating a bunch of tests that counted queries that now hit the query cache.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;The Rails Executor is great! Your code is probably already wrapped by the Rails framework, but anytime you start writing scripts or daemons that &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;require_relative &quot;./config/environment.rb&quot;&lt;/code&gt; you should double-check, and &lt;em&gt;definitely&lt;/em&gt; if you’re using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Thread.new&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Concurrent::Future&lt;/code&gt; or anything that runs in a background thread.&lt;/p&gt;
-
-&lt;p&gt;I used the following code in GoodJob to debug that database connection checkout occurs in a Rails Executor, maybe you could adopt something similar too:&lt;/p&gt;
-
-&lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# config/initializers/debug_executors.rb&lt;/span&gt;
-
-&lt;span class=&quot;no&quot;&gt;ActiveSupport&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;on_load&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:active_record&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
-  &lt;span class=&quot;no&quot;&gt;ActiveRecord&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;ConnectionAdapters&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;AbstractAdapter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;set_callback&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:checkout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:before&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;lambda&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;conn&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;unless&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ActiveSupport&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Executor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;active?&lt;/span&gt;
-      &lt;span class=&quot;vg&quot;&gt;$stdout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;WARNING: Connection pool checkout occurred outside of a Rails Executor&quot;&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;One last thing about Executors, you want to make sure that you’re &lt;a href=&quot;https://guides.rubyonrails.org/v7.1/threading_and_code_execution.html#wrapping-application-code&quot;&gt;wrapping individual units of work&lt;/a&gt;, so the execution context has a chance to reset itself (check-in database connections, unload and reload code, etc.):&lt;/p&gt;
-
-&lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# scripts/do_all_the_things.rb&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# ...&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# bad&lt;/span&gt;
-&lt;span class=&quot;no&quot;&gt;Rails&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;application&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;executor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;wrap&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
-  &lt;span class=&quot;kp&quot;&gt;loop&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;MyModel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;do_something&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# good&lt;/span&gt;
-&lt;span class=&quot;kp&quot;&gt;loop&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
-  &lt;span class=&quot;no&quot;&gt;Rails&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;application&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;executor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;wrap&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;MyModel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;do_something&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;strong&gt;Update:&lt;/strong&gt; I offered a &lt;a href=&quot;https://github.com/rails/rails/pull/50223&quot;&gt;Rails PR to make the script runner’s Executor conditional&lt;/a&gt; because the introduction of an Executor around &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bin/rails runner script.rb&lt;/code&gt; could introduce problems if the script is long-running/looping/daemon-like; developers would still need to use an Executor, but to wrap individual units of work in their longrunning script.&lt;/p&gt;
-
-  &lt;br&gt;&lt;br&gt;
-  &lt;hr&gt;
-  &lt;p&gt;
-    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2023/11/rails-executor-increasingly-everywhere&quot;&gt;The Rails Executor: increasingly everywhere&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
-    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
-  &lt;/p&gt;
-</description>
-  <pubDate>Thu, 30 Nov 2023 05:37:00 +0000</pubDate>
-  <link>https://island94.org/2023/11/rails-executor-increasingly-everywhere</link>
-  <guid isPermaLink="true">https://island94.org/2023/11/rails-executor-increasingly-everywhere</guid>
-  
-    <category>Rails</category>
-  
-    <category>Ruby</category>
   
   
 </item>

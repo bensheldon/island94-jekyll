@@ -117,6 +117,88 @@
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
     <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2021/05/is-securerandom.choose-the-wrong-name-for-generating-randomized-strings-with-ruby"><p>Is SecureRandom.choose the wrong name for generating randomized strings with Ruby?</p>
+</a>
+    </h1>
+    <p class="post-meta text-muted">
+      <time datetime="2021-05-27T15:37:00+00:00" itemprop="datePublished">May 27, 2021</time>
+      
+      
+
+
+
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>I frequently need to generate a short, random string:</p>
+
+<ul>
+  <li>I need a non-numeric, non-enumerable url ID. e.g. <code class="language-plaintext highlighter-rouge">https://example.com/resources/TOKEN</code></li>
+  <li>I need to generate a short, human-readable random activation token and I don’t want it to contain similar-looking characters like <code class="language-plaintext highlighter-rouge">1I</code> or <code class="language-plaintext highlighter-rouge">O0</code></li>
+  <li>I want to do something fun with strings of emojis.</li>
+</ul>
+
+<p>I’ve been copy-pasting this snippet around for years:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">random_string</span><span class="p">(</span><span class="n">alphabet</span><span class="p">:,</span> <span class="n">length</span><span class="p">:)</span>
+  <span class="no">Array</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">length</span><span class="p">)</span> <span class="p">{</span> <span class="n">alphabet</span><span class="p">.</span><span class="nf">chars</span><span class="p">[</span><span class="nb">rand</span><span class="p">(</span><span class="n">alphabet</span><span class="p">.</span><span class="nf">chars</span><span class="p">.</span><span class="nf">size</span><span class="p">)]</span> <span class="p">}.</span><span class="nf">join</span>
+<span class="k">end</span>
+
+<span class="n">random_string</span><span class="p">(</span><span class="ss">alphabet: </span><span class="s2">"AaBbCc123"</span><span class="p">,</span> <span class="ss">length: </span><span class="mi">7</span><span class="p">)</span> 
+<span class="c1"># =&gt; "C113A11", "Abcc3B2", "33cabbC", etc.</span>
+
+<span class="n">random_string</span><span class="p">(</span><span class="ss">alphabet: </span><span class="s2">"😀😍🙃🤪😎"</span><span class="p">,</span> <span class="ss">length: </span><span class="mi">3</span><span class="p">)</span>
+<span class="c1"># =&gt; "😍😀😎", "😀🤪🤪", "🙃😎😀", etc.</span>
+</code></pre></div></div>
+
+<p>The gems <a href="https://github.com/norman/friendly_id"><code class="language-plaintext highlighter-rouge">friendly_id</code></a> and <a href="https://github.com/ryanb/uniquify"><code class="language-plaintext highlighter-rouge">uniquify</code></a> can do this too.</p>
+
+<p>There was recently a discussion on <a href="https://www.rubyonrails.link/">Ruby on Rails Link Slack</a> about generating random strings, and I went looking to see if there was a better implementation.</p>
+
+<p>I found <a href="https://github.com/ruby/ruby/blob/029169bc5b45d8ec783c19eaf713395b7983d16a/lib/securerandom.rb#L247-L291"><code class="language-plaintext highlighter-rouge">SecureRandom.choose</code></a>, which is built into the Ruby standard library, and as part of the <code class="language-plaintext highlighter-rouge">SecureRandom</code> module, should be fairly trustworthy. Looks perfect:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># SecureRandom.choose generates a string that randomly draws from a source array of characters.</span>
+<span class="c1">#</span>
+<span class="c1"># The argument _source_ specifies the array of characters from which to generate the string.</span>
+<span class="c1"># The argument _n_ specifies the length, in characters, of the string to be generated.</span>
+<span class="c1">#</span>
+<span class="c1"># The result may contain whatever characters are in the source array.</span>
+<span class="c1">#</span>
+<span class="c1">#   require 'securerandom'</span>
+<span class="c1">#</span>
+<span class="c1">#   SecureRandom.choose([*'l'..'r'], 16) #=&gt; "lmrqpoonmmlqlron"</span>
+<span class="c1">#   SecureRandom.choose([*'0'..'9'], 5)  #=&gt; "27309"</span>
+</code></pre></div></div>
+
+<p>…but there is a problem: <code class="language-plaintext highlighter-rouge">SecureRandom.choose</code> is a private method. The <code class="language-plaintext highlighter-rouge">choose</code> method is used to implement the public <code class="language-plaintext highlighter-rouge">SecureRandom.alphanumeric</code> method, but is not itself exposed publicly. I went back to the initial <a href="https://bugs.ruby-lang.org/issues/10849">feature request</a> and found the reason:</p>
+
+<blockquote>
+  <p>I feel the method name, SecureRandom.choose, doesn’t represent the behavior well.</p>
+</blockquote>
+
+<p>Fair enough. Until the name is figured out, I’ll still be using it:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'securerandom'</span>
+
+<span class="no">SecureRandom</span><span class="p">.</span><span class="nf">send</span> <span class="ss">:choose</span><span class="p">,</span> <span class="s2">"😀😍🙃🤪😎"</span><span class="p">.</span><span class="nf">chars</span><span class="p">,</span> <span class="mi">3</span>
+<span class="c1"># =&gt; "😍😎😍"</span>
+</code></pre></div></div>
+
+
+  </div>
+</article>
+
+    
+
+    <hr>
+  
+    
+      
+
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
       <a class="post-link" href="/2021/05/generic-advice-for-managers"><p>Generic advice for managers</p>
 </a>
     </h1>
@@ -559,39 +641,6 @@
 
   <p>White men, even in progressive circles, are taught they are superior to white women, Black women, and every other living being on the planet. What would it mean for the anti-racism movement to teach white men that they have the furthest to go in efforts to reach their full humanity? What would it look like if they don’t enter spaces acting inherently superior (privileged), but rather with a lot of work to do to shed the legacy of violence that comes with their perception of superiority?</p>
 
-</blockquote>
-
-  </div>
-</article>
-
-    
-
-    <hr>
-  
-    
-      
-
-<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">
-      <a class="post-link" href="/2020/10/the-sublime"><p>The sublime</p>
-</a>
-    </h1>
-    <p class="post-meta text-muted">
-      <time datetime="2020-10-25T23:46:00+00:00" itemprop="datePublished">October 25, 2020</time>
-      
-      
-
-
-
-    </p>
-  </header>
-
-  <div class="post-content" itemprop="articleBody">
-    <p>From Susan Casey’s <em>The wave</em>:</p>
-
-<blockquote>
-  <p>Teahupoo, with its timeless power, brought to mind the age-old philosophical quest to distinguish between beauty and its twisted cousin, the sublime: for the merely pretty to graduate to the sublime, terror was required in the mix. “The Alps fill the mind with a kind of agreeable horror,” wrote one seventeenth-century thinker, summing up the concept. And while humans were capable of creating the lovely, the dramatic, the sad, or the inspiring, only nature could produce the sublime. It was a concept both comforting and disturbing: there are many things out there more powerful than we are. No one was more aware of this than the men who’d ridden Teahupoo on this day (except, perhaps, the ones who had fallen on it).</p>
 </blockquote>
 
   </div>

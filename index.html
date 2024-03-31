@@ -94,6 +94,96 @@
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
     <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2024/03/rails-active-record-will-it-bind"><p>Rails Active Record: Will it bind?</p>
+</a>
+    </h1>
+    <p class="post-meta text-muted">
+      <time datetime="2024-03-31T17:15:00+00:00" itemprop="datePublished">March 31, 2024</time>
+      
+      
+
+
+
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>Active Record, Ruby on Rail’s ORM, has support for Prepared Statements that work <em>if you structure your query for it</em>. Because of my work on GoodJob, which can make a lot of nearly identical database queries every second to pop its job queue, I’ve invested a lot of time trying to make those queries as efficient as possible.</p>
+
+<p>Prepared Statements are a database feature that allow the database to reuse query parsing and planning when queries are structurally the same. Prepared statements, at least in Postgres, are linked to the database connection/session and stored in memory in the database. This implies some things:</p>
+
+<ul>
+  <li>There can be a <strong>performance benefit</strong> to making queries “preparable” for Prepared Statements which Active Record will decide for you based on how a query is structured.</li>
+  <li>There can be a <strong>performance harm</strong> (or at least non-useful database processing and <a href="https://github.com/rails/rails/issues/14645">memory growth</a>) if your application produces a lot of preparable queries that are never reused again.</li>
+</ul>
+
+<p>By default, Rails will have the database store 1,000 queries (<code class="language-plaintext highlighter-rouge">statement_limit: 1000</code>). Many huge Rails monoliths (like GitHub, where I work) disable prepared statements (<code class="language-plaintext highlighter-rouge">prepared_statements: false</code>) because there is too much query heterogeneity to get a performance benefit and the database spends extra and unnecessary cycles storing and evicting unused prepared statements.  But that’s maybe not your application!</p>
+
+<p>Structurally similar queries can still have variable values inside of them: these are called <strong>bind parameters</strong>. For example, in GoodJob, I want pop jobs that are scheduled to run right now. In SQL that might look like:</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">good_jobs</span> <span class="k">WHERE</span> <span class="n">scheduled_at</span> <span class="o">&lt;</span> <span class="s1">'2024-03-31 16:44:11.047499`
+</span></code></pre></div></div>
+
+<p>That query has the downside of the timestamp changing multiple times a second as new queries are emitted. What I want to do is extract out the timestamp into a bind parameter (a <code class="language-plaintext highlighter-rouge">?</code> or <code class="language-plaintext highlighter-rouge">$1</code> depending on the database adapter) instead of embedded in the query:</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">good_jobs</span> <span class="k">WHERE</span> <span class="n">scheduled_at</span> <span class="o">&lt;</span> <span class="o">?</span>
+</code></pre></div></div>
+
+<p>That’s the good stuff! That’s ideal and preparable 👍</p>
+
+<p>But that’s raw SQL, now how to do that in Active Record? In the following exploration, I’m using the private <code class="language-plaintext highlighter-rouge">to_sql_and_binds</code> method in Active Record; I’m also using the private Arel API. This is all private and subject to change, so be sure to write some tests around this behavior if you do choose to use it.  Here’s some <a href="https://github.com/bensheldon/rails_tricks/blob/6c686c987ee9996bbad8a6ade1f92184c5a9ebf6/bind_params.rb">quick experiments</a> I’ve done:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">job</span> <span class="o">=</span> <span class="no">Job</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span><span class="ss">scheduled_at: </span><span class="mi">10</span><span class="p">.</span><span class="nf">minutes</span><span class="p">.</span><span class="nf">ago</span><span class="p">)</span>
+
+<span class="c1"># Experiment 1: string with ?</span>
+<span class="n">relation</span> <span class="o">=</span> <span class="no">Job</span><span class="p">.</span><span class="nf">where</span><span class="p">(</span><span class="s2">"scheduled_at &lt; ?"</span><span class="p">,</span> <span class="no">Time</span><span class="p">.</span><span class="nf">current</span><span class="p">)</span>
+<span class="c1"># =&gt;  Job Load (0.1ms)  SELECT "good_jobs".* FROM "good_jobs" WHERE (scheduled_at &lt; '2024-03-31 16:34:11.064614')</span>
+<span class="n">expect</span><span class="p">(</span><span class="n">relation</span><span class="p">.</span><span class="nf">to_a</span><span class="p">).</span><span class="nf">to</span> <span class="n">eq</span><span class="p">([</span><span class="n">job</span><span class="p">])</span>
+<span class="n">_query</span><span class="p">,</span> <span class="n">binds</span><span class="p">,</span> <span class="n">prepared</span> <span class="o">=</span> <span class="no">Job</span><span class="p">.</span><span class="nf">connection</span><span class="p">.</span><span class="nf">send</span><span class="p">(</span><span class="ss">:to_sql_and_binds</span><span class="p">,</span> <span class="n">relation</span><span class="p">.</span><span class="nf">arel</span><span class="p">)</span>
+<span class="n">expect</span><span class="p">(</span><span class="n">binds</span><span class="p">.</span><span class="nf">size</span><span class="p">).</span><span class="nf">to</span> <span class="n">eq</span> <span class="mi">0</span> <span class="c1"># &lt;-- Not a bind parameter</span>
+<span class="n">expect</span><span class="p">(</span><span class="n">prepared</span><span class="p">).</span><span class="nf">to</span> <span class="n">eq</span> <span class="kp">false</span> <span class="c1"># &lt;-- Not preparable</span>
+
+<span class="c1"># Experiment 2: Arel query with value</span>
+<span class="n">relation</span> <span class="o">=</span> <span class="no">Job</span><span class="p">(</span><span class="no">Job</span><span class="p">.</span><span class="nf">arel_table</span><span class="p">[</span><span class="s1">'scheduled_at'</span><span class="p">].</span><span class="nf">lt</span><span class="p">(</span><span class="no">Time</span><span class="p">.</span><span class="nf">current</span><span class="p">))</span>
+<span class="c1"># =&gt;  Job Load (0.1ms)  SELECT "good_jobs".* FROM "good_jobs" WHERE scheduled_at &lt; '2024-03-31 16:34:11.064614'</span>
+<span class="n">expect</span><span class="p">(</span><span class="n">relation</span><span class="p">.</span><span class="nf">to_a</span><span class="p">).</span><span class="nf">to</span> <span class="n">eq</span><span class="p">([</span><span class="n">job</span><span class="p">])</span>
+<span class="n">_query</span><span class="p">,</span> <span class="n">binds</span><span class="p">,</span> <span class="n">prepared</span> <span class="o">=</span> <span class="no">Job</span><span class="p">.</span><span class="nf">connection</span><span class="p">.</span><span class="nf">send</span><span class="p">(</span><span class="ss">:to_sql_and_binds</span><span class="p">,</span> <span class="n">relation</span><span class="p">.</span><span class="nf">arel</span><span class="p">)</span>
+<span class="n">expect</span><span class="p">(</span><span class="n">binds</span><span class="p">.</span><span class="nf">size</span><span class="p">).</span><span class="nf">to</span> <span class="n">eq</span> <span class="mi">0</span> <span class="c1"># &lt;-- Not a bind parameter</span>
+<span class="n">expect</span><span class="p">(</span><span class="n">prepared</span><span class="p">).</span><span class="nf">to</span> <span class="n">eq</span> <span class="kp">true</span> <span class="c1"># &lt;-- Yikes 🥵</span>
+
+<span class="c1"># Experiment 3: Arel query with QueryAttribute</span>
+<span class="n">relation</span> <span class="o">=</span> <span class="no">Job</span><span class="p">.</span><span class="nf">where</span><span class="p">(</span><span class="no">Job</span><span class="p">.</span><span class="nf">arel_table</span><span class="p">[</span><span class="s1">'scheduled_at'</span><span class="p">].</span><span class="nf">lt</span><span class="p">(</span><span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Relation</span><span class="o">::</span><span class="no">QueryAttribute</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s1">'scheduled_at'</span><span class="p">,</span> <span class="no">Time</span><span class="p">.</span><span class="nf">current</span><span class="p">,</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Type</span><span class="o">::</span><span class="no">DateTime</span><span class="p">.</span><span class="nf">new</span><span class="p">)))</span>
+<span class="c1"># =&gt;  Job Load (0.1ms)  SELECT "good_jobs".* FROM "good_jobs" WHERE scheduled_at &lt; $1  [["scheduled_at", "2024-03-31 16:34:11.064614"]]</span>
+<span class="n">expect</span><span class="p">(</span><span class="n">relation</span><span class="p">.</span><span class="nf">to_a</span><span class="p">).</span><span class="nf">to</span> <span class="n">eq</span><span class="p">([</span><span class="n">job</span><span class="p">])</span>
+<span class="n">_query</span><span class="p">,</span> <span class="n">binds</span><span class="p">,</span> <span class="n">prepared</span> <span class="o">=</span> <span class="no">Job</span><span class="p">.</span><span class="nf">connection</span><span class="p">.</span><span class="nf">send</span><span class="p">(</span><span class="ss">:to_sql_and_binds</span><span class="p">,</span> <span class="n">relation</span><span class="p">.</span><span class="nf">arel</span><span class="p">)</span>
+<span class="n">expect</span><span class="p">(</span><span class="n">binds</span><span class="p">.</span><span class="nf">size</span><span class="p">).</span><span class="nf">to</span> <span class="n">eq</span> <span class="mi">1</span> <span class="c1"># &lt;-- Looking good! 🙌</span>
+<span class="n">expect</span><span class="p">(</span><span class="n">prepared</span><span class="p">).</span><span class="nf">to</span> <span class="n">eq</span> <span class="kp">true</span> <span class="c1"># &lt;-- Yes! 👏</span>
+</code></pre></div></div>
+
+<p>That very last option is the good one because it has the bind parameter (<code class="language-plaintext highlighter-rouge">$1</code>) and then the Active Record logger will show the values in the nested array next to the query. The successful combination uses:</p>
+
+<ul>
+  <li>Arel comparable syntax</li>
+  <li>Wrapping the value in an <code class="language-plaintext highlighter-rouge">ActiveRecord::Relation::QueryAttribute</code></li>
+</ul>
+
+<p>Note that many Active Record queries will automatically do this for you, but <em>not all of them</em>. In this particular case, it’s because of the I want to use “less than” operator, whereas equality does make it preparable. <strong>You’ll have to inspect each query yourself.</strong> For example, it’s also necessary with <code class="language-plaintext highlighter-rouge">Arel#matches</code>/<code class="language-plaintext highlighter-rouge">ILIKE</code>. It’s also possible to temporarily disable prepared statements within a block in the <a href="https://github.com/rails/rails/blob/6f0d1ad14b92b9f5906e44740fce8b4f1c7075dc/activerecord/lib/active_record/connection_adapters/abstract_adapter.rb#L368-L373">undocumented</a> (!) <code class="language-plaintext highlighter-rouge">Model.connection.unprepared_statement { your_query }</code>.</p>
+
+<p><strong>The above code is true as of Rails 7.1. <a href="https://github.com/rails/rails/pull/51139">Jean Boussier has improved Active Record</a> in newer (currently unreleased) Rails to also properly bind <code class="language-plaintext highlighter-rouge">Job.where("scheduled_at &lt; ?", Time.current)</code> query syntax too 🙇</strong></p>
+
+  </div>
+</article>
+
+    
+
+    <hr>
+  
+    
+      
+
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
       <a class="post-link" href="/2024/03/low-effort-prototyping"><p>Low-effort prototyping</p>
 </a>
     </h1>
@@ -1280,103 +1370,6 @@ diff = Sheap::Diff.new("/Users/bensheldon/Repositories/sciencehistory/scihist_di
   <li>For GoodJob, all of the things I want have been labeled <a href="https://github.com/bensheldon/good_job/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22">“Help Wanted”</a>. I do want to get the row-locking foundations in place myself, though I think the safe upgrade path for it might take a little while to straighten out. I think I have finally <a href="https://github.com/bensheldon/good_job/discussions/831#discussioncomment-7283545">mastered advisory locks</a>, so, of course, that means change it all up.</li>
   <li>I ran <code class="language-plaintext highlighter-rouge">bundle update</code> on Day of the Shirt, which means I also upgraded to Shakapacker, which means that I have, once again, spent an entire weekend fumbling with Webpack configuration to get <code class="language-plaintext highlighter-rouge">window.$</code> working. I also got a nice email from the owner of a t-shirt website that validated my <a href="https://dayoftheshirt.com/news/state-of-the-shirt-2020">thesis</a> that no one visits websites anymore, let alone to buy t-shirts: the website owner got a (different) full-time job.</li>
 </ul>
-
-  </div>
-</article>
-
-    
-
-    <hr>
-  
-    
-      
-
-<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">
-      <a class="post-link" href="/2023/11/rails-executor-increasingly-everywhere"><p>The Rails Executor: increasingly everywhere</p>
-</a>
-    </h1>
-    <p class="post-meta text-muted">
-      <time datetime="2023-11-30T05:37:00+00:00" itemprop="datePublished">November 30, 2023</time>
-      
-      
-
-
-  
-
-  
-
-  • Tagged <a href="/tags/#rails">Rails</a> and <a href="/tags/#ruby">Ruby</a>
-
-
-    </p>
-  </header>
-
-  <div class="post-content" itemprop="articleBody">
-    <p><em>The Rails Executor rules everything around <del>you</del> your code.</em></p>
-
-<p>If you write multithreaded-Rails code—like me, author of <a href="https://github.com/bensheldon/good_job">GoodJob</a>—you’re probably familiar with the Rails Executor which is described in the <a href="https://guides.rubyonrails.org/v7.1/threading_and_code_execution.html">Rails Multithreading Guide</a>.</p>
-
-<p>If you’re new to the Rails Executor: it sets up and tears down a lot of Rails’ framework magic. Code wrapped with a Rails Executor or its sibling, the Reloader, pick up a lot of powerful behavior:</p>
-
-<ul>
-  <li>Constant autoloading and reloading</li>
-  <li>Database connection/connection-pool management and query retries</li>
-  <li>Query Cache</li>
-  <li>Query Logging</li>
-  <li>CurrentAttributes</li>
-  <li>Error reporting</li>
-</ul>
-
-<p>You usually won’t think about it. The Rails framework already wraps every Controller Action and Active Job with an Executor. Recently, as of Rails v7.1, it’s showing up everywhere within the Rails codebase:</p>
-
-<ul>
-  <li><a href="https://github.com/rails/rails/pull/44999">Rails runner scripts are now wrapped with an Executor</a></li>
-  <li><a href="https://github.com/rails/rails/pull/43550">Minitest test cases are now wrapped with an Executor</a> (I’m working on getting <a href="https://github.com/rspec/rspec-rails/issues/2713">parity in rspec-rails</a>). It has a nice little explanation why “This helps to better simulate request or job local state being reset around tests and prevent state to leak from one test to another.”</li>
-</ul>
-
-<p>The effect of these small changes could be surprising:</p>
-
-<ul>
-  <li>I came to write this blog post because I saw a Rails Discussion asking how <a href="https://discuss.rubyonrails.org/t/rails-7-1-uses-query-cache-for-runner-scripts/84275">“Rails 7.1 uses query cache for runner scripts”</a> and aha, I knew the answer: the Executor.</li>
-  <li>I recently <a href="https://github.com/bensheldon/good_job/pull/1124">fixed a bunch of flaky GoodJob unit tests</a> by wrapping each RSpec example in a Rails Executor. This is a problem specific to GoodJob, which uses connection-based Advisory Locks, but I discovered that if an Executor context was passed through (for example, executing an Active Job inline), the current database connection would be returned to the pool, sometimes breaking the Advisory Locks when a different connection was checked back out to continue the test. This was only a fluke of the tests, but was a longtime annoyance. I’ve previously had to <a href="https://github.com/bensheldon/good_job/blob/c6d3aa4906783498ed6296060666d350ac2e288c/lib/good_job/current_thread.rb#L6-L7">work around a similar reset of CurrentAttributes</a> that occurs too.</li>
-  <li>At my day job, GitHub, we’ve also been double-checking that all of our Rails-invoking scripts and daemons are wrapped with Rails Executors. Doing so has fixed flukey constant lookups, reduced our database connection error rate and increased successful query retries, and necessitated updating a bunch of tests that counted queries that now hit the query cache.</li>
-</ul>
-
-<p>The Rails Executor is great! Your code is probably already wrapped by the Rails framework, but anytime you start writing scripts or daemons that <code class="language-plaintext highlighter-rouge">require_relative "./config/environment.rb"</code> you should double-check, and <em>definitely</em> if you’re using <code class="language-plaintext highlighter-rouge">Thread.new</code>, <code class="language-plaintext highlighter-rouge">Concurrent::Future</code> or anything that runs in a background thread.</p>
-
-<p>I used the following code in GoodJob to debug that database connection checkout occurs in a Rails Executor, maybe you could adopt something similar too:</p>
-
-<div class="language-rb highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># config/initializers/debug_executors.rb</span>
-
-<span class="no">ActiveSupport</span><span class="p">.</span><span class="nf">on_load</span> <span class="ss">:active_record</span> <span class="k">do</span>
-  <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">ConnectionAdapters</span><span class="o">::</span><span class="no">AbstractAdapter</span><span class="p">.</span><span class="nf">set_callback</span> <span class="ss">:checkout</span><span class="p">,</span> <span class="ss">:before</span><span class="p">,</span> <span class="p">(</span><span class="nb">lambda</span> <span class="k">do</span> <span class="o">|</span><span class="n">conn</span><span class="o">|</span>
-    <span class="k">unless</span> <span class="no">ActiveSupport</span><span class="o">::</span><span class="no">Executor</span><span class="p">.</span><span class="nf">active?</span>
-      <span class="vg">$stdout</span><span class="p">.</span><span class="nf">puts</span> <span class="s2">"WARNING: Connection pool checkout occurred outside of a Rails Executor"</span>
-    <span class="k">end</span>
-  <span class="k">end</span><span class="p">)</span>
-<span class="k">end</span>
-
-</code></pre></div></div>
-
-<p>One last thing about Executors, you want to make sure that you’re <a href="https://guides.rubyonrails.org/v7.1/threading_and_code_execution.html#wrapping-application-code">wrapping individual units of work</a>, so the execution context has a chance to reset itself (check-in database connections, unload and reload code, etc.):</p>
-
-<div class="language-rb highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># scripts/do_all_the_things.rb</span>
-<span class="c1"># ...</span>
-
-<span class="c1"># bad</span>
-<span class="no">Rails</span><span class="p">.</span><span class="nf">application</span><span class="p">.</span><span class="nf">executor</span><span class="p">.</span><span class="nf">wrap</span> <span class="k">do</span>
-  <span class="kp">loop</span> <span class="p">{</span> <span class="no">MyModel</span><span class="p">.</span><span class="nf">do_something</span> <span class="p">}</span>
-<span class="k">end</span>
-
-<span class="c1"># good</span>
-<span class="kp">loop</span> <span class="k">do</span>
-  <span class="no">Rails</span><span class="p">.</span><span class="nf">application</span><span class="p">.</span><span class="nf">executor</span><span class="p">.</span><span class="nf">wrap</span> <span class="p">{</span> <span class="no">MyModel</span><span class="p">.</span><span class="nf">do_something</span> <span class="p">}</span>
-<span class="k">end</span>
-</code></pre></div></div>
-
-<p><strong>Update:</strong> I offered a <a href="https://github.com/rails/rails/pull/50223">Rails PR to make the script runner’s Executor conditional</a> because the introduction of an Executor around <code class="language-plaintext highlighter-rouge">bin/rails runner script.rb</code> could introduce problems if the script is long-running/looping/daemon-like; developers would still need to use an Executor, but to wrap individual units of work in their longrunning script.</p>
 
   </div>
 </article>
