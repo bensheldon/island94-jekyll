@@ -29,8 +29,8 @@
   }
 
   const setTheme = theme => {
-    if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      document.documentElement.setAttribute('data-bs-theme', 'dark')
+    if (theme === 'auto') {
+      document.documentElement.setAttribute('data-bs-theme', (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'))
     } else {
       document.documentElement.setAttribute('data-bs-theme', theme)
     }
@@ -39,14 +39,14 @@
   setTheme(getPreferredTheme())
 
   const showActiveTheme = (theme, focus = false) => {
-    const themeSwitcher = document.querySelector('#bd-theme')
+    const themeSwitcher = document.querySelector('#bs-theme')
 
     if (!themeSwitcher) {
       return
     }
 
-    const themeSwitcherText = document.querySelector('[data-bd-theme-label]')
-    const activeThemeIcon = document.querySelector('i[data-bd-theme-active-icon]')
+    const themeSwitcherText = document.querySelector('[data-bs-theme-label]')
+    const activeThemeIcon = document.querySelector('i[data-bs-theme-active-icon]')
     const btnToActive = document.querySelector(`[data-bs-theme-value="${theme}"]`)
     const iconOfActiveBtn = btnToActive.querySelector('i')
 

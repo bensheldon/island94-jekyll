@@ -6,6 +6,14 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <script>
+    let theme = localStorage.getItem('theme');
+    if (!["light", "dark"].includes(theme)) {
+      theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    document.documentElement.setAttribute('data-bs-theme', theme);
+  </script>
+
   <link rel="stylesheet" href="/assets/stylesheets/main.css">
   <script src="/assets/javascripts/main.js"></script>
 
@@ -44,11 +52,11 @@ Jordan Pouille</title>
         </li>
 
         <li class="nav-item dropdown">
-          <button id="bd-theme" class="btn btn-link nav-link dropdown-toggle" type="button" aria-expanded="false" data-bs-toggle="dropdown"  aria-label="Theme (Auto)">
-            <i data-bd-theme-active-icon class="bi bi-circle-half"></i>
-            <span data-bd-theme-label>Theme</span>
+          <button id="bs-theme" class="btn btn-link nav-link dropdown-toggle" type="button" aria-expanded="false" data-bs-toggle="dropdown"  aria-label="Theme (Auto)">
+            <i data-bs-theme-active-icon class="bi bi-circle-half"></i>
+            <span data-bs-theme-label>Theme</span>
           </button>
-          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="bd-theme-text">
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="bs-theme-text">
             <li>
               <button type="button" class="dropdown-item" data-bs-theme-value="light" aria-pressed="false">
                 <i class="bi bi-sun"></i> Light
