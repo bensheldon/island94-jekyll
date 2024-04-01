@@ -70,7 +70,7 @@ Note that many Active Record queries will automatically do this for you, but _no
 Update: I realized I didn't try beginless/endless range values. Good news: they create bind parameters 🎉
 
 ```ruby
-# Experiment 3: Arel query with QueryAttribute
+# Experiment 4: beginless range
 relation = Job.where(scheduled_at: ...Time.current)
 # =>  Job Load (0.1ms)  SELECT "good_jobs".* FROM "good_jobs" WHERE scheduled_at < $1  [["scheduled_at", "2024-03-31 16:34:11.064614"]]
 expect(relation.to_a).to eq([job])
