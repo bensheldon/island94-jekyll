@@ -181,7 +181,7 @@
 
 <p>Update: I realized I didn’t try beginless/endless range values. Good news: they create bind parameters 🎉</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Experiment 3: Arel query with QueryAttribute</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Experiment 4: beginless range</span>
 <span class="n">relation</span> <span class="o">=</span> <span class="no">Job</span><span class="p">.</span><span class="nf">where</span><span class="p">(</span><span class="ss">scheduled_at: </span><span class="o">...</span><span class="no">Time</span><span class="p">.</span><span class="nf">current</span><span class="p">)</span>
 <span class="c1"># =&gt;  Job Load (0.1ms)  SELECT "good_jobs".* FROM "good_jobs" WHERE scheduled_at &lt; $1  [["scheduled_at", "2024-03-31 16:34:11.064614"]]</span>
 <span class="n">expect</span><span class="p">(</span><span class="n">relation</span><span class="p">.</span><span class="nf">to_a</span><span class="p">).</span><span class="nf">to</span> <span class="n">eq</span><span class="p">([</span><span class="n">job</span><span class="p">])</span>
