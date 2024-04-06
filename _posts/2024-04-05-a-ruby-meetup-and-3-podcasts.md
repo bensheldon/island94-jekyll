@@ -5,7 +5,7 @@ published: true
 tags: [Ruby, media]
 ---
 
-![Me standing on a small stage in front of a slide with 2 adoptable cats and the GitHub logo](../uploads/2024/ruby-meetup-ben.jpg)
+![Me standing on a small stage in front of a slide with 2 adoptable cats and the GitHub logo](/uploads/2024/ruby-meetup-ben.jpg)
 
 Last week I spoke at the [SF Bay Area Ruby Meetup](https://evilmartians.com/events/sf-bay-area-ruby-meetup), which was hosted at GitHub HQ, which made for an easy commute for me. Here's [the video](https://www.youtube.com/watch?v=9-PWz9nbrT8&t=275s) and [the slides](https://speakerdeck.com/bensheldon/an-ok-compromise-faster-development-by-designing-for-the-rails-autoloader). My talk was entitled "An OK compromise: Faster development by designing for the Rails autoloader"
 
