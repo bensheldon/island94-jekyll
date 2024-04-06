@@ -6,8 +6,8 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 06 Apr 2024 01:02:23 +0000</pubDate>
-    <lastBuildDate>Sat, 06 Apr 2024 01:02:23 +0000</lastBuildDate>
+    <pubDate>Sat, 06 Apr 2024 05:34:07 +0000</pubDate>
+    <lastBuildDate>Sat, 06 Apr 2024 05:34:07 +0000</lastBuildDate>
     <generator>Jekyll v4.3.3</generator>
     
     
@@ -19,7 +19,7 @@
 
 <item>
   <title>A Ruby Meetup and 3 Podcasts</title>
-  <description>&lt;p&gt;&lt;img src=&quot;../uploads/2024/ruby-meetup-ben.jpg&quot; alt=&quot;Me standing on a small stage in front of a slide with 2 adoptable cats and the GitHub logo&quot; /&gt;&lt;/p&gt;
+  <description>&lt;p&gt;&lt;img src=&quot;/uploads/2024/ruby-meetup-ben.jpg&quot; alt=&quot;Me standing on a small stage in front of a slide with 2 adoptable cats and the GitHub logo&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Last week I spoke at the &lt;a href=&quot;https://evilmartians.com/events/sf-bay-area-ruby-meetup&quot;&gt;SF Bay Area Ruby Meetup&lt;/a&gt;, which was hosted at GitHub HQ, which made for an easy commute for me. Here’s &lt;a href=&quot;https://www.youtube.com/watch?v=9-PWz9nbrT8&amp;amp;t=275s&quot;&gt;the video&lt;/a&gt; and &lt;a href=&quot;https://speakerdeck.com/bensheldon/an-ok-compromise-faster-development-by-designing-for-the-rails-autoloader&quot;&gt;the slides&lt;/a&gt;. My talk was entitled “An OK compromise: Faster development by designing for the Rails autoloader”&lt;/p&gt;
 
