@@ -6,10 +6,51 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 05 Apr 2024 22:28:13 +0000</pubDate>
-    <lastBuildDate>Fri, 05 Apr 2024 22:28:13 +0000</lastBuildDate>
+    <pubDate>Sat, 06 Apr 2024 01:02:23 +0000</pubDate>
+    <lastBuildDate>Sat, 06 Apr 2024 01:02:23 +0000</lastBuildDate>
     <generator>Jekyll v4.3.3</generator>
     
+    
+      
+        
+
+
+
+
+<item>
+  <title>A Ruby Meetup and 3 Podcasts</title>
+  <description>&lt;p&gt;&lt;img src=&quot;../uploads/2024/ruby-meetup-ben.jpg&quot; alt=&quot;Me standing on a small stage in front of a slide with 2 adoptable cats and the GitHub logo&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Last week I spoke at the &lt;a href=&quot;https://evilmartians.com/events/sf-bay-area-ruby-meetup&quot;&gt;SF Bay Area Ruby Meetup&lt;/a&gt;, which was hosted at GitHub HQ, which made for an easy commute for me. Here’s &lt;a href=&quot;https://www.youtube.com/watch?v=9-PWz9nbrT8&amp;amp;t=275s&quot;&gt;the video&lt;/a&gt; and &lt;a href=&quot;https://speakerdeck.com/bensheldon/an-ok-compromise-faster-development-by-designing-for-the-rails-autoloader&quot;&gt;the slides&lt;/a&gt;. My talk was entitled “An OK compromise: Faster development by designing for the Rails autoloader”&lt;/p&gt;
+
+&lt;p&gt;Also, I haven’t shared here the 3 podcasts I did over the past few years. Here they are:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.therubyonrailspodcast.com/383&quot;&gt;The Ruby on Rails Podcast&lt;/a&gt; from September, 2021.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=DJ9HIjLla_U&quot;&gt;GemRuby Show&lt;/a&gt; from September, 2023.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://topenddevs.com/podcasts/ruby-rogues/episodes/examining-goodjob-solidq-and-more-ruby-623&quot;&gt;The Ruby Rogues&lt;/a&gt; from January, 2024.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+  &lt;br&gt;&lt;br&gt;
+  &lt;hr&gt;
+  &lt;p&gt;
+    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2024/04/a-ruby-meetup-and-3-podcasts&quot;&gt;A Ruby Meetup and 3 Podcasts&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
+    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
+  &lt;/p&gt;
+</description>
+  <pubDate>Fri, 05 Apr 2024 23:44:00 +0000</pubDate>
+  <link>https://island94.org/2024/04/a-ruby-meetup-and-3-podcasts</link>
+  <guid isPermaLink="true">https://island94.org/2024/04/a-ruby-meetup-and-3-podcasts</guid>
+  
+    <category>Ruby</category>
+  
+    <category>media</category>
+  
+  
+</item>
+
+      
     
       
         
@@ -1213,53 +1254,6 @@ diff = Sheap::Diff.new(&quot;/Users/bensheldon/Repositories/sciencehistory/scihi
     <category>Rails</category>
   
     <category>GoodJob</category>
-  
-  
-</item>
-
-      
-    
-      
-        
-
-
-
-
-<item>
-  <title>Recently</title>
-  <description>&lt;ul&gt;
-  &lt;li&gt;One of my coworkers said this week “You’ve been an engineering director and in leadership before, right? I appreciate your perspective; any advice and resources you’d recommend?” So that set my mind racing. I dunno. On one hand, it’s like, well, first, you grind out 10 years of 1-year of experience 10 times, but do it &lt;a href=&quot;https://transmissionproject.org/projects.html&quot;&gt;50 times a year&lt;/a&gt;.  On the other, &lt;a href=&quot;https://medium.com/@livlab/dont-work-with-psychopaths-b1a848914455&quot;&gt;keep a delta file&lt;/a&gt; and I also think about &lt;a href=&quot;https://www.goodreads.com/en/book/show/566213&quot;&gt;Secrets of Consulting&lt;/a&gt; quite a lot (content warning: I haven’t re-read it in a long time; I tried reading the same author’s &lt;em&gt;The Psychology of Computer Programming&lt;/em&gt; more recently and couldn’t do it).&lt;/li&gt;
-  &lt;li&gt;Work otherwise is in the final marathon of promo packets and performance reviews and quarterly planning and a reorg and oh, the next version of Ruby is released in 3 weeks and it’s go time. Then we do it all again. I love my team so much.&lt;/li&gt;
-  &lt;li&gt;I finished reading &lt;a href=&quot;https://www.goodreads.com/series/305076-the-final-architecture&quot;&gt;The Final Architecture&lt;/a&gt; series. I didn’t enjoy it as much as Children of Time (“the octopus books”). After reading all the Gateway books and 3-body problem books, I’m a bit over the idea that there’s a malicious (or at least self-interested) group of people who are unhappy with the current value of the Planck constant &lt;em&gt;and are doing something about it&lt;/em&gt;. I was into the subplot of alien criminality.&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;I finished Talos Principle 2, but I screwed up the golden gates thing, so I have to beat it again just to get the special special ending. I’ve been playing it in parallel with a friend and appreciate our back and forth:&lt;/p&gt;
-
-    &lt;blockquote&gt;
-      &lt;p&gt;Me: I’m personally more worried about environmental catastrophe than AI, but i guess they’re intertwined. Material conditions that are unfit for life. Like some of the talos robots seem to touch on my philosophical question which is like: how do we maximize individual agency+satisfaction while also avoiding collective/systemic fucking-around-and-finding-out.&lt;/p&gt;
-
-      &lt;p&gt;Friend: we can see from the game the answer lies somewhere on the spectrum between having 1000 robits around a crumbling power source vs having a magic 3D printing pyramid for use to conquer the stars&lt;/p&gt;
-    &lt;/blockquote&gt;
-
-    &lt;p&gt;I also started playing Talos 1 and it’s much less chill than the 2nd game. I may not finish it.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;For GoodJob, all of the things I want have been labeled &lt;a href=&quot;https://github.com/bensheldon/good_job/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22&quot;&gt;“Help Wanted”&lt;/a&gt;. I do want to get the row-locking foundations in place myself, though I think the safe upgrade path for it might take a little while to straighten out. I think I have finally &lt;a href=&quot;https://github.com/bensheldon/good_job/discussions/831#discussioncomment-7283545&quot;&gt;mastered advisory locks&lt;/a&gt;, so, of course, that means change it all up.&lt;/li&gt;
-  &lt;li&gt;I ran &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bundle update&lt;/code&gt; on Day of the Shirt, which means I also upgraded to Shakapacker, which means that I have, once again, spent an entire weekend fumbling with Webpack configuration to get &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;window.$&lt;/code&gt; working. I also got a nice email from the owner of a t-shirt website that validated my &lt;a href=&quot;https://dayoftheshirt.com/news/state-of-the-shirt-2020&quot;&gt;thesis&lt;/a&gt; that no one visits websites anymore, let alone to buy t-shirts: the website owner got a (different) full-time job.&lt;/li&gt;
-&lt;/ul&gt;
-
-  &lt;br&gt;&lt;br&gt;
-  &lt;hr&gt;
-  &lt;p&gt;
-    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2023/12/recently&quot;&gt;Recently&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
-    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
-  &lt;/p&gt;
-</description>
-  <pubDate>Sun, 10 Dec 2023 15:44:00 +0000</pubDate>
-  <link>https://island94.org/2023/12/recently</link>
-  <guid isPermaLink="true">https://island94.org/2023/12/recently</guid>
-  
-    <category>recently</category>
-  
-    <category>weeknotes</category>
   
   
 </item>
