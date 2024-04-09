@@ -48,7 +48,7 @@ The phrase "10 years of experience, or 1 year of experience 10 times" comes to m
 
 </blockquote>
 
-Which also reminds me of a [recent callback](https://www.simplermachines.com/exploration-tidying-ecto/) to a [Will Larson review of Kent Beck's _Tidy First_](https://lethain.com/notes-on-tidy-first/) about software maintenance:
+Which also reminds me of a [recent callback](https://www.simplermachines.com/exploration-tidying-ecto/) to a [Will Larson review of Kent Beck's _Tidy First_](https://lethain.com/notes-on-tidy-first/) about growing software:
 
 <blockquote markdown=1>
 
