@@ -17,10 +17,10 @@
   <link rel="stylesheet" href="/assets/stylesheets/main.css">
   <script src="/assets/javascripts/main.js"></script>
 
-  <title>Get your own</title>
-  <meta name="description" content="  ">
+  <title>Rails Strict Locals, undefined `local_assigns`, and reserved keywords</title>
+  <meta name="description" content="Huge thank you to Vojta Drbohlav in the Rails Performance Slack for helping me figure this out! 🙇">
 
-  <link rel="canonical" href="https://island94.org/2010/06/Get-your-own.html">
+  <link rel="canonical" href="https://island94.org/2024/06/rails-strict-locals-local_assigns-and-reserved-keywords">
 
   <link rel="alternate" type="application/rss+xml" title="Island94.org Posts" href="https://island94.org/feed.xml">
   <link rel="alternate" type="application/rss+xml" title="Island94.org Book Reviews" href="https://island94.org/books.xml">
@@ -98,27 +98,30 @@
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
     <h1 class="post-title" itemprop="name headline">
-      <a class="post-link" href="/2010/06/Get-your-own.html"><p>Get your own</p>
+      <a class="post-link" href="/2024/06/rails-strict-locals-local_assigns-and-reserved-keywords"><p>Rails Strict Locals, undefined <code class="language-plaintext highlighter-rouge">local_assigns</code>, and reserved keywords</p>
 </a>
     </h1>
     <p class="post-meta text-muted">
-      <time datetime="2010-06-06T00:00:00+00:00" itemprop="datePublished">June 6, 2010</time>
+      <time datetime="2024-06-19T22:21:00+00:00" itemprop="datePublished">June 19, 2024</time>
       
       
 
-
-  
-
-  
-
-  • Tagged <a href="/tags/#cat">cat</a>, <a href="/tags/#oh-hai">oh-hai</a>, <a href="/tags/#ponty">ponty</a>, and <a href="/tags/#sleep">sleep</a>
 
 
     </p>
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p><a href="/uploads/2010-06-06-Get-your-own/cat-in-a-box.jpeg"> <img src="/uploads/2010-06-06-Get-your-own/cat-in-a-box-500x666.jpg" alt="" title="cat in a box" /> </a></p>
+    <p><em>Huge thank you to Vojta Drbohlav in the <a href="https://www.railsspeed.com/">Rails Performance Slack</a> for helping me figure this out! 🙇</em></p>
+
+<p>Things I learned today about a new-to-me Ruby on Rails feature:</p>
+
+<ul>
+  <li>Rail 7.1 added a feature called <a href="https://blog.kiprosh.com/allow-template-to-set-strict-locals/">“Strict Locals”</a> that uses a magic comment in ERB templates to declare required and optional local variables. It looks like this: <code class="language-plaintext highlighter-rouge">&lt;%# locals: (shirts:, class: nil) %&gt;</code> which in this example means when rendering the partial, it must be provided a <code class="language-plaintext highlighter-rouge">shirts</code> parameter and optional <code class="language-plaintext highlighter-rouge">class</code> parameter. It’s a nice feature to have ERB templates act more like callable functions with explicit signatures.</li>
+  <li>When using Rails Strict Locals, the <code class="language-plaintext highlighter-rouge">local_assigns</code> variable <a href="https://github.com/rails/rails/blob/4bb73233413f30fd7217bd7f08af44963f5832b1/actionview/lib/action_view/template.rb#L439-L444"><em>is not defined</em></a>. You can’t use <code class="language-plaintext highlighter-rouge">local_assigns</code>. You’ll see an error that looks like <code class="language-plaintext highlighter-rouge">ActionView::Template::Error (undefined local variable or method 'local_assigns' for an instance of #&lt;Class:0x0000000130536cc8&gt;)</code>.</li>
+  <li>This is a problem if your template has locals that are also Ruby reserved keywords like <code class="language-plaintext highlighter-rouge">class</code> or <code class="language-plaintext highlighter-rouge">if</code>, which can be accessed with <code class="language-plaintext highlighter-rouge">local_assigns[:class]</code> <em>unless you start using Strict Locals</em>.</li>
+  <li>To access those local variables named with reserved keywords in your ERB template when using Strict Locals, you can use <code class="language-plaintext highlighter-rouge">binding.local_variable_get(:the_variable_name)</code> e.g. <code class="language-plaintext highlighter-rouge">binding.local_variable_get(:class)</code> or <code class="language-plaintext highlighter-rouge">binding.local_variable_get(:if)</code>.</li>
+</ul>
 
   </div>
 </article>
@@ -128,21 +131,21 @@
   <div class="card-body">
     <p>
       Discuss this with me on <a href="https://twitter.com/bensheldon"><i class="bi bi-twitter"></i> Twitter</a>
-      or suggest a <a href="https://github.com/bensheldon/island94-jekyll/blob/main/_posts/2010-06-06-Get-your-own.html.markdown"><i class="bi bi-github"></i> change</a>.
+      or suggest a <a href="https://github.com/bensheldon/island94-jekyll/blob/main/_posts/2024-06-19-rails-strict-locals-local_assigns-and-reserved-keywords.md"><i class="bi bi-github"></i> change</a>.
     </p>
 
     <p>Related Posts:</p>
     <ul>
       
-        <li><a href="/2008/10/Graphical-Organization-of-the-Talmud.html">Graphical Organization of the Talmud</a></li>
+        <li><a href="/2023/10/writing-object-shape-friendly-code-in-ruby">Writing Object Shape friendly code in Ruby</a></li>
       
-        <li><a href="/2006/10/Office-faceoff.html">Office faceoff</a></li>
+        <li><a href="/2012/12/A-gentle-conceptual-introduction-to-Nodejs.html">A gentle & conceptual introduction to Node.js</a></li>
       
-        <li><a href="/2010/01/He-thinks-Im-working-on-parts-Im-working-on-concepts.html">He thinks I'm working on parts. I'm working on concepts.</a></li>
+        <li><a href="/2023/06/rebuilding-concurrent-ruby-scheduledtask-event-and-timerset">Rebuilding Concurrent Ruby: ScheduledTask, Event, and TimerSet</a></li>
       
-        <li><a href="/2008/04/Cat-New.html">Cat, New</a></li>
+        <li><a href="/2024/01/replacing-devise-with-rails-has_secure_password-and-friends">Replacing Devise with Rails `has_secure_password` and friends</a></li>
       
-        <li><a href="/2007/11/Biology-cliche.html">Biology cliche</a></li>
+        <li><a href="/2007/08/Geekout-Video-on-Maps-for-Cable-Access-TV.html">Geekout: Video on Maps for Cable Access TV</a></li>
       
     </ul>
   </div>

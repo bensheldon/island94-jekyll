@@ -1,6 +1,15 @@
 
 {
   
+    "2024-06-rails-strict-locals-local-assigns-and-reserved-keywords": {
+      "title": "Rails Strict Locals, undefined `local_assigns`, and reserved keywords",
+      "published": "June 19, 2024",
+      "tags": [],
+      "content": "Huge thank you to Vojta Drbohlav in the Rails Performance Slack for helping me figure this out! 🙇  Things I learned today about a new-to-me Ruby on Rails feature:     Rail 7.1 added a feature called “Strict Locals” that uses a magic comment in ERB templates to declare required and optional local variables. It looks like this: &lt;%# locals: (shirts:, class: nil) %&gt; which in this example means when rendering the partial, it must be provided a shirts parameter and optional class parameter. It’s a nice feature to have ERB templates act more like callable functions with explicit signatures.   When using Rails Strict Locals, the local_assigns variable is not defined. You can’t use local_assigns. You’ll see an error that looks like ActionView::Template::Error (undefined local variable or method 'local_assigns' for an instance of #&lt;Class:0x0000000130536cc8&gt;).   This is a problem if your template has locals that are also Ruby reserved keywords like class or if, which can be accessed with local_assigns[:class] unless you start using Strict Locals.   To access those local variables named with reserved keywords in your ERB template when using Strict Locals, you can use binding.local_variable_get(:the_variable_name) e.g. binding.local_variable_get(:class) or binding.local_variable_get(:if).",
+      "url": "/2024/06/rails-strict-locals-local_assigns-and-reserved-keywords"
+    }
+    ,
+  
     "2024-06-recently-june-2024": {
       "title": "Recently, June, 2024",
       "published": "June 3, 2024",
