@@ -12,8 +12,6 @@ redirect_from:
 - "?p=220"
 ---
 
-.!.
-
 The cafe down the corner from my house makes the best brownies and I've been wanting this recipe ever since they opened. My friends have been quietly debating whether it was corn syrup or condensed milk that makes them so good. I made an oft-hand remark about it today and the counter-girl went back and wrote out the recipe for me. Turns out the answer is butter and eggs, lots of 'em.
 
 In regard to the amounts below: they were given to me in grams, and I did some loose conversions since I don't have a scale.
