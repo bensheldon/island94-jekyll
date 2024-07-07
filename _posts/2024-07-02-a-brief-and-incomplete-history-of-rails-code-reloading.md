@@ -5,12 +5,12 @@ published: true
 tags: []
 ---
 
-I've elevated to "strongly held belief" that [code reloading and autoloading is _the_ most important design constraint](https://speakerdeck.com/bensheldon/an-ok-compromise-faster-development-by-designing-for-the-rails-autoloader) when designing or architecting for Ruby on Rails. 
+I've elevated to "strongly held belief" that [code reloading and autoloading is _the_ most important design constraint](https://island94.org/2024/04/a-ruby-meetup-and-3-podcasts) when designing or architecting for Ruby on Rails. 
 
 - Code reloading is what powers the "make a code change, refresh the browser, see the result" development loop.
 - Code autoloading is what allows Rails to boot in milliseconds (if you've designed for it!) to run generators and application scripts and a single targeted test for tight test-driven-development loops.
 
-When it works, it works, and it probably isn't something you think about. When code autoloading and reloading doesn't work or works poorly, as it has on numerous apps across my career and consulting, it can be maddening:
+When [autoloading and reloading](https://guides.rubyonrails.org/autoloading_and_reloading_constants.html), it works, and it probably isn't something you think about. When code autoloading and reloading doesn't work or works poorly, as it has on numerous apps across my career and consulting, it can be maddening:
 
 - Spending hours "debugging" some code only to realize that your changes were never being run at all.
 - Waiting tens of excruciatingly boring seconds to run a simple test or watching the browser churn away while it slowly waits for a response from the development server.
