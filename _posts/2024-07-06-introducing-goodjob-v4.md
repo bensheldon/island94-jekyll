@@ -7,7 +7,7 @@ tags: [GoodJob, Rails]
 
 GoodJob version 4.0 has been released! 🎉 GoodJob v4 has breaking changes that should be addressed through a transitionary v3.99 release, but if you've kept up with v3.x releases and migrations, you're likely ready to upgrade 🚀 
 
-If you'd like to leave feedback about this release, please comment on the [GitHub Discussions post 📣](https://github.com/bensheldon/good_job/discussions/1396)
+The [README has an upgrade guide](https://github.com/bensheldon/good_job?tab=readme-ov-file#upgrading-v3-to-v4). If you'd like to leave feedback about this release, please comment on the [GitHub Discussions post 📣](https://github.com/bensheldon/good_job/discussions/1396)
 
 If you're not familiar with GoodJob, you can read the [introductory blog post](https://island94.org/2020/07/introducing-goodjob-1-0) from four years ago. We've come pretty far.
 
