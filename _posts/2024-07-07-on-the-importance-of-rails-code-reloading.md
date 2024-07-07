@@ -18,7 +18,7 @@ When [autoloading and reloading](https://guides.rubyonrails.org/autoloading_and_
 
 Code reloading and autoloading not working correctly is a huge pain. It's not great, at all!
 
-The history of code reloading and autoloading came up recently in the Rails Performance Slack. A  developer working on an old Rails application asked what Spork was (a forking preloader), and whether it was necessary (not necessarily). As a Rails Developer who is increasingly aware of my ~age~ experience (I started working with Rails in 2012, long after it first launched in 2004, but it's still been a minute), I realized I had something to share.
+The history of code reloading and autoloading came up recently in the [Rails Performance Slack](https://www.railsspeed.com). A  developer working on an old Rails application asked what Spork was (a forking preloader), and whether it was necessary (not necessarily). As a Rails Developer who is increasingly aware of my ~age~ experience (I started working with Rails in 2012, long after it first launched in 2004, but it's still been a minute), I realized I had something to share.
 
 Over history, various strategies have been taken to make the development loop faster because that's so important. Those strategies usually boil down to:
 
