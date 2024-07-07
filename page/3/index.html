@@ -125,6 +125,91 @@
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
     <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2023/08/fake-the-algorithm-til-you-make-it"><p>Fake the algorithm til you make it</p>
+</a>
+    </h1>
+    <p class="post-meta text-muted">
+      <time datetime="2023-08-30T22:50:00+00:00" itemprop="datePublished">August 30, 2023</time>
+      
+      
+
+
+
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>Almost exactly a decade ago I worked at OkCupid Labs where small teams (~2 engineers, a designer, and a fractional PM) would build zero-to-one applications. It was great fun and I worked mainly on <a href="https://island94.org/2013/07/Meet-Ravel.html">Ravel!</a> though bopped around quite a bit too.</p>
+
+<p>With small teams and quick timelines, I learned a lot about where to invest time in early social apps (onboarding and core loop) and where not to (matchmaking algorithms). The following is lightly adapted from a bunch of comments I wrote on an r/webdev post a few years ago, asking for <a href="https://www.reddit.com/r/webdev/comments/pey1p7/comment/%2Chb4gik2%2C/">“Surprisingly simple web apps?”</a>. My response was <a href="https://www.reddit.com/r/webdev/comments/pey1p7/comment/hb4gpxy/?utm_source=reddit&amp;utm_medium=web2x&amp;context=3">described</a> as “one of the more interesting things I’ve read on reddit in 5 years”:</p>
+
+<p>If you’re looking for inspiration, what is successful today is likely more complex than it was when it was originally launched. Twitter, Tinder, Facebook all likely launched with simple CRUD and associations, and only later did they get fancy algorithms. Also, Nextdoor, Grindr, Yelp [this was 2013].</p>
+
+<p>I used to work on social and dating apps and it is all “fake it till you make it”. The “secret sauce” is bucket by distance intervals, then order by random using the user-id as a seed so it’s determinist, but still just random sort. Smoke and mirrors and marketing bluster.</p>
+
+<p>You see this “Secret Sauce” marketing a lot. An app will imply that they have some secret, complex algorithm that no other competitor has. The software equivalent of “you can get a hamburger from anywhere, but ours has our secret sauce that makes it taste best”. But that can be bluster and market positioning rather than actually complexity. In truth, it’s secretly mayo, ketchup and relish. Or as I’ve encountered building apps, deterministic random.</p>
+
+<p>Imagine you have a dating/social app and you want to have a match-making algorithm. You tell your users that you have the only astrologist datascience team building complex machine-learning models that can map every astronomical body in the known universe to individual personality traits and precisely calculate true love to the 9th decimal.</p>
+
+<p>In truth, you:</p>
+
+<ul>
+  <li>For the current user, bucket other users by distance: a bucket of users that are less than 5km away; less than 25km; less than 100km; and everyone else. Early social app stuff is hard because you have a small userbase but you need to appear to be really popular, so you may need to adjust those numbers; also a reason to launch in a focused market.</li>
+  <li>Within each distance bucket, simply sort the users by random, seeded by the user id of the current user (Postgres <code class="language-plaintext highlighter-rouge">setseed</code>). That way the other people will always appear in the same order to the current user.</li>
+</ul>
+
+<p>It works on people’s confirmation bias: if you confidently tell someone that they are a match, they are likely to generate their own evidence to support that impression. You don’t even have to do the location bucketing either, but likely you want to give people something that is actionable for your core loop.</p>
+
+<p>And remember, this is really about priorities in the early life of a product. It’s not difficult to do something complex, but it takes time and engaged users to dial it in; so that’s why you don’t launch with a real algorithm.</p>
+
+<p>This is all really easy to do with just a relational database <em>in the database</em>, no in-memory descent models or whatever. Here’s a simple recommendation strategy for t-shirts (from my <a href="https://dayoftheshirt.com">Day of the Shirt</a>), in SQL for Ruby on Rails:</p>
+
+<p>For a given user, find all of the t-shirts they have favorited, then find all of the users that have also favorited those t-shirts and strength them based on who has favorited the most t-shirts in common with the initial user, and then find all of the t-shirts those users have favorited, multiply through the counts and strengths, sum and order them. There’s your recommended t-shirts:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Shirts</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="c1"># ...</span>
+  <span class="n">scope</span> <span class="ss">:order_by_recommended</span><span class="p">,</span> <span class="nb">lambda</span> <span class="p">{</span> <span class="o">|</span><span class="n">user</span><span class="o">|</span>
+    <span class="n">joins</span><span class="p">(</span><span class="o">&lt;&lt;~</span><span class="no">SQL</span><span class="p">.</span><span class="nf">squish</span><span class="p">).</span><span class="nf">order</span><span class="p">(</span><span class="s1">'strength DESC NULLS LAST'</span><span class="p">)</span><span class="sh">
+      LEFT JOIN (
+        WITH recommended_users AS (
+          SELECT user_id, count(*) AS strength
+          FROM favorite_shirts_users
+          WHERE
+            shirt_id IN (
+              SELECT shirt_id
+              FROM favorite_shirts_users
+              WHERE </span><span class="si">#{</span><span class="n">sanitize_sql_for_conditions</span><span class="p">([</span><span class="s1">'user_id = ?'</span><span class="p">,</span> <span class="n">user</span><span class="p">.</span><span class="nf">id</span><span class="p">])</span><span class="si">}</span><span class="sh">
+            )
+          GROUP BY user_id
+        )
+        SELECT shirt_id, SUM(strength) AS strength
+        FROM favorite_shirts_users
+        LEFT JOIN recommended_users ON recommended_users.user_id = favorite_shirts_users.user_id
+        GROUP BY shirt_id
+      ) AS recommended_shirts ON recommended_shirts.shirt_id = shirts.id
+</span><span class="no">    SQL</span>
+  <span class="p">}</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>That’s a relatively lightweight strategy, that you can run in real-time and if there is enough engagement can appear effective. And if you don’t have enough engagement, again, enrich it with some deterministically random results.</p>
+
+<p>It’s basic but you can also add in other kinds of engagement and weigh them differently or whatever. It’s all good. Then you have massive success and hire a real datascience team.</p>
+
+
+  </div>
+</article>
+
+    
+
+    <hr>
+  
+    
+      
+
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
       <a class="post-link" href="/2023/08/how-to-isolate-i18n-configuration-in-a-rails-engine"><p>How to isolate I18n configuration in a Rails Engine</p>
 </a>
     </h1>
@@ -1138,49 +1223,6 @@
 <p>I’ll admit, serving frontend assets using <code class="language-plaintext highlighter-rouge">render file:</code> is boring, but I experienced a thrill the first time I wired up the importmaps and <em>it just worked</em>. Writing small Javascript modules and using <code class="language-plaintext highlighter-rouge">import</code> directives is really nice. I recently added Stimulus and I’m feeling optimistic that I could reliably implement Turbo in my gem’s Rails Engine fully decoupled from the parent application.</p>
 
 <p>I hope this post about GoodJob inspires you to build full-featured web frontends for your own gems and libraries.</p>
-
-  </div>
-</article>
-
-    
-
-    <hr>
-  
-    
-      
-
-<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">
-      <a class="post-link" href="/2023/03/recently-march-12-2023"><p>Recently, March 12, 2023</p>
-</a>
-    </h1>
-    <p class="post-meta text-muted">
-      <time datetime="2023-03-13T00:26:00+00:00" itemprop="datePublished">March 13, 2023</time>
-      
-      
-
-
-  
-
-  
-
-  • Tagged <a href="/tags/#weeknotes">weeknotes</a>
-
-
-    </p>
-  </header>
-
-  <div class="post-content" itemprop="articleBody">
-    <ul>
-  <li>Work has been complicated, recently. <a href="https://techcrunch.com/2023/02/09/github-lays-off-10-and-goes-fully-remote/">Layoffs, as a general idea</a>, were announced a month ago; it was the same week I came down with a bad cold. I’ve been fairly low energy since and have had trouble differentiating the two. I’m supremely proud and confident that my team is doing the most important work possible. We’ll see!</li>
-  <li>The week prior to all of this, my dad came to visit and stay with us. Having an easier time hosting family was one of our goals in getting a 2nd bedroom. Success.</li>
-  <li>Wow, it’s nearly been a year since I left my last job. I’ve had a number of former colleagues asking for help in leaving, in addition to talking with folks being pushed out: I was surprised to see Code for America finally kill Brigades, and really <a href="https://statescoop.com/code-for-america-local-brigades-ending/">twist the knife too</a> by forcing groups to rename themselves.</li>
-  <li>GoodJob is great! I’ve been thinking about <a href="https://github.com/bensheldon/good_job/discussions/831">replacing Advisory Locks</a> with a lock strategy that’s more compatible with PgBouncer. But that will probably be a 2-year project at least of incrementally crabwalking towards that goal while avoiding breaking changes. <a href="https://github.com/rubygems/rubygems.org/pull/3533">Rubygems.org just adopted GoodJob</a>; I am humbled.</li>
-  <li>On other projects, I’ve been trying to lower costs. My S3 data-transfer bill went from $10 to $50 a month, which I’m not happy about; scrapers are the worst 🤷‍♀️ I’ve also been experimenting with Dokku for packing some smaller projects (paying $15 once rather than $12 per app), though the VM locked up once on a Saturday night and I had to reboot it and this is exactly why I don’t want to manage my own servers.</li>
-  <li>My brother and I have been planning a Celebration of Life for my mom.</li>
-  <li>I’m so happy to finally be back on Daylight Savings Time.</li>
-</ul>
 
   </div>
 </article>
