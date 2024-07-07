@@ -1,5 +1,5 @@
 ---
-title: "A brief and incomplete history of Rails code reloading and autoloading"
+title: "A brief and incomplete history of the importance of Rails code reloading and autoloading"
 date: 2024-07-02 07:44 PDT
 published: true
 tags: []
@@ -33,14 +33,25 @@ Bootsnap, though operating on a cache strategy rather than a process-forker, ser
 
 Look, a lot of labor has gone into this stuff. It's important! And it's easy to get wrong and produce a slow and disordered application where development is a pain. It happens! A lot!
 
-I wish I could easily leave this post with some kind of _nugget_ of something actionable to do, but it's really more like: please take care. Some rules of thumb:
+I wish I could easily leave this post with some kind of _nugget_ of something actionable to do, but it's really more like: **please take care**. Some rules of thumb:
 
 - Don't touch any constants in `app/`, or allow it to be touched (looking at you, custom Rack Middleware) unless you're doing so from something in `app/` (or you _know_ is [autoloaded](https://island94.org/2023/05/whatever-you-do-don-t-autoload-rails-lib)).
-- Take care with `config/initializers/` and make sure you're making the most of `ActiveSupport.on_load` hooks. Rails may even be missing some load hooks, so make an upstream PR if you need to configure an autoloaded object and you can't.
+- Take care with `config/initializers/` and ensure you're making the most of `ActiveSupport.on_load` hooks. Rails may even be missing some load hooks, so make an upstream PR if you need to configure an autoloaded object and you can't. It's super common to run into trouble; in writing this blog post alone, I discovered a [problem with a gem I use](https://github.com/textacular/textacular/pull/159).
 - If you're writing library code, become familiar with the configuration-class-initializer-attribute-pattern dance (my name for it), which is how you'll get something like `config.action_view.something = :the_thing` lifted and constantized into `ActionView::Base.something #=> TheThing` 
 
-<blockquote markdown="1">
+You might find luck with this [bin/autoload-check script](https://gist.github.com/bensheldon/ba6532c4216c11dd9ba03487c5a06ee4), that I adapted from something [John Hawthorn](https://www.johnhawthorn.com/) originally wrote, giving output like:
 
+```text
+❌ Autoloaded constants were referenced during during boot.
+These files/constants were autoloaded during the boot process,
+which will result in inconsistent behavior and will slow down and
+may break development mode. Remove references to these constants
+from code loaded at boot.
 
-
-</blockquote>
+🚨 ActionView::Base (action_view) referenced by config/initializers/field_error.rb:3:in `<main>'
+🚨 ActiveJob::Base (active_job)   referenced by config/initializers/good_job.rb:7:in `block in <main>'
+🚨 ActiveRecord::Base (active_record)
+                                         /Users/bensheldon/.rbenv/versions/3.3.3/lib/ruby/gems/3.3.0/gems/activerecord-7.1.3.4/lib/active_record/base.rb:338:in `<module:ActiveRecord>'
+                                         /Users/bensheldon/.rbenv/versions/3.3.3/lib/ruby/gems/3.3.0/gems/activerecord-7.1.3.4/lib/active_record/base.rb:15:in `<main>'
+                                         .....
+```
