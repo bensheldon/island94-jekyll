@@ -10,7 +10,7 @@ I've elevated to "strongly held belief" that [code reloading and autoloading is 
 - Code reloading is what powers the "make a code change, refresh the browser, see the result" development loop.
 - Code autoloading is what allows Rails to boot in milliseconds (if you've designed for it!) to run generators and application scripts and a single targeted test for tight test-driven-development loops.
 
-When [autoloading and reloading](https://guides.rubyonrails.org/autoloading_and_reloading_constants.html), it works, and it probably isn't something you think about. When code autoloading and reloading doesn't work or works poorly, as it has on numerous apps across my career and consulting, it can be maddening:
+When [autoloading and reloading](https://guides.rubyonrails.org/autoloading_and_reloading_constants.html) just works, it probably isn't something you think about. When code autoloading and reloading doesn't work or works poorly, as it has on numerous apps across my career and consulting, it can be maddening:
 
 - Spending hours "debugging" some code only to realize that your changes were never being run at all.
 - Waiting tens of excruciatingly boring seconds to run a simple test or watching the browser churn away while it slowly waits for a response from the development server.
