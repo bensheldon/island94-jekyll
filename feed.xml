@@ -6,8 +6,8 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 07 Jul 2024 07:06:35 +0000</pubDate>
-    <lastBuildDate>Sun, 07 Jul 2024 07:06:35 +0000</lastBuildDate>
+    <pubDate>Sun, 07 Jul 2024 14:36:35 +0000</pubDate>
+    <lastBuildDate>Sun, 07 Jul 2024 14:36:35 +0000</lastBuildDate>
     <generator>Jekyll v4.3.3</generator>
     
     
@@ -21,7 +21,7 @@
   <title>Introducing GoodJob v4</title>
   <description>&lt;p&gt;GoodJob version 4.0 has been released! 🎉 GoodJob v4 has breaking changes that should be addressed through a transitionary v3.99 release, but if you’ve kept up with v3.x releases and migrations, you’re likely ready to upgrade 🚀&lt;/p&gt;
 
-&lt;p&gt;If you’d like to leave feedback about this release, please comment on the &lt;a href=&quot;https://github.com/bensheldon/good_job/discussions/1396&quot;&gt;GitHub Discussions post 📣&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The &lt;a href=&quot;https://github.com/bensheldon/good_job?tab=readme-ov-file#upgrading-v3-to-v4&quot;&gt;README has an upgrade guide&lt;/a&gt;. If you’d like to leave feedback about this release, please comment on the &lt;a href=&quot;https://github.com/bensheldon/good_job/discussions/1396&quot;&gt;GitHub Discussions post 📣&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;If you’re not familiar with GoodJob, you can read the &lt;a href=&quot;https://island94.org/2020/07/introducing-goodjob-1-0&quot;&gt;introductory blog post&lt;/a&gt; from four years ago. We’ve come pretty far.&lt;/p&gt;
 
