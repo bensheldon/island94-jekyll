@@ -14,7 +14,7 @@ When [autoloading and reloading](https://guides.rubyonrails.org/autoloading_and_
 
 - Spending hours "debugging" some code only to realize that your changes were never being run at all.
 - Waiting tens of excruciatingly boring seconds to run a simple test or watching the browser churn away while it slowly waits for a response from the development server.
-- Feeling like you can write the code yourself each time faster than running a scaffold/template generator
+- Feeling like you can write the code yourself each time faster than running a scaffold/template generator, repetitively over and over again.
 
 Code reloading and autoloading not working correctly is a huge pain. It's not great, at all!
 
