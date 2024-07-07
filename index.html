@@ -126,6 +126,8 @@
 
 <p>If you’d like to leave feedback about this release, please comment on the <a href="https://github.com/bensheldon/good_job/discussions/1396">GitHub Discussions post 📣</a></p>
 
+<p>If you’re not familiar with GoodJob, you can read the <a href="https://island94.org/2020/07/introducing-goodjob-1-0">introductory blog post</a> from four years ago. We’ve come pretty far.</p>
+
 <h3 id="breaking-changes-to-job-schema">Breaking changes to job schema</h3>
 
 <p>GoodJob v4 changes how job and job execution records are stored in the database; moving from job and executions being commingled in the <code class="language-plaintext highlighter-rouge">good_jobs</code> table to Jobs (still in <code class="language-plaintext highlighter-rouge">good_jobs</code>) having many discrete Execution records in the <code class="language-plaintext highlighter-rouge">good_job_executions</code> table.</p>
@@ -154,12 +156,12 @@
   <li>Throttling added to <a href="https://github.com/bensheldon/good_job?tab=readme-ov-file#concurrency-controls">Concurrency Controls</a></li>
   <li>Improvements to the <a href="https://goodjob-demo.herokuapp.com/good_job/jobs">Web Dashboard</a>, including Dark Mode, performance dashboard, and improved UI,  and customizable templates.</li>
   <li>Storage of error backtraces. Improved handling of job error conditions, including signal interruptions. Added <code class="language-plaintext highlighter-rouge">GoodJob.current_thread_running?</code> and <code class="language-plaintext highlighter-rouge">GoodJob.current_thread_shutting_down?</code> to support job iteration.</li>
-  <li><a href="https://github.com/bensheldon/good_job/pull/665">Ordered Queues</a>, <a href="https://github.com/bensheldon/good_job/pull/727">￼<code class="language-plaintext highlighter-rouge">queue_select_limit</code>￼</a> and further options for configuring queue order and performance.</li>
+  <li><a href="https://github.com/bensheldon/good_job/pull/665">Ordered Queues</a>, <a href="https://github.com/bensheldon/good_job/pull/727"><code class="language-plaintext highlighter-rouge">queue_select_limit</code></a> and further options for configuring queue order and performance.</li>
   <li>Improvements to Cron / Repeating Jobs.</li>
   <li>Operational improvements including <code class="language-plaintext highlighter-rouge">systemd</code> integration, improved health checks.</li>
 </ul>
 
-<p>A huge thank you to 88 (!) GoodJob v3.x contributors 🙇🏻 @afn, @ain2108, @aisayo, @Ajmal, @aki77, @alec-c4, @AndersGM, @andyatkinson, @andynu, @arnaudlevy, @baka-san, @benoittgt, @bforma, @BilalBudhani, @binarygit, @bkeepers, @blafri, @blumhardts, @ckdake, @cmcinnes-mdsol, @coreyaus, @DanielHeath, @defkode, @dixpac, @Earlopain, @eric-christian, @erick-tmr, @esasse, @francois-ferrandis, @frans-k, @gap777, @grncdr, @hahwul, @hidenba, @hss-mateus, @Intrepidd, @isaac, @jgrau, @jklina, @jmarsh24, @jpcamara, @jrochkind, @julienanne, @julik, @LucasKendi, @luizkowalski, @maestromac, @marckohlbrugge, @maxim, @mec, @metalelf0, @michaelglass, @mitchellhenke, @mkrfowler, @morgoth, @Mr0grog, @mthadley, @namiwang, @nickcampbell18, @padde, @patriciomacadden, @paul, @Pauloparakleto, @pgvsalamander, @remy727, @rrunyon, @saksham-jain, @sam1el, @sasha-id, @SebouChu, @segiddins, @SemihCag, @shouichi, @simi, @sparshalc, @stas, @steveroot, @TAGraves, @tagrudev, @thepry, @ur5us, @WailanTirajoh, @yenshirak, @ylansegal, @yshmarov, @zarqman</p>
+<p><strong>A huge thank you to 88 (!) GoodJob v3.x contributors 🙇🏻</strong> @afn, @ain2108, @aisayo, @Ajmal, @aki77, @alec-c4, @AndersGM, @andyatkinson, @andynu, @arnaudlevy, @baka-san, @benoittgt, @bforma, @BilalBudhani, @binarygit, @bkeepers, @blafri, @blumhardts, @ckdake, @cmcinnes-mdsol, @coreyaus, @DanielHeath, @defkode, @dixpac, @Earlopain, @eric-christian, @erick-tmr, @esasse, @francois-ferrandis, @frans-k, @gap777, @grncdr, @hahwul, @hidenba, @hss-mateus, @Intrepidd, @isaac, @jgrau, @jklina, @jmarsh24, @jpcamara, @jrochkind, @julienanne, @julik, @LucasKendi, @luizkowalski, @maestromac, @marckohlbrugge, @maxim, @mec, @metalelf0, @michaelglass, @mitchellhenke, @mkrfowler, @morgoth, @Mr0grog, @mthadley, @namiwang, @nickcampbell18, @padde, @patriciomacadden, @paul, @Pauloparakleto, @pgvsalamander, @remy727, @rrunyon, @saksham-jain, @sam1el, @sasha-id, @SebouChu, @segiddins, @SemihCag, @shouichi, @simi, @sparshalc, @stas, @steveroot, @TAGraves, @tagrudev, @thepry, @ur5us, @WailanTirajoh, @yenshirak, @ylansegal, @yshmarov, @zarqman</p>
 
   </div>
 </article>

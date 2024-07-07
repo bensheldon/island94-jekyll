@@ -6,8 +6,8 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 07 Jul 2024 04:48:16 +0000</pubDate>
-    <lastBuildDate>Sun, 07 Jul 2024 04:48:16 +0000</lastBuildDate>
+    <pubDate>Sun, 07 Jul 2024 04:58:12 +0000</pubDate>
+    <lastBuildDate>Sun, 07 Jul 2024 04:58:12 +0000</lastBuildDate>
     <generator>Jekyll v4.3.3</generator>
     
     
@@ -22,6 +22,8 @@
   <description>&lt;p&gt;GoodJob version 4.0 has been released! 🎉 GoodJob v4 has breaking changes that should be addressed through a transitionary v3.99 release, but if you’ve kept up with v3.x releases and migrations, you’re likely ready to upgrade 🚀&lt;/p&gt;
 
 &lt;p&gt;If you’d like to leave feedback about this release, please comment on the &lt;a href=&quot;https://github.com/bensheldon/good_job/discussions/1396&quot;&gt;GitHub Discussions post 📣&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;If you’re not familiar with GoodJob, you can read the &lt;a href=&quot;https://island94.org/2020/07/introducing-goodjob-1-0&quot;&gt;introductory blog post&lt;/a&gt; from four years ago. We’ve come pretty far.&lt;/p&gt;
 
 &lt;h3 id=&quot;breaking-changes-to-job-schema&quot;&gt;Breaking changes to job schema&lt;/h3&gt;
 
@@ -51,12 +53,12 @@
   &lt;li&gt;Throttling added to &lt;a href=&quot;https://github.com/bensheldon/good_job?tab=readme-ov-file#concurrency-controls&quot;&gt;Concurrency Controls&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;Improvements to the &lt;a href=&quot;https://goodjob-demo.herokuapp.com/good_job/jobs&quot;&gt;Web Dashboard&lt;/a&gt;, including Dark Mode, performance dashboard, and improved UI,  and customizable templates.&lt;/li&gt;
   &lt;li&gt;Storage of error backtraces. Improved handling of job error conditions, including signal interruptions. Added &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GoodJob.current_thread_running?&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GoodJob.current_thread_shutting_down?&lt;/code&gt; to support job iteration.&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/bensheldon/good_job/pull/665&quot;&gt;Ordered Queues&lt;/a&gt;, &lt;a href=&quot;https://github.com/bensheldon/good_job/pull/727&quot;&gt;￼&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;queue_select_limit&lt;/code&gt;￼&lt;/a&gt; and further options for configuring queue order and performance.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/bensheldon/good_job/pull/665&quot;&gt;Ordered Queues&lt;/a&gt;, &lt;a href=&quot;https://github.com/bensheldon/good_job/pull/727&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;queue_select_limit&lt;/code&gt;&lt;/a&gt; and further options for configuring queue order and performance.&lt;/li&gt;
   &lt;li&gt;Improvements to Cron / Repeating Jobs.&lt;/li&gt;
   &lt;li&gt;Operational improvements including &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;systemd&lt;/code&gt; integration, improved health checks.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;A huge thank you to 88 (!) GoodJob v3.x contributors 🙇🏻 @afn, @ain2108, @aisayo, @Ajmal, @aki77, @alec-c4, @AndersGM, @andyatkinson, @andynu, @arnaudlevy, @baka-san, @benoittgt, @bforma, @BilalBudhani, @binarygit, @bkeepers, @blafri, @blumhardts, @ckdake, @cmcinnes-mdsol, @coreyaus, @DanielHeath, @defkode, @dixpac, @Earlopain, @eric-christian, @erick-tmr, @esasse, @francois-ferrandis, @frans-k, @gap777, @grncdr, @hahwul, @hidenba, @hss-mateus, @Intrepidd, @isaac, @jgrau, @jklina, @jmarsh24, @jpcamara, @jrochkind, @julienanne, @julik, @LucasKendi, @luizkowalski, @maestromac, @marckohlbrugge, @maxim, @mec, @metalelf0, @michaelglass, @mitchellhenke, @mkrfowler, @morgoth, @Mr0grog, @mthadley, @namiwang, @nickcampbell18, @padde, @patriciomacadden, @paul, @Pauloparakleto, @pgvsalamander, @remy727, @rrunyon, @saksham-jain, @sam1el, @sasha-id, @SebouChu, @segiddins, @SemihCag, @shouichi, @simi, @sparshalc, @stas, @steveroot, @TAGraves, @tagrudev, @thepry, @ur5us, @WailanTirajoh, @yenshirak, @ylansegal, @yshmarov, @zarqman&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;A huge thank you to 88 (!) GoodJob v3.x contributors 🙇🏻&lt;/strong&gt; @afn, @ain2108, @aisayo, @Ajmal, @aki77, @alec-c4, @AndersGM, @andyatkinson, @andynu, @arnaudlevy, @baka-san, @benoittgt, @bforma, @BilalBudhani, @binarygit, @bkeepers, @blafri, @blumhardts, @ckdake, @cmcinnes-mdsol, @coreyaus, @DanielHeath, @defkode, @dixpac, @Earlopain, @eric-christian, @erick-tmr, @esasse, @francois-ferrandis, @frans-k, @gap777, @grncdr, @hahwul, @hidenba, @hss-mateus, @Intrepidd, @isaac, @jgrau, @jklina, @jmarsh24, @jpcamara, @jrochkind, @julienanne, @julik, @LucasKendi, @luizkowalski, @maestromac, @marckohlbrugge, @maxim, @mec, @metalelf0, @michaelglass, @mitchellhenke, @mkrfowler, @morgoth, @Mr0grog, @mthadley, @namiwang, @nickcampbell18, @padde, @patriciomacadden, @paul, @Pauloparakleto, @pgvsalamander, @remy727, @rrunyon, @saksham-jain, @sam1el, @sasha-id, @SebouChu, @segiddins, @SemihCag, @shouichi, @simi, @sparshalc, @stas, @steveroot, @TAGraves, @tagrudev, @thepry, @ur5us, @WailanTirajoh, @yenshirak, @ylansegal, @yshmarov, @zarqman&lt;/p&gt;
 
   &lt;br&gt;&lt;br&gt;
   &lt;hr&gt;
