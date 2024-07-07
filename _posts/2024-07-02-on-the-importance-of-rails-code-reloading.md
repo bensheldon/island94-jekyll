@@ -1,5 +1,5 @@
 ---
-title: "A brief and incomplete history of the importance of Rails code reloading and autoloading"
+title: "On the importance of Rails code reloading and autoloading"
 date: 2024-07-02 07:44 PDT
 published: true
 tags: []
