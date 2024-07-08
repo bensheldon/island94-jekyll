@@ -7,7 +7,7 @@ tags: [Rails]
 
 I recently migrated [Day of the Shirt](https://dayoftheshirt.com), my graphic t-shirt sale aggregator, from storing image attachments with Carrierwave to Active Storage. It went ok! 👍
 
-There were a couple of things driving this migration:
+There were a couple of things driving this migration, though Carrierwave had served me very well for nearly a decade:
 
 - For budgetary reasons, I was moving the storage service from S3 to Digital Ocean Spaces. I knew I’d be doing some sort of data migration regardless.
 - I was using some monkeypatches of Carrierwave v2 that weren’t compatible with Carrierwave v3. So I knew I’d have to dig into the internals anyways if I wanted to stay up to date.
