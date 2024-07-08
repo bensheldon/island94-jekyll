@@ -6,8 +6,8 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 08 Jul 2024 07:07:42 +0000</pubDate>
-    <lastBuildDate>Mon, 08 Jul 2024 07:07:42 +0000</lastBuildDate>
+    <pubDate>Mon, 08 Jul 2024 19:24:48 +0000</pubDate>
+    <lastBuildDate>Mon, 08 Jul 2024 19:24:48 +0000</lastBuildDate>
     <generator>Jekyll v4.3.3</generator>
     
     
@@ -59,7 +59,7 @@
 
 &lt;ul&gt;
   &lt;li&gt;Don’t touch any constants in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;app/&lt;/code&gt;, or allow it to be touched (looking at you, custom Rack Middleware) unless you’re doing so from something in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;app/&lt;/code&gt; (or you &lt;em&gt;know&lt;/em&gt; is &lt;a href=&quot;https://island94.org/2023/05/whatever-you-do-don-t-autoload-rails-lib&quot;&gt;autoloaded&lt;/a&gt;).&lt;/li&gt;
-  &lt;li&gt;Take care with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;config/initializers/&lt;/code&gt; and ensure you’re making the most of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ActiveSupport.on_load&lt;/code&gt; hooks. Rails may even be missing some load hooks, so make an upstream PR if you need to configure an autoloaded object and you can’t. It’s super common to run into trouble; in writing this blog post alone, I discovered a &lt;a href=&quot;https://github.com/textacular/textacular/pull/159&quot;&gt;problem with a gem I use&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;Take care with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;config/initializers/&lt;/code&gt; and ensure you’re making the most of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ActiveSupport.on_load&lt;/code&gt; hooks. Rails may even be missing &lt;a href=&quot;https://guides.rubyonrails.org/engines.html#available-load-hooks&quot;&gt;some load hooks&lt;/a&gt;, so make an upstream PR if you need to configure an autoloaded object and you can’t. It’s super common to run into trouble; in writing this blog post alone, I discovered a &lt;a href=&quot;https://github.com/textacular/textacular/pull/159&quot;&gt;problem with a gem I use&lt;/a&gt;.&lt;/li&gt;
   &lt;li&gt;If you’re writing library code, become familiar with the configuration-class-initializer-attribute-pattern dance (my name for it), which is how you’ll get something like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;config.action_view.something = :the_thing&lt;/code&gt; lifted and constantized into &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ActionView::Base.something #=&amp;gt; TheThing&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
