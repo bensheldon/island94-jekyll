@@ -6,8 +6,8 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 09 Jul 2024 07:06:26 +0000</pubDate>
-    <lastBuildDate>Tue, 09 Jul 2024 07:06:26 +0000</lastBuildDate>
+    <pubDate>Tue, 09 Jul 2024 22:32:27 +0000</pubDate>
+    <lastBuildDate>Tue, 09 Jul 2024 22:32:27 +0000</lastBuildDate>
     <generator>Jekyll v4.3.3</generator>
     
     
@@ -36,7 +36,7 @@
 
 &lt;p&gt;Code reloading and autoloading not working correctly is a huge pain. It’s not great, at all!&lt;/p&gt;
 
-&lt;p&gt;The history of code reloading and autoloading came up recently in the &lt;a href=&quot;https://www.railsspeed.com&quot;&gt;Rails Performance Slack&lt;/a&gt;. A  developer working on an old Rails application asked what Spork was (a forking preloader), and whether it was necessary (not necessarily). As a Rails Developer who is increasingly aware of my ~age~ experience (I started working with Rails in 2012, long after it first launched in 2004, but it’s still been a minute), I realized I had something to share.&lt;/p&gt;
+&lt;p&gt;The history of code reloading and autoloading came up recently in the &lt;a href=&quot;https://www.railsspeed.com&quot;&gt;Rails Performance Slack&lt;/a&gt;. A  developer working on an old Rails application asked what Spork was (a forking preloader), and whether it was necessary (not necessarily). As a Rails Developer who is increasingly aware of my &lt;del&gt;age&lt;/del&gt; experience (I started working with Rails in 2012, long after it first launched in 2004, but it’s still been a minute), I realized I had something to share.&lt;/p&gt;
 
 &lt;p&gt;Over history, various strategies have been taken to make the development loop faster because that’s so important. Those strategies usually boil down to:&lt;/p&gt;
 
