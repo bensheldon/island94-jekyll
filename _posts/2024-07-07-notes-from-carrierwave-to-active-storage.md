@@ -1,6 +1,6 @@
 ---
 title: "Notes from Carrierwave to Active Storage"
-date: 2024-07-07 20:04 PDT
+date: 2024-07-09 3:30 PDT
 published: true
 tags: [Rails]
 ---
