@@ -151,7 +151,7 @@
 <p>I wish I could easily leave this post with some kind of <em>nugget</em> of something actionable to do, but it’s really more like: <strong>please take care</strong>. Some rules of thumb:</p>
 
 <ul>
-  <li>Don’t touch any constants in <code class="language-plaintext highlighter-rouge">app/</code>, or allow it to be touched (looking at you, custom Rack Middleware) unless you’re doing so from something in <code class="language-plaintext highlighter-rouge">app/</code> (or you <em>know</em> is <a href="https://island94.org/2023/05/whatever-you-do-don-t-autoload-rails-lib">autoloaded</a>).</li>
+  <li>Don’t reference, don’t access, don’t use or touch any constants in <code class="language-plaintext highlighter-rouge">app/</code>, or allow them to be referenced (looking at you, custom Rack Middleware) unless you’re doing so from another constant in <code class="language-plaintext highlighter-rouge">app/</code> (or somewhere that you <em>know</em> is <a href="https://island94.org/2023/05/whatever-you-do-don-t-autoload-rails-lib">autoloaded</a>).</li>
   <li>Take care with <code class="language-plaintext highlighter-rouge">config/initializers/</code> and ensure you’re making the most of <code class="language-plaintext highlighter-rouge">ActiveSupport.on_load</code> hooks. Rails may even be missing <a href="https://guides.rubyonrails.org/engines.html#available-load-hooks">some load hooks</a>, so make an upstream PR if you need to configure an autoloaded object and you can’t. It’s super common to run into trouble; in writing this blog post alone, I discovered a <a href="https://github.com/textacular/textacular/pull/159">problem with a gem I use</a>.</li>
   <li>If you’re writing library code, become familiar with the configuration-class-initializer-attribute-pattern dance (my name for it), which is how you’ll get something like <code class="language-plaintext highlighter-rouge">config.action_view.something = :the_thing</code> lifted and constantized into <code class="language-plaintext highlighter-rouge">ActionView::Base.something #=&gt; TheThing</code></li>
 </ul>
@@ -194,7 +194,7 @@ from code loaded at boot.
       
         <li><a href="/2022/04/science-in-the-capital">Science in the Capital</a></li>
       
-        <li><a href="/2023/01/framing-open-source-contributions-at-work">Framing open source contributions at work</a></li>
+        <li><a href="/2022/07/what-the-fuck-are-you-talking-about-the-story-of-nodetiles">"What the fuck are you talking about?": The story of NodeTiles</a></li>
       
     </ul>
   </div>
