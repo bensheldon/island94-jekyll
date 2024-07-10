@@ -35,7 +35,7 @@ Look, a lot of labor has gone into this stuff. It's important! And it's easy to 
 
 I wish I could easily leave this post with some kind of _nugget_ of something actionable to do, but it's really more like: **please take care**. Some rules of thumb:
 
-- Don't touch any constants in `app/`, or allow it to be touched (looking at you, custom Rack Middleware) unless you're doing so from something in `app/` (or you _know_ is [autoloaded](https://island94.org/2023/05/whatever-you-do-don-t-autoload-rails-lib)).
+- Don't reference, don't access, don't use or touch any constants in `app/`, or allow them to be referenced (looking at you, custom Rack Middleware) unless you're doing so from another constant in `app/` (or somewhere that you _know_ is [autoloaded](https://island94.org/2023/05/whatever-you-do-don-t-autoload-rails-lib)).
 - Take care with `config/initializers/` and ensure you're making the most of `ActiveSupport.on_load` hooks. Rails may even be missing [some load hooks](https://guides.rubyonrails.org/engines.html#available-load-hooks), so make an upstream PR if you need to configure an autoloaded object and you can't. It's super common to run into trouble; in writing this blog post alone, I discovered a [problem with a gem I use](https://github.com/textacular/textacular/pull/159).
 - If you're writing library code, become familiar with the configuration-class-initializer-attribute-pattern dance (my name for it), which is how you'll get something like `config.action_view.something = :the_thing` lifted and constantized into `ActionView::Base.something #=> TheThing` 
 
