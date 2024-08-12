@@ -21,7 +21,7 @@ redirect_from:
 
 I was over at my pal Dean’s place in Jamaica Plain today. In addition to lots of semi-expired foodstuffs he snags from behind the Co-Op next door, he also has the screens and materials for t-shirt printing. Previously I had been helping him up in Lowell filming some promos for his [Democracy Player](https://web.archive.org/web/20060321152358/http://www.getdemocracy.com/) channel, “Telemusicvision”:http://telemusicvision.com; today we were putting stuff on t-shirts.
 
-The design I decided to print was one of the doodles I had done a week or so ago for the [DigitalBicycle Project](http://Digitalbicycle.com) while waiting for Jessica to get done with her homework .
+The design I decided to print was one of the doodles I had done a week or so ago for the [DigitalBicycle Project](https://web.archive.org/web/20030214001714/http://digitalbicycle.com:80/) while waiting for Jessica to get done with her homework .
 
 The process basically was:
 
