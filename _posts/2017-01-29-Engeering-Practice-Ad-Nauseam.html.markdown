@@ -1,5 +1,5 @@
 ---
-title: Engeering Practice Ad nauseam
+title: Engineering Practice Ad nauseam
 date: 2017-01-30 04:22 UTC
 tags:
   - software engineering
