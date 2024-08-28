@@ -15,7 +15,7 @@ redirect_from:
 
 ![](/uploads/2009-12-23-Academia-on-the-experience-of-poverty/Livelihood-Framework-500x270.png "Livelihood Framework")
 
-It takes a lot of words for academia to say "We're can't describe the experience of poverty". This is from " [Using a sustainable livelihoods approach to assessing the impact of ICTs in development](http://ci-journal.net/index.php/ciej/article/view/310)" by Sarah Parkinson and Ricardo Ramírez:
+It takes a lot of words for academia to say "We can't describe the experience of poverty". This is from " [Using a sustainable livelihoods approach to assessing the impact of ICTs in development](http://ci-journal.net/index.php/ciej/article/view/310)" by Sarah Parkinson and Ricardo Ramírez:
 
 > ...the way development professionals conceptualise development and poverty is very different from how poor people themselves view these. Poor people perceive poverty in a much more complex manner than do development professionals and they employ a range of strategies, not only to maximize income, but also to minimise risk and to protect or increase other things that they value.  Poor people’s priorities are often different from those imputed to them by development experts, and their strategies are often more complex, both in terms of activity and motivation Thus it is argued, the sustainable livelihoods framework [above] provides a conceptualisation that is more appropriate to the perspectives and realities of poor people. (Chambers 1995).
 
