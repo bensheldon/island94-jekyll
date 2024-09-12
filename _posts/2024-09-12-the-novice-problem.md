@@ -5,7 +5,7 @@ published: true
 tags: []
 ---
 
-Brandon Weaver's ["Beyond Senior - Metric Obsessions"](https://dev.to/baweaver/beyond-senior-metric-obsessions-1j7p) has been stuck in my mind ever since we caught up at a SF Ruby Meetup and chatted about rules-adherence as a general problem with large groups of developers:
+Brandon Weaver's ["Beyond Senior - Metric Obsessions"](https://dev.to/baweaver/beyond-senior-metric-obsessions-1j7p) has been stuck in my mind ever since we caught up at a SF Ruby Meetup and chatted about rules-adherence as a general problem:
 
 
 <blockquote markdown="1">
