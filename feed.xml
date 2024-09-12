@@ -6,10 +6,92 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 12 Sep 2024 17:25:39 +0000</pubDate>
-    <lastBuildDate>Thu, 12 Sep 2024 17:25:39 +0000</lastBuildDate>
+    <pubDate>Thu, 12 Sep 2024 22:38:49 +0000</pubDate>
+    <lastBuildDate>Thu, 12 Sep 2024 22:38:49 +0000</lastBuildDate>
     <generator>Jekyll v4.3.3</generator>
     
+    
+      
+        
+
+
+
+
+<item>
+  <title>The Novice Problem</title>
+  <description>&lt;p&gt;Brandon Weaver’s &lt;a href=&quot;https://dev.to/baweaver/beyond-senior-metric-obsessions-1j7p&quot;&gt;“Beyond Senior - Metric Obsessions”&lt;/a&gt; has been stuck in my mind ever since we caught up at a SF Ruby Meetup and chatted about rules-adherence as a general problem:&lt;/p&gt;
+
+&lt;blockquote&gt;
+
+  &lt;p&gt;…by definition a vast majority of your engineers are likely to be concentrated more towards the novice end of the spectrum, and will frequently over rate themselves on this scale.&lt;/p&gt;
+
+  &lt;p&gt;If folks in the novice to advanced beginner stages are known for a rigid adherence to rules and almost legalistic approach to them what do you think might happen if you give them a giant list of metrics [, coding rules, linter warnings, dependency violations, or type-checking errors]?&lt;/p&gt;
+
+  &lt;p&gt;Will they exercise discretion and nuance? Will they have the ability to prioritize based on that information? Will they make appropriate tradeoffs? [No.]&lt;/p&gt;
+
+&lt;/blockquote&gt;
+
+&lt;p&gt;This is coming from the &lt;a href=&quot;https://www.kaizenko.com/the-dreyfus-model-of-skills-acquisition/&quot;&gt;Dreyfus Model of Skills Acquisition&lt;/a&gt;, which is like &lt;a href=&quot;https://island94.org/2018/03/japanese-processes&quot;&gt;Shuhari&lt;/a&gt; but with more levels:&lt;/p&gt;
+
+&lt;blockquote&gt;
+
+  &lt;ol&gt;
+    &lt;li&gt;Novice:
+      &lt;ul&gt;
+        &lt;li&gt;“rigid adherence to taught rules or plans”&lt;/li&gt;
+        &lt;li&gt;no exercise of “discretionary judgment”&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;Advanced beginner
+      &lt;ul&gt;
+        &lt;li&gt;limited “situational perception”&lt;/li&gt;
+        &lt;li&gt;all aspects of work treated separately with equal importance&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;Competent
+      &lt;ul&gt;
+        &lt;li&gt;“coping with crowdedness” (multiple activities, accumulation of information)&lt;/li&gt;
+        &lt;li&gt;some perception of actions in relation to goals&lt;/li&gt;
+        &lt;li&gt;deliberate planning&lt;/li&gt;
+        &lt;li&gt;formulates routines&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;Proficient
+      &lt;ul&gt;
+        &lt;li&gt;holistic view of situation&lt;/li&gt;
+        &lt;li&gt;prioritizes importance of aspects&lt;/li&gt;
+        &lt;li&gt;“perceives deviations from the normal pattern”&lt;/li&gt;
+        &lt;li&gt;employs maxims for guidance, with meanings that adapt to the situation at hand&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;Expert
+      &lt;ul&gt;
+        &lt;li&gt;transcends reliance on rules, guidelines, and maxims&lt;/li&gt;
+        &lt;li&gt;“intuitive grasp of situations based on deep, tacit understanding”&lt;/li&gt;
+        &lt;li&gt;has “vision of what is possible”&lt;/li&gt;
+        &lt;li&gt;uses “analytical approaches” in new situations or in case of problems&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+
+&lt;/blockquote&gt;
+
+
+  &lt;br&gt;&lt;br&gt;
+  &lt;hr&gt;
+  &lt;p&gt;
+    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2024/09/the-novice-problem&quot;&gt;The Novice Problem&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
+    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
+  &lt;/p&gt;
+</description>
+  <pubDate>Thu, 12 Sep 2024 17:26:00 +0000</pubDate>
+  <link>https://island94.org/2024/09/the-novice-problem</link>
+  <guid isPermaLink="true">https://island94.org/2024/09/the-novice-problem</guid>
+  
+  
+</item>
+
+      
     
       
         
@@ -628,307 +710,6 @@ To access local variables named with reserved keywords in your ERB template when
   <pubDate>Tue, 26 Mar 2024 13:28:00 +0000</pubDate>
   <link>https://island94.org/2024/03/low-effort-prototyping</link>
   <guid isPermaLink="true">https://island94.org/2024/03/low-effort-prototyping</guid>
-  
-  
-</item>
-
-      
-    
-      
-        
-
-
-
-
-<item>
-  <title>Farewell Brompt</title>
-  <description>&lt;p&gt;I’m planning to shut down Brompt, which I previously wrote about in &lt;a href=&quot;https://island94.org/2008/04/Brompt-is-a-blog-reminder.html&quot;&gt;2008&lt;/a&gt;, &lt;a href=&quot;https://island94.org/2011/03/A-form-from-my-favorites.html&quot;&gt;2011&lt;/a&gt;, and &lt;a href=&quot;https://island94.org/2022/09/reflections-on-brompt-2022&quot;&gt;2022&lt;/a&gt;. I &lt;a href=&quot;https://github.com/bensheldon/brompt-archive&quot;&gt;archived the code&lt;/a&gt; on GitHub.&lt;/p&gt;
-
-&lt;p&gt;Let’s do a final &lt;a href=&quot;#&quot; onclick=&quot;event.preventDefault(); c = Confetti(); c.initialize(); c.drop();&quot;&gt;confetti drop 🎉&lt;/a&gt; together.&lt;/p&gt;
-
-&lt;blockquote&gt;
-
-  &lt;p&gt;Farewell 👋 Brompt is shutting down&lt;/p&gt;
-
-  &lt;p&gt;I have some sad news to share: I’m planning to shut down this service, Brompt, at the end of the month (February, 2024).&lt;/p&gt;
-
-  &lt;p&gt;Shutting down Brompt means that you’ll no longer receive these automated reminders for your blog or writing. I’ve been running Brompt since 2008 and unfortunately, I haven’t been able to make it sustainable. You’re one of about 80 people who are still using the service, though I’m never sure if you or anyone ever opens the emails regularly.&lt;/p&gt;
-
-  &lt;p&gt;Regardless of Brompt shutting down, I hope you’re doing well and I’d love to stay in touch. Send me an email at bensheldon@gmail.com or read my own blog at https://island94.org&lt;/p&gt;
-
-  &lt;p&gt;All the best,&lt;/p&gt;
-
-  &lt;p&gt;Ben (the person who made Brompt)&lt;/p&gt;
-
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;a href=&quot;/uploads/2024-02/brompt.jpg&quot;&gt;&lt;img src=&quot;/uploads/2024-02/brompt.jpg&quot; alt=&quot;Screenshots from Brompt&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;canvas id=&quot;canvas&quot; style=&quot;
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    pointer-events: none;
-&quot;&gt;&lt;/canvas&gt;
-
-&lt;script&gt;
-// https://jsfiddle.net/hcxabsgh/
-// Usage: window.confetti.drop();
-window.Confetti = function () {
-  // globals
-  var canvas;
-  var ctx;
-  var W;
-  var H;
-  var mp = 150; //max particles
-  var particles = [];
-  var angle = 0;
-  var tiltAngle = 0;
-  var confettiActive = true;
-  var animationComplete = true;
-  var deactivationTimerHandler;
-  var reactivationTimerHandler;
-  var animationHandler;
-
-  // objects
-
-  var particleColors = {
-    colorOptions: [&quot;DodgerBlue&quot;, &quot;OliveDrab&quot;, &quot;Gold&quot;, &quot;pink&quot;, &quot;SlateBlue&quot;, &quot;lightblue&quot;, &quot;Violet&quot;, &quot;PaleGreen&quot;, &quot;SteelBlue&quot;, &quot;SandyBrown&quot;, &quot;Chocolate&quot;, &quot;Crimson&quot;],
-    colorIndex: 0,
-    colorIncrementer: 0,
-    colorThreshold: 10,
-    getColor: function () {
-      if (this.colorIncrementer &gt;= 10) {
-        this.colorIncrementer = 0;
-        this.colorIndex++;
-        if (this.colorIndex &gt;= this.colorOptions.length) {
-          this.colorIndex = 0;
-        }
-      }
-      this.colorIncrementer++;
-      return this.colorOptions[this.colorIndex];
-    }
-  }
-
-  function confettiParticle(color) {
-    this.x = Math.random() * W; // x-coordinate
-    this.y = (Math.random() * H) - H; //y-coordinate
-    this.r = RandomFromTo(10, 30); //radius;
-    this.d = (Math.random() * mp) + 10; //density;
-    this.color = color;
-    this.tilt = Math.floor(Math.random() * 10) - 10;
-    this.tiltAngleIncremental = (Math.random() * 0.07) + .05;
-    this.tiltAngle = 0;
-
-    this.draw = function () {
-      ctx.beginPath();
-      ctx.lineWidth = this.r / 2;
-      ctx.strokeStyle = this.color;
-      ctx.moveTo(this.x + this.tilt + (this.r / 4), this.y);
-      ctx.lineTo(this.x + this.tilt, this.y + this.tilt + (this.r / 4));
-      return ctx.stroke();
-    }
-  }
-
-  // $(document).ready(function () {
-  //   SetGlobals();
-  //   InitializeConfetti();
-  //
-  //   $(window).resize(function () {
-  //     W = window.innerWidth;
-  //     H = window.innerHeight;
-  //     canvas.width = W;
-  //     canvas.height = H;
-  //   });
-  // });
-
-  function SetGlobals() {
-    canvas = document.getElementById(&quot;canvas&quot;);
-    ctx = canvas.getContext(&quot;2d&quot;);
-    W = window.innerWidth;
-    H = window.innerHeight;
-    canvas.width = W;
-    canvas.height = H;
-  }
-
-  function InitializeConfetti() {
-    particles = [];
-    animationComplete = false;
-    for (var i = 0; i &lt; mp; i++) {
-      var particleColor = particleColors.getColor();
-      particles.push(new confettiParticle(particleColor));
-    }
-    StartConfetti();
-  }
-
-  function Draw() {
-    ctx.clearRect(0, 0, W, H);
-    var results = [];
-    for (var i = 0; i &lt; mp; i++) {
-      (function (j) {
-        results.push(particles[j].draw());
-      })(i);
-    }
-    Update();
-
-    return results;
-  }
-
-  function RandomFromTo(from, to) {
-    return Math.floor(Math.random() * (to - from + 1) + from);
-  }
-
-
-  function Update() {
-    var remainingFlakes = 0;
-    var particle;
-    angle += 0.01;
-    tiltAngle += 0.1;
-
-    for (var i = 0; i &lt; mp; i++) {
-      particle = particles[i];
-      if (animationComplete) return;
-
-      if (!confettiActive &amp;&amp; particle.y &lt; -15) {
-        particle.y = H + 100;
-        continue;
-      }
-
-      stepParticle(particle, i);
-
-      if (particle.y &lt;= H) {
-        remainingFlakes++;
-      }
-      CheckForReposition(particle, i);
-    }
-
-    if (remainingFlakes === 0) {
-      StopConfetti();
-    }
-  }
-
-  function CheckForReposition(particle, index) {
-    if ((particle.x &gt; W + 20 || particle.x &lt; -20 || particle.y &gt; H) &amp;&amp; confettiActive) {
-      if (index % 5 &gt; 0 || index % 2 == 0) //66.67% of the flakes
-      {
-        repositionParticle(particle, Math.random() * W, -10, Math.floor(Math.random() * 10) - 20);
-      } else {
-        if (Math.sin(angle) &gt; 0) {
-          //Enter from the left
-          repositionParticle(particle, -20, Math.random() * H, Math.floor(Math.random() * 10) - 20);
-        } else {
-          //Enter from the right
-          repositionParticle(particle, W + 20, Math.random() * H, Math.floor(Math.random() * 10) - 20);
-        }
-      }
-    }
-  }
-  function stepParticle(particle, particleIndex) {
-    particle.tiltAngle += particle.tiltAngleIncremental;
-    particle.y += (Math.cos(angle + particle.d) + 3 + particle.r / 2) / 2;
-    particle.x += Math.sin(angle);
-    particle.tilt = (Math.sin(particle.tiltAngle - (particleIndex / 3))) * 15;
-  }
-
-  function repositionParticle(particle, xCoordinate, yCoordinate, tilt) {
-    particle.x = xCoordinate;
-    particle.y = yCoordinate;
-    particle.tilt = tilt;
-  }
-
-  function StartConfetti() {
-    W = window.innerWidth;
-    H = window.innerHeight;
-    canvas.width = W;
-    canvas.height = H;
-    (function animloop() {
-      if (animationComplete) return null;
-      animationHandler = requestAnimFrame(animloop);
-      return Draw();
-    })();
-  }
-
-  function ClearTimers() {
-    clearTimeout(reactivationTimerHandler);
-    clearTimeout(animationHandler);
-  }
-
-  function DeactivateConfetti() {
-    confettiActive = false;
-    ClearTimers();
-  }
-
-  function StopConfetti() {
-    animationComplete = true;
-    if (ctx == undefined) return;
-    ctx.clearRect(0, 0, W, H);
-  }
-
-  function RestartConfetti() {
-    ClearTimers();
-    StopConfetti();
-    reactivationTimerHandler = setTimeout(function () {
-      confettiActive = true;
-      animationComplete = false;
-      InitializeConfetti();
-    }, 100);
-
-  }
-
-  window.requestAnimFrame = (function () {
-    return window.requestAnimationFrame ||
-      window.webkitRequestAnimationFrame ||
-      window.mozRequestAnimationFrame ||
-      window.oRequestAnimationFrame ||
-      window.msRequestAnimationFrame ||
-      function (callback) {
-        return window.setTimeout(callback, 1000 / 60);
-      };
-  })();
-
-  return {
-    initialize: function() {
-      SetGlobals();
-      InitializeConfetti();
-
-      // $(window).resize(function () {
-      //   W = window.innerWidth;
-      //   H = window.innerHeight;
-      //   canvas.width = W;
-      //   canvas.height = H;
-      // });
-    },
-    start: function() {
-      RestartConfetti();
-    },
-    stop: function() {
-      DeactivateConfetti();
-    },
-    drop: function(duration) {
-      RestartConfetti();
-      window.setTimeout(function() {
-        DeactivateConfetti();
-      }, duration || 1500);
-    },
-  }
-};
-&lt;/script&gt;
-
-
-  &lt;br&gt;&lt;br&gt;
-  &lt;hr&gt;
-  &lt;p&gt;
-    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2024/02/farewell-brompt&quot;&gt;Farewell Brompt&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
-    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
-  &lt;/p&gt;
-</description>
-  <pubDate>Wed, 14 Feb 2024 01:49:00 +0000</pubDate>
-  <link>https://island94.org/2024/02/farewell-brompt</link>
-  <guid isPermaLink="true">https://island94.org/2024/02/farewell-brompt</guid>
-  
-    <category>Brompt</category>
   
   
 </item>
