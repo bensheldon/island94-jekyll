@@ -6,8 +6,8 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 19 Sep 2024 17:04:54 +0000</pubDate>
-    <lastBuildDate>Thu, 19 Sep 2024 17:04:54 +0000</lastBuildDate>
+    <pubDate>Thu, 19 Sep 2024 17:19:10 +0000</pubDate>
+    <lastBuildDate>Thu, 19 Sep 2024 17:19:10 +0000</lastBuildDate>
     <generator>Jekyll v4.3.4</generator>
     
     
@@ -19,7 +19,7 @@
 
 <item>
   <title>The secret to perfectly calculate Rails database connection pool size</title>
-  <description>&lt;p&gt;Ruby on Rails &lt;a href=&quot;https://api.rubyonrails.org/classes/ActiveRecord/ConnectionAdapters/ConnectionPool.html&quot;&gt;maintains a pool of database connections&lt;/a&gt; for Active Record. When a database connection is needed for querying the database, usually one per thread, a connection is checked out of the pool, used, and then returned to the pool. The size of the pool is configured in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;config/database.yml&lt;/code&gt; . The &lt;a href=&quot;https://github.com/rails/rails/blob/dfd1e951aa1aeef06c39fffb2994db8a8fa1914f/railties/lib/rails/generators/rails/app/templates/config/databases/postgresql.yml.tt#L20&quot;&gt;default&lt;/a&gt;, as of Rails 7.2, is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pool: &amp;lt;%%= ENV.fetch(&quot;RAILS_MAX_THREADS&quot;) { 5 } %&amp;gt;&lt;/code&gt;.&lt;/p&gt;
+  <description>&lt;p&gt;Ruby on Rails &lt;a href=&quot;https://api.rubyonrails.org/classes/ActiveRecord/ConnectionAdapters/ConnectionPool.html&quot;&gt;maintains a pool of database connections&lt;/a&gt; for Active Record. When a database connection is needed for querying the database, usually one per thread (though &lt;a href=&quot;https://github.com/rails/rails/pull/51349&quot;&gt;that’s changing to per-transaction&lt;/a&gt;), a connection is checked out of the pool, used, and then returned to the pool. The size of the pool is configured in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;config/database.yml&lt;/code&gt;. The &lt;a href=&quot;https://github.com/rails/rails/blob/dfd1e951aa1aeef06c39fffb2994db8a8fa1914f/railties/lib/rails/generators/rails/app/templates/config/databases/postgresql.yml.tt#L20&quot;&gt;default&lt;/a&gt;, as of Rails 7.2, is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pool: &amp;lt;%%= ENV.fetch(&quot;RAILS_MAX_THREADS&quot;) { 5 } %&amp;gt;&lt;/code&gt;.&lt;/p&gt;
 
 &lt;p&gt;The database connection pool size is frequently misconfigured. &lt;em&gt;A lot.&lt;/em&gt; How to calculate the database connection pool size is one of the most common questions I get on GoodJob (Hi! I’m the author of GoodJob 👋). I have spent an embarrassingly large amount of time trying to come up with a precise pool size calculator and give advice to take into account Puma threads, and GoodJob async jobs, and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;load_async&lt;/code&gt; queries and everything that might be asking for a database connection at the same time. It’s nearly impossible to get the number exactly right.&lt;/p&gt;
 
@@ -41,6 +41,7 @@
       &lt;li&gt;Configure the number of parallel processes/Puma workers/dynos/containers you’re using, which the database connection pool has no effect on anyways.&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
+  &lt;li&gt;If you still don’t have enough database connections &lt;em&gt;at the database&lt;/em&gt;, then you should increase the number of database connections &lt;em&gt;at the database&lt;/em&gt;. Which means scaling your database, or using a connection multiplexer like PgBouncer.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;I know this is wild advice, but it’s based on facts and experience. Even Rails maintainers have intentions &lt;a href=&quot;https://github.com/rails/rails/pull/51073#issuecomment-1942762197&quot;&gt;to remove this configuration option entirely&lt;/a&gt;:&lt;/p&gt;
