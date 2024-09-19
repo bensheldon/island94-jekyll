@@ -6,10 +6,68 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 19 Sep 2024 07:06:55 +0000</pubDate>
-    <lastBuildDate>Thu, 19 Sep 2024 07:06:55 +0000</lastBuildDate>
+    <pubDate>Thu, 19 Sep 2024 15:51:43 +0000</pubDate>
+    <lastBuildDate>Thu, 19 Sep 2024 15:51:43 +0000</lastBuildDate>
     <generator>Jekyll v4.3.4</generator>
     
+    
+      
+        
+
+
+
+
+<item>
+  <title>The secret to perfectly calculate Rails database connection pool size</title>
+  <description>&lt;p&gt;Ruby on Rails &lt;a href=&quot;https://api.rubyonrails.org/classes/ActiveRecord/ConnectionAdapters/ConnectionPool.html&quot;&gt;maintains a pool of database connections&lt;/a&gt; for Active Record. When a database connection is needed for querying the database, usually one per thread, a connection is checked out of the pool, used, and then returned to the pool. The size of the pool is configured in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;config/database.yml&lt;/code&gt; . The &lt;a href=&quot;https://github.com/rails/rails/blob/dfd1e951aa1aeef06c39fffb2994db8a8fa1914f/railties/lib/rails/generators/rails/app/templates/config/databases/postgresql.yml.tt#L20&quot;&gt;default&lt;/a&gt;, as of Rails 7.2, is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pool: &amp;lt;%%= ENV.fetch(&quot;RAILS_MAX_THREADS&quot;) { 5 } %&amp;gt;&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;The database connection pool size is frequently misconfigured. &lt;em&gt;A lot.&lt;/em&gt; How to calculate the database connection pool size is one of the most common questions I get on GoodJob (Hi! I’m the author of GoodJob 👋). I have spent an embarrassingly large amount of time trying to come up with a precise pool size calculator and give advice to take into account Puma threads, and GoodJob async jobs, and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;load_async&lt;/code&gt; queries and everything that might be asking for a database connection at the same time. It’s nearly impossible to get the number exactly right.&lt;/p&gt;
+
+&lt;p&gt;If the connection pool is misconfigured to be &lt;em&gt;too small&lt;/em&gt; , it can slow down web requests and jobs while waiting for a connection to become available, or raise &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ActiveRecord::ConnectionTimeoutError&lt;/code&gt; if there isn’t a connection available within a reasonable amount of time (5 seconds by default). That’s bad! We never want that to happen. Here’s what you should do:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;✨ The secret to perfectly calculate Rails database connection pool size:&lt;/strong&gt; &lt;em&gt;Don’t! Set the pool size to a very large, constant number, and never worry about it again. E.g. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pool: 100&lt;/code&gt;.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;WAIT, WHAT?! Why? I described that bad things happen if the pool size is &lt;em&gt;too small&lt;/em&gt;. Here’s the trick: it’s impossible to set the connection pool size to be &lt;em&gt;too big&lt;/em&gt;. You can’t do it! That’s why it’s always better to set a number that’s too large. And the best number is one that can &lt;em&gt;never&lt;/em&gt; be too small regardless of how you configure (and inevitably reconfigure) your application. Here’s why:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Database connections are lazily created and added to the pool &lt;em&gt;as they’re needed&lt;/em&gt;. Your Rails application will never create more database connections than it needs. And the database connection pool reaper removes idle and unused connections from the pool. The pool will never be larger than it needs to be.&lt;/li&gt;
+  &lt;li&gt;It’s possible you may run out of available database connections &lt;em&gt;at the database&lt;/em&gt;. For example, Heroku’s new &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Essentials-0&lt;/code&gt; Postgres database only has 20 database connections available globally. But that’s not because the database connection pool is too big, it’s because your application is &lt;em&gt;using too many concurrent database connections&lt;/em&gt;.&lt;/li&gt;
+  &lt;li&gt;If you find yourself in the situation where your application is using too many concurrent database connections, you should be configuring and re-sizing &lt;em&gt;the things using database connections concurrently&lt;/em&gt;, not the database connection pool itself:
+    &lt;ul&gt;
+      &lt;li&gt;Configure the number of Puma threads&lt;/li&gt;
+      &lt;li&gt;Configure the number of GoodJob async threads (Solid Queue now has similar functionality too!)&lt;/li&gt;
+      &lt;li&gt;Configure the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;load_async&lt;/code&gt; thread pool&lt;/li&gt;
+      &lt;li&gt;Configure anything else using a background thread making database queries&lt;/li&gt;
+      &lt;li&gt;Configure the number of parallel processes/Puma workers/dynos/containers you’re using, which the database connection pool has no effect on anyways.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I know this is wild advice, but it’s based on facts and experience. Even Rails maintainers have intentions &lt;a href=&quot;https://github.com/rails/rails/pull/51073#issuecomment-1942762197&quot;&gt;to remove this configuration option entirely&lt;/a&gt;:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;…we want the pool not to have a limit by default anymore.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;So please, stop sweating the precise, exact, perfect database connection pool value. Set it to something really big, that can never be too small, and never worry about it again.&lt;/p&gt;
+
+  &lt;br&gt;&lt;br&gt;
+  &lt;hr&gt;
+  &lt;p&gt;
+    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2024/09/secret-to-rails-database-connection-pool-size&quot;&gt;The secret to perfectly calculate Rails database connection pool size&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
+    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
+  &lt;/p&gt;
+</description>
+  <pubDate>Thu, 19 Sep 2024 14:33:00 +0000</pubDate>
+  <link>https://island94.org/2024/09/secret-to-rails-database-connection-pool-size</link>
+  <guid isPermaLink="true">https://island94.org/2024/09/secret-to-rails-database-connection-pool-size</guid>
+  
+    <category>Rails</category>
+  
+  
+</item>
+
+      
     
       
         
@@ -660,56 +718,6 @@ To access local variables named with reserved keywords in your ERB template when
   <pubDate>Sun, 31 Mar 2024 17:15:00 +0000</pubDate>
   <link>https://island94.org/2024/03/rails-active-record-will-it-bind</link>
   <guid isPermaLink="true">https://island94.org/2024/03/rails-active-record-will-it-bind</guid>
-  
-  
-</item>
-
-      
-    
-      
-        
-
-
-
-
-<item>
-  <title>Low-effort prototyping</title>
-  <description>&lt;p&gt;From Bunnie Hung’s blog about &lt;a href=&quot;https://www.bunniestudios.com/blog/?p=7035&quot;&gt;exploring and designing an infrared chip imaging rig&lt;/a&gt;. I thought this is an interesting distinction between “low-effort” and “rapid” prototypes. I think the analogy in software would be a &lt;a href=&quot;https://wiki.c2.com/?WalkingSkeleton&amp;quot;&quot;&gt;“Walking Skeleton&lt;/a&gt; that is production-like in architecture and deployment but does very little, versus building a demo using lightweight scripting and static site generators. (bolded text mine)&lt;/p&gt;
-
-&lt;blockquote&gt;
-
-  &lt;p&gt;&lt;strong&gt;Sidebar: Iterate Through Low-Effort Prototypes (and not Rapid Prototypes)&lt;/strong&gt;&lt;/p&gt;
-
-  &lt;p&gt;With a rough idea of the problem I’m trying to solve, the next step is build some low-effort prototypes and learn why my ideas are flawed.&lt;/p&gt;
-
-  &lt;p&gt;I purposely call this “low-effort” instead of “rapid” prototypes. “Rapid prototyping” sets the expectation that we should invest in tooling so that we can think of an idea in the morning and have it on the lab bench by the afternoon, under the theory that faster iterations means faster progress.&lt;/p&gt;
-
-  &lt;p&gt;The problem with rapid prototyping is that it differs significantly from production processes. &lt;strong&gt;When you iterate using a tool that doesn’t mimic your production process, what you get is a solution that works in the lab, but is not suitable for production.&lt;/strong&gt; This conclusion shouldn’t be too surprising – evolutionary processes respond to all selective pressures in the environment, not just the abstract goals of a project. For example, parts optimized for 3D printing consider factors like scaffolding, but have no concern for undercuts and cavities that are impossible to produce with CNC processes. Meanwhile CNC parts will gravitate toward base dimensions that match bar stock, while minimizing the number of reference changes necessary during processing.&lt;/p&gt;
-
-  &lt;p&gt;So, I try to prototype using production processes – but with low-effort. “Low-effort” means reducing the designer’s total cognitive load, even if it comes at the cost of a longer processing time. Low effort prototyping may require more patience, but also requires less attention. It turns out that prototyping-in-production is feasible, and is actually the standard practice in vibrant hardware ecosystems like Shenzhen. The main trade-off is that instead of having an idea that morning and a prototype on your desk by the afternoon, it might take a few days. And yes – of course there ways to shave those few days down (already anticipating the comments informing me of this cool trick to speed things up) – but &lt;strong&gt;the whole point is to not be distracted by the obsession of shortening cycle times, and spend more attention on the design. Increasing the time between generations by an order of magnitude might seem fatally slow for a convergent process, but the direction of convergence matters as much as the speed of convergence.&lt;/strong&gt;&lt;/p&gt;
-
-  &lt;p&gt;More importantly, if I were driving a PCB printer, CNC, or pick-and-place machine by myself, I’d be spending all morning getting that prototype on my desk. &lt;strong&gt;By ordering my prototypes from third party service providers, I can spend my time on something else. It also forces me to generate better documentation at each iteration, making it easier to retrace my footsteps when I mess up.&lt;/strong&gt; Generally, I shoot for an iteration to take 2-4 weeks – an eternity, I suppose, by Silicon Valley metrics – but the two-week mark is nice because I can achieve it with almost no cognitive burden, and no expedite fees.&lt;/p&gt;
-
-  &lt;p&gt;I then spend at least several days to weeks characterizing the results of each iteration. It usually takes about 3-4 iterations for me to converge on a workable solution – about a few months in total. I know, people are often shocked when I admit to them that I think it will take me some years to finish this project.&lt;/p&gt;
-
-  &lt;p&gt;A manager charged with optimizing innovation would point out that if I could cut the weeks out where I’m waiting to get the prototype back, I could improve the time constant on an exponential and therefore I’d be so much more productive: the compounding gains are so compelling that we should drop everything and invest heavily in rapid prototyping.&lt;/p&gt;
-
-  &lt;p&gt;However, this calculus misses the point that I should be spending a good chunk of time evaluating and improving each iteration. &lt;strong&gt;If I’m able to think of the next improvement within a few minutes of receiving the prototype, then I wasn’t imaginative enough in designing that iteration.&lt;/strong&gt;&lt;/p&gt;
-
-  &lt;p&gt;That’s the other failure of rapid prototyping: when there’s near zero cost to iterate, it doesn’t pay to put anything more than near zero effort into coming up with the next iteration. Rapid-prototyping iterations are faster, but in much smaller steps. In contrast, with low-effort prototyping, I feel less pressure to rush. My deliberative process is no longer the limiting factor for progress; I can ponder without stress, and take the time to document. This means I can make more progress every step, and so I need to take fewer steps.&lt;/p&gt;
-
-&lt;/blockquote&gt;
-
-  &lt;br&gt;&lt;br&gt;
-  &lt;hr&gt;
-  &lt;p&gt;
-    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2024/03/low-effort-prototyping&quot;&gt;Low-effort prototyping&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
-    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
-  &lt;/p&gt;
-</description>
-  <pubDate>Tue, 26 Mar 2024 13:28:00 +0000</pubDate>
-  <link>https://island94.org/2024/03/low-effort-prototyping</link>
-  <guid isPermaLink="true">https://island94.org/2024/03/low-effort-prototyping</guid>
   
   
 </item>
