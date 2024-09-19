@@ -24,6 +24,9 @@ WAIT, WHAT?! Why? I described that bad things happen if the pool size is *too sm
   - Configure anything else using a background thread making database queries
   - Configure the number of parallel processes/Puma workers/dynos/containers you’re using, which the database connection pool has no effect on anyways.
 - If you still don't have enough database connections _at the database_, then you should increase the number of database connections _at the database_. Which means scaling your database, or using a connection multiplexer like PgBouncer.
+- If, in an incredibly rare case, your application concurrency is very, very spiky and you worry that idle database connections are sitting in the connection pool for too long before they are automatically removed by the connection pool reaper, then configure that:
+  - `idle_timeout`: number of seconds that a connection will be kept unused in the pool before it is automatically disconnected (default: 5 minutes). Set this to zero to keep connections forever.
+  - `reaping_frequency`: number of seconds between invocations of the database connection pool reaper to disconnect and remove unused connections from the pool (default: 1 minute)
 
 I know this is wild advice, but it’s based on facts and experience. Even Rails maintainers have intentions [to remove this configuration option entirely](https://github.com/rails/rails/pull/51073#issuecomment-1942762197):
 
