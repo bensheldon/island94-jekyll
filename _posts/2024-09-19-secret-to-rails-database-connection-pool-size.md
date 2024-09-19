@@ -5,7 +5,7 @@ published: true
 tags: [Rails]
 ---
 
-Ruby on Rails [maintains a pool of database connections](https://api.rubyonrails.org/classes/ActiveRecord/ConnectionAdapters/ConnectionPool.html) for Active Record. When a database connection is needed for querying the database, usually one per thread, a connection is checked out of the pool, used, and then returned to the pool. The size of the pool is configured in the `config/database.yml` . The [default](https://github.com/rails/rails/blob/dfd1e951aa1aeef06c39fffb2994db8a8fa1914f/railties/lib/rails/generators/rails/app/templates/config/databases/postgresql.yml.tt#L20), as of Rails 7.2, is `pool: <%%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>`.
+Ruby on Rails [maintains a pool of database connections](https://api.rubyonrails.org/classes/ActiveRecord/ConnectionAdapters/ConnectionPool.html) for Active Record. When a database connection is needed for querying the database, usually one per thread (though [that's changing to per-transaction](https://github.com/rails/rails/pull/51349)), a connection is checked out of the pool, used, and then returned to the pool. The size of the pool is configured in the `config/database.yml`. The [default](https://github.com/rails/rails/blob/dfd1e951aa1aeef06c39fffb2994db8a8fa1914f/railties/lib/rails/generators/rails/app/templates/config/databases/postgresql.yml.tt#L20), as of Rails 7.2, is `pool: <%%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>`.
 
 The database connection pool size is frequently misconfigured. *A lot.* How to calculate the database connection pool size is one of the most common questions I get on GoodJob (Hi! I’m the author of GoodJob 👋). I have spent an embarrassingly large amount of time trying to come up with a precise pool size calculator and give advice to take into account Puma threads, and GoodJob async jobs, and `load_async` queries and everything that might be asking for a database connection at the same time. It’s nearly impossible to get the number exactly right.
 
@@ -23,6 +23,7 @@ WAIT, WHAT?! Why? I described that bad things happen if the pool size is *too sm
   - Configure the `load_async` thread pool
   - Configure anything else using a background thread making database queries
   - Configure the number of parallel processes/Puma workers/dynos/containers you’re using, which the database connection pool has no effect on anyways.
+- If you still don't have enough database connections _at the database_, then you should increase the number of database connections _at the database_. Which means scaling your database, or using a connection multiplexer like PgBouncer.
 
 I know this is wild advice, but it’s based on facts and experience. Even Rails maintainers have intentions [to remove this configuration option entirely](https://github.com/rails/rails/pull/51073#issuecomment-1942762197):
 
