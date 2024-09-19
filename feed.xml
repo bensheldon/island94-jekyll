@@ -6,8 +6,8 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 19 Sep 2024 18:00:01 +0000</pubDate>
-    <lastBuildDate>Thu, 19 Sep 2024 18:00:01 +0000</lastBuildDate>
+    <pubDate>Thu, 19 Sep 2024 18:03:26 +0000</pubDate>
+    <lastBuildDate>Thu, 19 Sep 2024 18:03:26 +0000</lastBuildDate>
     <generator>Jekyll v4.3.4</generator>
     
     
@@ -32,13 +32,14 @@
 &lt;ul&gt;
   &lt;li&gt;Database connections are lazily created and added to the pool &lt;em&gt;as they’re needed&lt;/em&gt;. Your Rails application will never create more database connections than it needs. And the database connection pool reaper removes idle and unused connections from the pool. The pool will never be larger than it needs to be.&lt;/li&gt;
   &lt;li&gt;It’s possible you may run out of available database connections &lt;em&gt;at the database&lt;/em&gt;. For example, Heroku’s new &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Essentials-0&lt;/code&gt; Postgres database only has 20 database connections available globally. But that’s not because the database connection pool is too big, it’s because your application is &lt;em&gt;using too many concurrent database connections&lt;/em&gt;.&lt;/li&gt;
-  &lt;li&gt;If you find yourself in the situation where your application is using too many concurrent database connections, you should be configuring and re-sizing &lt;em&gt;the things using database connections concurrently&lt;/em&gt;, not the database connection pool itself:
+  &lt;li&gt;If you find yourself in a situation where your application is using too many concurrent database connections, you should be configuring and re-sizing &lt;em&gt;the things using database connections concurrently&lt;/em&gt;, not the database connection pool itself:
     &lt;ul&gt;
       &lt;li&gt;Configure the number of Puma threads&lt;/li&gt;
       &lt;li&gt;Configure the number of GoodJob async threads (Solid Queue now has similar functionality too!)&lt;/li&gt;
       &lt;li&gt;Configure the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;load_async&lt;/code&gt; thread pool&lt;/li&gt;
       &lt;li&gt;Configure anything else using a background thread making database queries&lt;/li&gt;
-      &lt;li&gt;Configure the number of parallel processes/Puma workers/dynos/containers you’re using, which the database connection pool has no effect on anyways.&lt;/li&gt;
+      &lt;li&gt;Configure the number of parallel processes/Puma workers/dynos/containers you’re using, which the database connection pool does not affect anyways.&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://judoscale.com/tools/heroku-postgresql-connection-calculator&quot;&gt;Judoscale has a nice calculator&lt;/a&gt; for all of this.&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;If you still don’t have enough database connections &lt;em&gt;at the database&lt;/em&gt;, then you should increase the number of database connections &lt;em&gt;at the database&lt;/em&gt;. Which means scaling your database, or using a connection multiplexer like PgBouncer.&lt;/li&gt;
