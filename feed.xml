@@ -6,8 +6,8 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 19 Sep 2024 17:19:10 +0000</pubDate>
-    <lastBuildDate>Thu, 19 Sep 2024 17:19:10 +0000</lastBuildDate>
+    <pubDate>Thu, 19 Sep 2024 18:00:01 +0000</pubDate>
+    <lastBuildDate>Thu, 19 Sep 2024 18:00:01 +0000</lastBuildDate>
     <generator>Jekyll v4.3.4</generator>
     
     
@@ -42,6 +42,12 @@
     &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;If you still don’t have enough database connections &lt;em&gt;at the database&lt;/em&gt;, then you should increase the number of database connections &lt;em&gt;at the database&lt;/em&gt;. Which means scaling your database, or using a connection multiplexer like PgBouncer.&lt;/li&gt;
+  &lt;li&gt;If, in an incredibly rare case, your application concurrency is very, very spiky and you worry that idle database connections are sitting in the connection pool for too long before they are automatically removed by the connection pool reaper, then configure that:
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;idle_timeout&lt;/code&gt;: number of seconds that a connection will be kept unused in the pool before it is automatically disconnected (default: 5 minutes). Set this to zero to keep connections forever.&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;reaping_frequency&lt;/code&gt;: number of seconds between invocations of the database connection pool reaper to disconnect and remove unused connections from the pool (default: 1 minute)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;I know this is wild advice, but it’s based on facts and experience. Even Rails maintainers have intentions &lt;a href=&quot;https://github.com/rails/rails/pull/51073#issuecomment-1942762197&quot;&gt;to remove this configuration option entirely&lt;/a&gt;:&lt;/p&gt;

@@ -145,6 +145,12 @@
     </ul>
   </li>
   <li>If you still don’t have enough database connections <em>at the database</em>, then you should increase the number of database connections <em>at the database</em>. Which means scaling your database, or using a connection multiplexer like PgBouncer.</li>
+  <li>If, in an incredibly rare case, your application concurrency is very, very spiky and you worry that idle database connections are sitting in the connection pool for too long before they are automatically removed by the connection pool reaper, then configure that:
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">idle_timeout</code>: number of seconds that a connection will be kept unused in the pool before it is automatically disconnected (default: 5 minutes). Set this to zero to keep connections forever.</li>
+      <li><code class="language-plaintext highlighter-rouge">reaping_frequency</code>: number of seconds between invocations of the database connection pool reaper to disconnect and remove unused connections from the pool (default: 1 minute)</li>
+    </ul>
+  </li>
 </ul>
 
 <p>I know this is wild advice, but it’s based on facts and experience. Even Rails maintainers have intentions <a href="https://github.com/rails/rails/pull/51073#issuecomment-1942762197">to remove this configuration option entirely</a>:</p>
