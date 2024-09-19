@@ -17,12 +17,13 @@ WAIT, WHAT?! Why? I described that bad things happen if the pool size is *too sm
 
 - Database connections are lazily created and added to the pool _as they’re needed_. Your Rails application will never create more database connections than it needs. And the database connection pool reaper removes idle and unused connections from the pool. The pool will never be larger than it needs to be.
 - It’s possible you may run out of available database connections _at the database_. For example, Heroku’s new `Essentials-0` Postgres database only has 20 database connections available globally. But that’s not because the database connection pool is too big, it’s because your application is *using too many concurrent database connections*.
-- If you find yourself in the situation where your application is using too many concurrent database connections, you should be configuring and re-sizing _the things using database connections concurrently_, not the database connection pool itself:
+- If you find yourself in a situation where your application is using too many concurrent database connections, you should be configuring and re-sizing _the things using database connections concurrently_, not the database connection pool itself:
   - Configure the number of Puma threads
   - Configure the number of GoodJob async threads (Solid Queue now has similar functionality too!)
   - Configure the `load_async` thread pool
   - Configure anything else using a background thread making database queries
-  - Configure the number of parallel processes/Puma workers/dynos/containers you’re using, which the database connection pool has no effect on anyways.
+  - Configure the number of parallel processes/Puma workers/dynos/containers you’re using, which the database connection pool does not affect anyways.
+  - [Judoscale has a nice calculator](https://judoscale.com/tools/heroku-postgresql-connection-calculator) for all of this.
 - If you still don't have enough database connections _at the database_, then you should increase the number of database connections _at the database_. Which means scaling your database, or using a connection multiplexer like PgBouncer.
 - If, in an incredibly rare case, your application concurrency is very, very spiky and you worry that idle database connections are sitting in the connection pool for too long before they are automatically removed by the connection pool reaper, then configure that:
   - `idle_timeout`: number of seconds that a connection will be kept unused in the pool before it is automatically disconnected (default: 5 minutes). Set this to zero to keep connections forever.
