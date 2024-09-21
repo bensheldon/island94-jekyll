@@ -128,7 +128,14 @@
 
 <p>If the connection pool is misconfigured to be <em>too small</em> , it can slow down web requests and jobs while waiting for a connection to become available, or raise <code class="language-plaintext highlighter-rouge">ActiveRecord::ConnectionTimeoutError</code> if there isn’t a connection available within a reasonable amount of time (5 seconds by default). That’s bad! We never want that to happen. Here’s what you should do:</p>
 
-<p><strong>✨ The secret to perfectly calculate Rails database connection pool size:</strong> <em>Don’t! Set the pool size to a very large, constant number, and never worry about it again. E.g. <code class="language-plaintext highlighter-rouge">pool: 100</code>.</em></p>
+<p><strong>✨ The secret to perfectly calculate Rails database connection pool size:</strong> <em>Don’t! Set the pool size to a very large, constant number, and never worry about it again. E.g. <code class="language-plaintext highlighter-rouge">pool: 100</code>, and remove the reference to <code class="language-plaintext highlighter-rouge">RAILS_MAX_THREADS</code> entirely:</em></p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># config/database.yml</span>
+<span class="na">default</span><span class="pi">:</span> <span class="nl">&amp;default</span>
+  <span class="c1"># ...</span>
+  <span class="na">pool</span><span class="pi">:</span> <span class="m">100</span> <span class="c1"># &lt;-- that's it 👍</span>
+  <span class="c1"># ...</span>
+</code></pre></div></div>
 
 <p>WAIT, WHAT?! Why? I described that bad things happen if the pool size is <em>too small</em>. Here’s the trick: it’s impossible to set the connection pool size to be <em>too big</em>. You can’t do it! That’s why it’s always better to set a number that’s too large. And the best number is one that can <em>never</em> be too small regardless of how you configure (and inevitably reconfigure) your application. Here’s why:</p>
 

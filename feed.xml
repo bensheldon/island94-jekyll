@@ -6,8 +6,8 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 21 Sep 2024 07:06:23 +0000</pubDate>
-    <lastBuildDate>Sat, 21 Sep 2024 07:06:23 +0000</lastBuildDate>
+    <pubDate>Sat, 21 Sep 2024 13:34:03 +0000</pubDate>
+    <lastBuildDate>Sat, 21 Sep 2024 13:34:03 +0000</lastBuildDate>
     <generator>Jekyll v4.3.4</generator>
     
     
@@ -25,7 +25,14 @@
 
 &lt;p&gt;If the connection pool is misconfigured to be &lt;em&gt;too small&lt;/em&gt; , it can slow down web requests and jobs while waiting for a connection to become available, or raise &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ActiveRecord::ConnectionTimeoutError&lt;/code&gt; if there isn’t a connection available within a reasonable amount of time (5 seconds by default). That’s bad! We never want that to happen. Here’s what you should do:&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;✨ The secret to perfectly calculate Rails database connection pool size:&lt;/strong&gt; &lt;em&gt;Don’t! Set the pool size to a very large, constant number, and never worry about it again. E.g. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pool: 100&lt;/code&gt;.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;✨ The secret to perfectly calculate Rails database connection pool size:&lt;/strong&gt; &lt;em&gt;Don’t! Set the pool size to a very large, constant number, and never worry about it again. E.g. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pool: 100&lt;/code&gt;, and remove the reference to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RAILS_MAX_THREADS&lt;/code&gt; entirely:&lt;/em&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# config/database.yml&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;&amp;amp;default&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;# ...&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;pool&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# &amp;lt;-- that&apos;s it 👍&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;# ...&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;WAIT, WHAT?! Why? I described that bad things happen if the pool size is &lt;em&gt;too small&lt;/em&gt;. Here’s the trick: it’s impossible to set the connection pool size to be &lt;em&gt;too big&lt;/em&gt;. You can’t do it! That’s why it’s always better to set a number that’s too large. And the best number is one that can &lt;em&gt;never&lt;/em&gt; be too small regardless of how you configure (and inevitably reconfigure) your application. Here’s why:&lt;/p&gt;
 
