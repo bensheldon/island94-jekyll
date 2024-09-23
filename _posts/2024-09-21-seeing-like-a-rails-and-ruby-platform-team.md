@@ -2,7 +2,7 @@
 title: "Seeing like a Rails and Ruby platform team"
 date: 2024-09-21 08:17 PDT
 published: true
-tags: []
+tags: [Rails, Ruby]
 ---
 
 When I’m not hacking on GoodJob, I work at GitHub, where I’m the engineering manager of the “Ruby Architecture” team, which is filled with fantastic rubyists. Our team mission is to:
