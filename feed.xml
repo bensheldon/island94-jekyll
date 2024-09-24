@@ -6,10 +6,148 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 23 Sep 2024 21:13:20 +0000</pubDate>
-    <lastBuildDate>Mon, 23 Sep 2024 21:13:20 +0000</lastBuildDate>
+    <pubDate>Tue, 24 Sep 2024 00:26:06 +0000</pubDate>
+    <lastBuildDate>Tue, 24 Sep 2024 00:26:06 +0000</lastBuildDate>
     <generator>Jekyll v4.3.4</generator>
     
+    
+      
+        
+
+
+
+
+<item>
+  <title>Seeing like a Rails and Ruby platform team</title>
+  <description>&lt;p&gt;When I’m not hacking on GoodJob, I work at GitHub, where I’m the engineering manager of the “Ruby Architecture” team, which is filled with fantastic rubyists. Our team mission is to:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Make it easy for GitHub engineers to create, deliver, and operate best-of-class Ruby and Rails applications, and share the best of it with the world.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;This is an adaptation of a post I published internally at GitHub, and its ensuing discussions, to explain what a team like ours &lt;em&gt;does&lt;/em&gt; when we’re supporting other teams and giving technical feedback. I imagine this is similar to other big companies’ Rails and Ruby platform teams, like &lt;a href=&quot;https://railsatscale.com&quot;&gt;Shopify’s “Ruby Infrastructure” team&lt;/a&gt;. I hope this is useful in thinking about your own Rails and Ruby work, experience, and career development focuses.&lt;/p&gt;
+
+&lt;h3 id=&quot;before-you-architecture&quot;&gt;Before you “architecture”&lt;/h3&gt;
+
+&lt;p&gt;The rest of this post is a big ol’ list of deep Ruby technical topics. To avoid premature optimization and architecture astronautics, I want to just quickly ground some expectations of any technical change you lead:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Is it clear what it does, especially to others, who may be yourself in the future?&lt;/li&gt;
+  &lt;li&gt;Does it follow established patterns and precedent throughout the codebase, and is it internally consistent with itself?&lt;/li&gt;
+  &lt;li&gt;Does it accomplish the business goal? Does it work?&lt;/li&gt;
+  &lt;li&gt;Does it not prevent other components from accomplishing their business goals? Does it not break or negatively impact other stuff?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I write these things out because it’s very common, as a technical feature goes through multiple reviews and revisions, to lose sight of its original goals or purpose or business constraints. So set yourself up for success by being clear on that stuff up front, and push back (or go deeper) if someone tells you something needs to change &lt;em&gt;for technical reasons&lt;/em&gt; but it compromises your intended non-technical outcome.&lt;/p&gt;
+
+&lt;h3 id=&quot;architecting-ruby-the-list&quot;&gt;Architecting Ruby, the list&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;A brief note about my authority on this.&lt;/strong&gt; The following list comes out of my experience working on a big Rails and Ruby monolith at GitHub, which has largely co-evolved with Rails and Ruby over the past 15+ years, and alongside 1k+ other engineers. (I’m also a consultant, and worked in a lot of software labs, and untangled a lot of other people’s applications too; and &lt;a href=&quot;https://speakerdeck.com/bensheldon/real-world-dashboard&quot;&gt;not-Rails stuff too&lt;/a&gt;.) Many members of the team are core maintainers of Rails and Ruby, and we &lt;a href=&quot;https://island94.org/2023/01/framing-open-source-contributions-at-work&quot;&gt;treat the Rails Framework as an extension of our application&lt;/a&gt;. Our team is responsible for integrating upstream changes in Rails and Ruby within GitHub’s vast monolith. &lt;strong&gt;We upgrade and integrate Rails and Ruby main/dev/trunk changes weekly!&lt;/strong&gt; (&lt;a href=&quot;https://github.blog/engineering/infrastructure/upgrading-github-from-rails-3-2-to-5-2/&quot;&gt;Never repeat, never forget.&lt;/a&gt;) This continuous practice produces a deep familiarity with how change happens, and where friction builds up between an application and its upstream dependencies. Performing these upgrades over and over leads to experience, and repeated experience leads to intuition.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;(btw, please reach out if your company has a practice of continuously upgrading Rails main/dev/trunk and running it in production. GitHub and Shopify and Gusto are trying to form a club and we want you in it.)&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;There is a general order here, from most important to least in broad strokes. Remember, nothing here is intrinsically bad or should never be done; but in those situations there should be well-considered decision points.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Global namespace and Library/Dependency Privacy Violations&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Avoid monkeypatching or reaching into private methods or objects.&lt;/li&gt;
+      &lt;li&gt;The most appropriate place to make changes is upstream.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Safety, Security&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Avoiding thread safety issues, like globally held objects and privacy violations, not leaking data between requests, or retaining big objects in memory.  &lt;a href=&quot;https://rubykaigi.org/2024/presentations/jhawthorn.html&quot;&gt;Profile&lt;/a&gt;, &lt;a href=&quot;https://www.youtube.com/watch?v=pQ1XCrwq1qc&quot;&gt;profile&lt;/a&gt;, &lt;a href=&quot;https://island94.org/2024/01/the-answer-is-in-your-heap-debugging-big-rails-memory&quot;&gt;profile&lt;/a&gt;.&lt;/li&gt;
+      &lt;li&gt;Seeking object locality (or avoiding globalness) by storing objects on instances of controllers and jobs (or their attributes) and embracing the natural lifecycles provided by the framework. Frequently a developer desires not to call &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SomeObject.new&lt;/code&gt; at the usage-site, but to have a DSL-like callable method already ready in the appropriate scope (eg. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;current_some_object&lt;/code&gt;). We love a good DSL and they can be difficult to get right.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Code Loading, Autoloading, and Reloading&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Code autoloading is &lt;a href=&quot;https://github.blog/engineering/infrastructure/upgrading-github-from-rails-3-2-to-5-2/&quot;&gt;one of the most important design-constraints in Rails&lt;/a&gt; that can vastly affect inner-loop development (the “hands-on-keyboard” part) and production availability because of impact to application boot speed.&lt;/li&gt;
+      &lt;li&gt;Designing for code loading and autoloading is critical to design, file placement (app vs lib vs config) and dependencies interactions&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Internal to the Ruby VM constraints&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;￼Even though Ruby makes it easy to introspect the runtime ( ￼&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;descendants&lt;/code&gt;￼ or ￼&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;subclasses&lt;/code&gt;￼ or ￼&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ObjectSpace&lt;/code&gt;￼) they shouldn’t be used outside of application boot or exception handling (and sparingly even then); they may have performance implications or be overly nuanced and non-deterministic in their output. Using ￼&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;callers&lt;/code&gt;￼ and introspecting the Ruby callstack is a particularly expensive operation.&lt;/li&gt;
+      &lt;li&gt;While infrequent and not-obvious, some patterns can massively de-optimize the Ruby VM with either localized or global effects. The Ruby VM (or accelerators like YJIT) are unable to optimize certain code patterns, and some patterns may cause VM-internal caches to churn inefficiently or to retain objects and their references unnecessarily (this can get tricky so please partner with us!). You probably want examples:
+        &lt;ul&gt;
+          &lt;li&gt;OpenStruct (though probably isn’t a reason to use it at all)&lt;/li&gt;
+          &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;eval&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;class_&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;instance_eval&lt;/code&gt;&lt;/li&gt;
+          &lt;li&gt;Modifying singleton classes (using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;extend&lt;/code&gt; on objects) (&lt;a href=&quot;https://bugs.ruby-lang.org/issues/19436&quot;&gt;example&lt;/a&gt;)&lt;/li&gt;
+          &lt;li&gt;Anything that adds to the callstack (call-wrapping, complicated delegation)&lt;/li&gt;
+          &lt;li&gt;(handwaves) Things that YJIT isn’t yet optimized for, things that &lt;a href=&quot;https://railsatscale.com/2023-10-24-memoization-pattern-and-object-shapes/&quot;&gt;deoptimize object shapes&lt;/a&gt;, which is the result of new fast-paths being introduced which now mean there are slow-paths that didn’t previously exist.&lt;/li&gt;
+          &lt;li&gt;Native extensions that don’t release the interpreter lock&lt;/li&gt;
+          &lt;li&gt;Metaprogramming generally&lt;/li&gt;
+          &lt;li&gt;None of these are intrinsically bad (except OpenStruct and poorly done native extensions), and framework and platform level code definitely make use of them. And they’re also constantly changing because of upstream Ruby work. And are maybe ok in isolation but a problem when copied as a pattern or introduced as a part of the platform for broad consumption. Something John Hawthorn has said:
+            &lt;blockquote&gt;
+              &lt;p&gt;A thought experiment I like to try is asking myself how I would implement this in another language without [Ruby magic]… Adding that constraint can help unblock thinking of simpler, more “normal” approaches without expensive metaprogramming.&lt;/p&gt;
+            &lt;/blockquote&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;External to the Ruby VM constraints and dependencies (memory, compute, file descriptors, database connections, etc.)&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;￼&quot;&gt;Database stuff&lt;/a&gt; alone is a lot. The design prompt everyone is largely working from is “how does one architect an efficient, stateless application that sits between an end-user client and stateful data sources and manages bidirectional transformations of data?” Sounds hard when you put it that way, right?&lt;/li&gt;
+      &lt;li&gt;Thinking about resource lifecycle, pooling, and how they interact across the various concurrency models available to use (process forking, threads, etc.). We do expect the frameworks and platform libraries we choose to keep these out of mind for most development tasks 😅&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Design of the thing, for use&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Rails’s model of “convention over configuration” frequently means that how an object is structured and where it’s placed can have an outsized impact on how it behaves: e.g. within App, Lib, Rack Middleware, Other Library Middleware (Faraday, jobs system, etc.), Rails Configuration/Initialization/Railties, and more!&lt;/li&gt;
+      &lt;li&gt;…and how those conventions relate to Maintainability, Developer Usability, and Conceptual Integrity.&lt;/li&gt;
+      &lt;li&gt;Sometimes what may appear as simply an aesthetic decision can have a functional impact.&lt;/li&gt;
+      &lt;li&gt;Identifying atypical or disordered usage patterns. Sometimes a desired behavior can be more of a happy accident than an enforced intention, and it might change upstream because no &lt;a href=&quot;https://www.explainxkcd.com/wiki/index.php/1172:_Workflow&quot;&gt;one expected it to be used that way&lt;/a&gt;.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Dependency Stewardship&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;In addition to Rails and Ruby, our monolith depends on hundreds of gems, double hundreds of their transitive gem dependencies, and several other runtimes and system libraries.&lt;/li&gt;
+      &lt;li&gt;The nature of a monolith is that &lt;em&gt;we go together.&lt;/em&gt; If some dependency isn’t compatible with the latest Rails or Ruby, or any other dependency upgrade, we must adapt. We work upstream, we patch locally, and worst case, we remove and replace the dependency with something more maintainable. All of this takes time and effort and resources.&lt;/li&gt;
+      &lt;li&gt;We want to choose dependencies that are well-maintained: their maintainers proactively respond to upstream changes, are responsive to issues and PRs, and &lt;a href=&quot;https://en.wiktionary.org/wiki/MINASWAN&quot;&gt;importantly in Ruby&lt;/a&gt;, are nice. (And to whom we are nice too!) That’s more important than benchmarks.&lt;/li&gt;
+      &lt;li&gt;And dependencies should be well architected too, obvs.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Automating and Scaling: Packwerk, Sorbet, Rubocop&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;We do our best to encode our knowledge and shape the application through tooling; that’s how our team scales!  We send our custom rules upstream, too.&lt;/li&gt;
+      &lt;li&gt;But it’s complicated! Sometimes that means that developers may focus on designing their code &lt;a href=&quot;https://island94.org/2024/09/the-novice-problem&quot;&gt;in response to the automated tooling&lt;/a&gt; and ending up with a less effective design or even introduce global risks and impacts to the application. At worst, a developer might even glaze over the linter’s intent by smuggling their design through a spelling or arrangement the linter doesn’t recognize 💀 Unfortunately the most important things are often the most abstract and arguable and difficult to detect or automatically warn about. We regret when we do have to tell folks that an approach is untenable in a PR or even after the fact when we notice production metrics have degraded.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;a-conclusion-about-lists&quot;&gt;A conclusion about lists&lt;/h3&gt;
+
+&lt;p&gt;I like making &lt;a href=&quot;https://island94.org/2017/01/Engeering-Practice-Ad-Nauseam.html&quot;&gt;lists of things&lt;/a&gt;; I find them helpful. I also realize that &lt;a href=&quot;https://island94.org/2019/07/truths-about-the-interpretation-of-falsehood-articles&quot;&gt;not everyone experiences lists the same way I do&lt;/a&gt;. For me, the purpose of a good laundry list is to be a quick reminder (“don’t forget to wash the handkerchiefs”) and not not an exhaustive list of actionable instructions (“the exact and best temperature to wash this t-shirt and that pair of jeans”). So please reach out to me (&lt;a href=&quot;https://ruby.social/@bensheldon&quot;&gt;Mastodon&lt;/a&gt; / &lt;a href=&quot;https://x.com/bensheldon&quot;&gt;Twitter/X&lt;/a&gt;) if:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;You think there is something that should be added to the list, or explained in more detail&lt;/li&gt;
+  &lt;li&gt;You’re curious how something in the list might apply to a specific thing you have&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I’d love to chat. Thanks for reading!&lt;/p&gt;
+
+  &lt;br&gt;&lt;br&gt;
+  &lt;hr&gt;
+  &lt;p&gt;
+    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2024/09/seeing-like-a-rails-and-ruby-platform-team&quot;&gt;Seeing like a Rails and Ruby platform team&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
+    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
+  &lt;/p&gt;
+</description>
+  <pubDate>Sat, 21 Sep 2024 15:17:00 +0000</pubDate>
+  <link>https://island94.org/2024/09/seeing-like-a-rails-and-ruby-platform-team</link>
+  <guid isPermaLink="true">https://island94.org/2024/09/seeing-like-a-rails-and-ruby-platform-team</guid>
+  
+    <category>Rails</category>
+  
+    <category>Ruby</category>
+  
+  
+</item>
+
+      
     
       
         
@@ -634,104 +772,6 @@ To access local variables named with reserved keywords in your ERB template when
     <category>Ruby</category>
   
     <category>media</category>
-  
-  
-</item>
-
-      
-    
-      
-        
-
-
-
-
-<item>
-  <title>Rails Active Record: Will it bind?</title>
-  <description>&lt;p&gt;Active Record, Ruby on Rail’s ORM, has support for Prepared Statements that work &lt;em&gt;if you structure your query for it&lt;/em&gt;. Because of my work on GoodJob, which can make a lot of nearly identical database queries every second to pop its job queue, I’ve invested a lot of time trying to make those queries as efficient as possible.&lt;/p&gt;
-
-&lt;p&gt;Prepared Statements are a database feature that allow the database to reuse query parsing and planning when queries are structurally the same. Prepared statements, at least in Postgres, are linked to the database connection/session and stored in memory in the database. This implies some things:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;There can be a &lt;strong&gt;performance benefit&lt;/strong&gt; to making queries “preparable” for Prepared Statements which Active Record will decide for you based on how a query is structured.&lt;/li&gt;
-  &lt;li&gt;There can be a &lt;strong&gt;performance harm&lt;/strong&gt; (or at least non-useful database processing and &lt;a href=&quot;https://github.com/rails/rails/issues/14645&quot;&gt;memory growth&lt;/a&gt;) if your application produces a lot of preparable queries that are never reused again.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;By default, Rails will have the database store 1,000 queries (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;statement_limit: 1000&lt;/code&gt;). Many huge Rails monoliths (like GitHub, where I work) disable prepared statements (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;prepared_statements: false&lt;/code&gt;) because there is too much query heterogeneity to get a performance benefit and the database spends extra and unnecessary cycles storing and evicting unused prepared statements.  But that’s maybe not your application!&lt;/p&gt;
-
-&lt;p&gt;Structurally similar queries can still have variable values inside of them: these are called &lt;strong&gt;bind parameters&lt;/strong&gt;. For example, in GoodJob, I want pop jobs that are scheduled to run right now. In SQL that might look like:&lt;/p&gt;
-
-&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;good_jobs&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;WHERE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;scheduled_at&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;2024-03-31 16:44:11.047499`
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;That query has the downside of the timestamp changing multiple times a second as new queries are emitted. What I want to do is extract out the timestamp into a bind parameter (a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;?&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$1&lt;/code&gt; depending on the database adapter) instead of embedded in the query:&lt;/p&gt;
-
-&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;good_jobs&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;WHERE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;scheduled_at&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;?&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;That’s the good stuff! That’s ideal and preparable 👍&lt;/p&gt;
-
-&lt;p&gt;But that’s raw SQL, now how to do that in Active Record? In the following exploration, I’m using the private &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;to_sql_and_binds&lt;/code&gt; method in Active Record; I’m also using the private Arel API. This is all private and subject to change, so be sure to write some tests around this behavior if you do choose to use it.  Here’s some &lt;a href=&quot;https://github.com/bensheldon/rails_tricks/blob/6c686c987ee9996bbad8a6ade1f92184c5a9ebf6/bind_params.rb&quot;&gt;quick experiments&lt;/a&gt; I’ve done:&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;job&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Job&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;scheduled_at: &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;minutes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ago&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# Experiment 1: string with ?&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;relation&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Job&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;where&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;scheduled_at &amp;lt; ?&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;current&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# =&amp;gt;  Job Load (0.1ms)  SELECT &quot;good_jobs&quot;.* FROM &quot;good_jobs&quot; WHERE (scheduled_at &amp;lt; &apos;2024-03-31 16:34:11.064614&apos;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;relation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to_a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;eq&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;job&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;_query&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;binds&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;prepared&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Job&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;connection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;send&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:to_sql_and_binds&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;relation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;arel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;binds&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;eq&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# &amp;lt;-- Not a bind parameter&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;prepared&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;eq&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# &amp;lt;-- Not preparable&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# Experiment 2: Arel query with value&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;relation&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Job&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Job&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;arel_table&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;scheduled_at&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;lt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;current&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# =&amp;gt;  Job Load (0.1ms)  SELECT &quot;good_jobs&quot;.* FROM &quot;good_jobs&quot; WHERE scheduled_at &amp;lt; &apos;2024-03-31 16:34:11.064614&apos;&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;relation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to_a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;eq&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;job&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;_query&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;binds&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;prepared&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Job&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;connection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;send&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:to_sql_and_binds&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;relation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;arel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;binds&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;eq&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# &amp;lt;-- Not a bind parameter&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;prepared&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;eq&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# &amp;lt;-- Yikes 🥵&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# Experiment 3: Arel query with QueryAttribute&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;relation&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Job&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;where&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Job&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;arel_table&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;scheduled_at&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;lt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;ActiveRecord&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Relation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;QueryAttribute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;scheduled_at&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;current&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ActiveRecord&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;DateTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# =&amp;gt;  Job Load (0.1ms)  SELECT &quot;good_jobs&quot;.* FROM &quot;good_jobs&quot; WHERE scheduled_at &amp;lt; $1  [[&quot;scheduled_at&quot;, &quot;2024-03-31 16:34:11.064614&quot;]]&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;relation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to_a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;eq&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;job&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;_query&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;binds&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;prepared&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Job&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;connection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;send&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:to_sql_and_binds&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;relation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;arel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;binds&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;eq&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# &amp;lt;-- Looking good! 🙌&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;prepared&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;eq&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# &amp;lt;-- Yes! 👏&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;That very last option is the good one because it has the bind parameter (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$1&lt;/code&gt;) and then the Active Record logger will show the values in the nested array next to the query. The successful combination uses:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Arel comparable syntax&lt;/li&gt;
-  &lt;li&gt;Wrapping the value in an &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ActiveRecord::Relation::QueryAttribute&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Note that many Active Record queries will automatically do this for you, but &lt;em&gt;not all of them&lt;/em&gt;. In this particular case, it’s because I use the “less than” operator, whereas equality does make it preparable. &lt;strong&gt;You’ll have to inspect each query yourself.&lt;/strong&gt; For example, it’s also necessary with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Arel#matches&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ILIKE&lt;/code&gt;. It’s also possible to temporarily disable prepared statements within a block in the &lt;a href=&quot;https://github.com/rails/rails/blob/6f0d1ad14b92b9f5906e44740fce8b4f1c7075dc/activerecord/lib/active_record/connection_adapters/abstract_adapter.rb#L368-L373&quot;&gt;undocumented&lt;/a&gt; (!) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Model.connection.unprepared_statement { your_query }&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;The above code is true as of Rails 7.1. &lt;a href=&quot;https://github.com/rails/rails/pull/51139&quot;&gt;Jean Boussier has improved Active Record&lt;/a&gt; in newer (currently unreleased) Rails to also properly bind &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Job.where(&quot;scheduled_at &amp;lt; ?&quot;, Time.current)&lt;/code&gt; query syntax too 🙇&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Update: I realized I didn’t try beginless/endless range values. Good news: they create bind parameters 🎉&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# Experiment 4: beginless range&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;relation&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Job&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;where&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;scheduled_at: &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;current&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# =&amp;gt;  Job Load (0.1ms)  SELECT &quot;good_jobs&quot;.* FROM &quot;good_jobs&quot; WHERE scheduled_at &amp;lt; $1  [[&quot;scheduled_at&quot;, &quot;2024-03-31 16:34:11.064614&quot;]]&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;relation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to_a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;eq&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;job&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;_query&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;binds&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;prepared&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Job&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;connection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;send&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:to_sql_and_binds&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;relation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;arel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;binds&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;eq&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# &amp;lt;-- Looking good! 🙌&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;prepared&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;eq&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# &amp;lt;-- Yes! 👏&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-  &lt;br&gt;&lt;br&gt;
-  &lt;hr&gt;
-  &lt;p&gt;
-    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2024/03/rails-active-record-will-it-bind&quot;&gt;Rails Active Record: Will it bind?&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
-    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
-  &lt;/p&gt;
-</description>
-  <pubDate>Sun, 31 Mar 2024 17:15:00 +0000</pubDate>
-  <link>https://island94.org/2024/03/rails-active-record-will-it-bind</link>
-  <guid isPermaLink="true">https://island94.org/2024/03/rails-active-record-will-it-bind</guid>
   
   
 </item>
