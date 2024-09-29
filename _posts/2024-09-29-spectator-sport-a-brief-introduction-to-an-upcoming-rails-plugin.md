@@ -11,7 +11,7 @@ tags: [rails, spectator_sport]
 
 Spectator Sport uses the [rrweb library](https://www.rrweb.io/) to create recordings of your website's DOM as your users interact with it, from the perspective of their web browser's screen (html, css, images, dynamic content, mouse movements and clicks, navigation).  These recordings are stored in your Active Record database for replay by developers and administrators to analyze user behavior, reproduce bugs, and make building for the web more engaging, satisfying, and fun.
 
-**Here's a proof of concept demo.** It’s very, very, very, very rough and early, but everyone I have demoed it for says “wow, that is totally different and much better than I imagined it when you first explained it me”: https://spectator-sport-demo-1ca285490d99.herokuapp.com
+**Here's a proof of concept demo.** It’s very, very, very, very rough and early, but everyone I have demoed it for says “wow, that is totally different and much better than I imagined it when you first explained it me”: [https://spectator-sport-demo-1ca285490d99.herokuapp.com](https://spectator-sport-demo-1ca285490d99.herokuapp.com)
 
 🚧 🚧 *This gem is very early in its development lifecycle and will undergo significant changes on its journey to v1.0. I would love your feedback and help in co-developing it so fyi it's going to be so much better than it is right now.*
 
