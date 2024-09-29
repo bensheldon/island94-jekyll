@@ -6,8 +6,8 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 29 Sep 2024 12:51:11 +0000</pubDate>
-    <lastBuildDate>Sun, 29 Sep 2024 12:51:11 +0000</lastBuildDate>
+    <pubDate>Sun, 29 Sep 2024 13:02:01 +0000</pubDate>
+    <lastBuildDate>Sun, 29 Sep 2024 13:02:01 +0000</lastBuildDate>
     <generator>Jekyll v4.3.4</generator>
     
     
@@ -25,7 +25,7 @@
 
 &lt;p&gt;Spectator Sport uses the &lt;a href=&quot;https://www.rrweb.io/&quot;&gt;rrweb library&lt;/a&gt; to create recordings of your website’s DOM as your users interact with it, from the perspective of their web browser’s screen (html, css, images, dynamic content, mouse movements and clicks, navigation).  These recordings are stored in your Active Record database for replay by developers and administrators to analyze user behavior, reproduce bugs, and make building for the web more engaging, satisfying, and fun.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Here’s a proof of concept demo.&lt;/strong&gt; It’s very, very, very, very rough and early, but everyone I have demoed it for says “wow, that is totally different and much better than I imagined it when you first explained it me”: https://spectator-sport-demo-1ca285490d99.herokuapp.com&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Here’s a proof of concept demo.&lt;/strong&gt; It’s very, very, very, very rough and early, but everyone I have demoed it for says “wow, that is totally different and much better than I imagined it when you first explained it me”: &lt;a href=&quot;https://spectator-sport-demo-1ca285490d99.herokuapp.com&quot;&gt;https://spectator-sport-demo-1ca285490d99.herokuapp.com&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;🚧 🚧 &lt;em&gt;This gem is very early in its development lifecycle and will undergo significant changes on its journey to v1.0. I would love your feedback and help in co-developing it so fyi it’s going to be so much better than it is right now.&lt;/em&gt;&lt;/p&gt;
 
