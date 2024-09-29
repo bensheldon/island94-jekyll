@@ -6,10 +6,142 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 29 Sep 2024 07:06:31 +0000</pubDate>
-    <lastBuildDate>Sun, 29 Sep 2024 07:06:31 +0000</lastBuildDate>
+    <pubDate>Sun, 29 Sep 2024 12:51:11 +0000</pubDate>
+    <lastBuildDate>Sun, 29 Sep 2024 12:51:11 +0000</lastBuildDate>
     <generator>Jekyll v4.3.4</generator>
     
+    
+      
+        
+
+
+
+
+<item>
+  <title>Spectator Sport, a brief introduction to an upcoming Rails plugin</title>
+  <description>&lt;p&gt;&lt;strong&gt;Hi! 👋 I’m Ben Sheldon. I’m the author of GoodJob, an Active Job backend that I’ll humbly share is mildly popular and known for its broad features and ease of use. I’m working on a new plugin for Rails: ✨&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Spectator Sport&lt;/strong&gt; creates and replays video-like recordings of your live, production website, via a self-hosted Ruby on Rails Engine that lives in your application.&lt;/p&gt;
+
+&lt;p&gt;Spectator Sport uses the &lt;a href=&quot;https://www.rrweb.io/&quot;&gt;rrweb library&lt;/a&gt; to create recordings of your website’s DOM as your users interact with it, from the perspective of their web browser’s screen (html, css, images, dynamic content, mouse movements and clicks, navigation).  These recordings are stored in your Active Record database for replay by developers and administrators to analyze user behavior, reproduce bugs, and make building for the web more engaging, satisfying, and fun.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Here’s a proof of concept demo.&lt;/strong&gt; It’s very, very, very, very rough and early, but everyone I have demoed it for says “wow, that is totally different and much better than I imagined it when you first explained it me”: https://spectator-sport-demo-1ca285490d99.herokuapp.com&lt;/p&gt;
+
+&lt;p&gt;🚧 🚧 &lt;em&gt;This gem is very early in its development lifecycle and will undergo significant changes on its journey to v1.0. I would love your feedback and help in co-developing it so fyi it’s going to be so much better than it is right now.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;You can help:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Leave a &lt;a href=&quot;https://github.com/bensheldon/spectator_sport/discussions/6&quot;&gt;comment on the GitHub Discussions post&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Contribute to the &lt;a href=&quot;https://github.com/bensheldon/spectator_sport&quot;&gt;gem’s development&lt;/a&gt; by opening an issue to discuss, or contributing a feature via PR&lt;/li&gt;
+  &lt;li&gt;⭐️ the &lt;a href=&quot;https://github.com/bensheldon/spectator_sport&quot;&gt;GitHub repository&lt;/a&gt; to help elevate its visibility&lt;/li&gt;
+  &lt;li&gt;Subscribe to my &lt;a href=&quot;https://scattergun.email/public/mailing_lists/eXKwMBZ6YkdlXra3/subscribe&quot;&gt;email announcements list&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Sponsor my development with $$$ via &lt;a href=&quot;https://github.com/sponsors/bensheldon&quot;&gt;GitHub Sponsors&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;who-is-this-gem-for&quot;&gt;Who is this gem for?&lt;/h3&gt;
+
+&lt;p&gt;I’m writing this on the weekend following Rails World 2024, on eve of Rails 8’s release. The Rails team is tackling the hard problems of making it easy to deploy your website into production with tools like Kamal, and addressing operational complexity with the Solid suite. What comes next?&lt;/p&gt;
+
+&lt;p&gt;Spectator Sport intends to transform your relationship with your website &lt;em&gt;after&lt;/em&gt; it is deployed to the web and real people have the opportunity to use it:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;See how people are actually using your website, directly.&lt;/li&gt;
+  &lt;li&gt;Remove the &lt;em&gt;necessity&lt;/em&gt; of defining funnel metrics or analytics up front, or the &lt;em&gt;necessity&lt;/em&gt; of interpreting user behavior through a limited lens of aggregated or averaged numbers.&lt;/li&gt;
+  &lt;li&gt;As a developer and product-maker, more fully engage your sympathetic senses, &lt;em&gt;in addition to your analytical senses&lt;/em&gt;, to ultimately be more effective and fulfilled when building for the web.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Launching a website kinda sucks.&lt;/strong&gt; I’ve been a solopreneur, and web-marketing consultant, and “founding” engineer, and “growth” engineer at VC backed startups and product labs, and a participant and mentor in entrepreneur communities and mastermind and accountability groups for 19 years. People are not ok.&lt;/p&gt;
+
+&lt;p&gt;The fast &lt;em&gt;development&lt;/em&gt; feedback of imagining and building the thing locally, the dopamine rush of making something nice, one step at a time, for other people to use… that all drops off a cliff once, well, you put it out there for other people to use. The &lt;em&gt;post-launch and release&lt;/em&gt; feedback: it’s not there.&lt;/p&gt;
+
+&lt;p&gt;It sucks! People feel it! They’re confused, they’re sad, sometimes mad, looking for help, wanting to be seen by others, spinning on valueless technical changes, sharing tangential hot takes and engagement baits. Developers are going anywhere but directly to the people they’re building for. One reason, I believe, is because their visitors’ and users’ activity on their website is largely invisible and unknowable, and the only way to see it is through a foggy, confusing and deeply unsatisfying window of abstract metrics and aggregation.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Building for the web should be a spectator sport.&lt;/strong&gt; More than &lt;em&gt;only&lt;/em&gt; a fantasy game of metrics and aggregates and guesses and spread-table gambles. It should be fun and engaging and direct. We should simply be able to observe and react and cheer and cry and fall on the floor and get up and make it better and go again. Believe.&lt;/p&gt;
+
+&lt;p&gt;There are constraints to what &lt;em&gt;I&lt;/em&gt; can do to achieve this vision, with this gem. I’m focused on building for Ruby on Rails. And specifically hobbyists, soloprenieurs, small teams, SMBs (small and midsize businesses), and unique applications, including:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;applications with limited budgets or the inability (because of geography or policy) to contract or procure a 3rd party service.&lt;/li&gt;
+  &lt;li&gt;applications in government or healthcare or on an internal intranet with unique data or privacy constraints who don’t have the budget for a BAA (business associate agreement) or other compliance contracts&lt;/li&gt;
+  &lt;li&gt;applications for which operational simplicity is paramount and don’t have the resources to operate a more complex self-hosted solution&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;we-have-the-technology&quot;&gt;We have the technology&lt;/h3&gt;
+
+&lt;p&gt;Browser recording isn’t new. Fullstory was my own introduction to it nearly a decade ago, also Tealeaf and Sentry and PostHog and Highlight and Matomo and many others, some of which are no-cost self-hostable as a separate service, though often with complex dependencies. Many of them use rrweb too.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;I believe Spectator Sport is the first no-cost, self-hostable browser-recording tool that works anywhere your application runs (Heroku being the narrowest target I can imagine).&lt;/strong&gt; &lt;em&gt;Tell me what I’m missing!&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;If my adjectives themselves aren’t compelling and your website already has massive scale and a rich revenue stream and/or no concerns about 3rd-party data subprocessors, I highly recommend checking out PostHog (just $0.005 per recording!) or Sentry (enterprise gated, but integrated into Sentry’s other features which are fantastic).&lt;/p&gt;
+
+&lt;h3 id=&quot;a-good-job-again&quot;&gt;A good job, again&lt;/h3&gt;
+
+&lt;p&gt;I mentioned in my introduction that my other gem, GoodJob, is well-regarded. I think we can do it again with Spectator Sport:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Focus on solving a class of problems developers experience over a long period of time, not building a specific technology tool and calling it a day.&lt;/li&gt;
+  &lt;li&gt;Serve the vastly more solo and full-stack dev teams with limited time and budgets who will benefit from something tailored to their largely consistent needs (easy, good, inexpensive) and are nice and appreciative when you deliver, than the very small number of experienced folks with big budgets and unique needs who inexplicably have time on their hands to be outspoken in telling you it will never work &lt;em&gt;for them&lt;/em&gt;.&lt;/li&gt;
+  &lt;li&gt;Provide a wide offering of polished features, using boring, existing tech to do the complex bits (like Postgres advisory locks in GoodJob, or rrweb in Spectator Sport). The value comes from the usability of the integration. A full-featured, cleanly designed web dashboard really impresses too; Dark Mode is the epitome of a non-trivial feature to maintain that demonstrates care.&lt;/li&gt;
+  &lt;li&gt;Maintain a narrow compatibility matrix, focus on “omakase” Rails (Active Record, Active Storage, etc.) with a sensible EOL policy. Complexity kills. Relational databases are great. &lt;a href=&quot;https://blog.danslimmon.com/2023/08/11/squeeze-the-hell-out-of-the-system-you-have/&quot;&gt;Squeeze the hell out of the system you have&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;￼Be exceptionally responsive and supportive of developers who need help and meet them where they are. Be personally present because the library can’t speak for itself. Make mistakes, &lt;a href=&quot;https://github.com/bensheldon/good_job/issues/255&quot;&gt;change direction&lt;/a&gt;, communicate intent, move forward.&lt;/li&gt;
+  &lt;li&gt;Keep the cost of change low, release frequently, build up, iterate, document and test and provide deprecation notices, follow SemVer, and defer application-breaking changes as long as possible.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I do want to try one thing new compared to GoodJob: I want Spectator Sport to be compatible with Postgres &lt;em&gt;and MySQL and SQLite&lt;/em&gt;. I believe it’s possible.&lt;/p&gt;
+
+&lt;h3 id=&quot;front-running-the-criticism&quot;&gt;Front-running the criticism&lt;/h3&gt;
+
+&lt;p&gt;Here are the things I have worked through myself when thinking about Spectator Sport, and talked about with others:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Is it creepy?&lt;/strong&gt; Yes, a little. There is overlap with advertising and marketing and “growth” tech, And many service providers market browser recording as a premium capability with premium prices and sell it hard. Realistically, I have implemented enough dynamic form validations in my career that I no longer imagine any inherent sanctity in an unsubmitted form input on a random website. Conceptually, Spectator Sport observes &lt;em&gt;your website&lt;/em&gt; as it is operated by a user, it does not observe &lt;em&gt;the user&lt;/em&gt;. &lt;a href=&quot;https://interconnected.org/home/2024/09/05/cursor-party&quot;&gt;Every webpage deserves to be a place&lt;/a&gt;, and this just happens to be your CCTV camera pointed at it, for training purposes.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Is it a replacement for usability research?&lt;/strong&gt; No, of course not. Spectator Sport can only show you half of the picture (or less) that you get from real usability research. When you do &lt;a href=&quot;https://sensible.com/rocket-surgery-made-easy/&quot;&gt;real usability research&lt;/a&gt; and ask a subject to do something on your website, you ask them &lt;em&gt;to explain what they’re doing, in their own words, based on their own understanding of the task and what they see through their own eyes.&lt;/em&gt; Browser recordings alone can’t give you all that. You still have to &lt;a href=&quot;https://www.gamedeveloper.com/design/rimworld-dwarf-fortress-and-procedurally-generated-story-telling&quot;&gt;fill in the blanks in the story&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Is it safe?&lt;/strong&gt; I think so. I intend all user input to be masked by default, be secure by default, and provide comprehensive documentation that explains both the why and the how to lock down what’s stored and who can access it. Spectator Sport is shipping the DOM to your own database, and it’s likely the same data already lives in the database in a more structured way, and is already reflected back through your application too.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Does it use a lot of storage?&lt;/strong&gt; Not as much as you might fear. If people’s big scaling worry for GoodJob was “it will be too slow” I already think Spectator Sport’s is “it will be too big”. I’ve been running the proof of concept on my own websites and 1.5k recordings took up ~500MB of storage in Postgres. Retention periods can be configured, data can be compressed and offloaded to Active Storage. I believe it is ok, and worth the squeeze.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Can it do xyz?&lt;/strong&gt; Maybe. &lt;a href=&quot;https://github.com/bensheldon/spectator_sport&quot;&gt;Open an issue&lt;/a&gt; on GitHub. I’d love to discuss it with you.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Wouldn’t you rather do something with AI?&lt;/strong&gt; I dunno, man. I freaking love watching recordings of my websites being driven by people and thinking about how to make the website easier and better for them. I think this is an immensely satisfying missing piece of building for the web, and I think you will too.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Tell me what I’m missing or overlooking!&lt;/em&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;the-call-to-action-a-second-time-at-the-bottom&quot;&gt;The call to action, a second time, at the bottom&lt;/h3&gt;
+
+&lt;p&gt;Something I learned a long time ago, from watching browser recordings (true story!), is that visitors will go deep below the hero’s call-to-action, read all the lovely explanatory content, get to the bottom… and bounce because the call to action wasn’t reinforced.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;So, please:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Leave a &lt;a href=&quot;https://github.com/bensheldon/spectator_sport/discussions/6&quot;&gt;comment on the GitHub Discussions post&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Contribute to the &lt;a href=&quot;https://github.com/bensheldon/spectator_sport&quot;&gt;gem’s development&lt;/a&gt; by opening an issue to discuss, or contributing a feature via PR&lt;/li&gt;
+  &lt;li&gt;⭐️ the &lt;a href=&quot;https://github.com/bensheldon/spectator_sport&quot;&gt;GitHub repository&lt;/a&gt; to help elevate its visibility&lt;/li&gt;
+  &lt;li&gt;Subscribe to my &lt;a href=&quot;%EF%BF%BChttps%3A//scattergun.email/public/mailing_lists/eXKwMBZ6YkdlXra3/subscribe&quot;&gt;email announcements list&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Sponsor my development with $$$ via &lt;a href=&quot;https://github.com/sponsors/bensheldon&quot;&gt;GitHub Sponsors&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+  &lt;br&gt;&lt;br&gt;
+  &lt;hr&gt;
+  &lt;p&gt;
+    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2024/09/spectator-sport-a-brief-introduction-to-an-upcoming-rails-plugin&quot;&gt;Spectator Sport, a brief introduction to an upcoming Rails plugin&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
+    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
+  &lt;/p&gt;
+</description>
+  <pubDate>Sun, 29 Sep 2024 12:44:00 +0000</pubDate>
+  <link>https://island94.org/2024/09/spectator-sport-a-brief-introduction-to-an-upcoming-rails-plugin</link>
+  <guid isPermaLink="true">https://island94.org/2024/09/spectator-sport-a-brief-introduction-to-an-upcoming-rails-plugin</guid>
+  
+    <category>rails</category>
+  
+    <category>spectator_sport</category>
+  
+  
+</item>
+
+      
     
       
         
@@ -731,47 +863,6 @@ To access local variables named with reserved keywords in your ERB template when
   <pubDate>Tue, 09 Apr 2024 20:33:00 +0000</pubDate>
   <link>https://island94.org/2024/04/a-comment-on-second-systems</link>
   <guid isPermaLink="true">https://island94.org/2024/04/a-comment-on-second-systems</guid>
-  
-  
-</item>
-
-      
-    
-      
-        
-
-
-
-
-<item>
-  <title>A Ruby Meetup and 3 Podcasts</title>
-  <description>&lt;p&gt;&lt;img src=&quot;/uploads/2024/ruby-meetup-ben.jpg&quot; alt=&quot;Me standing on a small stage in front of a slide with 2 adoptable cats and the GitHub logo&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Last week I spoke at the &lt;a href=&quot;https://evilmartians.com/events/sf-bay-area-ruby-meetup&quot;&gt;SF Bay Area Ruby Meetup&lt;/a&gt;, which was hosted at GitHub HQ, which made for an easy commute for me. Here’s &lt;a href=&quot;https://www.youtube.com/watch?v=9-PWz9nbrT8&amp;amp;t=275s&quot;&gt;the video&lt;/a&gt; and &lt;a href=&quot;https://speakerdeck.com/bensheldon/an-ok-compromise-faster-development-by-designing-for-the-rails-autoloader&quot;&gt;the slides&lt;/a&gt;. My talk was entitled “An OK compromise: Faster development by designing for the Rails autoloader”&lt;/p&gt;
-
-&lt;p&gt;Also, I haven’t shared here the 3 podcasts I did over the past few years. Here they are:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.therubyonrailspodcast.com/383&quot;&gt;The Ruby on Rails Podcast&lt;/a&gt; from September, 2021.&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=DJ9HIjLla_U&quot;&gt;GemRuby Show&lt;/a&gt; from September, 2023.&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://topenddevs.com/podcasts/ruby-rogues/episodes/examining-goodjob-solidq-and-more-ruby-623&quot;&gt;The Ruby Rogues&lt;/a&gt; from January, 2024.&lt;/li&gt;
-&lt;/ul&gt;
-
-
-  &lt;br&gt;&lt;br&gt;
-  &lt;hr&gt;
-  &lt;p&gt;
-    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2024/04/a-ruby-meetup-and-3-podcasts&quot;&gt;A Ruby Meetup and 3 Podcasts&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
-    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
-  &lt;/p&gt;
-</description>
-  <pubDate>Fri, 05 Apr 2024 23:44:00 +0000</pubDate>
-  <link>https://island94.org/2024/04/a-ruby-meetup-and-3-podcasts</link>
-  <guid isPermaLink="true">https://island94.org/2024/04/a-ruby-meetup-and-3-podcasts</guid>
-  
-    <category>Ruby</category>
-  
-    <category>media</category>
   
   
 </item>
