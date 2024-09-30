@@ -95,6 +95,6 @@ Something I learned a long time ago, from watching browser recordings (true stor
 - Leave a [comment on the GitHub Discussions post](https://github.com/bensheldon/spectator_sport/discussions/6)
 - Contribute to the [gem's development](https://github.com/bensheldon/spectator_sport) by opening an issue to discuss, or contributing a feature via PR
 - ⭐️ the [GitHub repository](https://github.com/bensheldon/spectator_sport) to help elevate its visibility
-- Subscribe to my [email announcements list](%EF%BF%BChttps%3A//scattergun.email/public/mailing_lists/eXKwMBZ6YkdlXra3/subscribe) 
+- Subscribe to my [email announcements list](https://scattergun.email/public/mailing_lists/eXKwMBZ6YkdlXra3/subscribe) 
 - Sponsor my development with $$$ via [GitHub Sponsors](https://github.com/sponsors/bensheldon)
 
