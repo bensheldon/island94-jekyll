@@ -6,8 +6,8 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 05 Oct 2024 07:07:34 +0000</pubDate>
-    <lastBuildDate>Sat, 05 Oct 2024 07:07:34 +0000</lastBuildDate>
+    <pubDate>Sat, 05 Oct 2024 20:11:19 +0000</pubDate>
+    <lastBuildDate>Sat, 05 Oct 2024 20:11:19 +0000</lastBuildDate>
     <generator>Jekyll v4.3.4</generator>
     
     
@@ -306,6 +306,7 @@
 
 &lt;p&gt;WAIT, WHAT?! Why? I described that bad things happen if the pool size is &lt;em&gt;too small&lt;/em&gt;. Here’s the trick: it’s impossible to set the connection pool size to be &lt;em&gt;too big&lt;/em&gt;. You can’t do it! That’s why it’s always better to set a number that’s too large. And the best number is one that can &lt;em&gt;never&lt;/em&gt; be too small regardless of how you configure (and inevitably reconfigure) your application. Here’s why:&lt;/p&gt;
 
+&lt;p&gt;-The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pool:&lt;/code&gt; configuration value, despite its name, is rhe &lt;em&gt;max&lt;/em&gt; size of the database connection pool.&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;Database connections are lazily created and added to the pool &lt;em&gt;as they’re needed&lt;/em&gt;. Your Rails application will never create more database connections than it needs. And the database connection pool reaper removes idle and unused connections from the pool. The pool will never be larger than it needs to be.&lt;/li&gt;
   &lt;li&gt;It’s possible you may run out of available database connections &lt;em&gt;at the database&lt;/em&gt;. For example, Heroku’s new &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Essentials-0&lt;/code&gt; Postgres database only has 20 database connections available globally. But any problems you run into won’t be because the database connection pool is too big, it’s because your application is &lt;em&gt;using too many concurrent database connections&lt;/em&gt;.&lt;/li&gt;
