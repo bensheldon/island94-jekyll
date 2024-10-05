@@ -23,6 +23,7 @@ default: &default
 
 WAIT, WHAT?! Why? I described that bad things happen if the pool size is *too small*. Here’s the trick: it’s impossible to set the connection pool size to be _too big_. You can’t do it! That’s why it’s always better to set a number that’s too large. And the best number is one that can _never_ be too small regardless of how you configure (and inevitably reconfigure) your application. Here’s why:
 
+-The `pool:` configuration value, despite its name, is rhe _max_ size of the database connection pool.
 - Database connections are lazily created and added to the pool _as they’re needed_. Your Rails application will never create more database connections than it needs. And the database connection pool reaper removes idle and unused connections from the pool. The pool will never be larger than it needs to be.
 - It’s possible you may run out of available database connections _at the database_. For example, Heroku’s new `Essentials-0` Postgres database only has 20 database connections available globally. But any problems you run into won't be because the database connection pool is too big, it’s because your application is *using too many concurrent database connections*.
 - If you find yourself in a situation where your application is using too many concurrent database connections, you should be configuring and re-sizing _the things using database connections concurrently_, not the database connection pool itself:
