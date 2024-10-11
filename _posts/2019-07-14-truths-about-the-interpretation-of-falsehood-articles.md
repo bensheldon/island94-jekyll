@@ -3,7 +3,7 @@ date: '2019-07-14 08:44 -0700'
 published: true
 title: Truths about the interpretation of falsehood articles
 ---
-I enjoy “falsehood programmers believe” articles for the same reason as Graham Lee, who also points out that I shouldn’t assume others approach those articles (or any seemingly common structure) [the same](https://www.sicpers.info/2019/06/falsehoods-programmers-who-write-falsehoods-programmers-believe-articles-believe-about-programmers-who-read-falsehoods-programmers-believe-articles/):
+I enjoy "falsehood programmers believe" articles for the same reason as Graham Lee, who also points out that I shouldn’t assume others approach those articles (or any seemingly common structure) [the same](https://www.sicpers.info/2019/06/falsehoods-programmers-who-write-falsehoods-programmers-believe-articles-believe-about-programmers-who-read-falsehoods-programmers-believe-articles/):
 
 > As the sort of programmer who writes [falsehoods programmers believe articles](https://www.sicpers.info/2017/12/falsehoods-programmers-believe-about-programming/), my belief is that interesting challenges to my beliefs will trigger some curiosity, and lead me to research the counterexamples and solutions. Or at least, to file away the fact that counterexamples exist until I need it, or am otherwise more motivated to learn about it.
 > 
