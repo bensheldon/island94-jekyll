@@ -1,5 +1,5 @@
 ---
-title: "A Ruby Meetup and 3 Podcasts"
+title: "A Ruby Meetup about Rails autoloading and 3 Podcasts"
 date: 2024-04-05 16:44 PDT
 published: true
 tags: [Ruby, media]
