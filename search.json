@@ -92,7 +92,7 @@
     ,
   
     "2024-04-a-ruby-meetup-and-3-podcasts": {
-      "title": "A Ruby Meetup and 3 Podcasts",
+      "title": "A Ruby Meetup about Rails autoloading and 3 Podcasts",
       "published": "April 5, 2024",
       "tags": ["Ruby","media"],
       "content": "Last week I spoke at the SF Bay Area Ruby Meetup, which was hosted at GitHub HQ, which made for an easy commute for me. Here’s the video and the slides. My talk was entitled “An OK compromise: Faster development by designing for the Rails autoloader”  Also, I haven’t shared here the 3 podcasts I did over the past few years. Here they are:     The Ruby on Rails Podcast from September, 2021.   GemRuby Show from September, 2023.   The Ruby Rogues from January, 2024.",
