@@ -69,7 +69,7 @@ Pronunciation guide: We initially named it DAFI (Disaster Assistance For Immigra
 
 ![A screenshot of the intake form with numbered tabs along the screen](/uploads/2024/drai_03.png)
 
-**ApplicationTexter.** There was space (not a lot!) for some experimentation from experience building GetCalFresh. I have a deeper dive to write about this, but briefly: we used Action Mailer to also format and send SMS messages via a custom Twilio-based delivery method. It made sending SMS messages look the same, in code, as sending an email. I'm really proud to have upstreamed one part of it: [Action Mailer deliery callbacks](https://www.shakacode.com/blog/rails_add_deliver_callbacks_to_action_mailer/).
+**ApplicationTexter.** There was space (not a lot!) for some experimentation from experience building GetCalFresh. I have a deeper dive to write about this, but briefly: we used Action Mailer to also format and send SMS messages via a custom Twilio-based delivery method. It made sending SMS messages look the same, in code, as sending an email. I'm really proud to have upstreamed one part of it: [Action Mailer deliver callbacks](https://www.shakacode.com/blog/rails_add_deliver_callbacks_to_action_mailer/).
 
 **Streaming CSV.** One of the needs was to generate 10k+ row CSVs so that the administering organizations could do analysis and oversight. We were able to [stream them directly from Postgres](https://github.com/codeforamerica/drai/blob/a0442ee5689f09e6ede1b7eec6f29dd0f0c36f26/app/controllers/organizations/exports_controller.rb#L83-L84).
 
