@@ -184,7 +184,7 @@
 
 <p><img src="/uploads/2024/drai_03.png" alt="A screenshot of the intake form with numbered tabs along the screen" /></p>
 
-<p><strong>ApplicationTexter.</strong> There was space (not a lot!) for some experimentation from experience building GetCalFresh. I have a deeper dive to write about this, but briefly: we used Action Mailer to also format and send SMS messages via a custom Twilio-based delivery method. It made sending SMS messages look the same, in code, as sending an email. I’m really proud to have upstreamed one part of it: <a href="https://www.shakacode.com/blog/rails_add_deliver_callbacks_to_action_mailer/">Action Mailer deliery callbacks</a>.</p>
+<p><strong>ApplicationTexter.</strong> There was space (not a lot!) for some experimentation from experience building GetCalFresh. I have a deeper dive to write about this, but briefly: we used Action Mailer to also format and send SMS messages via a custom Twilio-based delivery method. It made sending SMS messages look the same, in code, as sending an email. I’m really proud to have upstreamed one part of it: <a href="https://www.shakacode.com/blog/rails_add_deliver_callbacks_to_action_mailer/">Action Mailer deliver callbacks</a>.</p>
 
 <p><strong>Streaming CSV.</strong> One of the needs was to generate 10k+ row CSVs so that the administering organizations could do analysis and oversight. We were able to <a href="https://github.com/codeforamerica/drai/blob/a0442ee5689f09e6ede1b7eec6f29dd0f0c36f26/app/controllers/organizations/exports_controller.rb#L83-L84">stream them directly from Postgres</a>.</p>
 

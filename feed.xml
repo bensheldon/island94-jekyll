@@ -6,8 +6,8 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 20 Oct 2024 18:15:58 +0000</pubDate>
-    <lastBuildDate>Sun, 20 Oct 2024 18:15:58 +0000</lastBuildDate>
+    <pubDate>Sun, 20 Oct 2024 19:25:01 +0000</pubDate>
+    <lastBuildDate>Sun, 20 Oct 2024 19:25:01 +0000</lastBuildDate>
     <generator>Jekyll v4.3.4</generator>
     
     
@@ -91,7 +91,7 @@
 
 &lt;p&gt;&lt;img src=&quot;/uploads/2024/drai_03.png&quot; alt=&quot;A screenshot of the intake form with numbered tabs along the screen&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;ApplicationTexter.&lt;/strong&gt; There was space (not a lot!) for some experimentation from experience building GetCalFresh. I have a deeper dive to write about this, but briefly: we used Action Mailer to also format and send SMS messages via a custom Twilio-based delivery method. It made sending SMS messages look the same, in code, as sending an email. I’m really proud to have upstreamed one part of it: &lt;a href=&quot;https://www.shakacode.com/blog/rails_add_deliver_callbacks_to_action_mailer/&quot;&gt;Action Mailer deliery callbacks&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;ApplicationTexter.&lt;/strong&gt; There was space (not a lot!) for some experimentation from experience building GetCalFresh. I have a deeper dive to write about this, but briefly: we used Action Mailer to also format and send SMS messages via a custom Twilio-based delivery method. It made sending SMS messages look the same, in code, as sending an email. I’m really proud to have upstreamed one part of it: &lt;a href=&quot;https://www.shakacode.com/blog/rails_add_deliver_callbacks_to_action_mailer/&quot;&gt;Action Mailer deliver callbacks&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Streaming CSV.&lt;/strong&gt; One of the needs was to generate 10k+ row CSVs so that the administering organizations could do analysis and oversight. We were able to &lt;a href=&quot;https://github.com/codeforamerica/drai/blob/a0442ee5689f09e6ede1b7eec6f29dd0f0c36f26/app/controllers/organizations/exports_controller.rb#L83-L84&quot;&gt;stream them directly from Postgres&lt;/a&gt;.&lt;/p&gt;
 
