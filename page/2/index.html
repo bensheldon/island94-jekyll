@@ -125,6 +125,96 @@
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
     <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2024/04/a-comment-on-second-systems"><p>A comment on Second Systems</p>
+</a>
+    </h1>
+    <p class="post-meta text-muted">
+      <time datetime="2024-04-09T20:33:00+00:00" itemprop="datePublished">April 9, 2024</time>
+      
+      
+
+
+
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>I recently left this comment on a Pragmatic Engineer review of Fred Brook’s <em>Mythical Man Month</em> in <a href="https://newsletter.pragmaticengineer.com/p/what-changed-in-50-years-of-computing-8d0">“What Changed in 50 Years of Computing: Part 2”</a>. This was what I reacted to:</p>
+
+<blockquote>
+
+  <p><strong>Software design and “the second-system effect”</strong></p>
+
+  <p>Brooks covers an interesting phenomenon in Chapter 5: “The Second-System Effect.” He states that architects tend to design their first system well, but they over-engineer the second one, and carry this over-engineering habit on to future systems.</p>
+
+  <blockquote>
+    <p>“This second system is the most dangerous system a [person] ever designs. When [they] do this and [their] third and later ones, [their] prior experiences will confirm each other as to the general characteristics of such systems, and their differences will identify those parts of [their] experience that are particular and not generalizable.”</p>
+
+    <p>The general tendency is to over-design the second system, using all the ideas and frills that were sidetracked on the first one.”</p>
+  </blockquote>
+
+  <p>I can see this observation making sense at a time when:</p>
+
+  <ul>
+    <li>Designing a system took nearly a year</li>
+    <li>System designs were not circulated, pre-internet</li>
+    <li>Architects were separated from “implementers”</li>
+  </ul>
+
+  <p>Today, all these assumptions are wrong:</p>
+
+  <ul>
+    <li>Designing systems takes weeks, not years</li>
+    <li>System designs are commonly written down and critiqued by others. We cover more in the article, Engineering Planning with RFCs, Design Documents and ADRs</li>
+    <li>“Hands-off architects” are increasingly rare at startups, scaleups, and Big Tech</li>
+  </ul>
+
+  <p>As a result, engineers design more than one or two systems in a year and get more feedback, so this “second-system effect” is likely nonexistent.</p>
+
+</blockquote>
+
+<p>And this was my comment/reaction:</p>
+
+<blockquote>
+
+  <p>I think the Second-System Effect is still very present.</p>
+
+  <p>I would say it most frequently manifests as a result of not recognizing Gall’s Law: “all complex systems that work evolved from simpler systems that worked.”</p>
+
+  <p>What trips people up is usually that they start from a place of “X feature is hard to achieve in the current system” and then they start designing/architecting <em>for</em> that feature and not recognizing all of the other table-stakes necessities and Chesterton Fences of the current system, which only are recognized and bolted on late in the implementation when it is more difficult and complicated.</p>
+
+  <p>The phrase “10 years of experience, or 1 year of experience 10 times” comes to mind when thinking of people who only have the experience of implementing a new system once and trivially, and do not have the experience of growing and supporting and maintaining a system they designed over a meaningful lifecycle.</p>
+
+</blockquote>
+
+<p>Which also reminds me of a <a href="https://www.simplermachines.com/exploration-tidying-ecto/">recent callback</a> to a <a href="https://lethain.com/notes-on-tidy-first/">Will Larson review of Kent Beck’s <em>Tidy First</em></a> about growing software:</p>
+
+<blockquote>
+
+  <p>I really enjoyed this book, and reading it I flipped between three predominant thoughts:</p>
+
+  <ul>
+    <li>I’ve never seen a team that works this way–do any teams work this way?</li>
+    <li>Most of the ways I’ve seen teams work fall into the “never tidy” camp, which is sort of an implicit belief that software can’t get much better except by replacing it entirely. Which is a bit depressing, if you really think about it</li>
+    <li>Wouldn’t it be inspiring to live in a world where your team believes that software can actually improve without replacing it entirely?</li>
+  </ul>
+
+</blockquote>
+
+
+  </div>
+</article>
+
+    
+
+    <hr>
+  
+    
+      
+
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
       <a class="post-link" href="/2024/04/a-ruby-meetup-and-3-podcasts"><p>A Ruby Meetup about Rails autoloading and 3 Podcasts</p>
 </a>
     </h1>
@@ -1339,73 +1429,6 @@ diff = Sheap::Diff.new("/Users/bensheldon/Repositories/sciencehistory/scihist_di
     </blockquote>
   </li>
 </ul>
-
-  </div>
-</article>
-
-    
-
-    <hr>
-  
-    
-      
-
-<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">
-      <a class="post-link" href="/2023/12/solid-queue-first-impressions"><p>Solid Queue first impressions: Nice!</p>
-</a>
-    </h1>
-    <p class="post-meta text-muted">
-      <time datetime="2023-12-19T16:24:00+00:00" itemprop="datePublished">December 19, 2023</time>
-      
-      
-
-
-  
-
-  
-
-  • Tagged <a href="/tags/#rails">Rails</a> and <a href="/tags/#goodjob">GoodJob</a>
-
-
-    </p>
-  </header>
-
-  <div class="post-content" itemprop="articleBody">
-    <p><a href="https://github.com/basecamp/solid_queue">Solid Queue</a> was <a href="https://dev.37signals.com/introducing-solid-queue/">released yesterday</a>, a new relational-database backend for Active Job.</p>
-
-<p>I’m the author of <a href="https://github.com/bensheldon/good_job">GoodJob</a> and I’ve been <a href="https://island94.org/2023/10/reflections-on-good-job-for-solid-queue">following along</a> and am very interested and excited about Solid Queue. These are some things I noticed when first going through it.</p>
-
-<p><strong>tl;dr;</strong> It’s nice! I learned some things. It makes a few different choices than GoodJob and I’m very curious how they turn out (in a good way!).</p>
-
-<p>I admit, I didn’t run Solid Queue in production. I poked through the code, got the development environment set up (spent the majority of my time trying to get <code class="language-plaintext highlighter-rouge">mysql2</code> to compile, which is no surprise for me; <a href="https://github.blog/2022-08-25-introducing-trilogy-a-new-database-adapter-for-ruby-on-rails/">Trilogy is my day job</a>), ran the test suite and tried TDDing a new feature for it: <code class="language-plaintext highlighter-rouge">perform_all_later</code> support. These are just my notes, something to refer back to.</p>
-
-<p><strong>Lots of database tables:</strong> Solid Queue has many database tables. There is a “hot” table (my terminology) in which job records are queued/dequeued/locked from by all the workers, and then several other tables where job records are staged (e.g. they’re scheduled in the future, so don’t insert them into the hot table yet) or archived after they complete/error.  This seems smart because that hot table and its indexes stays compact and single purpose, which is good for performance. Compare that to GoodJob in which the jobs table has like 8 indexes to cover both queue/dequeue and Dashboard listings and everything else, which <em>does</em> slow down inserts and updates. I’ve had the impression with GoodJob that orchestrating across multiple tables would be more difficult (everything is tradeoffs!), so I’m very curious to see an alternative implementation in Solid Queue.</p>
-
-<p><em>Note: I wasn’t successfully able to implement <code class="language-plaintext highlighter-rouge">perform_all_later</code> in my 1 hour timebox because it was more complicated than an <code class="language-plaintext highlighter-rouge">insert_all</code> because of the necessity of writing to multiple tables.</em></p>
-
-<p><em>Aside: One of the very first comments I got when I launched GoodJob 3 years ago was like “your design assumptions are less than ideal” and then they never replied to any of my follow-ups. That sucked! This is not that. Nothing in Solid Queue is particularly concerning, just different (sometimes better!). Kudos to Rosa Gutiérrez and the Solid Queue developers; you’re doing great work! 💖</em></p>
-
-<p><strong>Again, lots of database tables:</strong> GoodJob is easy mode just targeting Postgres, because there are Advisory Locks and lots of Postgres-only niceties. I do not envy Solid Queue being multi-database, because it has to implement a bunch of stuff with a coarser toolbox. For example, there is a <code class="language-plaintext highlighter-rouge">semaphores</code> table, which is used for the Concurrency Controls feature (🎉). I think the “SOLID” libraries (also Solid Cache) are interesting because they have to implement behavior in a relational database that come for free in in-memory databases (example: TTL/record expiration/purging).</p>
-
-<p><strong>Puma Plugin:</strong> TIL. Looks nicer and more explicit than GoodJob trying to transparently detect it’s in the webserver to run asynchronously</p>
-
-<p><strong>Multiprocess.</strong> A nice surprise to me, Solid Queue has a multiprocess supervisor. It does seem like even the Puma plugin forks off another process though; that could have implications for memory constrained environments (e.g. Heroku dynos). I’m nearly 4 years into GoodJob and haven’t tackled multiprocess yet, so exciting to see this in Solid Queue’s first release.</p>
-
-<p><strong>Queue priority:</strong> Nice! I have <em>opinions</em> about how people set up their application’s queues, along the lines of: many people do it wrong, imo. Solid Queue looks like it provides a lot of good flexibility to let people easily migrate and configure their queues initially (though wrongly, by dependency, imo), but then reorient them more performantly (by latency, again imo). A single thread-pool/worker can pull from multiple queues.</p>
-
-<p><strong>Care</strong>. I notice lots of little things that are nice in Solid Queue. The code is clean. The indexes are named for their purpose/usage rather than just like <code class="language-plaintext highlighter-rouge">index_table_column_column</code>.  The Puma Plugin is nice. There are things in GoodJob that I dream about what a clean-room, lessons-learned reimplementation would look like, but it’s never top of my priorities, and some things are never going back in the stable (table names are basically forever). Reading the Solid Queue code was a vicarious-nice! experience.</p>
-
-<p><strong>Differences.</strong> Do they even matter? I dunno:</p>
-
-<ul>
-  <li>No Dashboard yet. Waiting on Mission Control. GoodJob definitely got more twisty as I learned all of the things of “you want a button to do what now with those jobs? …oh, I guess that makes sense. hmm.”</li>
-  <li>No LISTEN/NOTIFY (yet?). Seems possible, but would be Postgres only so maybe not. That means latency will never be less than the polling frequency, though an example shows <code class="language-plaintext highlighter-rouge">0.1</code> seconds which seems good to me.</li>
-  <li><del>No cron-like functionality. It took me a minute to <a href="https://github.com/bensheldon/good_job/issues/255">come around to the the necessity of this</a>, maybe Solid Queue will too.</del> 🤦 I missed this on first read through: “Unique jobs and recurring, cron-like tasks are coming very soon.” 🙌</li>
-</ul>
-
-<p><strong>Final thoughts:</strong> Path dependency is hard, so I don’t imagine lots of people should swap out their job backend just because there is something new (please, don’t let me ever read a “3 job backends in 4 years” blog post). New projects and applications will be more likely making these choices (and they shouldn’t be valueless choices, hence my excitement for Solid Queue becoming first party to Rails) and I’m really excited to see how Solid Queue grows up with them, and alongside other options like GoodJob and Sidekiq and Delayed et al.</p>
 
   </div>
 </article>

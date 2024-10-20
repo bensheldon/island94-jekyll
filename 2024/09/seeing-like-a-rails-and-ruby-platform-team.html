@@ -168,7 +168,7 @@
   </li>
   <li><strong>Internal to the Ruby VM constraints</strong>
     <ul>
-      <li>￼Even though Ruby makes it easy to introspect the runtime ( ￼<code class="language-plaintext highlighter-rouge">descendants</code>￼ or ￼<code class="language-plaintext highlighter-rouge">subclasses</code>￼ or ￼<code class="language-plaintext highlighter-rouge">ObjectSpace</code>￼) they shouldn’t be used outside of application boot or exception handling (and sparingly even then); they may have performance implications or be overly nuanced and non-deterministic in their output. Using ￼<code class="language-plaintext highlighter-rouge">callers</code>￼ and introspecting the Ruby callstack is a particularly expensive operation.</li>
+      <li>Even though Ruby makes it easy to introspect the runtime (<code class="language-plaintext highlighter-rouge">descendants</code> or <code class="language-plaintext highlighter-rouge">subclasses</code> or <code class="language-plaintext highlighter-rouge">ObjectSpace</code>) they shouldn’t be used outside of application boot or exception handling (and sparingly even then); they may have performance implications or be overly nuanced and non-deterministic in their output. Using <code class="language-plaintext highlighter-rouge">callers</code> and introspecting the Ruby callstack is a particularly expensive operation.</li>
       <li>While infrequent and not-obvious, some patterns can massively de-optimize the Ruby VM with either localized or global effects. The Ruby VM (or accelerators like YJIT) are unable to optimize certain code patterns, and some patterns may cause VM-internal caches to churn inefficiently or to retain objects and their references unnecessarily (this can get tricky so please partner with us!). You probably want examples:
         <ul>
           <li>OpenStruct (though probably isn’t a reason to use it at all)</li>
@@ -189,7 +189,7 @@
   </li>
   <li><strong>External to the Ruby VM constraints and dependencies (memory, compute, file descriptors, database connections, etc.)</strong>
     <ul>
-      <li><a href="￼">Database stuff</a> alone is a lot. The design prompt everyone is largely working from is “how does one architect an efficient, stateless application that sits between an end-user client and stateful data sources and manages bidirectional transformations of data?” Sounds hard when you put it that way, right?</li>
+      <li>Database stuff alone is a lot. The design prompt everyone is largely working from is “how does one architect an efficient, stateless application that sits between an end-user client and stateful data sources and manages bidirectional transformations of data?” Sounds hard when you put it that way, right?</li>
       <li>Thinking about resource lifecycle, pooling, and how they interact across the various concurrency models available to use (process forking, threads, etc.). We do expect the frameworks and platform libraries we choose to keep these out of mind for most development tasks 😅</li>
     </ul>
   </li>
@@ -242,6 +242,8 @@
     <p>Related Posts:</p>
     <ul>
       
+        <li><a href="/2024/10/technical-reflection-on-disaster-relief-assistance-for-immigrants">A mostly technical reflection on Disaster Relief Assistance for Immigrants</a></li>
+      
         <li><a href="/2024/01/two-stories-about-technical-debt-i-guess">Two stories about technical debt, I guess</a></li>
       
         <li><a href="/2024/09/spectator-sport-a-brief-introduction-to-an-upcoming-rails-plugin">Spectator Sport, a brief introduction to an upcoming Rails plugin</a></li>
@@ -249,8 +251,6 @@
         <li><a href="/2022/03/let-the-record-show-a-political-history-of-act-up-new-york,-1987-1993">Let the Record Show: A Political History of ACT UP New York, 1987-1993</a></li>
       
         <li><a href="/2022/07/four-dumb-cringe-tech-interview-stories">Four dumb-cringe tech interview stories</a></li>
-      
-        <li><a href="/2012/12/A-gentle-conceptual-introduction-to-Nodejs.html">A gentle & conceptual introduction to Node.js</a></li>
       
     </ul>
   </div>
