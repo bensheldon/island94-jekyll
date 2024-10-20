@@ -1,8 +1,8 @@
 name: Tests
-on: 
+on:
   push:
   schedule:
-    - cron: '0 7 * * *' 
+    - cron: '0 7 * * *'
 concurrency:
   group: ${{ github.workflow}}-${{ github.ref }}
   cancel-in-progress: true
@@ -24,7 +24,7 @@ jobs:
           bundler-cache: true
       # /Dependencies
       - name: Jekyll build
-        run: bundle exec jekyll build --trace --profile --lsi
+        run: bundle exec jekyll build --trace --profile
       - name: Run RSpec
         env:
           JEKYLL_SKIP_BUILD: true

@@ -7,5 +7,7 @@ _site
 .jekyll-cache
 Brewfile.lock.json
 .env
-tmp/cache
+tmp/
 storage/
+log/
+
