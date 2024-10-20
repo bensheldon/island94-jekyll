@@ -14,9 +14,10 @@ gem 'octokit'
 
 gem 'parklife'
 gem 'rails'
+gem "puma"
 gem "sprockets-rails"
 gem 'bootsnap', require: false
-gem 'sqlite3'
+gem "front_matter_parser"
 
 # for related_posts with --lsi
 gem 'classifier-reborn'
@@ -31,6 +32,7 @@ group :development, :test do
   gem 'pry'
   gem 'rake'
   gem 'rack', '~> 2.2'
+  gem "rspec-rails"
   gem 'lanyon'
   gem 'rspec'
   gem 'webrick'

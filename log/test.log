@@ -1,0 +1,38 @@
+Started GET "/index.html" for 127.0.0.1 at 2024-10-20 16:11:22 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/index.html"):
+  
+Started GET "/" for 127.0.0.1 at 2024-10-20 16:11:23 -0700
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 9.3ms | GC: 0.3ms)
+Completed 200 OK in 44ms (Views: 10.1ms | GC: 7.2ms)
+Started GET "/assets/application-e0cf9d8fcb18bf7f909d8d91a5e78499f82ac29523d475bf3a9ab265d5e2b451.css" for 127.0.0.1 at 2024-10-20 16:11:23 -0700
+Started GET "/" for 127.0.0.1 at 2024-10-20 16:11:25 -0700
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 0.3ms | GC: 0.1ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.6ms | GC: 0.1ms)
+Completed 200 OK in 27ms (Views: 0.9ms | GC: 0.5ms)
+Started GET "/" for 127.0.0.1 at 2024-10-20 16:11:25 -0700
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.4ms | GC: 0.0ms)
+Completed 200 OK in 20ms (Views: 0.7ms | GC: 0.0ms)
+Started GET "/page/2/" for 127.0.0.1 at 2024-10-20 16:11:25 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/page/2"):
+  
+Started GET "/" for 127.0.0.1 at 2024-10-20 16:11:25 -0700
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 0.3ms | GC: 0.2ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.5ms | GC: 1.0ms)
+Completed 200 OK in 26ms (Views: 1.8ms | GC: 5.0ms)
+Started GET "/assets/application-e0cf9d8fcb18bf7f909d8d91a5e78499f82ac29523d475bf3a9ab265d5e2b451.css" for 127.0.0.1 at 2024-10-20 16:11:25 -0700
