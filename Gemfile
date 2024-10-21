@@ -12,6 +12,13 @@ gem 'jekyll-sitemap'
 gem 'jekyll-compose'
 gem 'octokit'
 
+gem 'parklife'
+gem 'rails'
+gem "puma"
+gem "sprockets-rails"
+gem 'bootsnap', require: false
+gem "front_matter_parser"
+
 # for related_posts with --lsi
 gem 'classifier-reborn'
 gem 'gsl', github: 'SciRuby/rb-gsl', branch: 'master'
@@ -25,6 +32,7 @@ group :development, :test do
   gem 'pry'
   gem 'rake'
   gem 'rack', '~> 2.2'
+  gem "rspec-rails"
   gem 'lanyon'
   gem 'rspec'
   gem 'webrick'
