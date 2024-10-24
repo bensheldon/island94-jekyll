@@ -2,7 +2,6 @@ require 'bundler/setup'
 require 'capybara/rspec'
 require 'capybara/cuprite'
 require 'lanyon'
-require 'pry'
 require 'webrick'
 
 RSpec.configure do |config|
