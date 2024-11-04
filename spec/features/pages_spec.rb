@@ -1,4 +1,4 @@
-require_relative '../spec_helper'
+require 'rails_helper'
 
 RSpec.describe 'Site' do
   it 'renders index.html' do

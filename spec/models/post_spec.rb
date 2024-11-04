@@ -1,4 +1,4 @@
-require "rails_helper"
+require_relative "../rails_helper"
 
 RSpec.describe Post, type: :model do
   describe '.load_all' do

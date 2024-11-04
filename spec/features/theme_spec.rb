@@ -1,4 +1,4 @@
-require_relative '../spec_helper'
+require 'rails_helper'
 
 RSpec.describe 'Bootstrap color mode theme', js: true do
   it 'can change the theme' do
