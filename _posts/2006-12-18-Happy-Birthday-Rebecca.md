@@ -13,8 +13,6 @@ tags:
 - trees
 - video
 wp:post_type: post
-failed_files:
-- http://island94.org/files/Ben_Pint-Pot-and-Billy.mp3
 redirect_from:
 - node/112
 - articles/happy-birthday-rebecca
@@ -34,7 +32,7 @@ So here I am and all the best on your twenty-third...
 
 ### a recording of you reading a poem, singing a song, or saying a sentence
 
-[Pint Pot and Billy](2006-12-18-Happy-Birthday-Rebecca/Ben_Pint-Pot-and-Billy.mp3) From _Eureka: The songs that made Austrailia_ compiled by Warrent Fahey. Version as sung by Cyril Duncan of Hawthorne Queensland. Recorded in one-track with Garageband and my MacBook's built-in mic.
+[Pint Pot and Billy](/uploads/2006-12/Ben_Pint-Pot-and-Billy.mp3) From _Eureka: The songs that made Australia_ compiled by Warrent Fahey. Version as sung by Cyril Duncan of Hawthorne Queensland. Recorded in one-track with Garageband and my MacBook's built-in mic.
 
 ### a sentence with a word you like
 

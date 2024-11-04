@@ -26,6 +26,8 @@ module Island94
         [:all, { "Cache-Control" => "public, max-age=15552000" }]
       ]
 
+    config.default_url_options = {}
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files

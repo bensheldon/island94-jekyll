@@ -34,7 +34,7 @@ For news I've been following the local Public Radio Station KPBS which is doing 
 
 She also includes some pictures:
 
-[ ![](/uploads/2007-10-22-San-Diego-is-Burning/North.JPG.jpg) ](/uploads/2007-10-22-San-Diego-is-Burning/North.JPG.jpg) [ ![](http://island94.org/files/island94.org/Twin Peaks.JPG.jpg) ](http://island94.org/files/island94.org/Twin Peaks.JPG.jpg)
+[ ![](/uploads/2007-10-22-San-Diego-is-Burning/North.JPG.jpg) ](/uploads/2007-10-22-San-Diego-is-Burning/North.JPG.jpg) [ ![](http://island94.org/files/island94.org/Twin%20Peaks.JPG.jpg) ](http://island94.org/files/island94.org/Twin%20Peaks.JPG.jpg)
 
 [ ![](/uploads/2007-10-22-San-Diego-is-Burning/South.JPG.jpg) ](/uploads/2007-10-22-San-Diego-is-Burning/South.JPG.jpg) [ ![](/uploads/2007-10-22-San-Diego-is-Burning/TwinEspo.JPG.jpg) ](/uploads/2007-10-22-San-Diego-is-Burning/TwinEspo.JPG.jpg)
 

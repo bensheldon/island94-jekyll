@@ -8,7 +8,7 @@ redirect_from:
 - "?p=528"
 ---
 
-One morning a month or so ago, I was listening to a really interesting story on [how the US and Japanese vise and view cellphones and the internet](://www.onthemedia.org/transcripts/2009/01/30/07). The emphasis in the following transcript is mine:
+One morning a month or so ago, I was listening to a really interesting story on [how the US and Japanese vise and view cellphones and the internet](https://www.onthemedia.org/transcripts/2009/01/30/07). The emphasis in the following transcript is mine:
 
 > MARK PHILLIPS: This brings up one of the biggest differences between U.S. and Japanese cell phone culture. While most Americans use computers to develop an intimacy with the Internet, the Japanese access the Internet primarily through the cell phone. U.C. Irvine’s Mizuko Ito:
 >

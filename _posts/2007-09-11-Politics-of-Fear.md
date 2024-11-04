@@ -26,6 +26,6 @@ There are so many overlapping assumptions and statements in this congressman's s
 >
 >
 >
-> The divisiveness of the ad seems understandable considering the [studies of mortality awareness](http://island94.org/node/148").
+> The divisiveness of the ad seems understandable considering the [studies of mortality awareness](https://island94.org/node/148).
 >
 > from CONELRAD's history of Lyndon Johnson's atomic responsibility, anti-Goldwater [Daisy Ad](http://www.conelrad.com/daisy/daisy3.php). (via [BoingBoing](http://www.boingboing.net/2007/09/11/history-of-the-infam.html))

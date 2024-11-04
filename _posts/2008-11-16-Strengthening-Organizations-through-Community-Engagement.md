@@ -16,7 +16,7 @@ redirect_from:
 - "?p=271"
 ---
 
-The following is from a handout I created for the CTCnet Conference in which I presented on capacity building models for community engagement. You can [download the handout with worksheet (PDF)](http://island94.org/files/island94.org/Community Engagement Presentation.pdf), or read the overview below.
+The following is from a handout I created for the CTCnet Conference in which I presented on capacity building models for community engagement. You can [download the handout with worksheet (PDF)](http://island94.org/files/island94.org/Community%20Engagement%20Presentation.pdf), or read the overview below.
 
 ### Introduction to Community Engagement
 
