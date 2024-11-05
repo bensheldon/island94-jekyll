@@ -14,7 +14,7 @@ tags:
 - website
 wp:post_type: post
 redirect_from:
-- 2006/12/meetamericorps-is-"social-networking"!/
+- 2006/12/meetamericorps-is-social-networking/
 - node/111
 - articles/meetamericorps-social-networking
 - 2006/12/meetamericorps-is-social-networking/

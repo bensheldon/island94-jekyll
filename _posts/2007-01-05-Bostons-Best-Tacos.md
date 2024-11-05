@@ -8,7 +8,7 @@ tags:
 - tacos
 wp:post_type: post
 redirect_from:
-- 2007/01/boston\'s-best-tacos/
+- 2007/01/bostons-best-tacos/
 - node/115
 - articles/bostons-best-tacos
 - 2007/01/bostons-best-tacos/

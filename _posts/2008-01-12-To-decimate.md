@@ -6,7 +6,7 @@ tags:
 - language
 wp:post_type: post
 redirect_from:
-- 2008/01/to-"decimate"/
+- 2008/01/to-decimate/
 - node/199
 - decimate
 - 2008/01/to-decimate/

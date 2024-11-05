@@ -1,4 +1,4 @@
-require_relative '../spec_helper'
+require 'rails_helper'
 
 RSpec.describe 'Searching', js: true do
   it 'can search for a result that is highlighted' do

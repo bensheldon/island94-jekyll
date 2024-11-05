@@ -7,7 +7,7 @@ tags:
 - synonyms
 wp:post_type: post
 redirect_from:
-- 2008/06/other-words-for-"lie"/
+- 2008/06/other-words-for-lie/
 - observation/other-words-lie
 - node/224
 - 2008/06/other-words-for-lie/

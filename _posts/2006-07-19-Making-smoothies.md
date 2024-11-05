@@ -19,7 +19,7 @@ redirect_from:
 - "?p=75"
 ---
 
-_Another [smoothie post](/taxonomy/term/126)..._
+_Another [smoothie post](/tags/#smoothie)..._
 
 Boston is still scorching and nothing is better than some ground up fruit and ice. Sure, the storebought strawberries out here on the East coast are about as flavorful as a glass of water, but they add nice color. This is strawberry-peach-orange I believe.
 

@@ -7,7 +7,7 @@ tags:
 - oss
 wp:post_type: post
 redirect_from:
-- 2007/03/arguments-i\'ve-heard-against-open-source/
+- 2007/03/arguments-ive-heard-against-open-source/
 - node/124
 - articles/arguments-ive-heard-against-open-source
 - 2007/03/arguments-ive-heard-against-open-source/

@@ -37,4 +37,4 @@ Any number of these could generate questions to ask during the interview, or gri
 
 - Use the hiring process as a guide. I know many people who say "I should have known when they hired me..." If the job description is poorly written, you have trouble getting direct answers to questions, or you feel parts of the hiring process take place in bad faith, take that as a warning of what it's like to work there. Do they model the type of behavior you expect and respect?
 
-And most importantly, stay positive and open minded. Right now it's tough for everyone to find a job. Don't get caught on a narrow path. A nonprofit career is not the only way to [do good](http://island94.org/2007/10/alternatives-to-a-nonprofit-job/).
+And most importantly, stay positive and open minded. Right now it's tough for everyone to find a job. Don't get caught on a narrow path. A nonprofit career is not the only way to [do good](https://island94.org/2007/10/Alternatives-to-a-Nonprofit-Job).

@@ -16,7 +16,7 @@ redirect_from:
 - "?p=139"
 ---
 
-My associate, [Rebecca](http://circuitous.org), and I have been starting to think critically about [Panlexicon.com](http://panlexicon.com), the unique, tag-cloud based thesaurus I've written about [previously](http://island94.org/node/128"). We're hoping to put some more time and effort into the project and in the process, learn some more about what's happening with the language and the underlying structure of the thesaurus taxonomy.
+My associate, [Rebecca](http://circuitous.org), and I have been starting to think critically about [Panlexicon.com](http://panlexicon.com), the unique, tag-cloud based thesaurus I've written about [previously](http://island94.org/node/128). We're hoping to put some more time and effort into the project and in the process, learn some more about what's happening with the language and the underlying structure of the thesaurus taxonomy.
 
 [ ![Panlexicon.com - Thesaurus Visualization](http://farm2.static.flickr.com/1214/1178070872_b43fabb5f9_b.jpg) ](http://www.flickr.com/photos/bensheldon/1178070872/ "Photo Sharing")
 

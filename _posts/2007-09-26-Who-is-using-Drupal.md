@@ -9,7 +9,7 @@ wp:post_type: post
 redirect_from:
 - node/157
 - who-using-drupal
-- 2007/09/who-is-using-drupal?/
+- 2007/09/who-is-using-drupal/
 - "?p=157"
 ---
 

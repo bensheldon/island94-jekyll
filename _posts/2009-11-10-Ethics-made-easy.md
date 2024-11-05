@@ -17,4 +17,4 @@ redirect_from:
 
 Despite it being a class on Critical _Thinking_ I'm a little grossed out by "ethical, empathic and just" behavior being described as a deductive exercise.  But then again, I did agree with Justice Sotomayor's " [wise-Latina](http://www.cnn.com/2009/POLITICS/06/05/sotomayor.speeches/index.html)" remark.
 
-The above is  Dr. Richard Paul and Dr. Linda Elder's _[Miniature Guide to Understanding the Foundations of Ethical Reasoning](www.criticalthinking.org/files/SAM-EthicalReasoning20051.pdf)._
+The above is  Dr. Richard Paul and Dr. Linda Elder's _[Miniature Guide to Understanding the Foundations of Ethical Reasoning](http://www.criticalthinking.org/files/SAM-EthicalReasoning20051.pdf)._

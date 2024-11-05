@@ -1,0 +1,20 @@
+#!/usr/bin/env ruby
+require 'bundler/setup'
+
+require 'parklife/utils'
+
+module Parklife
+  module Utils
+    class << self
+      alias orig_scan_for_links scan_for_links
+
+      def scan_for_links(html, ...)
+        orig_scan_for_links(html, ...)
+      rescue => e
+        puts "#{e}: #{e.message}"
+      end
+    end
+  end
+end
+
+load Gem.bin_path('parklife', 'parklife')
