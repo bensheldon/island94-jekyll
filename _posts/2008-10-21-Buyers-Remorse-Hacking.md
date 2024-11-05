@@ -7,7 +7,7 @@ tags:
 - consumption
 wp:post_type: post
 redirect_from:
-- 2008/10/buyer\'s-remorse-hacking/
+- 2008/10/buyers-remorse-hacking/
 - node/264
 - observation/buyers-remorse-hacking
 - 2008/10/buyers-remorse-hacking/

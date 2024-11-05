@@ -8,7 +8,7 @@ tags:
 - strategy
 wp:post_type: post
 redirect_from:
-- 2007/07/"should-i-get-a-nonprofit-job
+- 2007/07/should-i-get-a-nonprofit-job
 - node/134
 - articles/should-i-get-nonprofit-job
 - 2007/07/should-i-get-a-nonprofit-job/

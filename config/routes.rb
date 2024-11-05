@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get "tags", to: "pages#tags"
   get "feed.xml", to: "pages#feed"
 
-  get "*path", to: "pages#redirect", constraints: ->(req) { req.path.sub(%r{^/}, "").in?(Redirect.all.keys) }
+  get "*path", to: "pages#redirect", constraints: ->(req) { req.path.sub(%r{\A/}, "").sub(%r{/\z}, "").in?(Redirect.all.keys) }
 
   direct :post do |post|
     "/posts/#{post.slug}"

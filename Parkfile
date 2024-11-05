@@ -11,4 +11,8 @@ Parklife.application.routes do
 
   # Services typically allow a custom 404 page.
   # get '/404.html'
+
+  Redirect.all.keys.each do |path|
+    get path
+  end
 end

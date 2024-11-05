@@ -11,7 +11,7 @@ wp:post_type: post
 redirect_from:
 - node/48
 - articles/now-thats-lot-mustard
-- 2006/06/now-that's-a-lot-of-mustard/
+- 2006/06/now-thats-a-lot-of-mustard/
 - "?p=48"
 ---
 

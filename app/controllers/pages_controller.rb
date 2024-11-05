@@ -17,6 +17,6 @@ class PagesController < ApplicationController
   end
 
   def redirect
-    @to = Redirect.all[params[:path]]
+    @to = "/" + Redirect.all[params[:path]]
   end
 end

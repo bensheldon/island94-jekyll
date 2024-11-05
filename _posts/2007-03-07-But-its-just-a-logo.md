@@ -8,7 +8,7 @@ tags:
 - nonprofit
 wp:post_type: post
 redirect_from:
-- 2007/03/but-it\'s-just-a-logo/
+- 2007/03/but-its-just-a-logo/
 - node/123
 - articles/its-just-logo
 - 2007/03/but-its-just-a-logo/
