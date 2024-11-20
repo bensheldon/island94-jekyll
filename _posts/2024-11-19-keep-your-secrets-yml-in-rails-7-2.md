@@ -5,7 +5,7 @@ published: true
 tags: []
 ---
 
-Ruby on [Rails v7.1 deprecated and v7.2 removed](https://www.shakacode.com/blog/rails-7-1-removes-secret-setup-command-and-deprecates-secret-show-edit-commands/) support for `Rails.application.secrets` and `config/secrets.yml` in favor of Encrypted Credentials. You don't have to go along with that! 
+Ruby on [Rails v7.1 deprecated and v7.2 removed](https://www.shakacode.com/blog/rails-7-1-removes-secret-setup-command-and-deprecates-secret-show-edit-commands/) support for `Rails.application.secrets` and `config/secrets.yml` in favor of Encrypted Credentials. You don't have to go along with that! I like Secrets functionality because it allows for consolidating and normalizing `ENV` values in a single configuration file with ERB (Encrypted Credentials [doesn't](https://github.com/rails/rails/pull/46508)).
 
 It's extremely simple to reimplement the same behavior using [`config_for`](https://guides.rubyonrails.org/configuring.html#custom-configuration) and the knowledge that methods defined in `application.rb` show as methods on `Rails.application`:
 
@@ -25,7 +25,7 @@ module ExampleApp
 end
 ```
 
-That is all you need to continue using a `secrets.yml` file that probably looks like this:
+That is all you need to continue using a `secrets.yml` file that looks like this:
 
 ```yaml
 # config/secrets.yml
