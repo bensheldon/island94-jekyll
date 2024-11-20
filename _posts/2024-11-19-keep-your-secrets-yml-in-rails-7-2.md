@@ -5,7 +5,7 @@ published: true
 tags: []
 ---
 
-Ruby on [Rails v7.1 deprecated and v7.2 removed](https://www.shakacode.com/blog/rails-7-1-removes-secret-setup-command-and-deprecates-secret-show-edit-commands/) supports for `Rails.application.secrets` and `config/secrets.yml` in favor of Encrypted Credentials. You don't have to go along with that! 
+Ruby on [Rails v7.1 deprecated and v7.2 removed](https://www.shakacode.com/blog/rails-7-1-removes-secret-setup-command-and-deprecates-secret-show-edit-commands/) support for `Rails.application.secrets` and `config/secrets.yml` in favor of Encrypted Credentials. You don't have to go along with that! 
 
 It's extremely simple to reimplement the same behavior using [`config_for`](https://guides.rubyonrails.org/configuring.html#custom-configuration) and the knowledge that methods defined in `application.rb` show as methods on `Rails.application`:
 
