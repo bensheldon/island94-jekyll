@@ -102,6 +102,79 @@
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
     <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2024/11/keep-your-secrets-yml-in-rails-7-2"><p>Keep your secrets.yml in Rails 7.2+</p>
+</a>
+    </h1>
+    <p class="post-meta text-muted">
+      <time datetime="2024-11-20T00:13:00+00:00" itemprop="datePublished">November 20, 2024</time>
+      
+      
+
+
+
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>Ruby on <a href="https://www.shakacode.com/blog/rails-7-1-removes-secret-setup-command-and-deprecates-secret-show-edit-commands/">Rails v7.1 deprecated and v7.2 removed</a> support for <code class="language-plaintext highlighter-rouge">Rails.application.secrets</code> and <code class="language-plaintext highlighter-rouge">config/secrets.yml</code> in favor of Encrypted Credentials. You don’t have to go along with that!</p>
+
+<p>It’s extremely simple to reimplement the same behavior using <a href="https://guides.rubyonrails.org/configuring.html#custom-configuration"><code class="language-plaintext highlighter-rouge">config_for</code></a> and the knowledge that methods defined in <code class="language-plaintext highlighter-rouge">application.rb</code> show as methods on <code class="language-plaintext highlighter-rouge">Rails.application</code>:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># config/application.rb</span>
+
+<span class="k">module</span> <span class="nn">ExampleApp</span>
+  <span class="k">class</span> <span class="nc">Application</span> <span class="o">&lt;</span> <span class="no">Rails</span><span class="o">::</span><span class="no">Application</span>
+    <span class="c1"># ....</span>
+    <span class="n">config</span><span class="p">.</span><span class="nf">secrets</span> <span class="o">=</span> <span class="n">config_for</span><span class="p">(</span><span class="ss">:secrets</span><span class="p">)</span> <span class="c1"># loads from config/secrets.yml</span>
+    <span class="n">config</span><span class="p">.</span><span class="nf">secret_key_base</span> <span class="o">=</span> <span class="n">config</span><span class="p">.</span><span class="nf">secrets</span><span class="p">[</span><span class="ss">:secret_key_base</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">secrets</span>
+      <span class="n">config</span><span class="p">.</span><span class="nf">secrets</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>That is all you need to continue using a <code class="language-plaintext highlighter-rouge">secrets.yml</code> file that probably looks like this:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># config/secrets.yml</span>
+
+<span class="na">defaults</span><span class="pi">:</span> <span class="nl">&amp;defaults</span>
+  <span class="na">default_host</span><span class="pi">:</span> <span class="s">&lt;%= ENV.fetch('DEFAULT_HOST', 'localhost:3000') %&gt;</span>
+  <span class="na">twilio_api_key</span><span class="pi">:</span> <span class="s">&lt;%= ENV.fetch('TWILIO_API_KEY', 'fake') %&gt;</span>
+  <span class="na">mailgun_secret</span><span class="pi">:</span> <span class="s">&lt;%= ENV.fetch('MAILGUN_SECRET', 'fake') %&gt;</span>
+
+<span class="na">development</span><span class="pi">:</span>
+  <span class="na">&lt;&lt;</span><span class="pi">:</span> <span class="nv">*defaults</span>
+  <span class="na">secret_key_base</span><span class="pi">:</span> <span class="s">79c6d24d26e856bc2549766552ff7b542f54897b932717391bf705e35cf028c851d5bdf96f381dc41472839fcdc8a1221ff04eb4c8c5fbef62a6d22747f079d7</span>
+
+<span class="na">test</span><span class="pi">:</span>
+  <span class="na">&lt;&lt;</span><span class="pi">:</span> <span class="nv">*defaults</span>
+  <span class="na">secret_key_base</span><span class="pi">:</span> <span class="s">0b3abfc0c362bab4dd6d0a28fcfea3f52f076f8d421106ec6a7ebe831ab9e4dc010a61d49e41a45f8f49e9fc85dd8e5bf3a53ce7a3925afa78e05b078b31c2a5</span>
+
+<span class="c1"># Do not keep production secrets in the repository,</span>
+<span class="c1"># instead read values from the environment.</span>
+<span class="na">production</span><span class="pi">:</span>
+  <span class="na">&lt;&lt;</span><span class="pi">:</span> <span class="nv">*defaults</span>
+  <span class="na">secret_key_base</span><span class="pi">:</span> <span class="s">&lt;%= ENV["SECRET_KEY_BASE"] %&gt;</span>
+  <span class="na">default_host</span><span class="pi">:</span> <span class="s">&lt;%= ENV['DEFAULT_HOST'] || (ENV['HEROKU_APP_NAME'] ? "#{ENV['HEROKU_APP_NAME']}.herokuapp.com"</span><span class="err">:</span> <span class="s">nil) %&gt;</span>
+</code></pre></div></div>
+
+<p><strong>Note:</strong> This only works for <code class="language-plaintext highlighter-rouge">secrets.yml</code> not <code class="language-plaintext highlighter-rouge">secrets.enc.yml</code> which was called “Encrypted Secrets.” If you’re using “Encrypted Secrets” then you should definitely move over to the Encrypted Credentials feature.</p>
+
+  </div>
+</article>
+
+  
+
+  <hr>
+  
+  
+  
+
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
       <a class="post-link" href="/2024/10/technical-reflection-on-disaster-relief-assistance-for-immigrants"><p>A mostly technical reflection on Disaster Relief Assistance for Immigrants</p>
 </a>
     </h1>
@@ -984,45 +1057,6 @@ from code loaded at boot.
   <li>When using Rails Strict Locals, the <code class="language-plaintext highlighter-rouge">local_assigns</code> variable <a href="https://github.com/rails/rails/blob/4bb73233413f30fd7217bd7f08af44963f5832b1/actionview/lib/action_view/template.rb#L439-L444"><em>is not defined</em></a>. You can’t use <code class="language-plaintext highlighter-rouge">local_assigns</code>. You’ll see an error that looks like <code class="language-plaintext highlighter-rouge">ActionView::Template::Error (undefined local variable or method 'local_assigns' for an instance of #&lt;Class:0x0000000130536cc8&gt;)</code>. <strong>This has been <a href="https://github.com/rails/rails/pull/52209">fixed</a> 🎉 though <code class="language-plaintext highlighter-rouge">local_assigns</code> doesn’t expose default values.</strong></li>
   <li>This is a problem if your template has locals that are also Ruby reserved keywords like <code class="language-plaintext highlighter-rouge">class</code> or <code class="language-plaintext highlighter-rouge">if</code>, which can be accessed with <code class="language-plaintext highlighter-rouge">local_assigns[:class]</code> <em>unless you start using Strict Locals</em>.
 To access local variables named with reserved keywords in your ERB template when using Strict Locals, you can use <code class="language-plaintext highlighter-rouge">binding.local_variable_get(:the_variable_name)</code>, e.g., <code class="language-plaintext highlighter-rouge">binding.local_variable_get(:class)</code> or <code class="language-plaintext highlighter-rouge">binding.local_variable_get(:if)</code>. <strong>This is still necessary if you want to access reserved keywords <em>with defaults</em> because the defaults don’t show up in <code class="language-plaintext highlighter-rouge">local_assigns</code>.</strong></li>
-</ul>
-
-  </div>
-</article>
-
-  
-
-  <hr>
-  
-  
-  
-
-<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">
-      <a class="post-link" href="/2024/06/recently-june-2024"><p>Recently, June, 2024</p>
-</a>
-    </h1>
-    <p class="post-meta text-muted">
-      <time datetime="2024-06-03T03:56:00+00:00" itemprop="datePublished">June 3, 2024</time>
-      
-      
-
-
-
-    </p>
-  </header>
-
-  <div class="post-content" itemprop="articleBody">
-    <ul>
-  <li>I finished reading the <a href="https://www.goodreads.com/series/243623-the-poppy-war">Poppy Wars trilogy</a>. It got tiresome by the end. I liked <em>Babel</em> much more, and I’m probably reading <em>Yellowface</em> next. I also read <em>Exit Interview</em>, which was another thrilling entry to the canon of “fantastically brilliant not-men who work in tech for whom it really should go better but unfortunately and predictably doesn’t”.</li>
-  <li>We saw <a href="https://www.imdb.com/title/tt31520076/">“Film is dead. Long live film!”</a> at the Roxie. It was enjoyable, reminded me of my big-Cable-Access-TV-energy days, and also gave far too little screen time to hearing from the film collectors wives (yes, exactly) and children. I thought this was my first movie theater since Covid, but Angelina reminded me we saw the Barbie Movie in a theater.</li>
-  <li>I played Animal Well until the credits roll, and then I read the spoilers and have been going for completionism. Though I don’t imagine I’ll get there before fully losing interest.</li>
-  <li>I joined the Program Committee for RubyConf in Chicago in November. We’re trying to get the Call for Papers/Speakers released this week. Should be a good one.</li>
-  <li>I started working on the GoodJob major version 4 release. It’s simply doing all the breaking changes that were previously warned about. A deprecation-warning made is debt unpaid. It’s not so bad.</li>
-  <li>With my friend Rob, I started volunteering on the backend of <a href="https://www.knockfordemocracy.org">Knock for Democracy</a>. I occasionally see people try to make a Tolstoy-inspired statement like “Healthy applications are all the same, but unhealthy ones are each unhealthy in their own way”. But that’s not true! All the apps that need some TLC have the exact same problems as all the others. Surprise me for once!</li>
-  <li>At work I’m nearly, nearly done with performance feedback and promotion packets and calibrations and all that. It’s the stuff that I truly enjoy as a manager, and also is terrible because of everything that’s outside my control. I also got asked to draw up a Ruby sponsorship budget for the year, which is the most normal administrative thing I think I’ve ever been asked in my (checks watch) 12 years of working in Bay Area tech.</li>
-  <li>I think the days of mobile apps for Day of the Shirt are numbered. I haven’t updated them ever since Apple rejected an update for the olde “Section 4.2: Minimum Functionality” thing, after like 8 freaking years in the App Store already. I did the olde “talk to someone on the phone at Apple who unhelpfully can’t tell me what would be <em>enough</em> functionality.” And so they’ve just been sitting and recently I got an email from a user that it won’t install on their new Android phone. So that sucks. It was a pain (when I was doing it) to develop 3 separate versions of Day of the Shirt: web, iOS, and Android, so maybe this is a sign to probably just commit to the web.</li>
-  <li>A triple <a href="https://www.epicurious.com/recipes/food/views/bolognese-meat-sauce-hazan">recipe of bolognese</a> is too much for my pot to handle.</li>
 </ul>
 
   </div>

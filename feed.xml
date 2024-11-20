@@ -6,10 +6,80 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 19 Nov 2024 07:07:25 +0000</pubDate>
-    <lastBuildDate>Tue, 19 Nov 2024 07:07:25 +0000</lastBuildDate>
+    <pubDate>Wed, 20 Nov 2024 00:59:43 +0000</pubDate>
+    <lastBuildDate>Wed, 20 Nov 2024 00:59:43 +0000</lastBuildDate>
     <generator>Jekyll v4.3.4</generator>
     
+    
+      
+        
+
+
+
+
+<item>
+  <title>Keep your secrets.yml in Rails 7.2+</title>
+  <description>&lt;p&gt;Ruby on &lt;a href=&quot;https://www.shakacode.com/blog/rails-7-1-removes-secret-setup-command-and-deprecates-secret-show-edit-commands/&quot;&gt;Rails v7.1 deprecated and v7.2 removed&lt;/a&gt; support for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Rails.application.secrets&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;config/secrets.yml&lt;/code&gt; in favor of Encrypted Credentials. You don’t have to go along with that!&lt;/p&gt;
+
+&lt;p&gt;It’s extremely simple to reimplement the same behavior using &lt;a href=&quot;https://guides.rubyonrails.org/configuring.html#custom-configuration&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;config_for&lt;/code&gt;&lt;/a&gt; and the knowledge that methods defined in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;application.rb&lt;/code&gt; show as methods on &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Rails.application&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# config/application.rb&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;module&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;ExampleApp&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Application&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Rails&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Application&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# ....&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;secrets&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;config_for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:secrets&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# loads from config/secrets.yml&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;secret_key_base&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;secrets&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:secret_key_base&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;secrets&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;secrets&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;That is all you need to continue using a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;secrets.yml&lt;/code&gt; file that probably looks like this:&lt;/p&gt;
+
+&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# config/secrets.yml&lt;/span&gt;
+
+&lt;span class=&quot;na&quot;&gt;defaults&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;&amp;amp;defaults&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;default_host&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;lt;%= ENV.fetch(&apos;DEFAULT_HOST&apos;, &apos;localhost:3000&apos;) %&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;twilio_api_key&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;lt;%= ENV.fetch(&apos;TWILIO_API_KEY&apos;, &apos;fake&apos;) %&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;mailgun_secret&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;lt;%= ENV.fetch(&apos;MAILGUN_SECRET&apos;, &apos;fake&apos;) %&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;na&quot;&gt;development&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;*defaults&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;secret_key_base&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;79c6d24d26e856bc2549766552ff7b542f54897b932717391bf705e35cf028c851d5bdf96f381dc41472839fcdc8a1221ff04eb4c8c5fbef62a6d22747f079d7&lt;/span&gt;
+
+&lt;span class=&quot;na&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;*defaults&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;secret_key_base&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;0b3abfc0c362bab4dd6d0a28fcfea3f52f076f8d421106ec6a7ebe831ab9e4dc010a61d49e41a45f8f49e9fc85dd8e5bf3a53ce7a3925afa78e05b078b31c2a5&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Do not keep production secrets in the repository,&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# instead read values from the environment.&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;production&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;*defaults&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;secret_key_base&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;lt;%= ENV[&quot;SECRET_KEY_BASE&quot;] %&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;default_host&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;lt;%= ENV[&apos;DEFAULT_HOST&apos;] || (ENV[&apos;HEROKU_APP_NAME&apos;] ? &quot;#{ENV[&apos;HEROKU_APP_NAME&apos;]}.herokuapp.com&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;nil) %&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; This only works for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;secrets.yml&lt;/code&gt; not &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;secrets.enc.yml&lt;/code&gt; which was called “Encrypted Secrets.” If you’re using “Encrypted Secrets” then you should definitely move over to the Encrypted Credentials feature.&lt;/p&gt;
+
+  &lt;br&gt;&lt;br&gt;
+  &lt;hr&gt;
+  &lt;p&gt;
+    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2024/11/keep-your-secrets-yml-in-rails-7-2&quot;&gt;Keep your secrets.yml in Rails 7.2+&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
+    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
+  &lt;/p&gt;
+</description>
+  <pubDate>Wed, 20 Nov 2024 00:13:00 +0000</pubDate>
+  <link>https://island94.org/2024/11/keep-your-secrets-yml-in-rails-7-2</link>
+  <guid isPermaLink="true">https://island94.org/2024/11/keep-your-secrets-yml-in-rails-7-2</guid>
+  
+  
+</item>
+
+      
     
       
         
@@ -861,42 +931,6 @@ To access local variables named with reserved keywords in your ERB template when
   <pubDate>Wed, 19 Jun 2024 22:21:00 +0000</pubDate>
   <link>https://island94.org/2024/06/rails-strict-locals-local_assigns-and-reserved-keywords</link>
   <guid isPermaLink="true">https://island94.org/2024/06/rails-strict-locals-local_assigns-and-reserved-keywords</guid>
-  
-  
-</item>
-
-      
-    
-      
-        
-
-
-
-
-<item>
-  <title>Recently, June, 2024</title>
-  <description>&lt;ul&gt;
-  &lt;li&gt;I finished reading the &lt;a href=&quot;https://www.goodreads.com/series/243623-the-poppy-war&quot;&gt;Poppy Wars trilogy&lt;/a&gt;. It got tiresome by the end. I liked &lt;em&gt;Babel&lt;/em&gt; much more, and I’m probably reading &lt;em&gt;Yellowface&lt;/em&gt; next. I also read &lt;em&gt;Exit Interview&lt;/em&gt;, which was another thrilling entry to the canon of “fantastically brilliant not-men who work in tech for whom it really should go better but unfortunately and predictably doesn’t”.&lt;/li&gt;
-  &lt;li&gt;We saw &lt;a href=&quot;https://www.imdb.com/title/tt31520076/&quot;&gt;“Film is dead. Long live film!”&lt;/a&gt; at the Roxie. It was enjoyable, reminded me of my big-Cable-Access-TV-energy days, and also gave far too little screen time to hearing from the film collectors wives (yes, exactly) and children. I thought this was my first movie theater since Covid, but Angelina reminded me we saw the Barbie Movie in a theater.&lt;/li&gt;
-  &lt;li&gt;I played Animal Well until the credits roll, and then I read the spoilers and have been going for completionism. Though I don’t imagine I’ll get there before fully losing interest.&lt;/li&gt;
-  &lt;li&gt;I joined the Program Committee for RubyConf in Chicago in November. We’re trying to get the Call for Papers/Speakers released this week. Should be a good one.&lt;/li&gt;
-  &lt;li&gt;I started working on the GoodJob major version 4 release. It’s simply doing all the breaking changes that were previously warned about. A deprecation-warning made is debt unpaid. It’s not so bad.&lt;/li&gt;
-  &lt;li&gt;With my friend Rob, I started volunteering on the backend of &lt;a href=&quot;https://www.knockfordemocracy.org&quot;&gt;Knock for Democracy&lt;/a&gt;. I occasionally see people try to make a Tolstoy-inspired statement like “Healthy applications are all the same, but unhealthy ones are each unhealthy in their own way”. But that’s not true! All the apps that need some TLC have the exact same problems as all the others. Surprise me for once!&lt;/li&gt;
-  &lt;li&gt;At work I’m nearly, nearly done with performance feedback and promotion packets and calibrations and all that. It’s the stuff that I truly enjoy as a manager, and also is terrible because of everything that’s outside my control. I also got asked to draw up a Ruby sponsorship budget for the year, which is the most normal administrative thing I think I’ve ever been asked in my (checks watch) 12 years of working in Bay Area tech.&lt;/li&gt;
-  &lt;li&gt;I think the days of mobile apps for Day of the Shirt are numbered. I haven’t updated them ever since Apple rejected an update for the olde “Section 4.2: Minimum Functionality” thing, after like 8 freaking years in the App Store already. I did the olde “talk to someone on the phone at Apple who unhelpfully can’t tell me what would be &lt;em&gt;enough&lt;/em&gt; functionality.” And so they’ve just been sitting and recently I got an email from a user that it won’t install on their new Android phone. So that sucks. It was a pain (when I was doing it) to develop 3 separate versions of Day of the Shirt: web, iOS, and Android, so maybe this is a sign to probably just commit to the web.&lt;/li&gt;
-  &lt;li&gt;A triple &lt;a href=&quot;https://www.epicurious.com/recipes/food/views/bolognese-meat-sauce-hazan&quot;&gt;recipe of bolognese&lt;/a&gt; is too much for my pot to handle.&lt;/li&gt;
-&lt;/ul&gt;
-
-  &lt;br&gt;&lt;br&gt;
-  &lt;hr&gt;
-  &lt;p&gt;
-    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2024/06/recently-june-2024&quot;&gt;Recently, June, 2024&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
-    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
-  &lt;/p&gt;
-</description>
-  <pubDate>Mon, 03 Jun 2024 03:56:00 +0000</pubDate>
-  <link>https://island94.org/2024/06/recently-june-2024</link>
-  <guid isPermaLink="true">https://island94.org/2024/06/recently-june-2024</guid>
   
   
 </item>
