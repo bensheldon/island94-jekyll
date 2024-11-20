@@ -6,8 +6,8 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 20 Nov 2024 07:07:31 +0000</pubDate>
-    <lastBuildDate>Wed, 20 Nov 2024 07:07:31 +0000</lastBuildDate>
+    <pubDate>Wed, 20 Nov 2024 15:43:24 +0000</pubDate>
+    <lastBuildDate>Wed, 20 Nov 2024 15:43:24 +0000</lastBuildDate>
     <generator>Jekyll v4.3.4</generator>
     
     
@@ -19,7 +19,7 @@
 
 <item>
   <title>Keep your secrets.yml in Rails 7.2+</title>
-  <description>&lt;p&gt;Ruby on &lt;a href=&quot;https://www.shakacode.com/blog/rails-7-1-removes-secret-setup-command-and-deprecates-secret-show-edit-commands/&quot;&gt;Rails v7.1 deprecated and v7.2 removed&lt;/a&gt; support for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Rails.application.secrets&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;config/secrets.yml&lt;/code&gt; in favor of Encrypted Credentials. You don’t have to go along with that!&lt;/p&gt;
+  <description>&lt;p&gt;Ruby on &lt;a href=&quot;https://www.shakacode.com/blog/rails-7-1-removes-secret-setup-command-and-deprecates-secret-show-edit-commands/&quot;&gt;Rails v7.1 deprecated and v7.2 removed&lt;/a&gt; support for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Rails.application.secrets&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;config/secrets.yml&lt;/code&gt; in favor of Encrypted Credentials. You don’t have to go along with that! I like Secrets functionality because it allows for consolidating and normalizing &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ENV&lt;/code&gt; values in a single configuration file with ERB (Encrypted Credentials &lt;a href=&quot;https://github.com/rails/rails/pull/46508&quot;&gt;doesn’t&lt;/a&gt;).&lt;/p&gt;
 
 &lt;p&gt;It’s extremely simple to reimplement the same behavior using &lt;a href=&quot;https://guides.rubyonrails.org/configuring.html#custom-configuration&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;config_for&lt;/code&gt;&lt;/a&gt; and the knowledge that methods defined in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;application.rb&lt;/code&gt; show as methods on &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Rails.application&lt;/code&gt;:&lt;/p&gt;
 
@@ -38,7 +38,7 @@
 &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;That is all you need to continue using a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;secrets.yml&lt;/code&gt; file that probably looks like this:&lt;/p&gt;
+&lt;p&gt;That is all you need to continue using a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;secrets.yml&lt;/code&gt; file that looks like this:&lt;/p&gt;
 
 &lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# config/secrets.yml&lt;/span&gt;
 

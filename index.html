@@ -116,7 +116,7 @@
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p>Ruby on <a href="https://www.shakacode.com/blog/rails-7-1-removes-secret-setup-command-and-deprecates-secret-show-edit-commands/">Rails v7.1 deprecated and v7.2 removed</a> support for <code class="language-plaintext highlighter-rouge">Rails.application.secrets</code> and <code class="language-plaintext highlighter-rouge">config/secrets.yml</code> in favor of Encrypted Credentials. You don’t have to go along with that!</p>
+    <p>Ruby on <a href="https://www.shakacode.com/blog/rails-7-1-removes-secret-setup-command-and-deprecates-secret-show-edit-commands/">Rails v7.1 deprecated and v7.2 removed</a> support for <code class="language-plaintext highlighter-rouge">Rails.application.secrets</code> and <code class="language-plaintext highlighter-rouge">config/secrets.yml</code> in favor of Encrypted Credentials. You don’t have to go along with that! I like Secrets functionality because it allows for consolidating and normalizing <code class="language-plaintext highlighter-rouge">ENV</code> values in a single configuration file with ERB (Encrypted Credentials <a href="https://github.com/rails/rails/pull/46508">doesn’t</a>).</p>
 
 <p>It’s extremely simple to reimplement the same behavior using <a href="https://guides.rubyonrails.org/configuring.html#custom-configuration"><code class="language-plaintext highlighter-rouge">config_for</code></a> and the knowledge that methods defined in <code class="language-plaintext highlighter-rouge">application.rb</code> show as methods on <code class="language-plaintext highlighter-rouge">Rails.application</code>:</p>
 
@@ -135,7 +135,7 @@
 <span class="k">end</span>
 </code></pre></div></div>
 
-<p>That is all you need to continue using a <code class="language-plaintext highlighter-rouge">secrets.yml</code> file that probably looks like this:</p>
+<p>That is all you need to continue using a <code class="language-plaintext highlighter-rouge">secrets.yml</code> file that looks like this:</p>
 
 <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># config/secrets.yml</span>
 
