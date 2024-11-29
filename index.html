@@ -793,8 +793,23 @@
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># config/initializers/active_storage.rb</span>
 <span class="k">module</span> <span class="nn">MonkeypatchBlobKey</span>
   <span class="k">def</span> <span class="nf">key</span>
-    <span class="c1"># =&gt; hhw3kzc7wcqyglwi7alno9o5yf2v/the-image-filename.png</span>
-    <span class="nb">self</span><span class="p">[</span><span class="ss">:key</span><span class="p">]</span> <span class="o">||=</span> <span class="no">File</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="nb">self</span><span class="p">.</span><span class="nf">class</span><span class="p">.</span><span class="nf">generate_unique_secure_token</span><span class="p">(</span><span class="ss">length: </span><span class="no">ActiveStorage</span><span class="o">::</span><span class="no">Blob</span><span class="o">::</span><span class="no">MINIMUM_TOKEN_LENGTH</span><span class="p">),</span> <span class="n">filename</span><span class="p">.</span><span class="nf">to_s</span><span class="p">)</span>
+    <span class="nb">self</span><span class="p">[</span><span class="ss">:key</span><span class="p">]</span> <span class="o">||=</span> <span class="k">begin</span>
+      <span class="c1"># ActiveStorage::Filename doesn't provide an easy nil-check</span>
+      <span class="n">filename_string</span> <span class="o">=</span> <span class="k">begin</span>
+        <span class="n">filename</span><span class="p">.</span><span class="nf">to_s</span>
+      <span class="k">rescue</span> <span class="no">StandardError</span>
+        <span class="kp">nil</span>
+      <span class="k">end</span>
+
+      <span class="n">unique_token</span> <span class="o">=</span> <span class="nb">self</span><span class="p">.</span><span class="nf">class</span><span class="p">.</span><span class="nf">generate_unique_secure_token</span><span class="p">(</span><span class="ss">length: </span><span class="no">ActiveStorage</span><span class="o">::</span><span class="no">Blob</span><span class="o">::</span><span class="no">MINIMUM_TOKEN_LENGTH</span><span class="p">)</span>
+      <span class="k">if</span> <span class="n">filename_string</span>
+        <span class="c1"># "xyz1234/foobar.jpg"</span>
+        <span class="no">File</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="n">unique_token</span><span class="p">,</span> <span class="n">filename_string</span><span class="p">)</span>
+      <span class="k">else</span>
+        <span class="c1"># "xyz1234"</span>
+        <span class="n">unique_token</span>
+      <span class="k">end</span>
+    <span class="k">end</span>
   <span class="k">end</span>
 <span class="k">end</span>
 
