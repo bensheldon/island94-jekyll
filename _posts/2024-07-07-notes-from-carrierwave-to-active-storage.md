@@ -32,8 +32,23 @@ But the errata? Yes, that’s why I’m writing the blog post, and probably why 
 # config/initializers/active_storage.rb
 module MonkeypatchBlobKey
   def key
-    # => hhw3kzc7wcqyglwi7alno9o5yf2v/the-image-filename.png
-    self[:key] ||= File.join(self.class.generate_unique_secure_token(length: ActiveStorage::Blob::MINIMUM_TOKEN_LENGTH), filename.to_s)
+    self[:key] ||= begin
+      # ActiveStorage::Filename doesn't provide an easy nil-check
+      filename_string = begin
+        filename.to_s
+      rescue StandardError
+        nil
+      end
+
+      unique_token = self.class.generate_unique_secure_token(length: ActiveStorage::Blob::MINIMUM_TOKEN_LENGTH)
+      if filename_string
+        # "xyz1234/foobar.jpg"
+        File.join(unique_token, filename_string)
+      else
+        # "xyz1234"
+        unique_token
+      end
+    end
   end
 end
 
