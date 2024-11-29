@@ -7,7 +7,7 @@ tags: []
 
 Ruby on [Rails v7.1 deprecated and v7.2 removed](https://www.shakacode.com/blog/rails-7-1-removes-secret-setup-command-and-deprecates-secret-show-edit-commands/) support for `Rails.application.secrets` and `config/secrets.yml` in favor of Encrypted Credentials. You don't have to go along with that! I like Secrets functionality because it allows for consolidating and normalizing `ENV` values in a single configuration file with ERB (Encrypted Credentials [doesn't](https://github.com/rails/rails/pull/46508)).
 
-It's extremely simple to reimplement the same behavior using [`config_for`](https://guides.rubyonrails.org/configuring.html#custom-configuration) and the knowledge that methods defined in `application.rb` show as methods on `Rails.application`:
+It's extremely simple to reimplement a similar behavior using [`config_for`](https://guides.rubyonrails.org/configuring.html#custom-configuration):
 
 ```ruby
 # config/application.rb
@@ -15,17 +15,21 @@ It's extremely simple to reimplement the same behavior using [`config_for`](http
 module ExampleApp
   class Application < Rails::Application
     # ....
-    config.secrets = config_for(:secrets) # loads from config/secrets.yml
-    config.secret_key_base = config.secrets[:secret_key_base]
+    config.x.secrets = config_for(:secrets) # loads from config/secrets.yml
 
-    def secrets
-      config.secrets
-    end
+    # Required
+    config.secret_key_base = config.x.secrets.secret_key_base
+
+    # Optional (in case you use encrypted attributes)
+    config.active_record.encryption.primary_key = config.x.secrets.dig(:active_record_encryption, :primary_key)
+    config.active_record.encryption.deterministic_key = config.x.secrets.dig(:active_record_encryption, :deterministic_key)
+    config.active_record.encryption.key_derivation_salt = config.x.secrets.dig(:active_record_encryption, :key_derivation_salt)
   end
 end
 ```
 
-That is all you need to continue using a `secrets.yml` file that looks like this:
+You need to replace all occurrences of `Rails.application.secrets` with `Rails.application.config.x.secrets`.
+Your `config/secrets.yml` file looks like before:
 
 ```yaml
 # config/secrets.yml
