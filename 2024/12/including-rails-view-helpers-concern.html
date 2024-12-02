@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <script>
+    let theme = localStorage.getItem('theme');
+    if (!["light", "dark"].includes(theme)) {
+      theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    document.documentElement.setAttribute('data-bs-theme', theme);
+  </script>
+
+  <link rel="stylesheet" href="/assets/stylesheets/main.css">
+  <script src="/assets/javascripts/main.js"></script>
+
+  <title>Including Rails View Helpers is a concern</title>
+  <meta name="description" content="If you’re currently maintaining a Ruby on Rails codebase, I want you to do a quick regex code search in your Editor:">
+
+  <link rel="canonical" href="https://island94.org/2024/12/including-rails-view-helpers-concern">
+
+  <link rel="alternate" type="application/rss+xml" title="Island94.org Posts" href="https://island94.org/feed.xml">
+  <link rel="alternate" type="application/rss+xml" title="Island94.org Book Reviews" href="https://island94.org/books.xml">
+
+  
+</head>
+
+
+  <body>
+
+    <nav class="navbar navbar-expand-lg navbar-light mb-2 flex-column">
+  <div class="container">
+    <a class="navbar-brand" href="/">Island94.org</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link " href="/about/">About</a></li>
+        <li class="nav-item"><a class="nav-link " href="/archives/">Archives</a></li>
+        <li class="nav-item"><a class="nav-link " href="/books/">Books</a></li>
+        <li class="nav-item"><a class="nav-link " href="/tags/">Tags</a></li>
+        <li class="nav-item"><a class="nav-link" href="/feed.xml">RSS Feed <i class="bi bi-rss-fill"></i></a></li>
+
+        <li class="nav-item py-2 py-lg-1 col-12 col-lg-auto">
+          <div class="vr d-none d-lg-flex h-100 mx-lg-2 text-light-500"></div>
+          <hr class="d-lg-none my-0 text-light-500">
+        </li>
+
+        <li class="nav-item dropdown">
+          <button id="bs-theme" class="btn btn-link nav-link dropdown-toggle" type="button" aria-expanded="false" data-bs-toggle="dropdown"  aria-label="Theme (Auto)">
+            <i data-bs-theme-active-icon class="bi bi-circle-half"></i>
+            <span data-bs-theme-label>Theme</span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="bs-theme-text">
+            <li>
+              <button type="button" class="dropdown-item" data-bs-theme-value="light" aria-pressed="false">
+                <i class="bi bi-sun"></i> Light
+              </button>
+            </li>
+            <li>
+              <button type="button" class="dropdown-item" data-bs-theme-value="dark" aria-pressed="false">
+                <i class="bi bi-moon-stars-fill"></i> Dark
+              </button>
+            </li>
+            <li>
+              <button type="button" class="dropdown-item" data-bs-theme-value="auto" aria-pressed="true">
+                <i class="bi bi-circle-half"></i> Auto
+              </button>
+            </li>
+          </ul>
+        </li>
+
+      </ul>
+
+      <form id="search" class="d-flex" action="/search" method="get">
+        <input id="search-box" class="form-control search" role="search" name="q" placeholder="Search" aria-label="Search" results="0" type="text">
+        <button class="visually-hidden" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+  <div class="container">
+    <div class="text-muted fst-italic">
+      — Ben Sheldon's personal blog and <a href="/2012/04/A-Commonplace-Book.html">commonplace book</a>.
+    </div>
+  </div>
+</nav>
+
+
+    <div class="container container-body">
+      
+
+
+
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2024/12/including-rails-view-helpers-concern"><p>Including Rails View Helpers is a concern</p>
+</a>
+    </h1>
+    <p class="post-meta text-muted">
+      <time datetime="2024-12-02T16:01:00+00:00" itemprop="datePublished">December 2, 2024</time>
+      
+      
+
+
+  
+
+  
+
+  • Tagged <a href="/tags/#rails">rails</a>
+
+
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>If you’re currently maintaining a Ruby on Rails codebase, I want you to do a quick regex code search in your Editor:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>include .*Helper
+</code></pre></div></div>
+
+<p>Did you get any hits? Do any of those constants point back to your <code class="language-plaintext highlighter-rouge">app/helpers</code> directory? That could be a problem.</p>
+
+<p><strong>Never include a module from <code class="language-plaintext highlighter-rouge">app/helpers</code> into anything in your application.</strong> Don’t do it.</p>
+
+<ul>
+  <li>Modules defined in <code class="language-plaintext highlighter-rouge">app/views</code> should exclusively be View Helpers. Every module in the <code class="language-plaintext highlighter-rouge">app/views</code> directory is automatically included into Views/Partials, and available within Controllers via the <code class="language-plaintext highlighter-rouge">helpers</code> proxy  (e.g. <code class="language-plaintext highlighter-rouge">helpers.the_method</code>)</li>
+  <li>Including View Helpers into other files (Controllers, Models, etc.) creates a risk that some methods may <em>not</em>  be safely callable because they depend on View Context that isn’t present. (They’re also hell to type with Sorbet.)</li>
+  <li>If you do have includable mixins (“bucket of methods”) that do make sense to be included into lots of different classes (Controllers, Models, Views, etc.), make them a concern and don’t put them in <code class="language-plaintext highlighter-rouge">app/helpers</code>.</li>
+</ul>
+
+<h2 id="some-general-background">Some general background</h2>
+
+<p>Rails has always had View Helpers. Prior to Rails 2 (~2009), only the <code class="language-plaintext highlighter-rouge">ApplicationHelper</code> was included into all controller views and other helpers would have to be added manually. Rails 2 changed the defaults via <code class="language-plaintext highlighter-rouge">helpers :all</code> and <code class="language-plaintext highlighter-rouge">config.action_controller.include_all_helpers</code> to always include <em>all</em> Helpers in <em>all</em> Views.</p>
+
+<p>Rails 4.0 (2012) <a href="https://signalvnoise.com/posts/3372-put-chubby-models-on-a-diet-with-concerns">introduced Concerns</a>, which formalized conventions around extracting shared behaviors into module mix-ins.</p>
+
+<p>Rails 5.0 (2016) introduced the Action Controller <a href="https://github.com/rails/rails/pull/24866"><code class="language-plaintext highlighter-rouge">helpers</code> proxy</a>, and clearly summarizes the problem that I’ve observed too:</p>
+
+<blockquote>
+
+  <p>It is a common pattern in the Rails community that when people want to use any kind of helper that is defined inside app/helpers they includes the helper module inside the controller like:</p>
+
+  <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">module</span> <span class="nn">UserHelper</span>
+  <span class="k">def</span> <span class="nf">my_user_helper</span>
+    <span class="c1"># ...</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">UsersController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="kp">include</span> <span class="no">UserHelper</span>
+
+  <span class="k">def</span> <span class="nf">index</span>
+    <span class="n">render</span> <span class="ss">inline: </span><span class="n">my_user_helper</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>  </div>
+
+  <p>This has problem because the helper can’t access anything that is defined in the view level context class.</p>
+
+  <p>Also all public methods of the helper become available in the controller what can lead to undesirable methods being routed and behaving as actions.</p>
+
+  <p>Also if you helper depends on other helpers or even Action View helpers you need to include each one of these dependencies in your controller otherwise your helper is not going to work.</p>
+
+</blockquote>
+
+<h2 id="some-specific-background">Some specific background</h2>
+
+<p>This has come up as a problem at my day job, GitHub. GitHub has the unique experience of being one of the oldest and largest Ruby on Rails monoliths and it’s full of opportunities to identify friction, waste, and toil.</p>
+
+<p>Disordered usage of View Helpers and the <code class="language-plaintext highlighter-rouge">app/views</code> directory became very visible as we’ve been typing our monolith with Sorbet. Typing module mixins in Sorbet is itself <a href="https://sorbet.org/docs/requires-ancestor">inherently difficult</a>, but View Helpers had accumlated a significant amount of <code class="language-plaintext highlighter-rouge">T.unsafe</code> escape-hatches and in understanding why… we discovered that explicitly including View Helpers in lots of different types of classes was a cause.</p>
+
+<h2 id="whats-the-alternative">What’s the alternative?</h2>
+
+<p>I analyzed the different types of modules that were being created, and came up with this list:</p>
+
+<ul>
+  <li><strong>Concerns</strong> are shared behaviors that may be optionally included into multiple other classes/objects when that behavior is desired. We can further break down:
+    <ul>
+      <li><strong>Application-level Concerns</strong> are agnostic about the kind of object they are included into (could be a controller, or model, or a job, or a PORO)</li>
+      <li><strong>Component-level Concerns</strong> are intended to only be mixed into a specific kind of object, like a controller with expectations that controller-methods are available to be used in that concern (like an http request object, or other view helpers like path helpers)</li>
+    </ul>
+  </li>
+  <li><strong>Dependencies</strong> are non-shared behaviors that have been extracted into a module from a specific, singular controller to improve behavioral cohesion, and is then included back into that one, specific class or object.</li>
+  <li><strong>View Helpers</strong> are intended to be across Views (or Controllers via the <code class="language-plaintext highlighter-rouge">helpers</code> view-proxy method) for formatting and presentation purposes and have access to other view helpers or http request objects. These are the only objects that modules that should go in <code class="language-plaintext highlighter-rouge">app/helpers</code>.</li>
+</ul>
+
+<p>And this is what you might do about them:</p>
+
+<ul>
+  <li><strong>Stop and remove <code class="language-plaintext highlighter-rouge">include MyHelper</code> from Controllers.</strong>  Instead, you can access any View Helper method in a controller via <code class="language-plaintext highlighter-rouge">helpers.the_name_of_the_method</code></li>
+  <li><strong>Move Concerns and Dependencies out of <code class="language-plaintext highlighter-rouge">app/helpers</code>.</strong> If what is currently in <code class="language-plaintext highlighter-rouge">app/helpers</code> is not a View Helper, move it:
+    <ul>
+      <li>Application-level Concerns should be moved into <code class="language-plaintext highlighter-rouge">app/concerns</code></li>
+      <li>Component-level Concerns should be moved into their appropriate <code class="language-plaintext highlighter-rouge">app/controllers/concerns</code> or <code class="language-plaintext highlighter-rouge">your_package/models/concerns</code>, etc.</li>
+      <li>Dependencies should be moved to an appropriate place in their namespaces hierarchy. e.g. if the module is only included into <code class="language-plaintext highlighter-rouge">ApplicationController</code>, it should be named <code class="language-plaintext highlighter-rouge">ApplicationController::TheBehavior</code> and live in <code class="language-plaintext highlighter-rouge">app/controllers/application_controller/the_behavior.rb</code></li>
+    </ul>
+  </li>
+  <li><strong>Never include a module from <code class="language-plaintext highlighter-rouge">app/helpers</code> anywhere.</strong> Don’t do it.</li>
+  <li><strong>Invert the relationship between Helpers and Concerns.</strong> If you have behavior that you want available to lots of different kinds of components <em>and</em> views, start by creating a Concern, and then include that Concern <em>into</em> a View Helper or <code class="language-plaintext highlighter-rouge">ApplicationHelper</code>.  Don’t go the other direction.</li>
+  <li><strong>Invert the relationship between Views and Controllers.</strong> If you have a private method that is specific to a single controller, and you want to expose that method to the controller’s views, you can expose that method to the views directly using <code class="language-plaintext highlighter-rouge">helper_method :the_method_name</code> . Use this sparingly, because it extends singleton View objects which deoptimizes the Ruby VM; but really, don’t twist yourself into knots to avoid it either, that’s what it’s there for.</li>
+  <li><strong>(optional but recommended) Rename the constant too, not just move it, when it’s not a View Helper.</strong> Naming things is hard, but <code class="language-plaintext highlighter-rouge">*Helper</code> is… not very descriptive. While it’s the placement in <code class="language-plaintext highlighter-rouge">app/helpers</code> that brings the automatic behavior… so it’s not <em>technically</em> a problem to have a <code class="language-plaintext highlighter-rouge">SomethingHelper</code> that isn’t a View Helper living in <code class="language-plaintext highlighter-rouge">app/controllers/concerns</code> … it is confusing to have non-helpers named <code class="language-plaintext highlighter-rouge">SomethingHelper</code>. Some suggestions for renaming Concerns and Dependencies:
+    <ul>
+      <li>Use the “-able” suffix to turn the behavior or capability into an adjective. e.g. <code class="language-plaintext highlighter-rouge">SoftDeletable</code></li>
+      <li>Append <code class="language-plaintext highlighter-rouge">Dependancy</code> to the end, like <code class="language-plaintext highlighter-rouge">AbilityDependency</code></li>
+      <li>If you’re out of ideas, use <code class="language-plaintext highlighter-rouge">Methods</code> or <code class="language-plaintext highlighter-rouge">Mixin</code>, like <code class="language-plaintext highlighter-rouge">UserMethods</code> or <code class="language-plaintext highlighter-rouge">UserMixin</code>.</li>
+    </ul>
+  </li>
+</ul>
+
+  </div>
+</article>
+
+
+<div class="card my-4">
+  <div class="card-body">
+    <p>
+      Discuss this with me on <a href="https://twitter.com/bensheldon"><i class="bi bi-twitter"></i> Twitter</a>
+      or suggest a <a href="https://github.com/bensheldon/island94-jekyll/blob/main/_posts/2024-12-02-including-rails-view-helpers-concern.md"><i class="bi bi-github"></i> change</a>.
+    </p>
+
+    <p>Related Posts:</p>
+    <ul>
+      
+        <li><a href="/2024/11/keep-your-secrets-yml-in-rails-7-2">Keep your secrets.yml in Rails 7.2+</a></li>
+      
+        <li><a href="/2024/10/technical-reflection-on-disaster-relief-assistance-for-immigrants">A mostly technical reflection on Disaster Relief Assistance for Immigrants</a></li>
+      
+        <li><a href="/2024/09/spectator-sport-a-brief-introduction-to-an-upcoming-rails-plugin">Spectator Sport, a brief introduction to an upcoming Rails plugin</a></li>
+      
+        <li><a href="/2024/09/seeing-like-a-rails-and-ruby-platform-team">Seeing like a Rails and Ruby platform team</a></li>
+      
+        <li><a href="/2024/09/secret-to-rails-database-connection-pool-size">The secret to perfectly calculate Rails database connection pool size</a></li>
+      
+    </ul>
+  </div>
+</div>
+
+
+    </div>
+
+    <footer class="site-footer">
+
+</footer>
+
+
+  </body>
+
+</html>

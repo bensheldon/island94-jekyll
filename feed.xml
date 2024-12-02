@@ -6,10 +6,130 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 02 Dec 2024 16:31:11 +0000</pubDate>
-    <lastBuildDate>Mon, 02 Dec 2024 16:31:11 +0000</lastBuildDate>
+    <pubDate>Mon, 02 Dec 2024 17:58:38 +0000</pubDate>
+    <lastBuildDate>Mon, 02 Dec 2024 17:58:38 +0000</lastBuildDate>
     <generator>Jekyll v4.3.4</generator>
     
+    
+      
+        
+
+
+
+
+<item>
+  <title>Including Rails View Helpers is a concern</title>
+  <description>&lt;p&gt;If you’re currently maintaining a Ruby on Rails codebase, I want you to do a quick regex code search in your Editor:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;include .*Helper
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Did you get any hits? Do any of those constants point back to your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;app/helpers&lt;/code&gt; directory? That could be a problem.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Never include a module from &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;app/helpers&lt;/code&gt; into anything in your application.&lt;/strong&gt; Don’t do it.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Modules defined in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;app/views&lt;/code&gt; should exclusively be View Helpers. Every module in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;app/views&lt;/code&gt; directory is automatically included into Views/Partials, and available within Controllers via the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;helpers&lt;/code&gt; proxy  (e.g. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;helpers.the_method&lt;/code&gt;)&lt;/li&gt;
+  &lt;li&gt;Including View Helpers into other files (Controllers, Models, etc.) creates a risk that some methods may &lt;em&gt;not&lt;/em&gt;  be safely callable because they depend on View Context that isn’t present. (They’re also hell to type with Sorbet.)&lt;/li&gt;
+  &lt;li&gt;If you do have includable mixins (“bucket of methods”) that do make sense to be included into lots of different classes (Controllers, Models, Views, etc.), make them a concern and don’t put them in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;app/helpers&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;some-general-background&quot;&gt;Some general background&lt;/h2&gt;
+
+&lt;p&gt;Rails has always had View Helpers. Prior to Rails 2 (~2009), only the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ApplicationHelper&lt;/code&gt; was included into all controller views and other helpers would have to be added manually. Rails 2 changed the defaults via &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;helpers :all&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;config.action_controller.include_all_helpers&lt;/code&gt; to always include &lt;em&gt;all&lt;/em&gt; Helpers in &lt;em&gt;all&lt;/em&gt; Views.&lt;/p&gt;
+
+&lt;p&gt;Rails 4.0 (2012) &lt;a href=&quot;https://signalvnoise.com/posts/3372-put-chubby-models-on-a-diet-with-concerns&quot;&gt;introduced Concerns&lt;/a&gt;, which formalized conventions around extracting shared behaviors into module mix-ins.&lt;/p&gt;
+
+&lt;p&gt;Rails 5.0 (2016) introduced the Action Controller &lt;a href=&quot;https://github.com/rails/rails/pull/24866&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;helpers&lt;/code&gt; proxy&lt;/a&gt;, and clearly summarizes the problem that I’ve observed too:&lt;/p&gt;
+
+&lt;blockquote&gt;
+
+  &lt;p&gt;It is a common pattern in the Rails community that when people want to use any kind of helper that is defined inside app/helpers they includes the helper module inside the controller like:&lt;/p&gt;
+
+  &lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;module&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;UserHelper&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;my_user_helper&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# ...&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;UsersController&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ApplicationController&lt;/span&gt;
+  &lt;span class=&quot;kp&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;UserHelper&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;index&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;render&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;inline: &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;my_user_helper&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;  &lt;/div&gt;
+
+  &lt;p&gt;This has problem because the helper can’t access anything that is defined in the view level context class.&lt;/p&gt;
+
+  &lt;p&gt;Also all public methods of the helper become available in the controller what can lead to undesirable methods being routed and behaving as actions.&lt;/p&gt;
+
+  &lt;p&gt;Also if you helper depends on other helpers or even Action View helpers you need to include each one of these dependencies in your controller otherwise your helper is not going to work.&lt;/p&gt;
+
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;some-specific-background&quot;&gt;Some specific background&lt;/h2&gt;
+
+&lt;p&gt;This has come up as a problem at my day job, GitHub. GitHub has the unique experience of being one of the oldest and largest Ruby on Rails monoliths and it’s full of opportunities to identify friction, waste, and toil.&lt;/p&gt;
+
+&lt;p&gt;Disordered usage of View Helpers and the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;app/views&lt;/code&gt; directory became very visible as we’ve been typing our monolith with Sorbet. Typing module mixins in Sorbet is itself &lt;a href=&quot;https://sorbet.org/docs/requires-ancestor&quot;&gt;inherently difficult&lt;/a&gt;, but View Helpers had accumlated a significant amount of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;T.unsafe&lt;/code&gt; escape-hatches and in understanding why… we discovered that explicitly including View Helpers in lots of different types of classes was a cause.&lt;/p&gt;
+
+&lt;h2 id=&quot;whats-the-alternative&quot;&gt;What’s the alternative?&lt;/h2&gt;
+
+&lt;p&gt;I analyzed the different types of modules that were being created, and came up with this list:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Concerns&lt;/strong&gt; are shared behaviors that may be optionally included into multiple other classes/objects when that behavior is desired. We can further break down:
+    &lt;ul&gt;
+      &lt;li&gt;&lt;strong&gt;Application-level Concerns&lt;/strong&gt; are agnostic about the kind of object they are included into (could be a controller, or model, or a job, or a PORO)&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Component-level Concerns&lt;/strong&gt; are intended to only be mixed into a specific kind of object, like a controller with expectations that controller-methods are available to be used in that concern (like an http request object, or other view helpers like path helpers)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Dependencies&lt;/strong&gt; are non-shared behaviors that have been extracted into a module from a specific, singular controller to improve behavioral cohesion, and is then included back into that one, specific class or object.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;View Helpers&lt;/strong&gt; are intended to be across Views (or Controllers via the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;helpers&lt;/code&gt; view-proxy method) for formatting and presentation purposes and have access to other view helpers or http request objects. These are the only objects that modules that should go in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;app/helpers&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;And this is what you might do about them:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Stop and remove &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;include MyHelper&lt;/code&gt; from Controllers.&lt;/strong&gt;  Instead, you can access any View Helper method in a controller via &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;helpers.the_name_of_the_method&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Move Concerns and Dependencies out of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;app/helpers&lt;/code&gt;.&lt;/strong&gt; If what is currently in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;app/helpers&lt;/code&gt; is not a View Helper, move it:
+    &lt;ul&gt;
+      &lt;li&gt;Application-level Concerns should be moved into &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;app/concerns&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;Component-level Concerns should be moved into their appropriate &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;app/controllers/concerns&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;your_package/models/concerns&lt;/code&gt;, etc.&lt;/li&gt;
+      &lt;li&gt;Dependencies should be moved to an appropriate place in their namespaces hierarchy. e.g. if the module is only included into &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ApplicationController&lt;/code&gt;, it should be named &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ApplicationController::TheBehavior&lt;/code&gt; and live in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;app/controllers/application_controller/the_behavior.rb&lt;/code&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Never include a module from &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;app/helpers&lt;/code&gt; anywhere.&lt;/strong&gt; Don’t do it.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Invert the relationship between Helpers and Concerns.&lt;/strong&gt; If you have behavior that you want available to lots of different kinds of components &lt;em&gt;and&lt;/em&gt; views, start by creating a Concern, and then include that Concern &lt;em&gt;into&lt;/em&gt; a View Helper or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ApplicationHelper&lt;/code&gt;.  Don’t go the other direction.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Invert the relationship between Views and Controllers.&lt;/strong&gt; If you have a private method that is specific to a single controller, and you want to expose that method to the controller’s views, you can expose that method to the views directly using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;helper_method :the_method_name&lt;/code&gt; . Use this sparingly, because it extends singleton View objects which deoptimizes the Ruby VM; but really, don’t twist yourself into knots to avoid it either, that’s what it’s there for.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;(optional but recommended) Rename the constant too, not just move it, when it’s not a View Helper.&lt;/strong&gt; Naming things is hard, but &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;*Helper&lt;/code&gt; is… not very descriptive. While it’s the placement in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;app/helpers&lt;/code&gt; that brings the automatic behavior… so it’s not &lt;em&gt;technically&lt;/em&gt; a problem to have a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SomethingHelper&lt;/code&gt; that isn’t a View Helper living in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;app/controllers/concerns&lt;/code&gt; … it is confusing to have non-helpers named &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SomethingHelper&lt;/code&gt;. Some suggestions for renaming Concerns and Dependencies:
+    &lt;ul&gt;
+      &lt;li&gt;Use the “-able” suffix to turn the behavior or capability into an adjective. e.g. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SoftDeletable&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;Append &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Dependancy&lt;/code&gt; to the end, like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AbilityDependency&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;If you’re out of ideas, use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Methods&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Mixin&lt;/code&gt;, like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;UserMethods&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;UserMixin&lt;/code&gt;.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+  &lt;br&gt;&lt;br&gt;
+  &lt;hr&gt;
+  &lt;p&gt;
+    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2024/12/including-rails-view-helpers-concern&quot;&gt;Including Rails View Helpers is a concern&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
+    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
+  &lt;/p&gt;
+</description>
+  <pubDate>Mon, 02 Dec 2024 16:01:00 +0000</pubDate>
+  <link>https://island94.org/2024/12/including-rails-view-helpers-concern</link>
+  <guid isPermaLink="true">https://island94.org/2024/12/including-rails-view-helpers-concern</guid>
+  
+    <category>rails</category>
+  
+  
+</item>
+
+      
     
       
         
@@ -909,43 +1029,6 @@ from code loaded at boot.
     <category>GoodJob</category>
   
     <category>Rails</category>
-  
-  
-</item>
-
-      
-    
-      
-        
-
-
-
-
-<item>
-  <title>Rails Strict Locals, undefined `local_assigns`, and reserved keywords</title>
-  <description>&lt;p&gt;&lt;strong&gt;Update: This has been mostly fixed upstream in Rails (Rails 8.0, I think) and &lt;a href=&quot;https://github.com/rails/rails/pull/52209&quot;&gt;documented in the Rails Guides&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Huge thank you to Vojta Drbohlav in the &lt;a href=&quot;https://www.railsspeed.com/&quot;&gt;Rails Performance Slack&lt;/a&gt; for helping me figure this out! 🙇&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;Things I learned today about a new-to-me Ruby on Rails feature:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Rail 7.1 added a feature called &lt;a href=&quot;https://blog.kiprosh.com/allow-template-to-set-strict-locals/&quot;&gt;“Strict Locals”&lt;/a&gt; that uses a magic comment in ERB templates to declare required and optional local variables. It looks like this: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;%# locals: (shirts:, class: nil) %&amp;gt;&lt;/code&gt; which in this example means when rendering the partial, it must be provided a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;shirts&lt;/code&gt; parameter and optional &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;class&lt;/code&gt; parameter. Having ERB templates act more like callable functions with explicit signatures is a nice feature.&lt;/li&gt;
-  &lt;li&gt;When using Rails Strict Locals, the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;local_assigns&lt;/code&gt; variable &lt;a href=&quot;https://github.com/rails/rails/blob/4bb73233413f30fd7217bd7f08af44963f5832b1/actionview/lib/action_view/template.rb#L439-L444&quot;&gt;&lt;em&gt;is not defined&lt;/em&gt;&lt;/a&gt;. You can’t use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;local_assigns&lt;/code&gt;. You’ll see an error that looks like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ActionView::Template::Error (undefined local variable or method &apos;local_assigns&apos; for an instance of #&amp;lt;Class:0x0000000130536cc8&amp;gt;)&lt;/code&gt;. &lt;strong&gt;This has been &lt;a href=&quot;https://github.com/rails/rails/pull/52209&quot;&gt;fixed&lt;/a&gt; 🎉 though &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;local_assigns&lt;/code&gt; doesn’t expose default values.&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;This is a problem if your template has locals that are also Ruby reserved keywords like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;class&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;if&lt;/code&gt;, which can be accessed with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;local_assigns[:class]&lt;/code&gt; &lt;em&gt;unless you start using Strict Locals&lt;/em&gt;.
-To access local variables named with reserved keywords in your ERB template when using Strict Locals, you can use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;binding.local_variable_get(:the_variable_name)&lt;/code&gt;, e.g., &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;binding.local_variable_get(:class)&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;binding.local_variable_get(:if)&lt;/code&gt;. &lt;strong&gt;This is still necessary if you want to access reserved keywords &lt;em&gt;with defaults&lt;/em&gt; because the defaults don’t show up in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;local_assigns&lt;/code&gt;.&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-  &lt;br&gt;&lt;br&gt;
-  &lt;hr&gt;
-  &lt;p&gt;
-    This post, &lt;em&gt;&lt;a href=&quot;https://island94.org/2024/06/rails-strict-locals-local_assigns-and-reserved-keywords&quot;&gt;Rails Strict Locals, undefined `local_assigns`, and reserved keywords&lt;/a&gt;&lt;/em&gt;, is published on &lt;a href=&quot;https://island94.org&quot;&gt;Island94.org&lt;/a&gt;.
-    Tweet me at &lt;a href=&quot;https://twitter.com/bensheldon&quot;&gt;@bensheldon&lt;/a&gt; to discuss it.
-  &lt;/p&gt;
-</description>
-  <pubDate>Wed, 19 Jun 2024 22:21:00 +0000</pubDate>
-  <link>https://island94.org/2024/06/rails-strict-locals-local_assigns-and-reserved-keywords</link>
-  <guid isPermaLink="true">https://island94.org/2024/06/rails-strict-locals-local_assigns-and-reserved-keywords</guid>
   
   
 </item>
