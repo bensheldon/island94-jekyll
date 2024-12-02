@@ -5,8 +5,6 @@ published: true
 tags: ["rails"]
 ---
 
-# Including Rails View Helpers is a concern
-
 If you’re currently maintaining a Ruby on Rails codebase, I want you to do a quick regex code search in your Editor:
 
 ```
