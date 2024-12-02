@@ -15,7 +15,7 @@ Did you get any hits? Do any of those constants point back to your `app/helpers`
 
 **Never include a module from `app/helpers` into anything in your application.** Don’t do it.
 
-- Modules defined in `app/views` should exclusively be View Helpers. Every module in the `app/views` directory is automatically included into Views/Partials, and available within Controllers via the `helpers` proxy  (e.g. `helpers.the_method`)
+- Modules defined in `app/views` should exclusively be View Helpers. Every module in the `app/views` directory is automatically included into Views/Partials, and available within Controllers via the `helpers` proxy  e.g. `helpers.the_method` in Controllers or `ApplicationController.helpers.the_method` anywhere else.
 - Including View Helpers into other files (Controllers, Models, etc.) creates a risk that some methods may _not_  be safely callable because they depend on View Context that isn’t present. (They’re also hell to type with Sorbet.)
 - If you do have includable mixins (“bucket of methods”) that do make sense to be included into lots of different classes (Controllers, Models, Views, etc.), make them a concern and don’t put them in `app/helpers`.
 
@@ -69,7 +69,7 @@ I analyzed the different types of modules that were being created, and came up w
   - **Application-level Concerns** are agnostic about the kind of object they are included into (could be a controller, or model, or a job, or a PORO)
   - **Component-level Concerns** are intended to only be mixed into a specific kind of object, like a controller with expectations that controller-methods are available to be used in that concern (like an http request object, or other view helpers like path helpers)
 - **Dependencies** are non-shared behaviors that have been extracted into a module from a specific, singular controller to improve behavioral cohesion, and is then included back into that one, specific class or object.
-- **View Helpers** are intended to be across Views (or Controllers via the `helpers` view-proxy method) for formatting and presentation purposes and have access to other view helpers or http request objects. These are the only objects that modules that should go in `app/helpers`.
+- **View Helpers** are intended to be across Views (or Controllers via the `helpers` view-proxy method in Controllers or `ApplicationController.helpers` anywhere else) for formatting and presentation purposes and have access to other view helpers or http request objects. These are the only objects that modules that should go in `app/helpers`.
 
 And this is what you might do about them:
 
@@ -79,6 +79,7 @@ And this is what you might do about them:
   * Component-level Concerns should be moved into their appropriate `app/controllers/concerns` or `your_package/models/concerns`, etc.
   * Dependencies should be moved to an appropriate place in their namespaces hierarchy. e.g. if the module is only included into `ApplicationController`, it should be named `ApplicationController::TheBehavior` and live in `app/controllers/application_controller/the_behavior.rb`
 - **Never include a module from `app/helpers` anywhere.** Don’t do it.
+- **Use the Controller `helpers` proxy or `ApplicationController.helpers.the_helper_method`** to access helpers (like `ActionView::Helpers::DateHelper`) in Controller or other Object contexts.
 - **Invert the relationship between Helpers and Concerns.** If you have behavior that you want available to lots of different kinds of components _and_ views, start by creating a Concern, and then include that Concern _into_ a View Helper or `ApplicationHelper`.  Don’t go the other direction.
 - **Invert the relationship between Views and Controllers.** If you have a private method that is specific to a single controller, and you want to expose that method to the controller’s views, you can expose that method to the views directly using `helper_method :the_method_name` . Use this sparingly, because it extends singleton View objects which deoptimizes the Ruby VM; but really, don’t twist yourself into knots to avoid it either, that’s what it’s there for.
 - **(optional but recommended) Rename the constant too, not just move it, when it’s not a View Helper.** Naming things is hard, but `*Helper` is… not very descriptive. While it’s the placement in `app/helpers` that brings the automatic behavior… so it’s not _technically_ a problem to have a `SomethingHelper` that isn’t a View Helper living in `app/controllers/concerns` … it is confusing to have non-helpers named `SomethingHelper`. Some suggestions for renaming Concerns and Dependencies:
