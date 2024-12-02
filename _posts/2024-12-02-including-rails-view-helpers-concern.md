@@ -33,7 +33,7 @@ Rails 5.0 (2016) introduced the Action Controller [`helpers` proxy](https://gith
 
 It is a common pattern in the Rails community that when people want to use any kind of helper that is defined inside app/helpers they includes the helper module inside the controller like:
 
-```
+```ruby
 module UserHelper
   def my_user_helper
     # ...
