@@ -2,7 +2,7 @@
 title: "Including Rails View Helpers is a concern"
 date: 2024-12-02 09:01 PDT
 published: true
-tags: []
+tags: ["rails"]
 ---
 
 # Including Rails View Helpers is a concern
