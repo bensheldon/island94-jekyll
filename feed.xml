@@ -6,8 +6,8 @@
 </description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 08 Dec 2024 07:06:51 +0000</pubDate>
-    <lastBuildDate>Sun, 08 Dec 2024 07:06:51 +0000</lastBuildDate>
+    <pubDate>Sun, 08 Dec 2024 19:48:28 +0000</pubDate>
+    <lastBuildDate>Sun, 08 Dec 2024 19:48:28 +0000</lastBuildDate>
     <generator>Jekyll v4.3.4</generator>
     
     
@@ -29,7 +29,7 @@
 &lt;p&gt;&lt;strong&gt;Never include a module from &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;app/helpers&lt;/code&gt; into anything in your application.&lt;/strong&gt; Don’t do it.&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Modules defined in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;app/views&lt;/code&gt; should exclusively be View Helpers. Every module in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;app/views&lt;/code&gt; directory is automatically included into Views/Partials, and available within Controllers via the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;helpers&lt;/code&gt; proxy  e.g. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;helpers.the_method&lt;/code&gt; in Controllers or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ApplicationController.helpers.the_method&lt;/code&gt; anywhere else.&lt;/li&gt;
+  &lt;li&gt;Modules defined in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;app/helpers&lt;/code&gt; should exclusively be View Helpers. Every module in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;app/helpers&lt;/code&gt; directory is automatically included into Views/Partials, and available within Controllers via the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;helpers&lt;/code&gt; proxy  e.g. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;helpers.the_method&lt;/code&gt; in Controllers or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ApplicationController.helpers.the_method&lt;/code&gt; anywhere else.&lt;/li&gt;
   &lt;li&gt;Including View Helpers into other files (Controllers, Models, etc.) creates a risk that some methods may &lt;em&gt;not&lt;/em&gt;  be safely callable because they depend on View Context that isn’t present. (They’re also hell to type with Sorbet.)&lt;/li&gt;
   &lt;li&gt;If you do have includable mixins (“bucket of methods”) that do make sense to be included into lots of different classes (Controllers, Models, Views, etc.), make them a concern and don’t put them in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;app/helpers&lt;/code&gt;.&lt;/li&gt;
 &lt;/ul&gt;
