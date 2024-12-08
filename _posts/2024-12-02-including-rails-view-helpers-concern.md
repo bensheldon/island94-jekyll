@@ -15,7 +15,7 @@ Did you get any hits? Do any of those constants point back to your `app/helpers`
 
 **Never include a module from `app/helpers` into anything in your application.** Don’t do it.
 
-- Modules defined in `app/views` should exclusively be View Helpers. Every module in the `app/views` directory is automatically included into Views/Partials, and available within Controllers via the `helpers` proxy  e.g. `helpers.the_method` in Controllers or `ApplicationController.helpers.the_method` anywhere else.
+- Modules defined in `app/helpers` should exclusively be View Helpers. Every module in the `app/helpers` directory is automatically included into Views/Partials, and available within Controllers via the `helpers` proxy  e.g. `helpers.the_method` in Controllers or `ApplicationController.helpers.the_method` anywhere else.
 - Including View Helpers into other files (Controllers, Models, etc.) creates a risk that some methods may _not_  be safely callable because they depend on View Context that isn’t present. (They’re also hell to type with Sorbet.)
 - If you do have includable mixins (“bucket of methods”) that do make sense to be included into lots of different classes (Controllers, Models, Views, etc.), make them a concern and don’t put them in `app/helpers`.
 
