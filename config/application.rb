@@ -19,6 +19,13 @@ module Island94
     # Common ones are `templates`, `generators`, or `middleware`, for example.
     config.autoload_lib(ignore: %w[assets tasks])
 
+    self.reloaders << ActiveSupport::FileUpdateChecker.new([], {
+      "_posts" => ["md", "markdown"],
+      "_bookmarks" => ["md", "markdown"],
+    }) do
+      Rails.application.reload_routes!
+    end
+
     config.middleware.use Rack::Static,
       urls: ["/uploads"],
       root: Rails.root.to_s,
