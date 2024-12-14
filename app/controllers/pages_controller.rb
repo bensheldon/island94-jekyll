@@ -14,6 +14,7 @@ class PagesController < ApplicationController
   end
 
   def feed
+    @posts = Post.all.reverse.take(10)
   end
 
   def redirect

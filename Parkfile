@@ -1,6 +1,8 @@
 require 'parklife/rails'
 require_relative 'config/environment'
 
+Parklife.application.config.nested_index = false
+
 Parklife.application.routes do
   root crawl: true
 
