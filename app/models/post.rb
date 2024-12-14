@@ -1,19 +1,24 @@
 class Post < ApplicationModel
-  attr_reader :slug, :frontmatter, :body
+  attr_reader :filename, :slug, :frontmatter, :body
 
   def self.all
     # Load all files from _posts directory
-    Dir.glob("#{Rails.root}/_posts/*.*").map do |file|
+    @posts ||= Dir.glob("#{Rails.root}/_posts/*.*").map do |file|
       Post.from_file(file)
     end
   end
 
   def self.redirects
-    all.each_with_object({}) do |post, hash|
+    @redirects ||= all.each_with_object({}) do |post, hash|
       post.redirects.each do |redirect|
         hash[redirect] = RouteHelper.post_path(post)
       end
     end
+  end
+
+  def self.reset
+    @posts = nil
+    @redirects = nil
   end
 
   def self.from_file(path)
@@ -21,10 +26,11 @@ class Post < ApplicationModel
     _year, _month, _day, slug = filename.split("-", 4)
 
     parsed = FrontMatterParser::Parser.parse_file(path)
-    new(slug: slug, frontmatter: parsed.front_matter, body: parsed.content)
+    new(filename: filename, slug: slug, frontmatter: parsed.front_matter, body: parsed.content)
   end
 
-  def initialize(slug:, frontmatter:, body:)
+  def initialize(filename:, slug:, frontmatter:, body:)
+    @filename = filename
     @slug = slug
     @frontmatter = frontmatter
     @body = body
@@ -42,7 +48,7 @@ class Post < ApplicationModel
     if frontmatter["date"]
       Time.parse(frontmatter["date"])
     else
-      nil
+      Time.parse(@filename.split("-", 3).join("-"))
     end
   end
 
