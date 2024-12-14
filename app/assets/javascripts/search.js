@@ -1,3 +1,5 @@
+//= require "vendor/lunr.min.js"
+
 (function() {
   // Adapted from https://aaronluna.dev/blog/add-search-to-static-site-lunrjs-hugo-vanillajs/
   const MAX_SUMMARY_LENGTH = 250;

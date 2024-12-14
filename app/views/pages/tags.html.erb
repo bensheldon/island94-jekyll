@@ -7,24 +7,8 @@
   <% sorted_tags.each do |tag| %>
     <% tag_slug = tag.downcase.gsub(' ', '_') %>
     <li>
-      <a href="#<%= tag_slug %>"><%= tag %></a> 
+      <%= link_to tag, tag_path(tag_slug) %>
       (<%= tag_counts[tag] %>)
     </li>
   <% end %>
 </ul>
-
-<hr>
-
-<% sorted_tags.each do |tag| %>
-  <% tag_slug = tag.downcase.gsub(' ', '_') %>
-  <h2 id="<%= tag_slug %>">
-    <%= tag %>
-    <small><a href="#<%= tag_slug %>">#</a></small>
-  </h2>
-  
-  <ul>
-    <% Post.all.select { |post| post.tags.include?(tag) }.each do |post| %>
-      <li><%= link_to post.title, post_path(post) %></li>
-    <% end %>
-  </ul>
-<% end %>

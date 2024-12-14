@@ -20,6 +20,20 @@ class PagesController < ApplicationController
   end
 
   def redirect
-    @to = "/" + Redirect.all[params[:path]]
+    target = Redirect.all[params[:path]]
+    case target
+    when String then target
+    when Post then post_path(target)
+    else
+      raise ActionController::RoutingError, "No redirect found for #{params[:path]}"
+    end
+    @to = target
+  end
+
+  def search
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 end
