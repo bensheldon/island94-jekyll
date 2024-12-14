@@ -2,3 +2,37 @@
 @import "font-awesome";
 
 :root { scroll-behavior: auto; }
+
+.navbar-brand {
+  font-weight: 700;
+}
+
+.container-body {
+  max-width: 40em;
+}
+
+blockquote {
+  padding-left: 1em;
+  margin-right: 1em;
+  font-size: inherit;
+  border-left: 0.5em solid var(--bs-light-border-subtle);
+}
+
+.list-columns {
+  column-count: 4;
+}
+
+.highlighter-rouge > .highlight {
+  padding: 1rem 1rem 0.01rem 1rem;
+  margin-bottom: 1rem;
+}
+
+.post-title a {
+  text-decoration: none;
+}
+
+.post-content {
+  img {
+    max-width: 100%;
+  }
+}

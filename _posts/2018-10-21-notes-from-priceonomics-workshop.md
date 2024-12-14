@@ -1,11 +1,13 @@
 ---
 published: true
 title: Notes from Priceonomics Information Marketing Workshop
+date: '2018-10-21 20:26 -0700'
+
 ---
 
 These are my notes from attending a full-day in-person Priceonomics Bootcamp; they now have an online [Priceonomics Content Marketing Bootcamp](https://priceonomics.teachable.com/p/priceonomics-content-marketing-bootcamp/).  Most of this is covered in their [The Content Marketing Handbook](https://priceonomics.com/the-content-marketing-handbook/) or on their blog and operationalized through their [Content Tracker](https://web.archive.org/web/20170515131419/https://stats.priceonomics.com/measure/dashboard/). It's fantastic.
 
-## The Priceonomics Story:  
+## The Priceonomics Story:
 1. What they were doing at the time: had a business pricing stuff
 2. Context at the time: OkCupid data blog was good
 3. Tried to emulate what was going on: "We were better at writing about the business's data than the doing the business."
@@ -39,7 +41,7 @@ Two Information Marketing strategies:
 ## Writers Playbook:
 - **"The Nugget"**: What will someone say about this? can they verbalize it? how would they explain it to a friend. Why will someone share this? What will they say about it?
 - Maximize "shots on goal" by having something relevant to as many people as possible.
-	- Top 100 List is better than a Top 10. More people can identify with something you have to say. 
+	- Top 100 List is better than a Top 10. More people can identify with something you have to say.
 	- Giving a ranking gives people something to say, e.g. "my thing is 7th".
 - Write clearly, people only read topic sentences. **You can't say anything important in the middle of a paragraph.**
 - Title should get the point across, and not sound like the article will be boring. "You don't have the credibility of the New Yorker to have an artsy or vague title". Signal it's quantitative and imply "there will be a ranking". [lendedu](https://lendedu.com/top-posts/) has good titles.
@@ -60,7 +62,7 @@ Spend 40 hours on pulling together the data. Priceonomics takes 3 week for a ful
 
 ## Distribution
 - Nothing happens until a critical mass of people see it.
-- **Anticipate where your content will be popular before you start writing.** Supernodes: Hacker News, Reddit, Digg, Metafilter, Product Hunt, Next Draft, MediaRedef. Find niche supernodes for your vertical.  
+- **Anticipate where your content will be popular before you start writing.** Supernodes: Hacker News, Reddit, Digg, Metafilter, Product Hunt, Next Draft, MediaRedef. Find niche supernodes for your vertical.
 - **THE BUMP**. 1000 simultaneous people. leads to it being organically shared.
 - Journalists are the only channel you control.
 	- Make a list of 50 journalists who would be interested in your data
@@ -70,30 +72,30 @@ Spend 40 hours on pulling together the data. Priceonomics takes 3 week for a ful
 	- It takes just one
 	- **You're the information provider** It's not news until an outlet covers you.
 - How to do it:
-	1. Make list of 50 journalists who'd be interested in your article. 
+	1. Make list of 50 journalists who'd be interested in your article.
 	2. Craft your pitch to them in a short email
 	3. Start writing your article
 	4. Then send them a short individualized email.
 	5. It takes just one. Keep a list of everyone who has ever written about you. Send them a quick thanks.
 
-> Subject: Buying data shows people purchase t-shirts when they wake up  
-> Hi Sam,  
->   
-> I read your article about shirts.io last year  
->   
-> Just wanted to let you know Day of the Shirt just published some interesting data about when people shop for t-shirts:  
->   
-> [link to blog article]  
->   
-> Basically most people shop when they wake up. Thought you'd be interested.  
-> Best,  
-> Ben  
+> Subject: Buying data shows people purchase t-shirts when they wake up
+> Hi Sam,
+>
+> I read your article about shirts.io last year
+>
+> Just wanted to let you know Day of the Shirt just published some interesting data about when people shop for t-shirts:
+>
+> [link to blog article]
+>
+> Basically most people shop when they wake up. Thought you'd be interested.
+> Best,
+> Ben
 
 ## Data Studio Philosophy:
 - Our readers deserve never to be confused
 - It's about the information, not the writing style
 - Focus on why someone would want to share this story
-- People love data. They love maps. They love charts. They love tables. We give people what they want. 
+- People love data. They love maps. They love charts. They love tables. We give people what they want.
 
 ## Article Templates:
 These are also [published here](https://priceonomics.com/introducing-priceonomics-content-marketing/) in more detail.
@@ -120,7 +122,7 @@ These are also [published here](https://priceonomics.com/introducing-priceonomic
 - Is this offensive?
 - Can anything be taken out of context
 - Typos matter less than misunderstandings/offending in massive distribution. Even offending 1% of people is huge.
-- **Make it possible for people who are responsible for the blog to succeed** 
+- **Make it possible for people who are responsible for the blog to succeed**
 
 ## Learnings about visualizing data
 - Titles should be clear and enticing. Catchy title: "Ranking the countries that drink the most wine". Boring subtitle: "Wine consumption in liters per capita in 2011"

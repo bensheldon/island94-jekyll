@@ -23,7 +23,7 @@ Did you get any hits? Do any of those constants point back to your `app/helpers`
 
 Rails has always had View Helpers. Prior to Rails 2 (~2009), only the `ApplicationHelper` was included into all controller views and other helpers would have to be added manually. Rails 2 changed the defaults via `helpers :all` and `config.action_controller.include_all_helpers` to always include _all_ Helpers in _all_ Views.
 
-Rails 4.0 (2012) [introduced Concerns](https://signalvnoise.com/posts/3372-put-chubby-models-on-a-diet-with-concerns), which formalized conventions around extracting shared behaviors into module mix-ins.  
+Rails 4.0 (2012) [introduced Concerns](https://signalvnoise.com/posts/3372-put-chubby-models-on-a-diet-with-concerns), which formalized conventions around extracting shared behaviors into module mix-ins.
 
 Rails 5.0 (2016) introduced the Action Controller [`helpers` proxy](https://github.com/rails/rails/pull/24866), and clearly summarizes the problem that I’ve observed too:
 
@@ -59,7 +59,7 @@ Also if you helper depends on other helpers or even Action View helpers you ne
 
 This has come up as a problem at my day job, GitHub. GitHub has the unique experience of being one of the oldest and largest Ruby on Rails monoliths and it’s full of opportunities to identify friction, waste, and toil.
 
-Disordered usage of View Helpers and the `app/views` directory became very visible as we’ve been typing our monolith with Sorbet. Typing module mixins in Sorbet is itself [inherently difficult](https://sorbet.org/docs/requires-ancestor), but View Helpers had accumlated a significant amount of `T.unsafe` escape-hatches and in understanding why… we discovered that explicitly including View Helpers in lots of different types of classes was a cause. 
+Disordered usage of View Helpers and the `app/views` directory became very visible as we’ve been typing our monolith with Sorbet. Typing module mixins in Sorbet is itself [inherently difficult](https://sorbet.org/docs/requires-ancestor), but View Helpers had accumlated a significant amount of `T.unsafe` escape-hatches and in understanding why… we discovered that explicitly including View Helpers in lots of different types of classes was a cause.
 
 ## What’s the alternative?
 
