@@ -1,0 +1,30 @@
+<%# First, collect and sort all unique tags %>
+<% all_tags = Post.all.flat_map(&:tags) %>
+<% tag_counts = all_tags.tally %>
+<% sorted_tags = tag_counts.keys.sort_by(&:downcase) %>
+
+<ul class="list-unstyled list-columns">
+  <% sorted_tags.each do |tag| %>
+    <% tag_slug = tag.downcase.gsub(' ', '_') %>
+    <li>
+      <a href="#<%= tag_slug %>"><%= tag %></a> 
+      (<%= tag_counts[tag] %>)
+    </li>
+  <% end %>
+</ul>
+
+<hr>
+
+<% sorted_tags.each do |tag| %>
+  <% tag_slug = tag.downcase.gsub(' ', '_') %>
+  <h2 id="<%= tag_slug %>">
+    <%= tag %>
+    <small><a href="#<%= tag_slug %>">#</a></small>
+  </h2>
+  
+  <ul>
+    <% Post.all.select { |post| post.tags.include?(tag) }.each do |post| %>
+      <li><%= link_to post.title, post_path(post) %></li>
+    <% end %>
+  </ul>
+<% end %>

@@ -57,7 +57,7 @@ class Post < ApplicationModel
   end
 
   def tags
-    frontmatter.fetch("tags", [])
+    frontmatter["tags"] || []
   end
 
   def redirects

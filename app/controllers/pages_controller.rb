@@ -5,12 +5,14 @@ class PagesController < ApplicationController
   end
 
   def archives
+    @posts = Post.all.reverse
   end
 
   def books
   end
 
   def tags
+    @posts = Post.all
   end
 
   def feed

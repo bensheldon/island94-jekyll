@@ -1,0 +1,14 @@
+<% posts_by_year = @posts.group_by { |post| post.published_at.strftime('%Y') } %>
+<% posts_by_year.each do |year, year_posts| %>
+  <h2><%= year %></h2>
+
+  <% posts_by_month = year_posts.group_by { |post| post.published_at.strftime('%B') } %>
+  <% posts_by_month.each do |month, month_posts| %>
+    <h3 class="h6"><%= month %></h3>
+    <ul>
+      <% month_posts.sort_by(&:published_at).reverse.each do |post| %>
+        <li><%= link_to post.title, post_path(post) %></li>
+      <% end %>
+    </ul>
+  <% end %>
+<% end %>
