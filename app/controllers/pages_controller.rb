@@ -1,5 +1,11 @@
 class PagesController < ApplicationController
-  layout false, only: :redirect
+  layout (lambda do
+    if action_name == 'feed'
+      nil
+    else
+      "narrow"
+    end
+  end)
 
   def about
   end
@@ -17,17 +23,6 @@ class PagesController < ApplicationController
 
   def feed
     @posts = Post.all.reverse.take(10)
-  end
-
-  def redirect
-    target = Redirect.all[params[:path]]
-    case target
-    when String then target
-    when Post then post_path(target)
-    else
-      raise ActionController::RoutingError, "No redirect found for #{params[:path]}"
-    end
-    @to = target
   end
 
   def search

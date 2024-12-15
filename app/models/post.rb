@@ -33,8 +33,10 @@ class Post < ApplicationModel
   end
 
   def slug
-    _year, _month, _day, slug = filename.split("-", 4)
-    slug
+    @slug ||= begin
+      _year, _month, _day, slug = filename.split("-", 4)
+      slug
+    end
   end
 
   def project_filepath
@@ -50,14 +52,16 @@ class Post < ApplicationModel
   end
 
   def content
-    Kramdown::Document.new(body, input: 'GFM').to_html.html_safe
+    @content ||= Kramdown::Document.new(body, input: 'GFM').to_html.html_safe
   end
 
   def published_at
-    if frontmatter["date"]
-      Time.parse(frontmatter["date"])
-    else
-      Time.parse(filename.split("-", 3).join("-"))
+    @published_at ||= begin
+      if frontmatter["date"]
+        Time.parse(frontmatter["date"])
+      else
+        Time.parse(filename.split("-", 3).join("-"))
+      end
     end
   end
 
@@ -71,5 +75,17 @@ class Post < ApplicationModel
 
   def redirects
     frontmatter.fetch("redirect_from", [])
+  end
+
+  def related_posts
+    return [] if tags.empty?
+
+    self.class.all
+      .select(&:published?)
+      .select { |post| (post.tags & tags).any? }
+      .reject { |post| post == self }
+      .sort_by(&:published_at)
+      .reverse
+      .first(5) # Limit to 5 related posts
   end
 end

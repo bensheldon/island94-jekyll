@@ -1,3 +1,5 @@
+<h1>Archives</h1>
+
 <% posts_by_year = @posts.group_by { |post| post.published_at.strftime('%Y') } %>
 <% posts_by_year.each do |year, year_posts| %>
   <h2><%= year %></h2>

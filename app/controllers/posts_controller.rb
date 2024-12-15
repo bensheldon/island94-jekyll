@@ -1,6 +1,8 @@
 class PostsController < ApplicationController
   LIMIT = 10
 
+  layout "narrow"
+
   def index
     @limit = LIMIT
     @page = params.fetch(:page, 1).to_i

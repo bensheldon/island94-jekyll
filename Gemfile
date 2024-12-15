@@ -22,6 +22,7 @@ gem "bootstrap"
 gem 'font-awesome-rails', github: 'bokmann/font-awesome-rails'
 gem "sassc-rails"
 gem "kramdown-parser-gfm"
+gem "vernier"
 
 # for related_posts with --lsi
 gem 'classifier-reborn'
@@ -38,5 +39,6 @@ group :development, :test do
   gem "rspec-rails"
   gem 'lanyon'
   gem 'rspec'
+  gem 'selenium-webdriver'
   gem 'webrick'
 end

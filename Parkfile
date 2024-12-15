@@ -5,16 +5,30 @@ Parklife.application.config.nested_index = false
 
 Parklife.application.routes do
   root crawl: true
+  get "/redirects", crawl: true
+  get "/bookmarks", crawl: true
 
-  # Add further paths not discovered by crawling from the root:
-  #
-  # get '/hidden/pages', crawl: true
-  # get '/feed.atom'
-
-  # Services typically allow a custom 404 page.
-  # get '/404.html'
-
-  Redirect.all.keys.each do |path|
-    get path
-  end
+  get "/feed.xml"
+  get '/404.html'
 end
+
+require 'parklife/application'
+Parklife::Application.prepend(Module.new do
+  def build
+    start = Time.now
+    super
+    # TODO: copy the public directory to the output directory
+    duration = Time.now - start
+    pages_built = crawler.instance_variable_get(:@visited).size
+    puts "✅ Parklife built #{pages_built} pages in #{duration} seconds"
+  end
+end)
+
+require 'parklife/utils'
+Parklife::Utils.prepend(Module.new do
+  def scan_for_links(html, ...)
+    super
+  rescue => e
+    puts "#{e}: #{e.message}"
+  end
+end)
