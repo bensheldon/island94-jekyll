@@ -1,7 +1,11 @@
+ENV["RAILS_ENV"] = "production"
+ENV["RACK_ENV"] = "production"
+
 require 'parklife/rails'
 require_relative 'config/environment'
 
 Parklife.application.config.nested_index = false
+Parklife.application.config.base = "https://island94.org"
 
 Parklife.application.routes do
   root crawl: true
@@ -17,7 +21,10 @@ Parklife::Application.prepend(Module.new do
   def build
     start = Time.now
     super
-    # TODO: copy the public directory to the output directory
+
+    FileUtils.cp_r(Rails.application.root.join("public/assets"), Rails.application.root.join("build/assets"))
+    FileUtils.cp_r(Rails.application.root.join("uploads"), Rails.application.root.join("build/uploads"))
+
     duration = Time.now - start
     pages_built = crawler.instance_variable_get(:@visited).size
     puts "✅ Parklife built #{pages_built} pages in #{duration} seconds"
