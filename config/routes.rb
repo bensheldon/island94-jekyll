@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   get "search", to: "pages#search", format: :html
   get "search", to: "pages#search", format: :json
 
-  get "feed.xml", to: "pages#feed"
+  get "feed", to: "pages#feed", as: :feed, format: :xml
 
   get "redirects", to: "redirects#index"
 

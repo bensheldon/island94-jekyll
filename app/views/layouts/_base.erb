@@ -4,15 +4,25 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><%= "#{content_for(:title)} | Island94.org" || "Island94.org" %></title>
 
-  <title><%= content_for(:title) || "Island94" %></title>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
 
-  <%= yield :head %>
+  <link rel="alternate" type="application/rss+xml" title="Island94.org" href="<%= feed_url(format: :xml) %>">
 
   <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
   <%= javascript_include_tag "main" %>
+
+  <script>
+    let theme = localStorage.getItem('theme');
+    if (!["light", "dark"].includes(theme)) {
+      theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    document.documentElement.setAttribute('data-bs-theme', theme);
+  </script>
+
+  <%= yield :head %>
 </head>
 <body>
 <%= render "layouts/navbar" %>

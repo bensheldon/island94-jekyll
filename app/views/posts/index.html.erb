@@ -1,3 +1,9 @@
+<% if @page > 1 %>
+  <% content_for :head do %>
+    <meta name="robots" content="noindex, follow">
+  <% end %>
+<% end %>
+
 <%= render partial: "post", collection: @posts, as: :post %>
 
 <hr>

@@ -1,10 +1,3 @@
-GIT
-  remote: https://github.com/bokmann/font-awesome-rails.git
-  revision: 60150e4fddbcd4a49a35ec43f529dee06f7a0a74
-  specs:
-    font-awesome-rails (4.7.0.9)
-      railties (>= 3.2, < 9.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -413,7 +406,6 @@ DEPENDENCIES
   classifier-reborn
   csv
   cuprite
-  font-awesome-rails!
   front_matter_parser
   jekyll
   jekyll-coffeescript
@@ -430,6 +422,7 @@ DEPENDENCIES
   rack (~> 2.2)
   rails
   rake
+  rouge
   rspec
   rspec-rails
   sassc-rails

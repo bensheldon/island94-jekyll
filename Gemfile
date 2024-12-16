@@ -12,17 +12,17 @@ gem 'jekyll-sitemap'
 gem 'jekyll-compose'
 gem 'octokit'
 
-gem 'parklife'
-gem 'rails'
+gem "parklife"
+gem "rails"
 gem "puma"
 gem "sprockets-rails"
-gem 'bootsnap', require: false
+gem "bootsnap", require: false
 gem "front_matter_parser"
 gem "bootstrap"
-gem 'font-awesome-rails', github: 'bokmann/font-awesome-rails'
 gem "sassc-rails"
 gem "kramdown-parser-gfm"
 gem "vernier"
+gem "rouge"
 
 # for related_posts with --lsi
 gem 'classifier-reborn'
