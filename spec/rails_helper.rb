@@ -13,6 +13,7 @@ require 'capybara/rspec'
 require 'capybara/cuprite'
 require 'lanyon'
 require 'webrick'
+require "selenium-webdriver"
 
 RSpec.configure do |config|
   config.include Capybara::DSL

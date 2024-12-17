@@ -1,4 +1,4 @@
-<h1>Archives</h1>
+<h1>Posts tagged with "<%= @tag %>"</h1>
 
 <% posts_by_year = @posts.group_by { |post| post.published_at.strftime('%Y') } %>
 <% posts_by_year.each do |year, year_posts| %>
@@ -14,3 +14,7 @@
     </ul>
   <% end %>
 <% end %>
+
+<p>
+  <%= link_to "← Back to all tags", tags_path %>
+</p> 

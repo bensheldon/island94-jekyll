@@ -1,0 +1,9 @@
+<h1>Redirects</h1>
+
+<ul>
+  <% @redirects.each do |from, to| %>
+    <li>
+      <%= link_to from, "/" + from %>
+    </li>
+  <% end %>
+</ul>
