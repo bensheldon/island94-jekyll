@@ -1,0 +1,19 @@
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <%= link_to (@bookmark.title.presence || @bookmark.link), bookmark_path(@bookmark), class: "post-link" %>
+    </h1>
+    <small><%= link_to @bookmark.link, @bookmark.link %></small>
+    <p>
+      <% if @bookmark.date %>
+        <time datetime="<%= @bookmark.date.to_time.xmlschema %>" itemprop="datePublished">
+          <%= @bookmark.date.strftime("%B %-d, %Y") %>
+        </time>
+      <% end %>
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <%= @bookmark.content %>
+  </div>
+</article>

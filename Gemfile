@@ -7,21 +7,22 @@ gem 'jekyll'
 gem 'jekyll-coffeescript'
 gem 'jekyll-paginate'
 gem 'jekyll-redirect-from'
-gem 'kramdown-parser-gfm'
+# gem 'kramdown-parser-gfm'
 gem 'jekyll-sitemap'
 gem 'jekyll-compose'
 gem 'octokit'
 
-gem 'parklife'
-gem 'rails'
+gem "parklife"
+gem "rails"
 gem "puma"
 gem "sprockets-rails"
-gem 'bootsnap', require: false
+gem "bootsnap", require: false
 gem "front_matter_parser"
 gem "bootstrap"
-gem 'font-awesome-rails', github: 'bokmann/font-awesome-rails'
 gem "sassc-rails"
 gem "kramdown-parser-gfm"
+gem "vernier"
+gem "rouge"
 
 # for related_posts with --lsi
 gem 'classifier-reborn'
@@ -38,5 +39,6 @@ group :development, :test do
   gem "rspec-rails"
   gem 'lanyon'
   gem 'rspec'
+  gem 'selenium-webdriver'
   gem 'webrick'
 end

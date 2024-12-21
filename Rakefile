@@ -1,7 +1,5 @@
-require 'rubygems'
-require 'bundler/setup'
-require 'active_support'
-require 'active_support/all'
+require File.expand_path('config/application', __dir__)
+Rails.application.load_tasks
 
 desc 'Create a new post'
 task :new_post, [:title, :body] do |_t, args|

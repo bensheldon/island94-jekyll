@@ -1,5 +1,10 @@
 @import "bootstrap";
-@import "font-awesome";
+@import "vendor/rouge/magritte_light";
+@import "vendor/rouge/molokai_dark";
+
+$bootstrap-icons-font-src: font_url("bootstrap-icons.woff2") format("woff2"),
+                           font_url("bootstrap-icons.woff") format("woff");
+@import "vendor/bootstrap-icons";
 
 :root { scroll-behavior: auto; }
 

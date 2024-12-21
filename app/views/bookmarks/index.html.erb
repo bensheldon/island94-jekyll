@@ -1,0 +1,36 @@
+<% content_for :title, "Bookmarks" %>
+
+<h1>Bookmarks</h1>
+
+<table class="table">
+  <thead>
+  <tr>
+    <th>Date</th>
+    <th>Name</th>
+    <th style="max-width: 20em">Description</th>
+    <th>Permalink</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @bookmarks.each do |bookmark| %>
+    <tr>
+      <td>
+        <time><%= bookmark.date.strftime("%Y-%m-%d") %></time>
+      </td>
+      <td>
+        <a class="post-link" href="<%= bookmark.link %>">
+          <%= bookmark.title&.truncate(50) %>
+        </a>
+      </td>
+      <td style="max-width: 20em"><%= bookmark.content %></td>
+      <td>
+        <%= link_to "Permalink", bookmark_path(bookmark) %>
+        /
+        <a href="<%= "https://github.com/bensheldon/island94-jekyll/blob/main/#{bookmark.project_filepath}" %>">
+          <i class="bi bi-github"></i>Edit
+        </a>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

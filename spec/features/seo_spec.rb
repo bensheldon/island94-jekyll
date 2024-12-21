@@ -25,7 +25,7 @@ RSpec.describe 'SEO' do
 
   context 'when on archive page' do
     it 'includes robots noindex,nofollow meta tag' do
-      visit '/page/2/'
+      visit '/posts/2/'
 
       expect(page).to have_css 'meta[name="robots"][content="noindex, follow"]',
                                visible: false

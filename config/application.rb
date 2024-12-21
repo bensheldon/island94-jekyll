@@ -11,6 +11,9 @@ Bundler.require(*Rails.groups)
 
 module Island94
   class Application < Rails::Application
+    # `to_time` will always preserve the full timezone rather than offset of the receiver in Rails 8.1.
+    config.active_support.to_time_preserves_timezone = :zone
+
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.2
 
@@ -18,6 +21,8 @@ module Island94
     # not contain `.rb` files, or that should not be reloaded or eager loaded.
     # Common ones are `templates`, `generators`, or `middleware`, for example.
     config.autoload_lib(ignore: %w[assets tasks])
+
+    config.secret_key_base = "0"
 
     self.reloaders << ActiveSupport::FileUpdateChecker.new([], {
       "_posts" => ["md", "markdown"],
