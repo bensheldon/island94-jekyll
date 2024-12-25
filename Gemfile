@@ -3,17 +3,11 @@ ruby File.read(File.join(File.dirname(__FILE__), '.ruby-version')).strip
 
 gem 'activesupport'
 gem "csv"
-gem 'jekyll'
-gem 'jekyll-coffeescript'
-gem 'jekyll-paginate'
-gem 'jekyll-redirect-from'
-# gem 'kramdown-parser-gfm'
-gem 'jekyll-sitemap'
-gem 'jekyll-compose'
+gem 'jekyll' # still necessary for bookmarking scripts
 gem 'octokit'
 
 gem "parklife"
-gem "rails"
+gem "rails", "~> 8.0.0"
 gem "puma"
 gem "sprockets-rails"
 gem "bootsnap", require: false
@@ -24,10 +18,6 @@ gem "kramdown-parser-gfm"
 gem "vernier"
 gem "rouge"
 
-# for related_posts with --lsi
-gem 'classifier-reborn'
-# gem 'gsl', github: 'SciRuby/rb-gsl', branch: 'master'
-
 # for fetching bookmarks
 gem "metainspector", "~> 5.15"
 
@@ -35,10 +25,6 @@ group :development, :test do
   gem 'capybara'
   gem 'cuprite'
   gem 'rake'
-  gem 'rack', '~> 2.2'
   gem "rspec-rails"
-  gem 'lanyon'
-  gem 'rspec'
-  gem 'selenium-webdriver'
   gem 'webrick'
 end
