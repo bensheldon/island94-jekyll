@@ -1,0 +1,14 @@
+<%# First, collect and sort all unique tags %>
+<% all_tags = Post.all.flat_map(&:tags) %>
+<% tag_counts = all_tags.tally %>
+<% sorted_tags = tag_counts.keys.sort_by(&:downcase) %>
+
+<ul class="list-unstyled list-columns">
+  <% sorted_tags.each do |tag| %>
+    <% tag_slug = tag.downcase.gsub(' ', '_') %>
+    <li>
+      <%= link_to tag, tag_path(tag_slug) %>
+      (<%= tag_counts[tag] %>)
+    </li>
+  <% end %>
+</ul>

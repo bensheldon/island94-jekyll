@@ -1,17 +1,17 @@
 class Post < ApplicationModel
-  attr_reader :filename, :slug, :frontmatter, :body
+  attr_reader :filepath, :frontmatter, :body
 
   def self.all
     # Load all files from _posts directory
-    @posts ||= Dir.glob("#{Rails.root}/_posts/*.*").map do |file|
-      Post.from_file(file)
+    @posts ||= Dir.glob("#{Rails.root}/_posts/*.*").map do |filepath|
+      Post.from_file(filepath)
     end
   end
 
   def self.redirects
     @redirects ||= all.each_with_object({}) do |post, hash|
       post.redirects.each do |redirect|
-        hash[redirect] = RouteHelper.post_path(post)
+        hash[redirect] = post
       end
     end
   end
@@ -22,18 +22,29 @@ class Post < ApplicationModel
   end
 
   def self.from_file(path)
-    filename = File.basename(path, '.*')
-    _year, _month, _day, slug = filename.split("-", 4)
-
     parsed = FrontMatterParser::Parser.parse_file(path)
-    new(filename: filename, slug: slug, frontmatter: parsed.front_matter, body: parsed.content)
+    new(filepath: path, frontmatter: parsed.front_matter, body: parsed.content)
   end
 
-  def initialize(filename:, slug:, frontmatter:, body:)
-    @filename = filename
-    @slug = slug
+  def initialize(filepath:, frontmatter:, body:)
+    @filepath = filepath
     @frontmatter = frontmatter
     @body = body
+  end
+
+  def slug
+    @slug ||= begin
+      _year, _month, _day, slug = filename.split("-", 4)
+      slug
+    end
+  end
+
+  def project_filepath
+    filepath.sub("#{Rails.root}/", "")
+  end
+
+  def filename
+    File.basename(filepath, '.*')
   end
 
   def title
@@ -41,14 +52,16 @@ class Post < ApplicationModel
   end
 
   def content
-    Kramdown::Document.new(body, input: 'GFM').to_html.html_safe
+    @content ||= Kramdown::Document.new(body, input: 'GFM').to_html.html_safe
   end
 
   def published_at
-    if frontmatter["date"]
-      Time.parse(frontmatter["date"])
-    else
-      Time.parse(@filename.split("-", 3).join("-"))
+    @published_at ||= begin
+      if frontmatter["date"]
+        Time.parse(frontmatter["date"])
+      else
+        Time.parse(filename.split("-", 3).join("-"))
+      end
     end
   end
 
@@ -57,10 +70,22 @@ class Post < ApplicationModel
   end
 
   def tags
-    frontmatter.fetch("tags", [])
+    frontmatter["tags"] || []
   end
 
   def redirects
     frontmatter.fetch("redirect_from", [])
+  end
+
+  def related_posts
+    return [] if tags.empty?
+
+    self.class.all
+      .select(&:published?)
+      .select { |post| (post.tags & tags).any? }
+      .reject { |post| post == self }
+      .sort_by(&:published_at)
+      .reverse
+      .first(5) # Limit to 5 related posts
   end
 end

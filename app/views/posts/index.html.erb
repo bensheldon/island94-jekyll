@@ -1,14 +1,18 @@
-<div class="container container-body">
-  <%= render partial: "post", collection: @posts, as: :post %>
+<% if @page > 1 %>
+  <% content_for :head do %>
+    <meta name="robots" content="noindex, follow">
+  <% end %>
+<% end %>
 
-  <hr>
+<%= render partial: "post", collection: @posts, as: :post %>
 
-  <div class="d-flex justify-content-between mb-5">
-    <% if @page > 1 %>
-      <a href="<%= posts_path(page: @page - 1) %>" class="btn btn-outline-primary">Newer posts</a>
-    <% end %>
-    <% if @page < (Post.all.size.to_f / @limit).ceil %>
-      <a href="<%= posts_path(page: @page + 1) %>" class="btn btn-outline-primary">Older posts</a>
-    <% end %>
-  </div>
+<hr>
+
+<div class="d-flex justify-content-between mb-5">
+  <% if @page > 1 %>
+    <a href="<%= posts_path(page: @page - 1) %>" class="btn btn-outline-primary">Newer posts</a>
+  <% end %>
+  <% if @page < (Post.all.size.to_f / @limit).ceil %>
+    <a href="<%= posts_path(page: @page + 1) %>" class="btn btn-outline-primary">Older posts</a>
+  <% end %>
 </div>

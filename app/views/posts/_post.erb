@@ -4,12 +4,12 @@
       <a class="post-link" href="<%= post_path(post) %>"><%= markdownify(post.title) %></a>
     </h1>
     <p class="post-meta text-muted">
-      <% if post.published_at %><time datetime="<%= post.published_at.iso8601 %>" itemprop="datePublished"><%= post.published_at.strftime("%B %-d, %Y") %></time><% end %>
+      <% if post.published_at %>
+        <time datetime="<%= post.published_at.iso8601 %>" itemprop="datePublished"><%= post.published_at.strftime("%B %-d, %Y") %></time>
+      <% end %>
 
-      <% if post.tags.present? %>
-        • Tagged <% post.tags do |tag| %>
-          <%= tag %>
-        <% end %>
+      <% if post.tags.any? %>
+        • Tagged <%= to_sentence post.tags %>
       <% end %>
     </p>
   </header>
