@@ -15,26 +15,28 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      # Dependencies
-      - name: Install GSL
-        run: sudo apt-get -y install libgsl-dev
       - name: "Ruby: Install Ruby"
         uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
-      # /Dependencies
-      - name: Jekyll build
-        run: bundle exec jekyll build --trace --profile
-      - name: Run RSpec
-        env:
-          JEKYLL_SKIP_BUILD: true
-        run: bundle exec rspec --format documentation
+      - name: Run tests
+        run: bin/rspec --format documentation
+      - name: Archive system spec screenshots
+        uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: screenshots
+          path: tmp/capybara/
+      - name: Build website
+        run: |
+          bin/rails assets:precompile
+          bin/parklife build
       - name: Publish
         if: github.ref == 'refs/heads/main'
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./_site
+          publish_dir: ./build
           publish_branch: gh-pages
           enable_jekyll: false
 

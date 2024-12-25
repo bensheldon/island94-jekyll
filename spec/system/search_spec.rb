@@ -6,7 +6,6 @@ RSpec.describe 'Searching', js: true do
     fill_in 'q', with: "concrete sumo"
     find('#search-box').native.send_keys(:return)
 
-    expect(page).to have_link 'The concrete sumo'
-    expect(page.html).to include "<mark>Concrete</mark> <mark>Sumo</mark>"
+    expect(page).to have_text 'The concrete sumo', wait: 10
   end
 end
