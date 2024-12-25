@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GoodJob v1.1: async and improved documentation | Island94.org</title>
+
+  <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="g7YLFyxlPLLwcVA0F5LkYj22pJQGvaaZdSTbAsB7rwdQn8B5xljewnNqAJKx20ovWAeGArKHfPQD2pMtJb4pMA" />
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Island94.org" href="https://island94.org/feed.xml">
+
+  <link rel="stylesheet" href="/assets/application-3c56ab95cf55e7f461f0ea9391c2b1391a5c64b74433224fe76ad58b7fa20c07.css" data-turbo-track="reload" />
+  <script src="/assets/main-57967bd29e3a27ba3099fee5997ee6ec8c59ef209085f949b6eac799b21915b0.js"></script>
+
+  <script>
+    let theme = localStorage.getItem('theme');
+    if (!["light", "dark"].includes(theme)) {
+      theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    document.documentElement.setAttribute('data-bs-theme', theme);
+  </script>
+
+  
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light mb-2 flex-column">
+  <div class="container">
+    <a class="navbar-brand" href="/">Island94.org</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link " href="/about/">About</a></li>
+        <li class="nav-item"><a class="nav-link " href="/archives/">Archives</a></li>
+<!--        <li class="nav-item"><a class="nav-link " href="/books/">Books</a></li>-->
+        <li class="nav-item"><a class="nav-link " href="/tags/">Tags</a></li>
+        <li class="nav-item"><a class="nav-link" href="/feed.xml">RSS Feed <i class="bi bi-rss-fill"></i></a></li>
+
+        <li class="nav-item py-2 py-lg-1 col-12 col-lg-auto">
+          <div class="vr d-none d-lg-flex h-100 mx-lg-2 text-light-500"></div>
+          <hr class="d-lg-none my-0 text-light-500">
+        </li>
+
+        <li class="nav-item dropdown">
+          <button id="bs-theme" class="btn btn-link nav-link dropdown-toggle" type="button" aria-expanded="false" data-bs-toggle="dropdown"  aria-label="Theme (Auto)">
+            <i data-bs-theme-active-icon class="bi bi-circle-half"></i>
+            <span data-bs-theme-label>Theme</span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="bs-theme-text">
+            <li>
+              <button type="button" class="dropdown-item" data-bs-theme-value="light" aria-pressed="false">
+                <i class="bi bi-sun"></i> Light
+              </button>
+            </li>
+            <li>
+              <button type="button" class="dropdown-item" data-bs-theme-value="dark" aria-pressed="false">
+                <i class="bi bi-moon-stars-fill"></i> Dark
+              </button>
+            </li>
+            <li>
+              <button type="button" class="dropdown-item" data-bs-theme-value="auto" aria-pressed="true">
+                <i class="bi bi-circle-half"></i> Auto
+              </button>
+            </li>
+          </ul>
+        </li>
+
+      </ul>
+
+      <form id="search" class="d-flex" action="/search" method="get">
+        <input id="search-box" class="form-control search" role="search" name="q" placeholder="Search" aria-label="Search" results="0" type="text">
+        <button class="visually-hidden" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+  <div class="container">
+    <div class="text-muted fst-italic">
+      — Ben Sheldon's personal blog and <a href="/2012/04/A-Commonplace-Book.html">commonplace book</a>.
+    </div>
+  </div>
+</nav>
+
+
+  <div class="container container-body">
+    
+<div class="container container-body">
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2020/8/goodjob-v1-1-async-and-improved-documentation"><p>GoodJob v1.1: async and improved documentation</p>
+</a>
+    </h1>
+    <p class="post-meta text-muted">
+        <time datetime="2020-08-09T20:49:00-07:00" itemprop="datePublished">August 9, 2020</time>
+
+        • Tagged GoodJob
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p><a href="https://github.com/bensheldon/good_job">GoodJob</a> version 1.1 has been released. GoodJob is a multithreaded, Postgres-based, ActiveJob backend for Ruby on Rails. If you’re new to GoodJob, read the <a href="https://island94.org/2020/07/introducing-goodjob-1-0">introductory blog post</a>.</p>
+
+<p>GoodJob’s v1.1 release contains a new, economical execution mode called “async” to execute jobs within the webserver process with the same reliability as a separate job worker process.</p>
+
+<p>This release also contains more in-depth documentation based on feedback and questions I’ve received since the v1.0 release.</p>
+
+<p>Version 1.1 comes out 3 weeks after GoodJob v1.0. The initial release of GoodJob was featured on <a href="https://rubyweekly.com/issues/511">Ruby Weekly</a>, <a href="https://web.archive.org/web/20200810221115/https://afreshcup.com/home/2020/07/30/double-shot-2651">A Fresh Cup</a></p>
+
+<p>, <a href="https://ruby.libhunt.com/newsletter/219">Awesome Ruby</a>, and was as high as #8 on <a href="https://news.ycombinator.com/item?id=23928891">Hacker News</a>. GoodJob has since received nearly <a href="https://github.com/bensheldon/good_job">500 stars on Github</a>.</p>
+
+<h2 id="async-mode">Async mode</h2>
+<p>In addition to the <code>$ good_job</code> executable, GoodJob now can execute jobs inside the webserver process itself. For light workloads and simple applications, combining web and worker into a single process is very economical, especially when running on Heroku’s free or hobby plans.</p>
+
+<p>GoodJob’s async execution is compatible with Puma, in multithreaded (<code>RAILS_MAX_THREADS</code>), multi-process (<code>WEB_CONCURRENCY</code>), and memory efficient <code>preload_app!</code> configurations. GoodJob is built with Concurrent Ruby which offers excellent thread and process-forking safety guarantees. Read the <a href="https://github.com/bensheldon/good_job#executing-jobs-async--in-process">GoodJob async documentation</a> for more details.</p>
+
+<p>On a personal level, I’m very excited to have this feature in GoodJob. Async execution was <em>the</em> compelling reason I had previously adopted Que, another Postgres-based backend, in multiple projects and I was heartbroken when <a href="https://github.com/que-rb/que/issues/238#issuecomment-480648845">Que dropped support for async execution</a>.</p>
+
+<h2 id="improved-documentation">Improved documentation</h2>
+<p>Since GoodJob was released 3 weeks ago, the documentation has been significantly expanded. It contains more code and examples for ensuring reliability and handling job errors. I’ve had dozens of people ask questions through <a href="https://github.com/bensheldon/good_job/issues">Github Issues</a> and <a href="https://www.rubyonrails.link">Ruby on Rails Link Slack</a>.</p>
+
+<h2 id="upcoming">Upcoming</h2>
+<p>In the next release, v1.2, I plan to simplify the creation of multiple dedicated threadpools within a single process. The goal is to provide an economical solution to congestion when the execution of a number of slow, low-priority jobs (elephants) are being performed and there are no execution resources available for newly introduced fast, high priority jobs (mice) until the currently executing elephants complete.</p>
+
+<p>A proposed configuration, for example:</p>
+
+<p><code>--queues=mice:2,elephants:4</code></p>
+
+<p>…would allocate 2 dedicated threads for jobs enqueued on the mice queue, and 4 threads for the elephants queue. Learn more in the <a href="https://github.com/bensheldon/good_job/issues/45">feature’s Github Issue</a>.</p>
+
+<h2 id="contribute">Contribute</h2>
+<p>GoodJob continues to be enjoyable to develop and build upon Rails’ ActiveJob and Concurrent Ruby. Contributions are welcomed: check out the <a href="https://github.com/bensheldon/good_job/projects/1">GoodJob Backlog</a>, comment on or open a Github Issue, or make a Pull Request.</p>
+
+  </div>
+</article>
+
+
+  <div class="card my-4">
+    <div class="card-body">
+      Discuss this with me on <a href="https://twitter.com/bensheldon"><i class="bi bi-twitter"></i> Twitter</a>
+      or suggest a
+      <a href="https://github.com/bensheldon/island94-jekyll/blob/main/_posts/2020-08-09-goodjob-v1-1-async-and-improved-documentation.md"><i class="bi bi-github"></i>
+        change</a>.
+
+        <hr>
+        <h5>Related Posts</h5>
+        <ul>
+            <li><a href="/2024/7/introducing-goodjob-v4">Introducing GoodJob v4</a></li>
+            <li><a href="/2023/12/solid-queue-first-impressions">Solid Queue first impressions: Nice!</a></li>
+            <li><a href="/2023/10/reflections-on-good-job-for-solid-queue">Reflections on GoodJob for Solid Queue</a></li>
+            <li><a href="/2023/8/how-to-isolate-i18n-configuration-in-a-rails-engine">How to isolate I18n configuration in a Rails Engine</a></li>
+            <li><a href="/2023/5/rebuilding-concurrent-ruby-scheduledtask-event-and-timerset">Rebuilding Concurrent Ruby: ScheduledTask, Event, and TimerSet</a></li>
+        </ul>
+    </div>
+  </div>
+</div>
+
+  </div>
+
+</body>
+</html>

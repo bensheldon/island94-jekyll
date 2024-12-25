@@ -1,10 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-
-  <head>
+<head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Solid Queue first impressions: Nice! | Island94.org</title>
+
+  <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="lKyYN8d-aiYdOgbQu0QFMt53fp6Vx5H0BOUow5OGgDtHhVNZLUOIVp4hVnYdDat_u8ZcCCH9S5lyG2DsdkMGDA" />
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Island94.org" href="https://island94.org/feed.xml">
+
+  <link rel="stylesheet" href="/assets/application-3c56ab95cf55e7f461f0ea9391c2b1391a5c64b74433224fe76ad58b7fa20c07.css" data-turbo-track="reload" />
+  <script src="/assets/main-57967bd29e3a27ba3099fee5997ee6ec8c59ef209085f949b6eac799b21915b0.js"></script>
 
   <script>
     let theme = localStorage.getItem('theme');
@@ -14,24 +23,10 @@
     document.documentElement.setAttribute('data-bs-theme', theme);
   </script>
 
-  <link rel="stylesheet" href="/assets/stylesheets/main.css">
-  <script src="/assets/javascripts/main.js"></script>
-
-  <title>Solid Queue first impressions: Nice!</title>
-  <meta name="description" content="Solid Queue was released yesterday, a new relational-database backend for Active Job.">
-
-  <link rel="canonical" href="https://island94.org/2023/12/solid-queue-first-impressions">
-
-  <link rel="alternate" type="application/rss+xml" title="Island94.org Posts" href="https://island94.org/feed.xml">
-  <link rel="alternate" type="application/rss+xml" title="Island94.org Book Reviews" href="https://island94.org/books.xml">
-
   
 </head>
-
-
-  <body>
-
-    <nav class="navbar navbar-expand-lg navbar-light mb-2 flex-column">
+<body>
+<nav class="navbar navbar-expand-lg navbar-light mb-2 flex-column">
   <div class="container">
     <a class="navbar-brand" href="/">Island94.org</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,7 +36,7 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item"><a class="nav-link " href="/about/">About</a></li>
         <li class="nav-item"><a class="nav-link " href="/archives/">Archives</a></li>
-        <li class="nav-item"><a class="nav-link " href="/books/">Books</a></li>
+<!--        <li class="nav-item"><a class="nav-link " href="/books/">Books</a></li>-->
         <li class="nav-item"><a class="nav-link " href="/tags/">Tags</a></li>
         <li class="nav-item"><a class="nav-link" href="/feed.xml">RSS Feed <i class="bi bi-rss-fill"></i></a></li>
 
@@ -90,30 +85,19 @@
 </nav>
 
 
-    <div class="container container-body">
-      
-
-
-
-<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="container container-body">
+    
+<div class="container container-body">
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
     <h1 class="post-title" itemprop="name headline">
       <a class="post-link" href="/2023/12/solid-queue-first-impressions"><p>Solid Queue first impressions: Nice!</p>
 </a>
     </h1>
     <p class="post-meta text-muted">
-      <time datetime="2023-12-19T16:24:00+00:00" itemprop="datePublished">December 19, 2023</time>
-      
-      
+        <time datetime="2023-12-19T08:24:00-08:00" itemprop="datePublished">December 19, 2023</time>
 
-
-  
-
-  
-
-  • Tagged <a href="/tags/#rails">Rails</a> and <a href="/tags/#goodjob">GoodJob</a>
-
-
+        • Tagged Rails and GoodJob
     </p>
   </header>
 
@@ -124,15 +108,15 @@
 
 <p><strong>tl;dr;</strong> It’s nice! I learned some things. It makes a few different choices than GoodJob and I’m very curious how they turn out (in a good way!).</p>
 
-<p>I admit, I didn’t run Solid Queue in production. I poked through the code, got the development environment set up (spent the majority of my time trying to get <code class="language-plaintext highlighter-rouge">mysql2</code> to compile, which is no surprise for me; <a href="https://github.blog/2022-08-25-introducing-trilogy-a-new-database-adapter-for-ruby-on-rails/">Trilogy is my day job</a>), ran the test suite and tried TDDing a new feature for it: <code class="language-plaintext highlighter-rouge">perform_all_later</code> support. These are just my notes, something to refer back to.</p>
+<p>I admit, I didn’t run Solid Queue in production. I poked through the code, got the development environment set up (spent the majority of my time trying to get <code>mysql2</code> to compile, which is no surprise for me; <a href="https://github.blog/2022-08-25-introducing-trilogy-a-new-database-adapter-for-ruby-on-rails/">Trilogy is my day job</a>), ran the test suite and tried TDDing a new feature for it: <code>perform_all_later</code> support. These are just my notes, something to refer back to.</p>
 
 <p><strong>Lots of database tables:</strong> Solid Queue has many database tables. There is a “hot” table (my terminology) in which job records are queued/dequeued/locked from by all the workers, and then several other tables where job records are staged (e.g. they’re scheduled in the future, so don’t insert them into the hot table yet) or archived after they complete/error.  This seems smart because that hot table and its indexes stays compact and single purpose, which is good for performance. Compare that to GoodJob in which the jobs table has like 8 indexes to cover both queue/dequeue and Dashboard listings and everything else, which <em>does</em> slow down inserts and updates. I’ve had the impression with GoodJob that orchestrating across multiple tables would be more difficult (everything is tradeoffs!), so I’m very curious to see an alternative implementation in Solid Queue.</p>
 
-<p><em>Note: I wasn’t successfully able to implement <code class="language-plaintext highlighter-rouge">perform_all_later</code> in my 1 hour timebox because it was more complicated than an <code class="language-plaintext highlighter-rouge">insert_all</code> because of the necessity of writing to multiple tables.</em></p>
+<p><em>Note: I wasn’t successfully able to implement <code>perform_all_later</code> in my 1 hour timebox because it was more complicated than an <code>insert_all</code> because of the necessity of writing to multiple tables.</em></p>
 
 <p><em>Aside: One of the very first comments I got when I launched GoodJob 3 years ago was like “your design assumptions are less than ideal” and then they never replied to any of my follow-ups. That sucked! This is not that. Nothing in Solid Queue is particularly concerning, just different (sometimes better!). Kudos to Rosa Gutiérrez and the Solid Queue developers; you’re doing great work! 💖</em></p>
 
-<p><strong>Again, lots of database tables:</strong> GoodJob is easy mode just targeting Postgres, because there are Advisory Locks and lots of Postgres-only niceties. I do not envy Solid Queue being multi-database, because it has to implement a bunch of stuff with a coarser toolbox. For example, there is a <code class="language-plaintext highlighter-rouge">semaphores</code> table, which is used for the Concurrency Controls feature (🎉). I think the “SOLID” libraries (also Solid Cache) are interesting because they have to implement behavior in a relational database that come for free in in-memory databases (example: TTL/record expiration/purging).</p>
+<p><strong>Again, lots of database tables:</strong> GoodJob is easy mode just targeting Postgres, because there are Advisory Locks and lots of Postgres-only niceties. I do not envy Solid Queue being multi-database, because it has to implement a bunch of stuff with a coarser toolbox. For example, there is a <code>semaphores</code> table, which is used for the Concurrency Controls feature (🎉). I think the “SOLID” libraries (also Solid Cache) are interesting because they have to implement behavior in a relational database that come for free in in-memory databases (example: TTL/record expiration/purging).</p>
 
 <p><strong>Puma Plugin:</strong> TIL. Looks nicer and more explicit than GoodJob trying to transparently detect it’s in the webserver to run asynchronously</p>
 
@@ -140,13 +124,13 @@
 
 <p><strong>Queue priority:</strong> Nice! I have <em>opinions</em> about how people set up their application’s queues, along the lines of: many people do it wrong, imo. Solid Queue looks like it provides a lot of good flexibility to let people easily migrate and configure their queues initially (though wrongly, by dependency, imo), but then reorient them more performantly (by latency, again imo). A single thread-pool/worker can pull from multiple queues.</p>
 
-<p><strong>Care</strong>. I notice lots of little things that are nice in Solid Queue. The code is clean. The indexes are named for their purpose/usage rather than just like <code class="language-plaintext highlighter-rouge">index_table_column_column</code>.  The Puma Plugin is nice. There are things in GoodJob that I dream about what a clean-room, lessons-learned reimplementation would look like, but it’s never top of my priorities, and some things are never going back in the stable (table names are basically forever). Reading the Solid Queue code was a vicarious-nice! experience.</p>
+<p><strong>Care</strong>. I notice lots of little things that are nice in Solid Queue. The code is clean. The indexes are named for their purpose/usage rather than just like <code>index_table_column_column</code>.  The Puma Plugin is nice. There are things in GoodJob that I dream about what a clean-room, lessons-learned reimplementation would look like, but it’s never top of my priorities, and some things are never going back in the stable (table names are basically forever). Reading the Solid Queue code was a vicarious-nice! experience.</p>
 
 <p><strong>Differences.</strong> Do they even matter? I dunno:</p>
 
 <ul>
   <li>No Dashboard yet. Waiting on Mission Control. GoodJob definitely got more twisty as I learned all of the things of “you want a button to do what now with those jobs? …oh, I guess that makes sense. hmm.”</li>
-  <li>No LISTEN/NOTIFY (yet?). Seems possible, but would be Postgres only so maybe not. That means latency will never be less than the polling frequency, though an example shows <code class="language-plaintext highlighter-rouge">0.1</code> seconds which seems good to me.</li>
+  <li>No LISTEN/NOTIFY (yet?). Seems possible, but would be Postgres only so maybe not. That means latency will never be less than the polling frequency, though an example shows <code>0.1</code> seconds which seems good to me.</li>
   <li><del>No cron-like functionality. It took me a minute to <a href="https://github.com/bensheldon/good_job/issues/255">come around to the the necessity of this</a>, maybe Solid Queue will too.</del> 🤦 I missed this on first read through: “Unique jobs and recurring, cron-like tasks are coming very soon.” 🙌</li>
 </ul>
 
@@ -156,38 +140,27 @@
 </article>
 
 
-<div class="card my-4">
-  <div class="card-body">
-    <p>
+  <div class="card my-4">
+    <div class="card-body">
       Discuss this with me on <a href="https://twitter.com/bensheldon"><i class="bi bi-twitter"></i> Twitter</a>
-      or suggest a <a href="https://github.com/bensheldon/island94-jekyll/blob/main/_posts/2023-12-19-solid-queue-first-impressions.md"><i class="bi bi-github"></i> change</a>.
-    </p>
+      or suggest a
+      <a href="https://github.com/bensheldon/island94-jekyll/blob/main/_posts/2023-12-19-solid-queue-first-impressions.md"><i class="bi bi-github"></i>
+        change</a>.
 
-    <p>Related Posts:</p>
-    <ul>
-      
-        <li><a href="/2024/12/including-rails-view-helpers-concern">Including Rails View Helpers is a concern</a></li>
-      
-        <li><a href="/2024/11/keep-your-secrets-yml-in-rails-7-2">Keep your secrets.yml in Rails 7.2+</a></li>
-      
-        <li><a href="/2024/10/technical-reflection-on-disaster-relief-assistance-for-immigrants">A mostly technical reflection on Disaster Relief Assistance for Immigrants</a></li>
-      
-        <li><a href="/2024/09/spectator-sport-a-brief-introduction-to-an-upcoming-rails-plugin">Spectator Sport, a brief introduction to an upcoming Rails plugin</a></li>
-      
-        <li><a href="/2024/09/seeing-like-a-rails-and-ruby-platform-team">Seeing like a Rails and Ruby platform team</a></li>
-      
-    </ul>
+        <hr>
+        <h5>Related Posts</h5>
+        <ul>
+            <li><a href="/2024/9/seeing-like-a-rails-and-ruby-platform-team">Seeing like a Rails and Ruby platform team</a></li>
+            <li><a href="/2024/9/secret-to-rails-database-connection-pool-size">The secret to perfectly calculate Rails database connection pool size</a></li>
+            <li><a href="/2024/7/notes-from-carrierwave-to-active-storage">Notes from Carrierwave to Active Storage</a></li>
+            <li><a href="/2024/7/introducing-goodjob-v4">Introducing GoodJob v4</a></li>
+            <li><a href="/2023/11/rails-executor-increasingly-everywhere">The Rails Executor: increasingly everywhere</a></li>
+        </ul>
+    </div>
   </div>
 </div>
 
+  </div>
 
-    </div>
-
-    <footer class="site-footer">
-
-</footer>
-
-
-  </body>
-
+</body>
 </html>

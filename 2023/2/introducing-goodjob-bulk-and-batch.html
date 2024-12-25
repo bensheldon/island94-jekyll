@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Introducing GoodJob Bulk and Batch | Island94.org</title>
+
+  <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="t9UPZuSQvrmLuo6R7LTR-LoT46Jv-1b0TuJ6r_aUi6Nk_MQIDq1cyQih3jdK_X-136LBNNvBjJk4HDKAE1ENlA" />
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Island94.org" href="https://island94.org/feed.xml">
+
+  <link rel="stylesheet" href="/assets/application-3c56ab95cf55e7f461f0ea9391c2b1391a5c64b74433224fe76ad58b7fa20c07.css" data-turbo-track="reload" />
+  <script src="/assets/main-57967bd29e3a27ba3099fee5997ee6ec8c59ef209085f949b6eac799b21915b0.js"></script>
+
+  <script>
+    let theme = localStorage.getItem('theme');
+    if (!["light", "dark"].includes(theme)) {
+      theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    document.documentElement.setAttribute('data-bs-theme', theme);
+  </script>
+
+  
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light mb-2 flex-column">
+  <div class="container">
+    <a class="navbar-brand" href="/">Island94.org</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link " href="/about/">About</a></li>
+        <li class="nav-item"><a class="nav-link " href="/archives/">Archives</a></li>
+<!--        <li class="nav-item"><a class="nav-link " href="/books/">Books</a></li>-->
+        <li class="nav-item"><a class="nav-link " href="/tags/">Tags</a></li>
+        <li class="nav-item"><a class="nav-link" href="/feed.xml">RSS Feed <i class="bi bi-rss-fill"></i></a></li>
+
+        <li class="nav-item py-2 py-lg-1 col-12 col-lg-auto">
+          <div class="vr d-none d-lg-flex h-100 mx-lg-2 text-light-500"></div>
+          <hr class="d-lg-none my-0 text-light-500">
+        </li>
+
+        <li class="nav-item dropdown">
+          <button id="bs-theme" class="btn btn-link nav-link dropdown-toggle" type="button" aria-expanded="false" data-bs-toggle="dropdown"  aria-label="Theme (Auto)">
+            <i data-bs-theme-active-icon class="bi bi-circle-half"></i>
+            <span data-bs-theme-label>Theme</span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="bs-theme-text">
+            <li>
+              <button type="button" class="dropdown-item" data-bs-theme-value="light" aria-pressed="false">
+                <i class="bi bi-sun"></i> Light
+              </button>
+            </li>
+            <li>
+              <button type="button" class="dropdown-item" data-bs-theme-value="dark" aria-pressed="false">
+                <i class="bi bi-moon-stars-fill"></i> Dark
+              </button>
+            </li>
+            <li>
+              <button type="button" class="dropdown-item" data-bs-theme-value="auto" aria-pressed="true">
+                <i class="bi bi-circle-half"></i> Auto
+              </button>
+            </li>
+          </ul>
+        </li>
+
+      </ul>
+
+      <form id="search" class="d-flex" action="/search" method="get">
+        <input id="search-box" class="form-control search" role="search" name="q" placeholder="Search" aria-label="Search" results="0" type="text">
+        <button class="visually-hidden" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+  <div class="container">
+    <div class="text-muted fst-italic">
+      — Ben Sheldon's personal blog and <a href="/2012/04/A-Commonplace-Book.html">commonplace book</a>.
+    </div>
+  </div>
+</nav>
+
+
+  <div class="container container-body">
+    
+<div class="container container-body">
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2023/2/introducing-goodjob-bulk-and-batch"><p>Introducing GoodJob Bulk and Batch</p>
+</a>
+    </h1>
+    <p class="post-meta text-muted">
+        <time datetime="2023-02-05T14:37:00-08:00" itemprop="datePublished">February 5, 2023</time>
+
+        • Tagged GoodJob
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>GoodJob is a multithreaded, Postgres-based, ActiveJob backend for Ruby on Rails. I recently released two new features:</p>
+
+<ul>
+  <li><code>GoodJob::Bulk</code> to optimize enqueuing large numbers of jobs (released in GoodJob v3.9)</li>
+  <li><code>GoodJob::Batch</code> to coordinate parallelized sets of jobs (released in GoodJob v3.10)</li>
+</ul>
+
+<p>Big thanks to @julik, @mollerhoj, @v2kovac, @danielwestendorf, @jrochkind, @mperham and others for your help and counsel!</p>
+
+<h3 id="bulk-enqueue">Bulk enqueue</h3>
+
+<p><a href="https://github.com/bensheldon/good_job#bulk-enqueue">GoodJob’s Bulk-enqueue functionality</a> can buffer and enqueue multiple jobs at once, using a single INSERT statement. This can be more performant when enqueuing a large number of jobs.</p>
+
+<p>I was inspired by a discussion within a Rails pull request to implement <a href="https://github.com/rails/rails/pull/46603"><code>perform_all_later</code> within Active Job</a>. I wanted to both support the way most people enqueue Active Job jobs with <code>perform_later</code> and also <a href="https://github.com/rails/rails/pull/43434">encourage people to work directly with Active Job instances too</a>.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># perform_later within a block</span>
+<span class="n">active_jobs</span> <span class="o">=</span> <span class="no">GoodJob</span><span class="o">::</span><span class="no">Bulk</span><span class="p">.</span><span class="nf">enqueue</span> <span class="k">do</span>
+  <span class="no">MyJob</span><span class="p">.</span><span class="nf">perform_later</span>
+  <span class="no">AnotherJob</span><span class="p">.</span><span class="nf">perform_later</span>
+<span class="k">end</span>
+<span class="c1"># or with Active Job instances</span>
+<span class="n">active_jobs</span> <span class="o">=</span> <span class="p">[</span><span class="no">MyJob</span><span class="p">.</span><span class="nf">new</span><span class="p">,</span> <span class="no">AnotherJob</span><span class="p">.</span><span class="nf">new</span><span class="p">]</span>
+<span class="no">GoodJob</span><span class="o">::</span><span class="no">Bulk</span><span class="p">.</span><span class="nf">enqueue</span><span class="p">(</span><span class="n">active_jobs</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Releasing Bulk functionality was a two-step: I initially implemented it while working on Batch functionality, and then with @julik’s initiative and help, we extracted and polished it to be used on its own.</p>
+
+<h3 id="batches">Batches</h3>
+
+<p><a href="https://github.com/bensheldon/good_job#batches">GoodJob’s Batch functionality</a> coordinates parallelized sets of jobs. The ability to coordinate a set of jobs, and run callbacks during lifecycle events, has been a highly demanded feature. Most people who talked to me about job batches were familiar with <a href="https://sidekiq.org/products/pro.html">Sidekiq Pro</a> ‘s <a href="https://github.com/mperham/sidekiq/wiki/Batches">batch functionality</a>, which I didn’t want to simply recreate (Sidekiq Pro is excellent!). So I’ve been collecting use cases and thinking about what’s most in the spirit of Rails, Active Job, and Postgres:</p>
+
+<ul>
+  <li>Batches are mutable, database-backed objects with foreign-key relationships to sets of job records.</li>
+  <li>Batches have  <code>properties</code> which use Active Job’s serializer, so they can contain and rehydrate any GlobalID object, like Active Record models.</li>
+  <li>Batches have callbacks, which are themselves Active Job jobs</li>
+</ul>
+
+<p>Here’s a simple example:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">GoodJob</span><span class="o">::</span><span class="no">Batch</span><span class="p">.</span><span class="nf">enqueue</span><span class="p">(</span><span class="ss">on_finish: </span><span class="no">MyBatchCallbackJob</span><span class="p">,</span> <span class="ss">user: </span><span class="n">current_user</span><span class="p">)</span> <span class="k">do</span>
+  <span class="no">MyJob</span><span class="p">.</span><span class="nf">perform_later</span>
+  <span class="no">OtherJob</span><span class="p">.</span><span class="nf">perform_later</span>
+<span class="k">end</span>
+
+<span class="c1"># When these jobs have finished, it will enqueue your `MyBatchCallbackJob.perform_later(batch, options)`</span>
+<span class="k">class</span> <span class="nc">MyBatchCallbackJob</span> <span class="o">&lt;</span> <span class="no">ApplicationJob</span>
+  <span class="c1"># Callback jobs must accept a `batch` and `params` argument</span>
+  <span class="k">def</span> <span class="nf">perform</span><span class="p">(</span><span class="n">batch</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
+    <span class="c1"># The batch object will contain the Batch's properties, which are mutable</span>
+    <span class="n">batch</span><span class="p">.</span><span class="nf">properties</span><span class="p">[</span><span class="ss">:user</span><span class="p">]</span> <span class="c1"># =&gt; &lt;User id: 1, ...&gt;</span>
+    <span class="c1"># Params is a hash containing additional context (more may be added in the future)</span>
+    <span class="n">params</span><span class="p">[</span><span class="ss">:event</span><span class="p">]</span> <span class="c1"># =&gt; :finish, :success, :discard</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>There’s more depth and examples in the <a href="https://github.com/bensheldon/good_job#batches">GoodJob Batch documentation</a>.</p>
+
+<h3 id="please-help">Please help!</h3>
+
+<p>Batches are definitely a work in progress, and I’d love your feedback:</p>
+
+<ul>
+  <li>What is the Batch functionality missing? Tell me your use cases.</li>
+  <li>Help improve the <a href="https://goodjob-demo.herokuapp.com/good_job/jobs">Web Dashboard UI</a> (it’s rough but functional!)</li>
+  <li>Find bugs! I’m sure there are some edge cases I overlooked.</li>
+</ul>
+
+  </div>
+</article>
+
+
+  <div class="card my-4">
+    <div class="card-body">
+      Discuss this with me on <a href="https://twitter.com/bensheldon"><i class="bi bi-twitter"></i> Twitter</a>
+      or suggest a
+      <a href="https://github.com/bensheldon/island94-jekyll/blob/main/_posts/2023-02-05-introducing-goodjob-bulk-and-batch.md"><i class="bi bi-github"></i>
+        change</a>.
+
+        <hr>
+        <h5>Related Posts</h5>
+        <ul>
+            <li><a href="/2024/7/introducing-goodjob-v4">Introducing GoodJob v4</a></li>
+            <li><a href="/2023/12/solid-queue-first-impressions">Solid Queue first impressions: Nice!</a></li>
+            <li><a href="/2023/10/reflections-on-good-job-for-solid-queue">Reflections on GoodJob for Solid Queue</a></li>
+            <li><a href="/2023/8/how-to-isolate-i18n-configuration-in-a-rails-engine">How to isolate I18n configuration in a Rails Engine</a></li>
+            <li><a href="/2023/5/rebuilding-concurrent-ruby-scheduledtask-event-and-timerset">Rebuilding Concurrent Ruby: ScheduledTask, Event, and TimerSet</a></li>
+        </ul>
+    </div>
+  </div>
+</div>
+
+  </div>
+
+</body>
+</html>

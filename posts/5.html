@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> | Island94.org</title>
+
+  <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="y1pRHC1Ju364-zwXWCRGwDtUAGYrvGRKx5j-VbczqVIYc5pyx3RZDjvgbLH-beiNXuUi8J-GviexZrZ6UvYvZQ" />
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Island94.org" href="https://island94.org/feed.xml">
+
+  <link rel="stylesheet" href="/assets/application-3c56ab95cf55e7f461f0ea9391c2b1391a5c64b74433224fe76ad58b7fa20c07.css" data-turbo-track="reload" />
+  <script src="/assets/main-57967bd29e3a27ba3099fee5997ee6ec8c59ef209085f949b6eac799b21915b0.js"></script>
+
+  <script>
+    let theme = localStorage.getItem('theme');
+    if (!["light", "dark"].includes(theme)) {
+      theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    document.documentElement.setAttribute('data-bs-theme', theme);
+  </script>
+
+      <meta name="robots" content="noindex, follow">
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light mb-2 flex-column">
+  <div class="container">
+    <a class="navbar-brand" href="/">Island94.org</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link " href="/about/">About</a></li>
+        <li class="nav-item"><a class="nav-link " href="/archives/">Archives</a></li>
+<!--        <li class="nav-item"><a class="nav-link " href="/books/">Books</a></li>-->
+        <li class="nav-item"><a class="nav-link " href="/tags/">Tags</a></li>
+        <li class="nav-item"><a class="nav-link" href="/feed.xml">RSS Feed <i class="bi bi-rss-fill"></i></a></li>
+
+        <li class="nav-item py-2 py-lg-1 col-12 col-lg-auto">
+          <div class="vr d-none d-lg-flex h-100 mx-lg-2 text-light-500"></div>
+          <hr class="d-lg-none my-0 text-light-500">
+        </li>
+
+        <li class="nav-item dropdown">
+          <button id="bs-theme" class="btn btn-link nav-link dropdown-toggle" type="button" aria-expanded="false" data-bs-toggle="dropdown"  aria-label="Theme (Auto)">
+            <i data-bs-theme-active-icon class="bi bi-circle-half"></i>
+            <span data-bs-theme-label>Theme</span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="bs-theme-text">
+            <li>
+              <button type="button" class="dropdown-item" data-bs-theme-value="light" aria-pressed="false">
+                <i class="bi bi-sun"></i> Light
+              </button>
+            </li>
+            <li>
+              <button type="button" class="dropdown-item" data-bs-theme-value="dark" aria-pressed="false">
+                <i class="bi bi-moon-stars-fill"></i> Dark
+              </button>
+            </li>
+            <li>
+              <button type="button" class="dropdown-item" data-bs-theme-value="auto" aria-pressed="true">
+                <i class="bi bi-circle-half"></i> Auto
+              </button>
+            </li>
+          </ul>
+        </li>
+
+      </ul>
+
+      <form id="search" class="d-flex" action="/search" method="get">
+        <input id="search-box" class="form-control search" role="search" name="q" placeholder="Search" aria-label="Search" results="0" type="text">
+        <button class="visually-hidden" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+  <div class="container">
+    <div class="text-muted fst-italic">
+      — Ben Sheldon's personal blog and <a href="/2012/04/A-Commonplace-Book.html">commonplace book</a>.
+    </div>
+  </div>
+</nav>
+
+
+  <div class="container container-body">
+    
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2023/2/service-object-objects-in-ruby"><p>Service Object Objects in Ruby</p>
+</a>
+    </h1>
+    <p class="post-meta text-muted">
+        <time datetime="2023-02-14T08:18:00-08:00" itemprop="datePublished">February 14, 2023</time>
+
+        • Tagged Ruby
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>For anyone that follows me on social media, I’ll sometimes get into a <a href="https://deprogrammaticaipsum.com/james-coplien/">Coplien</a>-esque funk of “I don’t wanna write Classes. I want to write <em>Objects</em>!”. I don’t want to negotiate an industrial-relations policy for instances of Person in the current scope. I want to imagine the joy and misery Alice and Bob will experience working together right now.</p>
+
+<p>I was thinking of that recently when <a href="https://www.reddit.com/r/ruby/comments/10sooyr/comment/j74j5qw/?utm_source=reddit&amp;utm_medium=web2x&amp;context=3">commenting on Reddit</a> about Caleb Hearth’s <a href="https://calebhearth.com/decree">“The Decree Design Pattern”</a>. Which ended up in the superset of these two thoughts:</p>
+
+<ul>
+  <li>heck yeah! if it’s globally distinct it should be globally referenceable</li>
+  <li>oh, oh no, I don’t like looking at <em>that</em> particular Ruby code</li>
+</ul>
+
+<p>This was my comment to try to personally come to terms with those thoughts, iteratively:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># a consistent callable</span>
+<span class="n">my_decree</span> <span class="o">=</span> <span class="o">-&gt;</span> <span class="p">{</span> <span class="n">do_something</span> <span class="p">}</span>
+
+<span class="c1"># ok, but globally scoped</span>
+<span class="no">MY_DECREE</span> <span class="o">=</span> <span class="o">-&gt;</span> <span class="p">{</span> <span class="n">do_something</span> <span class="p">}</span>
+
+<span class="c1"># ok, but without the shouty all-caps</span>
+<span class="k">module</span> <span class="nn">MyDecree</span>
+  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">call</span> 
+    <span class="n">do_something</span> 
+  <span class="k">end</span> 
+<span class="k">end</span>
+
+<span class="c1"># ok, but what about when it gets really complex</span>
+<span class="k">class</span> <span class="nc">MyDecree</span> 
+  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">call</span><span class="p">(</span><span class="n">variable</span><span class="p">)</span>
+    <span class="n">new</span><span class="p">(</span><span class="n">variable</span><span class="p">).</span><span class="nf">call</span> 
+  <span class="k">end</span>
+  
+  <span class="k">def</span> <span class="nf">new</span><span class="p">(</span><span class="n">variable</span><span class="p">)</span>
+    <span class="vi">@variable</span> <span class="o">=</span> <span class="n">variable</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">call</span>
+    <span class="n">do_something</span>
+    <span class="n">do_something_else</span><span class="p">(</span><span class="vi">@variable</span><span class="p">)</span>
+    <span class="n">do_even_more</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">do_even_more</span>
+    <span class="c1"># something really complicated....</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>From the outside, <em>object</em> perspective, these are all have the same interchangeable interface (<code>.call</code>), and except for the first one, accessible everywhere. That’s great, from my perspective! Though I guess it’s a pretty short blog post to say:</p>
+
+<ul>
+  <li>Decrees are globally discrete and call-able objects</li>
+  <li>The implementation is up to you!</li>
+</ul>
+
+<p>Unfortunately, the moment the internals come into play, it gets messy. But I don’t think that should take away from the external perspective.</p>
+
+
+  </div>
+</article>
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2023/2/slop-and-call"><p>Slop and call</p>
+</a>
+    </h1>
+    <p class="post-meta text-muted">
+        <time datetime="2023-02-12T20:34:00-08:00" itemprop="datePublished">February 12, 2023</time>
+
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>In my role as Engineering Manager, I frequently play <em>Keeper of the Process</em>. Having worked effectively alongside plenty of agile <code>#noplanning</code> people (RIP Andrew), and carrying the scars of dysfunctional processes (oh, PRDs and OGSM), it feels historically out of character to lean into OKR scores and target dates. And I think I’ve made my peace with it.</p>
+
+<p>When I was in high school, my friend’s dad Gary (RIP Gary) retired and bought a championship pool table. The pool table went in their living room and everything else came out. Nothing else fit. The room was a pool table and a stero, which Gary kept tuned to classic jazz. We played a lot of pool and listened to a lot of Charles Mingus.</p>
+
+<p>The two games I remember playing most was 2-ball “English” and 9-ball. English is a “called” game; you have to say which ball and hole you’re aiming for before making the shot. 9-ball is played “slop”, as long as you hit the lowest-numbered ball first, it doesn’t matter which ball goes into which hole.</p>
+
+<p>Both games have their techniques. Playing English I got really good at fine ball handling and putting a sidespin on the ball (that’s the “English”) and having a narrow intent. With 9-ball, I learned to do a lot of what we call a “textbook”-shot (I dunno why we gave only this one shot that name; we were 17). The shot was to bounce the ball off of as many alternating rails as possible until the ball eventually walked itself into a pocket. Just slam it really.</p>
+
+<p>The point is, both of them were ok ways to play. They were just different. It’s fine.</p>
+
+  </div>
+</article>
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2023/2/prevent-cdn-poisoning-from-fat-get-head-requests-in-ruby-on-rails"><p>Prevent CDN poisoning from Fat GET/HEAD Requests in Ruby on Rails</p>
+</a>
+    </h1>
+    <p class="post-meta text-muted">
+        <time datetime="2023-02-12T12:32:00-08:00" itemprop="datePublished">February 12, 2023</time>
+
+        • Tagged rails
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>There are many different flavors of <a href="https://portswigger.net/research/web-cache-entanglement">web cache poisoning discovered by Security Researcher James Kettle</a>. Read on for an explanation of one I’ve run across…</p>
+
+<p><strong>What is a Fat GET/HEAD Request?</strong> A GET or HEAD request is “fat” when it has a request body. It’s unexpected! Typically one sees a request body with a POST or PUT request because the body contains form data. The HTTP specification says that including a request body with GET or HEAD requests is <a href="https://stackoverflow.com/a/983458"><em>undefined</em></a>. You can do it, and it’s up to the application to figure out what that means. Sometimes it’s bad!</p>
+
+<p>You can get a sense of the applications that intentionally support Fat Requests (and how grumpy it makes some people) by reading through this <a href="https://github.com/postmanlabs/postman-app-support/issues/131">Postman issue</a>.</p>
+
+<p><strong>Fat Requests can lead to CDN and cache poisoning in Rails.</strong> CDNs and caching web proxies (like Varnish) are frequently configured to cache the response from a GET or HEAD request based solely on the request’s URL and not the contents of the request body (they don’t cache POSTs or PUTs at all). If an application isn’t deliberately handling the request body, it may cause unexpected content to be cached and served.</p>
+
+<p>For example, you have a <code>/search</code> endpoint:</p>
+
+<ul>
+  <li><code>GET /search</code> shows a landing page with some explanatory content</li>
+  <li><code>GET /search?q=foo</code> shows the search results for “foo”.</li>
+  <li>
+    <p>Here’s what a Fat Request looks like:</p>
+
+    <pre><code class="language-text">GET /search     &lt;== the url for the landing page
+
+q=verybadstuff  &lt;== oh, but with a request body
+</code></pre>
+  </li>
+</ul>
+
+<p>In a Rails Controller, <code>parameters</code> (alias <code>params</code>) merges query parameters (that’s the URL values) with request parameters (that’s the body values) into a single data structure. If your controller uses the presence of <code>params[:q]</code> to determine whether to show the landing page or the search results, it’s possible that when someone sends that Fat Request, your CDN may cache and subsequently serve the results for <code>verybadstuff</code> every time someone visits the <code>/search</code> landing page. That’s bad!</p>
+
+<p>Here’s how to Curl it:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-XGET</span> <span class="nt">-H</span> <span class="s2">"Content-Type: application/x-www-form-urlencoded"</span> <span class="nt">-d</span> <span class="s2">"q=verybadstuff"</span> http://localhost:3000/search
+</code></pre></div></div>
+
+<p>Here are 3 ways to fix it…</p>
+
+<h2 id="solution-1-fix-at-the-cdn">Solution #1: Fix at the CDN</h2>
+
+<p>The most straightforward place to fix this should be at the caching layer, but it’s not always easy.</p>
+
+<p>With Cloudflare, you could rewrite the GET request’s <code>Content-Type</code> header if it is <code>application/x-www-form-urlencoded</code> or <code>multipart/form-data</code>. Or use a Cloudflare Worker to drop the request body.</p>
+
+<p>Varnish makes it easy to drop the request body for any GET request.</p>
+
+<p>Other CDNs or proxies may be easier or more difficult. It depends!</p>
+
+<p>Update via <a href="https://github.com/Mr0grog">Mr0grog</a>: AWS Cloudfront returns a <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehaviorCustomOrigin.html#RequestCustom-get-body">403 by default</a>.</p>
+
+<h2 id="solution-2-deliberately-use-query_parameters">Solution #2: Deliberately use <code>query_parameters</code></h2>
+
+<p>Rails provides three different methods for accessing parameters:</p>
+
+<ul>
+  <li><code>query_parameters</code> for the values in the request URL</li>
+  <li><code>request_parameters</code> ) for the values in the request body</li>
+  <li><code>parameters</code> (alias <code>params</code>) for the problematic combination of them both. Values in <code>query_parameters</code> take precedence over values in <code>request_parameters</code> when they are merged together.</li>
+</ul>
+
+<p>Developers could be diligent and make sure to only use <code>query_parameters</code> in <code>#index</code> or <code>#show</code> , or <code>get</code> routed actions. Here’s an example from the <a href="https://github.com/git/git-scm.com/issues/1551"><code>git-scm</code> project</a>.</p>
+
+<h2 id="solution-3-patch-rails">Solution #3: Patch Rails</h2>
+
+<p>Changes were <a href="https://github.com/rails/rails/issues/39974">proposed in Rails</a> to not have <code>parameters</code> merge in the body values for GET and HEAD requests; it was rejected because it’s more a problem with the upstream cache than it is with Rails.</p>
+
+<p>You can patch your own version of Rails. Here’s an example that patches the method in <a href="https://github.com/rails/rails/blob/21a3b52ba0b7d94b4903e02b6ac537a7d1d1c817/actionpack/lib/action_dispatch/http/parameters.rb#L49-L63"><code>ActionDispatch::Request</code></a>:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># config/initializers/sanitize_fat_requests.rb</span>
+<span class="k">module</span> <span class="nn">SanitizeFatRequests</span>
+  <span class="k">def</span> <span class="nf">parameters</span>
+    <span class="n">params</span> <span class="o">=</span> <span class="n">get_header</span><span class="p">(</span><span class="s2">"action_dispatch.request.parameters"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">params</span> <span class="k">if</span> <span class="n">params</span>
+
+    <span class="k">if</span> <span class="n">get?</span> <span class="o">||</span> <span class="n">head?</span>
+      <span class="n">params</span> <span class="o">=</span> <span class="n">query_parameters</span><span class="p">.</span><span class="nf">dup</span>
+      <span class="n">params</span><span class="p">.</span><span class="nf">merge!</span><span class="p">(</span><span class="n">path_parameters</span><span class="p">)</span>
+      <span class="n">set_header</span><span class="p">(</span><span class="s2">"action_dispatch.request.parameters"</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
+      <span class="n">params</span>
+    <span class="k">else</span>
+      <span class="k">super</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+  <span class="k">alias</span> <span class="ss">:params</span> <span class="ss">:parameters</span>
+<span class="k">end</span>
+
+<span class="no">ActionDispatch</span><span class="o">::</span><span class="no">Request</span><span class="p">.</span><span class="nf">include</span><span class="p">(</span><span class="no">SanitizeFatRequests</span><span class="p">)</span>
+
+<span class="c1"># Some RSpec tests to verify this</span>
+<span class="nb">require</span> <span class="s1">'rails_helper'</span>
+
+<span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="no">SanitizeFatRequests</span><span class="p">,</span> <span class="ss">type: :request</span> <span class="k">do</span>
+  <span class="n">it</span> <span class="s1">'does not merge body params in GET requests'</span> <span class="k">do</span>
+    <span class="n">get</span> <span class="s2">"/search"</span><span class="p">,</span> <span class="ss">headers: </span><span class="p">{</span><span class="s1">'CONTENT_TYPE'</span> <span class="o">=&gt;</span> <span class="s1">'application/x-www-form-urlencoded'</span><span class="p">},</span> <span class="ss">env: </span><span class="p">{</span><span class="s1">'rack.input'</span><span class="p">:</span> <span class="no">StringIO</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s1">'q=verybadstuff'</span><span class="p">)</span> <span class="p">}</span>
+
+    <span class="c1"># verify that the request is correctly shaped because</span>
+    <span class="c1"># the test helpers don't expect this kind of request</span>
+    <span class="n">expect</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="nf">request_parameters</span><span class="p">).</span><span class="nf">to</span> <span class="n">eq</span><span class="p">(</span><span class="s2">"q"</span> <span class="o">=&gt;</span> <span class="s2">"verybadstuff"</span><span class="p">)</span>
+    <span class="n">expect</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="nf">parameters</span><span class="p">).</span><span class="nf">to</span> <span class="n">eq</span><span class="p">({</span><span class="s2">"action"</span><span class="o">=&gt;</span><span class="s2">"panlexicon"</span><span class="p">,</span> <span class="s2">"controller"</span><span class="o">=&gt;</span><span class="s2">"search"</span><span class="p">})</span>
+
+    <span class="c1"># the behavioral expectation</span>
+    <span class="n">expect</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="nf">body</span><span class="p">).</span><span class="nf">not_to</span> <span class="kp">include</span> <span class="s2">"verybadstuff"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+
+  </div>
+</article>
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2023/2/introducing-goodjob-bulk-and-batch"><p>Introducing GoodJob Bulk and Batch</p>
+</a>
+    </h1>
+    <p class="post-meta text-muted">
+        <time datetime="2023-02-05T14:37:00-08:00" itemprop="datePublished">February 5, 2023</time>
+
+        • Tagged GoodJob
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>GoodJob is a multithreaded, Postgres-based, ActiveJob backend for Ruby on Rails. I recently released two new features:</p>
+
+<ul>
+  <li><code>GoodJob::Bulk</code> to optimize enqueuing large numbers of jobs (released in GoodJob v3.9)</li>
+  <li><code>GoodJob::Batch</code> to coordinate parallelized sets of jobs (released in GoodJob v3.10)</li>
+</ul>
+
+<p>Big thanks to @julik, @mollerhoj, @v2kovac, @danielwestendorf, @jrochkind, @mperham and others for your help and counsel!</p>
+
+<h3 id="bulk-enqueue">Bulk enqueue</h3>
+
+<p><a href="https://github.com/bensheldon/good_job#bulk-enqueue">GoodJob’s Bulk-enqueue functionality</a> can buffer and enqueue multiple jobs at once, using a single INSERT statement. This can be more performant when enqueuing a large number of jobs.</p>
+
+<p>I was inspired by a discussion within a Rails pull request to implement <a href="https://github.com/rails/rails/pull/46603"><code>perform_all_later</code> within Active Job</a>. I wanted to both support the way most people enqueue Active Job jobs with <code>perform_later</code> and also <a href="https://github.com/rails/rails/pull/43434">encourage people to work directly with Active Job instances too</a>.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># perform_later within a block</span>
+<span class="n">active_jobs</span> <span class="o">=</span> <span class="no">GoodJob</span><span class="o">::</span><span class="no">Bulk</span><span class="p">.</span><span class="nf">enqueue</span> <span class="k">do</span>
+  <span class="no">MyJob</span><span class="p">.</span><span class="nf">perform_later</span>
+  <span class="no">AnotherJob</span><span class="p">.</span><span class="nf">perform_later</span>
+<span class="k">end</span>
+<span class="c1"># or with Active Job instances</span>
+<span class="n">active_jobs</span> <span class="o">=</span> <span class="p">[</span><span class="no">MyJob</span><span class="p">.</span><span class="nf">new</span><span class="p">,</span> <span class="no">AnotherJob</span><span class="p">.</span><span class="nf">new</span><span class="p">]</span>
+<span class="no">GoodJob</span><span class="o">::</span><span class="no">Bulk</span><span class="p">.</span><span class="nf">enqueue</span><span class="p">(</span><span class="n">active_jobs</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Releasing Bulk functionality was a two-step: I initially implemented it while working on Batch functionality, and then with @julik’s initiative and help, we extracted and polished it to be used on its own.</p>
+
+<h3 id="batches">Batches</h3>
+
+<p><a href="https://github.com/bensheldon/good_job#batches">GoodJob’s Batch functionality</a> coordinates parallelized sets of jobs. The ability to coordinate a set of jobs, and run callbacks during lifecycle events, has been a highly demanded feature. Most people who talked to me about job batches were familiar with <a href="https://sidekiq.org/products/pro.html">Sidekiq Pro</a> ‘s <a href="https://github.com/mperham/sidekiq/wiki/Batches">batch functionality</a>, which I didn’t want to simply recreate (Sidekiq Pro is excellent!). So I’ve been collecting use cases and thinking about what’s most in the spirit of Rails, Active Job, and Postgres:</p>
+
+<ul>
+  <li>Batches are mutable, database-backed objects with foreign-key relationships to sets of job records.</li>
+  <li>Batches have  <code>properties</code> which use Active Job’s serializer, so they can contain and rehydrate any GlobalID object, like Active Record models.</li>
+  <li>Batches have callbacks, which are themselves Active Job jobs</li>
+</ul>
+
+<p>Here’s a simple example:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">GoodJob</span><span class="o">::</span><span class="no">Batch</span><span class="p">.</span><span class="nf">enqueue</span><span class="p">(</span><span class="ss">on_finish: </span><span class="no">MyBatchCallbackJob</span><span class="p">,</span> <span class="ss">user: </span><span class="n">current_user</span><span class="p">)</span> <span class="k">do</span>
+  <span class="no">MyJob</span><span class="p">.</span><span class="nf">perform_later</span>
+  <span class="no">OtherJob</span><span class="p">.</span><span class="nf">perform_later</span>
+<span class="k">end</span>
+
+<span class="c1"># When these jobs have finished, it will enqueue your `MyBatchCallbackJob.perform_later(batch, options)`</span>
+<span class="k">class</span> <span class="nc">MyBatchCallbackJob</span> <span class="o">&lt;</span> <span class="no">ApplicationJob</span>
+  <span class="c1"># Callback jobs must accept a `batch` and `params` argument</span>
+  <span class="k">def</span> <span class="nf">perform</span><span class="p">(</span><span class="n">batch</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
+    <span class="c1"># The batch object will contain the Batch's properties, which are mutable</span>
+    <span class="n">batch</span><span class="p">.</span><span class="nf">properties</span><span class="p">[</span><span class="ss">:user</span><span class="p">]</span> <span class="c1"># =&gt; &lt;User id: 1, ...&gt;</span>
+    <span class="c1"># Params is a hash containing additional context (more may be added in the future)</span>
+    <span class="n">params</span><span class="p">[</span><span class="ss">:event</span><span class="p">]</span> <span class="c1"># =&gt; :finish, :success, :discard</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>There’s more depth and examples in the <a href="https://github.com/bensheldon/good_job#batches">GoodJob Batch documentation</a>.</p>
+
+<h3 id="please-help">Please help!</h3>
+
+<p>Batches are definitely a work in progress, and I’d love your feedback:</p>
+
+<ul>
+  <li>What is the Batch functionality missing? Tell me your use cases.</li>
+  <li>Help improve the <a href="https://goodjob-demo.herokuapp.com/good_job/jobs">Web Dashboard UI</a> (it’s rough but functional!)</li>
+  <li>Find bugs! I’m sure there are some edge cases I overlooked.</li>
+</ul>
+
+  </div>
+</article>
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2023/1/framing-open-source-contributions-at-work"><p>Framing open source contributions at work</p>
+</a>
+    </h1>
+    <p class="post-meta text-muted">
+        <time datetime="2023-01-26T16:51:00-08:00" itemprop="datePublished">January 26, 2023</time>
+
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>Excerpts from the excellent RailsConf 2022 keynote: <a href="https://www.youtube.com/watch?v=MbqJzACF-54">The Success of Ruby on Rails by Eileen Uchitelle</a> [reformatted from the transcript]:</p>
+
+<blockquote>
+
+  <p>Upgrading is one of the easiest ways to find an area of Rails that can benefit from your contributions.  Fixing an issue in a recent release has a high likelihood of being merged.</p>
+
+  <p>Running off Rails Main is another way to find contributions to Rails.  If you don’t want to run your Main in production,   you could run it in a separate CI build.  Shopify, GitHub and Basecamp run it.</p>
+
+  <p>Running off Main may be harder than running off a release because features and bug fixes are  a little in flux sometimes. If you are running  off of Main, a feature added to the Main branch could be removed without deprecation. This is a worthwhile risk to take on because it lowers the overall risk of an upgrade.  When you run off Main, you’re less likely to fall behind upgrading because it becomes  part of your weekly or monthly maintenance.  Upgrading becomes routine, second nature rather  than novel and scary. Changes are easy to isolate. It’s just slightly less polished. Like I  said, I still think it’s pretty stable.</p>
+
+  <p>Another way to find places to contribute  is look at your own applications.</p>
+
+  <ul>
+    <li>Do you have monkey patches on Rails code  that are fixes bugs or changing behavior?   Instead of leaving them there, upstream  the fix and delete the monkey patch.</li>
+    <li>Is there infrastructure level code that  doesn’t really pertain to your product? It’s possible this could be a great addition to  Rails. When I wrote the database in Rails, it came from GitHub’s monolith. It made perfect sense  because it was getting in the way of upgrades, didn’t expose any intellectual property, had  nothing to do with your product features and  
+something many applications could benefit from.</li>
+    <li>Lastly and most importantly, keep showing up.</li>
+  </ul>
+
+  <p>… Ultimately,  if more companies treated the framework as an extension of the application, it would  result in higher resilience and stability. Investment in Rails ensures your foundation will not crumble under the weight of your application. Treating it as an unimportant part of your application is a mistake and many, many leaders make this mistake.</p>
+
+  <p>…leaders see funding open source risky is because they don’t actually  understand the work. … Often, leaders worry if there’s a team working in open source, other teams are going to be jealous or resentful that that team is doing “fun” work. …</p>
+
+  <p>Maintainers need to make changes, deal with security incidents and also handle criticism from many people. Maintaining and contributing to open source requires a different skill set than product work. That doesn’t make it any less essential.</p>
+
+  <p>…Many product companies don’t like words like “research” and “experimental.”  They can imply work without goals. Use words like  “investment.” And demonstrate the direct value will bring. Make sure it is measurable and will  make the application and product more successful. A great example of measurable work is  a change that improves performance. If you can tie contributions to direct customer improvements, it’s easier to show leadership.</p>
+
+  <p>…As I started contributing more and more  and pealing back the layers of Rails, the impact is limitless. I started looking at how applications stretched  the boundaries of what Rails was meant to do.</p>
+
+  <p>…Ultimately, I want you to contribute to Rails because it’s going to enable you to build a better company and product. The benefits of investing in Rails go far beyond improving the framework.</p>
+
+  <p>Investing in Rails will build up the skills of your engineering team. They will developer better communication skills, learn to navigate criticism,  debugging skills and how the framework functions.  It will teach engineers about the inner-workings and catch bugs.</p>
+
+  <p>Monkey patching is far more dangerous than I think most realize. They break  with upgrades and cause security incidents.  When you write a monkey patch, you maintain a portion of Rails code. Wouldn’t it have been   better to patch it upstream rather than taking on that risk and responsibility.</p>
+
+  <p>It will give your engineering team the skills  they need to make better technical decisions. You’re ensuring that Rails benefits your application and the company for the long-term.</p>
+
+  <p>…Contributing to Rails is only <em>not</em> essential if you don’t care about the direction the framework is headed in. We should be contributing  because we care about the changes.</p>
+
+  <p>We want to ensure our apps are upgradeable, performant and stable.</p>
+
+  <p>Investment in Rails also means you won’t have to rewrite your application in a few years because Rails no longer supports what you need. When you fail  to invest in your tools, you end up being unable to upgrade. Your engineering team is miserable. The codebase is a mess and writing features is impossible. You’re forced into a rewrite, your engineers want to write Rails and you can no longer let them do that. You have to build a bunch of features before you site falls over.</p>
+
+  <p>It’s not Rails’ fault you made  the decision to invest elsewhere.</p>
+
+  <p>If you build contributing into your culture, the benefits are clear:</p>
+
+  <ul>
+    <li>Your engineering teams’ skills will improve.</li>
+    <li>Rails will evolve with your  application because you’re helping decide how it needs to change.</li>
+    <li>Your application will be  more resilient because there’s low tech debt and your foundation is stable. Active investment  prevents your application from degrading.</li>
+  </ul>
+
+  <p>Building a team to invest in Rails is  proactive. Rewriting an application is reactive. Which one do you think is better for business in the long run?</p>
+
+</blockquote>
+
+  </div>
+</article>
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2023/1/how-goodjob-s-cron-does-distributed-locks"><p>How GoodJob’s Cron does distributed locks</p>
+</a>
+    </h1>
+    <p class="post-meta text-muted">
+        <time datetime="2023-01-22T10:18:00-08:00" itemprop="datePublished">January 22, 2023</time>
+
+        • Tagged GoodJob
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p><a href="https://github.com/bensheldon/good_job">GoodJob</a> is a multithreaded, Postgres-based, Active Job backend for Ruby on Rails. GoodJob has many features that take it beyond Active Job. One such feature is <a href="https://github.com/bensheldon/good_job/blob/994ecff5323bf0337e10464841128fda100750e6/README.md#cron-style-repeatingrecurring-jobs">cron-like functionality</a> that allows scheduling repeated jobs on a fixed schedule.</p>
+
+<p>This post is a brief technical story of how GoodJob prevents duplicated cron jobs from running in a multi-process, distributed environment.</p>
+
+<p><em>This is all true as of GoodJob’s current version, 3.7.4.</em></p>
+
+<h3 id="briefly-how-goodjobs-cron-works">Briefly, how GoodJob’s cron works</h3>
+
+<p>GoodJob heavily leans on <code>Concurrent::Ruby</code> high-level primitives, and the cron implementation is no different. <a href="https://github.com/bensheldon/good_job/blob/994ecff5323bf0337e10464841128fda100750e6/lib/good_job/cron_manager.rb"><code>GoodJob::CronManager</code></a> accepts a fixed hash of schedule configuration and feeds them into <code>Concurrent::ScheduledTask</code>s, which then trigger <code>perform_later</code> on the job classes at the prescribed times.</p>
+
+<p>A locking strategy is necessary. GoodJob can be running across multiple processes, across numerous isolated servers or containers, in one application. GoodJob should guarantee that at the scheduled time, only a single scheduled job is enqueued.</p>
+
+<h3 id="initially-advisory-locks">Initially, advisory locks</h3>
+
+<p>When <a href="https://github.com/bensheldon/good_job/pull/297">GoodJob’s cron feature was first introduced in version 1.12</a>, Cron used an existing feature of GoodJob: <a href="https://github.com/bensheldon/good_job/blob/994ecff5323bf0337e10464841128fda100750e6/README.md#activejob-concurrency">Concurrency Control</a>. Concurrency Control places limits on how many jobs can be enqueued or performed at the same time.</p>
+
+<p>Concurrency Control works by assigning jobs a “key” which is simply a queryable string. Before enqueuing jobs, GoodJob will count how many job records already exist with that same key and prevent the action if the count exceeds the configured limit. GoodJob uses advisory locks to avoid race conditions during this accounting phase.</p>
+
+<p>There were some downsides to using Concurrency Control for Cron.</p>
+
+<ul>
+  <li>It was a burden on developers. Concurrency Control extends <code>ActiveJob::Base</code> and required the developer to configure Concurrency Control rules separately from the Cron configuration.</li>
+  <li>It wasn’t very performant. Concurrency Control’s design is pessimistic and works best when collisions are rare or infrequent. But a large, clock-synchronized formation of GoodJob processes will frequently produce collisions and it could take several seconds of advisory locking and unlocking across all the processes to insert a single job.</li>
+</ul>
+
+<h3 id="then-a-unique-index">Then, a unique index</h3>
+
+<p>GoodJob v2.5.0 <a href="https://github.com/bensheldon/good_job/pull/423">changed the cron locking strategy</a>. Instead of using Concurrency Control’s advisory locks, GoodJob uses a unique compound index to prevent the same cron job from being enqueued/<code>INSERT</code>ed into the database multiple times.</p>
+
+<ul>
+  <li>In addition to the existing <code>cron_key</code> column in job records, the change added a new timestamp column, <code>cron_at</code> to  store when the cron job is enqueued.</li>
+  <li>Added a unique index on <code>[cron_key, cron_at]</code> to ensure that only one job is inserted for the given key and time.</li>
+  <li>Handled the expected <code>ActiveRecord::RecordNotUnique</code> when multiple cron processes try to enqueue the same cron job simultaneously and the unique index prevents the <code>INSERT</code> from taking place</li>
+</ul>
+
+<p>Now, when a thundering herd of GoodJob processes tries to enqueue the same cron job at the same time, the database uses its unique index constraint to prevent multiple job records from being created. Great!</p>
+
+<h3 id="does-it-do-a-good-job">Does it do a good job?</h3>
+
+<p>Yes! I’ve received lots of positive feedback in the year+ since GoodJob’s cron moved to a unique index locking strategy. From the application perspective, there’s much less enqueueing latency using a unique index than when using advisory locks. And from the developer’s perspective, it does <em>just work</em> without additional configuration beyond the schedule.</p>
+
+<p>The main benefit is that the strategy is <em>optimistic</em>. GoodJob just goes for it and lets the database’s unique indexing and built-in locks sort it out. That allows removing the application-level locking and querying and branching logic in the GoodJob client; only handling the potential <code>ActiveRecord::RecordNotUnique</code> exception is necessary.</p>
+
+<p>Using a unique index does require preserving the job records for a bit after the jobs have been performed. Otherwise, poor clock synchronization across processes could lead to a duplicate job being inserted again if the job has already been performed and removed from the table/index. Fortunately, preserving job records should not be too burdensome because GoodJob will <a href="https://github.com/bensheldon/good_job/blob/994ecff5323bf0337e10464841128fda100750e6/README.md#monitor-and-preserve-worked-jobs">automatically clean them up</a> too.</p>
+
+<p>Lastly, one goal of writing this is the hope/fear that a Database Administrator will tell me this is a terrible strategy and provide a better one. Until that happens, I have confidence GoodJob’s cron is good. <a href="https://github.com/bensheldon/good_job/discussions/806">I’d love your feedback!</a></p>
+
+<p><strong>Edit:</strong> In an earlier version of this post, I mixed up “optimistic” and “pessimistic” locking; that has been corrected.</p>
+
+  </div>
+</article>
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2023/1/conflict-at-work"><p>Conflict, at work</p>
+</a>
+    </h1>
+    <p class="post-meta text-muted">
+        <time datetime="2023-01-03T21:17:00-08:00" itemprop="datePublished">January 3, 2023</time>
+
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <ul>
+  <li>I had a conversation with a coworker that reminded me (again!) of this <a href="https://island94.org/2022/03/over-rapported">Foreign Affairs essay</a>. It was about receiving feedback that seemed to focus on minimizing interpersonal conflict over things like achieving goals and strategy and impact; it felt familiar.</li>
+  <li>I’ve had coworkers and executives in other jobs that were like “people need to be more comfortable with conflict”. I’ve also been screamed at in a postmortem at a different job. So like, my feelings are mixed. Like are we talking about the absence of psychological safety, or too much of it? I dunno, I could never draw out specifics. I’m now thinking it was actually about the previous bullet point.</li>
+  <li><a href="https://island94.org/2022/02/it-asks-you-to-be-interactive">Schulman</a> makes the point that you’re either in a relationship with someone, or you aren’t.</li>
+  <li>
+    <p>I read this <a href="https://harpers.org/archive/2023/01/exit-technologists-libertarianism/">Harper’s essay about working at Wired UK</a> by Hari Kunzru with the line:</p>
+
+    <blockquote>
+      <p>The political economist Albert O. Hirschman famously characterized the choice that is faced by people within declining institutions as being between “voice” and “exit.” Either you speak up to change things, or you leave and look for something better.’</p>
+    </blockquote>
+  </li>
+  <li>
+    <p>Which led me to find <a href="https://www.robkhenderson.com/past-newsletter/exit-voice-and-loyalty-a-review">this essay about the book</a> which pulls this lovely quote from Hirschman:</p>
+
+    <blockquote>
+      <p>The ultimate in unhappiness and paradoxical loyalist behavior occurs when the public evil produced by the organization promises to accelerate or to reach some intolerable level as the organization deteriorates; then…the decision to exit will become ever more difficult the longer one fails to exit. The conviction that one has to stay on to prevent the worst grows all the time.</p>
+    </blockquote>
+  </li>
+  <li>But this is maybe now more about disfunction than exit. But I’ve also been in the position of being in difficult conflict when explaining that a certain set of strategies will lead to difficulties in attracting and retaining talent. And then most of my favorite people were gone. And then so was I.</li>
+</ul>
+
+  </div>
+</article>
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2023/1/2022-in-review"><p>2022 in review</p>
+</a>
+    </h1>
+    <p class="post-meta text-muted">
+        <time datetime="2023-01-02T17:19:00-08:00" itemprop="datePublished">January 2, 2023</time>
+
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <ul>
+  <li>Family: My mom passed away; first parent to go. Of a plus, we spent a lot of time with my brother and his young family. We had to cancel a big family trip to Europe, but hope to make up with a trip in 2023.</li>
+  <li>Community: Turned 40 this year; celebrated 11 years in SF; coming up on 3 years on Nob Hill. Things feel good. We were approved as a foster/adopt Resource Family, but with everything that happened with my mom, we haven’t yet begun hosting children yet. I’m going into year three of strategic planning committee at St. Francis.</li>
+  <li>Work: Started at GitHub after five years at Code for America. Still feels a bit like a dream that I get to continue to do what I want technically (Ruby and Rails) while also working with good people. I’ve continued to work with my leadership coach, which has been nice continuity.</li>
+  <li>Projects &amp; Consulting: It’s now been 10 years since I registered as a small business in SF, which I did when I first started earning money with Day of the Shirt and doing various consulting jobs. GoodJob is floating along, and become a small source of GitHub Sponsors funds. The other constellation of projects continued in maintenance: Brompt, Panlexicon, etc.</li>
+</ul>
+
+  </div>
+</article>
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2022/11/liberatory-accountability"><p>Liberatory accountability</p>
+</a>
+    </h1>
+    <p class="post-meta text-muted">
+        <time datetime="2022-11-30T17:50:00-08:00" itemprop="datePublished">November 30, 2022</time>
+
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>From Lee Shevek’s <a href="https://theanarchistlibrary.org/library/lee-shevek-is-punishment-carceral-logic">“Is Punishment ‘Carceral Logic’?”</a>:</p>
+
+<blockquote>
+
+  <p>…the difference between carceral logic and liberatory accountability is not the presence/lack of punishment. Rather, the difference lies in how much power the person who has done harm has. Carceral logic aims to strip them of their personal power, while liberatory accountability processes require that they take ownership of that power. That is, ultimately, what accountability is: taking responsibility for your power as well as for the consequences of your use of it. Recognizing your own agency in having made a choice that resulted in harm, facing the people you hurt, giving them answers and apologies, and claiming your ability to do differently. This is what the carceral system does not allow. It strips people entirely of their agency, requires of them no meaningful repair process, and locks them in a cell where they are ritualistically abused by the State. This is a process that heals no one, nor was it ever even intended for healing or repair. It is a system only of control.</p>
+
+  <p>Liberatory accountability processes, on the other hand, demand something incredibly difficult for people who do harm: acknowledgement of their own power, their own responsibility to the harm they do with that power and their obligation to use that same power to make amends. Taking that responsibility also means acknowledging and respecting the consequences for the harm they do. If I truly take a harm I’ve done seriously, if I genuinely see it as harm, then I also will respect that the person I harmed may need to put more boundaries up between us to feel safe again. If the harm is more extreme, I will see the steps the surrounding community takes (closing my access to certain spaces, demanding my participation in ongoing accountability processes, etc.) as important responses to re-establish safety where my actions ruptured it, even if those responses are painful or uncomfortable to me. Absent of these consequences, the people most adept at doing harm while maintaining community support have free reign to continue perpetuating cycles of harm that will reverberate through years (often generations) to come, and survivors flee into solitude because there are no communal norms in place to provide them any real or trustworthy sense of safety. This is, in fact, the status quo of the world we live in now.</p>
+
+  <p>The real distinction between carceral logic and liberatory accountability is that one process violently strips someone of their humanity and agency, while the other demands that people who do harm take full command of their humanity and agency to atone for that harm and become better members of the community in the process. The carceral system says: “You are a criminal and you deserve to be subject to constant harm and control because of it.” Liberatory accountability says: “You are a person who chose to do harm, we believe in your capacity to choose to face the consequences of that harm and do what you can to repair it.”</p>
+
+</blockquote>
+
+<p>This reminded me of SorryWatch’s <a href="https://sorrywatch.com/how-to-apologize-a-short-checklist/">“How to apologize: a short checklist”</a>:</p>
+
+<blockquote>
+
+  <p>APOLOGIZE – Say “I’m sorry” or “I apologize.” Take responsibility. Talk about what you did, not just “what happened.” Avoid “if,” “regret,” and “it’s unfortunate.” Try “I shouldn’t have done that,” “That was rude of me,” or “It was wrong.”</p>
+
+  <p>TO THEM – Not just to the twitmosphere, but to the person harmed.</p>
+
+  <p>FOR WHAT YOU DID – Be specific. Not “hurting you” but, for example, “calling you a slimy swivel-eyed creep.”</p>
+
+  <p>ACKNOWLEDGE THE EFFECT – If you know it. “I embarrassed you by calling you a slimy swivel-eyed creep in front of everybody at our dinner table, and at the nearby tables.”</p>
+
+  <p>EXPLAIN, BUT DON’T EXCUSE – “I called you a slimy swivel-eyed creep to try to make you be quiet because I didn’t want to be thrown out before dessert came. I was a jerk.”</p>
+
+  <p>STOP TALKING AND LET THEM HAVE THEIR SAY – “I wasn’t upset that you called me a slimy swivel-eyed creep. I was upset that you interrupted my song. It made me feel like you don’t respect me as an artist.”</p>
+
+</blockquote>
+
+<p>And accountability (giving an account) fits into themes in Sarah Schulman’s <em>Conflict is Not Abuse</em>, which I’ll <a href="https://island94.org/2022/02/it-asks-you-to-be-interactive">requote</a>:</p>
+
+<blockquote>
+  <p>… everyone deserves help when they reach out for it. …the collapse of Conflict and Abuse is partly the result of a punitive standard in which people are made desperate, yet ineligible, for compassion. … people who have suffered in the past, or find themselves implicated in situations in which they are afraid to be accountable, fear that within their group acknowledging some responsibility will mean being denied their need to be heard and cared for.</p>
+</blockquote>
+
+  </div>
+</article>
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2022/11/environment-at-work"><p>Environment, at work</p>
+</a>
+    </h1>
+    <p class="post-meta text-muted">
+        <time datetime="2022-11-16T12:14:00-08:00" itemprop="datePublished">November 16, 2022</time>
+
+        • Tagged terroir and work
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p><img src="/uploads/2022-11/simearth-daisyworld.png" alt="Screenshot of Sim Earth's Daisyworld" /></p>
+
+<h2 id="gaia">Gaia</h2>
+
+<p>I played a lot of Sim Earth as a kid. It had a mode called Daisyworld based on the <a href="https://en.wikipedia.org/wiki/Gaia_hypothesis">“Gaia Hypothesis”</a>:</p>
+
+<blockquote>
+  <p>proposes that living organisms interact with their inorganic surroundings on  Earth to form a synergistic and self-regulating, complex system that helps to maintain and perpetuate the conditions for life on the planet.</p>
+</blockquote>
+
+<p>In Sim Earth’s Daisyworld, that was simulated by populating the Earth with different shades of flower. Darker flowers survived at lower temperatures and absorbed sunlight, warming their immediate environment; lighter flowers survived at warmer temperatures and reflecting sunlight, cooling their immediate environment. Running the simulation would, eventually, usually, lead to a dynamically changing, but still steady-state environment; in <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life#Examples_of_patterns">Conway terminoloy</a>: still lifes and oscillators.</p>
+
+<p>Usually your Earth found a steady state, unless:</p>
+
+<ul>
+  <li>geographical barriers prevented regulating changes from spreading, like mountain ranges or island archipelagos; or</li>
+  <li>disasters like volcanoes or meteors significantly disrupted the environment before the flowers could adapt and moderate it; or</li>
+  <li>you plopped some bunnies or herbivores that ate the flowers, because the Gaia mode didn’t lock-out the other Sim Earth tools. Sandboxes!</li>
+</ul>
+
+<p>Usually your Earth found and could recover a steady state! That’s <a href="https://en.wikipedia.org/wiki/Homeostasis">homeostasis</a>:</p>
+
+<blockquote>
+  <p>Homeostasis is brought about by a natural resistance to change when already in the optimal conditions, and equilibrium is maintained by many regulatory mechanisms: it is thought to be the central motivation for all organic action.</p>
+</blockquote>
+
+<h2 id="terroir">Terroir</h2>
+<p>From Vicki Boykis’s  <a href="https://vicki.substack.com/p/the-art-of-the-long-goodbye">“The Art of the Long Goodbye”</a> :</p>
+
+<blockquote>
+  <p>A few years ago, I read the Southern Reach trilogy, by Jeff Van Der Meer….</p>
+
+  <p>One of the main concepts of the books is the idea of a terroir, a self-contained natural environment that shapes everything inside of it. Usually when we talk about a terroir we’re referring to wine: a wine from a given region tastes like wine from that given region should taste because of the grapes and the soil and the way the sunlight hits that particular spot. Since I left my last job, I’ve been thinking a lot about the idea of terroir as it relates to the workplace.</p>
+
+  <p>Every workplace, like every Tolstoyan family, is unique in its own way. When we start a job, we enter that terroir with the intent to shape it. But in turn, we are also shaped by it.</p>
+</blockquote>
+
+<h2 id="landrace">Landrace</h2>
+
+<p>A <a href="https://en.wikipedia.org/wiki/Landrace">landrace</a> is:</p>
+
+<blockquote>
+  <p>a domesticated, locally adapted, traditional variety of a species of animal or plant that has developed over time, through adaptation to its natural and cultural environment of agriculture and pastoralism, and due to isolation from other populations of the species.</p>
+</blockquote>
+
+<p>As I’m now in the land of big companies, it’s very common to hear someone described as “from Amazon” or “from Microsoft” and like, I know what they mean!</p>
+
+<p>One of my challenges as an engineering leader during the pandemic was this: how much do we adapt our values and practices to be inclusive to the current fucked-all-over situation while preserving what made us, as an engineering organization, us. I think my results were mixed.</p>
+
+<p>An example: pair programming. We were a lot of people from Pivotal labs (there it is!) with a strong belief in Extreme Programming: shared ownership, an active-closeness to the users of our software, and closeness to each other through frequent pair programming. And we went from largely in-person pairing, to remote pairing. I find pair programming to be exhausting in the best of circumstances, and the ongoing pandemic didn’t help. So we adapted our values and practices, and de-emphasized pairing and went from an expectation of “most of the time” to “a tool that’s available some of the time”. It was a stretch (aside: it wasn’t just pairing that got stretched either, the whole XP thing)</p>
+
+<p>A team is never static. People were leaving, we were hiring, teams were forming and reforming. It was tenuous for everyone, to test out the limits of inclusion and identity. And as an engineering leader, it led to a lot of tough conversations about  <em>how… we… work… together</em>. It was hard; I think we lost that cultivar.</p>
+
+<h2 id="oasis">Oasis</h2>
+
+<p>Will Larson writes about this idea of a <a href="https://lethain.com/values-oasis/">“Values Oasis”</a>:</p>
+
+<blockquote>
+  <p>A few years ago, I heard an apocryphal story about Sheryl Sandberg’s departure from Google to Facebook. In the story she apologizes to her team at Google because she’d sheltered them too much from Google’s politics and hadn’t prepared them to succeed once she stopped running interference. The story ends with her entire team struggling and eventually leaving after her departure. I don’t know if the story is true, but it’s an excellent summary of the Values Oasis trap, where a leader uses their personal capital to create a non-conforming environment within an wider organization.</p>
+</blockquote>
+
+<h2 id="garden">Garden</h2>
+
+<p>The relationship between people and environment is a problematic metaphor.</p>
+
+<p>I was a member of the Boston Pubic Garden’s Rose Brigade for number of years, taking care of the roses. The Boston Public Garden’s style is Western, specimen, ornamental: large, well-spaced bushes with well-defined blooms. They’re gorgeous. And.</p>
+
+<p>There’s a lot of waste. Trimming, dead-heading, opening up, clearing leaf drops. A lot of waste.</p>
+
+<p>There is a trope, <a href="https://tvtropes.org/pmwiki/pmwiki.php/Main/Cincinnatus">Cincinnatus</a>, in which the tyrant/general/magnate retires (or desires to retire, after the present crisis, of course) to tend garden. I think it usually appears to soften them: <em>see they can be gentle too.</em> But I dunno, gardens aren’t gentle. There’s a lot of centering the gardener, and a lot of will to be exercised in a garden. Other people aren’t plants, don’t take it too far.</p>
+
+<p>I’m reminded of Nirgal’s (spoiler!) fated ecopoetic basin in KSR’s <a href="https://www.goodreads.com/book/show/77504.Blue_Mars"><em>Blue Mars</em></a>:</p>
+
+<blockquote>
+  <p>Nirgal wandered the basin after storms, looking to see what had blown in. Usually it was only a load of icy dust, but once he found an unplanted clutch of pale blue Jacob’s ladders, tucked between the splits in a breadloaf rock. Check the botanicals to see how it might interact with what was already there. Ten percent of introduced species survived, then ten percent of those became pests; that was invasion biology’s ten-ten rule, Yoshi said, almost the first rule of the discipline. “Ten meaning five to twenty of course.”</p>
+</blockquote>
+
+<p>And close on it out with a quote from <a href="https://www.goodreads.com/book/show/20186.Seeing_Like_a_State"><em>Seeing like a State</em></a>:</p>
+
+<blockquote>
+  <p>Contemporary development schemes… require the creation of state spaces where the government can reconfigure the society and economy of those who are to be “developed.” The transformation of peripheral nonstate spaces into state spaces by the modern, developmentalist nation-state is ubiquitous and, for the inhabitants of such spaces, frequently traumatic.</p>
+</blockquote>
+
+  </div>
+</article>
+
+
+<hr>
+
+<div class="d-flex justify-content-between mb-5">
+    <a href="/posts/4" class="btn btn-outline-primary">Newer posts</a>
+    <a href="/posts/6" class="btn btn-outline-primary">Older posts</a>
+</div>
+
+  </div>
+
+</body>
+</html>

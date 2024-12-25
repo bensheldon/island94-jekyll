@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lighthouse Labs retrospective note | Island94.org</title>
+
+  <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="Klq2KyWO7b7UHpmiO1T08ocV74V8UHP8za_k6mNtFhz5c31Fz7MPzlcFyQSdHVq_4qTNE8hqqZG7UazFhqiQKw" />
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Island94.org" href="https://island94.org/feed.xml">
+
+  <link rel="stylesheet" href="/assets/application-3c56ab95cf55e7f461f0ea9391c2b1391a5c64b74433224fe76ad58b7fa20c07.css" data-turbo-track="reload" />
+  <script src="/assets/main-57967bd29e3a27ba3099fee5997ee6ec8c59ef209085f949b6eac799b21915b0.js"></script>
+
+  <script>
+    let theme = localStorage.getItem('theme');
+    if (!["light", "dark"].includes(theme)) {
+      theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    document.documentElement.setAttribute('data-bs-theme', theme);
+  </script>
+
+  
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light mb-2 flex-column">
+  <div class="container">
+    <a class="navbar-brand" href="/">Island94.org</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link " href="/about/">About</a></li>
+        <li class="nav-item"><a class="nav-link " href="/archives/">Archives</a></li>
+<!--        <li class="nav-item"><a class="nav-link " href="/books/">Books</a></li>-->
+        <li class="nav-item"><a class="nav-link " href="/tags/">Tags</a></li>
+        <li class="nav-item"><a class="nav-link" href="/feed.xml">RSS Feed <i class="bi bi-rss-fill"></i></a></li>
+
+        <li class="nav-item py-2 py-lg-1 col-12 col-lg-auto">
+          <div class="vr d-none d-lg-flex h-100 mx-lg-2 text-light-500"></div>
+          <hr class="d-lg-none my-0 text-light-500">
+        </li>
+
+        <li class="nav-item dropdown">
+          <button id="bs-theme" class="btn btn-link nav-link dropdown-toggle" type="button" aria-expanded="false" data-bs-toggle="dropdown"  aria-label="Theme (Auto)">
+            <i data-bs-theme-active-icon class="bi bi-circle-half"></i>
+            <span data-bs-theme-label>Theme</span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="bs-theme-text">
+            <li>
+              <button type="button" class="dropdown-item" data-bs-theme-value="light" aria-pressed="false">
+                <i class="bi bi-sun"></i> Light
+              </button>
+            </li>
+            <li>
+              <button type="button" class="dropdown-item" data-bs-theme-value="dark" aria-pressed="false">
+                <i class="bi bi-moon-stars-fill"></i> Dark
+              </button>
+            </li>
+            <li>
+              <button type="button" class="dropdown-item" data-bs-theme-value="auto" aria-pressed="true">
+                <i class="bi bi-circle-half"></i> Auto
+              </button>
+            </li>
+          </ul>
+        </li>
+
+      </ul>
+
+      <form id="search" class="d-flex" action="/search" method="get">
+        <input id="search-box" class="form-control search" role="search" name="q" placeholder="Search" aria-label="Search" results="0" type="text">
+        <button class="visually-hidden" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+  <div class="container">
+    <div class="text-muted fst-italic">
+      — Ben Sheldon's personal blog and <a href="/2012/04/A-Commonplace-Book.html">commonplace book</a>.
+    </div>
+  </div>
+</nav>
+
+
+  <div class="container container-body">
+    
+<div class="container container-body">
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2018/8/lighthouse-labs-retrospective-note"><p>Lighthouse Labs retrospective note</p>
+</a>
+    </h1>
+    <p class="post-meta text-muted">
+        <time datetime="2018-08-23T07:51:00-07:00" itemprop="datePublished">August 23, 2018</time>
+
+        • Tagged accessibility and notes
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>For more than a year I’ve been attending monthly <a href="https://lighthouse-sf.org/lighthouse-labs/">Lighthouse Labs meetups</a><br />
+ at San Francisco’s Lighthouse for the Blind. Each month Lighthouse Labs holds an open forum for accessibility technologists to present and receive feedback. These are my notes from an audience retrospective of a year of these presentations:</p>
+
+<ul>
+  <li>Working with new learners:
+    <ul>
+      <li>What tech do you currently have?</li>
+      <li>What do you want to do that you currently can’t? “Based on life. “</li>
+      <li>“Its ok to say Blind. How exhausting is it to hear people talk around for 15 minutes trying not to say the B-word?”</li>
+    </ul>
+  </li>
+  <li>Advice for inventors and presenters:
+    <ul>
+      <li>No more remote assistance</li>
+      <li>No more buzzing wearables</li>
+      <li>No more cane solutions</li>
+      <li>Keep it simple.</li>
+      <li>Make your website accessible</li>
+      <li>If they think they have a product for the blind, ask them what research they’ve done. Should we be patient zero? And if so, they should be aware of what that means.</li>
+      <li>What is the end goal of what you’re presenting? How do you intend to effect a person’s life? Example: “be more independent”, but in what way? It might be too open or predictable; how bizarre it could go. Answer: “How do you intend to enrich someone’s life?”</li>
+      <li>Why do you think your life solution is better than others? Eg why is it better than a cane?</li>
+      <li>Don’t: Try to solve a problem that blind people don’t need solved.</li>
+      <li>Have a list of how blind people already do stuff.</li>
+      <li>Bring appropriate audio-media, and understand it well enough to connect it to the presentation room.</li>
+      <li>“Yeah, that idea was terrible. But they were young, full of ideas and open to feedback”</li>
+      <li>“It is exhausting to say every month, we have canes and they’re fine.”</li>
+    </ul>
+  </li>
+</ul>
+
+  </div>
+</article>
+
+
+  <div class="card my-4">
+    <div class="card-body">
+      Discuss this with me on <a href="https://twitter.com/bensheldon"><i class="bi bi-twitter"></i> Twitter</a>
+      or suggest a
+      <a href="https://github.com/bensheldon/island94-jekyll/blob/main/_posts/2018-08-23-lighthouse-labs-retrospective-note.md"><i class="bi bi-github"></i>
+        change</a>.
+
+        <hr>
+        <h5>Related Posts</h5>
+        <ul>
+            <li><a href="/2011/5/Capturing-well-being-not-simply-access-and-speed">Capturing well-being, not simply access and speed</a></li>
+            <li><a href="/2008/8/Nonprofit-Board-Management-Governance-and-Advice">Nonprofit Board Management, Governance and Advice</a></li>
+            <li><a href="/2008/5/NTC08-The-Seven-Things-Everyone-Wants-What-Freud-and-Buddha-Understood-and-Were-Forgetting-about-Online-Outreach">NTC08: The Seven Things Everyone Wants: What Freud and Buddha Understood (and We&#39;re Forgetting) about Online Outreach</a></li>
+        </ul>
+    </div>
+  </div>
+</div>
+
+  </div>
+
+</body>
+</html>

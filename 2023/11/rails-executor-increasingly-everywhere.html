@@ -1,10 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-
-  <head>
+<head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Rails Executor: increasingly everywhere | Island94.org</title>
+
+  <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="jPEDk4pDu0ls1rnEPBbtC2hu0Cp18o-IWdsP4Gqihitf2Mj9YH5ZOe_N6WKaX0NGDd_yvMHIVeUvJUfPj2cAHA" />
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Island94.org" href="https://island94.org/feed.xml">
+
+  <link rel="stylesheet" href="/assets/application-3c56ab95cf55e7f461f0ea9391c2b1391a5c64b74433224fe76ad58b7fa20c07.css" data-turbo-track="reload" />
+  <script src="/assets/main-57967bd29e3a27ba3099fee5997ee6ec8c59ef209085f949b6eac799b21915b0.js"></script>
 
   <script>
     let theme = localStorage.getItem('theme');
@@ -14,24 +23,10 @@
     document.documentElement.setAttribute('data-bs-theme', theme);
   </script>
 
-  <link rel="stylesheet" href="/assets/stylesheets/main.css">
-  <script src="/assets/javascripts/main.js"></script>
-
-  <title>The Rails Executor: increasingly everywhere</title>
-  <meta name="description" content="The Rails Executor rules everything around you your code.">
-
-  <link rel="canonical" href="https://island94.org/2023/11/rails-executor-increasingly-everywhere">
-
-  <link rel="alternate" type="application/rss+xml" title="Island94.org Posts" href="https://island94.org/feed.xml">
-  <link rel="alternate" type="application/rss+xml" title="Island94.org Book Reviews" href="https://island94.org/books.xml">
-
   
 </head>
-
-
-  <body>
-
-    <nav class="navbar navbar-expand-lg navbar-light mb-2 flex-column">
+<body>
+<nav class="navbar navbar-expand-lg navbar-light mb-2 flex-column">
   <div class="container">
     <a class="navbar-brand" href="/">Island94.org</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,7 +36,7 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item"><a class="nav-link " href="/about/">About</a></li>
         <li class="nav-item"><a class="nav-link " href="/archives/">Archives</a></li>
-        <li class="nav-item"><a class="nav-link " href="/books/">Books</a></li>
+<!--        <li class="nav-item"><a class="nav-link " href="/books/">Books</a></li>-->
         <li class="nav-item"><a class="nav-link " href="/tags/">Tags</a></li>
         <li class="nav-item"><a class="nav-link" href="/feed.xml">RSS Feed <i class="bi bi-rss-fill"></i></a></li>
 
@@ -90,30 +85,19 @@
 </nav>
 
 
-    <div class="container container-body">
-      
-
-
-
-<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="container container-body">
+    
+<div class="container container-body">
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
     <h1 class="post-title" itemprop="name headline">
       <a class="post-link" href="/2023/11/rails-executor-increasingly-everywhere"><p>The Rails Executor: increasingly everywhere</p>
 </a>
     </h1>
     <p class="post-meta text-muted">
-      <time datetime="2023-11-30T05:37:00+00:00" itemprop="datePublished">November 30, 2023</time>
-      
-      
+        <time datetime="2023-11-29T21:37:00-08:00" itemprop="datePublished">November 29, 2023</time>
 
-
-  
-
-  
-
-  • Tagged <a href="/tags/#rails">Rails</a> and <a href="/tags/#ruby">Ruby</a>
-
-
+        • Tagged Rails and Ruby
     </p>
   </header>
 
@@ -148,7 +132,7 @@
   <li>At my day job, GitHub, we’ve also been double-checking that all of our Rails-invoking scripts and daemons are wrapped with Rails Executors. Doing so has fixed flukey constant lookups, reduced our database connection error rate and increased successful query retries, and necessitated updating a bunch of tests that counted queries that now hit the query cache.</li>
 </ul>
 
-<p>The Rails Executor is great! Your code is probably already wrapped by the Rails framework, but anytime you start writing scripts or daemons that <code class="language-plaintext highlighter-rouge">require_relative "./config/environment.rb"</code> you should double-check, and <em>definitely</em> if you’re using <code class="language-plaintext highlighter-rouge">Thread.new</code>, <code class="language-plaintext highlighter-rouge">Concurrent::Future</code> or anything that runs in a background thread.</p>
+<p>The Rails Executor is great! Your code is probably already wrapped by the Rails framework, but anytime you start writing scripts or daemons that <code>require_relative "./config/environment.rb"</code> you should double-check, and <em>definitely</em> if you’re using <code>Thread.new</code>, <code>Concurrent::Future</code> or anything that runs in a background thread.</p>
 
 <p>I used the following code in GoodJob to debug that database connection checkout occurs in a Rails Executor, maybe you could adopt something similar too:</p>
 
@@ -180,44 +164,33 @@
 <span class="k">end</span>
 </code></pre></div></div>
 
-<p><strong>Update:</strong> I offered a <a href="https://github.com/rails/rails/pull/50223">Rails PR to make the script runner’s Executor conditional</a> because the introduction of an Executor around <code class="language-plaintext highlighter-rouge">bin/rails runner script.rb</code> could introduce problems if the script is long-running/looping/daemon-like; developers would still need to use an Executor, but to wrap individual units of work in their longrunning script.</p>
+<p><strong>Update:</strong> I offered a <a href="https://github.com/rails/rails/pull/50223">Rails PR to make the script runner’s Executor conditional</a> because the introduction of an Executor around <code>bin/rails runner script.rb</code> could introduce problems if the script is long-running/looping/daemon-like; developers would still need to use an Executor, but to wrap individual units of work in their longrunning script.</p>
 
   </div>
 </article>
 
 
-<div class="card my-4">
-  <div class="card-body">
-    <p>
+  <div class="card my-4">
+    <div class="card-body">
       Discuss this with me on <a href="https://twitter.com/bensheldon"><i class="bi bi-twitter"></i> Twitter</a>
-      or suggest a <a href="https://github.com/bensheldon/island94-jekyll/blob/main/_posts/2023-11-29-rails-executor-increasingly-everywhere.md"><i class="bi bi-github"></i> change</a>.
-    </p>
+      or suggest a
+      <a href="https://github.com/bensheldon/island94-jekyll/blob/main/_posts/2023-11-29-rails-executor-increasingly-everywhere.md"><i class="bi bi-github"></i>
+        change</a>.
 
-    <p>Related Posts:</p>
-    <ul>
-      
-        <li><a href="/2024/12/including-rails-view-helpers-concern">Including Rails View Helpers is a concern</a></li>
-      
-        <li><a href="/2024/11/keep-your-secrets-yml-in-rails-7-2">Keep your secrets.yml in Rails 7.2+</a></li>
-      
-        <li><a href="/2024/10/technical-reflection-on-disaster-relief-assistance-for-immigrants">A mostly technical reflection on Disaster Relief Assistance for Immigrants</a></li>
-      
-        <li><a href="/2024/09/spectator-sport-a-brief-introduction-to-an-upcoming-rails-plugin">Spectator Sport, a brief introduction to an upcoming Rails plugin</a></li>
-      
-        <li><a href="/2024/09/seeing-like-a-rails-and-ruby-platform-team">Seeing like a Rails and Ruby platform team</a></li>
-      
-    </ul>
+        <hr>
+        <h5>Related Posts</h5>
+        <ul>
+            <li><a href="/2024/9/seeing-like-a-rails-and-ruby-platform-team">Seeing like a Rails and Ruby platform team</a></li>
+            <li><a href="/2024/9/secret-to-rails-database-connection-pool-size">The secret to perfectly calculate Rails database connection pool size</a></li>
+            <li><a href="/2024/7/notes-from-carrierwave-to-active-storage">Notes from Carrierwave to Active Storage</a></li>
+            <li><a href="/2024/7/introducing-goodjob-v4">Introducing GoodJob v4</a></li>
+            <li><a href="/2024/4/a-ruby-meetup-and-3-podcasts">A Ruby Meetup about Rails autoloading and 3 Podcasts</a></li>
+        </ul>
+    </div>
   </div>
 </div>
 
+  </div>
 
-    </div>
-
-    <footer class="site-footer">
-
-</footer>
-
-
-  </body>
-
+</body>
 </html>

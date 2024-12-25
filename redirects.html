@@ -1,0 +1,4799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> | Island94.org</title>
+
+  <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="iJvHSYcKwPpV4FgJgzmEhz9mjyzjpslH1sQ-lxupDbpbsgwnbTciitb7CK8lcCrKWtetulecEyqgOna4_myLjQ" />
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Island94.org" href="https://island94.org/feed.xml">
+
+  <link rel="stylesheet" href="/assets/application-3c56ab95cf55e7f461f0ea9391c2b1391a5c64b74433224fe76ad58b7fa20c07.css" data-turbo-track="reload" />
+  <script src="/assets/main-57967bd29e3a27ba3099fee5997ee6ec8c59ef209085f949b6eac799b21915b0.js"></script>
+
+  <script>
+    let theme = localStorage.getItem('theme');
+    if (!["light", "dark"].includes(theme)) {
+      theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    document.documentElement.setAttribute('data-bs-theme', theme);
+  </script>
+
+  
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light mb-2 flex-column">
+  <div class="container">
+    <a class="navbar-brand" href="/">Island94.org</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link " href="/about/">About</a></li>
+        <li class="nav-item"><a class="nav-link " href="/archives/">Archives</a></li>
+<!--        <li class="nav-item"><a class="nav-link " href="/books/">Books</a></li>-->
+        <li class="nav-item"><a class="nav-link " href="/tags/">Tags</a></li>
+        <li class="nav-item"><a class="nav-link" href="/feed.xml">RSS Feed <i class="bi bi-rss-fill"></i></a></li>
+
+        <li class="nav-item py-2 py-lg-1 col-12 col-lg-auto">
+          <div class="vr d-none d-lg-flex h-100 mx-lg-2 text-light-500"></div>
+          <hr class="d-lg-none my-0 text-light-500">
+        </li>
+
+        <li class="nav-item dropdown">
+          <button id="bs-theme" class="btn btn-link nav-link dropdown-toggle" type="button" aria-expanded="false" data-bs-toggle="dropdown"  aria-label="Theme (Auto)">
+            <i data-bs-theme-active-icon class="bi bi-circle-half"></i>
+            <span data-bs-theme-label>Theme</span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="bs-theme-text">
+            <li>
+              <button type="button" class="dropdown-item" data-bs-theme-value="light" aria-pressed="false">
+                <i class="bi bi-sun"></i> Light
+              </button>
+            </li>
+            <li>
+              <button type="button" class="dropdown-item" data-bs-theme-value="dark" aria-pressed="false">
+                <i class="bi bi-moon-stars-fill"></i> Dark
+              </button>
+            </li>
+            <li>
+              <button type="button" class="dropdown-item" data-bs-theme-value="auto" aria-pressed="true">
+                <i class="bi bi-circle-half"></i> Auto
+              </button>
+            </li>
+          </ul>
+        </li>
+
+      </ul>
+
+      <form id="search" class="d-flex" action="/search" method="get">
+        <input id="search-box" class="form-control search" role="search" name="q" placeholder="Search" aria-label="Search" results="0" type="text">
+        <button class="visually-hidden" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+  <div class="container">
+    <div class="text-muted fst-italic">
+      — Ben Sheldon's personal blog and <a href="/2012/04/A-Commonplace-Book.html">commonplace book</a>.
+    </div>
+  </div>
+</nav>
+
+
+  <h1>Redirects</h1>
+
+<ul>
+    <li>
+      <a href="/posts">posts</a>
+    </li>
+    <li>
+      <a href="/articles/pool-soup">articles/pool-soup</a>
+    </li>
+    <li>
+      <a href="/node/6">node/6</a>
+    </li>
+    <li>
+      <a href="/2005/11/pool-soup">2005/11/pool-soup</a>
+    </li>
+    <li>
+      <a href="/?p=6">?p=6</a>
+    </li>
+    <li>
+      <a href="/node/7">node/7</a>
+    </li>
+    <li>
+      <a href="/articles/autumn-pollution">articles/autumn-pollution</a>
+    </li>
+    <li>
+      <a href="/2005/11/autumn-pollution">2005/11/autumn-pollution</a>
+    </li>
+    <li>
+      <a href="/?p=7">?p=7</a>
+    </li>
+    <li>
+      <a href="/node/8">node/8</a>
+    </li>
+    <li>
+      <a href="/articles/first-light-coolidge-corner">articles/first-light-coolidge-corner</a>
+    </li>
+    <li>
+      <a href="/2005/11/first-light-in-coolidge-corner">2005/11/first-light-in-coolidge-corner</a>
+    </li>
+    <li>
+      <a href="/?p=8">?p=8</a>
+    </li>
+    <li>
+      <a href="/node/9">node/9</a>
+    </li>
+    <li>
+      <a href="/articles/rubbed-away">articles/rubbed-away</a>
+    </li>
+    <li>
+      <a href="/2005/11/rubbed-away">2005/11/rubbed-away</a>
+    </li>
+    <li>
+      <a href="/?p=9">?p=9</a>
+    </li>
+    <li>
+      <a href="/articles/i-defender-democracy-ocracy-cracy">articles/i-defender-democracy-ocracy-cracy</a>
+    </li>
+    <li>
+      <a href="/node/10">node/10</a>
+    </li>
+    <li>
+      <a href="/2005/11/i-defender-of-democracy-ocracy-cracy">2005/11/i-defender-of-democracy-ocracy-cracy</a>
+    </li>
+    <li>
+      <a href="/?p=10">?p=10</a>
+    </li>
+    <li>
+      <a href="/node/11">node/11</a>
+    </li>
+    <li>
+      <a href="/articles/scooped">articles/scooped</a>
+    </li>
+    <li>
+      <a href="/2005/11/scooped">2005/11/scooped</a>
+    </li>
+    <li>
+      <a href="/?p=11">?p=11</a>
+    </li>
+    <li>
+      <a href="/node/12">node/12</a>
+    </li>
+    <li>
+      <a href="/articles/23rd-birthday-thanksgiving-spectacular-part-1">articles/23rd-birthday-thanksgiving-spectacular-part-1</a>
+    </li>
+    <li>
+      <a href="/2005/11/23rd-birthday/thanksgiving-spectacular-part-1">2005/11/23rd-birthday/thanksgiving-spectacular-part-1</a>
+    </li>
+    <li>
+      <a href="/?p=12">?p=12</a>
+    </li>
+    <li>
+      <a href="/node/15">node/15</a>
+    </li>
+    <li>
+      <a href="/content-map">content-map</a>
+    </li>
+    <li>
+      <a href="/2005/11/content-map">2005/11/content-map</a>
+    </li>
+    <li>
+      <a href="/?p=15">?p=15</a>
+    </li>
+    <li>
+      <a href="/node/21">node/21</a>
+    </li>
+    <li>
+      <a href="/boston-fallout-shelters">boston-fallout-shelters</a>
+    </li>
+    <li>
+      <a href="/2005/11/boston-fallout-shelters">2005/11/boston-fallout-shelters</a>
+    </li>
+    <li>
+      <a href="/?p=21">?p=21</a>
+    </li>
+    <li>
+      <a href="/articles/my-pigeons-row">articles/my-pigeons-row</a>
+    </li>
+    <li>
+      <a href="/node/19">node/19</a>
+    </li>
+    <li>
+      <a href="/2005/11/my-pigeons-in-a-row">2005/11/my-pigeons-in-a-row</a>
+    </li>
+    <li>
+      <a href="/?p=19">?p=19</a>
+    </li>
+    <li>
+      <a href="/node/18">node/18</a>
+    </li>
+    <li>
+      <a href="/articles/thanksgiving-reloaded">articles/thanksgiving-reloaded</a>
+    </li>
+    <li>
+      <a href="/2005/11/thanksgiving-reloaded">2005/11/thanksgiving-reloaded</a>
+    </li>
+    <li>
+      <a href="/?p=18">?p=18</a>
+    </li>
+    <li>
+      <a href="/node/22">node/22</a>
+    </li>
+    <li>
+      <a href="/articles/somerville-community-mapping">articles/somerville-community-mapping</a>
+    </li>
+    <li>
+      <a href="/2005/12/somerville-community-mapping">2005/12/somerville-community-mapping</a>
+    </li>
+    <li>
+      <a href="/?p=22">?p=22</a>
+    </li>
+    <li>
+      <a href="/node/23">node/23</a>
+    </li>
+    <li>
+      <a href="/articles/word-day-cankle">articles/word-day-cankle</a>
+    </li>
+    <li>
+      <a href="/2005/12/word-of-the-day-cankle">2005/12/word-of-the-day-cankle</a>
+    </li>
+    <li>
+      <a href="/?p=23">?p=23</a>
+    </li>
+    <li>
+      <a href="/node/24">node/24</a>
+    </li>
+    <li>
+      <a href="/articles/hole-ice">articles/hole-ice</a>
+    </li>
+    <li>
+      <a href="/2005/12/a-hole-in-the-ice">2005/12/a-hole-in-the-ice</a>
+    </li>
+    <li>
+      <a href="/?p=24">?p=24</a>
+    </li>
+    <li>
+      <a href="/node/25">node/25</a>
+    </li>
+    <li>
+      <a href="/articles/walking-circles">articles/walking-circles</a>
+    </li>
+    <li>
+      <a href="/2005/12/walking-in-circles">2005/12/walking-in-circles</a>
+    </li>
+    <li>
+      <a href="/?p=25">?p=25</a>
+    </li>
+    <li>
+      <a href="/node/26">node/26</a>
+    </li>
+    <li>
+      <a href="/articles/trash-piano">articles/trash-piano</a>
+    </li>
+    <li>
+      <a href="/2005/12/trash-piano">2005/12/trash-piano</a>
+    </li>
+    <li>
+      <a href="/?p=26">?p=26</a>
+    </li>
+    <li>
+      <a href="/node/27">node/27</a>
+    </li>
+    <li>
+      <a href="/articles/ghost-train">articles/ghost-train</a>
+    </li>
+    <li>
+      <a href="/2006/01/ghost-train">2006/01/ghost-train</a>
+    </li>
+    <li>
+      <a href="/?p=27">?p=27</a>
+    </li>
+    <li>
+      <a href="/node/28">node/28</a>
+    </li>
+    <li>
+      <a href="/articles/ny-nightlife">articles/ny-nightlife</a>
+    </li>
+    <li>
+      <a href="/2006/01/ny-nightlife">2006/01/ny-nightlife</a>
+    </li>
+    <li>
+      <a href="/?p=28">?p=28</a>
+    </li>
+    <li>
+      <a href="/node/63">node/63</a>
+    </li>
+    <li>
+      <a href="/articles/making-art-inkscape">articles/making-art-inkscape</a>
+    </li>
+    <li>
+      <a href="/2006/03/making-art-with-inkscape">2006/03/making-art-with-inkscape</a>
+    </li>
+    <li>
+      <a href="/?p=63">?p=63</a>
+    </li>
+    <li>
+      <a href="/node/30">node/30</a>
+    </li>
+    <li>
+      <a href="/articles/my-first-t-shirt">articles/my-first-t-shirt</a>
+    </li>
+    <li>
+      <a href="/2006/03/my-first-t-shirt">2006/03/my-first-t-shirt</a>
+    </li>
+    <li>
+      <a href="/?p=30">?p=30</a>
+    </li>
+    <li>
+      <a href="/node/32">node/32</a>
+    </li>
+    <li>
+      <a href="/articles/bookshelf">articles/bookshelf</a>
+    </li>
+    <li>
+      <a href="/2006/03/on-the-bookshelf">2006/03/on-the-bookshelf</a>
+    </li>
+    <li>
+      <a href="/?p=32">?p=32</a>
+    </li>
+    <li>
+      <a href="/node/41">node/41</a>
+    </li>
+    <li>
+      <a href="/articles/dave-alpert-abbey">articles/dave-alpert-abbey</a>
+    </li>
+    <li>
+      <a href="/2006/04/dave-alpert-at-the-abbey">2006/04/dave-alpert-at-the-abbey</a>
+    </li>
+    <li>
+      <a href="/?p=41">?p=41</a>
+    </li>
+    <li>
+      <a href="/node/42">node/42</a>
+    </li>
+    <li>
+      <a href="/articles/great-minds-dress-alike">articles/great-minds-dress-alike</a>
+    </li>
+    <li>
+      <a href="/2006/04/great-minds-dress-alike">2006/04/great-minds-dress-alike</a>
+    </li>
+    <li>
+      <a href="/?p=42">?p=42</a>
+    </li>
+    <li>
+      <a href="/node/46">node/46</a>
+    </li>
+    <li>
+      <a href="/articles/emo-lyrics-jason">articles/emo-lyrics-jason</a>
+    </li>
+    <li>
+      <a href="/2006/05/emo-lyrics-for-jason">2006/05/emo-lyrics-for-jason</a>
+    </li>
+    <li>
+      <a href="/?p=46">?p=46</a>
+    </li>
+    <li>
+      <a href="/node/47">node/47</a>
+    </li>
+    <li>
+      <a href="/articles/x-salad-sandwich">articles/x-salad-sandwich</a>
+    </li>
+    <li>
+      <a href="/2006/05/x-salad-sandwich">2006/05/x-salad-sandwich</a>
+    </li>
+    <li>
+      <a href="/?p=47">?p=47</a>
+    </li>
+    <li>
+      <a href="/node/48">node/48</a>
+    </li>
+    <li>
+      <a href="/articles/now-thats-lot-mustard">articles/now-thats-lot-mustard</a>
+    </li>
+    <li>
+      <a href="/2006/06/now-thats-a-lot-of-mustard">2006/06/now-thats-a-lot-of-mustard</a>
+    </li>
+    <li>
+      <a href="/?p=48">?p=48</a>
+    </li>
+    <li>
+      <a href="/node/49">node/49</a>
+    </li>
+    <li>
+      <a href="/articles/san-francisco-bay">articles/san-francisco-bay</a>
+    </li>
+    <li>
+      <a href="/2006/06/on-san-francisco-bay">2006/06/on-san-francisco-bay</a>
+    </li>
+    <li>
+      <a href="/?p=49">?p=49</a>
+    </li>
+    <li>
+      <a href="/node/54">node/54</a>
+    </li>
+    <li>
+      <a href="/articles/hot-slow-sunday-jp">articles/hot-slow-sunday-jp</a>
+    </li>
+    <li>
+      <a href="/2006/06/hot-slow-sunday-in-jp">2006/06/hot-slow-sunday-in-jp</a>
+    </li>
+    <li>
+      <a href="/?p=54">?p=54</a>
+    </li>
+    <li>
+      <a href="/node/58">node/58</a>
+    </li>
+    <li>
+      <a href="/articles/chase-palm-park">articles/chase-palm-park</a>
+    </li>
+    <li>
+      <a href="/2006/07/chase-palm-park">2006/07/chase-palm-park</a>
+    </li>
+    <li>
+      <a href="/?p=58">?p=58</a>
+    </li>
+    <li>
+      <a href="/node/56">node/56</a>
+    </li>
+    <li>
+      <a href="/articles/san-francisco-nights">articles/san-francisco-nights</a>
+    </li>
+    <li>
+      <a href="/2006/07/san-francisco-nights">2006/07/san-francisco-nights</a>
+    </li>
+    <li>
+      <a href="/?p=56">?p=56</a>
+    </li>
+    <li>
+      <a href="/node/55">node/55</a>
+    </li>
+    <li>
+      <a href="/articles/santa-barbara-summer-solstice-2006">articles/santa-barbara-summer-solstice-2006</a>
+    </li>
+    <li>
+      <a href="/2006/07/santa-barbara-summer-solstice-2006">2006/07/santa-barbara-summer-solstice-2006</a>
+    </li>
+    <li>
+      <a href="/?p=55">?p=55</a>
+    </li>
+    <li>
+      <a href="/node/57">node/57</a>
+    </li>
+    <li>
+      <a href="/articles/two-minutes-paul-and-liz">articles/two-minutes-paul-and-liz</a>
+    </li>
+    <li>
+      <a href="/2006/07/two-minutes-for-paul-and-liz">2006/07/two-minutes-for-paul-and-liz</a>
+    </li>
+    <li>
+      <a href="/?p=57">?p=57</a>
+    </li>
+    <li>
+      <a href="/node/59">node/59</a>
+    </li>
+    <li>
+      <a href="/articles/views-isla-vista">articles/views-isla-vista</a>
+    </li>
+    <li>
+      <a href="/2006/07/views-of-isla-vista">2006/07/views-of-isla-vista</a>
+    </li>
+    <li>
+      <a href="/?p=59">?p=59</a>
+    </li>
+    <li>
+      <a href="/node/62">node/62</a>
+    </li>
+    <li>
+      <a href="/articles/new-look">articles/new-look</a>
+    </li>
+    <li>
+      <a href="/2006/07/a-new-look">2006/07/a-new-look</a>
+    </li>
+    <li>
+      <a href="/?p=62">?p=62</a>
+    </li>
+    <li>
+      <a href="/node/61">node/61</a>
+    </li>
+    <li>
+      <a href="/fiction-post-disclaimer">fiction-post-disclaimer</a>
+    </li>
+    <li>
+      <a href="/2006/07/fiction-post-disclaimer">2006/07/fiction-post-disclaimer</a>
+    </li>
+    <li>
+      <a href="/?p=61">?p=61</a>
+    </li>
+    <li>
+      <a href="/node/64">node/64</a>
+    </li>
+    <li>
+      <a href="/articles/charles-4th">articles/charles-4th</a>
+    </li>
+    <li>
+      <a href="/2006/07/charles-on-the-4th">2006/07/charles-on-the-4th</a>
+    </li>
+    <li>
+      <a href="/?p=64">?p=64</a>
+    </li>
+    <li>
+      <a href="/node/65">node/65</a>
+    </li>
+    <li>
+      <a href="/articles/zandvoort">articles/zandvoort</a>
+    </li>
+    <li>
+      <a href="/2006/07/zandvoort">2006/07/zandvoort</a>
+    </li>
+    <li>
+      <a href="/?p=65">?p=65</a>
+    </li>
+    <li>
+      <a href="/node/66">node/66</a>
+    </li>
+    <li>
+      <a href="/articles/harbor-island-info">articles/harbor-island-info</a>
+    </li>
+    <li>
+      <a href="/2006/07/harbor-island-info">2006/07/harbor-island-info</a>
+    </li>
+    <li>
+      <a href="/?p=66">?p=66</a>
+    </li>
+    <li>
+      <a href="/node/67">node/67</a>
+    </li>
+    <li>
+      <a href="/articles/zuchini-harvest">articles/zuchini-harvest</a>
+    </li>
+    <li>
+      <a href="/2006/07/zuchini-harvest">2006/07/zuchini-harvest</a>
+    </li>
+    <li>
+      <a href="/?p=67">?p=67</a>
+    </li>
+    <li>
+      <a href="/articles/two-two-two-yolks-one">articles/two-two-two-yolks-one</a>
+    </li>
+    <li>
+      <a href="/node/68">node/68</a>
+    </li>
+    <li>
+      <a href="/2006/07/two-two-two-yolks-in-one">2006/07/two-two-two-yolks-in-one</a>
+    </li>
+    <li>
+      <a href="/?p=68">?p=68</a>
+    </li>
+    <li>
+      <a href="/node/69">node/69</a>
+    </li>
+    <li>
+      <a href="/articles/breakfast-smoothie">articles/breakfast-smoothie</a>
+    </li>
+    <li>
+      <a href="/2006/07/breakfast-smoothie">2006/07/breakfast-smoothie</a>
+    </li>
+    <li>
+      <a href="/?p=69">?p=69</a>
+    </li>
+    <li>
+      <a href="/node/71">node/71</a>
+    </li>
+    <li>
+      <a href="/articles/run">articles/run</a>
+    </li>
+    <li>
+      <a href="/2006/07/run">2006/07/run</a>
+    </li>
+    <li>
+      <a href="/?p=71">?p=71</a>
+    </li>
+    <li>
+      <a href="/node/70">node/70</a>
+    </li>
+    <li>
+      <a href="/articles/sails-charles">articles/sails-charles</a>
+    </li>
+    <li>
+      <a href="/2006/07/sails-on-the-charles">2006/07/sails-on-the-charles</a>
+    </li>
+    <li>
+      <a href="/?p=70">?p=70</a>
+    </li>
+    <li>
+      <a href="/node/72">node/72</a>
+    </li>
+    <li>
+      <a href="/articles/canoes-mystic-river">articles/canoes-mystic-river</a>
+    </li>
+    <li>
+      <a href="/2006/07/canoes-on-the-mystic-river">2006/07/canoes-on-the-mystic-river</a>
+    </li>
+    <li>
+      <a href="/?p=72">?p=72</a>
+    </li>
+    <li>
+      <a href="/node/74">node/74</a>
+    </li>
+    <li>
+      <a href="/articles/response-net-neutrality">articles/response-net-neutrality</a>
+    </li>
+    <li>
+      <a href="/2006/07/a-response-for-net-neutrality">2006/07/a-response-for-net-neutrality</a>
+    </li>
+    <li>
+      <a href="/?p=74">?p=74</a>
+    </li>
+    <li>
+      <a href="/articles/first-monday-night-write">articles/first-monday-night-write</a>
+    </li>
+    <li>
+      <a href="/node/76">node/76</a>
+    </li>
+    <li>
+      <a href="/2006/07/first-monday-night-write">2006/07/first-monday-night-write</a>
+    </li>
+    <li>
+      <a href="/?p=76">?p=76</a>
+    </li>
+    <li>
+      <a href="/node/75">node/75</a>
+    </li>
+    <li>
+      <a href="/articles/making-smoothies">articles/making-smoothies</a>
+    </li>
+    <li>
+      <a href="/2006/07/making-smoothies">2006/07/making-smoothies</a>
+    </li>
+    <li>
+      <a href="/?p=75">?p=75</a>
+    </li>
+    <li>
+      <a href="/articles/no-chirps-lowell">articles/no-chirps-lowell</a>
+    </li>
+    <li>
+      <a href="/node/77">node/77</a>
+    </li>
+    <li>
+      <a href="/2006/07/no-chirps-for-lowell">2006/07/no-chirps-for-lowell</a>
+    </li>
+    <li>
+      <a href="/?p=77">?p=77</a>
+    </li>
+    <li>
+      <a href="/node/78">node/78</a>
+    </li>
+    <li>
+      <a href="/articles/gone-bicycling">articles/gone-bicycling</a>
+    </li>
+    <li>
+      <a href="/2006/07/gone-bicycling">2006/07/gone-bicycling</a>
+    </li>
+    <li>
+      <a href="/?p=78">?p=78</a>
+    </li>
+    <li>
+      <a href="/node/79">node/79</a>
+    </li>
+    <li>
+      <a href="/articles/vote-ben">articles/vote-ben</a>
+    </li>
+    <li>
+      <a href="/2006/07/vote-ben">2006/07/vote-ben</a>
+    </li>
+    <li>
+      <a href="/?p=79">?p=79</a>
+    </li>
+    <li>
+      <a href="/node/80">node/80</a>
+    </li>
+    <li>
+      <a href="/articles/piecing-together-cambrige">articles/piecing-together-cambrige</a>
+    </li>
+    <li>
+      <a href="/2006/07/piecing-together-cambrige">2006/07/piecing-together-cambrige</a>
+    </li>
+    <li>
+      <a href="/?p=80">?p=80</a>
+    </li>
+    <li>
+      <a href="/node/81">node/81</a>
+    </li>
+    <li>
+      <a href="/articles/meta-photography-boston">articles/meta-photography-boston</a>
+    </li>
+    <li>
+      <a href="/2006/08/meta-photography-in-boston">2006/08/meta-photography-in-boston</a>
+    </li>
+    <li>
+      <a href="/?p=81">?p=81</a>
+    </li>
+    <li>
+      <a href="/node/82">node/82</a>
+    </li>
+    <li>
+      <a href="/articles/night-and-day">articles/night-and-day</a>
+    </li>
+    <li>
+      <a href="/2006/08/night-and-day">2006/08/night-and-day</a>
+    </li>
+    <li>
+      <a href="/?p=82">?p=82</a>
+    </li>
+    <li>
+      <a href="/node/83">node/83</a>
+    </li>
+    <li>
+      <a href="/articles/night-scenes">articles/night-scenes</a>
+    </li>
+    <li>
+      <a href="/2006/08/night-scenes">2006/08/night-scenes</a>
+    </li>
+    <li>
+      <a href="/?p=83">?p=83</a>
+    </li>
+    <li>
+      <a href="/node/84">node/84</a>
+    </li>
+    <li>
+      <a href="/articles/web-2-0-will-save-us">articles/web-2-0-will-save-us</a>
+    </li>
+    <li>
+      <a href="/2006/08/web-2-0-will-save-us">2006/08/web-2-0-will-save-us</a>
+    </li>
+    <li>
+      <a href="/?p=84">?p=84</a>
+    </li>
+    <li>
+      <a href="/node/86">node/86</a>
+    </li>
+    <li>
+      <a href="/articles/central-park-pictures">articles/central-park-pictures</a>
+    </li>
+    <li>
+      <a href="/2006/08/central-park-pictures">2006/08/central-park-pictures</a>
+    </li>
+    <li>
+      <a href="/?p=86">?p=86</a>
+    </li>
+    <li>
+      <a href="/node/87">node/87</a>
+    </li>
+    <li>
+      <a href="/articles/node101-weekend-new-york-city">articles/node101-weekend-new-york-city</a>
+    </li>
+    <li>
+      <a href="/2006/08/node101-weekend-in-new-york-city">2006/08/node101-weekend-in-new-york-city</a>
+    </li>
+    <li>
+      <a href="/?p=87">?p=87</a>
+    </li>
+    <li>
+      <a href="/node/88">node/88</a>
+    </li>
+    <li>
+      <a href="/articles/youth-channel-blockparty">articles/youth-channel-blockparty</a>
+    </li>
+    <li>
+      <a href="/2006/08/youth-channel-blockparty">2006/08/youth-channel-blockparty</a>
+    </li>
+    <li>
+      <a href="/?p=88">?p=88</a>
+    </li>
+    <li>
+      <a href="/node/89">node/89</a>
+    </li>
+    <li>
+      <a href="/articles/solar-powered-art">articles/solar-powered-art</a>
+    </li>
+    <li>
+      <a href="/2006/08/solar-powered-art">2006/08/solar-powered-art</a>
+    </li>
+    <li>
+      <a href="/?p=89">?p=89</a>
+    </li>
+    <li>
+      <a href="/node/90">node/90</a>
+    </li>
+    <li>
+      <a href="/articles/about-dorchester">articles/about-dorchester</a>
+    </li>
+    <li>
+      <a href="/2006/08/about-in-dorchester">2006/08/about-in-dorchester</a>
+    </li>
+    <li>
+      <a href="/?p=90">?p=90</a>
+    </li>
+    <li>
+      <a href="/node/91">node/91</a>
+    </li>
+    <li>
+      <a href="/articles/deeper-porter">articles/deeper-porter</a>
+    </li>
+    <li>
+      <a href="/2006/08/deeper-than-porter">2006/08/deeper-than-porter</a>
+    </li>
+    <li>
+      <a href="/?p=91">?p=91</a>
+    </li>
+    <li>
+      <a href="/2006/08/education-urinal-=-">2006/08/education-urinal-=-</a>
+    </li>
+    <li>
+      <a href="/node/94">node/94</a>
+    </li>
+    <li>
+      <a href="/articles/education-urinal">articles/education-urinal</a>
+    </li>
+    <li>
+      <a href="/2006/08/education-urinal">2006/08/education-urinal</a>
+    </li>
+    <li>
+      <a href="/?p=94">?p=94</a>
+    </li>
+    <li>
+      <a href="/node/93">node/93</a>
+    </li>
+    <li>
+      <a href="/articles/planes-galore">articles/planes-galore</a>
+    </li>
+    <li>
+      <a href="/2006/08/planes-galore">2006/08/planes-galore</a>
+    </li>
+    <li>
+      <a href="/?p=93">?p=93</a>
+    </li>
+    <li>
+      <a href="/articles/rubbed-away-dc">articles/rubbed-away-dc</a>
+    </li>
+    <li>
+      <a href="/node/92">node/92</a>
+    </li>
+    <li>
+      <a href="/2006/08/rubbed-away-in-dc">2006/08/rubbed-away-in-dc</a>
+    </li>
+    <li>
+      <a href="/?p=92">?p=92</a>
+    </li>
+    <li>
+      <a href="/node/95">node/95</a>
+    </li>
+    <li>
+      <a href="/views-santa-barbara">views-santa-barbara</a>
+    </li>
+    <li>
+      <a href="/2006/09/views-of-santa-barbara">2006/09/views-of-santa-barbara</a>
+    </li>
+    <li>
+      <a href="/?p=95">?p=95</a>
+    </li>
+    <li>
+      <a href="/node/96">node/96</a>
+    </li>
+    <li>
+      <a href="/articles/evening-cruise-boston-harbor">articles/evening-cruise-boston-harbor</a>
+    </li>
+    <li>
+      <a href="/2006/09/evening-cruise-on-boston-harbor">2006/09/evening-cruise-on-boston-harbor</a>
+    </li>
+    <li>
+      <a href="/?p=96">?p=96</a>
+    </li>
+    <li>
+      <a href="/node/97">node/97</a>
+    </li>
+    <li>
+      <a href="/articles/rhode-island-turf-and-grapes">articles/rhode-island-turf-and-grapes</a>
+    </li>
+    <li>
+      <a href="/2006/09/rhode-island-turf-and-grapes">2006/09/rhode-island-turf-and-grapes</a>
+    </li>
+    <li>
+      <a href="/?p=97">?p=97</a>
+    </li>
+    <li>
+      <a href="/node/98">node/98</a>
+    </li>
+    <li>
+      <a href="/articles/germania-st-1">articles/germania-st-1</a>
+    </li>
+    <li>
+      <a href="/2006/09/germania-st-1">2006/09/germania-st-1</a>
+    </li>
+    <li>
+      <a href="/?p=98">?p=98</a>
+    </li>
+    <li>
+      <a href="/node/99">node/99</a>
+    </li>
+    <li>
+      <a href="/articles/radio-ga-ga-discussing-americorp-vista-wuml">articles/radio-ga-ga-discussing-americorp-vista-wuml</a>
+    </li>
+    <li>
+      <a href="/2006/09/radio-ga-ga-discussing-americorp-vista-on-wuml">2006/09/radio-ga-ga-discussing-americorp-vista-on-wuml</a>
+    </li>
+    <li>
+      <a href="/?p=99">?p=99</a>
+    </li>
+    <li>
+      <a href="/2006/09/germania-st-">2006/09/germania-st-</a>
+    </li>
+    <li>
+      <a href="/articles/germania-st-2">articles/germania-st-2</a>
+    </li>
+    <li>
+      <a href="/node/100">node/100</a>
+    </li>
+    <li>
+      <a href="/2006/09/germania-st-2">2006/09/germania-st-2</a>
+    </li>
+    <li>
+      <a href="/?p=100">?p=100</a>
+    </li>
+    <li>
+      <a href="/2006/10/germania-st-">2006/10/germania-st-</a>
+    </li>
+    <li>
+      <a href="/articles/germania-st-3">articles/germania-st-3</a>
+    </li>
+    <li>
+      <a href="/node/102">node/102</a>
+    </li>
+    <li>
+      <a href="/2006/10/germania-st-3">2006/10/germania-st-3</a>
+    </li>
+    <li>
+      <a href="/?p=102">?p=102</a>
+    </li>
+    <li>
+      <a href="/node/101">node/101</a>
+    </li>
+    <li>
+      <a href="/articles/meta-photography-powder-house-square">articles/meta-photography-powder-house-square</a>
+    </li>
+    <li>
+      <a href="/2006/10/meta-photography-in-powder-house-square">2006/10/meta-photography-in-powder-house-square</a>
+    </li>
+    <li>
+      <a href="/?p=101">?p=101</a>
+    </li>
+    <li>
+      <a href="/articles/travel-amherst">articles/travel-amherst</a>
+    </li>
+    <li>
+      <a href="/node/103">node/103</a>
+    </li>
+    <li>
+      <a href="/2006/10/travel-amherst">2006/10/travel-amherst</a>
+    </li>
+    <li>
+      <a href="/?p=103">?p=103</a>
+    </li>
+    <li>
+      <a href="/2006/10/nonprofit-competition-&amp;-concept-map">2006/10/nonprofit-competition-&amp;-concept-map</a>
+    </li>
+    <li>
+      <a href="/node/104">node/104</a>
+    </li>
+    <li>
+      <a href="/articles/nonprofit-competition-concept-map">articles/nonprofit-competition-concept-map</a>
+    </li>
+    <li>
+      <a href="/2006/10/nonprofit-competition-concept-map">2006/10/nonprofit-competition-concept-map</a>
+    </li>
+    <li>
+      <a href="/?p=104">?p=104</a>
+    </li>
+    <li>
+      <a href="/articles/spooky-baking">articles/spooky-baking</a>
+    </li>
+    <li>
+      <a href="/node/105">node/105</a>
+    </li>
+    <li>
+      <a href="/2006/10/spooky-baking">2006/10/spooky-baking</a>
+    </li>
+    <li>
+      <a href="/?p=105">?p=105</a>
+    </li>
+    <li>
+      <a href="/node/107">node/107</a>
+    </li>
+    <li>
+      <a href="/articles/boston-obscura-halloween-story">articles/boston-obscura-halloween-story</a>
+    </li>
+    <li>
+      <a href="/2006/10/boston-obscura-a-halloween-story">2006/10/boston-obscura-a-halloween-story</a>
+    </li>
+    <li>
+      <a href="/?p=107">?p=107</a>
+    </li>
+    <li>
+      <a href="/articles/office-faceoff">articles/office-faceoff</a>
+    </li>
+    <li>
+      <a href="/node/106">node/106</a>
+    </li>
+    <li>
+      <a href="/2006/10/office-faceoff">2006/10/office-faceoff</a>
+    </li>
+    <li>
+      <a href="/?p=106">?p=106</a>
+    </li>
+    <li>
+      <a href="/node/108">node/108</a>
+    </li>
+    <li>
+      <a href="/articles/denim-flashback">articles/denim-flashback</a>
+    </li>
+    <li>
+      <a href="/2006/11/denim-flashback">2006/11/denim-flashback</a>
+    </li>
+    <li>
+      <a href="/?p=108">?p=108</a>
+    </li>
+    <li>
+      <a href="/node/110">node/110</a>
+    </li>
+    <li>
+      <a href="/articles/nonprofit-technology-sandwich">articles/nonprofit-technology-sandwich</a>
+    </li>
+    <li>
+      <a href="/2006/11/nonprofit-technology-sandwich">2006/11/nonprofit-technology-sandwich</a>
+    </li>
+    <li>
+      <a href="/?p=110">?p=110</a>
+    </li>
+    <li>
+      <a href="/node/109">node/109</a>
+    </li>
+    <li>
+      <a href="/articles/drink">articles/drink</a>
+    </li>
+    <li>
+      <a href="/2006/11/the-drink">2006/11/the-drink</a>
+    </li>
+    <li>
+      <a href="/?p=109">?p=109</a>
+    </li>
+    <li>
+      <a href="/2006/12/meetamericorps-is-social-networking">2006/12/meetamericorps-is-social-networking</a>
+    </li>
+    <li>
+      <a href="/node/111">node/111</a>
+    </li>
+    <li>
+      <a href="/articles/meetamericorps-social-networking">articles/meetamericorps-social-networking</a>
+    </li>
+    <li>
+      <a href="/?p=111">?p=111</a>
+    </li>
+    <li>
+      <a href="/node/112">node/112</a>
+    </li>
+    <li>
+      <a href="/articles/happy-birthday-rebecca">articles/happy-birthday-rebecca</a>
+    </li>
+    <li>
+      <a href="/2006/12/happy-birthday-rebecca">2006/12/happy-birthday-rebecca</a>
+    </li>
+    <li>
+      <a href="/?p=112">?p=112</a>
+    </li>
+    <li>
+      <a href="/node/113">node/113</a>
+    </li>
+    <li>
+      <a href="/articles/love">articles/love</a>
+    </li>
+    <li>
+      <a href="/2006/12/love">2006/12/love</a>
+    </li>
+    <li>
+      <a href="/?p=113">?p=113</a>
+    </li>
+    <li>
+      <a href="/node/114">node/114</a>
+    </li>
+    <li>
+      <a href="/articles/happy-holidays-2006">articles/happy-holidays-2006</a>
+    </li>
+    <li>
+      <a href="/2006/12/happy-holidays-2006">2006/12/happy-holidays-2006</a>
+    </li>
+    <li>
+      <a href="/?p=114">?p=114</a>
+    </li>
+    <li>
+      <a href="/2007/01/bostons-best-tacos">2007/01/bostons-best-tacos</a>
+    </li>
+    <li>
+      <a href="/node/115">node/115</a>
+    </li>
+    <li>
+      <a href="/articles/bostons-best-tacos">articles/bostons-best-tacos</a>
+    </li>
+    <li>
+      <a href="/?p=115">?p=115</a>
+    </li>
+    <li>
+      <a href="/node/118">node/118</a>
+    </li>
+    <li>
+      <a href="/articles/valentines-day-2007">articles/valentines-day-2007</a>
+    </li>
+    <li>
+      <a href="/2007/02/valentines-day-2007">2007/02/valentines-day-2007</a>
+    </li>
+    <li>
+      <a href="/?p=118">?p=118</a>
+    </li>
+    <li>
+      <a href="/node/119">node/119</a>
+    </li>
+    <li>
+      <a href="/articles/future-cable-access">articles/future-cable-access</a>
+    </li>
+    <li>
+      <a href="/2007/02/the-future-of-cable-access">2007/02/the-future-of-cable-access</a>
+    </li>
+    <li>
+      <a href="/?p=119">?p=119</a>
+    </li>
+    <li>
+      <a href="/node/120">node/120</a>
+    </li>
+    <li>
+      <a href="/articles/self-photography">articles/self-photography</a>
+    </li>
+    <li>
+      <a href="/2007/02/self-photography">2007/02/self-photography</a>
+    </li>
+    <li>
+      <a href="/?p=120">?p=120</a>
+    </li>
+    <li>
+      <a href="/2007/03/but-its-just-a-logo">2007/03/but-its-just-a-logo</a>
+    </li>
+    <li>
+      <a href="/node/123">node/123</a>
+    </li>
+    <li>
+      <a href="/articles/its-just-logo">articles/its-just-logo</a>
+    </li>
+    <li>
+      <a href="/?p=123">?p=123</a>
+    </li>
+    <li>
+      <a href="/node/121">node/121</a>
+    </li>
+    <li>
+      <a href="/articles/airport-vehicles">articles/airport-vehicles</a>
+    </li>
+    <li>
+      <a href="/2007/03/airport-vehicles">2007/03/airport-vehicles</a>
+    </li>
+    <li>
+      <a href="/?p=121">?p=121</a>
+    </li>
+    <li>
+      <a href="/articles/ways-and-water">articles/ways-and-water</a>
+    </li>
+    <li>
+      <a href="/node/122">node/122</a>
+    </li>
+    <li>
+      <a href="/2007/03/ways-and-water">2007/03/ways-and-water</a>
+    </li>
+    <li>
+      <a href="/?p=122">?p=122</a>
+    </li>
+    <li>
+      <a href="/2007/03/arguments-ive-heard-against-open-source">2007/03/arguments-ive-heard-against-open-source</a>
+    </li>
+    <li>
+      <a href="/node/124">node/124</a>
+    </li>
+    <li>
+      <a href="/articles/arguments-ive-heard-against-open-source">articles/arguments-ive-heard-against-open-source</a>
+    </li>
+    <li>
+      <a href="/?p=124">?p=124</a>
+    </li>
+    <li>
+      <a href="/node/125">node/125</a>
+    </li>
+    <li>
+      <a href="/articles/copyright-and-nineteenth-century">articles/copyright-and-nineteenth-century</a>
+    </li>
+    <li>
+      <a href="/2007/04/copyright-and-the-nineteenth-century">2007/04/copyright-and-the-nineteenth-century</a>
+    </li>
+    <li>
+      <a href="/?p=125">?p=125</a>
+    </li>
+    <li>
+      <a href="/node/126">node/126</a>
+    </li>
+    <li>
+      <a href="/articles/meetamericorps-still-success">articles/meetamericorps-still-success</a>
+    </li>
+    <li>
+      <a href="/2007/04/meetamericorps-still-a-success">2007/04/meetamericorps-still-a-success</a>
+    </li>
+    <li>
+      <a href="/?p=126">?p=126</a>
+    </li>
+    <li>
+      <a href="/node/127">node/127</a>
+    </li>
+    <li>
+      <a href="/articles/nonprofit-communications-2-0">articles/nonprofit-communications-2-0</a>
+    </li>
+    <li>
+      <a href="/2007/04/nonprofit-communications-2-0">2007/04/nonprofit-communications-2-0</a>
+    </li>
+    <li>
+      <a href="/?p=127">?p=127</a>
+    </li>
+    <li>
+      <a href="/node/128">node/128</a>
+    </li>
+    <li>
+      <a href="/articles/introducing-panlexicon-com">articles/introducing-panlexicon-com</a>
+    </li>
+    <li>
+      <a href="/2007/04/introducing-panlexicon-com">2007/04/introducing-panlexicon-com</a>
+    </li>
+    <li>
+      <a href="/?p=128">?p=128</a>
+    </li>
+    <li>
+      <a href="/articles/new-england-construction">articles/new-england-construction</a>
+    </li>
+    <li>
+      <a href="/node/130">node/130</a>
+    </li>
+    <li>
+      <a href="/2007/04/new-england-construction">2007/04/new-england-construction</a>
+    </li>
+    <li>
+      <a href="/?p=130">?p=130</a>
+    </li>
+    <li>
+      <a href="/node/131">node/131</a>
+    </li>
+    <li>
+      <a href="/articles/spring-arrives">articles/spring-arrives</a>
+    </li>
+    <li>
+      <a href="/2007/05/spring-arrives">2007/05/spring-arrives</a>
+    </li>
+    <li>
+      <a href="/?p=131">?p=131</a>
+    </li>
+    <li>
+      <a href="/node/132">node/132</a>
+    </li>
+    <li>
+      <a href="/articles/small-things-spring">articles/small-things-spring</a>
+    </li>
+    <li>
+      <a href="/2007/06/small-things-of-spring">2007/06/small-things-of-spring</a>
+    </li>
+    <li>
+      <a href="/?p=132">?p=132</a>
+    </li>
+    <li>
+      <a href="/node/133">node/133</a>
+    </li>
+    <li>
+      <a href="/articles/planning-strategic-planning">articles/planning-strategic-planning</a>
+    </li>
+    <li>
+      <a href="/2007/07/planning-strategic-planning">2007/07/planning-strategic-planning</a>
+    </li>
+    <li>
+      <a href="/?p=133">?p=133</a>
+    </li>
+    <li>
+      <a href="/2007/07/should-i-get-a-nonprofit-job">2007/07/should-i-get-a-nonprofit-job</a>
+    </li>
+    <li>
+      <a href="/node/134">node/134</a>
+    </li>
+    <li>
+      <a href="/articles/should-i-get-nonprofit-job">articles/should-i-get-nonprofit-job</a>
+    </li>
+    <li>
+      <a href="/?p=134">?p=134</a>
+    </li>
+    <li>
+      <a href="/node/135">node/135</a>
+    </li>
+    <li>
+      <a href="/articles/walkabout-trail-ri">articles/walkabout-trail-ri</a>
+    </li>
+    <li>
+      <a href="/2007/08/walkabout-trail-ri">2007/08/walkabout-trail-ri</a>
+    </li>
+    <li>
+      <a href="/?p=135">?p=135</a>
+    </li>
+    <li>
+      <a href="/node/136">node/136</a>
+    </li>
+    <li>
+      <a href="/articles/geekout-video-maps-cable-access-tv">articles/geekout-video-maps-cable-access-tv</a>
+    </li>
+    <li>
+      <a href="/2007/08/geekout-video-on-maps-for-cable-access-tv">2007/08/geekout-video-on-maps-for-cable-access-tv</a>
+    </li>
+    <li>
+      <a href="/?p=136">?p=136</a>
+    </li>
+    <li>
+      <a href="/node/137">node/137</a>
+    </li>
+    <li>
+      <a href="/articles/desc-scripting-and-conflict-resolution">articles/desc-scripting-and-conflict-resolution</a>
+    </li>
+    <li>
+      <a href="/2007/08/desc-scripting-and-conflict-resolution">2007/08/desc-scripting-and-conflict-resolution</a>
+    </li>
+    <li>
+      <a href="/?p=137">?p=137</a>
+    </li>
+    <li>
+      <a href="/articles/two-stories-theme">articles/two-stories-theme</a>
+    </li>
+    <li>
+      <a href="/node/138">node/138</a>
+    </li>
+    <li>
+      <a href="/2007/08/two-stories-on-a-theme">2007/08/two-stories-on-a-theme</a>
+    </li>
+    <li>
+      <a href="/?p=138">?p=138</a>
+    </li>
+    <li>
+      <a href="/node/139">node/139</a>
+    </li>
+    <li>
+      <a href="/articles/more-thoughts-interesting-thesaurus">articles/more-thoughts-interesting-thesaurus</a>
+    </li>
+    <li>
+      <a href="/articles/some-more-thoughts-interesting-thesaurus">articles/some-more-thoughts-interesting-thesaurus</a>
+    </li>
+    <li>
+      <a href="/2007/08/more-thoughts-on-an-interesting-thesaurus">2007/08/more-thoughts-on-an-interesting-thesaurus</a>
+    </li>
+    <li>
+      <a href="/?p=139">?p=139</a>
+    </li>
+    <li>
+      <a href="/node/140">node/140</a>
+    </li>
+    <li>
+      <a href="/unintuitive-check">unintuitive-check</a>
+    </li>
+    <li>
+      <a href="/?p=140">?p=140</a>
+    </li>
+    <li>
+      <a href="/node/141">node/141</a>
+    </li>
+    <li>
+      <a href="/trustworthiness">trustworthiness</a>
+    </li>
+    <li>
+      <a href="/2007/08/trustworthiness">2007/08/trustworthiness</a>
+    </li>
+    <li>
+      <a href="/?p=141">?p=141</a>
+    </li>
+    <li>
+      <a href="/node/142">node/142</a>
+    </li>
+    <li>
+      <a href="/verb-do">verb-do</a>
+    </li>
+    <li>
+      <a href="/2007/08/verb-to-do">2007/08/verb-to-do</a>
+    </li>
+    <li>
+      <a href="/?p=142">?p=142</a>
+    </li>
+    <li>
+      <a href="/node/148">node/148</a>
+    </li>
+    <li>
+      <a href="/fears-death">fears-death</a>
+    </li>
+    <li>
+      <a href="/2007/09/fears-of-death">2007/09/fears-of-death</a>
+    </li>
+    <li>
+      <a href="/?p=148">?p=148</a>
+    </li>
+    <li>
+      <a href="/node/146">node/146</a>
+    </li>
+    <li>
+      <a href="/hemp-milk">hemp-milk</a>
+    </li>
+    <li>
+      <a href="/2007/09/hemp-milk">2007/09/hemp-milk</a>
+    </li>
+    <li>
+      <a href="/?p=146">?p=146</a>
+    </li>
+    <li>
+      <a href="/node/145">node/145</a>
+    </li>
+    <li>
+      <a href="/pasta-dough-recipe">pasta-dough-recipe</a>
+    </li>
+    <li>
+      <a href="/2007/09/pasta-dough-recipe">2007/09/pasta-dough-recipe</a>
+    </li>
+    <li>
+      <a href="/?p=145">?p=145</a>
+    </li>
+    <li>
+      <a href="/node/143">node/143</a>
+    </li>
+    <li>
+      <a href="/tee">tee</a>
+    </li>
+    <li>
+      <a href="/2007/09/tee">2007/09/tee</a>
+    </li>
+    <li>
+      <a href="/?p=143">?p=143</a>
+    </li>
+    <li>
+      <a href="/node/147">node/147</a>
+    </li>
+    <li>
+      <a href="/thesaurus-computations">thesaurus-computations</a>
+    </li>
+    <li>
+      <a href="/2007/09/thesaurus-computations">2007/09/thesaurus-computations</a>
+    </li>
+    <li>
+      <a href="/?p=147">?p=147</a>
+    </li>
+    <li>
+      <a href="/node/144">node/144</a>
+    </li>
+    <li>
+      <a href="/thesuarus-computations">thesuarus-computations</a>
+    </li>
+    <li>
+      <a href="/2007/09/thesuarus-computations">2007/09/thesuarus-computations</a>
+    </li>
+    <li>
+      <a href="/?p=144">?p=144</a>
+    </li>
+    <li>
+      <a href="/node/149">node/149</a>
+    </li>
+    <li>
+      <a href="/toe-straighteners">toe-straighteners</a>
+    </li>
+    <li>
+      <a href="/2007/09/toe-straighteners">2007/09/toe-straighteners</a>
+    </li>
+    <li>
+      <a href="/?p=149">?p=149</a>
+    </li>
+    <li>
+      <a href="/node/150">node/150</a>
+    </li>
+    <li>
+      <a href="/plagiarism">plagiarism</a>
+    </li>
+    <li>
+      <a href="/2007/09/plagiarism">2007/09/plagiarism</a>
+    </li>
+    <li>
+      <a href="/?p=150">?p=150</a>
+    </li>
+    <li>
+      <a href="/node/151">node/151</a>
+    </li>
+    <li>
+      <a href="/setting-octave-and-gnuplot-osx">setting-octave-and-gnuplot-osx</a>
+    </li>
+    <li>
+      <a href="/2007/09/setting-up-octave-and-gnuplot-on-osx">2007/09/setting-up-octave-and-gnuplot-on-osx</a>
+    </li>
+    <li>
+      <a href="/?p=151">?p=151</a>
+    </li>
+    <li>
+      <a href="/drupal-wysiwyg-editors">drupal-wysiwyg-editors</a>
+    </li>
+    <li>
+      <a href="/node/152">node/152</a>
+    </li>
+    <li>
+      <a href="/2007/09/drupal-wysiwyg-editors">2007/09/drupal-wysiwyg-editors</a>
+    </li>
+    <li>
+      <a href="/?p=152">?p=152</a>
+    </li>
+    <li>
+      <a href="/politics-fear">politics-fear</a>
+    </li>
+    <li>
+      <a href="/node/153">node/153</a>
+    </li>
+    <li>
+      <a href="/2007/09/politics-of-fear">2007/09/politics-of-fear</a>
+    </li>
+    <li>
+      <a href="/?p=153">?p=153</a>
+    </li>
+    <li>
+      <a href="/node/154">node/154</a>
+    </li>
+    <li>
+      <a href="/important-distinction">important-distinction</a>
+    </li>
+    <li>
+      <a href="/2007/09/an-important-distinction">2007/09/an-important-distinction</a>
+    </li>
+    <li>
+      <a href="/?p=154">?p=154</a>
+    </li>
+    <li>
+      <a href="/node/155">node/155</a>
+    </li>
+    <li>
+      <a href="/opinion-nonprofits">opinion-nonprofits</a>
+    </li>
+    <li>
+      <a href="/2007/09/opinion-on-nonprofits">2007/09/opinion-on-nonprofits</a>
+    </li>
+    <li>
+      <a href="/?p=155">?p=155</a>
+    </li>
+    <li>
+      <a href="/node/156">node/156</a>
+    </li>
+    <li>
+      <a href="/latin-transit">latin-transit</a>
+    </li>
+    <li>
+      <a href="/2007/09/latin-transit">2007/09/latin-transit</a>
+    </li>
+    <li>
+      <a href="/?p=156">?p=156</a>
+    </li>
+    <li>
+      <a href="/node/157">node/157</a>
+    </li>
+    <li>
+      <a href="/who-using-drupal">who-using-drupal</a>
+    </li>
+    <li>
+      <a href="/2007/09/who-is-using-drupal">2007/09/who-is-using-drupal</a>
+    </li>
+    <li>
+      <a href="/?p=157">?p=157</a>
+    </li>
+    <li>
+      <a href="/node/158">node/158</a>
+    </li>
+    <li>
+      <a href="/pancake-recipe">pancake-recipe</a>
+    </li>
+    <li>
+      <a href="/2007/10/pancake-recipe">2007/10/pancake-recipe</a>
+    </li>
+    <li>
+      <a href="/?p=158">?p=158</a>
+    </li>
+    <li>
+      <a href="/node/159">node/159</a>
+    </li>
+    <li>
+      <a href="/woody-allen-assignment">woody-allen-assignment</a>
+    </li>
+    <li>
+      <a href="/2007/10/woody-allen-assignment">2007/10/woody-allen-assignment</a>
+    </li>
+    <li>
+      <a href="/?p=159">?p=159</a>
+    </li>
+    <li>
+      <a href="/node/160">node/160</a>
+    </li>
+    <li>
+      <a href="/google-relevance">google-relevance</a>
+    </li>
+    <li>
+      <a href="/2007/10/google-relevance">2007/10/google-relevance</a>
+    </li>
+    <li>
+      <a href="/?p=160">?p=160</a>
+    </li>
+    <li>
+      <a href="/node/161">node/161</a>
+    </li>
+    <li>
+      <a href="/puddingstone">puddingstone</a>
+    </li>
+    <li>
+      <a href="/2007/10/puddingstone">2007/10/puddingstone</a>
+    </li>
+    <li>
+      <a href="/?p=161">?p=161</a>
+    </li>
+    <li>
+      <a href="/node/162">node/162</a>
+    </li>
+    <li>
+      <a href="/john-gardner">john-gardner</a>
+    </li>
+    <li>
+      <a href="/opportunities-disguise">opportunities-disguise</a>
+    </li>
+    <li>
+      <a href="/2007/10/opportunities-in-disguise">2007/10/opportunities-in-disguise</a>
+    </li>
+    <li>
+      <a href="/?p=162">?p=162</a>
+    </li>
+    <li>
+      <a href="/node/163">node/163</a>
+    </li>
+    <li>
+      <a href="/san-diego-burning">san-diego-burning</a>
+    </li>
+    <li>
+      <a href="/2007/10/san-diego-is-burning">2007/10/san-diego-is-burning</a>
+    </li>
+    <li>
+      <a href="/?p=163">?p=163</a>
+    </li>
+    <li>
+      <a href="/node/164">node/164</a>
+    </li>
+    <li>
+      <a href="/articles/alternatives-nonprofit-job">articles/alternatives-nonprofit-job</a>
+    </li>
+    <li>
+      <a href="/2007/10/alternatives-to-a-nonprofit-job">2007/10/alternatives-to-a-nonprofit-job</a>
+    </li>
+    <li>
+      <a href="/?p=164">?p=164</a>
+    </li>
+    <li>
+      <a href="/node/165">node/165</a>
+    </li>
+    <li>
+      <a href="/understanding-academia">understanding-academia</a>
+    </li>
+    <li>
+      <a href="/understanding-academia-and-legitimacy-exchange">understanding-academia-and-legitimacy-exchange</a>
+    </li>
+    <li>
+      <a href="/2007/11/understanding-academia-and-legitimacy-exchange">2007/11/understanding-academia-and-legitimacy-exchange</a>
+    </li>
+    <li>
+      <a href="/?p=165">?p=165</a>
+    </li>
+    <li>
+      <a href="/john-hancock-building">john-hancock-building</a>
+    </li>
+    <li>
+      <a href="/node/166">node/166</a>
+    </li>
+    <li>
+      <a href="/2007/11/the-john-hancock-building">2007/11/the-john-hancock-building</a>
+    </li>
+    <li>
+      <a href="/?p=166">?p=166</a>
+    </li>
+    <li>
+      <a href="/chill-units">chill-units</a>
+    </li>
+    <li>
+      <a href="/node/167">node/167</a>
+    </li>
+    <li>
+      <a href="/2007/11/chill-units">2007/11/chill-units</a>
+    </li>
+    <li>
+      <a href="/?p=167">?p=167</a>
+    </li>
+    <li>
+      <a href="/node/168">node/168</a>
+    </li>
+    <li>
+      <a href="/nightmares">nightmares</a>
+    </li>
+    <li>
+      <a href="/2007/11/nightmares">2007/11/nightmares</a>
+    </li>
+    <li>
+      <a href="/?p=168">?p=168</a>
+    </li>
+    <li>
+      <a href="/node/172">node/172</a>
+    </li>
+    <li>
+      <a href="/creating-models">creating-models</a>
+    </li>
+    <li>
+      <a href="/2007/11/creating-models">2007/11/creating-models</a>
+    </li>
+    <li>
+      <a href="/?p=172">?p=172</a>
+    </li>
+    <li>
+      <a href="/node/171">node/171</a>
+    </li>
+    <li>
+      <a href="/criticism-civic-literacy">criticism-civic-literacy</a>
+    </li>
+    <li>
+      <a href="/2007/11/criticism-of-civic-literacy">2007/11/criticism-of-civic-literacy</a>
+    </li>
+    <li>
+      <a href="/?p=171">?p=171</a>
+    </li>
+    <li>
+      <a href="/node/170">node/170</a>
+    </li>
+    <li>
+      <a href="/articles/donations-and-volunteering">articles/donations-and-volunteering</a>
+    </li>
+    <li>
+      <a href="/2007/11/donations-and-volunteering">2007/11/donations-and-volunteering</a>
+    </li>
+    <li>
+      <a href="/?p=170">?p=170</a>
+    </li>
+    <li>
+      <a href="/node/173">node/173</a>
+    </li>
+    <li>
+      <a href="/cold-reading">cold-reading</a>
+    </li>
+    <li>
+      <a href="/2007/11/cold-reading">2007/11/cold-reading</a>
+    </li>
+    <li>
+      <a href="/?p=173">?p=173</a>
+    </li>
+    <li>
+      <a href="/node/174">node/174</a>
+    </li>
+    <li>
+      <a href="/knorking">knorking</a>
+    </li>
+    <li>
+      <a href="/2007/11/knorking">2007/11/knorking</a>
+    </li>
+    <li>
+      <a href="/?p=174">?p=174</a>
+    </li>
+    <li>
+      <a href="/node/175">node/175</a>
+    </li>
+    <li>
+      <a href="/biology-cliche">biology-cliche</a>
+    </li>
+    <li>
+      <a href="/2007/11/biology-cliche">2007/11/biology-cliche</a>
+    </li>
+    <li>
+      <a href="/?p=175">?p=175</a>
+    </li>
+    <li>
+      <a href="/node/176">node/176</a>
+    </li>
+    <li>
+      <a href="/close-machine">close-machine</a>
+    </li>
+    <li>
+      <a href="/2007/11/close-to-the-machine">2007/11/close-to-the-machine</a>
+    </li>
+    <li>
+      <a href="/?p=176">?p=176</a>
+    </li>
+    <li>
+      <a href="/node/179">node/179</a>
+    </li>
+    <li>
+      <a href="/creating-meaning-through-interaction">creating-meaning-through-interaction</a>
+    </li>
+    <li>
+      <a href="/2007/12/creating-meaning-through-interaction">2007/12/creating-meaning-through-interaction</a>
+    </li>
+    <li>
+      <a href="/?p=179">?p=179</a>
+    </li>
+    <li>
+      <a href="/node/178">node/178</a>
+    </li>
+    <li>
+      <a href="/articles/happy-birthday-me">articles/happy-birthday-me</a>
+    </li>
+    <li>
+      <a href="/2007/12/happy-birthday-to-me">2007/12/happy-birthday-to-me</a>
+    </li>
+    <li>
+      <a href="/?p=178">?p=178</a>
+    </li>
+    <li>
+      <a href="/node/177">node/177</a>
+    </li>
+    <li>
+      <a href="/volunteer-logic">volunteer-logic</a>
+    </li>
+    <li>
+      <a href="/2007/12/volunteer-logic">2007/12/volunteer-logic</a>
+    </li>
+    <li>
+      <a href="/?p=177">?p=177</a>
+    </li>
+    <li>
+      <a href="/node/180">node/180</a>
+    </li>
+    <li>
+      <a href="/consumption-and-deregulation">consumption-and-deregulation</a>
+    </li>
+    <li>
+      <a href="/2007/12/consumption-and-deregulation">2007/12/consumption-and-deregulation</a>
+    </li>
+    <li>
+      <a href="/?p=180">?p=180</a>
+    </li>
+    <li>
+      <a href="/node/181">node/181</a>
+    </li>
+    <li>
+      <a href="/fat-facts">fat-facts</a>
+    </li>
+    <li>
+      <a href="/2007/12/fat-facts">2007/12/fat-facts</a>
+    </li>
+    <li>
+      <a href="/?p=181">?p=181</a>
+    </li>
+    <li>
+      <a href="/2007/12/vis-a-vis-viz-vis-a-vis-viz-">2007/12/vis-a-vis-viz-vis-a-vis-viz-</a>
+    </li>
+    <li>
+      <a href="/viz-vis-vis-viz">viz-vis-vis-viz</a>
+    </li>
+    <li>
+      <a href="/node/182">node/182</a>
+    </li>
+    <li>
+      <a href="/vis-vis-viz-vis-vis-viz">vis-vis-viz-vis-vis-viz</a>
+    </li>
+    <li>
+      <a href="/2007/12/vis-a-vis-viz-vis-a-vis-viz">2007/12/vis-a-vis-viz-vis-a-vis-viz</a>
+    </li>
+    <li>
+      <a href="/?p=182">?p=182</a>
+    </li>
+    <li>
+      <a href="/node/185">node/185</a>
+    </li>
+    <li>
+      <a href="/apple-and-green-papaya">apple-and-green-papaya</a>
+    </li>
+    <li>
+      <a href="/2007/12/apple-and-green-papaya">2007/12/apple-and-green-papaya</a>
+    </li>
+    <li>
+      <a href="/?p=185">?p=185</a>
+    </li>
+    <li>
+      <a href="/node/184">node/184</a>
+    </li>
+    <li>
+      <a href="/cribbed-apple-salsa">cribbed-apple-salsa</a>
+    </li>
+    <li>
+      <a href="/2007/12/cribbed-apple-salsa">2007/12/cribbed-apple-salsa</a>
+    </li>
+    <li>
+      <a href="/?p=184">?p=184</a>
+    </li>
+    <li>
+      <a href="/node/186">node/186</a>
+    </li>
+    <li>
+      <a href="/king-corn">king-corn</a>
+    </li>
+    <li>
+      <a href="/2007/12/king-corn">2007/12/king-corn</a>
+    </li>
+    <li>
+      <a href="/?p=186">?p=186</a>
+    </li>
+    <li>
+      <a href="/node/183">node/183</a>
+    </li>
+    <li>
+      <a href="/struck-cain">struck-cain</a>
+    </li>
+    <li>
+      <a href="/2007/12/struck-by-cain">2007/12/struck-by-cain</a>
+    </li>
+    <li>
+      <a href="/?p=183">?p=183</a>
+    </li>
+    <li>
+      <a href="/node/188">node/188</a>
+    </li>
+    <li>
+      <a href="/design-analogies">design-analogies</a>
+    </li>
+    <li>
+      <a href="/2007/12/design-analogies">2007/12/design-analogies</a>
+    </li>
+    <li>
+      <a href="/?p=188">?p=188</a>
+    </li>
+    <li>
+      <a href="/node/187">node/187</a>
+    </li>
+    <li>
+      <a href="/destructive-rhetoric">destructive-rhetoric</a>
+    </li>
+    <li>
+      <a href="/2007/12/destructive-rhetoric">2007/12/destructive-rhetoric</a>
+    </li>
+    <li>
+      <a href="/?p=187">?p=187</a>
+    </li>
+    <li>
+      <a href="/node/190">node/190</a>
+    </li>
+    <li>
+      <a href="/hold-salt">hold-salt</a>
+    </li>
+    <li>
+      <a href="/2007/12/hold-the-salt">2007/12/hold-the-salt</a>
+    </li>
+    <li>
+      <a href="/?p=190">?p=190</a>
+    </li>
+    <li>
+      <a href="/node/189">node/189</a>
+    </li>
+    <li>
+      <a href="/reading-list">reading-list</a>
+    </li>
+    <li>
+      <a href="/2007/12/reading-list">2007/12/reading-list</a>
+    </li>
+    <li>
+      <a href="/?p=189">?p=189</a>
+    </li>
+    <li>
+      <a href="/node/191">node/191</a>
+    </li>
+    <li>
+      <a href="/articles/remember-paul">articles/remember-paul</a>
+    </li>
+    <li>
+      <a href="/2007/12/remember-paul">2007/12/remember-paul</a>
+    </li>
+    <li>
+      <a href="/?p=191">?p=191</a>
+    </li>
+    <li>
+      <a href="/node/192">node/192</a>
+    </li>
+    <li>
+      <a href="/bees-and-biology">bees-and-biology</a>
+    </li>
+    <li>
+      <a href="/2007/12/bees-and-biology">2007/12/bees-and-biology</a>
+    </li>
+    <li>
+      <a href="/?p=192">?p=192</a>
+    </li>
+    <li>
+      <a href="/node/193">node/193</a>
+    </li>
+    <li>
+      <a href="/detective-nonsense">detective-nonsense</a>
+    </li>
+    <li>
+      <a href="/2007/12/detective-nonsense">2007/12/detective-nonsense</a>
+    </li>
+    <li>
+      <a href="/?p=193">?p=193</a>
+    </li>
+    <li>
+      <a href="/2007/12/understanding-beliefs-(and-how-to-change-them)">2007/12/understanding-beliefs-(and-how-to-change-them)</a>
+    </li>
+    <li>
+      <a href="/node/195">node/195</a>
+    </li>
+    <li>
+      <a href="/articles/understanding-beliefs-and-how-change-them">articles/understanding-beliefs-and-how-change-them</a>
+    </li>
+    <li>
+      <a href="/2007/12/understanding-beliefs-and-how-to-change-them">2007/12/understanding-beliefs-and-how-to-change-them</a>
+    </li>
+    <li>
+      <a href="/?p=195">?p=195</a>
+    </li>
+    <li>
+      <a href="/node/196">node/196</a>
+    </li>
+    <li>
+      <a href="/medicalization">medicalization</a>
+    </li>
+    <li>
+      <a href="/2007/12/medicalization">2007/12/medicalization</a>
+    </li>
+    <li>
+      <a href="/?p=196">?p=196</a>
+    </li>
+    <li>
+      <a href="/node/197">node/197</a>
+    </li>
+    <li>
+      <a href="/articles/lolart">articles/lolart</a>
+    </li>
+    <li>
+      <a href="/2007/12/lolart">2007/12/lolart</a>
+    </li>
+    <li>
+      <a href="/?p=197">?p=197</a>
+    </li>
+    <li>
+      <a href="/2008/01/2007-in-review-">2008/01/2007-in-review-</a>
+    </li>
+    <li>
+      <a href="/articles/2007-review">articles/2007-review</a>
+    </li>
+    <li>
+      <a href="/node/198">node/198</a>
+    </li>
+    <li>
+      <a href="/2008/01/2007-in-review">2008/01/2007-in-review</a>
+    </li>
+    <li>
+      <a href="/?p=198">?p=198</a>
+    </li>
+    <li>
+      <a href="/2008/01/to-decimate">2008/01/to-decimate</a>
+    </li>
+    <li>
+      <a href="/node/199">node/199</a>
+    </li>
+    <li>
+      <a href="/decimate">decimate</a>
+    </li>
+    <li>
+      <a href="/?p=199">?p=199</a>
+    </li>
+    <li>
+      <a href="/node/200">node/200</a>
+    </li>
+    <li>
+      <a href="/observation/ors-amounts-nalgene-bottle">observation/ors-amounts-nalgene-bottle</a>
+    </li>
+    <li>
+      <a href="/ors-amounts-nalgene-bottle">ors-amounts-nalgene-bottle</a>
+    </li>
+    <li>
+      <a href="/2008/02/ors-amounts-for-a-nalgene-bottle">2008/02/ors-amounts-for-a-nalgene-bottle</a>
+    </li>
+    <li>
+      <a href="/?p=200">?p=200</a>
+    </li>
+    <li>
+      <a href="/node/201">node/201</a>
+    </li>
+    <li>
+      <a href="/ny-times-public-television">ny-times-public-television</a>
+    </li>
+    <li>
+      <a href="/2008/02/ny-times-on-public-television">2008/02/ny-times-on-public-television</a>
+    </li>
+    <li>
+      <a href="/?p=201">?p=201</a>
+    </li>
+    <li>
+      <a href="/node/202">node/202</a>
+    </li>
+    <li>
+      <a href="/perspective">perspective</a>
+    </li>
+    <li>
+      <a href="/2008/02/perspective">2008/02/perspective</a>
+    </li>
+    <li>
+      <a href="/?p=202">?p=202</a>
+    </li>
+    <li>
+      <a href="/node/203">node/203</a>
+    </li>
+    <li>
+      <a href="/excel-escape-characters">excel-escape-characters</a>
+    </li>
+    <li>
+      <a href="/2008/02/excel-escape-characters">2008/02/excel-escape-characters</a>
+    </li>
+    <li>
+      <a href="/?p=203">?p=203</a>
+    </li>
+    <li>
+      <a href="/2008/03/capitalism-and-morality-(thai-beer-and-monks)">2008/03/capitalism-and-morality-(thai-beer-and-monks)</a>
+    </li>
+    <li>
+      <a href="/node/205">node/205</a>
+    </li>
+    <li>
+      <a href="/capitalism-and-morality">capitalism-and-morality</a>
+    </li>
+    <li>
+      <a href="/capitalism-and-morality-thai-beer-and-monks">capitalism-and-morality-thai-beer-and-monks</a>
+    </li>
+    <li>
+      <a href="/2008/03/capitalism-and-morality-thai-beer-and-monks">2008/03/capitalism-and-morality-thai-beer-and-monks</a>
+    </li>
+    <li>
+      <a href="/?p=205">?p=205</a>
+    </li>
+    <li>
+      <a href="/node/204">node/204</a>
+    </li>
+    <li>
+      <a href="/reject-or-denounce">reject-or-denounce</a>
+    </li>
+    <li>
+      <a href="/2008/03/reject-or-denounce">2008/03/reject-or-denounce</a>
+    </li>
+    <li>
+      <a href="/?p=204">?p=204</a>
+    </li>
+    <li>
+      <a href="/node/207">node/207</a>
+    </li>
+    <li>
+      <a href="/breakfast-cereals-oh-my">breakfast-cereals-oh-my</a>
+    </li>
+    <li>
+      <a href="/2008/03/breakfast-cereals-oh-my">2008/03/breakfast-cereals-oh-my</a>
+    </li>
+    <li>
+      <a href="/?p=207">?p=207</a>
+    </li>
+    <li>
+      <a href="/node/206">node/206</a>
+    </li>
+    <li>
+      <a href="/writing-congresscritter">writing-congresscritter</a>
+    </li>
+    <li>
+      <a href="/writing-my-congress-critter">writing-my-congress-critter</a>
+    </li>
+    <li>
+      <a href="/2008/03/writing-my-congress-critter">2008/03/writing-my-congress-critter</a>
+    </li>
+    <li>
+      <a href="/?p=206">?p=206</a>
+    </li>
+    <li>
+      <a href="/node/208">node/208</a>
+    </li>
+    <li>
+      <a href="/observation/millenial-idea">observation/millenial-idea</a>
+    </li>
+    <li>
+      <a href="/2008/03/a-millenial-idea">2008/03/a-millenial-idea</a>
+    </li>
+    <li>
+      <a href="/?p=208">?p=208</a>
+    </li>
+    <li>
+      <a href="/node/209">node/209</a>
+    </li>
+    <li>
+      <a href="/observation/why-i-apple-computers">observation/why-i-apple-computers</a>
+    </li>
+    <li>
+      <a href="/2008/03/why-i-like-apple-computers">2008/03/why-i-like-apple-computers</a>
+    </li>
+    <li>
+      <a href="/?p=209">?p=209</a>
+    </li>
+    <li>
+      <a href="/observation/free-society">observation/free-society</a>
+    </li>
+    <li>
+      <a href="/node/210">node/210</a>
+    </li>
+    <li>
+      <a href="/2008/03/free-society">2008/03/free-society</a>
+    </li>
+    <li>
+      <a href="/?p=210">?p=210</a>
+    </li>
+    <li>
+      <a href="/node/212">node/212</a>
+    </li>
+    <li>
+      <a href="/observation/nonprofit-job-misconceptions">observation/nonprofit-job-misconceptions</a>
+    </li>
+    <li>
+      <a href="/2008/04/nonprofit-job-misconceptions">2008/04/nonprofit-job-misconceptions</a>
+    </li>
+    <li>
+      <a href="/?p=212">?p=212</a>
+    </li>
+    <li>
+      <a href="/observation/transitivity-fallacy">observation/transitivity-fallacy</a>
+    </li>
+    <li>
+      <a href="/node/211">node/211</a>
+    </li>
+    <li>
+      <a href="/2008/04/transitivity-fallacy">2008/04/transitivity-fallacy</a>
+    </li>
+    <li>
+      <a href="/?p=211">?p=211</a>
+    </li>
+    <li>
+      <a href="/node/214">node/214</a>
+    </li>
+    <li>
+      <a href="/articles/progressive-terminology-discussing-poverty">articles/progressive-terminology-discussing-poverty</a>
+    </li>
+    <li>
+      <a href="/2008/04/progressive-terminology-for-discussing-poverty">2008/04/progressive-terminology-for-discussing-poverty</a>
+    </li>
+    <li>
+      <a href="/?p=214">?p=214</a>
+    </li>
+    <li>
+      <a href="/node/216">node/216</a>
+    </li>
+    <li>
+      <a href="/articles/brompt-blog-reminder">articles/brompt-blog-reminder</a>
+    </li>
+    <li>
+      <a href="/2008/04/brompt-is-a-blog-reminder">2008/04/brompt-is-a-blog-reminder</a>
+    </li>
+    <li>
+      <a href="/?p=216">?p=216</a>
+    </li>
+    <li>
+      <a href="/node/215">node/215</a>
+    </li>
+    <li>
+      <a href="/articles/cat-new">articles/cat-new</a>
+    </li>
+    <li>
+      <a href="/2008/04/cat-new">2008/04/cat-new</a>
+    </li>
+    <li>
+      <a href="/?p=215">?p=215</a>
+    </li>
+    <li>
+      <a href="/node/217">node/217</a>
+    </li>
+    <li>
+      <a href="/observation/echilada-sauce">observation/echilada-sauce</a>
+    </li>
+    <li>
+      <a href="/observation/enchilada-sauce">observation/enchilada-sauce</a>
+    </li>
+    <li>
+      <a href="/2008/04/enchilada-sauce">2008/04/enchilada-sauce</a>
+    </li>
+    <li>
+      <a href="/?p=217">?p=217</a>
+    </li>
+    <li>
+      <a href="/node/218">node/218</a>
+    </li>
+    <li>
+      <a href="/boston-vegetable-planting-chart">boston-vegetable-planting-chart</a>
+    </li>
+    <li>
+      <a href="/articles/boston-vegetable-planting-chart">articles/boston-vegetable-planting-chart</a>
+    </li>
+    <li>
+      <a href="/2008/04/boston-vegetable-planting-chart">2008/04/boston-vegetable-planting-chart</a>
+    </li>
+    <li>
+      <a href="/?p=218">?p=218</a>
+    </li>
+    <li>
+      <a href="/node/219">node/219</a>
+    </li>
+    <li>
+      <a href="/observation/binaries-and-teaching">observation/binaries-and-teaching</a>
+    </li>
+    <li>
+      <a href="/2008/05/binaries-and-teaching">2008/05/binaries-and-teaching</a>
+    </li>
+    <li>
+      <a href="/?p=219">?p=219</a>
+    </li>
+    <li>
+      <a href="/node/220">node/220</a>
+    </li>
+    <li>
+      <a href="/observation/jp-cafe-brownies">observation/jp-cafe-brownies</a>
+    </li>
+    <li>
+      <a href="/2008/05/jp-cafe-brownies">2008/05/jp-cafe-brownies</a>
+    </li>
+    <li>
+      <a href="/?p=220">?p=220</a>
+    </li>
+    <li>
+      <a href="/node/221">node/221</a>
+    </li>
+    <li>
+      <a href="/observation/ntc08-seven-things-everyone-wants-what-freud-and-buddha-understood-and-were-forgetting-a">observation/ntc08-seven-things-everyone-wants-what-freud-and-buddha-understood-and-were-forgetting-a</a>
+    </li>
+    <li>
+      <a href="/2008/05/ntc08-the-seven-things-everyone-wants">2008/05/ntc08-the-seven-things-everyone-wants</a>
+    </li>
+    <li>
+      <a href="/?p=221">?p=221</a>
+    </li>
+    <li>
+      <a href="/node/223">node/223</a>
+    </li>
+    <li>
+      <a href="/observation/conference-notes-managing-nonprofit-technology-projects">observation/conference-notes-managing-nonprofit-technology-projects</a>
+    </li>
+    <li>
+      <a href="/2008/06/conference-notes-managing-nonprofit-technology-projects">2008/06/conference-notes-managing-nonprofit-technology-projects</a>
+    </li>
+    <li>
+      <a href="/?p=223">?p=223</a>
+    </li>
+    <li>
+      <a href="/node/222">node/222</a>
+    </li>
+    <li>
+      <a href="/observation/contextonomy">observation/contextonomy</a>
+    </li>
+    <li>
+      <a href="/2008/06/contextonomy">2008/06/contextonomy</a>
+    </li>
+    <li>
+      <a href="/?p=222">?p=222</a>
+    </li>
+    <li>
+      <a href="/observation/line-order-your-ssn">observation/line-order-your-ssn</a>
+    </li>
+    <li>
+      <a href="/node/225">node/225</a>
+    </li>
+    <li>
+      <a href="/2008/06/line-up-in-order-of-your-ssn">2008/06/line-up-in-order-of-your-ssn</a>
+    </li>
+    <li>
+      <a href="/?p=225">?p=225</a>
+    </li>
+    <li>
+      <a href="/2008/06/other-words-for-lie">2008/06/other-words-for-lie</a>
+    </li>
+    <li>
+      <a href="/observation/other-words-lie">observation/other-words-lie</a>
+    </li>
+    <li>
+      <a href="/node/224">node/224</a>
+    </li>
+    <li>
+      <a href="/?p=224">?p=224</a>
+    </li>
+    <li>
+      <a href="/node/226">node/226</a>
+    </li>
+    <li>
+      <a href="/observation/7-nonprofit-challenges">observation/7-nonprofit-challenges</a>
+    </li>
+    <li>
+      <a href="/2008/06/7-nonprofit-challenges">2008/06/7-nonprofit-challenges</a>
+    </li>
+    <li>
+      <a href="/?p=226">?p=226</a>
+    </li>
+    <li>
+      <a href="/node/227">node/227</a>
+    </li>
+    <li>
+      <a href="/observation/lumifi-search-widget">observation/lumifi-search-widget</a>
+    </li>
+    <li>
+      <a href="/2008/06/lumifi-search-widget">2008/06/lumifi-search-widget</a>
+    </li>
+    <li>
+      <a href="/?p=227">?p=227</a>
+    </li>
+    <li>
+      <a href="/node/228">node/228</a>
+    </li>
+    <li>
+      <a href="/observation/fluoride-teeth-and-brushing-advice">observation/fluoride-teeth-and-brushing-advice</a>
+    </li>
+    <li>
+      <a href="/2008/06/fluoride-teeth-and-brushing-advice">2008/06/fluoride-teeth-and-brushing-advice</a>
+    </li>
+    <li>
+      <a href="/?p=228">?p=228</a>
+    </li>
+    <li>
+      <a href="/node/229">node/229</a>
+    </li>
+    <li>
+      <a href="/articles/facebook-phone-trees-nonprofit-technology-everyone">articles/facebook-phone-trees-nonprofit-technology-everyone</a>
+    </li>
+    <li>
+      <a href="/2008/07/facebook-to-phone-trees-nonprofit-technology-for-everyone">2008/07/facebook-to-phone-trees-nonprofit-technology-for-everyone</a>
+    </li>
+    <li>
+      <a href="/?p=229">?p=229</a>
+    </li>
+    <li>
+      <a href="/node/230">node/230</a>
+    </li>
+    <li>
+      <a href="/observation/tragic-food">observation/tragic-food</a>
+    </li>
+    <li>
+      <a href="/2008/07/tragic-food">2008/07/tragic-food</a>
+    </li>
+    <li>
+      <a href="/?p=230">?p=230</a>
+    </li>
+    <li>
+      <a href="/node/231">node/231</a>
+    </li>
+    <li>
+      <a href="/observation/vegan-baking-tips-egg-replacement-and-oil">observation/vegan-baking-tips-egg-replacement-and-oil</a>
+    </li>
+    <li>
+      <a href="/2008/07/vegan-baking-tips-egg-replacement-and-oil">2008/07/vegan-baking-tips-egg-replacement-and-oil</a>
+    </li>
+    <li>
+      <a href="/?p=231">?p=231</a>
+    </li>
+    <li>
+      <a href="/node/232">node/232</a>
+    </li>
+    <li>
+      <a href="/observation/how-use-fridge-crisper">observation/how-use-fridge-crisper</a>
+    </li>
+    <li>
+      <a href="/2008/07/how-to-use-a-fridge-crisper">2008/07/how-to-use-a-fridge-crisper</a>
+    </li>
+    <li>
+      <a href="/?p=232">?p=232</a>
+    </li>
+    <li>
+      <a href="/node/234">node/234</a>
+    </li>
+    <li>
+      <a href="/observation/job-qualification-not-jerk">observation/job-qualification-not-jerk</a>
+    </li>
+    <li>
+      <a href="/2008/07/job-qualification-not-a-jerk">2008/07/job-qualification-not-a-jerk</a>
+    </li>
+    <li>
+      <a href="/?p=234">?p=234</a>
+    </li>
+    <li>
+      <a href="/node/233">node/233</a>
+    </li>
+    <li>
+      <a href="/observation/political-news-coverage">observation/political-news-coverage</a>
+    </li>
+    <li>
+      <a href="/2008/07/political-news-coverage">2008/07/political-news-coverage</a>
+    </li>
+    <li>
+      <a href="/?p=233">?p=233</a>
+    </li>
+    <li>
+      <a href="/node/235">node/235</a>
+    </li>
+    <li>
+      <a href="/articles/poverty-singular-moral-challenge">articles/poverty-singular-moral-challenge</a>
+    </li>
+    <li>
+      <a href="/2008/07/poverty-as-the-singular-moral-challenge">2008/07/poverty-as-the-singular-moral-challenge</a>
+    </li>
+    <li>
+      <a href="/?p=235">?p=235</a>
+    </li>
+    <li>
+      <a href="/node/236">node/236</a>
+    </li>
+    <li>
+      <a href="/articles/individual-challenges-nonprofit-leaders">articles/individual-challenges-nonprofit-leaders</a>
+    </li>
+    <li>
+      <a href="/2008/07/individual-challenges-for-nonprofit-leaders">2008/07/individual-challenges-for-nonprofit-leaders</a>
+    </li>
+    <li>
+      <a href="/?p=236">?p=236</a>
+    </li>
+    <li>
+      <a href="/node/237">node/237</a>
+    </li>
+    <li>
+      <a href="/observation/digital-media-forensics">observation/digital-media-forensics</a>
+    </li>
+    <li>
+      <a href="/2008/08/digital-media-forensics">2008/08/digital-media-forensics</a>
+    </li>
+    <li>
+      <a href="/?p=237">?p=237</a>
+    </li>
+    <li>
+      <a href="/node/238">node/238</a>
+    </li>
+    <li>
+      <a href="/articles/overriding">articles/overriding</a>
+    </li>
+    <li>
+      <a href="/articles/override-upload-modules-attachments-list">articles/override-upload-modules-attachments-list</a>
+    </li>
+    <li>
+      <a href="/articles/drupal-override-upload-modules-attachments-list">articles/drupal-override-upload-modules-attachments-list</a>
+    </li>
+    <li>
+      <a href="/articles/drupal-theme-override-upload-modules-attachments-list">articles/drupal-theme-override-upload-modules-attachments-list</a>
+    </li>
+    <li>
+      <a href="/2008/08/drupal-theme-override-for-upload-modules-attachments-list">2008/08/drupal-theme-override-for-upload-modules-attachments-list</a>
+    </li>
+    <li>
+      <a href="/?p=238">?p=238</a>
+    </li>
+    <li>
+      <a href="/node/239">node/239</a>
+    </li>
+    <li>
+      <a href="/observation/what-ask-building-website">observation/what-ask-building-website</a>
+    </li>
+    <li>
+      <a href="/2008/08/what-to-ask-before-building-a-website">2008/08/what-to-ask-before-building-a-website</a>
+    </li>
+    <li>
+      <a href="/?p=239">?p=239</a>
+    </li>
+    <li>
+      <a href="/2008/08/are-you-ahw-or-arr">2008/08/are-you-ahw-or-arr</a>
+    </li>
+    <li>
+      <a href="/node/241">node/241</a>
+    </li>
+    <li>
+      <a href="/observation/ahw-or-arr">observation/ahw-or-arr</a>
+    </li>
+    <li>
+      <a href="/observation/are-you-ahw-or-arr">observation/are-you-ahw-or-arr</a>
+    </li>
+    <li>
+      <a href="/?p=241">?p=241</a>
+    </li>
+    <li>
+      <a href="/2008/08/cleaving-running-reds-from-jaybiking-">2008/08/cleaving-running-reds-from-jaybiking-</a>
+    </li>
+    <li>
+      <a href="/node/240">node/240</a>
+    </li>
+    <li>
+      <a href="/observation/cleaving-running-reds-jaybiking">observation/cleaving-running-reds-jaybiking</a>
+    </li>
+    <li>
+      <a href="/2008/08/cleaving-running-reds-from-jaybiking">2008/08/cleaving-running-reds-from-jaybiking</a>
+    </li>
+    <li>
+      <a href="/?p=240">?p=240</a>
+    </li>
+    <li>
+      <a href="/node/242">node/242</a>
+    </li>
+    <li>
+      <a href="/observation/caring-internet">observation/caring-internet</a>
+    </li>
+    <li>
+      <a href="/2008/08/caring-on-the-internet">2008/08/caring-on-the-internet</a>
+    </li>
+    <li>
+      <a href="/?p=242">?p=242</a>
+    </li>
+    <li>
+      <a href="/node/244">node/244</a>
+    </li>
+    <li>
+      <a href="/articles/lessons-nonprofitteers-majora-carter">articles/lessons-nonprofitteers-majora-carter</a>
+    </li>
+    <li>
+      <a href="/2008/08/lessons-for-nonprofitteers-from-majora-carter">2008/08/lessons-for-nonprofitteers-from-majora-carter</a>
+    </li>
+    <li>
+      <a href="/?p=244">?p=244</a>
+    </li>
+    <li>
+      <a href="/articles/nonprofit-board-management-governance-and-advice">articles/nonprofit-board-management-governance-and-advice</a>
+    </li>
+    <li>
+      <a href="/node/243">node/243</a>
+    </li>
+    <li>
+      <a href="/2008/08/nonprofit-board-management-governance-and-advice">2008/08/nonprofit-board-management-governance-and-advice</a>
+    </li>
+    <li>
+      <a href="/?p=243">?p=243</a>
+    </li>
+    <li>
+      <a href="/node/245">node/245</a>
+    </li>
+    <li>
+      <a href="/articles/how-write-grant-way-i-want-be-taught-grant-writing">articles/how-write-grant-way-i-want-be-taught-grant-writing</a>
+    </li>
+    <li>
+      <a href="/2008/08/how-to-write-a-grant-the-way-i-want-to-be-taught-grant-writing">2008/08/how-to-write-a-grant-the-way-i-want-to-be-taught-grant-writing</a>
+    </li>
+    <li>
+      <a href="/?p=245">?p=245</a>
+    </li>
+    <li>
+      <a href="/node/246">node/246</a>
+    </li>
+    <li>
+      <a href="/observation/failure-confidence">observation/failure-confidence</a>
+    </li>
+    <li>
+      <a href="/2008/08/failure-of-confidence">2008/08/failure-of-confidence</a>
+    </li>
+    <li>
+      <a href="/?p=246">?p=246</a>
+    </li>
+    <li>
+      <a href="/node/247">node/247</a>
+    </li>
+    <li>
+      <a href="/articles/how-make-do-what-you-got">articles/how-make-do-what-you-got</a>
+    </li>
+    <li>
+      <a href="/2008/08/how-to-make-do-with-what-you-got">2008/08/how-to-make-do-with-what-you-got</a>
+    </li>
+    <li>
+      <a href="/?p=247">?p=247</a>
+    </li>
+    <li>
+      <a href="/node/248">node/248</a>
+    </li>
+    <li>
+      <a href="/articles/makes-you-crazy">articles/makes-you-crazy</a>
+    </li>
+    <li>
+      <a href="/2008/08/makes-you-crazy">2008/08/makes-you-crazy</a>
+    </li>
+    <li>
+      <a href="/?p=248">?p=248</a>
+    </li>
+    <li>
+      <a href="/node/249">node/249</a>
+    </li>
+    <li>
+      <a href="/articles/radio-ga-ga-2-role-nonprofits-constructing-better-world">articles/radio-ga-ga-2-role-nonprofits-constructing-better-world</a>
+    </li>
+    <li>
+      <a href="/2008/08/radio-ga-ga-2-the-role-of-nonprofits-in-constructing-a-better-world">2008/08/radio-ga-ga-2-the-role-of-nonprofits-in-constructing-a-better-world</a>
+    </li>
+    <li>
+      <a href="/?p=249">?p=249</a>
+    </li>
+    <li>
+      <a href="/observation/get-government-job">observation/get-government-job</a>
+    </li>
+    <li>
+      <a href="/node/250">node/250</a>
+    </li>
+    <li>
+      <a href="/2008/09/get-a-government-job">2008/09/get-a-government-job</a>
+    </li>
+    <li>
+      <a href="/?p=250">?p=250</a>
+    </li>
+    <li>
+      <a href="/2008/09/what-is-a-nonprofit">2008/09/what-is-a-nonprofit</a>
+    </li>
+    <li>
+      <a href="/articles/what-nonprofit-structural-definition">articles/what-nonprofit-structural-definition</a>
+    </li>
+    <li>
+      <a href="/node/251">node/251</a>
+    </li>
+    <li>
+      <a href="/2008/09/what-is-a-nonprofit-a-structural-definition">2008/09/what-is-a-nonprofit-a-structural-definition</a>
+    </li>
+    <li>
+      <a href="/?p=251">?p=251</a>
+    </li>
+    <li>
+      <a href="/node/252">node/252</a>
+    </li>
+    <li>
+      <a href="/articles/pod-whales">articles/pod-whales</a>
+    </li>
+    <li>
+      <a href="/articles/whales">articles/whales</a>
+    </li>
+    <li>
+      <a href="/2008/09/pod-of-whales">2008/09/pod-of-whales</a>
+    </li>
+    <li>
+      <a href="/?p=252">?p=252</a>
+    </li>
+    <li>
+      <a href="/2008/09/why-are-nonprofits-tax-exempt">2008/09/why-are-nonprofits-tax-exempt</a>
+    </li>
+    <li>
+      <a href="/node/253">node/253</a>
+    </li>
+    <li>
+      <a href="/articles/why-are-nonprofits-tax-exempt">articles/why-are-nonprofits-tax-exempt</a>
+    </li>
+    <li>
+      <a href="/?p=253">?p=253</a>
+    </li>
+    <li>
+      <a href="/node/254">node/254</a>
+    </li>
+    <li>
+      <a href="/articles/exploring-poverty-participation-practice-imagination-and-exploration">articles/exploring-poverty-participation-practice-imagination-and-exploration</a>
+    </li>
+    <li>
+      <a href="/2008/09/exploring-poverty-participation-practice-imagination-and-exploration">2008/09/exploring-poverty-participation-practice-imagination-and-exploration</a>
+    </li>
+    <li>
+      <a href="/?p=254">?p=254</a>
+    </li>
+    <li>
+      <a href="/node/255">node/255</a>
+    </li>
+    <li>
+      <a href="/observation/search-not-serendipitous">observation/search-not-serendipitous</a>
+    </li>
+    <li>
+      <a href="/2008/09/search-is-not-serendipitous">2008/09/search-is-not-serendipitous</a>
+    </li>
+    <li>
+      <a href="/?p=255">?p=255</a>
+    </li>
+    <li>
+      <a href="/node/256">node/256</a>
+    </li>
+    <li>
+      <a href="/articles/nonprofits-and-political-activities">articles/nonprofits-and-political-activities</a>
+    </li>
+    <li>
+      <a href="/2008/09/nonprofits-and-political-activities">2008/09/nonprofits-and-political-activities</a>
+    </li>
+    <li>
+      <a href="/?p=256">?p=256</a>
+    </li>
+    <li>
+      <a href="/node/257">node/257</a>
+    </li>
+    <li>
+      <a href="/observation/popco-cake-recipe">observation/popco-cake-recipe</a>
+    </li>
+    <li>
+      <a href="/2008/10/popco-cake-recipe">2008/10/popco-cake-recipe</a>
+    </li>
+    <li>
+      <a href="/?p=257">?p=257</a>
+    </li>
+    <li>
+      <a href="/node/258">node/258</a>
+    </li>
+    <li>
+      <a href="/observation/questions-external-brand-interviews">observation/questions-external-brand-interviews</a>
+    </li>
+    <li>
+      <a href="/2008/10/questions-for-external-brand-interviews">2008/10/questions-for-external-brand-interviews</a>
+    </li>
+    <li>
+      <a href="/?p=258">?p=258</a>
+    </li>
+    <li>
+      <a href="/node/259">node/259</a>
+    </li>
+    <li>
+      <a href="/articles/nonprofits-and-economy-free">articles/nonprofits-and-economy-free</a>
+    </li>
+    <li>
+      <a href="/2008/10/nonprofits-and-the-economy-of-free">2008/10/nonprofits-and-the-economy-of-free</a>
+    </li>
+    <li>
+      <a href="/?p=259">?p=259</a>
+    </li>
+    <li>
+      <a href="/node/260">node/260</a>
+    </li>
+    <li>
+      <a href="/observation/making-recaptcha-not-suck">observation/making-recaptcha-not-suck</a>
+    </li>
+    <li>
+      <a href="/2008/10/making-recaptcha-not-suck">2008/10/making-recaptcha-not-suck</a>
+    </li>
+    <li>
+      <a href="/?p=260">?p=260</a>
+    </li>
+    <li>
+      <a href="/node/261">node/261</a>
+    </li>
+    <li>
+      <a href="/observation/graphical-organization-talmud">observation/graphical-organization-talmud</a>
+    </li>
+    <li>
+      <a href="/2008/10/graphical-organization-of-the-talmud">2008/10/graphical-organization-of-the-talmud</a>
+    </li>
+    <li>
+      <a href="/?p=261">?p=261</a>
+    </li>
+    <li>
+      <a href="/node/262">node/262</a>
+    </li>
+    <li>
+      <a href="/articles/blog-action-day-poverty">articles/blog-action-day-poverty</a>
+    </li>
+    <li>
+      <a href="/2008/10/blog-action-day-poverty">2008/10/blog-action-day-poverty</a>
+    </li>
+    <li>
+      <a href="/?p=262">?p=262</a>
+    </li>
+    <li>
+      <a href="/2008/10/small-government-/-small-paper">2008/10/small-government-/-small-paper</a>
+    </li>
+    <li>
+      <a href="/node/263">node/263</a>
+    </li>
+    <li>
+      <a href="/observation/small-government-small-paper">observation/small-government-small-paper</a>
+    </li>
+    <li>
+      <a href="/2008/10/small-government-small-paper">2008/10/small-government-small-paper</a>
+    </li>
+    <li>
+      <a href="/?p=263">?p=263</a>
+    </li>
+    <li>
+      <a href="/2008/10/buyers-remorse-hacking">2008/10/buyers-remorse-hacking</a>
+    </li>
+    <li>
+      <a href="/node/264">node/264</a>
+    </li>
+    <li>
+      <a href="/observation/buyers-remorse-hacking">observation/buyers-remorse-hacking</a>
+    </li>
+    <li>
+      <a href="/?p=264">?p=264</a>
+    </li>
+    <li>
+      <a href="/2008/10/community-organizer-=-community-outreach-minister">2008/10/community-organizer-=-community-outreach-minister</a>
+    </li>
+    <li>
+      <a href="/observation/community-organizer-community-outreach-minister">observation/community-organizer-community-outreach-minister</a>
+    </li>
+    <li>
+      <a href="/node/265">node/265</a>
+    </li>
+    <li>
+      <a href="/2008/10/community-organizer-equals-community-outreach-minister">2008/10/community-organizer-equals-community-outreach-minister</a>
+    </li>
+    <li>
+      <a href="/?p=265">?p=265</a>
+    </li>
+    <li>
+      <a href="/node/266">node/266</a>
+    </li>
+    <li>
+      <a href="/articles/birthday-list">articles/birthday-list</a>
+    </li>
+    <li>
+      <a href="/articles/birthday-wishlist">articles/birthday-wishlist</a>
+    </li>
+    <li>
+      <a href="/2008/10/birthday-wishlist">2008/10/birthday-wishlist</a>
+    </li>
+    <li>
+      <a href="/?p=266">?p=266</a>
+    </li>
+    <li>
+      <a href="/node/268">node/268</a>
+    </li>
+    <li>
+      <a href="/observation/being-wrong-right">observation/being-wrong-right</a>
+    </li>
+    <li>
+      <a href="/observation/being-wrong-right-not-education-system">observation/being-wrong-right-not-education-system</a>
+    </li>
+    <li>
+      <a href="/2008/11/being-wrong-is-right-but-not-in-the-education-system">2008/11/being-wrong-is-right-but-not-in-the-education-system</a>
+    </li>
+    <li>
+      <a href="/?p=268">?p=268</a>
+    </li>
+    <li>
+      <a href="/2008/11/when-good-is-better-than-best">2008/11/when-good-is-better-than-best</a>
+    </li>
+    <li>
+      <a href="/node/267">node/267</a>
+    </li>
+    <li>
+      <a href="/observation/when-good-better-best">observation/when-good-better-best</a>
+    </li>
+    <li>
+      <a href="/?p=267">?p=267</a>
+    </li>
+    <li>
+      <a href="/node/269">node/269</a>
+    </li>
+    <li>
+      <a href="/articles/how-create-cross-sector-nonprofit-value">articles/how-create-cross-sector-nonprofit-value</a>
+    </li>
+    <li>
+      <a href="/2008/11/how-to-create-cross-sector-nonprofit-value">2008/11/how-to-create-cross-sector-nonprofit-value</a>
+    </li>
+    <li>
+      <a href="/?p=269">?p=269</a>
+    </li>
+    <li>
+      <a href="/node/270">node/270</a>
+    </li>
+    <li>
+      <a href="/articles/equally-good-alternatives-collaboration">articles/equally-good-alternatives-collaboration</a>
+    </li>
+    <li>
+      <a href="/2008/11/equally-good-alternatives-to-collaboration">2008/11/equally-good-alternatives-to-collaboration</a>
+    </li>
+    <li>
+      <a href="/?p=270">?p=270</a>
+    </li>
+    <li>
+      <a href="/node/271">node/271</a>
+    </li>
+    <li>
+      <a href="/articles/strengthening-organizations-through-community-engagement">articles/strengthening-organizations-through-community-engagement</a>
+    </li>
+    <li>
+      <a href="/2008/11/strengthening-organizations-through-community-engagement">2008/11/strengthening-organizations-through-community-engagement</a>
+    </li>
+    <li>
+      <a href="/?p=271">?p=271</a>
+    </li>
+    <li>
+      <a href="/node/272">node/272</a>
+    </li>
+    <li>
+      <a href="/observation/interview-questions">observation/interview-questions</a>
+    </li>
+    <li>
+      <a href="/2008/11/interview-questions">2008/11/interview-questions</a>
+    </li>
+    <li>
+      <a href="/?p=272">?p=272</a>
+    </li>
+    <li>
+      <a href="/node/273">node/273</a>
+    </li>
+    <li>
+      <a href="/articles/lessons-1960s">articles/lessons-1960s</a>
+    </li>
+    <li>
+      <a href="/2008/11/lessons-from-the-1960s">2008/11/lessons-from-the-1960s</a>
+    </li>
+    <li>
+      <a href="/?p=273">?p=273</a>
+    </li>
+    <li>
+      <a href="/node/274">node/274</a>
+    </li>
+    <li>
+      <a href="/articles/how-write-cover-letter-job-application">articles/how-write-cover-letter-job-application</a>
+    </li>
+    <li>
+      <a href="/2008/12/how-to-write-a-cover-letter-for-a-job-application">2008/12/how-to-write-a-cover-letter-for-a-job-application</a>
+    </li>
+    <li>
+      <a href="/?p=274">?p=274</a>
+    </li>
+    <li>
+      <a href="/node/275">node/275</a>
+    </li>
+    <li>
+      <a href="/articles/nonprofit-between-scylla-and-charydbis">articles/nonprofit-between-scylla-and-charydbis</a>
+    </li>
+    <li>
+      <a href="/2008/12/the-nonprofit-between-scylla-and-charydbis">2008/12/the-nonprofit-between-scylla-and-charydbis</a>
+    </li>
+    <li>
+      <a href="/?p=275">?p=275</a>
+    </li>
+    <li>
+      <a href="/node/276">node/276</a>
+    </li>
+    <li>
+      <a href="/articles/web-2-0-produsage">articles/web-2-0-produsage</a>
+    </li>
+    <li>
+      <a href="/2008/12/from-web-2-to-produsage">2008/12/from-web-2-to-produsage</a>
+    </li>
+    <li>
+      <a href="/?p=276">?p=276</a>
+    </li>
+    <li>
+      <a href="/node/277">node/277</a>
+    </li>
+    <li>
+      <a href="/observation/human-measurements">observation/human-measurements</a>
+    </li>
+    <li>
+      <a href="/2008/12/human-measurements">2008/12/human-measurements</a>
+    </li>
+    <li>
+      <a href="/?p=277">?p=277</a>
+    </li>
+    <li>
+      <a href="/observation/weingarten-rights">observation/weingarten-rights</a>
+    </li>
+    <li>
+      <a href="/node/278">node/278</a>
+    </li>
+    <li>
+      <a href="/2009/01/weingarten-rights">2009/01/weingarten-rights</a>
+    </li>
+    <li>
+      <a href="/?p=278">?p=278</a>
+    </li>
+    <li>
+      <a href="/2009/01/325">2009/01/325</a>
+    </li>
+    <li>
+      <a href="/2009/01/2008-in-review">2009/01/2008-in-review</a>
+    </li>
+    <li>
+      <a href="/?p=325">?p=325</a>
+    </li>
+    <li>
+      <a href="/?p=334">?p=334</a>
+    </li>
+    <li>
+      <a href="/?p=336">?p=336</a>
+    </li>
+    <li>
+      <a href="/2009/01/using-distinctions-to-create-meaning">2009/01/using-distinctions-to-create-meaning</a>
+    </li>
+    <li>
+      <a href="/?p=335">?p=335</a>
+    </li>
+    <li>
+      <a href="/?p=353">?p=353</a>
+    </li>
+    <li>
+      <a href="/2009/01/american-commissar-my-family-archive-project">2009/01/american-commissar-my-family-archive-project</a>
+    </li>
+    <li>
+      <a href="/?p=354">?p=354</a>
+    </li>
+    <li>
+      <a href="/2009/01/types-of-facilitator-interventions">2009/01/types-of-facilitator-interventions</a>
+    </li>
+    <li>
+      <a href="/?p=369">?p=369</a>
+    </li>
+    <li>
+      <a href="/2009/02/two-videos-for-february-1st">2009/02/two-videos-for-february-1st</a>
+    </li>
+    <li>
+      <a href="/?p=407">?p=407</a>
+    </li>
+    <li>
+      <a href="/2009/02/know-your-organic-plu-by-number">2009/02/know-your-organic-plu-by-number</a>
+    </li>
+    <li>
+      <a href="/?p=410">?p=410</a>
+    </li>
+    <li>
+      <a href="/2009/02/notes-on-silence">2009/02/notes-on-silence</a>
+    </li>
+    <li>
+      <a href="/?p=416">?p=416</a>
+    </li>
+    <li>
+      <a href="/?p=432">?p=432</a>
+    </li>
+    <li>
+      <a href="/2009/02/tips-for-researching-and-applying-to-nonprofit-jobs">2009/02/tips-for-researching-and-applying-to-nonprofit-jobs</a>
+    </li>
+    <li>
+      <a href="/?p=419">?p=419</a>
+    </li>
+    <li>
+      <a href="/2009/02/the-ethics-of-awareness">2009/02/the-ethics-of-awareness</a>
+    </li>
+    <li>
+      <a href="/?p=437">?p=437</a>
+    </li>
+    <li>
+      <a href="/2009/02/self-language-and-consciousness">2009/02/self-language-and-consciousness</a>
+    </li>
+    <li>
+      <a href="/?p=446">?p=446</a>
+    </li>
+    <li>
+      <a href="/2009/02/online-fundraising-please-do-it-right">2009/02/online-fundraising-please-do-it-right</a>
+    </li>
+    <li>
+      <a href="/?p=456">?p=456</a>
+    </li>
+    <li>
+      <a href="/2009/02/mission-and-promise-there-is-a-difference">2009/02/mission-and-promise-there-is-a-difference</a>
+    </li>
+    <li>
+      <a href="/?p=468">?p=468</a>
+    </li>
+    <li>
+      <a href="/2009/02/the-false-metaphor-of-the-tube-for-communication">2009/02/the-false-metaphor-of-the-tube-for-communication</a>
+    </li>
+    <li>
+      <a href="/?p=475">?p=475</a>
+    </li>
+    <li>
+      <a href="/2009/02/18-25-moving-from-becoming-to-being">2009/02/18-25-moving-from-becoming-to-being</a>
+    </li>
+    <li>
+      <a href="/?p=487">?p=487</a>
+    </li>
+    <li>
+      <a href="/2009/02/existential-charters">2009/02/existential-charters</a>
+    </li>
+    <li>
+      <a href="/?p=482">?p=482</a>
+    </li>
+    <li>
+      <a href="/2009/02/the-purpose-of-copyright">2009/02/the-purpose-of-copyright</a>
+    </li>
+    <li>
+      <a href="/?p=491">?p=491</a>
+    </li>
+    <li>
+      <a href="/2009/02/thoughts-on-nonprofit-growth-management-and-culture">2009/02/thoughts-on-nonprofit-growth-management-and-culture</a>
+    </li>
+    <li>
+      <a href="/?p=502">?p=502</a>
+    </li>
+    <li>
+      <a href="/2009/02/press-release-rhythm">2009/02/press-release-rhythm</a>
+    </li>
+    <li>
+      <a href="/?p=504">?p=504</a>
+    </li>
+    <li>
+      <a href="/2009/02/meandering-thoughts-on-creativity-change-and-consciousness">2009/02/meandering-thoughts-on-creativity-change-and-consciousness</a>
+    </li>
+    <li>
+      <a href="/?p=506">?p=506</a>
+    </li>
+    <li>
+      <a href="/?p=510">?p=510</a>
+    </li>
+    <li>
+      <a href="/2009/03/excerpt-sectors-of-the-us-right-active-in-the-year-2001">2009/03/excerpt-sectors-of-the-us-right-active-in-the-year-2001</a>
+    </li>
+    <li>
+      <a href="/?p=512">?p=512</a>
+    </li>
+    <li>
+      <a href="/2009/03/double-loop-learning">2009/03/double-loop-learning</a>
+    </li>
+    <li>
+      <a href="/?p=531">?p=531</a>
+    </li>
+    <li>
+      <a href="/2009/03/quotes-on-thought-and-process">2009/03/quotes-on-thought-and-process</a>
+    </li>
+    <li>
+      <a href="/?p=500">?p=500</a>
+    </li>
+    <li>
+      <a href="/2009/03/cell-phones-and-personal-computing">2009/03/cell-phones-and-personal-computing</a>
+    </li>
+    <li>
+      <a href="/?p=528">?p=528</a>
+    </li>
+    <li>
+      <a href="/2009/03/cold-start-car-advice">2009/03/cold-start-car-advice</a>
+    </li>
+    <li>
+      <a href="/?p=551">?p=551</a>
+    </li>
+    <li>
+      <a href="/2009/03/3-fortunes">2009/03/3-fortunes</a>
+    </li>
+    <li>
+      <a href="/?p=562">?p=562</a>
+    </li>
+    <li>
+      <a href="/2009/03/harnessing-inequality">2009/03/harnessing-inequality</a>
+    </li>
+    <li>
+      <a href="/?p=508">?p=508</a>
+    </li>
+    <li>
+      <a href="/2009/03/pratfalls-to-writing-authentically">2009/03/pratfalls-to-writing-authentically</a>
+    </li>
+    <li>
+      <a href="/?p=540">?p=540</a>
+    </li>
+    <li>
+      <a href="/2009/03/satyagraha-versus-duragraha">2009/03/satyagraha-versus-duragraha</a>
+    </li>
+    <li>
+      <a href="/?p=555">?p=555</a>
+    </li>
+    <li>
+      <a href="/2009/03/example-of-the-false-metaphor-of-the-tube">2009/03/example-of-the-false-metaphor-of-the-tube</a>
+    </li>
+    <li>
+      <a href="/?p=580">?p=580</a>
+    </li>
+    <li>
+      <a href="/2009/03/lying-in-subtext-and-by-omission">2009/03/lying-in-subtext-and-by-omission</a>
+    </li>
+    <li>
+      <a href="/?p=573">?p=573</a>
+    </li>
+    <li>
+      <a href="/2009/03/current-consumption-of-currants">2009/03/current-consumption-of-currants</a>
+    </li>
+    <li>
+      <a href="/?p=593">?p=593</a>
+    </li>
+    <li>
+      <a href="/2009/03/the-essence-of-capacity-building">2009/03/the-essence-of-capacity-building</a>
+    </li>
+    <li>
+      <a href="/?p=596">?p=596</a>
+    </li>
+    <li>
+      <a href="/2009/05/business-rhetoric">2009/05/business-rhetoric</a>
+    </li>
+    <li>
+      <a href="/?p=599">?p=599</a>
+    </li>
+    <li>
+      <a href="/2009/06/political-rhetoric">2009/06/political-rhetoric</a>
+    </li>
+    <li>
+      <a href="/?p=601">?p=601</a>
+    </li>
+    <li>
+      <a href="/2009/06/charting-work-success">2009/06/charting-work-success</a>
+    </li>
+    <li>
+      <a href="/?p=605">?p=605</a>
+    </li>
+    <li>
+      <a href="/2009/06/a-quote-for-the-rain">2009/06/a-quote-for-the-rain</a>
+    </li>
+    <li>
+      <a href="/?p=612">?p=612</a>
+    </li>
+    <li>
+      <a href="/2009/06/attributes-of-respected-chairs">2009/06/attributes-of-respected-chairs</a>
+    </li>
+    <li>
+      <a href="/?p=614">?p=614</a>
+    </li>
+    <li>
+      <a href="/2009/06/judging-reality-and-experience">2009/06/judging-reality-and-experience</a>
+    </li>
+    <li>
+      <a href="/?p=617">?p=617</a>
+    </li>
+    <li>
+      <a href="/?p=619">?p=619</a>
+    </li>
+    <li>
+      <a href="/2009/07/clarity-of-hindsight-law-vs-policy">2009/07/clarity-of-hindsight-law-vs-policy</a>
+    </li>
+    <li>
+      <a href="/?p=620">?p=620</a>
+    </li>
+    <li>
+      <a href="/2009/07/americas">2009/07/americas</a>
+    </li>
+    <li>
+      <a href="/?p=621">?p=621</a>
+    </li>
+    <li>
+      <a href="/2009/07/slow-down">2009/07/slow-down</a>
+    </li>
+    <li>
+      <a href="/?p=629">?p=629</a>
+    </li>
+    <li>
+      <a href="/2009/07/moving-day">2009/07/moving-day</a>
+    </li>
+    <li>
+      <a href="/?p=631">?p=631</a>
+    </li>
+    <li>
+      <a href="/2009/07/media-and-radical-technology">2009/07/media-and-radical-technology</a>
+    </li>
+    <li>
+      <a href="/?p=635">?p=635</a>
+    </li>
+    <li>
+      <a href="/2009/07/different-strokes">2009/07/different-strokes</a>
+    </li>
+    <li>
+      <a href="/?p=650">?p=650</a>
+    </li>
+    <li>
+      <a href="/2009/08/marketing-in-wealth-bondage">2009/08/marketing-in-wealth-bondage</a>
+    </li>
+    <li>
+      <a href="/?p=652">?p=652</a>
+    </li>
+    <li>
+      <a href="/2009/08/from-self-actualization-to-neo-liberalism">2009/08/from-self-actualization-to-neo-liberalism</a>
+    </li>
+    <li>
+      <a href="/?p=665">?p=665</a>
+    </li>
+    <li>
+      <a href="/2009/08/good-advice-to-live-by">2009/08/good-advice-to-live-by</a>
+    </li>
+    <li>
+      <a href="/?p=668">?p=668</a>
+    </li>
+    <li>
+      <a href="/2009/08/religion-and-individualism">2009/08/religion-and-individualism</a>
+    </li>
+    <li>
+      <a href="/?p=671">?p=671</a>
+    </li>
+    <li>
+      <a href="/2009/08/drupal-adding-a-geocoding-failure-message">2009/08/drupal-adding-a-geocoding-failure-message</a>
+    </li>
+    <li>
+      <a href="/?p=676">?p=676</a>
+    </li>
+    <li>
+      <a href="/?p=693">?p=693</a>
+    </li>
+    <li>
+      <a href="/2009/08/anxiety-reading">2009/08/anxiety-reading</a>
+    </li>
+    <li>
+      <a href="/?p=694">?p=694</a>
+    </li>
+    <li>
+      <a href="/2009/09/boston-subway-in-vector-format-svg">2009/09/boston-subway-in-vector-format-svg</a>
+    </li>
+    <li>
+      <a href="/?p=697">?p=697</a>
+    </li>
+    <li>
+      <a href="/2009/09/my-featured-dead-cockroach">2009/09/my-featured-dead-cockroach</a>
+    </li>
+    <li>
+      <a href="/?p=707">?p=707</a>
+    </li>
+    <li>
+      <a href="/2009/09/technology-2-0-mapping-presentation">2009/09/technology-2-0-mapping-presentation</a>
+    </li>
+    <li>
+      <a href="/?p=716">?p=716</a>
+    </li>
+    <li>
+      <a href="/?p=715">?p=715</a>
+    </li>
+    <li>
+      <a href="/2009/09/my-use-of-the-comma">2009/09/my-use-of-the-comma</a>
+    </li>
+    <li>
+      <a href="/?p=735">?p=735</a>
+    </li>
+    <li>
+      <a href="/2009/09/intellectual-activity">2009/09/intellectual-activity</a>
+    </li>
+    <li>
+      <a href="/?p=740">?p=740</a>
+    </li>
+    <li>
+      <a href="/2009/10/but-licensed-in-how-many-dimensions">2009/10/but-licensed-in-how-many-dimensions</a>
+    </li>
+    <li>
+      <a href="/?p=748">?p=748</a>
+    </li>
+    <li>
+      <a href="/2009/10/nonprofit-budgeting-scenario">2009/10/nonprofit-budgeting-scenario</a>
+    </li>
+    <li>
+      <a href="/?p=752">?p=752</a>
+    </li>
+    <li>
+      <a href="/2009/10/janets-spiral-periodic-table">2009/10/janets-spiral-periodic-table</a>
+    </li>
+    <li>
+      <a href="/?p=763">?p=763</a>
+    </li>
+    <li>
+      <a href="/2009/10/millenial-nonprofity-exposition">2009/10/millenial-nonprofity-exposition</a>
+    </li>
+    <li>
+      <a href="/?p=797">?p=797</a>
+    </li>
+    <li>
+      <a href="/2009/10/perspectives-on-building-power">2009/10/perspectives-on-building-power</a>
+    </li>
+    <li>
+      <a href="/?p=802">?p=802</a>
+    </li>
+    <li>
+      <a href="/2009/10/in-the-beginning-god-separated-heaven-and-earth">2009/10/in-the-beginning-god-separated-heaven-and-earth</a>
+    </li>
+    <li>
+      <a href="/?p=807">?p=807</a>
+    </li>
+    <li>
+      <a href="/2009/10/welcome-grassroots-users-of-technology">2009/10/welcome-grassroots-users-of-technology</a>
+    </li>
+    <li>
+      <a href="/?p=810">?p=810</a>
+    </li>
+    <li>
+      <a href="/2009/10/catastophizing-and-other-thought-distortions">2009/10/catastophizing-and-other-thought-distortions</a>
+    </li>
+    <li>
+      <a href="/?p=822">?p=822</a>
+    </li>
+    <li>
+      <a href="/2009/10/chasing-best-practices">2009/10/chasing-best-practices</a>
+    </li>
+    <li>
+      <a href="/?p=848">?p=848</a>
+    </li>
+    <li>
+      <a href="/2009/10/god-didnt-do-best-practices">2009/10/god-didnt-do-best-practices</a>
+    </li>
+    <li>
+      <a href="/?p=845">?p=845</a>
+    </li>
+    <li>
+      <a href="/2009/10/its-complicated">2009/10/its-complicated</a>
+    </li>
+    <li>
+      <a href="/?p=843">?p=843</a>
+    </li>
+    <li>
+      <a href="/2009/10/growing-toward-the-omega-point">2009/10/growing-toward-the-omega-point</a>
+    </li>
+    <li>
+      <a href="/2009/10/obviously-not-to-scale">2009/10/obviously-not-to-scale</a>
+    </li>
+    <li>
+      <a href="/?p=850">?p=850</a>
+    </li>
+    <li>
+      <a href="/2009/10/social-work-is-womens-work-so-we-dont-care">2009/10/social-work-is-womens-work-so-we-dont-care</a>
+    </li>
+    <li>
+      <a href="/?p=840">?p=840</a>
+    </li>
+    <li>
+      <a href="/2009/10/speak-up-for-democracy">2009/10/speak-up-for-democracy</a>
+    </li>
+    <li>
+      <a href="/?p=858">?p=858</a>
+    </li>
+    <li>
+      <a href="/2009/10/teaching-through-breakage">2009/10/teaching-through-breakage</a>
+    </li>
+    <li>
+      <a href="/?p=837">?p=837</a>
+    </li>
+    <li>
+      <a href="/2009/10/an-ample-account">2009/10/an-ample-account</a>
+    </li>
+    <li>
+      <a href="/?p=872">?p=872</a>
+    </li>
+    <li>
+      <a href="/2009/10/leverage-your-nonprofit-status">2009/10/leverage-your-nonprofit-status</a>
+    </li>
+    <li>
+      <a href="/?p=867">?p=867</a>
+    </li>
+    <li>
+      <a href="/2009/10/kick-in-the-baud">2009/10/kick-in-the-baud</a>
+    </li>
+    <li>
+      <a href="/?p=882">?p=882</a>
+    </li>
+    <li>
+      <a href="/2009/10/a-crow-but-not-a-rogues-nest">2009/10/a-crow-but-not-a-rogues-nest</a>
+    </li>
+    <li>
+      <a href="/2009/10/not-another-rogues-nest">2009/10/not-another-rogues-nest</a>
+    </li>
+    <li>
+      <a href="/?p=890">?p=890</a>
+    </li>
+    <li>
+      <a href="/2009/10/twenty-four-dollars">2009/10/twenty-four-dollars</a>
+    </li>
+    <li>
+      <a href="/?p=887">?p=887</a>
+    </li>
+    <li>
+      <a href="/2009/10/frames-for-copyright">2009/10/frames-for-copyright</a>
+    </li>
+    <li>
+      <a href="/?p=916">?p=916</a>
+    </li>
+    <li>
+      <a href="/2009/10/the-motion-of-gifts">2009/10/the-motion-of-gifts</a>
+    </li>
+    <li>
+      <a href="/?p=921">?p=921</a>
+    </li>
+    <li>
+      <a href="/2009/10/we-participate-they-profit">2009/10/we-participate-they-profit</a>
+    </li>
+    <li>
+      <a href="/?p=909">?p=909</a>
+    </li>
+    <li>
+      <a href="/2009/10/why-framing-matters">2009/10/why-framing-matters</a>
+    </li>
+    <li>
+      <a href="/?p=918">?p=918</a>
+    </li>
+    <li>
+      <a href="/2009/10/charity-mercy-and-sin">2009/10/charity-mercy-and-sin</a>
+    </li>
+    <li>
+      <a href="/?p=927">?p=927</a>
+    </li>
+    <li>
+      <a href="/2009/10/quotidian-insights">2009/10/quotidian-insights</a>
+    </li>
+    <li>
+      <a href="/?p=905">?p=905</a>
+    </li>
+    <li>
+      <a href="/2009/10/starvation-begets-starvation">2009/10/starvation-begets-starvation</a>
+    </li>
+    <li>
+      <a href="/?p=931">?p=931</a>
+    </li>
+    <li>
+      <a href="/2009/11/metaphor-death">2009/11/metaphor-death</a>
+    </li>
+    <li>
+      <a href="/?p=937">?p=937</a>
+    </li>
+    <li>
+      <a href="/2009/11/my-nonprofit-facebook-strategy-and-tactics">2009/11/my-nonprofit-facebook-strategy-and-tactics</a>
+    </li>
+    <li>
+      <a href="/?p=1001">?p=1001</a>
+    </li>
+    <li>
+      <a href="/2009/11/ethics-made-easy">2009/11/ethics-made-easy</a>
+    </li>
+    <li>
+      <a href="/?p=1013">?p=1013</a>
+    </li>
+    <li>
+      <a href="/2009/11/outside-of-my-jurisdiction">2009/11/outside-of-my-jurisdiction</a>
+    </li>
+    <li>
+      <a href="/?p=1007">?p=1007</a>
+    </li>
+    <li>
+      <a href="/2009/11/the-journalism-landscape-in-a-nutshell">2009/11/the-journalism-landscape-in-a-nutshell</a>
+    </li>
+    <li>
+      <a href="/?p=1017">?p=1017</a>
+    </li>
+    <li>
+      <a href="/2009/11/poverty-mythology">2009/11/poverty-mythology</a>
+    </li>
+    <li>
+      <a href="/?p=1019">?p=1019</a>
+    </li>
+    <li>
+      <a href="/2009/11/unions-and-the-media">2009/11/unions-and-the-media</a>
+    </li>
+    <li>
+      <a href="/?p=1006">?p=1006</a>
+    </li>
+    <li>
+      <a href="/2009/11/gifts-of-magnificence">2009/11/gifts-of-magnificence</a>
+    </li>
+    <li>
+      <a href="/?p=1032">?p=1032</a>
+    </li>
+    <li>
+      <a href="/2009/11/ace-advertising">2009/11/ace-advertising</a>
+    </li>
+    <li>
+      <a href="/?p=1038">?p=1038</a>
+    </li>
+    <li>
+      <a href="/2009/11/going-crazy-over-social-impact">2009/11/going-crazy-over-social-impact</a>
+    </li>
+    <li>
+      <a href="/?p=1041">?p=1041</a>
+    </li>
+    <li>
+      <a href="/2009/11/three-story-intellect-model">2009/11/three-story-intellect-model</a>
+    </li>
+    <li>
+      <a href="/?p=1529">?p=1529</a>
+    </li>
+    <li>
+      <a href="/2009/12/invoking-the-first-amendment">2009/12/invoking-the-first-amendment</a>
+    </li>
+    <li>
+      <a href="/?p=1591">?p=1591</a>
+    </li>
+    <li>
+      <a href="/2009/12/axemaker-conclusions">2009/12/axemaker-conclusions</a>
+    </li>
+    <li>
+      <a href="/?p=1609">?p=1609</a>
+    </li>
+    <li>
+      <a href="/2009/12/gatekeeper-code">2009/12/gatekeeper-code</a>
+    </li>
+    <li>
+      <a href="/?p=1599">?p=1599</a>
+    </li>
+    <li>
+      <a href="/2009/12/like-wikipedia-but-before">2009/12/like-wikipedia-but-before</a>
+    </li>
+    <li>
+      <a href="/?p=1611">?p=1611</a>
+    </li>
+    <li>
+      <a href="/2009/12/social-assistance-cynicism">2009/12/social-assistance-cynicism</a>
+    </li>
+    <li>
+      <a href="/?p=1524">?p=1524</a>
+    </li>
+    <li>
+      <a href="/2009/12/academia-on-the-experience-of-poverty">2009/12/academia-on-the-experience-of-poverty</a>
+    </li>
+    <li>
+      <a href="/?p=1616">?p=1616</a>
+    </li>
+    <li>
+      <a href="/2009/12/easier-drawn-than-said">2009/12/easier-drawn-than-said</a>
+    </li>
+    <li>
+      <a href="/?p=1620">?p=1620</a>
+    </li>
+    <li>
+      <a href="/2009/12/transactions-vs-relationships">2009/12/transactions-vs-relationships</a>
+    </li>
+    <li>
+      <a href="/?p=1623">?p=1623</a>
+    </li>
+    <li>
+      <a href="/2009/12/critical-thinking-contextualized">2009/12/critical-thinking-contextualized</a>
+    </li>
+    <li>
+      <a href="/?p=1628">?p=1628</a>
+    </li>
+    <li>
+      <a href="/2010/01/criticism-actor-network-theory">2010/01/criticism-actor-network-theory</a>
+    </li>
+    <li>
+      <a href="/?p=1659">?p=1659</a>
+    </li>
+    <li>
+      <a href="/2010/01/modern-and-post-modern-science">2010/01/modern-and-post-modern-science</a>
+    </li>
+    <li>
+      <a href="/?p=1656">?p=1656</a>
+    </li>
+    <li>
+      <a href="/2010/01/umberto-eco-on-modernism">2010/01/umberto-eco-on-modernism</a>
+    </li>
+    <li>
+      <a href="/?p=1663">?p=1663</a>
+    </li>
+    <li>
+      <a href="/2010/01/radical-volunteerism-or-not">2010/01/radical-volunteerism-or-not</a>
+    </li>
+    <li>
+      <a href="/?p=1665">?p=1665</a>
+    </li>
+    <li>
+      <a href="/2010/01/notes-of-the-first-water">2010/01/notes-of-the-first-water</a>
+    </li>
+    <li>
+      <a href="/?p=1668">?p=1668</a>
+    </li>
+    <li>
+      <a href="/2010/01/two-tales-of-island-94">2010/01/two-tales-of-island-94</a>
+    </li>
+    <li>
+      <a href="/?p=1673">?p=1673</a>
+    </li>
+    <li>
+      <a href="/2010/01/american-press-subsidies">2010/01/american-press-subsidies</a>
+    </li>
+    <li>
+      <a href="/?p=1678">?p=1678</a>
+    </li>
+    <li>
+      <a href="/2010/01/the-poor-the-dead-and-god-are-easily-forgotten">2010/01/the-poor-the-dead-and-god-are-easily-forgotten</a>
+    </li>
+    <li>
+      <a href="/?p=1681">?p=1681</a>
+    </li>
+    <li>
+      <a href="/2010/01/social-media-is-womens-work">2010/01/social-media-is-womens-work</a>
+    </li>
+    <li>
+      <a href="/?p=1684">?p=1684</a>
+    </li>
+    <li>
+      <a href="/2010/01/insufficient-funds">2010/01/insufficient-funds</a>
+    </li>
+    <li>
+      <a href="/?p=1686">?p=1686</a>
+    </li>
+    <li>
+      <a href="/2010/01/still-ferrari-less">2010/01/still-ferrari-less</a>
+    </li>
+    <li>
+      <a href="/?p=1724">?p=1724</a>
+    </li>
+    <li>
+      <a href="/2010/01/he-thinks-im-working-on-parts-im-working-on-concepts">2010/01/he-thinks-im-working-on-parts-im-working-on-concepts</a>
+    </li>
+    <li>
+      <a href="/?p=1726">?p=1726</a>
+    </li>
+    <li>
+      <a href="/2010/01/amperlamb">2010/01/amperlamb</a>
+    </li>
+    <li>
+      <a href="/?p=1733">?p=1733</a>
+    </li>
+    <li>
+      <a href="/2010/01/hippostrophe">2010/01/hippostrophe</a>
+    </li>
+    <li>
+      <a href="/?p=1738">?p=1738</a>
+    </li>
+    <li>
+      <a href="/2010/02/ethical-flexibility-for-export">2010/02/ethical-flexibility-for-export</a>
+    </li>
+    <li>
+      <a href="/?p=1743">?p=1743</a>
+    </li>
+    <li>
+      <a href="/2010/02/criticism-for-everyone">2010/02/criticism-for-everyone</a>
+    </li>
+    <li>
+      <a href="/?p=1749">?p=1749</a>
+    </li>
+    <li>
+      <a href="/2010/02/washing-of-dishes-requires-great-peace-of-mind">2010/02/washing-of-dishes-requires-great-peace-of-mind</a>
+    </li>
+    <li>
+      <a href="/?p=1752">?p=1752</a>
+    </li>
+    <li>
+      <a href="/2010/02/a-temperance-of-words">2010/02/a-temperance-of-words</a>
+    </li>
+    <li>
+      <a href="/?p=1754">?p=1754</a>
+    </li>
+    <li>
+      <a href="/2010/02/motivated-design">2010/02/motivated-design</a>
+    </li>
+    <li>
+      <a href="/?p=1762">?p=1762</a>
+    </li>
+    <li>
+      <a href="/2010/02/mount-vernon-port-huron-and-sharon-statements-in-comparison">2010/02/mount-vernon-port-huron-and-sharon-statements-in-comparison</a>
+    </li>
+    <li>
+      <a href="/?p=1764">?p=1764</a>
+    </li>
+    <li>
+      <a href="/2010/02/quality-of-life-mind-and-language">2010/02/quality-of-life-mind-and-language</a>
+    </li>
+    <li>
+      <a href="/?p=1770">?p=1770</a>
+    </li>
+    <li>
+      <a href="/2010/02/cleaving-the-visual-experience">2010/02/cleaving-the-visual-experience</a>
+    </li>
+    <li>
+      <a href="/?p=1774">?p=1774</a>
+    </li>
+    <li>
+      <a href="/2010/02/good-enough-data">2010/02/good-enough-data</a>
+    </li>
+    <li>
+      <a href="/?p=1776">?p=1776</a>
+    </li>
+    <li>
+      <a href="/2010/02/models-feedback-and-crows">2010/02/models-feedback-and-crows</a>
+    </li>
+    <li>
+      <a href="/?p=1792">?p=1792</a>
+    </li>
+    <li>
+      <a href="/2010/02/laying-out-latest-layout">2010/02/laying-out-latest-layout</a>
+    </li>
+    <li>
+      <a href="/?p=1795">?p=1795</a>
+    </li>
+    <li>
+      <a href="/2010/03/frequency-of-occurrence-of-letters-in-english">2010/03/frequency-of-occurrence-of-letters-in-english</a>
+    </li>
+    <li>
+      <a href="/?p=1826">?p=1826</a>
+    </li>
+    <li>
+      <a href="/2010/03/numerical-indifference">2010/03/numerical-indifference</a>
+    </li>
+    <li>
+      <a href="/?p=1802">?p=1802</a>
+    </li>
+    <li>
+      <a href="/2010/03/two-of-charts">2010/03/two-of-charts</a>
+    </li>
+    <li>
+      <a href="/?p=1836">?p=1836</a>
+    </li>
+    <li>
+      <a href="/2010/03/a-rhetoric-for-writing-in-the-post-digital-era">2010/03/a-rhetoric-for-writing-in-the-post-digital-era</a>
+    </li>
+    <li>
+      <a href="/?p=1846">?p=1846</a>
+    </li>
+    <li>
+      <a href="/2010/03/the-author-function-and-the-internet">2010/03/the-author-function-and-the-internet</a>
+    </li>
+    <li>
+      <a href="/?p=1852">?p=1852</a>
+    </li>
+    <li>
+      <a href="/2010/03/if-you-dont-know-how-to-notice-you-cant-do-anything-well">2010/03/if-you-dont-know-how-to-notice-you-cant-do-anything-well</a>
+    </li>
+    <li>
+      <a href="/?p=1856">?p=1856</a>
+    </li>
+    <li>
+      <a href="/?p=1858">?p=1858</a>
+    </li>
+    <li>
+      <a href="/2010/04/i-know-not-what-ive-done">2010/04/i-know-not-what-ive-done</a>
+    </li>
+    <li>
+      <a href="/2010/04/do-what-i-say">2010/04/do-what-i-say</a>
+    </li>
+    <li>
+      <a href="/?p=1867">?p=1867</a>
+    </li>
+    <li>
+      <a href="/2010/04/internships-and-the-media">2010/04/internships-and-the-media</a>
+    </li>
+    <li>
+      <a href="/?p=1861">?p=1861</a>
+    </li>
+    <li>
+      <a href="/2010/04/quotes-on-self">2010/04/quotes-on-self</a>
+    </li>
+    <li>
+      <a href="/?p=1872">?p=1872</a>
+    </li>
+    <li>
+      <a href="/2010/04/leaders-and-privileged-voices">2010/04/leaders-and-privileged-voices</a>
+    </li>
+    <li>
+      <a href="/?p=1875">?p=1875</a>
+    </li>
+    <li>
+      <a href="/2010/04/mendacity-in-order">2010/04/mendacity-in-order</a>
+    </li>
+    <li>
+      <a href="/?p=1880">?p=1880</a>
+    </li>
+    <li>
+      <a href="/2010/04/broken-ladders">2010/04/broken-ladders</a>
+    </li>
+    <li>
+      <a href="/?p=1884">?p=1884</a>
+    </li>
+    <li>
+      <a href="/2010/04/the-economy-its-made-of-people">2010/04/the-economy-its-made-of-people</a>
+    </li>
+    <li>
+      <a href="/?p=903">?p=903</a>
+    </li>
+    <li>
+      <a href="/2010/04/principles-of-organizational-development-practice">2010/04/principles-of-organizational-development-practice</a>
+    </li>
+    <li>
+      <a href="/?p=1891">?p=1891</a>
+    </li>
+    <li>
+      <a href="/2010/04/i-am-now-a-technology-of-participation-facilitator">2010/04/i-am-now-a-technology-of-participation-facilitator</a>
+    </li>
+    <li>
+      <a href="/?p=1894">?p=1894</a>
+    </li>
+    <li>
+      <a href="/2010/04/corporate-social-distractibility">2010/04/corporate-social-distractibility</a>
+    </li>
+    <li>
+      <a href="/?p=1901">?p=1901</a>
+    </li>
+    <li>
+      <a href="/2010/04/ethical-omissions">2010/04/ethical-omissions</a>
+    </li>
+    <li>
+      <a href="/?p=1907">?p=1907</a>
+    </li>
+    <li>
+      <a href="/2010/05/history-is-an-art">2010/05/history-is-an-art</a>
+    </li>
+    <li>
+      <a href="/?p=1913">?p=1913</a>
+    </li>
+    <li>
+      <a href="/2010/05/jfk-accuses-media-of-sensationalism-triviality">2010/05/jfk-accuses-media-of-sensationalism-triviality</a>
+    </li>
+    <li>
+      <a href="/?p=1916">?p=1916</a>
+    </li>
+    <li>
+      <a href="/2010/05/a-definition-that-is-good-enough">2010/05/a-definition-that-is-good-enough</a>
+    </li>
+    <li>
+      <a href="/?p=1919">?p=1919</a>
+    </li>
+    <li>
+      <a href="/2010/05/try-it-again">2010/05/try-it-again</a>
+    </li>
+    <li>
+      <a href="/?p=1963">?p=1963</a>
+    </li>
+    <li>
+      <a href="/2010/05/write-first-outline-later">2010/05/write-first-outline-later</a>
+    </li>
+    <li>
+      <a href="/?p=1966">?p=1966</a>
+    </li>
+    <li>
+      <a href="/2010/06/get-your-own">2010/06/get-your-own</a>
+    </li>
+    <li>
+      <a href="/?p=2020">?p=2020</a>
+    </li>
+    <li>
+      <a href="/2010/06/goodbye-producers-forum">2010/06/goodbye-producers-forum</a>
+    </li>
+    <li>
+      <a href="/?p=1999">?p=1999</a>
+    </li>
+    <li>
+      <a href="/2010/06/stages-of-team-development">2010/06/stages-of-team-development</a>
+    </li>
+    <li>
+      <a href="/?p=2014">?p=2014</a>
+    </li>
+    <li>
+      <a href="/2010/06/forces-of-organizational-entry">2010/06/forces-of-organizational-entry</a>
+    </li>
+    <li>
+      <a href="/?p=2025">?p=2025</a>
+    </li>
+    <li>
+      <a href="/2010/06/zen-and-the-art-of-postmodern-philosophy">2010/06/zen-and-the-art-of-postmodern-philosophy</a>
+    </li>
+    <li>
+      <a href="/?p=559">?p=559</a>
+    </li>
+    <li>
+      <a href="/2010/06/iphone-apps-allow-giving-just-not-charity">2010/06/iphone-apps-allow-giving-just-not-charity</a>
+    </li>
+    <li>
+      <a href="/?p=2023">?p=2023</a>
+    </li>
+    <li>
+      <a href="/2010/06/management-theories-and-interventions">2010/06/management-theories-and-interventions</a>
+    </li>
+    <li>
+      <a href="/?p=2076">?p=2076</a>
+    </li>
+    <li>
+      <a href="/2010/06/straightforward-project-satisfaction-and-fulfillment">2010/06/straightforward-project-satisfaction-and-fulfillment</a>
+    </li>
+    <li>
+      <a href="/?p=2071">?p=2071</a>
+    </li>
+    <li>
+      <a href="/2010/06/typology-of-social-giving-transactions">2010/06/typology-of-social-giving-transactions</a>
+    </li>
+    <li>
+      <a href="/?p=2088">?p=2088</a>
+    </li>
+    <li>
+      <a href="/2010/06/fierce-editing">2010/06/fierce-editing</a>
+    </li>
+    <li>
+      <a href="/?p=2092">?p=2092</a>
+    </li>
+    <li>
+      <a href="/2010/06/typology-versus-taxonomy">2010/06/typology-versus-taxonomy</a>
+    </li>
+    <li>
+      <a href="/?p=2095">?p=2095</a>
+    </li>
+    <li>
+      <a href="/2010/06/task-identification-and-completion">2010/06/task-identification-and-completion</a>
+    </li>
+    <li>
+      <a href="/?p=2103">?p=2103</a>
+    </li>
+    <li>
+      <a href="/?p=2106">?p=2106</a>
+    </li>
+    <li>
+      <a href="/2010/07/the-move-towards-empowerment">2010/07/the-move-towards-empowerment</a>
+    </li>
+    <li>
+      <a href="/?p=2107">?p=2107</a>
+    </li>
+    <li>
+      <a href="/2010/07/the-medium-is-the-method">2010/07/the-medium-is-the-method</a>
+    </li>
+    <li>
+      <a href="/?p=2111">?p=2111</a>
+    </li>
+    <li>
+      <a href="/2010/07/zilch-for-a-nonprofit">2010/07/zilch-for-a-nonprofit</a>
+    </li>
+    <li>
+      <a href="/?p=2114">?p=2114</a>
+    </li>
+    <li>
+      <a href="/2010/07/what-does-your-computer-symbolize">2010/07/what-does-your-computer-symbolize</a>
+    </li>
+    <li>
+      <a href="/?p=2118">?p=2118</a>
+    </li>
+    <li>
+      <a href="/2010/08/art-i-hardly-knew-ye">2010/08/art-i-hardly-knew-ye</a>
+    </li>
+    <li>
+      <a href="/?p=2125">?p=2125</a>
+    </li>
+    <li>
+      <a href="/2010/08/wealth-procession">2010/08/wealth-procession</a>
+    </li>
+    <li>
+      <a href="/2010/08/wealth-parade">2010/08/wealth-parade</a>
+    </li>
+    <li>
+      <a href="/?p=2121">?p=2121</a>
+    </li>
+    <li>
+      <a href="/2010/08/social-media-strategy-and-the-dodo-bird-effect">2010/08/social-media-strategy-and-the-dodo-bird-effect</a>
+    </li>
+    <li>
+      <a href="/?p=2140">?p=2140</a>
+    </li>
+    <li>
+      <a href="/2010/08/p-np-and-panlexicon">2010/08/p-np-and-panlexicon</a>
+    </li>
+    <li>
+      <a href="/?p=2142">?p=2142</a>
+    </li>
+    <li>
+      <a href="/2010/08/fondly-remembered-experiments-in-minimal-webdesign">2010/08/fondly-remembered-experiments-in-minimal-webdesign</a>
+    </li>
+    <li>
+      <a href="/?p=2152">?p=2152</a>
+    </li>
+    <li>
+      <a href="/2010/09/find-fresh-perspectives-at-nonprofitmillennials-org">2010/09/find-fresh-perspectives-at-nonprofitmillennials-org</a>
+    </li>
+    <li>
+      <a href="/?p=2167">?p=2167</a>
+    </li>
+    <li>
+      <a href="/2010/09/nonprofit-social-media-literacy">2010/09/nonprofit-social-media-literacy</a>
+    </li>
+    <li>
+      <a href="/?p=2181">?p=2181</a>
+    </li>
+    <li>
+      <a href="/2010/09/making-language-of-meaning">2010/09/making-language-of-meaning</a>
+    </li>
+    <li>
+      <a href="/?p=2190">?p=2190</a>
+    </li>
+    <li>
+      <a href="/2010/09/commodity-work">2010/09/commodity-work</a>
+    </li>
+    <li>
+      <a href="/?p=2201">?p=2201</a>
+    </li>
+    <li>
+      <a href="/2010/09/this-is-not-a-website">2010/09/this-is-not-a-website</a>
+    </li>
+    <li>
+      <a href="/?p=2203">?p=2203</a>
+    </li>
+    <li>
+      <a href="/2010/09/be-manically-participatory">2010/09/be-manically-participatory</a>
+    </li>
+    <li>
+      <a href="/?p=2206">?p=2206</a>
+    </li>
+    <li>
+      <a href="/2010/09/kitchen-consensus-conjecture">2010/09/kitchen-consensus-conjecture</a>
+    </li>
+    <li>
+      <a href="/?p=2212">?p=2212</a>
+    </li>
+    <li>
+      <a href="/2010/09/mystics-poets-and-best-practices">2010/09/mystics-poets-and-best-practices</a>
+    </li>
+    <li>
+      <a href="/?p=2215">?p=2215</a>
+    </li>
+    <li>
+      <a href="/?p=2221">?p=2221</a>
+    </li>
+    <li>
+      <a href="/2010/10/the-analog-divide">2010/10/the-analog-divide</a>
+    </li>
+    <li>
+      <a href="/?p=2223">?p=2223</a>
+    </li>
+    <li>
+      <a href="/2010/10/scientific-disunity">2010/10/scientific-disunity</a>
+    </li>
+    <li>
+      <a href="/?p=2227">?p=2227</a>
+    </li>
+    <li>
+      <a href="/2010/10/this-image-will-save-us">2010/10/this-image-will-save-us</a>
+    </li>
+    <li>
+      <a href="/?p=2230">?p=2230</a>
+    </li>
+    <li>
+      <a href="/2010/10/dont-confuse-online-with-twitter">2010/10/dont-confuse-online-with-twitter</a>
+    </li>
+    <li>
+      <a href="/?p=2241">?p=2241</a>
+    </li>
+    <li>
+      <a href="/2010/10/fairly-fool-proof-popovers">2010/10/fairly-fool-proof-popovers</a>
+    </li>
+    <li>
+      <a href="/?p=2243">?p=2243</a>
+    </li>
+    <li>
+      <a href="/2010/10/no-wonder-you-werent-good-at-it">2010/10/no-wonder-you-werent-good-at-it</a>
+    </li>
+    <li>
+      <a href="/?p=2249">?p=2249</a>
+    </li>
+    <li>
+      <a href="/2010/10/when-all-you-have-is-a-hammer">2010/10/when-all-you-have-is-a-hammer</a>
+    </li>
+    <li>
+      <a href="/?p=2236">?p=2236</a>
+    </li>
+    <li>
+      <a href="/?p=2259">?p=2259</a>
+    </li>
+    <li>
+      <a href="/2010/10/a-deucedly-outrag-wordlist">2010/10/a-deucedly-outrag-wordlist</a>
+    </li>
+    <li>
+      <a href="/?p=2266">?p=2266</a>
+    </li>
+    <li>
+      <a href="/2010/10/professional-writing-sample">2010/10/professional-writing-sample</a>
+    </li>
+    <li>
+      <a href="/?p=2252">?p=2252</a>
+    </li>
+    <li>
+      <a href="/2010/10/stop-being-a-weenie-and-just-go-make-something">2010/10/stop-being-a-weenie-and-just-go-make-something</a>
+    </li>
+    <li>
+      <a href="/?p=2268">?p=2268</a>
+    </li>
+    <li>
+      <a href="/2010/10/life-before-the-chart">2010/10/life-before-the-chart</a>
+    </li>
+    <li>
+      <a href="/?p=2275">?p=2275</a>
+    </li>
+    <li>
+      <a href="/2010/11/learning-styles-and-chemistry">2010/11/learning-styles-and-chemistry</a>
+    </li>
+    <li>
+      <a href="/?p=2279">?p=2279</a>
+    </li>
+    <li>
+      <a href="/2010/11/metaphors-and-diversity">2010/11/metaphors-and-diversity</a>
+    </li>
+    <li>
+      <a href="/?p=2283">?p=2283</a>
+    </li>
+    <li>
+      <a href="/2010/11/a-difference-of-a-map">2010/11/a-difference-of-a-map</a>
+    </li>
+    <li>
+      <a href="/?p=2288">?p=2288</a>
+    </li>
+    <li>
+      <a href="/2010/11/goofus-gallant-mbas">2010/11/goofus-gallant-mbas</a>
+    </li>
+    <li>
+      <a href="/2010/11/goofus-gallant-mba">2010/11/goofus-gallant-mba</a>
+    </li>
+    <li>
+      <a href="/?p=2298">?p=2298</a>
+    </li>
+    <li>
+      <a href="/2010/11/boston-bike-crash-map">2010/11/boston-bike-crash-map</a>
+    </li>
+    <li>
+      <a href="/?p=2305">?p=2305</a>
+    </li>
+    <li>
+      <a href="/2010/11/accessible-leisure-through-technology">2010/11/accessible-leisure-through-technology</a>
+    </li>
+    <li>
+      <a href="/?p=2313">?p=2313</a>
+    </li>
+    <li>
+      <a href="/2010/12/public-data-vs-self-reporting">2010/12/public-data-vs-self-reporting</a>
+    </li>
+    <li>
+      <a href="/?p=2322">?p=2322</a>
+    </li>
+    <li>
+      <a href="/2010/12/this-is-me-not-being-cynical-about-nonprofit-innovation">2010/12/this-is-me-not-being-cynical-about-nonprofit-innovation</a>
+    </li>
+    <li>
+      <a href="/?p=2332">?p=2332</a>
+    </li>
+    <li>
+      <a href="/2010/12/undermining-nonprofit-significance">2010/12/undermining-nonprofit-significance</a>
+    </li>
+    <li>
+      <a href="/?p=2319">?p=2319</a>
+    </li>
+    <li>
+      <a href="/2010/12/blue-ribbon-commissions-in-print">2010/12/blue-ribbon-commissions-in-print</a>
+    </li>
+    <li>
+      <a href="/?p=2342">?p=2342</a>
+    </li>
+    <li>
+      <a href="/2010/12/proposals-to-change-the-tax-deductibility-of-donations">2010/12/proposals-to-change-the-tax-deductibility-of-donations</a>
+    </li>
+    <li>
+      <a href="/?p=2339">?p=2339</a>
+    </li>
+    <li>
+      <a href="/2010/12/boston-bike-crash-map-in-the-news">2010/12/boston-bike-crash-map-in-the-news</a>
+    </li>
+    <li>
+      <a href="/?p=2365">?p=2365</a>
+    </li>
+    <li>
+      <a href="/2010/12/mediation-journal-pieces">2010/12/mediation-journal-pieces</a>
+    </li>
+    <li>
+      <a href="/?p=2374">?p=2374</a>
+    </li>
+    <li>
+      <a href="/2010/12/t-shirt">2010/12/t-shirt</a>
+    </li>
+    <li>
+      <a href="/?p=2384">?p=2384</a>
+    </li>
+    <li>
+      <a href="/2010/12/de-nada-una-pequena-casa">2010/12/de-nada-una-pequena-casa</a>
+    </li>
+    <li>
+      <a href="/?p=2391">?p=2391</a>
+    </li>
+    <li>
+      <a href="/2011/01/adding-hyperlinks-to-print-publications">2011/01/adding-hyperlinks-to-print-publications</a>
+    </li>
+    <li>
+      <a href="/?p=2397">?p=2397</a>
+    </li>
+    <li>
+      <a href="/2011/01/assessment-of-needs-assessment-needs">2011/01/assessment-of-needs-assessment-needs</a>
+    </li>
+    <li>
+      <a href="/?p=2404">?p=2404</a>
+    </li>
+    <li>
+      <a href="/2011/01/mediation-journal-version-0">2011/01/mediation-journal-version-0</a>
+    </li>
+    <li>
+      <a href="/?p=2409">?p=2409</a>
+    </li>
+    <li>
+      <a href="/2011/01/the-benefits-of-age">2011/01/the-benefits-of-age</a>
+    </li>
+    <li>
+      <a href="/?p=2434">?p=2434</a>
+    </li>
+    <li>
+      <a href="/2011/01/adding-class-to-wordpress-linked-images">2011/01/adding-class-to-wordpress-linked-images</a>
+    </li>
+    <li>
+      <a href="/?p=2425">?p=2425</a>
+    </li>
+    <li>
+      <a href="/2011/01/authenticity-and-such">2011/01/authenticity-and-such</a>
+    </li>
+    <li>
+      <a href="/?p=2452">?p=2452</a>
+    </li>
+    <li>
+      <a href="/2011/01/notes-from-the-city-of-bostons-open311-developer-meeting">2011/01/notes-from-the-city-of-bostons-open311-developer-meeting</a>
+    </li>
+    <li>
+      <a href="/?p=2463">?p=2463</a>
+    </li>
+    <li>
+      <a href="/2011/03/how-to-decorate-your-office-without-really-trying">2011/03/how-to-decorate-your-office-without-really-trying</a>
+    </li>
+    <li>
+      <a href="/?p=2512">?p=2512</a>
+    </li>
+    <li>
+      <a href="/2011/03/the-48-hour-mobile-web-app-drunken-stumble">2011/03/the-48-hour-mobile-web-app-drunken-stumble</a>
+    </li>
+    <li>
+      <a href="/?p=2501">?p=2501</a>
+    </li>
+    <li>
+      <a href="/2011/03/advocacy-in-print-survival-news-for-2011">2011/03/advocacy-in-print-survival-news-for-2011</a>
+    </li>
+    <li>
+      <a href="/?p=2537">?p=2537</a>
+    </li>
+    <li>
+      <a href="/2011/03/towards-advocacy-based-media">2011/03/towards-advocacy-based-media</a>
+    </li>
+    <li>
+      <a href="/?p=2534">?p=2534</a>
+    </li>
+    <li>
+      <a href="/2011/03/a-form-from-my-favorites">2011/03/a-form-from-my-favorites</a>
+    </li>
+    <li>
+      <a href="/?p=2549">?p=2549</a>
+    </li>
+    <li>
+      <a href="/2011/03/it-was-sexist-when-i-got-here">2011/03/it-was-sexist-when-i-got-here</a>
+    </li>
+    <li>
+      <a href="/?p=2558">?p=2558</a>
+    </li>
+    <li>
+      <a href="/2011/04/that-national-interest-thing">2011/04/that-national-interest-thing</a>
+    </li>
+    <li>
+      <a href="/?p=2563">?p=2563</a>
+    </li>
+    <li>
+      <a href="/2011/04/apparently-im-nonprofitly-conservative">2011/04/apparently-im-nonprofitly-conservative</a>
+    </li>
+    <li>
+      <a href="/?p=2455">?p=2455</a>
+    </li>
+    <li>
+      <a href="/2011/04/social-media-community-architect-and-manager">2011/04/social-media-community-architect-and-manager</a>
+    </li>
+    <li>
+      <a href="/?p=2261">?p=2261</a>
+    </li>
+    <li>
+      <a href="/2011/04/shirt-sales-scraped-daily">2011/04/shirt-sales-scraped-daily</a>
+    </li>
+    <li>
+      <a href="/?p=2629">?p=2629</a>
+    </li>
+    <li>
+      <a href="/2011/04/belief-based-design">2011/04/belief-based-design</a>
+    </li>
+    <li>
+      <a href="/?p=2635">?p=2635</a>
+    </li>
+    <li>
+      <a href="/2011/05/lovingly-reimagined-progressively-remade">2011/05/lovingly-reimagined-progressively-remade</a>
+    </li>
+    <li>
+      <a href="/?p=2639">?p=2639</a>
+    </li>
+    <li>
+      <a href="/2011/05/apps-off-the-approved-vendor-list">2011/05/apps-off-the-approved-vendor-list</a>
+    </li>
+    <li>
+      <a href="/?p=2642">?p=2642</a>
+    </li>
+    <li>
+      <a href="/2011/05/reductionist-function-and-practice">2011/05/reductionist-function-and-practice</a>
+    </li>
+    <li>
+      <a href="/?p=2644">?p=2644</a>
+    </li>
+    <li>
+      <a href="/2011/05/a-reminder-that-its-still-about-power">2011/05/a-reminder-that-its-still-about-power</a>
+    </li>
+    <li>
+      <a href="/?p=2648">?p=2648</a>
+    </li>
+    <li>
+      <a href="/2011/05/philanthropys-progressive-legacy">2011/05/philanthropys-progressive-legacy</a>
+    </li>
+    <li>
+      <a href="/?p=2652">?p=2652</a>
+    </li>
+    <li>
+      <a href="/2011/05/capturing-well-being-not-simply-access-and-speed">2011/05/capturing-well-being-not-simply-access-and-speed</a>
+    </li>
+    <li>
+      <a href="/?p=2433">?p=2433</a>
+    </li>
+    <li>
+      <a href="/2011/05/failure-on-balance">2011/05/failure-on-balance</a>
+    </li>
+    <li>
+      <a href="/?p=2669">?p=2669</a>
+    </li>
+    <li>
+      <a href="/2011/05/describe-the-basis-for-your-approach-to-this-project-how-did-you-determine-the-need-for-this-project-now-and-who-was-included-in-its-design">2011/05/describe-the-basis-for-your-approach-to-this-project-how-did-you-determine-the-need-for-this-project-now-and-who-was-included-in-its-design</a>
+    </li>
+    <li>
+      <a href="/?p=2679">?p=2679</a>
+    </li>
+    <li>
+      <a href="/2011/05/nailed-that-response">2011/05/nailed-that-response</a>
+    </li>
+    <li>
+      <a href="/?p=2671">?p=2671</a>
+    </li>
+    <li>
+      <a href="/2011/06/data-driven-content-first-design">2011/06/data-driven-content-first-design</a>
+    </li>
+    <li>
+      <a href="/?p=2682">?p=2682</a>
+    </li>
+    <li>
+      <a href="/2011/06/minimal-mass">2011/06/minimal-mass</a>
+    </li>
+    <li>
+      <a href="/?p=2691">?p=2691</a>
+    </li>
+    <li>
+      <a href="/2011/06/uncrime-mapping">2011/06/uncrime-mapping</a>
+    </li>
+    <li>
+      <a href="/?p=2696">?p=2696</a>
+    </li>
+    <li>
+      <a href="/?p=2689">?p=2689</a>
+    </li>
+    <li>
+      <a href="/2011/06/data-divides-and-umbrellafication">2011/06/data-divides-and-umbrellafication</a>
+    </li>
+    <li>
+      <a href="/?p=2716">?p=2716</a>
+    </li>
+    <li>
+      <a href="/2011/06/wisdom-and-discernment">2011/06/wisdom-and-discernment</a>
+    </li>
+    <li>
+      <a href="/?p=2719">?p=2719</a>
+    </li>
+    <li>
+      <a href="/2011/06/app-contest-submission-boilerplate">2011/06/app-contest-submission-boilerplate</a>
+    </li>
+    <li>
+      <a href="/?p=2723">?p=2723</a>
+    </li>
+    <li>
+      <a href="/2011/06/developing-intent">2011/06/developing-intent</a>
+    </li>
+    <li>
+      <a href="/?p=2725">?p=2725</a>
+    </li>
+    <li>
+      <a href="/2011/06/irrefutable-gerunds">2011/06/irrefutable-gerunds</a>
+    </li>
+    <li>
+      <a href="/?p=2726">?p=2726</a>
+    </li>
+    <li>
+      <a href="/2011/06/print-share-not-everyone-is-a-social-media-ninja-nor-need-they-be">2011/06/print-share-not-everyone-is-a-social-media-ninja-nor-need-they-be</a>
+    </li>
+    <li>
+      <a href="/?p=2732">?p=2732</a>
+    </li>
+    <li>
+      <a href="/2011/07/planning-is-timeless">2011/07/planning-is-timeless</a>
+    </li>
+    <li>
+      <a href="/?p=2739">?p=2739</a>
+    </li>
+    <li>
+      <a href="/2011/07/the-event-is-a-tyrant">2011/07/the-event-is-a-tyrant</a>
+    </li>
+    <li>
+      <a href="/?p=2749">?p=2749</a>
+    </li>
+    <li>
+      <a href="/2011/07/competitive-collaboration-or-collaborative-competition">2011/07/competitive-collaboration-or-collaborative-competition</a>
+    </li>
+    <li>
+      <a href="/?p=2751">?p=2751</a>
+    </li>
+    <li>
+      <a href="/2011/07/a-modest-web-app-proposal">2011/07/a-modest-web-app-proposal</a>
+    </li>
+    <li>
+      <a href="/?p=2731">?p=2731</a>
+    </li>
+    <li>
+      <a href="/2011/07/donorschoose-contest-update-consolation-prize-edition">2011/07/donorschoose-contest-update-consolation-prize-edition</a>
+    </li>
+    <li>
+      <a href="/?p=2773">?p=2773</a>
+    </li>
+    <li>
+      <a href="/2011/07/similar-message-wider-audience">2011/07/similar-message-wider-audience</a>
+    </li>
+    <li>
+      <a href="/?p=2785">?p=2785</a>
+    </li>
+    <li>
+      <a href="/2011/08/7-years-in-boston">2011/08/7-years-in-boston</a>
+    </li>
+    <li>
+      <a href="/?p=2804">?p=2804</a>
+    </li>
+    <li>
+      <a href="/2011/09/where-rhetoric-is-substance">2011/09/where-rhetoric-is-substance</a>
+    </li>
+    <li>
+      <a href="/?p=2815">?p=2815</a>
+    </li>
+    <li>
+      <a href="/2011/09/ambiguous-url">2011/09/ambiguous-url</a>
+    </li>
+    <li>
+      <a href="/?p=2822">?p=2822</a>
+    </li>
+    <li>
+      <a href="/2011/09/shifting-beliefs-remaking-the-pie">2011/09/shifting-beliefs-remaking-the-pie</a>
+    </li>
+    <li>
+      <a href="/?p=2819">?p=2819</a>
+    </li>
+    <li>
+      <a href="/2011/09/crime-and-data-leadership">2011/09/crime-and-data-leadership</a>
+    </li>
+    <li>
+      <a href="/?p=2829">?p=2829</a>
+    </li>
+    <li>
+      <a href="/2011/09/meet-americorps-no-more">2011/09/meet-americorps-no-more</a>
+    </li>
+    <li>
+      <a href="/?p=2888">?p=2888</a>
+    </li>
+    <li>
+      <a href="/2011/09/project-fecundity">2011/09/project-fecundity</a>
+    </li>
+    <li>
+      <a href="/?p=2912">?p=2912</a>
+    </li>
+    <li>
+      <a href="/2011/10/community-mapping-class-interview-outcomes">2011/10/community-mapping-class-interview-outcomes</a>
+    </li>
+    <li>
+      <a href="/?p=2919">?p=2919</a>
+    </li>
+    <li>
+      <a href="/2011/10/that-californian-ideology">2011/10/that-californian-ideology</a>
+    </li>
+    <li>
+      <a href="/?p=2928">?p=2928</a>
+    </li>
+    <li>
+      <a href="/2011/10/fundraising-tool-memo-boilerplate">2011/10/fundraising-tool-memo-boilerplate</a>
+    </li>
+    <li>
+      <a href="/?p=2810">?p=2810</a>
+    </li>
+    <li>
+      <a href="/2011/10/the-prevailing-worldview-of-the-present">2011/10/the-prevailing-worldview-of-the-present</a>
+    </li>
+    <li>
+      <a href="/?p=2933">?p=2933</a>
+    </li>
+    <li>
+      <a href="/2011/10/the-point-where-creativity-and-invention-occur">2011/10/the-point-where-creativity-and-invention-occur</a>
+    </li>
+    <li>
+      <a href="/?p=2942">?p=2942</a>
+    </li>
+    <li>
+      <a href="/2011/11/literacy-is-more-than-reading">2011/11/literacy-is-more-than-reading</a>
+    </li>
+    <li>
+      <a href="/?p=2950">?p=2950</a>
+    </li>
+    <li>
+      <a href="/2011/11/speedgeeking-on-wordpress-filters">2011/11/speedgeeking-on-wordpress-filters</a>
+    </li>
+    <li>
+      <a href="/?p=2957">?p=2957</a>
+    </li>
+    <li>
+      <a href="/?p=547">?p=547</a>
+    </li>
+    <li>
+      <a href="/2012/01/2011-in-review">2012/01/2011-in-review</a>
+    </li>
+    <li>
+      <a href="/?p=2969">?p=2969</a>
+    </li>
+    <li>
+      <a href="/2012/01/protest-shirts">2012/01/protest-shirts</a>
+    </li>
+    <li>
+      <a href="/?p=2987">?p=2987</a>
+    </li>
+    <li>
+      <a href="/2012/02/methodological-belief">2012/02/methodological-belief</a>
+    </li>
+    <li>
+      <a href="/?p=2996">?p=2996</a>
+    </li>
+    <li>
+      <a href="/2012/03/state-of-the-shirt-march-2012">2012/03/state-of-the-shirt-march-2012</a>
+    </li>
+    <li>
+      <a href="/?p=3001">?p=3001</a>
+    </li>
+    <li>
+      <a href="/2012/04/a-commonplace-book">2012/04/a-commonplace-book</a>
+    </li>
+    <li>
+      <a href="/?p=3009">?p=3009</a>
+    </li>
+    <li>
+      <a href="/2012/07/hard-data-on-the-status-of-open311">2012/07/hard-data-on-the-status-of-open311</a>
+    </li>
+    <li>
+      <a href="/?p=3012">?p=3012</a>
+    </li>
+    <li>
+      <a href="/2012/08/put-your-civics-where-your-houseplant-is">2012/08/put-your-civics-where-your-houseplant-is</a>
+    </li>
+    <li>
+      <a href="/?p=3018">?p=3018</a>
+    </li>
+    <li>
+      <a href="/2012/11/reimagining-chicagos-311-activity-with-super-mayor-emanuel">2012/11/reimagining-chicagos-311-activity-with-super-mayor-emanuel</a>
+    </li>
+    <li>
+      <a href="/2012/09/reimagining-chicagos-311-activity-with-super-mayor-emanuel">2012/09/reimagining-chicagos-311-activity-with-super-mayor-emanuel</a>
+    </li>
+    <li>
+      <a href="/?p=3057">?p=3057</a>
+    </li>
+    <li>
+      <a href="/2012/12/a-gentle-conceptual-introduction-to-node-js">2012/12/a-gentle-conceptual-introduction-to-node-js</a>
+    </li>
+    <li>
+      <a href="/?p=3066">?p=3066</a>
+    </li>
+    <li>
+      <a href="/2013/05/automatic-analysis">2013/05/automatic-analysis</a>
+    </li>
+    <li>
+      <a href="/?p=3085">?p=3085</a>
+    </li>
+    <li>
+      <a href="/2013/05/that-whereof-we-cannot-speak-we-must-consign-to-silence">2013/05/that-whereof-we-cannot-speak-we-must-consign-to-silence</a>
+    </li>
+    <li>
+      <a href="/?p=3084">?p=3084</a>
+    </li>
+    <li>
+      <a href="/?p=3086">?p=3086</a>
+    </li>
+    <li>
+      <a href="/2013/06/state-of-the-shirt-2012">2013/06/state-of-the-shirt-2012</a>
+    </li>
+    <li>
+      <a href="/?p=3093">?p=3093</a>
+    </li>
+    <li>
+      <a href="/2013/07/meet-ravel">2013/07/meet-ravel</a>
+    </li>
+    <li>
+      <a href="/?p=3098">?p=3098</a>
+    </li>
+    <li>
+      <a href="/2013/09/now-exhale">2013/09/now-exhale</a>
+    </li>
+    <li>
+      <a href="/?p=3107">?p=3107</a>
+    </li>
+    <li>
+      <a href="/?p=3110">?p=3110</a>
+    </li>
+    <li>
+      <a href="/2019/02/weeknotes-february-11-2018">2019/02/weeknotes-february-11-2018</a>
+    </li>
+</ul>
+
+
+</body>
+</html>

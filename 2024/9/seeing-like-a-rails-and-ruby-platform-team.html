@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Seeing like a Rails and Ruby platform team | Island94.org</title>
+
+  <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="nnZy1Mu23xaCtqtMFrqVx4jySnQH6BOu9CRP9zeqRBVNX7m6IYs9ZgGt--qw8zuK7UNo4rPSycOC2gfY0m_CIg" />
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Island94.org" href="https://island94.org/feed.xml">
+
+  <link rel="stylesheet" href="/assets/application-3c56ab95cf55e7f461f0ea9391c2b1391a5c64b74433224fe76ad58b7fa20c07.css" data-turbo-track="reload" />
+  <script src="/assets/main-57967bd29e3a27ba3099fee5997ee6ec8c59ef209085f949b6eac799b21915b0.js"></script>
+
+  <script>
+    let theme = localStorage.getItem('theme');
+    if (!["light", "dark"].includes(theme)) {
+      theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    document.documentElement.setAttribute('data-bs-theme', theme);
+  </script>
+
+  
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light mb-2 flex-column">
+  <div class="container">
+    <a class="navbar-brand" href="/">Island94.org</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link " href="/about/">About</a></li>
+        <li class="nav-item"><a class="nav-link " href="/archives/">Archives</a></li>
+<!--        <li class="nav-item"><a class="nav-link " href="/books/">Books</a></li>-->
+        <li class="nav-item"><a class="nav-link " href="/tags/">Tags</a></li>
+        <li class="nav-item"><a class="nav-link" href="/feed.xml">RSS Feed <i class="bi bi-rss-fill"></i></a></li>
+
+        <li class="nav-item py-2 py-lg-1 col-12 col-lg-auto">
+          <div class="vr d-none d-lg-flex h-100 mx-lg-2 text-light-500"></div>
+          <hr class="d-lg-none my-0 text-light-500">
+        </li>
+
+        <li class="nav-item dropdown">
+          <button id="bs-theme" class="btn btn-link nav-link dropdown-toggle" type="button" aria-expanded="false" data-bs-toggle="dropdown"  aria-label="Theme (Auto)">
+            <i data-bs-theme-active-icon class="bi bi-circle-half"></i>
+            <span data-bs-theme-label>Theme</span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="bs-theme-text">
+            <li>
+              <button type="button" class="dropdown-item" data-bs-theme-value="light" aria-pressed="false">
+                <i class="bi bi-sun"></i> Light
+              </button>
+            </li>
+            <li>
+              <button type="button" class="dropdown-item" data-bs-theme-value="dark" aria-pressed="false">
+                <i class="bi bi-moon-stars-fill"></i> Dark
+              </button>
+            </li>
+            <li>
+              <button type="button" class="dropdown-item" data-bs-theme-value="auto" aria-pressed="true">
+                <i class="bi bi-circle-half"></i> Auto
+              </button>
+            </li>
+          </ul>
+        </li>
+
+      </ul>
+
+      <form id="search" class="d-flex" action="/search" method="get">
+        <input id="search-box" class="form-control search" role="search" name="q" placeholder="Search" aria-label="Search" results="0" type="text">
+        <button class="visually-hidden" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+  <div class="container">
+    <div class="text-muted fst-italic">
+      — Ben Sheldon's personal blog and <a href="/2012/04/A-Commonplace-Book.html">commonplace book</a>.
+    </div>
+  </div>
+</nav>
+
+
+  <div class="container container-body">
+    
+<div class="container container-body">
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2024/9/seeing-like-a-rails-and-ruby-platform-team"><p>Seeing like a Rails and Ruby platform team</p>
+</a>
+    </h1>
+    <p class="post-meta text-muted">
+        <time datetime="2024-09-21T08:17:00-07:00" itemprop="datePublished">September 21, 2024</time>
+
+        • Tagged Rails and Ruby
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>When I’m not hacking on GoodJob, I work at GitHub, where I’m the engineering manager of the “Ruby Architecture” team, which is filled with fantastic rubyists. Our team mission is to:</p>
+
+<blockquote>
+  <p>Make it easy for GitHub engineers to create, deliver, and operate best-of-class Ruby and Rails applications, and share the best of it with the world.</p>
+</blockquote>
+
+<p>This is an adaptation of a post I published internally at GitHub, and its ensuing discussions, to explain what a team like ours <em>does</em> when we’re supporting other teams and giving technical feedback. I imagine this is similar to other big companies’ Rails and Ruby platform teams, like <a href="https://railsatscale.com">Shopify’s “Ruby Infrastructure” team</a>. I hope this is useful in thinking about your own Rails and Ruby work, experience, and career development focuses.</p>
+
+<h3 id="before-you-architecture">Before you “architecture”</h3>
+
+<p>The rest of this post is a big ol’ list of deep Ruby technical topics. To avoid premature optimization and architecture astronautics, I want to just quickly ground some expectations of any technical change you lead:</p>
+
+<ul>
+  <li>Is it clear what it does, especially to others, who may be yourself in the future?</li>
+  <li>Does it follow established patterns and precedent throughout the codebase, and is it internally consistent with itself?</li>
+  <li>Does it accomplish the business goal? Does it work?</li>
+  <li>Does it not prevent other components from accomplishing their business goals? Does it not break or negatively impact other stuff?</li>
+</ul>
+
+<p>I write these things out because it’s very common, as a technical feature goes through multiple reviews and revisions, to lose sight of its original goals or purpose or business constraints. So set yourself up for success by being clear on that stuff up front, and push back (or go deeper) if someone tells you something needs to change <em>for technical reasons</em> but it compromises your intended non-technical outcome.</p>
+
+<h3 id="architecting-ruby-the-list">Architecting Ruby, the list</h3>
+
+<p><strong>A brief note about my authority on this.</strong> The following list comes out of my experience working on a big Rails and Ruby monolith at GitHub, which has largely co-evolved with Rails and Ruby over the past 15+ years, and alongside 1k+ other engineers. (I’m also a consultant, and worked in a lot of software labs, and untangled a lot of other people’s applications too; and <a href="https://speakerdeck.com/bensheldon/real-world-dashboard">not-Rails stuff too</a>.) Many members of the team are core maintainers of Rails and Ruby, and we <a href="https://island94.org/2023/01/framing-open-source-contributions-at-work">treat the Rails Framework as an extension of our application</a>. Our team is responsible for integrating upstream changes in Rails and Ruby within GitHub’s vast monolith. <strong>We upgrade and integrate Rails and Ruby main/dev/trunk changes weekly!</strong> (<a href="https://github.blog/engineering/infrastructure/upgrading-github-from-rails-3-2-to-5-2/">Never repeat, never forget.</a>) This continuous practice produces a deep familiarity with how change happens, and where friction builds up between an application and its upstream dependencies. Performing these upgrades over and over leads to experience, and repeated experience leads to intuition.</p>
+
+<p><em>(btw, please reach out if your company has a practice of continuously upgrading Rails main/dev/trunk and running it in production. GitHub and Shopify and Gusto are trying to form a club and we want you in it.)</em></p>
+
+<p>There is a general order here, from most important to least in broad strokes. Remember, nothing here is intrinsically bad or should never be done; but in those situations there should be well-considered decision points.</p>
+
+<ul>
+  <li><strong>Global namespace and Library/Dependency Privacy Violations</strong>
+    <ul>
+      <li>Avoid monkeypatching or reaching into private methods or objects.</li>
+      <li>The most appropriate place to make changes is upstream.</li>
+    </ul>
+  </li>
+  <li><strong>Safety, Security</strong>
+    <ul>
+      <li>Avoiding thread safety issues, like globally held objects and privacy violations, not leaking data between requests, or retaining big objects in memory.  <a href="https://rubykaigi.org/2024/presentations/jhawthorn.html">Profile</a>, <a href="https://www.youtube.com/watch?v=pQ1XCrwq1qc">profile</a>, <a href="https://island94.org/2024/01/the-answer-is-in-your-heap-debugging-big-rails-memory">profile</a>.</li>
+      <li>Seeking object locality (or avoiding globalness) by storing objects on instances of controllers and jobs (or their attributes) and embracing the natural lifecycles provided by the framework. Frequently a developer desires not to call <code>SomeObject.new</code> at the usage-site, but to have a DSL-like callable method already ready in the appropriate scope (eg. <code>current_some_object</code>). We love a good DSL and they can be difficult to get right.</li>
+    </ul>
+  </li>
+  <li><strong>Code Loading, Autoloading, and Reloading</strong>
+    <ul>
+      <li>Code autoloading is <a href="https://github.blog/engineering/infrastructure/upgrading-github-from-rails-3-2-to-5-2/">one of the most important design-constraints in Rails</a> that can vastly affect inner-loop development (the “hands-on-keyboard” part) and production availability because of impact to application boot speed.</li>
+      <li>Designing for code loading and autoloading is critical to design, file placement (app vs lib vs config) and dependencies interactions</li>
+    </ul>
+  </li>
+  <li><strong>Internal to the Ruby VM constraints</strong>
+    <ul>
+      <li>Even though Ruby makes it easy to introspect the runtime (<code>descendants</code> or <code>subclasses</code> or <code>ObjectSpace</code>) they shouldn’t be used outside of application boot or exception handling (and sparingly even then); they may have performance implications or be overly nuanced and non-deterministic in their output. Using <code>callers</code> and introspecting the Ruby callstack is a particularly expensive operation.</li>
+      <li>While infrequent and not-obvious, some patterns can massively de-optimize the Ruby VM with either localized or global effects. The Ruby VM (or accelerators like YJIT) are unable to optimize certain code patterns, and some patterns may cause VM-internal caches to churn inefficiently or to retain objects and their references unnecessarily (this can get tricky so please partner with us!). You probably want examples:
+        <ul>
+          <li>OpenStruct (though probably isn’t a reason to use it at all)</li>
+          <li><code>eval</code> and <code>class_</code>/<code>instance_eval</code></li>
+          <li>Modifying singleton classes (using <code>extend</code> on objects) (<a href="https://bugs.ruby-lang.org/issues/19436">example</a>)</li>
+          <li>Anything that adds to the callstack (call-wrapping, complicated delegation)</li>
+          <li>(handwaves) Things that YJIT isn’t yet optimized for, things that <a href="https://railsatscale.com/2023-10-24-memoization-pattern-and-object-shapes/">deoptimize object shapes</a>, which is the result of new fast-paths being introduced which now mean there are slow-paths that didn’t previously exist.</li>
+          <li>Native extensions that don’t release the interpreter lock</li>
+          <li>Metaprogramming generally</li>
+          <li>None of these are intrinsically bad (except OpenStruct and poorly done native extensions), and framework and platform level code definitely make use of them. And they’re also constantly changing because of upstream Ruby work. And are maybe ok in isolation but a problem when copied as a pattern or introduced as a part of the platform for broad consumption. Something John Hawthorn has said:
+            <blockquote>
+              <p>A thought experiment I like to try is asking myself how I would implement this in another language without [Ruby magic]… Adding that constraint can help unblock thinking of simpler, more “normal” approaches without expensive metaprogramming.</p>
+            </blockquote>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><strong>External to the Ruby VM constraints and dependencies (memory, compute, file descriptors, database connections, etc.)</strong>
+    <ul>
+      <li>Database stuff alone is a lot. The design prompt everyone is largely working from is “how does one architect an efficient, stateless application that sits between an end-user client and stateful data sources and manages bidirectional transformations of data?” Sounds hard when you put it that way, right?</li>
+      <li>Thinking about resource lifecycle, pooling, and how they interact across the various concurrency models available to use (process forking, threads, etc.). We do expect the frameworks and platform libraries we choose to keep these out of mind for most development tasks 😅</li>
+    </ul>
+  </li>
+  <li><strong>Design of the thing, for use</strong>
+    <ul>
+      <li>Rails’s model of “convention over configuration” frequently means that how an object is structured and where it’s placed can have an outsized impact on how it behaves: e.g. within App, Lib, Rack Middleware, Other Library Middleware (Faraday, jobs system, etc.), Rails Configuration/Initialization/Railties, and more!</li>
+      <li>…and how those conventions relate to Maintainability, Developer Usability, and Conceptual Integrity.</li>
+      <li>Sometimes what may appear as simply an aesthetic decision can have a functional impact.</li>
+      <li>Identifying atypical or disordered usage patterns. Sometimes a desired behavior can be more of a happy accident than an enforced intention, and it might change upstream because no <a href="https://www.explainxkcd.com/wiki/index.php/1172:_Workflow">one expected it to be used that way</a>.</li>
+    </ul>
+  </li>
+  <li><strong>Dependency Stewardship</strong>
+    <ul>
+      <li>In addition to Rails and Ruby, our monolith depends on hundreds of gems, double hundreds of their transitive gem dependencies, and several other runtimes and system libraries.</li>
+      <li>The nature of a monolith is that <em>we go together.</em> If some dependency isn’t compatible with the latest Rails or Ruby, or any other dependency upgrade, we must adapt. We work upstream, we patch locally, and worst case, we remove and replace the dependency with something more maintainable. All of this takes time and effort and resources.</li>
+      <li>We want to choose dependencies that are well-maintained: their maintainers proactively respond to upstream changes, are responsive to issues and PRs, and <a href="https://en.wiktionary.org/wiki/MINASWAN">importantly in Ruby</a>, are nice. (And to whom we are nice too!) That’s more important than benchmarks.</li>
+      <li>And dependencies should be well architected too, obvs.</li>
+    </ul>
+  </li>
+  <li><strong>Automating and Scaling: Packwerk, Sorbet, Rubocop</strong>
+    <ul>
+      <li>We do our best to encode our knowledge and shape the application through tooling; that’s how our team scales!  We send our custom rules upstream, too.</li>
+      <li>But it’s complicated! Sometimes that means that developers may focus on designing their code <a href="https://island94.org/2024/09/the-novice-problem">in response to the automated tooling</a> and ending up with a less effective design or even introduce global risks and impacts to the application. At worst, a developer might even glaze over the linter’s intent by smuggling their design through a spelling or arrangement the linter doesn’t recognize 💀 Unfortunately the most important things are often the most abstract and arguable and difficult to detect or automatically warn about. We regret when we do have to tell folks that an approach is untenable in a PR or even after the fact when we notice production metrics have degraded.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="a-conclusion-about-lists">A conclusion about lists</h3>
+
+<p>I like making <a href="https://island94.org/2017/01/Engeering-Practice-Ad-Nauseam.html">lists of things</a>; I find them helpful. I also realize that <a href="https://island94.org/2019/07/truths-about-the-interpretation-of-falsehood-articles">not everyone experiences lists the same way I do</a>. For me, the purpose of a good laundry list is to be a quick reminder (“don’t forget to wash the handkerchiefs”) and not not an exhaustive list of actionable instructions (“the exact and best temperature to wash this t-shirt and that pair of jeans”). So please reach out to me (<a href="https://ruby.social/@bensheldon">Mastodon</a> / <a href="https://x.com/bensheldon">Twitter/X</a>) if:</p>
+
+<ul>
+  <li>You think there is something that should be added to the list, or explained in more detail</li>
+  <li>You’re curious how something in the list might apply to a specific thing you have</li>
+</ul>
+
+<p>I’d love to chat. Thanks for reading!</p>
+
+  </div>
+</article>
+
+
+  <div class="card my-4">
+    <div class="card-body">
+      Discuss this with me on <a href="https://twitter.com/bensheldon"><i class="bi bi-twitter"></i> Twitter</a>
+      or suggest a
+      <a href="https://github.com/bensheldon/island94-jekyll/blob/main/_posts/2024-09-21-seeing-like-a-rails-and-ruby-platform-team.md"><i class="bi bi-github"></i>
+        change</a>.
+
+        <hr>
+        <h5>Related Posts</h5>
+        <ul>
+            <li><a href="/2024/9/secret-to-rails-database-connection-pool-size">The secret to perfectly calculate Rails database connection pool size</a></li>
+            <li><a href="/2024/7/notes-from-carrierwave-to-active-storage">Notes from Carrierwave to Active Storage</a></li>
+            <li><a href="/2024/7/introducing-goodjob-v4">Introducing GoodJob v4</a></li>
+            <li><a href="/2024/4/a-ruby-meetup-and-3-podcasts">A Ruby Meetup about Rails autoloading and 3 Podcasts</a></li>
+            <li><a href="/2023/12/solid-queue-first-impressions">Solid Queue first impressions: Nice!</a></li>
+        </ul>
+    </div>
+  </div>
+</div>
+
+  </div>
+
+</body>
+</html>

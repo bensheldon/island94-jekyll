@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Novice Problem | Island94.org</title>
+
+  <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="JECF_hcK7ptUQR0AFvgFYdbVJ-dGpyP53wynY5W4Oof3aU6Q_TcM69daTaawsasss2QFcfKd-ZSp8u9McH28sA" />
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Island94.org" href="https://island94.org/feed.xml">
+
+  <link rel="stylesheet" href="/assets/application-3c56ab95cf55e7f461f0ea9391c2b1391a5c64b74433224fe76ad58b7fa20c07.css" data-turbo-track="reload" />
+  <script src="/assets/main-57967bd29e3a27ba3099fee5997ee6ec8c59ef209085f949b6eac799b21915b0.js"></script>
+
+  <script>
+    let theme = localStorage.getItem('theme');
+    if (!["light", "dark"].includes(theme)) {
+      theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    document.documentElement.setAttribute('data-bs-theme', theme);
+  </script>
+
+  
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light mb-2 flex-column">
+  <div class="container">
+    <a class="navbar-brand" href="/">Island94.org</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link " href="/about/">About</a></li>
+        <li class="nav-item"><a class="nav-link " href="/archives/">Archives</a></li>
+<!--        <li class="nav-item"><a class="nav-link " href="/books/">Books</a></li>-->
+        <li class="nav-item"><a class="nav-link " href="/tags/">Tags</a></li>
+        <li class="nav-item"><a class="nav-link" href="/feed.xml">RSS Feed <i class="bi bi-rss-fill"></i></a></li>
+
+        <li class="nav-item py-2 py-lg-1 col-12 col-lg-auto">
+          <div class="vr d-none d-lg-flex h-100 mx-lg-2 text-light-500"></div>
+          <hr class="d-lg-none my-0 text-light-500">
+        </li>
+
+        <li class="nav-item dropdown">
+          <button id="bs-theme" class="btn btn-link nav-link dropdown-toggle" type="button" aria-expanded="false" data-bs-toggle="dropdown"  aria-label="Theme (Auto)">
+            <i data-bs-theme-active-icon class="bi bi-circle-half"></i>
+            <span data-bs-theme-label>Theme</span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="bs-theme-text">
+            <li>
+              <button type="button" class="dropdown-item" data-bs-theme-value="light" aria-pressed="false">
+                <i class="bi bi-sun"></i> Light
+              </button>
+            </li>
+            <li>
+              <button type="button" class="dropdown-item" data-bs-theme-value="dark" aria-pressed="false">
+                <i class="bi bi-moon-stars-fill"></i> Dark
+              </button>
+            </li>
+            <li>
+              <button type="button" class="dropdown-item" data-bs-theme-value="auto" aria-pressed="true">
+                <i class="bi bi-circle-half"></i> Auto
+              </button>
+            </li>
+          </ul>
+        </li>
+
+      </ul>
+
+      <form id="search" class="d-flex" action="/search" method="get">
+        <input id="search-box" class="form-control search" role="search" name="q" placeholder="Search" aria-label="Search" results="0" type="text">
+        <button class="visually-hidden" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+  <div class="container">
+    <div class="text-muted fst-italic">
+      — Ben Sheldon's personal blog and <a href="/2012/04/A-Commonplace-Book.html">commonplace book</a>.
+    </div>
+  </div>
+</nav>
+
+
+  <div class="container container-body">
+    
+<div class="container container-body">
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2024/9/the-novice-problem"><p>The Novice Problem</p>
+</a>
+    </h1>
+    <p class="post-meta text-muted">
+        <time datetime="2024-09-12T10:26:00-07:00" itemprop="datePublished">September 12, 2024</time>
+
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>Brandon Weaver’s <a href="https://dev.to/baweaver/beyond-senior-metric-obsessions-1j7p">“Beyond Senior - Metric Obsessions”</a> has been stuck in my mind ever since we caught up at a SF Ruby Meetup and chatted about rules-adherence as a general problem:</p>
+
+<blockquote>
+
+  <p>…by definition a vast majority of your engineers are likely to be concentrated more towards the novice end of the spectrum, and will frequently over rate themselves on this scale.</p>
+
+  <p>If folks in the novice to advanced beginner stages are known for a rigid adherence to rules and almost legalistic approach to them what do you think might happen if you give them a giant list of metrics [, coding rules, linter warnings, dependency violations, or type-checking errors]?</p>
+
+  <p>Will they exercise discretion and nuance? Will they have the ability to prioritize based on that information? Will they make appropriate tradeoffs? [No.]</p>
+
+</blockquote>
+
+<p>This is coming from the <a href="https://www.kaizenko.com/the-dreyfus-model-of-skills-acquisition/">Dreyfus Model of Skills Acquisition</a>, which is like <a href="https://island94.org/2018/03/japanese-processes">Shuhari</a> but with more levels:</p>
+
+<blockquote>
+
+  <ol>
+    <li>Novice:
+      <ul>
+        <li>“rigid adherence to taught rules or plans”</li>
+        <li>no exercise of “discretionary judgment”</li>
+      </ul>
+    </li>
+    <li>Advanced beginner
+      <ul>
+        <li>limited “situational perception”</li>
+        <li>all aspects of work treated separately with equal importance</li>
+      </ul>
+    </li>
+    <li>Competent
+      <ul>
+        <li>“coping with crowdedness” (multiple activities, accumulation of information)</li>
+        <li>some perception of actions in relation to goals</li>
+        <li>deliberate planning</li>
+        <li>formulates routines</li>
+      </ul>
+    </li>
+    <li>Proficient
+      <ul>
+        <li>holistic view of situation</li>
+        <li>prioritizes importance of aspects</li>
+        <li>“perceives deviations from the normal pattern”</li>
+        <li>employs maxims for guidance, with meanings that adapt to the situation at hand</li>
+      </ul>
+    </li>
+    <li>Expert
+      <ul>
+        <li>transcends reliance on rules, guidelines, and maxims</li>
+        <li>“intuitive grasp of situations based on deep, tacit understanding”</li>
+        <li>has “vision of what is possible”</li>
+        <li>uses “analytical approaches” in new situations or in case of problems</li>
+      </ul>
+    </li>
+  </ol>
+
+</blockquote>
+
+
+  </div>
+</article>
+
+
+  <div class="card my-4">
+    <div class="card-body">
+      Discuss this with me on <a href="https://twitter.com/bensheldon"><i class="bi bi-twitter"></i> Twitter</a>
+      or suggest a
+      <a href="https://github.com/bensheldon/island94-jekyll/blob/main/_posts/2024-09-12-the-novice-problem.md"><i class="bi bi-github"></i>
+        change</a>.
+
+    </div>
+  </div>
+</div>
+
+  </div>
+
+</body>
+</html>

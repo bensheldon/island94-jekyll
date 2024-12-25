@@ -1,10 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-
-  <head>
+<head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> | Island94.org</title>
+
+  <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="uUwXvlwelkXDfcx3NbPSGPtFTEqEgy8exT-Odn_bCpNqZdzQtiN0NUBmnNGT-nxVnvRu3DC59XOzwcZZmh6MpA" />
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Island94.org" href="https://island94.org/feed.xml">
+
+  <link rel="stylesheet" href="/assets/application-3c56ab95cf55e7f461f0ea9391c2b1391a5c64b74433224fe76ad58b7fa20c07.css" data-turbo-track="reload" />
+  <script src="/assets/main-57967bd29e3a27ba3099fee5997ee6ec8c59ef209085f949b6eac799b21915b0.js"></script>
 
   <script>
     let theme = localStorage.getItem('theme');
@@ -14,25 +23,10 @@
     document.documentElement.setAttribute('data-bs-theme', theme);
   </script>
 
-  <link rel="stylesheet" href="/assets/stylesheets/main.css">
-  <script src="/assets/javascripts/main.js"></script>
-
-  <title>Island94.org</title>
-  <meta name="description" content="A Lost and Found
-">
-
-  <link rel="canonical" href="https://island94.org/">
-
-  <link rel="alternate" type="application/rss+xml" title="Island94.org Posts" href="https://island94.org/feed.xml">
-  <link rel="alternate" type="application/rss+xml" title="Island94.org Book Reviews" href="https://island94.org/books.xml">
-
   
 </head>
-
-
-  <body>
-
-    <nav class="navbar navbar-expand-lg navbar-light mb-2 flex-column">
+<body>
+<nav class="navbar navbar-expand-lg navbar-light mb-2 flex-column">
   <div class="container">
     <a class="navbar-brand" href="/">Island94.org</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -42,7 +36,7 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item"><a class="nav-link " href="/about/">About</a></li>
         <li class="nav-item"><a class="nav-link " href="/archives/">Archives</a></li>
-        <li class="nav-item"><a class="nav-link " href="/books/">Books</a></li>
+<!--        <li class="nav-item"><a class="nav-link " href="/books/">Books</a></li>-->
         <li class="nav-item"><a class="nav-link " href="/tags/">Tags</a></li>
         <li class="nav-item"><a class="nav-link" href="/feed.xml">RSS Feed <i class="bi bi-rss-fill"></i></a></li>
 
@@ -91,14 +85,8 @@
 </nav>
 
 
-    <div class="container container-body">
-      <div class="home">
-  
-
-  
-  
-  
-
+  <div class="container container-body">
+    
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
     <h1 class="post-title" itemprop="name headline">
@@ -106,44 +94,35 @@
 </a>
     </h1>
     <p class="post-meta text-muted">
-      <time datetime="2024-12-02T16:01:00+00:00" itemprop="datePublished">December 2, 2024</time>
-      
-      
+        <time datetime="2024-12-02T09:01:00-07:00" itemprop="datePublished">December 2, 2024</time>
 
-
-  
-
-  
-
-  • Tagged <a href="/tags/#rails">rails</a>
-
-
+        • Tagged rails
     </p>
   </header>
 
   <div class="post-content" itemprop="articleBody">
     <p>If you’re currently maintaining a Ruby on Rails codebase, I want you to do a quick regex code search in your Editor:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>include .*Helper
-</code></pre></div></div>
+<pre><code>include .*Helper
+</code></pre>
 
-<p>Did you get any hits? Do any of those constants point back to your <code class="language-plaintext highlighter-rouge">app/helpers</code> directory? That could be a problem.</p>
+<p>Did you get any hits? Do any of those constants point back to your <code>app/helpers</code> directory? That could be a problem.</p>
 
-<p><strong>Never include a module from <code class="language-plaintext highlighter-rouge">app/helpers</code> into anything in your application.</strong> Don’t do it.</p>
+<p><strong>Never include a module from <code>app/helpers</code> into anything in your application.</strong> Don’t do it.</p>
 
 <ul>
-  <li>Modules defined in <code class="language-plaintext highlighter-rouge">app/helpers</code> should exclusively be View Helpers. Every module in the <code class="language-plaintext highlighter-rouge">app/helpers</code> directory is automatically included into Views/Partials, and available within Controllers via the <code class="language-plaintext highlighter-rouge">helpers</code> proxy  e.g. <code class="language-plaintext highlighter-rouge">helpers.the_method</code> in Controllers or <code class="language-plaintext highlighter-rouge">ApplicationController.helpers.the_method</code> anywhere else.</li>
+  <li>Modules defined in <code>app/helpers</code> should exclusively be View Helpers. Every module in the <code>app/helpers</code> directory is automatically included into Views/Partials, and available within Controllers via the <code>helpers</code> proxy  e.g. <code>helpers.the_method</code> in Controllers or <code>ApplicationController.helpers.the_method</code> anywhere else.</li>
   <li>Including View Helpers into other files (Controllers, Models, etc.) creates a risk that some methods may <em>not</em>  be safely callable because they depend on View Context that isn’t present. (They’re also hell to type with Sorbet.)</li>
-  <li>If you do have includable mixins (“bucket of methods”) that do make sense to be included into lots of different classes (Controllers, Models, Views, etc.), make them a concern and don’t put them in <code class="language-plaintext highlighter-rouge">app/helpers</code>.</li>
+  <li>If you do have includable mixins (“bucket of methods”) that do make sense to be included into lots of different classes (Controllers, Models, Views, etc.), make them a concern and don’t put them in <code>app/helpers</code>.</li>
 </ul>
 
 <h2 id="some-general-background">Some general background</h2>
 
-<p>Rails has always had View Helpers. Prior to Rails 2 (~2009), only the <code class="language-plaintext highlighter-rouge">ApplicationHelper</code> was included into all controller views and other helpers would have to be added manually. Rails 2 changed the defaults via <code class="language-plaintext highlighter-rouge">helpers :all</code> and <code class="language-plaintext highlighter-rouge">config.action_controller.include_all_helpers</code> to always include <em>all</em> Helpers in <em>all</em> Views.</p>
+<p>Rails has always had View Helpers. Prior to Rails 2 (~2009), only the <code>ApplicationHelper</code> was included into all controller views and other helpers would have to be added manually. Rails 2 changed the defaults via <code>helpers :all</code> and <code>config.action_controller.include_all_helpers</code> to always include <em>all</em> Helpers in <em>all</em> Views.</p>
 
 <p>Rails 4.0 (2012) <a href="https://signalvnoise.com/posts/3372-put-chubby-models-on-a-diet-with-concerns">introduced Concerns</a>, which formalized conventions around extracting shared behaviors into module mix-ins.</p>
 
-<p>Rails 5.0 (2016) introduced the Action Controller <a href="https://github.com/rails/rails/pull/24866"><code class="language-plaintext highlighter-rouge">helpers</code> proxy</a>, and clearly summarizes the problem that I’ve observed too:</p>
+<p>Rails 5.0 (2016) introduced the Action Controller <a href="https://github.com/rails/rails/pull/24866"><code>helpers</code> proxy</a>, and clearly summarizes the problem that I’ve observed too:</p>
 
 <blockquote>
 
@@ -176,7 +155,7 @@
 
 <p>This has come up as a problem at my day job, GitHub. GitHub has the unique experience of being one of the oldest and largest Ruby on Rails monoliths and it’s full of opportunities to identify friction, waste, and toil.</p>
 
-<p>Disordered usage of View Helpers and the <code class="language-plaintext highlighter-rouge">app/views</code> directory became very visible as we’ve been typing our monolith with Sorbet. Typing module mixins in Sorbet is itself <a href="https://sorbet.org/docs/requires-ancestor">inherently difficult</a>, but View Helpers had accumlated a significant amount of <code class="language-plaintext highlighter-rouge">T.unsafe</code> escape-hatches and in understanding why… we discovered that explicitly including View Helpers in lots of different types of classes was a cause.</p>
+<p>Disordered usage of View Helpers and the <code>app/views</code> directory became very visible as we’ve been typing our monolith with Sorbet. Typing module mixins in Sorbet is itself <a href="https://sorbet.org/docs/requires-ancestor">inherently difficult</a>, but View Helpers had accumlated a significant amount of <code>T.unsafe</code> escape-hatches and in understanding why… we discovered that explicitly including View Helpers in lots of different types of classes was a cause.</p>
 
 <h2 id="whats-the-alternative">What’s the alternative?</h2>
 
@@ -190,43 +169,35 @@
     </ul>
   </li>
   <li><strong>Dependencies</strong> are non-shared behaviors that have been extracted into a module from a specific, singular controller to improve behavioral cohesion, and is then included back into that one, specific class or object.</li>
-  <li><strong>View Helpers</strong> are intended to be across Views (or Controllers via the <code class="language-plaintext highlighter-rouge">helpers</code> view-proxy method in Controllers or <code class="language-plaintext highlighter-rouge">ApplicationController.helpers</code> anywhere else) for formatting and presentation purposes and have access to other view helpers or http request objects. These are the only objects that modules that should go in <code class="language-plaintext highlighter-rouge">app/helpers</code>.</li>
+  <li><strong>View Helpers</strong> are intended to be across Views (or Controllers via the <code>helpers</code> view-proxy method in Controllers or <code>ApplicationController.helpers</code> anywhere else) for formatting and presentation purposes and have access to other view helpers or http request objects. These are the only objects that modules that should go in <code>app/helpers</code>.</li>
 </ul>
 
 <p>And this is what you might do about them:</p>
 
 <ul>
-  <li><strong>Stop and remove <code class="language-plaintext highlighter-rouge">include MyHelper</code> from Controllers.</strong>  Instead, you can access any View Helper method in a controller via <code class="language-plaintext highlighter-rouge">helpers.the_name_of_the_method</code></li>
-  <li><strong>Move Concerns and Dependencies out of <code class="language-plaintext highlighter-rouge">app/helpers</code>.</strong> If what is currently in <code class="language-plaintext highlighter-rouge">app/helpers</code> is not a View Helper, move it:
+  <li><strong>Stop and remove <code>include MyHelper</code> from Controllers.</strong>  Instead, you can access any View Helper method in a controller via <code>helpers.the_name_of_the_method</code></li>
+  <li><strong>Move Concerns and Dependencies out of <code>app/helpers</code>.</strong> If what is currently in <code>app/helpers</code> is not a View Helper, move it:
     <ul>
-      <li>Application-level Concerns should be moved into <code class="language-plaintext highlighter-rouge">app/concerns</code></li>
-      <li>Component-level Concerns should be moved into their appropriate <code class="language-plaintext highlighter-rouge">app/controllers/concerns</code> or <code class="language-plaintext highlighter-rouge">your_package/models/concerns</code>, etc.</li>
-      <li>Dependencies should be moved to an appropriate place in their namespaces hierarchy. e.g. if the module is only included into <code class="language-plaintext highlighter-rouge">ApplicationController</code>, it should be named <code class="language-plaintext highlighter-rouge">ApplicationController::TheBehavior</code> and live in <code class="language-plaintext highlighter-rouge">app/controllers/application_controller/the_behavior.rb</code></li>
+      <li>Application-level Concerns should be moved into <code>app/concerns</code></li>
+      <li>Component-level Concerns should be moved into their appropriate <code>app/controllers/concerns</code> or <code>your_package/models/concerns</code>, etc.</li>
+      <li>Dependencies should be moved to an appropriate place in their namespaces hierarchy. e.g. if the module is only included into <code>ApplicationController</code>, it should be named <code>ApplicationController::TheBehavior</code> and live in <code>app/controllers/application_controller/the_behavior.rb</code></li>
     </ul>
   </li>
-  <li><strong>Never include a module from <code class="language-plaintext highlighter-rouge">app/helpers</code> anywhere.</strong> Don’t do it.</li>
-  <li><strong>Use the Controller <code class="language-plaintext highlighter-rouge">helpers</code> proxy or <code class="language-plaintext highlighter-rouge">ApplicationController.helpers.the_helper_method</code></strong> to access helpers (like <code class="language-plaintext highlighter-rouge">ActionView::Helpers::DateHelper</code>) in Controller or other Object contexts.</li>
-  <li><strong>Invert the relationship between Helpers and Concerns.</strong> If you have behavior that you want available to lots of different kinds of components <em>and</em> views, start by creating a Concern, and then include that Concern <em>into</em> a View Helper or <code class="language-plaintext highlighter-rouge">ApplicationHelper</code>.  Don’t go the other direction.</li>
-  <li><strong>Invert the relationship between Views and Controllers.</strong> If you have a private method that is specific to a single controller, and you want to expose that method to the controller’s views, you can expose that method to the views directly using <code class="language-plaintext highlighter-rouge">helper_method :the_method_name</code> . Use this sparingly, because it extends singleton View objects which deoptimizes the Ruby VM; but really, don’t twist yourself into knots to avoid it either, that’s what it’s there for.</li>
-  <li><strong>(optional but recommended) Rename the constant too, not just move it, when it’s not a View Helper.</strong> Naming things is hard, but <code class="language-plaintext highlighter-rouge">*Helper</code> is… not very descriptive. While it’s the placement in <code class="language-plaintext highlighter-rouge">app/helpers</code> that brings the automatic behavior… so it’s not <em>technically</em> a problem to have a <code class="language-plaintext highlighter-rouge">SomethingHelper</code> that isn’t a View Helper living in <code class="language-plaintext highlighter-rouge">app/controllers/concerns</code> … it is confusing to have non-helpers named <code class="language-plaintext highlighter-rouge">SomethingHelper</code>. Some suggestions for renaming Concerns and Dependencies:
+  <li><strong>Never include a module from <code>app/helpers</code> anywhere.</strong> Don’t do it.</li>
+  <li><strong>Use the Controller <code>helpers</code> proxy or <code>ApplicationController.helpers.the_helper_method</code></strong> to access helpers (like <code>ActionView::Helpers::DateHelper</code>) in Controller or other Object contexts.</li>
+  <li><strong>Invert the relationship between Helpers and Concerns.</strong> If you have behavior that you want available to lots of different kinds of components <em>and</em> views, start by creating a Concern, and then include that Concern <em>into</em> a View Helper or <code>ApplicationHelper</code>.  Don’t go the other direction.</li>
+  <li><strong>Invert the relationship between Views and Controllers.</strong> If you have a private method that is specific to a single controller, and you want to expose that method to the controller’s views, you can expose that method to the views directly using <code>helper_method :the_method_name</code> . Use this sparingly, because it extends singleton View objects which deoptimizes the Ruby VM; but really, don’t twist yourself into knots to avoid it either, that’s what it’s there for.</li>
+  <li><strong>(optional but recommended) Rename the constant too, not just move it, when it’s not a View Helper.</strong> Naming things is hard, but <code>*Helper</code> is… not very descriptive. While it’s the placement in <code>app/helpers</code> that brings the automatic behavior… so it’s not <em>technically</em> a problem to have a <code>SomethingHelper</code> that isn’t a View Helper living in <code>app/controllers/concerns</code> … it is confusing to have non-helpers named <code>SomethingHelper</code>. Some suggestions for renaming Concerns and Dependencies:
     <ul>
-      <li>Use the “-able” suffix to turn the behavior or capability into an adjective. e.g. <code class="language-plaintext highlighter-rouge">SoftDeletable</code></li>
-      <li>Append <code class="language-plaintext highlighter-rouge">Dependancy</code> to the end, like <code class="language-plaintext highlighter-rouge">AbilityDependency</code></li>
-      <li>If you’re out of ideas, use <code class="language-plaintext highlighter-rouge">Methods</code> or <code class="language-plaintext highlighter-rouge">Mixin</code>, like <code class="language-plaintext highlighter-rouge">UserMethods</code> or <code class="language-plaintext highlighter-rouge">UserMixin</code>.</li>
+      <li>Use the “-able” suffix to turn the behavior or capability into an adjective. e.g. <code>SoftDeletable</code></li>
+      <li>Append <code>Dependancy</code> to the end, like <code>AbilityDependency</code></li>
+      <li>If you’re out of ideas, use <code>Methods</code> or <code>Mixin</code>, like <code>UserMethods</code> or <code>UserMixin</code>.</li>
     </ul>
   </li>
 </ul>
 
   </div>
 </article>
-
-  
-
-  <hr>
-  
-  
-  
-
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
     <h1 class="post-title" itemprop="name headline">
@@ -234,19 +205,15 @@
 </a>
     </h1>
     <p class="post-meta text-muted">
-      <time datetime="2024-11-20T00:13:00+00:00" itemprop="datePublished">November 20, 2024</time>
-      
-      
-
-
+        <time datetime="2024-11-19T16:13:00-08:00" itemprop="datePublished">November 19, 2024</time>
 
     </p>
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p>Ruby on <a href="https://www.shakacode.com/blog/rails-7-1-removes-secret-setup-command-and-deprecates-secret-show-edit-commands/">Rails v7.1 deprecated and v7.2 removed</a> support for <code class="language-plaintext highlighter-rouge">Rails.application.secrets</code> and <code class="language-plaintext highlighter-rouge">config/secrets.yml</code> in favor of Encrypted Credentials. You don’t have to go along with that! I like Secrets functionality because it allows for consolidating and normalizing <code class="language-plaintext highlighter-rouge">ENV</code> values in a single configuration file with ERB (Encrypted Credentials <a href="https://github.com/rails/rails/pull/46508">doesn’t</a>).</p>
+    <p>Ruby on <a href="https://www.shakacode.com/blog/rails-7-1-removes-secret-setup-command-and-deprecates-secret-show-edit-commands/">Rails v7.1 deprecated and v7.2 removed</a> support for <code>Rails.application.secrets</code> and <code>config/secrets.yml</code> in favor of Encrypted Credentials. You don’t have to go along with that! I like Secrets functionality because it allows for consolidating and normalizing <code>ENV</code> values in a single configuration file with ERB (Encrypted Credentials <a href="https://github.com/rails/rails/pull/46508">doesn’t</a>).</p>
 
-<p>It’s extremely simple to reimplement the same behavior using <a href="https://guides.rubyonrails.org/configuring.html#custom-configuration"><code class="language-plaintext highlighter-rouge">config_for</code></a> and the knowledge that methods defined in <code class="language-plaintext highlighter-rouge">application.rb</code> show as methods on <code class="language-plaintext highlighter-rouge">Rails.application</code>:</p>
+<p>It’s extremely simple to reimplement the same behavior using <a href="https://guides.rubyonrails.org/configuring.html#custom-configuration"><code>config_for</code></a> and the knowledge that methods defined in <code>application.rb</code> show as methods on <code>Rails.application</code>:</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># config/application.rb</span>
 
@@ -263,7 +230,7 @@
 <span class="k">end</span>
 </code></pre></div></div>
 
-<p>That is all you need to continue using a <code class="language-plaintext highlighter-rouge">secrets.yml</code> file that looks like this:</p>
+<p>That is all you need to continue using a <code>secrets.yml</code> file that looks like this:</p>
 
 <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># config/secrets.yml</span>
 
@@ -288,18 +255,10 @@
   <span class="na">default_host</span><span class="pi">:</span> <span class="s">&lt;%= ENV['DEFAULT_HOST'] || (ENV['HEROKU_APP_NAME'] ? "#{ENV['HEROKU_APP_NAME']}.herokuapp.com"</span><span class="err">:</span> <span class="s">nil) %&gt;</span>
 </code></pre></div></div>
 
-<p><strong>Note:</strong> This only works for <code class="language-plaintext highlighter-rouge">secrets.yml</code> not <code class="language-plaintext highlighter-rouge">secrets.enc.yml</code> which was called “Encrypted Secrets.” If you’re using “Encrypted Secrets” then you should definitely move over to the Encrypted Credentials feature.</p>
+<p><strong>Note:</strong> This only works for <code>secrets.yml</code> not <code>secrets.enc.yml</code> which was called “Encrypted Secrets.” If you’re using “Encrypted Secrets” then you should definitely move over to the Encrypted Credentials feature.</p>
 
   </div>
 </article>
-
-  
-
-  <hr>
-  
-  
-  
-
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
     <h1 class="post-title" itemprop="name headline">
@@ -307,18 +266,14 @@
 </a>
     </h1>
     <p class="post-meta text-muted">
-      <time datetime="2024-10-20T16:35:00+00:00" itemprop="datePublished">October 20, 2024</time>
-      
-      
-
-
+        <time datetime="2024-10-20T09:35:00-07:00" itemprop="datePublished">October 20, 2024</time>
 
     </p>
   </header>
 
   <div class="post-content" itemprop="articleBody">
     <blockquote>
-  <p>“Meteors are not needed less than mountains”
+  <p>“Meteors are not needed less than mountains”<br />
 <br /> — Robinson Jeffers, <a href="https://en.wikipedia.org/wiki/Shine%2C_Perishing_Republic">“Shine, Perishing Republic”</a></p>
 </blockquote>
 
@@ -379,7 +334,7 @@
 
 <p><strong>Boring-ass Rails</strong> I shouldn’t be shocked by now, with so many proof points over my career, but I am: how simple it is, with experience, to respond to rapidly shifting requirements in fairly-vanilla Rails: CRUD, fat controllers, fat models, fat jobs, validation contexts,  ERB, form builders, UJS, system tests, seeds, factories…. it’s not particularly difficult or mentally stimulating; it’s simply hands-on-keyboard time with the satisfaction of being <em>done</em> with that feature or capability and on to the next one, and the next one, and the next one. (aside: there’s a “Patterns vs Platform” thought floating around here)</p>
 
-<p><strong>A walking skeleton.</strong> It’s ingrained in me that you <code class="language-plaintext highlighter-rouge">rails new</code> and then immediately set up CI and a production deployment pipeline… but when I did it in pair with my second engineer for the first time, they were like “I wouldn’t have thought of doing that.” So I mention it.</p>
+<p><strong>A walking skeleton.</strong> It’s ingrained in me that you <code>rails new</code> and then immediately set up CI and a production deployment pipeline… but when I did it in pair with my second engineer for the first time, they were like “I wouldn’t have thought of doing that.” So I mention it.</p>
 
 <p><strong>An expert system.</strong> Code for America did not do expert systems, and the contemporary design system, Honeycrisp, was woefully inadequate as it was intended for big, fresh, juicy, low-cognition wizards and not tight, dry, high-density, familiarized workflows and reporting. I got to design all that! Which in practice meant running out the same thing I did at Pantheon where I also managed the usability testing program (startups!) so I felt confident in what we laid down: 🎶 Tabs and dropdowns, tables and lists; horizontal, vertical, click, click, click! 🎶</p>
 
@@ -395,11 +350,11 @@
 
 <p><strong>Typheous.</strong> One of the most unique aspects of DRAI for me was that our system was activating payment cards. A supervisor would type in the number on the physical card packaging, and then the system generated a unique activation code and sent it to the card issuer, Blackhawk (who were just the best partners 💖), who’d assign it to the card, and then we’d send a message to the client with the code. Everything worked great in the validation environment with curl, but we could never get it to work with net/http or any other Ruby HTTP library. We spent way too long poking at it, together with Blackhawk engineers. And then, because we had to move on, we just used curl via Typheous. Never figured that one out.</p>
 
-<p><strong>Localization.</strong> While there wasn’t a public, client-facing part of the system, there was a lot of localization we did to make it easier for bilingual assisters to read off the application to an applicant. This meant we had <em>a lot</em> of mixed language pages which I had limited experience with until then, as well as incomplete translations because we were building and pushing and translating all at the same time. I had a particularly difficult time with Arabic, which is a right-to-left language and we had to <a href="https://github.com/codeforamerica/drai/blob/a0442ee5689f09e6ede1b7eec6f29dd0f0c36f26/app/helpers/application_helper.rb#L59C1-L67C20">patch <code class="language-plaintext highlighter-rouge">translate</code></a> to get missing-translations working properly, and I remember difficulty getting all form-inputs to be LTR regardless of the surrounding content. We did make some awesome <code class="language-plaintext highlighter-rouge">i18n-tasks</code> tooling for <a href="https://github.com/codeforamerica/drai/blob/a0442ee5689f09e6ede1b7eec6f29dd0f0c36f26/lib/i18n_csv_tasks.rb">importing and exporting translations to CSV</a> and then into Google Sheets for translators and back again.</p>
+<p><strong>Localization.</strong> While there wasn’t a public, client-facing part of the system, there was a lot of localization we did to make it easier for bilingual assisters to read off the application to an applicant. This meant we had <em>a lot</em> of mixed language pages which I had limited experience with until then, as well as incomplete translations because we were building and pushing and translating all at the same time. I had a particularly difficult time with Arabic, which is a right-to-left language and we had to <a href="https://github.com/codeforamerica/drai/blob/a0442ee5689f09e6ede1b7eec6f29dd0f0c36f26/app/helpers/application_helper.rb#L59C1-L67C20">patch <code>translate</code></a> to get missing-translations working properly, and I remember difficulty getting all form-inputs to be LTR regardless of the surrounding content. We did make some awesome <code>i18n-tasks</code> tooling for <a href="https://github.com/codeforamerica/drai/blob/a0442ee5689f09e6ede1b7eec6f29dd0f0c36f26/lib/i18n_csv_tasks.rb">importing and exporting translations to CSV</a> and then into Google Sheets for translators and back again.</p>
 
 <p><strong>Multiparameters.</strong> Active Record’s worst dark magic is multiparameter attributes, which is how Active Record can decompose a single Date attribute into a 3-part datefield form and back again. <a href="https://github.com/rails/rails/blob/b8720e7cb8c9894d142b8576c21065c92cd1907a/activerecord/lib/active_record/attribute_assignment.rb#L30C1-L40C10">It’s wild!</a> And a huge source of 500 errors when users not-unreasonably choose invalid values (“February 31”). But I also not unreasonably believe that decomposing dates is just good UX, so there’s a <a href="https://github.com/codeforamerica/drai/blob/a0442ee5689f09e6ede1b7eec6f29dd0f0c36f26/app/models/concerns/rescue_multiparameter_errors.rb">patch for that</a>.</p>
 
-<p><strong>Metabase.</strong> Metabase was one of the tools I had previously introduced to Code for America, and it was invaluable on this project. We were using <code class="language-plaintext highlighter-rouge">paper_trail</code> gem for auditability, which produced a very rich event stream. I got real good at <code class="language-plaintext highlighter-rouge">COUNT FILTER</code>, JSONB querying, and some neat Metabase features like trendlines, variables, and reusing SQL questions. I’m particularly proud of how many <em>other</em> people were able to build wicked-good dashboards with Metabase.</p>
+<p><strong>Metabase.</strong> Metabase was one of the tools I had previously introduced to Code for America, and it was invaluable on this project. We were using <code>paper_trail</code> gem for auditability, which produced a very rich event stream. I got real good at <code>COUNT FILTER</code>, JSONB querying, and some neat Metabase features like trendlines, variables, and reusing SQL questions. I’m particularly proud of how many <em>other</em> people were able to build wicked-good dashboards with Metabase.</p>
 
 <p><strong>Rufus-scheduler.</strong> This was my first project using rufus-scheduler as a container-compatible replacement for cron on VMs. It worked really well, and that experience was a source of my initial reluctance to build such functionality into GoodJob. (I did eventually <a href="https://github.com/bensheldon/good_job/issues/255">relent in GoodJob</a> and am happy with that too).</p>
 
@@ -415,33 +370,16 @@
 
   </div>
 </article>
-
-  
-
-  <hr>
-  
-  
-  
-
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
     <h1 class="post-title" itemprop="name headline">
-      <a class="post-link" href="/2024/09/spectator-sport-a-brief-introduction-to-an-upcoming-rails-plugin"><p>Spectator Sport, a brief introduction to an upcoming Rails plugin</p>
+      <a class="post-link" href="/2024/9/spectator-sport-a-brief-introduction-to-an-upcoming-rails-plugin"><p>Spectator Sport, a brief introduction to an upcoming Rails plugin</p>
 </a>
     </h1>
     <p class="post-meta text-muted">
-      <time datetime="2024-09-29T12:44:00+00:00" itemprop="datePublished">September 29, 2024</time>
-      
-      
+        <time datetime="2024-09-29T05:44:00-07:00" itemprop="datePublished">September 29, 2024</time>
 
-
-  
-
-  
-
-  • Tagged <a href="/tags/#rails">rails</a> and <a href="/tags/#spectator_sport">spectator_sport</a>
-
-
+        • Tagged rails and spectator_sport
     </p>
   </header>
 
@@ -552,33 +490,16 @@
 
   </div>
 </article>
-
-  
-
-  <hr>
-  
-  
-  
-
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
     <h1 class="post-title" itemprop="name headline">
-      <a class="post-link" href="/2024/09/seeing-like-a-rails-and-ruby-platform-team"><p>Seeing like a Rails and Ruby platform team</p>
+      <a class="post-link" href="/2024/9/seeing-like-a-rails-and-ruby-platform-team"><p>Seeing like a Rails and Ruby platform team</p>
 </a>
     </h1>
     <p class="post-meta text-muted">
-      <time datetime="2024-09-21T15:17:00+00:00" itemprop="datePublished">September 21, 2024</time>
-      
-      
+        <time datetime="2024-09-21T08:17:00-07:00" itemprop="datePublished">September 21, 2024</time>
 
-
-  
-
-  
-
-  • Tagged <a href="/tags/#rails">Rails</a> and <a href="/tags/#ruby">Ruby</a>
-
-
+        • Tagged Rails and Ruby
     </p>
   </header>
 
@@ -622,7 +543,7 @@
   <li><strong>Safety, Security</strong>
     <ul>
       <li>Avoiding thread safety issues, like globally held objects and privacy violations, not leaking data between requests, or retaining big objects in memory.  <a href="https://rubykaigi.org/2024/presentations/jhawthorn.html">Profile</a>, <a href="https://www.youtube.com/watch?v=pQ1XCrwq1qc">profile</a>, <a href="https://island94.org/2024/01/the-answer-is-in-your-heap-debugging-big-rails-memory">profile</a>.</li>
-      <li>Seeking object locality (or avoiding globalness) by storing objects on instances of controllers and jobs (or their attributes) and embracing the natural lifecycles provided by the framework. Frequently a developer desires not to call <code class="language-plaintext highlighter-rouge">SomeObject.new</code> at the usage-site, but to have a DSL-like callable method already ready in the appropriate scope (eg. <code class="language-plaintext highlighter-rouge">current_some_object</code>). We love a good DSL and they can be difficult to get right.</li>
+      <li>Seeking object locality (or avoiding globalness) by storing objects on instances of controllers and jobs (or their attributes) and embracing the natural lifecycles provided by the framework. Frequently a developer desires not to call <code>SomeObject.new</code> at the usage-site, but to have a DSL-like callable method already ready in the appropriate scope (eg. <code>current_some_object</code>). We love a good DSL and they can be difficult to get right.</li>
     </ul>
   </li>
   <li><strong>Code Loading, Autoloading, and Reloading</strong>
@@ -633,12 +554,12 @@
   </li>
   <li><strong>Internal to the Ruby VM constraints</strong>
     <ul>
-      <li>Even though Ruby makes it easy to introspect the runtime (<code class="language-plaintext highlighter-rouge">descendants</code> or <code class="language-plaintext highlighter-rouge">subclasses</code> or <code class="language-plaintext highlighter-rouge">ObjectSpace</code>) they shouldn’t be used outside of application boot or exception handling (and sparingly even then); they may have performance implications or be overly nuanced and non-deterministic in their output. Using <code class="language-plaintext highlighter-rouge">callers</code> and introspecting the Ruby callstack is a particularly expensive operation.</li>
+      <li>Even though Ruby makes it easy to introspect the runtime (<code>descendants</code> or <code>subclasses</code> or <code>ObjectSpace</code>) they shouldn’t be used outside of application boot or exception handling (and sparingly even then); they may have performance implications or be overly nuanced and non-deterministic in their output. Using <code>callers</code> and introspecting the Ruby callstack is a particularly expensive operation.</li>
       <li>While infrequent and not-obvious, some patterns can massively de-optimize the Ruby VM with either localized or global effects. The Ruby VM (or accelerators like YJIT) are unable to optimize certain code patterns, and some patterns may cause VM-internal caches to churn inefficiently or to retain objects and their references unnecessarily (this can get tricky so please partner with us!). You probably want examples:
         <ul>
           <li>OpenStruct (though probably isn’t a reason to use it at all)</li>
-          <li><code class="language-plaintext highlighter-rouge">eval</code> and <code class="language-plaintext highlighter-rouge">class_</code>/<code class="language-plaintext highlighter-rouge">instance_eval</code></li>
-          <li>Modifying singleton classes (using <code class="language-plaintext highlighter-rouge">extend</code> on objects) (<a href="https://bugs.ruby-lang.org/issues/19436">example</a>)</li>
+          <li><code>eval</code> and <code>class_</code>/<code>instance_eval</code></li>
+          <li>Modifying singleton classes (using <code>extend</code> on objects) (<a href="https://bugs.ruby-lang.org/issues/19436">example</a>)</li>
           <li>Anything that adds to the callstack (call-wrapping, complicated delegation)</li>
           <li>(handwaves) Things that YJIT isn’t yet optimized for, things that <a href="https://railsatscale.com/2023-10-24-memoization-pattern-and-object-shapes/">deoptimize object shapes</a>, which is the result of new fast-paths being introduced which now mean there are slow-paths that didn’t previously exist.</li>
           <li>Native extensions that don’t release the interpreter lock</li>
@@ -695,44 +616,27 @@
 
   </div>
 </article>
-
-  
-
-  <hr>
-  
-  
-  
-
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
     <h1 class="post-title" itemprop="name headline">
-      <a class="post-link" href="/2024/09/secret-to-rails-database-connection-pool-size"><p>The secret to perfectly calculate Rails database connection pool size</p>
+      <a class="post-link" href="/2024/9/secret-to-rails-database-connection-pool-size"><p>The secret to perfectly calculate Rails database connection pool size</p>
 </a>
     </h1>
     <p class="post-meta text-muted">
-      <time datetime="2024-09-19T14:33:00+00:00" itemprop="datePublished">September 19, 2024</time>
-      
-      
+        <time datetime="2024-09-19T07:33:00-07:00" itemprop="datePublished">September 19, 2024</time>
 
-
-  
-
-  
-
-  • Tagged <a href="/tags/#rails">Rails</a>
-
-
+        • Tagged Rails
     </p>
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p>Ruby on Rails <a href="https://api.rubyonrails.org/classes/ActiveRecord/ConnectionAdapters/ConnectionPool.html">maintains a pool of database connections</a> for Active Record. When a database connection is needed for querying the database, usually one per thread (though <a href="https://github.com/rails/rails/pull/51349">that’s changing to per-transaction</a>), a connection is checked out of the pool, used, and then returned to the pool. The size of the pool is configured in the <code class="language-plaintext highlighter-rouge">config/database.yml</code>. The <a href="https://github.com/rails/rails/blob/dfd1e951aa1aeef06c39fffb2994db8a8fa1914f/railties/lib/rails/generators/rails/app/templates/config/databases/postgresql.yml.tt#L20">default</a>, as of Rails 7.2, is <code class="language-plaintext highlighter-rouge">pool: &lt;%%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %&gt;</code>.</p>
+    <p>Ruby on Rails <a href="https://api.rubyonrails.org/classes/ActiveRecord/ConnectionAdapters/ConnectionPool.html">maintains a pool of database connections</a> for Active Record. When a database connection is needed for querying the database, usually one per thread (though <a href="https://github.com/rails/rails/pull/51349">that’s changing to per-transaction</a>), a connection is checked out of the pool, used, and then returned to the pool. The size of the pool is configured in the <code>config/database.yml</code>. The <a href="https://github.com/rails/rails/blob/dfd1e951aa1aeef06c39fffb2994db8a8fa1914f/railties/lib/rails/generators/rails/app/templates/config/databases/postgresql.yml.tt#L20">default</a>, as of Rails 7.2, is <code>pool: &lt;%%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %&gt;</code>.</p>
 
-<p>The database connection pool size is frequently misconfigured. <em>A lot.</em> How to calculate the database connection pool size is one of the most common questions I get on GoodJob (Hi! I’m the author of GoodJob 👋). I have spent an embarrassingly large amount of time trying to come up with a precise pool size calculator and give advice to take into account Puma threads, and GoodJob async jobs, and <code class="language-plaintext highlighter-rouge">load_async</code> queries and everything that might be asking for a database connection at the same time. It’s nearly impossible to get the number exactly right.</p>
+<p>The database connection pool size is frequently misconfigured. <em>A lot.</em> How to calculate the database connection pool size is one of the most common questions I get on GoodJob (Hi! I’m the author of GoodJob 👋). I have spent an embarrassingly large amount of time trying to come up with a precise pool size calculator and give advice to take into account Puma threads, and GoodJob async jobs, and <code>load_async</code> queries and everything that might be asking for a database connection at the same time. It’s nearly impossible to get the number exactly right.</p>
 
-<p>If the connection pool is misconfigured to be <em>too small</em> , it can slow down web requests and jobs while waiting for a connection to become available, or raise <code class="language-plaintext highlighter-rouge">ActiveRecord::ConnectionTimeoutError</code> if there isn’t a connection available within a reasonable amount of time (5 seconds by default). That’s bad! We never want that to happen. Here’s what you should do:</p>
+<p>If the connection pool is misconfigured to be <em>too small</em> , it can slow down web requests and jobs while waiting for a connection to become available, or raise <code>ActiveRecord::ConnectionTimeoutError</code> if there isn’t a connection available within a reasonable amount of time (5 seconds by default). That’s bad! We never want that to happen. Here’s what you should do:</p>
 
-<p><strong>✨ The secret to perfectly calculate Rails database connection pool size:</strong> <em>Don’t! Set the pool size to a very large, constant number, and never worry about it again. E.g. <code class="language-plaintext highlighter-rouge">pool: 100</code>, and remove the reference to <code class="language-plaintext highlighter-rouge">RAILS_MAX_THREADS</code> entirely:</em></p>
+<p><strong>✨ The secret to perfectly calculate Rails database connection pool size:</strong> <em>Don’t! Set the pool size to a very large, constant number, and never worry about it again. E.g. <code>pool: 100</code>, and remove the reference to <code>RAILS_MAX_THREADS</code> entirely:</em></p>
 
 <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># config/database.yml</span>
 <span class="na">default</span><span class="pi">:</span> <span class="nl">&amp;default</span>
@@ -744,14 +648,14 @@
 <p>WAIT, WHAT?! Why? I described that bad things happen if the pool size is <em>too small</em>. Here’s the trick: it’s impossible to set the connection pool size to be <em>too big</em>. You can’t do it! That’s why it’s always better to set a number that’s too large. And the best number is one that can <em>never</em> be too small regardless of how you configure (and inevitably reconfigure) your application. Here’s why:</p>
 
 <ul>
-  <li>The <code class="language-plaintext highlighter-rouge">pool:</code> configuration value, despite its name, is the <em>max</em> size of the database connection pool.</li>
+  <li>The <code>pool:</code> configuration value, despite its name, is the <em>max</em> size of the database connection pool.</li>
   <li>Database connections are lazily created and added to the pool <em>as they’re needed</em>. Your Rails application will never create more database connections than it needs. And the database connection pool reaper removes idle and unused connections from the pool. The pool will never be larger than it needs to be.</li>
-  <li>It’s possible you may run out of available database connections <em>at the database</em>. For example, Heroku’s new <code class="language-plaintext highlighter-rouge">Essentials-0</code> Postgres database only has 20 database connections available globally. But any problems you run into won’t be because the database connection pool is too big, it’s because your application is <em>using too many concurrent database connections</em>.</li>
+  <li>It’s possible you may run out of available database connections <em>at the database</em>. For example, Heroku’s new <code>Essentials-0</code> Postgres database only has 20 database connections available globally. But any problems you run into won’t be because the database connection pool is too big, it’s because your application is <em>using too many concurrent database connections</em>.</li>
   <li>If you find yourself in a situation where your application is using too many concurrent database connections, you should be configuring and re-sizing <em>the things using database connections concurrently</em>, not the database connection pool itself:
     <ul>
       <li>Configure the number of Puma threads</li>
       <li>Configure the number of GoodJob async threads (Solid Queue now has similar functionality too!)</li>
-      <li>Configure the <code class="language-plaintext highlighter-rouge">load_async</code> thread pool</li>
+      <li>Configure the <code>load_async</code> thread pool</li>
       <li>Configure anything else using a background thread making database queries</li>
       <li>Configure the number of parallel processes/Puma workers/dynos/containers you’re using, which the database connection pool does not affect anyways.</li>
     </ul>
@@ -759,8 +663,8 @@
   <li>If you still don’t have enough database connections <em>at the database</em>, then you should increase the number of database connections <em>at the database</em>. Which means scaling your database, or using a connection multiplexer like PgBouncer. <a href="https://judoscale.com/tools/heroku-postgresql-connection-calculator">Judoscale has a nice calculator</a> to estimate the number of connections you’ll need <em>at the database</em> (which again, is not the pool size).</li>
   <li>If, in an incredibly rare case, your application concurrency is very, very spiky and you worry that idle database connections are sitting in the connection pool for too long before they are automatically removed by the connection pool reaper, then configure that:
     <ul>
-      <li><code class="language-plaintext highlighter-rouge">idle_timeout</code>: number of seconds that a connection will be kept unused in the pool before it is automatically disconnected (default: 5 minutes). Set this to zero to keep connections forever.</li>
-      <li><code class="language-plaintext highlighter-rouge">reaping_frequency</code>: number of seconds between invocations of the database connection pool reaper to disconnect and remove unused connections from the pool (default: 1 minute)</li>
+      <li><code>idle_timeout</code>: number of seconds that a connection will be kept unused in the pool before it is automatically disconnected (default: 5 minutes). Set this to zero to keep connections forever.</li>
+      <li><code>reaping_frequency</code>: number of seconds between invocations of the database connection pool reaper to disconnect and remove unused connections from the pool (default: 1 minute)</li>
     </ul>
   </li>
 </ul>
@@ -775,26 +679,14 @@
 
   </div>
 </article>
-
-  
-
-  <hr>
-  
-  
-  
-
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
     <h1 class="post-title" itemprop="name headline">
-      <a class="post-link" href="/2024/09/the-novice-problem"><p>The Novice Problem</p>
+      <a class="post-link" href="/2024/9/the-novice-problem"><p>The Novice Problem</p>
 </a>
     </h1>
     <p class="post-meta text-muted">
-      <time datetime="2024-09-12T17:26:00+00:00" itemprop="datePublished">September 12, 2024</time>
-      
-      
-
-
+        <time datetime="2024-09-12T10:26:00-07:00" itemprop="datePublished">September 12, 2024</time>
 
     </p>
   </header>
@@ -860,169 +752,14 @@
 
   </div>
 </article>
-
-  
-
-  <hr>
-  
-  
-  
-
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
     <h1 class="post-title" itemprop="name headline">
-      <a class="post-link" href="/2024/07/notes-from-carrierwave-to-active-storage"><p>Notes from Carrierwave to Active Storage</p>
+      <a class="post-link" href="/2024/7/on-the-importance-of-rails-code-reloading"><p>On the importance of Rails code reloading and autoloading</p>
 </a>
     </h1>
     <p class="post-meta text-muted">
-      <time datetime="2024-07-09T10:30:00+00:00" itemprop="datePublished">July 9, 2024</time>
-      
-      
-
-
-  
-
-  
-
-  • Tagged <a href="/tags/#rails">Rails</a>
-
-
-    </p>
-  </header>
-
-  <div class="post-content" itemprop="articleBody">
-    <p>I recently migrated <a href="https://dayoftheshirt.com">Day of the Shirt</a>, my graphic t-shirt sale aggregator, from storing image attachments with Carrierwave to Active Storage. It went ok! 👍</p>
-
-<p>There were a couple of things driving this migration, though Carrierwave had served me very well for nearly a decade:</p>
-
-<ul>
-  <li>For budgetary reasons, I was moving the storage service from S3 to Digital Ocean Spaces. I knew I’d be doing some sort of data migration regardless.</li>
-  <li>I was using some monkeypatches of Carrierwave v2 that weren’t compatible with Carrierwave v3. So I knew I’d have to dig into the internals anyways if I wanted to stay up to date.</li>
-  <li>I generally trust Rails, and by extension Active Storage, to be reliable stewards when I take them on as a dependency.</li>
-</ul>
-
-<p>And I had a couple of requirements to work though, largely motivated because images in Day of the Shirt <em>are the content</em> with dozens or hundreds displayed on a single page:</p>
-
-<ul>
-  <li>For budget (slash performance), I need to link directly to image assets. No proxying or redirecting through the Rails app.</li>
-  <li>For SEO, I need to customize the image filenames so they are relevant to the content.</li>
-  <li>For performance (slash availability), I need to pre-process image transformations (convert, scale, crop) before they are published. Dozens of new designs can go up on the homepage at once.</li>
-  <li>For availability, I need to validate that the images are (1) transformable and (2) actually transformed before they are published; invalid or missing images are unacceptable.</li>
-</ul>
-
-<p>How’d it go? Great! 🎉 I am now fully switched over to Active Storage. It’s working really well and I was able to meet all of my requirements. Active Storage is very nice, as nice as Carrierwave.</p>
-
-<p>But the errata? Yes, that’s why I’m writing the blog post, and probably why you’re reading. To document all of the stuff I did that wasn’t in the <a href="https://edgeguides.rubyonrails.org/active_storage_overview.html">very excellent Active Storage Rails Guide.</a> Let’s go through it:</p>
-
-<p><strong>Direct Linking to images</strong> is possible via the method described in this excellent post from Florin Lipan: <a href="https://lipanski.com/posts/activestorage-cdn-rails-direct-route">“Serving Active Storage uploads through a CDN with Rails direct routes”</a>.</p>
-
-<p><strong>Customizing Active Storage filenames</strong> is possible with a monkeypatch (maybe <a href="https://github.com/rails/rails/pull/41004">someday it will be possible directly</a>). The patch simply adds the specified filename to the end of what otherwise would be a random string; and it seems durable through variants such that the variant extensions will be updated properly when the format is transformed (e.g. from a <code class="language-plaintext highlighter-rouge">.png</code> to a <code class="language-plaintext highlighter-rouge">.jpg</code>):</p>
-
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># config/initializers/active_storage.rb</span>
-<span class="k">module</span> <span class="nn">MonkeypatchBlobKey</span>
-  <span class="k">def</span> <span class="nf">key</span>
-    <span class="nb">self</span><span class="p">[</span><span class="ss">:key</span><span class="p">]</span> <span class="o">||=</span> <span class="k">begin</span>
-      <span class="c1"># ActiveStorage::Filename doesn't provide an easy nil-check</span>
-      <span class="n">filename_string</span> <span class="o">=</span> <span class="k">begin</span>
-        <span class="n">filename</span><span class="p">.</span><span class="nf">to_s</span>
-      <span class="k">rescue</span> <span class="no">StandardError</span>
-        <span class="kp">nil</span>
-      <span class="k">end</span>
-
-      <span class="n">unique_token</span> <span class="o">=</span> <span class="nb">self</span><span class="p">.</span><span class="nf">class</span><span class="p">.</span><span class="nf">generate_unique_secure_token</span><span class="p">(</span><span class="ss">length: </span><span class="no">ActiveStorage</span><span class="o">::</span><span class="no">Blob</span><span class="o">::</span><span class="no">MINIMUM_TOKEN_LENGTH</span><span class="p">)</span>
-      <span class="k">if</span> <span class="n">filename_string</span>
-        <span class="c1"># "xyz1234/foobar.jpg"</span>
-        <span class="no">File</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="n">unique_token</span><span class="p">,</span> <span class="n">filename_string</span><span class="p">)</span>
-      <span class="k">else</span>
-        <span class="c1"># "xyz1234"</span>
-        <span class="n">unique_token</span>
-      <span class="k">end</span>
-    <span class="k">end</span>
-  <span class="k">end</span>
-<span class="k">end</span>
-
-<span class="no">ActiveSupport</span><span class="p">.</span><span class="nf">on_load</span><span class="p">(</span><span class="ss">:active_storage_blob</span><span class="p">)</span> <span class="k">do</span>
-  <span class="no">ActiveStorage</span><span class="o">::</span><span class="no">Blob</span><span class="p">.</span><span class="nf">prepend</span> <span class="no">MonkeypatchBlobKey</span>
-<span class="k">end</span>
-</code></pre></div></div>
-
-<p><strong>Preprocessing variants</strong> required tapping into some private methods to get the variant names back out of the system. Here’s an example of processing all of the variants when the attachment changes. Beware: attachments happen in an <code class="language-plaintext highlighter-rouge">after_commit</code>, <a href="https://www.youtube.com/live/78HzHhMnhHY">which is good</a>, but means that I had to introduce a <code class="language-plaintext highlighter-rouge">published</code> state to the record to ensure it was not visible until the variants were processed (there is a <a href="https://github.com/rails/rails/pull/47473"><code class="language-plaintext highlighter-rouge">preprocessed:</code></a> option to process individual variants async in a background job but that, unfortunately, doesn’t meet my needs for synchronizing them all at once):</p>
-
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-<span class="k">class</span> <span class="nc">Shirt</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
-  <span class="n">has_one_attached</span> <span class="ss">:graphic</span> <span class="k">do</span> <span class="o">|</span><span class="n">attachable</span><span class="o">|</span>
-    <span class="n">attachable</span><span class="p">.</span><span class="nf">variant</span> <span class="ss">:full</span><span class="p">,</span> <span class="ss">format: :jpg</span>
-    <span class="n">attachable</span><span class="p">.</span><span class="nf">variant</span> <span class="ss">:large</span><span class="p">,</span> <span class="ss">resize_to_limit: </span><span class="p">[</span><span class="mi">1024</span><span class="p">,</span> <span class="mi">1024</span><span class="p">],</span> <span class="ss">format: :jpg</span>
-    <span class="n">attachable</span><span class="p">.</span><span class="nf">variant</span> <span class="ss">:square</span><span class="p">,</span> <span class="ss">resize_to_fill: </span><span class="p">[</span><span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">],</span> <span class="ss">format: :jpg</span>
-    <span class="n">attachable</span><span class="p">.</span><span class="nf">variant</span> <span class="ss">:thumb</span><span class="p">,</span> <span class="ss">resize_to_fill: </span><span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span> <span class="ss">format: :jpg</span>
-  <span class="k">end</span>
-
-  <span class="n">after_commit</span> <span class="ss">:process_graphic_variants_and_publish</span><span class="p">,</span> <span class="ss">if: </span><span class="o">-&gt;</span> <span class="p">(</span><span class="n">shirt</span><span class="p">){</span> <span class="n">shirt</span><span class="p">.</span><span class="nf">graphic</span><span class="o">&amp;</span><span class="p">.</span><span class="nf">blob</span><span class="o">&amp;</span><span class="p">.</span><span class="nf">saved_changes?</span> <span class="p">},</span> <span class="ss">on: </span><span class="p">[</span><span class="ss">:create</span><span class="p">,</span> <span class="ss">:update</span><span class="p">]</span>
-
-  <span class="k">def</span> <span class="nf">process_graphic_variants</span>
-    <span class="n">attachment_variants</span><span class="p">(</span><span class="ss">:graphic</span><span class="p">).</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">variant</span><span class="o">|</span>
-      <span class="n">graphic</span><span class="p">.</span><span class="nf">variant</span><span class="p">(</span><span class="n">variant</span><span class="p">).</span><span class="nf">processed</span>
-    <span class="k">end</span>
-    <span class="n">update</span><span class="p">(</span><span class="ss">published: </span><span class="kp">true</span><span class="p">)</span>
-  <span class="k">end</span>
-
-  <span class="c1"># All of the named variants for an attachment</span>
-  <span class="c1"># @param attachment [Symbol] the name of the attachment</span>
-  <span class="c1"># @return Array[Symbol] the names of the variants</span>
-  <span class="k">def</span> <span class="nf">attachment_variants</span><span class="p">(</span><span class="n">attachment</span><span class="p">)</span>
-    <span class="nb">send</span><span class="p">(</span><span class="n">attachment</span><span class="p">).</span><span class="nf">attachment</span><span class="p">.</span><span class="nf">send</span><span class="p">(</span><span class="ss">:named_variants</span><span class="p">).</span><span class="nf">keys</span>
-  <span class="k">end</span>
-<span class="k">end</span>
-</code></pre></div></div>
-
-<p><strong>Validating variants</strong> was easy with a very nice and well-named gem: <a href="https://github.com/igorkasyanchuk/active_storage_validations"><code class="language-plaintext highlighter-rouge">active_storage_validations</code></a>. It <a href="https://github.com/igorkasyanchuk/active_storage_validations/blob/ab27760ecee7498e8fcb2a6434157c8cdd81038d/lib/active_storage_validations/metadata.rb#L122">works really well</a>.</p>
-
-<p><strong>You will have N+1s</strong>, where you forget to add <code class="language-plaintext highlighter-rouge">with_attached_*</code> scopes to some queries. Unfortunately Active Storage’s schema is laid out in a way that it will emit queries to the same model/table <em>even when it’s loading correctly</em>, so you may get <a href="https://github.com/flyerhzm/bullet/issues/474">detection false positives</a> too. You can see that clearly in the next example with the doubly-nested <code class="language-plaintext highlighter-rouge">blob</code> association.</p>
-
-<p><strong>Active Storage’s schema is a beast</strong>. I get that it’s gone through a lot of changes, and Named Variants are an amazing hack when you see how they’ve been implemented. And it’s wild. You can see that by how the <a href="https://github.com/rails/rails/blob/9f178ada796a89c01f952fc05810b58b6f8682fc/activestorage/lib/active_storage/attached/model.rb#L129-L137">scope for <code class="language-plaintext highlighter-rouge">with_attached_*</code></a> is generated:</p>
-
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">includes</span><span class="p">(</span><span class="s2">"</span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">_attachment"</span><span class="p">:</span> <span class="p">{</span> <span class="ss">blob: </span><span class="p">{</span>
-  <span class="ss">variant_records: </span><span class="p">{</span> <span class="ss">image_attachment: :blob</span> <span class="p">},</span>
-  <span class="ss">preview_image_attachment: </span><span class="p">{</span> <span class="ss">blob: </span><span class="p">{</span> <span class="ss">variant_records: </span><span class="p">{</span> <span class="ss">image_attachment: :blob</span> <span class="p">}</span> <span class="p">}</span> <span class="p">}</span>
-<span class="p">}</span> <span class="p">})</span>
-</code></pre></div></div>
-
-<p>I originally thought that when eager-loading through an association (e.g. <code class="language-plaintext highlighter-rouge">Merchant.includes(:shirts)</code>) I’d have to do something like this (🫠):</p>
-
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">Merchant</span><span class="p">.</span><span class="nf">includes</span><span class="p">(</span><span class="ss">shirts: </span><span class="p">{</span> <span class="ss">blob: </span><span class="p">{</span>
-  <span class="ss">variant_records: </span><span class="p">{</span> <span class="ss">image_attachment: :blob</span> <span class="p">},</span>
-  <span class="ss">preview_image_attachment: </span><span class="p">{</span> <span class="ss">blob: </span><span class="p">{</span> <span class="ss">variant_records: </span><span class="p">{</span> <span class="ss">image_attachment: :blob</span> <span class="p">}</span> <span class="p">}</span> <span class="p">})</span>
-</code></pre></div></div>
-
-<p>…but fortunately this seems to work too (💅):</p>
-
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">Merchant</span><span class="p">.</span><span class="nf">includes</span><span class="p">(</span><span class="ss">:shirts</span><span class="p">).</span><span class="nf">merge</span><span class="p">(</span><span class="no">Shirt</span><span class="p">.</span><span class="nf">with_attached_graphic</span><span class="p">)</span>
-</code></pre></div></div>
-
-<p>That’s everything. All in all I’m very happy with the migration 🌅</p>
-
-  </div>
-</article>
-
-  
-
-  <hr>
-  
-  
-  
-
-<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">
-      <a class="post-link" href="/2024/07/on-the-importance-of-rails-code-reloading"><p>On the importance of Rails code reloading and autoloading</p>
-</a>
-    </h1>
-    <p class="post-meta text-muted">
-      <time datetime="2024-07-07T14:44:00+00:00" itemprop="datePublished">July 7, 2024</time>
-      
-      
-
-
+        <time datetime="2024-07-07T07:44:00-07:00" itemprop="datePublished">July 7, 2024</time>
 
     </p>
   </header>
@@ -1067,14 +804,14 @@
 <p>I wish I could easily leave this post with some kind of <em>nugget</em> of something actionable to do, but it’s really more like: <strong>please take care</strong>. Some rules of thumb:</p>
 
 <ul>
-  <li>Don’t reference, don’t access, don’t use or touch any constants in <code class="language-plaintext highlighter-rouge">app/</code>, or allow them to be referenced (looking at you, custom Rack Middleware) unless you’re doing so from another constant in <code class="language-plaintext highlighter-rouge">app/</code> (or somewhere that you <em>know</em> is <a href="https://island94.org/2023/05/whatever-you-do-don-t-autoload-rails-lib">autoloaded</a>).</li>
-  <li>Take care with <code class="language-plaintext highlighter-rouge">config/initializers/</code> and ensure you’re making the most of <code class="language-plaintext highlighter-rouge">ActiveSupport.on_load</code> hooks. Rails may even be missing <a href="https://guides.rubyonrails.org/engines.html#available-load-hooks">some load hooks</a>, so make an upstream PR if you need to configure an autoloaded object and you can’t. It’s super common to run into trouble; in writing this blog post alone, I discovered a <a href="https://github.com/textacular/textacular/pull/159">problem with a gem I use</a>.</li>
-  <li>If you’re writing library code, become familiar with the configuration-class-initializer-attribute-pattern dance (my name for it), which is how you’ll get something like <code class="language-plaintext highlighter-rouge">config.action_view.something = :the_thing</code> lifted and constantized into <code class="language-plaintext highlighter-rouge">ActionView::Base.something #=&gt; TheThing</code></li>
+  <li>Don’t reference, don’t access, don’t use or touch any constants in <code>app/</code>, or allow them to be referenced (looking at you, custom Rack Middleware) unless you’re doing so from another constant in <code>app/</code> (or somewhere that you <em>know</em> is <a href="https://island94.org/2023/05/whatever-you-do-don-t-autoload-rails-lib">autoloaded</a>).</li>
+  <li>Take care with <code>config/initializers/</code> and ensure you’re making the most of <code>ActiveSupport.on_load</code> hooks. Rails may even be missing <a href="https://guides.rubyonrails.org/engines.html#available-load-hooks">some load hooks</a>, so make an upstream PR if you need to configure an autoloaded object and you can’t. It’s super common to run into trouble; in writing this blog post alone, I discovered a <a href="https://github.com/textacular/textacular/pull/159">problem with a gem I use</a>.</li>
+  <li>If you’re writing library code, become familiar with the configuration-class-initializer-attribute-pattern dance (my name for it), which is how you’ll get something like <code>config.action_view.something = :the_thing</code> lifted and constantized into <code>ActionView::Base.something #=&gt; TheThing</code></li>
 </ul>
 
 <p>You might find luck with this <a href="https://gist.github.com/bensheldon/ba6532c4216c11dd9ba03487c5a06ee4">bin/autoload-check script</a>, that I adapted from something <a href="https://www.johnhawthorn.com/">John Hawthorn</a> originally wrote, giving output like:</p>
 
-<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>❌ Autoloaded constants were referenced during during boot.
+<pre><code class="language-text">❌ Autoloaded constants were referenced during during boot.
 These files/constants were autoloaded during the boot process,
 which will result in inconsistent behavior and will slow down and
 may break development mode. Remove references to these constants
@@ -1086,37 +823,146 @@ from code loaded at boot.
                                          /Users/bensheldon/.rbenv/versions/3.3.3/lib/ruby/gems/3.3.0/gems/activerecord-7.1.3.4/lib/active_record/base.rb:338:in `&lt;module:ActiveRecord&gt;'
                                          /Users/bensheldon/.rbenv/versions/3.3.3/lib/ruby/gems/3.3.0/gems/activerecord-7.1.3.4/lib/active_record/base.rb:15:in `&lt;main&gt;'
                                          .....
-</code></pre></div></div>
+</code></pre>
 
   </div>
 </article>
-
-  
-
-  <hr>
-  
-  
-  
-
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
     <h1 class="post-title" itemprop="name headline">
-      <a class="post-link" href="/2024/07/introducing-goodjob-v4"><p>Introducing GoodJob v4</p>
+      <a class="post-link" href="/2024/7/notes-from-carrierwave-to-active-storage"><p>Notes from Carrierwave to Active Storage</p>
 </a>
     </h1>
     <p class="post-meta text-muted">
-      <time datetime="2024-07-07T04:44:00+00:00" itemprop="datePublished">July 7, 2024</time>
-      
-      
+        <time datetime="2024-07-09T03:30:00-07:00" itemprop="datePublished">July 9, 2024</time>
 
+        • Tagged Rails
+    </p>
+  </header>
 
-  
+  <div class="post-content" itemprop="articleBody">
+    <p>I recently migrated <a href="https://dayoftheshirt.com">Day of the Shirt</a>, my graphic t-shirt sale aggregator, from storing image attachments with Carrierwave to Active Storage. It went ok! 👍</p>
 
-  
+<p>There were a couple of things driving this migration, though Carrierwave had served me very well for nearly a decade:</p>
 
-  • Tagged <a href="/tags/#goodjob">GoodJob</a> and <a href="/tags/#rails">Rails</a>
+<ul>
+  <li>For budgetary reasons, I was moving the storage service from S3 to Digital Ocean Spaces. I knew I’d be doing some sort of data migration regardless.</li>
+  <li>I was using some monkeypatches of Carrierwave v2 that weren’t compatible with Carrierwave v3. So I knew I’d have to dig into the internals anyways if I wanted to stay up to date.</li>
+  <li>I generally trust Rails, and by extension Active Storage, to be reliable stewards when I take them on as a dependency.</li>
+</ul>
 
+<p>And I had a couple of requirements to work though, largely motivated because images in Day of the Shirt <em>are the content</em> with dozens or hundreds displayed on a single page:</p>
 
+<ul>
+  <li>For budget (slash performance), I need to link directly to image assets. No proxying or redirecting through the Rails app.</li>
+  <li>For SEO, I need to customize the image filenames so they are relevant to the content.</li>
+  <li>For performance (slash availability), I need to pre-process image transformations (convert, scale, crop) before they are published. Dozens of new designs can go up on the homepage at once.</li>
+  <li>For availability, I need to validate that the images are (1) transformable and (2) actually transformed before they are published; invalid or missing images are unacceptable.</li>
+</ul>
+
+<p>How’d it go? Great! 🎉 I am now fully switched over to Active Storage. It’s working really well and I was able to meet all of my requirements. Active Storage is very nice, as nice as Carrierwave.</p>
+
+<p>But the errata? Yes, that’s why I’m writing the blog post, and probably why you’re reading. To document all of the stuff I did that wasn’t in the <a href="https://edgeguides.rubyonrails.org/active_storage_overview.html">very excellent Active Storage Rails Guide.</a> Let’s go through it:</p>
+
+<p><strong>Direct Linking to images</strong> is possible via the method described in this excellent post from Florin Lipan: <a href="https://lipanski.com/posts/activestorage-cdn-rails-direct-route">“Serving Active Storage uploads through a CDN with Rails direct routes”</a>.</p>
+
+<p><strong>Customizing Active Storage filenames</strong> is possible with a monkeypatch (maybe <a href="https://github.com/rails/rails/pull/41004">someday it will be possible directly</a>). The patch simply adds the specified filename to the end of what otherwise would be a random string; and it seems durable through variants such that the variant extensions will be updated properly when the format is transformed (e.g. from a <code>.png</code> to a <code>.jpg</code>):</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># config/initializers/active_storage.rb</span>
+<span class="k">module</span> <span class="nn">MonkeypatchBlobKey</span>
+  <span class="k">def</span> <span class="nf">key</span>
+    <span class="nb">self</span><span class="p">[</span><span class="ss">:key</span><span class="p">]</span> <span class="o">||=</span> <span class="k">begin</span>
+      <span class="c1"># ActiveStorage::Filename doesn't provide an easy nil-check</span>
+      <span class="n">filename_string</span> <span class="o">=</span> <span class="k">begin</span>
+        <span class="n">filename</span><span class="p">.</span><span class="nf">to_s</span>
+      <span class="k">rescue</span> <span class="no">StandardError</span>
+        <span class="kp">nil</span>
+      <span class="k">end</span>
+
+      <span class="n">unique_token</span> <span class="o">=</span> <span class="nb">self</span><span class="p">.</span><span class="nf">class</span><span class="p">.</span><span class="nf">generate_unique_secure_token</span><span class="p">(</span><span class="ss">length: </span><span class="no">ActiveStorage</span><span class="o">::</span><span class="no">Blob</span><span class="o">::</span><span class="no">MINIMUM_TOKEN_LENGTH</span><span class="p">)</span>
+      <span class="k">if</span> <span class="n">filename_string</span>
+        <span class="c1"># "xyz1234/foobar.jpg"</span>
+        <span class="no">File</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="n">unique_token</span><span class="p">,</span> <span class="n">filename_string</span><span class="p">)</span>
+      <span class="k">else</span>
+        <span class="c1"># "xyz1234"</span>
+        <span class="n">unique_token</span>
+      <span class="k">end</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="no">ActiveSupport</span><span class="p">.</span><span class="nf">on_load</span><span class="p">(</span><span class="ss">:active_storage_blob</span><span class="p">)</span> <span class="k">do</span>
+  <span class="no">ActiveStorage</span><span class="o">::</span><span class="no">Blob</span><span class="p">.</span><span class="nf">prepend</span> <span class="no">MonkeypatchBlobKey</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p><strong>Preprocessing variants</strong> required tapping into some private methods to get the variant names back out of the system. Here’s an example of processing all of the variants when the attachment changes. Beware: attachments happen in an <code>after_commit</code>, <a href="https://www.youtube.com/live/78HzHhMnhHY">which is good</a>, but means that I had to introduce a <code>published</code> state to the record to ensure it was not visible until the variants were processed (there is a <a href="https://github.com/rails/rails/pull/47473"><code>preprocessed:</code></a> option to process individual variants async in a background job but that, unfortunately, doesn’t meet my needs for synchronizing them all at once):</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">class</span> <span class="nc">Shirt</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">has_one_attached</span> <span class="ss">:graphic</span> <span class="k">do</span> <span class="o">|</span><span class="n">attachable</span><span class="o">|</span>
+    <span class="n">attachable</span><span class="p">.</span><span class="nf">variant</span> <span class="ss">:full</span><span class="p">,</span> <span class="ss">format: :jpg</span>
+    <span class="n">attachable</span><span class="p">.</span><span class="nf">variant</span> <span class="ss">:large</span><span class="p">,</span> <span class="ss">resize_to_limit: </span><span class="p">[</span><span class="mi">1024</span><span class="p">,</span> <span class="mi">1024</span><span class="p">],</span> <span class="ss">format: :jpg</span>
+    <span class="n">attachable</span><span class="p">.</span><span class="nf">variant</span> <span class="ss">:square</span><span class="p">,</span> <span class="ss">resize_to_fill: </span><span class="p">[</span><span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">],</span> <span class="ss">format: :jpg</span>
+    <span class="n">attachable</span><span class="p">.</span><span class="nf">variant</span> <span class="ss">:thumb</span><span class="p">,</span> <span class="ss">resize_to_fill: </span><span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span> <span class="ss">format: :jpg</span>
+  <span class="k">end</span>
+
+  <span class="n">after_commit</span> <span class="ss">:process_graphic_variants_and_publish</span><span class="p">,</span> <span class="ss">if: </span><span class="o">-&gt;</span> <span class="p">(</span><span class="n">shirt</span><span class="p">){</span> <span class="n">shirt</span><span class="p">.</span><span class="nf">graphic</span><span class="o">&amp;</span><span class="p">.</span><span class="nf">blob</span><span class="o">&amp;</span><span class="p">.</span><span class="nf">saved_changes?</span> <span class="p">},</span> <span class="ss">on: </span><span class="p">[</span><span class="ss">:create</span><span class="p">,</span> <span class="ss">:update</span><span class="p">]</span>
+
+  <span class="k">def</span> <span class="nf">process_graphic_variants</span>
+    <span class="n">attachment_variants</span><span class="p">(</span><span class="ss">:graphic</span><span class="p">).</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">variant</span><span class="o">|</span>
+      <span class="n">graphic</span><span class="p">.</span><span class="nf">variant</span><span class="p">(</span><span class="n">variant</span><span class="p">).</span><span class="nf">processed</span>
+    <span class="k">end</span>
+    <span class="n">update</span><span class="p">(</span><span class="ss">published: </span><span class="kp">true</span><span class="p">)</span>
+  <span class="k">end</span>
+
+  <span class="c1"># All of the named variants for an attachment</span>
+  <span class="c1"># @param attachment [Symbol] the name of the attachment</span>
+  <span class="c1"># @return Array[Symbol] the names of the variants</span>
+  <span class="k">def</span> <span class="nf">attachment_variants</span><span class="p">(</span><span class="n">attachment</span><span class="p">)</span>
+    <span class="nb">send</span><span class="p">(</span><span class="n">attachment</span><span class="p">).</span><span class="nf">attachment</span><span class="p">.</span><span class="nf">send</span><span class="p">(</span><span class="ss">:named_variants</span><span class="p">).</span><span class="nf">keys</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p><strong>Validating variants</strong> was easy with a very nice and well-named gem: <a href="https://github.com/igorkasyanchuk/active_storage_validations"><code>active_storage_validations</code></a>. It <a href="https://github.com/igorkasyanchuk/active_storage_validations/blob/ab27760ecee7498e8fcb2a6434157c8cdd81038d/lib/active_storage_validations/metadata.rb#L122">works really well</a>.</p>
+
+<p><strong>You will have N+1s</strong>, where you forget to add <code>with_attached_*</code> scopes to some queries. Unfortunately Active Storage’s schema is laid out in a way that it will emit queries to the same model/table <em>even when it’s loading correctly</em>, so you may get <a href="https://github.com/flyerhzm/bullet/issues/474">detection false positives</a> too. You can see that clearly in the next example with the doubly-nested <code>blob</code> association.</p>
+
+<p><strong>Active Storage’s schema is a beast</strong>. I get that it’s gone through a lot of changes, and Named Variants are an amazing hack when you see how they’ve been implemented. And it’s wild. You can see that by how the <a href="https://github.com/rails/rails/blob/9f178ada796a89c01f952fc05810b58b6f8682fc/activestorage/lib/active_storage/attached/model.rb#L129-L137">scope for <code>with_attached_*</code></a> is generated:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">includes</span><span class="p">(</span><span class="s2">"</span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">_attachment"</span><span class="p">:</span> <span class="p">{</span> <span class="ss">blob: </span><span class="p">{</span>
+  <span class="ss">variant_records: </span><span class="p">{</span> <span class="ss">image_attachment: :blob</span> <span class="p">},</span>
+  <span class="ss">preview_image_attachment: </span><span class="p">{</span> <span class="ss">blob: </span><span class="p">{</span> <span class="ss">variant_records: </span><span class="p">{</span> <span class="ss">image_attachment: :blob</span> <span class="p">}</span> <span class="p">}</span> <span class="p">}</span>
+<span class="p">}</span> <span class="p">})</span>
+</code></pre></div></div>
+
+<p>I originally thought that when eager-loading through an association (e.g. <code>Merchant.includes(:shirts)</code>) I’d have to do something like this (🫠):</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">Merchant</span><span class="p">.</span><span class="nf">includes</span><span class="p">(</span><span class="ss">shirts: </span><span class="p">{</span> <span class="ss">blob: </span><span class="p">{</span>
+  <span class="ss">variant_records: </span><span class="p">{</span> <span class="ss">image_attachment: :blob</span> <span class="p">},</span>
+  <span class="ss">preview_image_attachment: </span><span class="p">{</span> <span class="ss">blob: </span><span class="p">{</span> <span class="ss">variant_records: </span><span class="p">{</span> <span class="ss">image_attachment: :blob</span> <span class="p">}</span> <span class="p">}</span> <span class="p">})</span>
+</code></pre></div></div>
+
+<p>…but fortunately this seems to work too (💅):</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">Merchant</span><span class="p">.</span><span class="nf">includes</span><span class="p">(</span><span class="ss">:shirts</span><span class="p">).</span><span class="nf">merge</span><span class="p">(</span><span class="no">Shirt</span><span class="p">.</span><span class="nf">with_attached_graphic</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>That’s everything. All in all I’m very happy with the migration 🌅</p>
+
+  </div>
+</article>
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2024/7/introducing-goodjob-v4"><p>Introducing GoodJob v4</p>
+</a>
+    </h1>
+    <p class="post-meta text-muted">
+        <time datetime="2024-07-06T21:44:00-07:00" itemprop="datePublished">July 6, 2024</time>
+
+        • Tagged GoodJob and Rails
     </p>
   </header>
 
@@ -1129,9 +975,9 @@ from code loaded at boot.
 
 <h3 id="breaking-changes-to-job-schema">Breaking changes to job schema</h3>
 
-<p>GoodJob v4 changes how job and job execution records are stored in the database; moving from job and executions being commingled in the <code class="language-plaintext highlighter-rouge">good_jobs</code> table to Jobs (still in <code class="language-plaintext highlighter-rouge">good_jobs</code>) having many discrete Execution records in the <code class="language-plaintext highlighter-rouge">good_job_executions</code> table.</p>
+<p>GoodJob v4 changes how job and job execution records are stored in the database; moving from job and executions being commingled in the <code>good_jobs</code> table to Jobs (still in <code>good_jobs</code>) having many discrete Execution records in the <code>good_job_executions</code> table.</p>
 
-<p>To safely upgrade, all unfinished jobs must use the new schema relationship, tracked in the <code class="language-plaintext highlighter-rouge">good_jobs.is_discrete</code> column. This change was transparently introduced in GoodJob <a href="https://github.com/bensheldon/good_job/releases/tag/v3.15.4">v3.15.4 (April 2023)</a>, so your application is likely ready-to-upgrade already if you have kept up with GoodJob updates and migrations. You can check by running <code class="language-plaintext highlighter-rouge">v3.99</code>’s <code class="language-plaintext highlighter-rouge">GoodJob.v4_ready?</code> in production or run the following SQL query on the production database and check it returns zero: <code class="language-plaintext highlighter-rouge">SELECT COUNT(*) FROM "good_jobs" WHERE finished_at IS NULL AND is_discrete IS NOT TRUE</code>. If not all unfinished jobs are stored in the new format, either wait to upgrade until those jobs finish or discard them. If you upgrade prematurely to v4 without allowing those jobs to finish, they may never be performed.</p>
+<p>To safely upgrade, all unfinished jobs must use the new schema relationship, tracked in the <code>good_jobs.is_discrete</code> column. This change was transparently introduced in GoodJob <a href="https://github.com/bensheldon/good_job/releases/tag/v3.15.4">v3.15.4 (April 2023)</a>, so your application is likely ready-to-upgrade already if you have kept up with GoodJob updates and migrations. You can check by running <code>v3.99</code>’s <code>GoodJob.v4_ready?</code> in production or run the following SQL query on the production database and check it returns zero: <code>SELECT COUNT(*) FROM "good_jobs" WHERE finished_at IS NULL AND is_discrete IS NOT TRUE</code>. If not all unfinished jobs are stored in the new format, either wait to upgrade until those jobs finish or discard them. If you upgrade prematurely to v4 without allowing those jobs to finish, they may never be performed.</p>
 
 <h3 id="other-notable-changes">Other notable changes</h3>
 
@@ -1140,8 +986,8 @@ from code loaded at boot.
 <ul>
   <li>Only supports Rails 6.1+, CRuby 3.0+ and JRuby 9.4+, Postgres 12+. Rails 6.0 is no longer supported. CRuby 2.6 and 2.7 are no longer supported. JRuby 9.3 is no longer supported.</li>
   <li>Changes job priority to give smaller numbers higher priority (default: 0), in accordance with Active Job’s definition of priority.</li>
-  <li>Enqueues and executes jobs via the <code class="language-plaintext highlighter-rouge">GoodJob::Job</code> model instead of <code class="language-plaintext highlighter-rouge">GoodJob::Execution</code></li>
-  <li>Changes the behavior of <code class="language-plaintext highlighter-rouge">config.good_job.cleanup_interval_jobs</code>, <code class="language-plaintext highlighter-rouge">GOOD_JOB_CLEANUP_INTERVAL_JOBS</code>, <code class="language-plaintext highlighter-rouge">config.good_job.cleanup_interval_seconds</code>, or <code class="language-plaintext highlighter-rouge">GOOD_JOB_CLEANUP_INTERVAL_SECONDS</code> set to <code class="language-plaintext highlighter-rouge">nil</code> or <code class="language-plaintext highlighter-rouge">” </code> to no longer disable count- or time-based cleanups. Instead, now set to <code class="language-plaintext highlighter-rouge">false</code> to disable, or <code class="language-plaintext highlighter-rouge">-1</code> to run a cleanup after every job execution.</li>
+  <li>Enqueues and executes jobs via the <code>GoodJob::Job</code> model instead of <code>GoodJob::Execution</code></li>
+  <li>Changes the behavior of <code>config.good_job.cleanup_interval_jobs</code>, <code>GOOD_JOB_CLEANUP_INTERVAL_JOBS</code>, <code>config.good_job.cleanup_interval_seconds</code>, or <code>GOOD_JOB_CLEANUP_INTERVAL_SECONDS</code> set to <code>nil</code> or <code>” </code> to no longer disable count- or time-based cleanups. Instead, now set to <code>false</code> to disable, or <code>-1</code> to run a cleanup after every job execution.</li>
 </ul>
 
 <h3 id="new-features">New Features</h3>
@@ -1150,14 +996,14 @@ from code loaded at boot.
 
 <ul>
   <li><a href="https://github.com/bensheldon/good_job#batches">Batches</a></li>
-  <li>Bulk enqueueing including support for Active Job’s <code class="language-plaintext highlighter-rouge">perform_all_later</code>.</li>
+  <li>Bulk enqueueing including support for Active Job’s <code>perform_all_later</code>.</li>
   <li><a href="https://github.com/bensheldon/good_job?tab=readme-ov-file#labelled-jobs">Labelled jobs</a></li>
   <li>Throttling added to <a href="https://github.com/bensheldon/good_job?tab=readme-ov-file#concurrency-controls">Concurrency Controls</a></li>
   <li>Improvements to the <a href="https://goodjob-demo.herokuapp.com/good_job/jobs">Web Dashboard</a>, including Dark Mode, performance dashboard, and improved UI,  and customizable templates.</li>
-  <li>Storage of error backtraces. Improved handling of job error conditions, including signal interruptions. Added <code class="language-plaintext highlighter-rouge">GoodJob.current_thread_running?</code> and <code class="language-plaintext highlighter-rouge">GoodJob.current_thread_shutting_down?</code> to support job iteration.</li>
-  <li><a href="https://github.com/bensheldon/good_job/pull/665">Ordered Queues</a>, <a href="https://github.com/bensheldon/good_job/pull/727"><code class="language-plaintext highlighter-rouge">queue_select_limit</code></a> and further options for configuring queue order and performance.</li>
+  <li>Storage of error backtraces. Improved handling of job error conditions, including signal interruptions. Added <code>GoodJob.current_thread_running?</code> and <code>GoodJob.current_thread_shutting_down?</code> to support job iteration.</li>
+  <li><a href="https://github.com/bensheldon/good_job/pull/665">Ordered Queues</a>, <a href="https://github.com/bensheldon/good_job/pull/727"><code>queue_select_limit</code></a> and further options for configuring queue order and performance.</li>
   <li>Improvements to Cron / Repeating Jobs.</li>
-  <li>Operational improvements including <code class="language-plaintext highlighter-rouge">systemd</code> integration, improved health checks.</li>
+  <li>Operational improvements including <code>systemd</code> integration, improved health checks.</li>
 </ul>
 
 <p><strong>A huge thank you to 88 (!) GoodJob v3.x contributors 🙇🏻</strong> @afn, @ain2108, @aisayo, @Ajmal, @aki77, @alec-c4, @AndersGM, @andyatkinson, @andynu, @arnaudlevy, @baka-san, @benoittgt, @bforma, @BilalBudhani, @binarygit, @bkeepers, @blafri, @blumhardts, @ckdake, @cmcinnes-mdsol, @coreyaus, @DanielHeath, @defkode, @dixpac, @Earlopain, @eric-christian, @erick-tmr, @esasse, @francois-ferrandis, @frans-k, @gap777, @grncdr, @hahwul, @hidenba, @hss-mateus, @Intrepidd, @isaac, @jgrau, @jklina, @jmarsh24, @jpcamara, @jrochkind, @julienanne, @julik, @LucasKendi, @luizkowalski, @maestromac, @marckohlbrugge, @maxim, @mec, @metalelf0, @michaelglass, @mitchellhenke, @mkrfowler, @morgoth, @Mr0grog, @mthadley, @namiwang, @nickcampbell18, @padde, @patriciomacadden, @paul, @Pauloparakleto, @pgvsalamander, @remy727, @rrunyon, @saksham-jain, @sam1el, @sasha-id, @SebouChu, @segiddins, @SemihCag, @shouichi, @simi, @sparshalc, @stas, @steveroot, @TAGraves, @tagrudev, @thepry, @ur5us, @WailanTirajoh, @yenshirak, @ylansegal, @yshmarov, @zarqman</p>
@@ -1165,40 +1011,14 @@ from code loaded at boot.
   </div>
 </article>
 
-  
 
-  
-  
-
-  
 <hr>
 
-
-<nav aria-label="Page navigation">
-  <ul class="pagination justify-content-center">
-    
-      <li class="page-item disabled"><a href="#" class="page-link" tabindex="-1" aria-disabled="true"><span aria-hidden="true">&larr; </span>Newer</a></li>
-    
-
-    <li class="page-item disabled"><span class="page-link">Page 1 of 69</span></li>
-
-    
-      <li class="page-item"><a href="/page/2/" class="page-link">Older<span aria-hidden="true"> &rarr;</span></a></li>
-    
-  </ul>
-</nav>
-
-
-
+<div class="d-flex justify-content-between mb-5">
+    <a href="/posts/2" class="btn btn-outline-primary">Older posts</a>
 </div>
 
-    </div>
+  </div>
 
-    <footer class="site-footer">
-
-</footer>
-
-
-  </body>
-
+</body>
 </html>

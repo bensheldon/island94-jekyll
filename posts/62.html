@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> | Island94.org</title>
+
+  <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="37OxQSrjWRGk2eYZrfj-LW8XXbScxLR2cjPB24xEIjMMmnovwN67YSfCtr8LsVBgCqZ_Iij-bhsEzYn0aYGkBA" />
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Island94.org" href="https://island94.org/feed.xml">
+
+  <link rel="stylesheet" href="/assets/application-3c56ab95cf55e7f461f0ea9391c2b1391a5c64b74433224fe76ad58b7fa20c07.css" data-turbo-track="reload" />
+  <script src="/assets/main-57967bd29e3a27ba3099fee5997ee6ec8c59ef209085f949b6eac799b21915b0.js"></script>
+
+  <script>
+    let theme = localStorage.getItem('theme');
+    if (!["light", "dark"].includes(theme)) {
+      theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    document.documentElement.setAttribute('data-bs-theme', theme);
+  </script>
+
+      <meta name="robots" content="noindex, follow">
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light mb-2 flex-column">
+  <div class="container">
+    <a class="navbar-brand" href="/">Island94.org</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link " href="/about/">About</a></li>
+        <li class="nav-item"><a class="nav-link " href="/archives/">Archives</a></li>
+<!--        <li class="nav-item"><a class="nav-link " href="/books/">Books</a></li>-->
+        <li class="nav-item"><a class="nav-link " href="/tags/">Tags</a></li>
+        <li class="nav-item"><a class="nav-link" href="/feed.xml">RSS Feed <i class="bi bi-rss-fill"></i></a></li>
+
+        <li class="nav-item py-2 py-lg-1 col-12 col-lg-auto">
+          <div class="vr d-none d-lg-flex h-100 mx-lg-2 text-light-500"></div>
+          <hr class="d-lg-none my-0 text-light-500">
+        </li>
+
+        <li class="nav-item dropdown">
+          <button id="bs-theme" class="btn btn-link nav-link dropdown-toggle" type="button" aria-expanded="false" data-bs-toggle="dropdown"  aria-label="Theme (Auto)">
+            <i data-bs-theme-active-icon class="bi bi-circle-half"></i>
+            <span data-bs-theme-label>Theme</span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="bs-theme-text">
+            <li>
+              <button type="button" class="dropdown-item" data-bs-theme-value="light" aria-pressed="false">
+                <i class="bi bi-sun"></i> Light
+              </button>
+            </li>
+            <li>
+              <button type="button" class="dropdown-item" data-bs-theme-value="dark" aria-pressed="false">
+                <i class="bi bi-moon-stars-fill"></i> Dark
+              </button>
+            </li>
+            <li>
+              <button type="button" class="dropdown-item" data-bs-theme-value="auto" aria-pressed="true">
+                <i class="bi bi-circle-half"></i> Auto
+              </button>
+            </li>
+          </ul>
+        </li>
+
+      </ul>
+
+      <form id="search" class="d-flex" action="/search" method="get">
+        <input id="search-box" class="form-control search" role="search" name="q" placeholder="Search" aria-label="Search" results="0" type="text">
+        <button class="visually-hidden" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+  <div class="container">
+    <div class="text-muted fst-italic">
+      — Ben Sheldon's personal blog and <a href="/2012/04/A-Commonplace-Book.html">commonplace book</a>.
+    </div>
+  </div>
+</nav>
+
+
+  <div class="container container-body">
+    
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2007/3/Arguments-Ive-heard-against-Open-Source"><p>Arguments I’ve heard against Open Source</p>
+</a>
+    </h1>
+    <p class="post-meta text-muted">
+        <time datetime="2007-03-22T00:00:00+00:00" itemprop="datePublished">March 22, 2007</time>
+
+        • Tagged complaints, Open Source, and oss
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>When planning a dynamic website, using <a href="http://nonprofiteye.blogspot.com/2006/11/non-profit-open-source.html">Open Source Software</a> (OSS) can make a lot of sense. I think there is enough information <a href="http://technorati.com/search/open+source+is+awesome" title="technorati search: 'open source is awesome'">out there</a> about why OSS is the cat’s meow, so here are a few reasons I’ve hear from people that <em>don’t</em> want to use Open Source Software for their web development projects:</p>
+
+<ul>
+  <li>
+    <p><strong>“I don’t know anything about it”</strong> is a common refrain I hear from larger institutions. This usually translates as “I don’t know <em>anyone</em> that does it”. Oftentimes larger organizations will have established relationships—historical, contractual or personal—with proprietary developers.</p>
+  </li>
+  <li>
+    <p><strong>“All the examples are really awful”</strong> is a statement I have to agree with, but fortunately there is an explanation. Open Source CMS software like <a href="http://drupal.org">Drupal</a> or <a href="http://wordpress.org">Wordpress</a> is free and relatively easy to use. Thus these systems have an enormous number of people using them; people with no design or development experience. Therefore there exists a very small signal-to-noise ratio of beautiful and usable websites to poorly designed or out-of-the-box examples. This means you’re much more likely to run across the latter.</p>
+  </li>
+  <li>
+    <p><strong>“I hear it’s insecure”</strong> is a common and legitimate concern whether you’re using open source software, buying a proprietary system, or building from the ground up. Unfortunately, the explanation for this common refrain is very similar to the aesthetic complaint: because the install base of these systems is so large, there exist many more instances of improper or unsafe configurations or failures to properly update software.</p>
+  </li>
+</ul>
+
+  </div>
+</article>
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2007/3/Ways-and-Water"><p>Ways and Water</p>
+</a>
+    </h1>
+    <p class="post-meta text-muted">
+        <time datetime="2007-03-15T00:00:00+00:00" itemprop="datePublished">March 15, 2007</time>
+
+        • Tagged beach, driving, encinitas, freeway, highway, i-5, San Diego, surfing, timelapse, and water
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p><a href="http://blip.tv/file/get/Bensheldon-WaysAndWater899.flv"> <img src="http://blip.tv/file/get/Bensheldon-WaysAndWater899.flv.jpg" alt="" title="Click To Play" /> </a><br />
+<a href="http://blip.tv/file/get/Bensheldon-WaysAndWater899.flv">Click To Play</a></p>
+
+<p>Drove downtown to eat lunch with an old high school friend. Then jammed my camera between the dash and the windshield and drove up I-5 to Swami’s, my old surfing spot in Encinitas.</p>
+
+  </div>
+</article>
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2007/3/Airport-Vehicles"><p>Airport Vehicles</p>
+</a>
+    </h1>
+    <p class="post-meta text-muted">
+        <time datetime="2007-03-14T00:00:00+00:00" itemprop="datePublished">March 14, 2007</time>
+
+        • Tagged DC, dulles, paul, video, and washingtonDC
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p><a href="http://blip.tv/file/get/Bensheldon-AirportVehicles233.flv"> <img src="http://blip.tv/file/get/Bensheldon-AirportVehicles233.flv.jpg" alt="" title="Click To Play" /> </a><br />
+<a href="http://blip.tv/file/get/Bensheldon-AirportVehicles233.flv">Click To Play</a></p>
+
+<p>I had a two hour layover at Dulles Airport. Before I left, I was showing off my camera to my boss . It shoots full frame (640 x 480) mpeg-4 video; that’s over an hour of video on a two gigabyte card. My boss told me to make lots of videos.</p>
+
+<p>I shot and edited this entirely while waiting for my connecting flight. I waited till my final destination to upload it though.</p>
+
+<p>The video quality is a little poor from multiple compressions. I edited it in iMovie and had to export and reimport the video in order to timelapse it to the speed I wanted.</p>
+
+  </div>
+</article>
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2007/3/But-its-just-a-logo"><p>But it’s just a logo</p>
+</a>
+    </h1>
+    <p class="post-meta text-muted">
+        <time datetime="2007-03-07T00:00:00+00:00" itemprop="datePublished">March 7, 2007</time>
+
+        • Tagged design, identity, logo, and nonprofit
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>I’m currently helping out a small group of <a href="http://www.storycenter.org/index1.html">Digital Storytellers</a> in the process of designing and launching a new community website. We put the project out as a Request for Proposals (RFP) and are now working with a webdeveloper. As a webdeveloper myself, I’ve learned a lot about the process from the other side.</p>
+
+<p>For all of my development projects I’ve worked with people I know or on projects in which I have some stake or significant interest. Because of this, my process has usually been us all sitting around the kitchen table drawing pen and paper workflows and mockups till the wee hours. I’ve never formally responded to an RFP and usually invest myself in mapping out the who, what and whys before even getting into the hows.</p>
+
+<p>With that said, I was surprised to see that so many of the development proposals included a logo design process, usually as the first milestone. We are an ad-hoc group across several organizations without an existing identity, so I understand the need for a logo. Of course, most groups may already have an identity so the logo design itself may not be needed, but the thought and process that goes into it is.</p>
+
+<p>Without getting into <a href="http://en.wikipedia.org/wiki/Logo">why logos are important</a></p>
+
+<p>I tried to condense what we are getting out of the <em>process</em> :</p>
+
+<ul>
+  <li><strong>A better definition of the project</strong>: For an iconic logo (as we’re receiving) it should somehow reflect a meaning or message about the project. An outside developer may not have a complete picture of what the client hopes to achieve. The client may not have fully defined the audience or objectives, even to themselves.</li>
+  <li><strong>Discovering if the developer and client’s design tastes match</strong>: It’s always good to know that people are on the same page, especially for a relatively simple thing like a logo. If the developer is returning <a href="http://yh.yayhooray.com/thread/90661/yh-collab:-redesign-famous-logos-in-web-2-0-format?page=1">vogue</a> and the client is looking for something more timeless, it’s good to determine and remedy this early.</li>
+  <li><strong>Testing the decision making process</strong>: If decisions are made by more than one person (as they usually are), knowing from the beginning how the group will interact is important. Will decisions be made by consensus or will one person ultimately have executive power? Who is participating and giving feedback and who needs a little nudge?</li>
+</ul>
+
+<p>A good developer should drop a finished design in your lap without input along the way. But concentrating on something simple like a logo (or color-scheme or stylesheet) as an early step can help better define the project and how participants interact around it.</p>
+
+  </div>
+</article>
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2007/2/Self-photography"><p>Self-photography</p>
+</a>
+    </h1>
+    <p class="post-meta text-muted">
+        <time datetime="2007-02-28T00:00:00+00:00" itemprop="datePublished">February 28, 2007</time>
+
+        • Tagged goofy, photography, video, and vlogarm
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p><a href="http://blip.tv/file/get/Bensheldon-Selfphotography203.flv"> <img src="http://blip.tv/file/get/Bensheldon-Selfphotography203.flv.jpg" alt="" title="Click To Play" /> </a><br />
+<a href="http://blip.tv/file/get/Bensheldon-Selfphotography203.flv">Click To Play</a></p>
+
+  </div>
+</article>
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2007/2/The-Future-of-Cable-Access"><p>The Future of Cable Access</p>
+</a>
+    </h1>
+    <p class="post-meta text-muted">
+        <time datetime="2007-02-26T00:00:00+00:00" itemprop="datePublished">February 26, 2007</time>
+
+        • Tagged Cable Access, musings, Television, and video
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p><a href="http://blip.tv/file/get/Bensheldon-WhatIsTheFutureOfCableAccessTV720.flv"> <img src="http://blip.tv/file/get/Bensheldon-WhatIsTheFutureOfCableAccessTV720.flv.jpg" alt="" title="Click To Play" /> </a><br />
+<a href="http://blip.tv/file/get/Bensheldon-WhatIsTheFutureOfCableAccessTV720.flv">Click To Play</a></p>
+
+<p>Last Saturday was <a href="http://beyondbroadcast.net/">Beyond Broadcast 2007</a> and being a part of the <em><a href="http://beyondbroadcast.net/wiki07/index.php?title=Working_Groups#The_Future_of_Public_Access_-_Held_in_The_Whitaker_Building_.28Bldg._56.29.2C_Room_169">The Future of Cable Access</a></em> Working Group got my rear in gear to edit together some soundbites I shot at last November’s Alliance for Community Media Northeast Regional Conference.</p>
+
+<p>During the working group we got to hear the not-opposing viewpoints from <a href="http://citmedia.org/blog/2007/02/21/beyond-broadcast-future-of-public-access-tv">Dan Gillmor</a> and Jason Crowe: Cable Access needs to change. The question wasn’t even really what we want it to change into (the video lays it out pretty well), but <em>how can we bring about that change</em>.</p>
+
+<p>I believe that the important part of Cable Access Television is <em>access</em>. Access to:</p>
+
+<ul>
+  <li>media production tools</li>
+  <li>media distribution systems</li>
+  <li>training to use them</li>
+  <li>media literacy education to understand them</li>
+</ul>
+
+<p>And all of this should be within the context of the needs of the local community.</p>
+
+<p>Cable Access needs to embrace the internet, but it can’t do so as an end. As gross simplification, Cable Access is television because 30 years ago, television was the dominant media model. Today it is looking like the internet is about to become dominant. But 30 years from now, will the internet (the current architecture/protocols) continue to be?</p>
+
+<p><strong>Cable Access needs flexibility</strong>. Cable Access should not become Internet Access, it must become <em>Media Access</em>.</p>
+
+<p>Moving towards that vision is difficult. The current state of Cable Access isn’t much of much of a state at all; it’s a series of thousands of isolated fiefdoms, linked together by nearly lone virtue that they took advantage of the same <a href="http://en.wikipedia.org/wiki/1984_Cable_Franchise_Policy_and_Communications_Act">legislation</a>. A bad analogy: the First Amendment allows freedom of religion; that doesn’t mean that the church in your town talks to the one in mine. Nobody even knows where all of them are, and our <a href="https://web.archive.org/web/20070819093518/http://www.mappingaccess.com/">attempts find them</a> aren’t yielding spectacular results.</p>
+
+<p>But I also believe that that individualism and independence of stations and communities is a strength for the ideals of access. Communities should be able to choose the tools and technologies that best serve their members: television, internet or beyond.</p>
+
+<p>How can we support the independence and ability of Access to meet the needs of their individual communities, yet move forward technologically, logistically and ideologically? This means moving towards the new technologies the internet (currently) affords, taking advantage of the economies of scale of thousands of media centers, and driving cooperation, communication and the idea that when it comes to <strong>media access</strong>—in any form and through any funding mechanism—“we’re in this together”.</p>
+
+  </div>
+</article>
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2007/2/Valentines-Day-2007"><p>Valentines Day 2007</p>
+</a>
+    </h1>
+    <p class="post-meta text-muted">
+        <time datetime="2007-02-15T00:00:00+00:00" itemprop="datePublished">February 15, 2007</time>
+
+        • Tagged Boston, holiday, ice, photography, photos, snow, storm, and valentines day
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p><a href="http://www.flickr.com/photos/bensheldon/391224265/" title="Photo Sharing"> <img src="http://farm1.static.flickr.com/171/391224265_a12df54351.jpg" alt="CIMG1622.JPG" /> </a></p>
+
+<p>Boston received its first real bout of inclement weather yesterday. Walking home after helping a friend put together a website for childhood leukemia patients, parents and survivors and in between helping push out a couple cars and not breaking my neck, I snapped these.</p>
+
+<p><a href="http://www.flickr.com/photos/bensheldon/391224727/" title="Photo Sharing"> <img src="http://farm1.static.flickr.com/188/391224727_8371450868_m.jpg" alt="CIMG1610.JPG" /> </a> <a href="http://www.flickr.com/photos/bensheldon/391224791/" title="Photo Sharing"> <img src="http://farm1.static.flickr.com/186/391224791_d76a843c09_m.jpg" alt="CIMG1600.JPG" /> </a> <a href="http://www.flickr.com/photos/bensheldon/391224425/" title="Photo Sharing"> <img src="http://farm1.static.flickr.com/152/391224425_ee978736df_m.jpg" alt="CIMG1634.JPG" /> </a> <a href="http://www.flickr.com/photos/bensheldon/391224560/" title="Photo Sharing"> <img src="http://farm1.static.flickr.com/185/391224560_65468a2a3a_m.jpg" alt="CIMG1621.JPG" /> </a> <a href="http://www.flickr.com/photos/bensheldon/391224496/" title="Photo Sharing"> <img src="http://farm1.static.flickr.com/183/391224496_6965802a0c_m.jpg" alt="CIMG1627.JPG" /> </a> <a href="http://www.flickr.com/photos/bensheldon/391224356/" title="Photo Sharing"> <img src="http://farm1.static.flickr.com/135/391224356_36123cd1ee_m.jpg" alt="CIMG1624.JPG" /> </a></p>
+
+
+  </div>
+</article>
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2007/1/Bostons-Best-Tacos"><p>Boston’s Best Tacos</p>
+</a>
+    </h1>
+    <p class="post-meta text-muted">
+        <time datetime="2007-01-05T00:00:00+00:00" itemprop="datePublished">January 5, 2007</time>
+
+        • Tagged community mapping, food, map, and tacos
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>$mymarkers=array(</p>
+
+<p>array(‘markername’=&gt;’number01’,</p>
+
+<p>‘label’ =&gt; ‘<strong>Tacos El Charro</strong></p>
+
+<p>349 Centre St</p>
+
+<p>Jamaica Plain, MA 02130’,</p>
+
+<p>‘latitude’ =&gt;’42.32269914619183’,</p>
+
+<p>‘longitude’=&gt;’-71.10684156417847’), array(‘markername’=&gt;’number02’,</p>
+
+<p>‘label’ =&gt; ‘<strong>Tacos Lupita</strong></p>
+
+<p>13 Elm St</p>
+
+<p>Somerville, MA 02143’,</p>
+
+<p>‘latitude’ =&gt;’42.38600050368276’,</p>
+
+<p>‘longitude’=&gt;’-71.11351490020752’),</p>
+
+<p>array(‘markername’=&gt;’number03’,</p>
+
+<p>‘label’ =&gt; ‘<strong>Takueria Tapatillo</strong></p>
+
+<p>82 Broadway</p>
+
+<p>Somerville, MA 02145’,</p>
+
+<p>‘latitude’ =&gt;’42.387038609014645’,</p>
+
+<p>‘longitude’=&gt;’-71.08207941055298’));</p>
+
+<p>$mymap=array(‘id’ =&gt; ‘tacomap’,</p>
+
+<p>‘latitude’ =&gt; ‘42.36031976410849’,</p>
+
+<p>‘longitude’=&gt;’ -71.0757064819336’,</p>
+
+<p>‘zoom’ =&gt; 12,</p>
+
+<p>‘width’ =&gt; ‘100%’,</p>
+
+<p>‘height’ =&gt; ‘400px’,</p>
+
+<p>‘type’ =&gt; ‘Hybrid’,</p>
+
+<p>‘markers’ =&gt; $mymarkers);</p>
+
+<p>print gmap_draw_map($mymap);</p>
+
+<p>?&gt;</p>
+
+<p>I miss eating good taqueria food and Boston’s inhibited palette is definitely to blame. I like places that call the tacos by name, Carne Asada, Al Pastor, Lengua–not Beef, Pork , Chicken (Lengua isn’t chicken, but your anglo-taqueria isn’t going to have it, or call it what it is: <em>beef tongue</em>); where the salsa is more than pico de gallo and you get a slice of radish. The map above has the few places I’ve found in Boston that I like.</p>
+
+<p>They are:</p>
+
+<p><strong>#1) Tacos El Charro</strong></p>
+
+<p>349 Centre St</p>
+
+<p>Jamaica Plain, MA 02130</p>
+
+<p><em>Super friendly sit-down restaurant. Also the enchiladas are great. Go downstairs, it’s “authentic”!</em></p>
+
+<p><strong>#2) Tacos Lupita</strong></p>
+
+<p>13 Elm St</p>
+
+<p>Somerville, MA 02143</p>
+
+<p><em>Close to Porter Square. The food is delicious and they have imported Coca-Cola made with real sugar, not corn syrup.</em></p>
+
+<p><strong>#3) Takueria Tapatillo</strong></p>
+
+<p>82 Broadway</p>
+
+<p>Somerville, MA 02145</p>
+
+<p><em>Actually Chilean but excellent taqueria. They have a good vegetarian taco too. Was taking an unrelated cab and mentioned the place to my friend. The cabdriver overheard and said that he went there all the time. The cabby looks European but is really Brazilian and fluent in Spanish. He said that when he goes into the taqueria, the staff speak to him in English until he starts belting out Spanish. They are so impressd his lunch is free.</em></p>
+
+  </div>
+</article>
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2006/12/Happy-Holidays-2006"><p>Happy Holidays 2006</p>
+</a>
+    </h1>
+    <p class="post-meta text-muted">
+        <time datetime="2006-12-23T00:00:00+00:00" itemprop="datePublished">December 23, 2006</time>
+
+        • Tagged buffoonery, cheer, goodwill, holidays, peace on earth, and video
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p><a href="http://blip.tv/file/get/Bensheldon-HappyHolidays2006530.flv"> <img src="http://blip.tv/file/get/Bensheldon-HappyHolidays2006530.flv.jpg" alt="" title="Click To Play" /> </a><br />
+<a href="http://blip.tv/file/get/Bensheldon-HappyHolidays2006530.flv">Click To Play</a></p>
+
+<p>If you have problems with the flash video above, <a href="http://blip.tv/file/get/Bensheldon-HappyHolidays2006530.mp4">try this</a> (mp4).</p>
+
+
+  </div>
+</article>
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2006/12/Love"><p>Love</p>
+</a>
+    </h1>
+    <p class="post-meta text-muted">
+        <time datetime="2006-12-22T00:00:00+00:00" itemprop="datePublished">December 22, 2006</time>
+
+        • Tagged experience, fiction, learning story, love, and marriage
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>A girl was betrothed by her father to a man whom she had never met. Her mind shone with an uncommon light and she was ever seeking out tales of love: chaste and reckless, rich and unrequited.</p>
+
+<p>Into her house she called the most upstanding matrons and the lowest whores, regal queens and barren slaves. To each she said, simply: “Tell me of the men you have loved.”</p>
+
+<p>This intense interest worried her father. Though he had found a most suitable bridegroom for his dearly loved daughter, he feared such tales would influence her against any future husband.</p>
+
+<p>She reassured him: “Father, please do not worry. I trust in you that I will live happily with whomever you have chosen for me. I seek these stories so that I may separate the qualities in him that are exceptional from those that are mundane. Knowing this, I can love him.”</p>
+
+  </div>
+</article>
+
+
+<hr>
+
+<div class="d-flex justify-content-between mb-5">
+    <a href="/posts/61" class="btn btn-outline-primary">Newer posts</a>
+    <a href="/posts/63" class="btn btn-outline-primary">Older posts</a>
+</div>
+
+  </div>
+
+</body>
+</html>

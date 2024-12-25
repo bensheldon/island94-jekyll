@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> | Island94.org</title>
+
+  <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="qx4KJo2YyAiBUq9mnEzaI-ITRksh7WmPl29afV0iNmp4N8FIZ6UqeAJJ_8A6BXRuh6Jk3ZXXs-LhkRJSuOewXQ" />
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Island94.org" href="https://island94.org/feed.xml">
+
+  <link rel="stylesheet" href="/assets/application-3c56ab95cf55e7f461f0ea9391c2b1391a5c64b74433224fe76ad58b7fa20c07.css" data-turbo-track="reload" />
+  <script src="/assets/main-57967bd29e3a27ba3099fee5997ee6ec8c59ef209085f949b6eac799b21915b0.js"></script>
+
+  <script>
+    let theme = localStorage.getItem('theme');
+    if (!["light", "dark"].includes(theme)) {
+      theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    document.documentElement.setAttribute('data-bs-theme', theme);
+  </script>
+
+      <meta name="robots" content="noindex, follow">
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light mb-2 flex-column">
+  <div class="container">
+    <a class="navbar-brand" href="/">Island94.org</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link " href="/about/">About</a></li>
+        <li class="nav-item"><a class="nav-link " href="/archives/">Archives</a></li>
+<!--        <li class="nav-item"><a class="nav-link " href="/books/">Books</a></li>-->
+        <li class="nav-item"><a class="nav-link " href="/tags/">Tags</a></li>
+        <li class="nav-item"><a class="nav-link" href="/feed.xml">RSS Feed <i class="bi bi-rss-fill"></i></a></li>
+
+        <li class="nav-item py-2 py-lg-1 col-12 col-lg-auto">
+          <div class="vr d-none d-lg-flex h-100 mx-lg-2 text-light-500"></div>
+          <hr class="d-lg-none my-0 text-light-500">
+        </li>
+
+        <li class="nav-item dropdown">
+          <button id="bs-theme" class="btn btn-link nav-link dropdown-toggle" type="button" aria-expanded="false" data-bs-toggle="dropdown"  aria-label="Theme (Auto)">
+            <i data-bs-theme-active-icon class="bi bi-circle-half"></i>
+            <span data-bs-theme-label>Theme</span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="bs-theme-text">
+            <li>
+              <button type="button" class="dropdown-item" data-bs-theme-value="light" aria-pressed="false">
+                <i class="bi bi-sun"></i> Light
+              </button>
+            </li>
+            <li>
+              <button type="button" class="dropdown-item" data-bs-theme-value="dark" aria-pressed="false">
+                <i class="bi bi-moon-stars-fill"></i> Dark
+              </button>
+            </li>
+            <li>
+              <button type="button" class="dropdown-item" data-bs-theme-value="auto" aria-pressed="true">
+                <i class="bi bi-circle-half"></i> Auto
+              </button>
+            </li>
+          </ul>
+        </li>
+
+      </ul>
+
+      <form id="search" class="d-flex" action="/search" method="get">
+        <input id="search-box" class="form-control search" role="search" name="q" placeholder="Search" aria-label="Search" results="0" type="text">
+        <button class="visually-hidden" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+  <div class="container">
+    <div class="text-muted fst-italic">
+      — Ben Sheldon's personal blog and <a href="/2012/04/A-Commonplace-Book.html">commonplace book</a>.
+    </div>
+  </div>
+</nav>
+
+
+  <div class="container container-body">
+    
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2018/3/if-you-replaced-accessibility-with-responsive-design-in-2018-this-is-what-youd-get"><p>If you replaced “accessibility” with “responsive design” in 2018, this is what you’d get</p>
+</a>
+    </h1>
+    <p class="post-meta text-muted">
+        <time datetime="2018-03-15T00:00:00+00:00" itemprop="datePublished">March 15, 2018</time>
+
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p><em>I took all of the conversations and experiences I’ve had over the years advocating accessibility features, and imagined them applied to responsive design.</em></p>
+
+<h3 id="imagine">Imagine</h3>
+
+<p>Imagine a product organization where no one has a smartphone or knows how to resize their browser.</p>
+
+<p>A forward-thinking engineer says “Hey folks, I know everyone is busy but I was playing around with this browser draggy thing and I dunno but I think our website isn’t very good on smartphone. Can I help?”</p>
+
+<p>Their manager replies “That’s the kind of initiative we love. Let’s put together a plan.”</p>
+
+<p>Here’s what their plan for “responsive” looks like</p>
+
+<ul>
+  <li><strong>Summarize industry standards</strong> for responsive design. It’s a “growing field”.</li>
+  <li><strong>Do demographic research</strong>: What are common viewports? How many people have smartphones?</li>
+  <li><strong>Standardize on CSS rules for projects</strong>: Every CSS file must have at least 1 media query. All container elements must have at least 2 breakpoints. No fixed width element can be wider than 320px. All buttons must be larger than 16 x 16px.</li>
+  <li><strong>Write some automated tests and QA tools</strong> to ensure those rules are followed.</li>
+</ul>
+
+<h3 id="thats-a-good-planright">That’s a good plan, right?</h3>
+
+<p>The plan is standards based, actionable, measurable, and integrated into the development process. And engineering is championing it. That’s great!</p>
+
+<p>So things move along and then…</p>
+
+<ul>
+  <li>New customers are increasingly focused on “responsive best practices” and the company isn’t sure where they stand in the competitive landscape.</li>
+  <li>An important stakeholder got a smartphone and begins poking the CEO about some weirdness.</li>
+  <li>Product managers and designers grumble about deadlines and bolting-on changes when developer and QA questions get kicked back upstream.</li>
+  <li>That forward-thinking engineer occasionally sighs and pushes through odd-looking code and CSS changes and <em>it’s just kinda ok fine</em>, but isn’t sure how it’ll fit into their next performance review.</li>
+</ul>
+
+<p>So the company decides to hire you.</p>
+
+<h3 id="imagine-youre-hired-to-fixthis">Imagine you’re hired to fix this</h3>
+
+<p>What do you say? (Remember, it’s 2018.)</p>
+
+<p>“Let’s get some goddamn smartphones. And let’s train our people how to resize their browsers. And then we’ll talk about our usability testing practices.”</p>
+
+<p>Time to get to work! But there are still some objections to overcome:</p>
+
+<ul>
+  <li>“Getting ‘good’ at resizing browsers is gonna take a lot of time and training. Is it really that important?”</li>
+  <li>“Not all designers will want to specialize in responsive. Can we really make them?”</li>
+  <li>“We have a lot of other product needs too. How do we prioritize “responsive” against the other business and UX problems we already know about and need to fix.”</li>
+  <li>“Airdropping some smartphones won’t make us native users. We can’t really understand a smartphone user’s experience enough to make it perfect. Our company just isn’t the culture for smartphone people anyway.”</li>
+  <li>“Making existing projects perfectly responsive will be like a total rewrite. Maybe next time we could really bake it in from the beginning.”</li>
+</ul>
+
+<p>This is tough, right? It’s a slow and steady push. It’s amazing anyone manages to do responsive at all.</p>
+
+<h3 id="yet-here-we-are-for-accessibility">Yet here we are for accessibility</h3>
+
+<p>Over and over again I see organizations fall into an approach that places accessibility as an implementation detail to be addressed at the end of the product development process.</p>
+
+<blockquote>
+  <p>Because so many accessibility errors relating to assistive technologies are markup errors, and because markup errors are so easy to identify, we’ve grown up in an accessibility remediation culture that is assistive technology obsessed and focused on discrete code errors. </p>
+
+  <p>Inclusive design has a different take. It acknowledges the importance of markup in making semantic, robust interfaces, but it is the user’s ability to actually get things done that it makes the object. The quality of the markup is measured by what it can offer in terms of UX.</p>
+
+  <p>— <a href="https://shop.smashingmagazine.com/products/inclusive-design-patterns">Inclusive Design Patterns</a> by Heydon Pickering</p>
+</blockquote>
+
+<p>When talking to people, I’ve found the responsive-design analogy helps to reframe their approach to accessibility and inclusion. I follow up with technical recommendations, but it opens a door to having broader impact on product and UX practices.</p>
+
+<p>Like responsive and mobile-first design, integrating accessibility and inclusion into the entire product development process offers another powerful opportunity and perspective to distill user needs, focus product value and intent, and yes, verify the implementation’s delivery.</p>
+
+<p><em>What challenges have you seen in producing organizational and process change around accessibility and inclusion? How are you overcoming them? I’d love to hear from you and continue sharing what I’ve learned.</em></p>
+
+  </div>
+</article>
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2017/12/to-test-god"><p>To test god</p>
+</a>
+    </h1>
+    <p class="post-meta text-muted">
+        <time datetime="2017-12-31T18:25:00-08:00" itemprop="datePublished">December 31, 2017</time>
+
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>From Steven Erikson’s “Toll the Hounds”:</p>
+
+<blockquote>
+  <p>“I tried to tell him what I am sensing from the Redeemer. Sir, your friend is <em>missed</em>.” She sighed, turning away. “If all who worship did so without need. If all came to their saviour unmindful of that title and its burden, if they came as friends—” she glanced back at him, “what would happen then, do you think? I wonder…”</p>
+
+  <p>[…much later…]</p>
+
+  <p>Seerdomin glared at the god, who now offered a faint smile. After a moment, Seerdomin hissed and stepped back. “You ask this of me? Are you mad? I am not one of your pilgrims! Not one of your mob of would-be priests and priestesses! <em>I do not worship you!</em>”</p>
+
+  <p>“Precisely, [Seerdomin]. It is the curse of believers that they seek to second-guess the one they claim to worship.”</p>
+
+  <p>“In your silence what choice do they have?”</p>
+
+  <p>The Redeemer”s smile broadened. “Every choice in the world, my friend.”</p>
+</blockquote>
+
+<p>From Dan Simmons’ <em>The Fall of Hyperion</em>:</p>
+
+<blockquote>
+  <p>With a sudden clarity which went beyond the immediacy of his pain or sorrow, Sol Weintraub suddenly understood perfectly why Abraham had agreed to sacrifice Isaac, his son, when the Lord commanded him to do so.</p>
+
+  <p>It was not obedience.</p>
+
+  <p>It was not even to put the love of God above the love of his son.</p>
+
+  <p><em>Abraham was testing God.</em></p>
+
+  <p>By denying the sacrifice at the last moment, by stopping the knife, God had earned the right—in Abraham’s eyes and the hearts of his offspring — to become the God of Abraham.</p>
+
+  <p>Sol shuddered as he thought of how no posturing on Abraham’s part, no shamming of his willingness to sacrifice the boy, could have served to forge that bond between greater power and humankind. Abraham had to know in his own heart that he would kill his son. The Deity, whatever form it then took, had to know Abraham’s determination, had to feel that sorrow and commitment to destroy what was to Abraham the most precious thing in the universe.</p>
+
+  <p>Abraham came not to sacrifice, but to know once and for all whether this God was a god to be trusted and obeyed. No other test would do.</p>
+</blockquote>
+
+  </div>
+</article>
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2017/12/design-principles-are-insights-made-actionable"><p>Design Principles are insights made actionable</p>
+</a>
+    </h1>
+    <p class="post-meta text-muted">
+        <time datetime="2017-12-22T20:34:00-06:00" itemprop="datePublished">December 22, 2017</time>
+
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>From Chris Risdon, quoted in Laura Klein’s <em>Build Better Products</em>:</p>
+
+<blockquote>
+  <p>“Design principles must be based in research,” Chris explains. “You need to do some research where you have multiple inputs, such as quantitative metrics, stakeholder interviews, ethnography, or usability studies. You then converge on a set of insights–those are the things you’ve learned and that you wouldn’t have learned with only one input. Design principles are the output when you take those insights and make them actionable.”</p>
+
+  <p>For example, let’s say that you ran a usability test and got the insight that people weren’t reading all the necessary information before starting an onboarding process. You might turn that into a principle like “Learn while doing.”</p>
+
+  <p>“Learn while doing” may not seem like a more actionable insight than “take away the text on step one of the onboarding process,” but the thing that makes it useful is that it can be applied across the entire product. “Insights are tactical,” Chris says. “Principles are wider, but not so wide that you can’t judge design against them.”</p>
+
+  <p>When you adopt a principle like “learn while doing,” you give yourself a standard against which you can judge all future designs. When a new feature is built, you can ask yourself and your team whether it violates any of the principles you’ve adopted.</p>
+
+  <p>By making sure that all of the design principles are being followed, you give yourself a better chance of creating a consistent and cohesive user experience. Even if the product is being created by several teams working independently, you all have a single yardstick you can use to measure your design.</p>
+</blockquote>
+
+  </div>
+</article>
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2017/12/the-three-ways-explained"><p>The Three Ways Explained</p>
+</a>
+    </h1>
+    <p class="post-meta text-muted">
+        <time datetime="2017-12-03T20:31:00-08:00" itemprop="datePublished">December 3, 2017</time>
+
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p><em>The Phoenix Project</em>, by Gene Kim, Kevin Behr, and George Spaffoed, has been my most recommended book of the past several years. This is from the appendix which explains one of the key frameworks of the book:</p>
+
+<blockquote>
+  <p>The First Way is about the left-to-right flow of work from Development to IT Operations to the customer. In order to maximize flow, we need small batch sizes and intervals of work, never passing defects to downstream work centers, and to constantly optimize for the global goals…</p>
+
+  <p>[…]</p>
+
+  <p>The Second Way is about the constant flow of fast feedback from right-to-left at all stages of the value stream, amplifying it to ensure that we can prevent problems from happening again or enable faster detection and recovery. By doing this, we create quality at the source, creating or embedding knowledge where we need it.</p>
+
+  <p>[…]</p>
+
+  <p>The Third Way is about creating a culture that fosters two things: continual experimentation, which requires taking risks and learning from success and failure, and understanding that repetition and practice is the prerequisite to mastery.</p>
+</blockquote>
+
+  </div>
+</article>
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2017/12/taking-responsibility-for-safety-on-the-line"><p>Taking responsibility for safety on the line</p>
+</a>
+    </h1>
+    <p class="post-meta text-muted">
+        <time datetime="2017-12-03T21:08:00-08:00" itemprop="datePublished">December 3, 2017</time>
+
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>From Sidney Dekker’s <em>The Field Guide to Understanding ‘Human Error’</em>:</p>
+
+<blockquote>
+  <p>To take responsibility for safety on the line, you should first and foremost look at people’s work, more than (just) at people’s safety.</p>
+
+  <ul>
+    <li>What does it take to get the job done on a daily basis? What are the “workarounds,” innovations or improvisations that people have to engage in in order to meet the various demands imposed on them?</li>
+    <li>What are the daily “frustrations” that people encounter in getting a piece of machinery, or technology, or even a team of people (for example, contractors), to work the way they expect?</li>
+    <li>What do your people believe is “dodgy” about the operation? Ask them that question directly, and you may get some surprising results.</li>
+    <li>What do your people have to do to “finish the design” of the tools and technologies that the organization has given them to work with? Finishing the design may be obvious from little post-it notes with reminders for particular switches or settings, or more “advanced” jury-rigged solutions (like an upside-down paper coffee cup on the flap handle of the 60-million dollar jet I flew, so as to not forget to set the flaps under certain circumstances). Such finishing the design can be a marker of resilience: people adapt their tools and technologies to forestall or contain the risks they know about. But it can also be a pointer to places where your system may be more brittle than you think.</li>
+    <li>How often do your people have to say to each other: “here’s how to make it work” when they discuss a particular technology or portion of your operation? What is the informal teaching and “coaching” that is going on in order to make that happen?</li>
+  </ul>
+</blockquote>
+
+<p>And on goal conflict:</p>
+
+<blockquote>
+  <p>Production pressure and goal conflicts are the essence of most operational systems. Though safety is a (stated) priority, these systems do not exist to be safe. They exist to provide a service or product, to achieve economic gain, to maximize capacity utilization. But still they have to be safe. One starting point, then, for understanding a driver behind routine deviations, is to look deeper into these goal interactions, these basic incompatibilities in what people need to strive for in their work. If you want to understand ‘human error,’ you need to find out how people themselves view these conflicts from inside their operational reality, and how this contrasts with other views of the same activities (for example, management, regulator, public).</p>
+</blockquote>
+
+  </div>
+</article>
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2017/12/people-do-not-need-or-await-permission-to-move"><p>People do not need or await permission to move</p>
+</a>
+    </h1>
+    <p class="post-meta text-muted">
+        <time datetime="2017-12-03T20:51:00-08:00" itemprop="datePublished">December 3, 2017</time>
+
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>From China Mieville’s <em>October: The Story of the Russian Revolution</em>:</p>
+
+<blockquote>
+  <p>To be a radical was to lead others, surely, to change their ideas, to persuade them to follow you; to go neither too far or too fast, nor to lag behind. ‘To patiently explain.’ How easy to forget that people do not need or await permission to move.</p>
+</blockquote>
+
+  </div>
+</article>
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2017/7/having-and-losing-effective-crew-resource-management"><p>Having and losing effective Crew Resource Management</p>
+</a>
+    </h1>
+    <p class="post-meta text-muted">
+        <time datetime="2017-07-08T18:53:00-07:00" itemprop="datePublished">July 8, 2017</time>
+
+        • Tagged operations and communications
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>From Sidney Dekker’s <em>The Field Guide to Understanding ‘Human Error’</em> on Crew Resource Management (CRM):</p>
+
+<blockquote>
+  <p>Judith Orasanu at NASA has done research to find out what effective CRM is about.</p>
+
+  <ul>
+    <li>shared understanding of the situation, the nature of the problem, the cause of the problem, the meaning of available cues, and what is likely to happen in the future, with or without action by the team members;</li>
+    <li>shared understanding of the goal or desired outcome;</li>
+    <li>shared understanding of the solution strategy: what will be done, by whom, when, and why?</li>
+  </ul>
+
+  <p>[…]</p>
+
+  <p>In his work for the Australian Transportation Safety Bureau, for example, Maurice Nevile has operationalized loss of effective CRM as follows:</p>
+
+  <ul>
+    <li>unequal turn-taking where one person does much more of the talking then others;</li>
+    <li>missing responses where responses are expected or standard, with one person regularly withholding talk, opting out, or replying only in a clipped fashion;</li>
+    <li>overlapping talk where another person still has talk of substance to utter but is stepped on by someone else;</li>
+    <li>repair of talk done by others. We often engage in repair of our own talk (to correct or clarify our own speech). But if other people repair our talk, this can point to problems in the interaction or hierarchy between them.</li>
+  </ul>
+</blockquote>
+
+  </div>
+</article>
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2017/5/smart-smart-cities"><p>Smart smart cities</p>
+</a>
+    </h1>
+    <p class="post-meta text-muted">
+        <time datetime="2017-05-07T08:22:00-07:00" itemprop="datePublished">May 7, 2017</time>
+
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>Some text from Accenture Australia’s smart cities practice lead, <a href="https://www.iothub.com.au/news/smart-city-killer-use-case-doesnt-exist-460076">Janine Griffiths on “Smart city ‘killer use case’ doesn’t exist”</a>. (edited for ease of reading):</p>
+
+<blockquote>
+  <p>Smart cities are about improving the liveability of their citizens [and] this may or may not be supported by technology. … It is critical that leaders of cities understand this and look at technologies as a tool to deliver an outcome for the community as opposed to being the actual panacea.”</p>
+
+  <p>Each city is unique in its own right - with even neighbouring councils having different economies, community demographics, geography, industries, and political priorities - and the needs of the communities are different too. … Innovation should be around how the City understands the needs of its citizens and intelligently utilises technology to develop a capability, and it is vital to understand that capability is not just technology but is a combination with processes and people.</p>
+
+  <p>Adopting the latest technology with limited understanding of local context and not making changes to ‘ways of working’ will lead to unpredictable results.</p>
+</blockquote>
+
+<p>Sales side:</p>
+
+<blockquote>
+  <p>By engaging in a wider ecosystem with other industries and digital partners, local councils can develop a design-based, citizen-centric and outcome-driven strategy and, consequently, a seamless experience for their communities.</p>
+
+  <p>By considering the entire ecosystem around them, Australian cities will get an outside-in view of the people in the ecosystem, the places in which the service is experienced, the products used by everyone, the processes that people follow and the performance.</p>
+</blockquote>
+
+  </div>
+</article>
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2017/4/high-school-app-advisor"><p>High school app advisor</p>
+</a>
+    </h1>
+    <p class="post-meta text-muted">
+        <time datetime="2017-04-18T07:22:00-07:00" itemprop="datePublished">April 18, 2017</time>
+
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>My brother organizes an entrepreneurship academy at the high school he principals. I play the role of technical advisor to teams that want to build apps. Last year’s team I advised <a href="https://www.noozhawk.com/article/san_marcos_entrepreneurship_academy_students_win_high_school_division_of_ne">won first place</a>. This is the initial advice I’ve given:</p>
+
+<blockquote>
+  <p>When I talk to people about building apps I usually focus on two things:</p>
+
+  <ol>
+    <li>
+      <p>Can you prove out the idea without building the app at all? In other words, use a combination of low-tech tools (spreadsheets, phone calls, emails, google survey, etc) to create your first 10 customer transactions. This is really helpful to understand your customers and it’s much easier to tweak your product idea early on. To learn more, look up “Lean Startup”.</p>
+    </li>
+    <li>
+      <p>Can you draw out how the app will work? Just using paper and pencil, you can draw out all of the screens. The best way to learn is to download a fresh app from the App Store (something you’ve never used before) and draw out the entire experience of a user. Try to recreate it on paper in such a way that you can explain to someone who has never seen the real app.  To learn more, look up “Paper app prototyping”</p>
+    </li>
+  </ol>
+
+  <p>Those are my top 2 most important things to do. For your business plan, I understand you’ll also need to have a solid budget and costs. I can’t tell you exactly how much your app would cost without knowing how complex it needs to be. The more time you can take in thinking through the details, the better prepared you’ll be when you take your concept to a local design and development agency.</p>
+</blockquote>
+
+  </div>
+</article>
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2017/1/Engeering-Practice-Ad-Nauseam"><p>Engineering Practice Ad nauseam</p>
+</a>
+    </h1>
+    <p class="post-meta text-muted">
+        <time datetime="2017-01-30T04:22:00Z" itemprop="datePublished">January 30, 2017</time>
+
+        • Tagged software engineering and boil the ocean
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>I came up with this list to spark peer-led initiatives on an engineering team. Originally I used it to work with a team to define “ideal practice”, “current practice”, and then identify distinct “projects” to close the gap. The examples here are to help explain what I’m describing and are probably not the ideal state.</p>
+
+<h2 id="frontend">Frontend</h2>
+
+<p>Frontend engineering is unique because the engineer has relatively little control over the environment or human context in which their applications are run and used.</p>
+
+<ul>
+  <li>Browser compatibility: Having a standard; reviewed regularly? Based on real user data from GA. SCSS Autoprefixer</li>
+  <li>Real user monitoring (performance, bandwidth/api latency): using Fullstory and New Relic. Having a performance budget / SLO. Having “key transactions” for monitoring</li>
+  <li>Browser exception monitoring: Sentry with sourcemaps</li>
+  <li>Viewport / responsive design: Standards, device lab, browserstack assertions, etc.</li>
+  <li>Usability: Heatmaps, User observation, Usability interviews, clear activation metrics, etc</li>
+  <li>Accessibility: Accessibility Standards and Linting. People care about accessibility. Technical staff are proficient with Voiceover</li>
+  <li>Customer interaction: Confidence and knowledge to have public conversations with customers and support them. Self-directed teams that understand the product well enough that they can take and manage customer feedback</li>
+</ul>
+
+<h2 id="backend">Backend</h2>
+
+<p>The services that do the work.</p>
+
+<ul>
+  <li>Services, Responsibilities and Boundaries: Monoliths, SOA, Microservices, how you slice the problem.</li>
+  <li>Data storage: SQL/NoSQL, cache (Redis), index (ES, Solr), etc</li>
+  <li>Database Querying: Getting the data, N+1s, Views, indexing</li>
+  <li>Asynchronous Operations: job workers, notifications/messaging, ETLs, scheduled emails, generated reports</li>
+</ul>
+
+<h2 id="development-and-collaboration">Development and Collaboration</h2>
+
+<p>A technically complex team sport.</p>
+
+<ul>
+  <li>Packaging and build pipeline: Up-to-date build tooling. Containerized and artifacted, roll-backable, and promotable. Live code reloading. JS/CSS packaging</li>
+  <li>Source code management and sharing: The source is committed to a Git repository and uploaded to GitHub. Code Review on PRs. File naming and organization conventions; practice of removing unused code.</li>
+  <li>Dependency management: Dependencies are regularly updated. Considering breaking out things into modules. Having a standard for out-of-date updates. Dependency risk review (availability, security, do-we-need-it). Gemnasium, etc.</li>
+  <li>API Design: Client systems (front and backend) have something to talk to. Available and complete documentation, messages attached to API calls should be coherent. Design is part of some standard process</li>
+  <li>Continuous Integration: CI server; automated tests. Regularly review runtime. Regularly reviews and automates manual tasks</li>
+  <li>Testing: Testing is easy. Visual regression. Acceptance testing as part of a team. Code coverage is tracked and managed.</li>
+  <li>Philosophy of personal productivity: Automation vs just doing it. Consensus on that XKCD cartoon about how long something takes. “Maker hours” and review of happiness/productivity. Time tracking, etc.</li>
+  <li>Philosophy of team productivity: Meetings and collaboration across departments and functions. Process for managing the process of change.</li>
+</ul>
+
+<h2 id="project-management-and-acceptance">Project Management and Acceptance</h2>
+
+<p>Within complex systems - both human and technical - it’s difficult to ensure that the work being done is the right work to be done. On the business level, certain parts of the system, especially visual-facing, may unduly affect perception of the overall system.</p>
+
+<ul>
+  <li>Management philosophy: Scrum, kanban, theory of constraints</li>
+  <li>Management practice (running standup, demos, retros, architectural planning): Concise Agenda, Clear outcomes, well-facilitated. Come prepared. Meeting Templates. Clear reason why in and having the meeting</li>
+  <li>Management tools (Jira, Trello, sticky notes): Visually track the flow of work through the organization</li>
+  <li>Code and standards reviews: Enforce standards with automation. Regularly scheduled as part of project</li>
+  <li>Collateral and hand-offs: Collab with Product, Design and Ops. Clear templates and cross-checks; Wire frames over pixel-perfect mockups.</li>
+  <li>Acceptance and demos: Feature Flagging; Staging Environment. Standard handoff process.</li>
+  <li>Estimating and Prediction: Have a high-level view of process. Be able to make and communicate estimates satisfactorily and/or accurately.</li>
+  <li>Managing and prioritizing product feedback: Can receive feedback efficiently and route/evaluate/prioritize. Balances functions between Product, Design and Engineering.</li>
+</ul>
+
+<h2 id="delivery-and-operations">Delivery and Operations</h2>
+
+<ul>
+  <li>Asset hosting and CDNs: Quick, reliable, and caches don’t ruin your day (“you’ll have to clear your cache”)</li>
+  <li>Service monitoring (deliverability, consistency, verification): Healthchecks; SLO; Pagerduty; thresholds; frog boils.</li>
+  <li>Security: https, XSS, Pentests, Bugbounties, responsible disclosure, Human/asset management</li>
+  <li>Business Continuity: Backups, Domain name and certificate renewals, multi-datacenter, hit-by-a-bus problems</li>
+  <li>Dependency and vulnerability management philosophy: Scheduling reviews/updates</li>
+  <li>Incident Command and Management: Roles and responsibilities, SLAs, incident reporting, play/run-books</li>
+  <li>Bugs and regression management: identification, prioritization, prevention</li>
+  <li>Marketing/activity/metrics tracking: Practice (tag management) and Process (can easily report out biz analysis numbers without heroics)</li>
+</ul>
+
+<h2 id="standardization-and-innovation">Standardization and Innovation</h2>
+
+<p>Web engineering, as the intersection of several different domains and technologies (e.g. HTML, CSS, JavaScript, browsers, backends, PaaS, etc.) rapidly innovates along multiple dimensions. These are strategies for managing change.</p>
+
+<ul>
+  <li>Frameworks (e.g. Rails) &amp; conventions (e.g. BEM): Use open source community maintained framework/standards vs NIH; unique business case attitude</li>
+  <li>Standards and style guides: Have coding practice/styleguides and ratification process</li>
+  <li>Linting: Have coding practice/styleguides and ratification process</li>
+  <li>Proof of Concepting: Be quicker to use to validate and overcome decision avoidance. Quantity of work that is thrown away.</li>
+  <li>Architecture and system strategy: Long term technical vision and alignment with external forces and opportunities</li>
+</ul>
+
+<h2 id="stewardship-and-advancement">Stewardship and Advancement</h2>
+
+<p>Ensure a healthy and growing environment exists for technical practitioners to professionally advance and spread the good news.</p>
+
+<ul>
+  <li>Onboarding and orientation of new hires and practitioners</li>
+  <li>Career advancement path</li>
+  <li>Industry Leadership: public speaking, publishing, being a leader in the field</li>
+</ul>
+
+  </div>
+</article>
+
+
+<hr>
+
+<div class="d-flex justify-content-between mb-5">
+    <a href="/posts/15" class="btn btn-outline-primary">Newer posts</a>
+    <a href="/posts/17" class="btn btn-outline-primary">Older posts</a>
+</div>
+
+  </div>
+
+</body>
+</html>

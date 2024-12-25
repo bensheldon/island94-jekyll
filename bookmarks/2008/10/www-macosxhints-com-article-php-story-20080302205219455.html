@@ -1,10 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-
-  <head>
+<head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> | Island94.org</title>
+
+  <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="HcyfziYSvRP0EMtPXNv7UvfDw0r_brMLqkEDMP1xq_bO5VSgzC9fY3cLm-n6klUfknLh3EtUaWbcv0sfGLQtwQ" />
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Island94.org" href="https://island94.org/feed.xml">
+
+  <link rel="stylesheet" href="/assets/application-3c56ab95cf55e7f461f0ea9391c2b1391a5c64b74433224fe76ad58b7fa20c07.css" data-turbo-track="reload" />
+  <script src="/assets/main-57967bd29e3a27ba3099fee5997ee6ec8c59ef209085f949b6eac799b21915b0.js"></script>
 
   <script>
     let theme = localStorage.getItem('theme');
@@ -14,24 +23,10 @@
     document.documentElement.setAttribute('data-bs-theme', theme);
   </script>
 
-  <link rel="stylesheet" href="/assets/stylesheets/main.css">
-  <script src="/assets/javascripts/main.js"></script>
-
-  <title>macosxhints.com - Fix an issue with the Firefox download folder location</title>
-  <meta name="description" content="Fix an issue with the Firefox download folder locationMon, Mar 10 2008 at 7:30AM PDT • Submitted by fyngyrz Web BrowsersIf you migrate from a previous machin...">
-
-  <link rel="canonical" href="https://island94.org/bookmarks/2008/10/www-macosxhints-com-article-php-story-20080302205219455">
-
-  <link rel="alternate" type="application/rss+xml" title="Island94.org Posts" href="https://island94.org/feed.xml">
-  <link rel="alternate" type="application/rss+xml" title="Island94.org Book Reviews" href="https://island94.org/books.xml">
-
   
 </head>
-
-
-  <body>
-
-    <nav class="navbar navbar-expand-lg navbar-light mb-2 flex-column">
+<body>
+<nav class="navbar navbar-expand-lg navbar-light mb-2 flex-column">
   <div class="container">
     <a class="navbar-brand" href="/">Island94.org</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,7 +36,7 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item"><a class="nav-link " href="/about/">About</a></li>
         <li class="nav-item"><a class="nav-link " href="/archives/">Archives</a></li>
-        <li class="nav-item"><a class="nav-link " href="/books/">Books</a></li>
+<!--        <li class="nav-item"><a class="nav-link " href="/books/">Books</a></li>-->
         <li class="nav-item"><a class="nav-link " href="/tags/">Tags</a></li>
         <li class="nav-item"><a class="nav-link" href="/feed.xml">RSS Feed <i class="bi bi-rss-fill"></i></a></li>
 
@@ -90,24 +85,22 @@
 </nav>
 
 
-    <div class="container container-body">
-      
-<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
     <h1 class="post-title" itemprop="name headline">
-      <a class="post-link" href="/bookmarks/2008/10/www-macosxhints-com-article-php-story-20080302205219455">
-        macosxhints.com - Fix an issue with the Firefox download folder location
-      </a>
+      <a class="post-link" href="/bookmarks/2008/10/www-macosxhints-com-article-php-story-20080302205219455">macosxhints.com - Fix an issue with the Firefox download folder location</a>
     </h1>
     <small><a href="http://www.macosxhints.com/article.php?story=20080302205219455">http://www.macosxhints.com/article.php?story=20080302205219455</a></small>
     <p>
-      <time datetime="2008-10-21T15:22:00+00:00" itemprop="datePublished">October 21, 2008</time>
+        <time datetime="2008-10-21T15:22:00Z" itemprop="datePublished">
+          October 21, 2008
+        </time>
     </p>
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p>Fix an issue with the Firefox download folder location
-Mon, Mar 10 2008 at 7:30AM PDT • Submitted by fyngyrz Web Browsers
+    <p>Fix an issue with the Firefox download folder location<br />
+Mon, Mar 10 2008 at 7:30AM PDT • Submitted by fyngyrz Web Browsers<br />
 If you migrate from a previous machine to a new machine using Apple’s Migration Assistant, and in the process you create a new user – this can happen if you create your old user account on the new machine prior to migrating – you may have issues with Firefox and the Downloads folder. Because of a shortcoming in the migration tool, the OS X Downloads folder for the new account will have the path for the old account, and Firefox will then be unable to save because it does not have the correct permissions. I encountered this issue with 10.5 Leopard (both machines), migrating from an old Mac mini to new Mac pro.</p>
 
 <p>The solution is to open ~/Library » Preferences » com.apple.internetconfig.plist with the Property List Editor (Xcode required), navigate to the Download Folder item, and delete the value (not the key; just the value under it), then save the property list fi</p>
@@ -115,15 +108,6 @@ If you migrate from a previous machine to a new machine using Apple’s Migratio
   </div>
 </article>
 
-<hr>
 
-    </div>
-
-    <footer class="site-footer">
-
-</footer>
-
-
-  </body>
-
+</body>
 </html>

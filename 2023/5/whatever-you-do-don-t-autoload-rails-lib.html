@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Whatever you do, don&amp;#39;t autoload Rails `lib/` | Island94.org</title>
+
+  <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="4iBWYrtowRtX89H43a4NGq3zbgX88XHOTKMxj5QE7pUxCZ0MUVUja9TogV5756NXyEJMk0jLq6M6XXmgccFoog" />
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Island94.org" href="https://island94.org/feed.xml">
+
+  <link rel="stylesheet" href="/assets/application-3c56ab95cf55e7f461f0ea9391c2b1391a5c64b74433224fe76ad58b7fa20c07.css" data-turbo-track="reload" />
+  <script src="/assets/main-57967bd29e3a27ba3099fee5997ee6ec8c59ef209085f949b6eac799b21915b0.js"></script>
+
+  <script>
+    let theme = localStorage.getItem('theme');
+    if (!["light", "dark"].includes(theme)) {
+      theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    document.documentElement.setAttribute('data-bs-theme', theme);
+  </script>
+
+  
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light mb-2 flex-column">
+  <div class="container">
+    <a class="navbar-brand" href="/">Island94.org</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link " href="/about/">About</a></li>
+        <li class="nav-item"><a class="nav-link " href="/archives/">Archives</a></li>
+<!--        <li class="nav-item"><a class="nav-link " href="/books/">Books</a></li>-->
+        <li class="nav-item"><a class="nav-link " href="/tags/">Tags</a></li>
+        <li class="nav-item"><a class="nav-link" href="/feed.xml">RSS Feed <i class="bi bi-rss-fill"></i></a></li>
+
+        <li class="nav-item py-2 py-lg-1 col-12 col-lg-auto">
+          <div class="vr d-none d-lg-flex h-100 mx-lg-2 text-light-500"></div>
+          <hr class="d-lg-none my-0 text-light-500">
+        </li>
+
+        <li class="nav-item dropdown">
+          <button id="bs-theme" class="btn btn-link nav-link dropdown-toggle" type="button" aria-expanded="false" data-bs-toggle="dropdown"  aria-label="Theme (Auto)">
+            <i data-bs-theme-active-icon class="bi bi-circle-half"></i>
+            <span data-bs-theme-label>Theme</span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="bs-theme-text">
+            <li>
+              <button type="button" class="dropdown-item" data-bs-theme-value="light" aria-pressed="false">
+                <i class="bi bi-sun"></i> Light
+              </button>
+            </li>
+            <li>
+              <button type="button" class="dropdown-item" data-bs-theme-value="dark" aria-pressed="false">
+                <i class="bi bi-moon-stars-fill"></i> Dark
+              </button>
+            </li>
+            <li>
+              <button type="button" class="dropdown-item" data-bs-theme-value="auto" aria-pressed="true">
+                <i class="bi bi-circle-half"></i> Auto
+              </button>
+            </li>
+          </ul>
+        </li>
+
+      </ul>
+
+      <form id="search" class="d-flex" action="/search" method="get">
+        <input id="search-box" class="form-control search" role="search" name="q" placeholder="Search" aria-label="Search" results="0" type="text">
+        <button class="visually-hidden" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+  <div class="container">
+    <div class="text-muted fst-italic">
+      — Ben Sheldon's personal blog and <a href="/2012/04/A-Commonplace-Book.html">commonplace book</a>.
+    </div>
+  </div>
+</nav>
+
+
+  <div class="container container-body">
+    
+<div class="container container-body">
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2023/5/whatever-you-do-don-t-autoload-rails-lib"><p>Whatever you do, don’t autoload Rails <code>lib/</code></p>
+</a>
+    </h1>
+    <p class="post-meta text-muted">
+        <time datetime="2023-05-02T07:09:00-07:00" itemprop="datePublished">May 2, 2023</time>
+
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p><em><strong>Update:</strong> Rails v7.1 will introduce a new configuration method <a href="https://github.com/rails/rails/pull/48572"><code>config.autoload_lib</code></a> to make it safer and easier to autoload the <code>/lib</code> directory and explicitly exclude directories from autoloading. When released, this advice may no longer be relevant, though I imagine it will still be possible for developers to twist themselves into knots and cause outages with autoloading overrides.</em></p>
+
+<p>One of the most common problems I encounter consulting on Rails projects is that developers have previously added <code>lib/</code> to autoload paths and then twisted themselves into knots creating error-prone, project-specific conventions for subsequently un-autoloading a subset of files also in <code>lib/</code>.</p>
+
+<p><em>Don’t do it. Don’t add your Rails project’s <code>lib/</code> to autoload paths.</em></p>
+
+<h3 id="how-does-this-happen">How does this happen?</h3>
+
+<p>A growing Rails application will accumulate a lot of ruby classes and files that don’t cleanly fit into the default <code>app/</code> directories of <code>controllers</code>, <code>helpers</code>, <code>jobs</code>, or <code>models</code>. Developers should also be creating new directories in <code>app/*</code> to organize like-with-like files (your <code>app/services/</code> or <code>app/merchants/</code>, etc.). That’s ok!</p>
+
+<p>But frequently there are one-off classes that don’t seem to rise to the level of their own directory in <code>app/</code>. From looking through the cruft of projects like <a href="https://github.com/mastodon/mastodon/tree/c62604b5f69c3ad7f5449e0a7dc26606adebb777/app/lib">Mastodon</a> or applications <a href="https://github.com/codeforamerica/vita-min/tree/2f5faf06f586d1ea3915af262aab7683240f4727/app/lib">I’ve</a> <a href="https://github.com/bensheldon/open311status/blob/2cd70e391770f64d734f462624222fb8f8bc14a4/app/lib/service_requests_pager.rb">worked</a> <a href="https://github.com/bensheldon/open311status/tree/2cd70e391770f64d734f462624222fb8f8bc14a4/app/lib">on</a>, these files look like:</p>
+
+<ul>
+  <li>A lone form builder</li>
+  <li>POROs (“Plain old Ruby objects”) like <code>PhoneNumberFormatter</code>, or <code>ZipCodes</code> or <code>Seeder</code>, or <code>Pagination</code>. Objects that serve a single purpose and are largely singletons/identity objects within the application.</li>
+  <li>Boilerplate classes for 3rd party gems, e.g. <code>ApplicationResponder</code> for the <code>responders gem</code>.</li>
+</ul>
+
+<p>That these files accumulate in a project is a fact of life. When choosing where to put them, that’s when things can go wrong.</p>
+
+<p>In a newly built Rails project <code>lib/</code> looks like the natural place for these. But <code>lib/</code> has a downside: <code>lib/</code> is not autoloaded. This can come as a surprise, even to experienced developers, because they have been accustomed to the convenience of autoloaded files in <code>app/</code>. It’s not difficult to add an explicit <code>require</code> statement into <code>application.rb</code> or in an initializer, but that may not be one’s first thought.</p>
+
+<p>That’s when people jump to googling “how to autoload <code>lib/</code>”. Don’t do it! <code>lib/</code> should not be autoloaded.</p>
+
+<p>The problem with autoloading <code>lib/</code> is that there will subsequently be files added to <code>lib/</code> that should <em>not</em> be autoloaded; because they should only be provisionally loaded in a certain environment or context, or deferred, for behavioral, performance, or memory reasons. If your project has already enabled autoloading on <code>lib/</code>, it’s now likely you’ll then add additional configuration to un-autoload the new files. These overrides and counter-overrides accumulate over time and become difficult to understand and unwind, and they cause breakage because someone’s intuition of what will or won’t be loaded in a certain environment or context is wrong.</p>
+
+<p>What should you do instead?</p>
+
+<h3 id="an-omakase-solution">An omakase solution</h3>
+
+<p>DHH <a href="https://github.com/rails/rails/pull/47843#issuecomment-1515367267">writes</a>:</p>
+
+<blockquote>
+  <p><code>lib/</code> is intended to be for non-app specific library code that just happens to live in the app for now (usually pending extraction into open source or whatever). Everything app specific that’s part of the domain model should live in <code>app/models</code> (that directory is for POROs as much as ARs)… Stuff like a generic PhoneNumberFormatter is exactly what <code>lib/</code> is intended for. And if it’s app specific, for some reason, then <code>app/models</code> is fine.</p>
+</blockquote>
+
+<p>The omakase solution is to manually require files from <code>lib/</code> or use <code>app/models</code> generically to mean “Domain Models” rather than solely Active Record models. That’s great! Do that.</p>
+
+<h3 id="a-best-practice">A best practice</h3>
+
+<p>Xavier Noria, Zeitwerk’s creator <a href="https://github.com/rails/rails/issues/37835#issuecomment-757367812">writes</a>:</p>
+
+<blockquote>
+  <p>The best practice to accomplish that nowadays is to move that code to <code>app/lib</code>. Only the Ruby code you want to reload, tasks or other auxiliary files are OK in <code>lib</code>.</p>
+</blockquote>
+
+<p>Sidekiq’s Problems and Troubleshooting <a href="https://github.com/sidekiq/sidekiq/wiki/Problems-and-Troubleshooting#autoloading">explains</a>:</p>
+
+<blockquote>
+  <p>A <code>lib/</code> directory will only cause pain. Move the code to <code>app/lib/</code> and make sure the code inside follows the class/filename conventions.</p>
+</blockquote>
+
+<p>The best practice is to create an <code>app/lib/</code> directory to home these files. <a href="https://github.com/mastodon/mastodon/tree/c62604b5f69c3ad7f5449e0a7dc26606adebb777/app/lib">Mastodon</a> does it, as do <a href="https://github.com/search?type=code&amp;auto_enroll=true&amp;q=path%3A%2F%5Eapp%5C%2Flib%5C%2F.*%5C.rb%2F">many others</a>.</p>
+
+<p>This “best practice” is not without contention, as usually anything in Rails that deviates from omakase does, like RSpec instead of MiniTest or FactoryBot instead of Fixtures. But creating <code>app/lib</code> as a convention for Rails apps works for me and many others.</p>
+
+<h3 id="really-dont-autoload-lib">Really, don’t autoload <code>lib/</code></h3>
+
+<p>Whatever path you take, don’t take the path of autoloading <code>lib/</code>.</p>
+
+  </div>
+</article>
+
+
+  <div class="card my-4">
+    <div class="card-body">
+      Discuss this with me on <a href="https://twitter.com/bensheldon"><i class="bi bi-twitter"></i> Twitter</a>
+      or suggest a
+      <a href="https://github.com/bensheldon/island94-jekyll/blob/main/_posts/2023-05-02-whatever-you-do-don-t-autoload-rails-lib.md"><i class="bi bi-github"></i>
+        change</a>.
+
+    </div>
+  </div>
+</div>
+
+  </div>
+
+</body>
+</html>

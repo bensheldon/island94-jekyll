@@ -1,10 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-
-  <head>
+<head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Deterministic test data with Faker, FactoryBot, and RSpec | Island94.org</title>
+
+  <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="0BQSf8dEiu6vKiaAP5jdoY28L2TpK3w1zpsfo9bfTykDPdkRLXloniwxdiaZ0XPs6A0N8l0Rpli4ZVeMMxrJHg" />
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Island94.org" href="https://island94.org/feed.xml">
+
+  <link rel="stylesheet" href="/assets/application-3c56ab95cf55e7f461f0ea9391c2b1391a5c64b74433224fe76ad58b7fa20c07.css" data-turbo-track="reload" />
+  <script src="/assets/main-57967bd29e3a27ba3099fee5997ee6ec8c59ef209085f949b6eac799b21915b0.js"></script>
 
   <script>
     let theme = localStorage.getItem('theme');
@@ -14,24 +23,10 @@
     document.documentElement.setAttribute('data-bs-theme', theme);
   </script>
 
-  <link rel="stylesheet" href="/assets/stylesheets/main.css">
-  <script src="/assets/javascripts/main.js"></script>
-
-  <title>Deterministic test data with Faker, FactoryBot, and RSpec</title>
-  <meta name="description" content="I get a lot of joy from using Faker and FactoryBot to efficiently generate real-world test data, but its randomness can be a liability when trying to debug c...">
-
-  <link rel="canonical" href="https://island94.org/2019/11/deterministic-test-data-with-faker-factorybot-and-rspec">
-
-  <link rel="alternate" type="application/rss+xml" title="Island94.org Posts" href="https://island94.org/feed.xml">
-  <link rel="alternate" type="application/rss+xml" title="Island94.org Book Reviews" href="https://island94.org/books.xml">
-
   
 </head>
-
-
-  <body>
-
-    <nav class="navbar navbar-expand-lg navbar-light mb-2 flex-column">
+<body>
+<nav class="navbar navbar-expand-lg navbar-light mb-2 flex-column">
   <div class="container">
     <a class="navbar-brand" href="/">Island94.org</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,7 +36,7 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item"><a class="nav-link " href="/about/">About</a></li>
         <li class="nav-item"><a class="nav-link " href="/archives/">Archives</a></li>
-        <li class="nav-item"><a class="nav-link " href="/books/">Books</a></li>
+<!--        <li class="nav-item"><a class="nav-link " href="/books/">Books</a></li>-->
         <li class="nav-item"><a class="nav-link " href="/tags/">Tags</a></li>
         <li class="nav-item"><a class="nav-link" href="/feed.xml">RSS Feed <i class="bi bi-rss-fill"></i></a></li>
 
@@ -90,23 +85,17 @@
 </nav>
 
 
-    <div class="container container-body">
-      
-
-
-
-<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="container container-body">
+    
+<div class="container container-body">
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
     <h1 class="post-title" itemprop="name headline">
       <a class="post-link" href="/2019/11/deterministic-test-data-with-faker-factorybot-and-rspec"><p>Deterministic test data with Faker, FactoryBot, and RSpec</p>
 </a>
     </h1>
     <p class="post-meta text-muted">
-      <time datetime="2019-11-30T19:33:00+00:00" itemprop="datePublished">November 30, 2019</time>
-      
-      
-
-
+        <time datetime="2019-11-30T11:33:00-08:00" itemprop="datePublished">November 30, 2019</time>
 
     </p>
   </header>
@@ -114,7 +103,7 @@
   <div class="post-content" itemprop="articleBody">
     <p>I get a lot of joy from using <a href="https://github.com/faker-ruby/faker">Faker</a> and <a href="https://github.com/thoughtbot/factory_bot">FactoryBot</a> to efficiently generate real-world test data, but its randomness can be a liability when trying to debug complicated specs or when setting up systems that require repeatable data across RSpec test runs like <a href="https://percy.io/">Percy’s visual diffs</a>.</p>
 
-<p>Without deterministic test data, generating three new users with <code class="language-plaintext highlighter-rouge">3.times { puts Faker::Name.first_name }</code> would result in <code class="language-plaintext highlighter-rouge">Danny, Solomon, Fabian</code> when run once, then <code class="language-plaintext highlighter-rouge">Jordon, Shawn, Asa</code> when run a second time, then <code class="language-plaintext highlighter-rouge">Bruce, Leonor, Paulette</code> when run a third time.</p>
+<p>Without deterministic test data, generating three new users with <code>3.times { puts Faker::Name.first_name }</code> would result in <code>Danny, Solomon, Fabian</code> when run once, then <code>Jordon, Shawn, Asa</code> when run a second time, then <code>Bruce, Leonor, Paulette</code> when run a third time.</p>
 
 <p>With deterministic test data, I expect to always generate the same set of names no matter how many times the code is run.  Faker has <a href="https://github.com/faker-ruby/faker#deterministic-random">documented</a> how to configure and seed the random number generator and this can be achieved with:</p>
 
@@ -124,9 +113,9 @@
 <span class="k">end</span>
 </code></pre></div></div>
 
-<p>This script outputs <code class="language-plaintext highlighter-rouge">Zachery, Dawna, Desmond</code> every single time it is run, meaning that it’s deterministic.</p>
+<p>This script outputs <code>Zachery, Dawna, Desmond</code> every single time it is run, meaning that it’s deterministic.</p>
 
-<p>Faker’s deterministic configuration can be combined with a FactoryBot <a href="https://github.com/thoughtbot/factory_bot/blob/master/GETTING_STARTED.md#sequences"><code class="language-plaintext highlighter-rouge">sequence</code></a> to always get the same data every time a new factory instance is created. For example, here’s what a deterministic <code class="language-plaintext highlighter-rouge">User</code> factory could look like:</p>
+<p>Faker’s deterministic configuration can be combined with a FactoryBot <a href="https://github.com/thoughtbot/factory_bot/blob/master/GETTING_STARTED.md#sequences"><code>sequence</code></a> to always get the same data every time a new factory instance is created. For example, here’s what a deterministic <code>User</code> factory could look like:</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># spec/factories/users.rb</span>
 
@@ -148,11 +137,11 @@
 <span class="k">end</span>
 </code></pre></div></div>
 
-<p>Within every sequence, the Faker random number generator is  seeded with <code class="language-plaintext highlighter-rouge">Faker::Config.random = Random.new(n)</code> , where <code class="language-plaintext highlighter-rouge">n</code> is the integer generated by the sequence.</p>
+<p>Within every sequence, the Faker random number generator is  seeded with <code>Faker::Config.random = Random.new(n)</code> , where <code>n</code> is the integer generated by the sequence.</p>
 
 <p>Unfortunately, just using a sequence isn’t completely sufficient when running tests in random order, or inserting new tests or rearranging the tests, as one would expect in an active codebase. FactoryBot sequences are global, meaning that they don’t reset by default between each and every test; a FactoryBot instance during one test run might use a different sequence number than a previous test run.</p>
 
-<p>Therefore, it’s also necessary to rewind FactoryBot sequences after each RSpec example. Place this in your <code class="language-plaintext highlighter-rouge">spec/rails_helper.rb</code> or <code class="language-plaintext highlighter-rouge">spec/support</code> directory:</p>
+<p>Therefore, it’s also necessary to rewind FactoryBot sequences after each RSpec example. Place this in your <code>spec/rails_helper.rb</code> or <code>spec/support</code> directory:</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># spec/support/factory_bot.rb</span>
 
@@ -169,38 +158,18 @@
 </article>
 
 
-<div class="card my-4">
-  <div class="card-body">
-    <p>
+  <div class="card my-4">
+    <div class="card-body">
       Discuss this with me on <a href="https://twitter.com/bensheldon"><i class="bi bi-twitter"></i> Twitter</a>
-      or suggest a <a href="https://github.com/bensheldon/island94-jekyll/blob/main/_posts/2019-11-30-deterministic-test-data-with-faker-factorybot-and-rspec.md"><i class="bi bi-github"></i> change</a>.
-    </p>
+      or suggest a
+      <a href="https://github.com/bensheldon/island94-jekyll/blob/main/_posts/2019-11-30-deterministic-test-data-with-faker-factorybot-and-rspec.md"><i class="bi bi-github"></i>
+        change</a>.
 
-    <p>Related Posts:</p>
-    <ul>
-      
-        <li><a href="/2024/12/including-rails-view-helpers-concern">Including Rails View Helpers is a concern</a></li>
-      
-        <li><a href="/2024/11/keep-your-secrets-yml-in-rails-7-2">Keep your secrets.yml in Rails 7.2+</a></li>
-      
-        <li><a href="/2024/10/technical-reflection-on-disaster-relief-assistance-for-immigrants">A mostly technical reflection on Disaster Relief Assistance for Immigrants</a></li>
-      
-        <li><a href="/2024/09/spectator-sport-a-brief-introduction-to-an-upcoming-rails-plugin">Spectator Sport, a brief introduction to an upcoming Rails plugin</a></li>
-      
-        <li><a href="/2024/09/seeing-like-a-rails-and-ruby-platform-team">Seeing like a Rails and Ruby platform team</a></li>
-      
-    </ul>
+    </div>
   </div>
 </div>
 
+  </div>
 
-    </div>
-
-    <footer class="site-footer">
-
-</footer>
-
-
-  </body>
-
+</body>
 </html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quantitative usability, assistive technology, and the right to privacy | Island94.org</title>
+
+  <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="N9_sQstHEQQFBqvUR2O1YltI7uSCfCF-pCpGiFatxWjk9icsIXrzdIYd-3LhKhsvPvnMcjZG-xPS1A6ns2hDXw" />
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Island94.org" href="https://island94.org/feed.xml">
+
+  <link rel="stylesheet" href="/assets/application-3c56ab95cf55e7f461f0ea9391c2b1391a5c64b74433224fe76ad58b7fa20c07.css" data-turbo-track="reload" />
+  <script src="/assets/main-57967bd29e3a27ba3099fee5997ee6ec8c59ef209085f949b6eac799b21915b0.js"></script>
+
+  <script>
+    let theme = localStorage.getItem('theme');
+    if (!["light", "dark"].includes(theme)) {
+      theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    document.documentElement.setAttribute('data-bs-theme', theme);
+  </script>
+
+  
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light mb-2 flex-column">
+  <div class="container">
+    <a class="navbar-brand" href="/">Island94.org</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link " href="/about/">About</a></li>
+        <li class="nav-item"><a class="nav-link " href="/archives/">Archives</a></li>
+<!--        <li class="nav-item"><a class="nav-link " href="/books/">Books</a></li>-->
+        <li class="nav-item"><a class="nav-link " href="/tags/">Tags</a></li>
+        <li class="nav-item"><a class="nav-link" href="/feed.xml">RSS Feed <i class="bi bi-rss-fill"></i></a></li>
+
+        <li class="nav-item py-2 py-lg-1 col-12 col-lg-auto">
+          <div class="vr d-none d-lg-flex h-100 mx-lg-2 text-light-500"></div>
+          <hr class="d-lg-none my-0 text-light-500">
+        </li>
+
+        <li class="nav-item dropdown">
+          <button id="bs-theme" class="btn btn-link nav-link dropdown-toggle" type="button" aria-expanded="false" data-bs-toggle="dropdown"  aria-label="Theme (Auto)">
+            <i data-bs-theme-active-icon class="bi bi-circle-half"></i>
+            <span data-bs-theme-label>Theme</span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="bs-theme-text">
+            <li>
+              <button type="button" class="dropdown-item" data-bs-theme-value="light" aria-pressed="false">
+                <i class="bi bi-sun"></i> Light
+              </button>
+            </li>
+            <li>
+              <button type="button" class="dropdown-item" data-bs-theme-value="dark" aria-pressed="false">
+                <i class="bi bi-moon-stars-fill"></i> Dark
+              </button>
+            </li>
+            <li>
+              <button type="button" class="dropdown-item" data-bs-theme-value="auto" aria-pressed="true">
+                <i class="bi bi-circle-half"></i> Auto
+              </button>
+            </li>
+          </ul>
+        </li>
+
+      </ul>
+
+      <form id="search" class="d-flex" action="/search" method="get">
+        <input id="search-box" class="form-control search" role="search" name="q" placeholder="Search" aria-label="Search" results="0" type="text">
+        <button class="visually-hidden" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+  <div class="container">
+    <div class="text-muted fst-italic">
+      — Ben Sheldon's personal blog and <a href="/2012/04/A-Commonplace-Book.html">commonplace book</a>.
+    </div>
+  </div>
+</nav>
+
+
+  <div class="container container-body">
+    
+<div class="container container-body">
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2019/4/quantitative-usability-assistive-technology-and-the-right-to-privacy"><p>Quantitative usability, assistive technology, and the right to privacy</p>
+</a>
+    </h1>
+    <p class="post-meta text-muted">
+        <time datetime="2019-04-25T07:39:00-07:00" itemprop="datePublished">April 25, 2019</time>
+
+        • Tagged assistive technology and lighthouse labs
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>You have a <em>legal obligation</em> to produce an accessible website; these are some thoughts about what comes next.</p>
+
+<p>At <a href="https://lighthouse-sf.org/lighthouse-labs/">Lighthouse Labs</a><br />
+ this month, there was a lively discussion on “Detecting accessibility events, a debate on the ethics and implications of this new feature from Apple” [<a href="https://www.applevis.com/blog/apple-assistive-technology-ios-macos-news/apple-shares-information-its-new-accessibility-events">article</a>]. I offered this in the pre-discussion email thread:</p>
+
+<blockquote>
+  <p>I wanted to share some perspective as a web developer: I would like to have aggregated analytics about what screen-readers are using my website (how many and which ones). Here’s why:</p>
+
+  <p>Within an agile process, once we achieve the baseline of WCAG/valid/passable/usable, the question becomes how do we make it even better and where do we start? Being able to point to analytics is useful for prioritization discussions about bottlenecks/friction. For example, on GetCalFresh.org, which has helped 700k people apply for food stamps, we can identify completion differences between, for example, English and Spanish-language users on particular parts of an application flow, and prioritize improvements based on frequency and severity. I don’t have the data to do that kind of prioritization for screen-readers, but I would like to.</p>
+</blockquote>
+
+<p>The Lighthouse Labs discussion brought up several dimensions of the issues:</p>
+
+<ul>
+  <li>People with disabilities are legally protected from discrimination, and have legal rights to privacy of their conditions and freedom from discrimination.</li>
+  <li>If the lived experience is a spectrum of “discrimination - inaccessibility - accommodation - accessibility - usability” (these are my words, imprecise), the majority of experience lives towards the left of that spectrum. Everyone has a story of being identified as a <em>low value / low priority</em> user.</li>
+  <li>Some people would like to be fully and accessibly served; others would like to remain apart; everyone wants individual agency in that decision. An example of this was some people saying “I want websites to be completely accessible” and others saying “I’m fine not experiencing advertising and junk”. This came up as “ghettoization”, but I have been thinking about it as the difference between exclusion and seclusion.</li>
+  <li>Differentiating between <em>accessibility</em>, <em>accommodation</em> and <em>discrimination</em> in digital products is important yet slippery. An example: Twitter’s native iOS client generally works with Voiceover (accessible), but used a separated streamlined UI for composing a tweet when the app detected that VoiceOver was in use (accommodation); when Twitter changed to 280 characters, they failed to update that sheet in a timely manner (discrimination). [<a href="https://theoutline.com/post/2458/there-are-still-some-people-on-twitter-who-don-t-have-280-characters?zd=1&amp;zi=zktxaedi">article</a>]</li>
+</ul>
+
+<p>When discussing this with a my data science coworker, she shared <a href="https://reallifemag.com/counting-the-countless/">“Counting the Countless: Why data science is a profound threat for queer people”</a> by Os Keyes:</p>
+
+<blockquote>
+  <p>So: trans existences are built around fluidity, contextuality, and autonomy, and administrative systems are fundamentally opposed to that. Attempts to negotiate and compromise with those systems (and the state that oversees them) tend to just legitimize the state, while leaving the most vulnerable among us out in the cold. This is important to keep in mind as we veer toward data science, because in many respects data science can be seen as an extension of those administrative logics: It’s gussied-up statistics, after all — the “science of the state.”</p>
+
+  <p>…perhaps a more accurate definition of data science would be:<em>The inhumane reduction of humanity down to what can be counted.</em></p>
+</blockquote>
+
+<p>Within the context of assistive technology, it is not a far leap between tracking screenreader usage and creating an implication of <em>a</em> disability and the segmentation that comes with it.</p>
+
+<p>These discussions have made me think a lot more about my own digital footprints. I frequently use VoiceOver to explore websites and mobile apps and I now wonder about the impact/risks of being tracked and weigh them against the benefits to my own design practice and discernment, of which quantitative analysis is a tool.</p>
+
+<p>_If you have thoughts about this post, quantitative usability testing and advanced product management for assistive technology and disabilities, I’d love to chat. Tweet me at <a href="https://web.archive.org/web/20200723181116/https://twitter.com/bensheldon">@bensheldon</a></p>
+
+<p>or email me at <a href="mailto:bensheldon@gmail.com">bensheldon@gmail.com</a>._</p>
+
+  </div>
+</article>
+
+
+  <div class="card my-4">
+    <div class="card-body">
+      Discuss this with me on <a href="https://twitter.com/bensheldon"><i class="bi bi-twitter"></i> Twitter</a>
+      or suggest a
+      <a href="https://github.com/bensheldon/island94-jekyll/blob/main/_posts/2019-04-25-quantitative-usability-assistive-technology-and-the-right-to-privacy.md"><i class="bi bi-github"></i>
+        change</a>.
+
+    </div>
+  </div>
+</div>
+
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> | Island94.org</title>
+
+  <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="6wmbAVvIC3Xj84rRMocWt1QXlUPg5F9OyItFprDmK_w4IFBvsfXpBWDo2neUzrj6Maa31VTehSO-dQ2JVSOtyw" />
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Island94.org" href="https://island94.org/feed.xml">
+
+  <link rel="stylesheet" href="/assets/application-3c56ab95cf55e7f461f0ea9391c2b1391a5c64b74433224fe76ad58b7fa20c07.css" data-turbo-track="reload" />
+  <script src="/assets/main-57967bd29e3a27ba3099fee5997ee6ec8c59ef209085f949b6eac799b21915b0.js"></script>
+
+  <script>
+    let theme = localStorage.getItem('theme');
+    if (!["light", "dark"].includes(theme)) {
+      theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    document.documentElement.setAttribute('data-bs-theme', theme);
+  </script>
+
+      <meta name="robots" content="noindex, follow">
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light mb-2 flex-column">
+  <div class="container">
+    <a class="navbar-brand" href="/">Island94.org</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link " href="/about/">About</a></li>
+        <li class="nav-item"><a class="nav-link " href="/archives/">Archives</a></li>
+<!--        <li class="nav-item"><a class="nav-link " href="/books/">Books</a></li>-->
+        <li class="nav-item"><a class="nav-link " href="/tags/">Tags</a></li>
+        <li class="nav-item"><a class="nav-link" href="/feed.xml">RSS Feed <i class="bi bi-rss-fill"></i></a></li>
+
+        <li class="nav-item py-2 py-lg-1 col-12 col-lg-auto">
+          <div class="vr d-none d-lg-flex h-100 mx-lg-2 text-light-500"></div>
+          <hr class="d-lg-none my-0 text-light-500">
+        </li>
+
+        <li class="nav-item dropdown">
+          <button id="bs-theme" class="btn btn-link nav-link dropdown-toggle" type="button" aria-expanded="false" data-bs-toggle="dropdown"  aria-label="Theme (Auto)">
+            <i data-bs-theme-active-icon class="bi bi-circle-half"></i>
+            <span data-bs-theme-label>Theme</span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="bs-theme-text">
+            <li>
+              <button type="button" class="dropdown-item" data-bs-theme-value="light" aria-pressed="false">
+                <i class="bi bi-sun"></i> Light
+              </button>
+            </li>
+            <li>
+              <button type="button" class="dropdown-item" data-bs-theme-value="dark" aria-pressed="false">
+                <i class="bi bi-moon-stars-fill"></i> Dark
+              </button>
+            </li>
+            <li>
+              <button type="button" class="dropdown-item" data-bs-theme-value="auto" aria-pressed="true">
+                <i class="bi bi-circle-half"></i> Auto
+              </button>
+            </li>
+          </ul>
+        </li>
+
+      </ul>
+
+      <form id="search" class="d-flex" action="/search" method="get">
+        <input id="search-box" class="form-control search" role="search" name="q" placeholder="Search" aria-label="Search" results="0" type="text">
+        <button class="visually-hidden" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+  <div class="container">
+    <div class="text-muted fst-italic">
+      — Ben Sheldon's personal blog and <a href="/2012/04/A-Commonplace-Book.html">commonplace book</a>.
+    </div>
+  </div>
+</nav>
+
+
+  <div class="container container-body">
+    
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2010/8/Fondly-remembered-experiments-in-minimal-webdesign"><p>Fondly remembered experiments in minimal webdesign</p>
+</a>
+    </h1>
+    <p class="post-meta text-muted">
+        <time datetime="2010-08-31T00:00:00+00:00" itemprop="datePublished">August 31, 2010</time>
+
+        • Tagged lewitt, minimism, navigation, portfolio, taxonomy, and webdesign
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p><a href="/uploads/2010-08-31-Fondly-remembered-experiments-in-minimal-webdesign/pantextual-11.png"> <img src="/uploads/2010-08-31-Fondly-remembered-experiments-in-minimal-webdesign/pantextual-11-500x356.png" alt="" title="pantextual-1" /> </a>Tomorrow is launch day for a blog aggregator website I worked on, but because I can’t write about that <em>just yet</em> I thought I’d write about a website whose development has influenced a lot of my approach to minimal webdesign: <a href="http://pantextual.com">Pantextual.com</a></p>
+
+<p>(Few things ever die on the Internet, but Pantextual is definitely past its prime and has aged poorly as functions have been disabled to thwart spammers. Be that may…)</p>
+
+<p>Pantextual was a micro-blogging experiment developed by <a href="http://circuitous.org">Rebecca White</a> and me in 2006; before we were completely sure we wanted to blog <a href="http://twitter.com/pantextual">via text message</a>. As an experiment, our intent was more of exploration than refinement—and refining with Drupal 5RC would have taken all the fun out of it. Our about page read:</p>
+
+<blockquote>
+  <p>Sometimes even a little bit is too much.</p>
+
+  <p>But what if it was really beautiful, interesting and fun?</p>
+
+  <p>Then you might not notice all the other irritations of life so much.</p>
+
+  <p>Perhaps you might enjoy it.</p>
+</blockquote>
+
+<p>Our goal was to fit as much content into a square box as possible and yet still make it a pleasure to read and an invitation to explore.</p>
+
+<p><a href="/uploads/2010-08-31-Fondly-remembered-experiments-in-minimal-webdesign/pantextual-2.png"> <img src="/uploads/2010-08-31-Fondly-remembered-experiments-in-minimal-webdesign/pantextual-2-500x245.png" alt="" title="pantextual-2" /> </a></p>
+
+<p>There was the obvious: nice typography (and Rebecca is to thank for the lovely ligature in the logo); gracefully overflowing if the content wouldn’t fit (you never know); not overwhelming the reader with content, even if it’s brief; and being playful: short content tends to be pithy content and we wanted a functional design to match.</p>
+
+<p>The biggest problem by far was metadata. We wanted to stick with the standard conventions: date, author, categories, comments; we needed to find a place to put them and where we put them would determine if they were meaningful. Categories were the most fun to explore.</p>
+
+<p>On Pantexual, we put categories inline, creating a custom syntax for tagging words as categories within the content itself. We also only displayed those words <em>as</em> categories if there was more than 1 post with that category. As the website filled in, we would place other content related through the categories next to the post itself, inviting exploration.</p>
+
+<p>All in all, we did pretty good with a 400 pixel square box… maybe we should resuscitate it.</p>
+
+<p><a href="/uploads/2010-08-31-Fondly-remembered-experiments-in-minimal-webdesign/pantextual-31.png"> <img src="/uploads/2010-08-31-Fondly-remembered-experiments-in-minimal-webdesign/pantextual-31-500x190.png" alt="" title="pantextual-3" /> </a></p>
+
+  </div>
+</article>
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2010/8/P-NP-and-Panlexicon"><p>P, NP and Panlexicon</p>
+</a>
+    </h1>
+    <p class="post-meta text-muted">
+        <time datetime="2010-08-29T00:00:00+00:00" itemprop="datePublished">August 29, 2010</time>
+
+        • Tagged math and panlexicon
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>This week I updated <a href="http://panlexicon.com">Panlexicon</a>’s Word of the Day for Twitter’s new authentication API requirements, squeaking in just under the August 30 deadline. Panlexicon has been updated <a href="http://twitter.com/panlexicon">tweeting a unique word every day</a> for nearly a year and a half now.</p>
+
+<p>Also contemporary is <a href="http://rjlipton.wordpress.com/2010/08/08/a-proof-that-p-is-not-equal-to-np/">P ≠ NP</a> and generating Panlexicon’s daily tweet is an example of both Polynomial (P) and Non-Polynomial (NP) Time operations. Panlexicon’s uniqueness comes from exploration and discovery; when thinking about how to bring Panlexicon to Twitter, ensuring those values came through lead to an interesting computational problem.</p>
+
+<p>For every Word of the Day Panlexicon tweets, it also includes a number of related words. Any word of the day could have hundreds of related words, but the difficulty is in maximizing the number of related words to share in the tweet while still staying within Twitter’s 140 character limit. The more related words I can fit into the tweet, and the more diverse those words are, the more explorational it is and the more likely you will discover something interesting or fun by reading it.</p>
+
+<p>Generating Panlexicon’s Word of the Day Twitter message is an NP-type problem. There are millions of potential solutions that stay within the 140 character limit, but only a few of them are optimal: fitting as many related words into the tweet as possible, while still having a diverse distribution of words lengths. There is no easy way to figure out those optimal solutions without a lot of computational muscle. At the same time <em>checking</em> if the tweet as a whole is less than 140 characters is an N-type problem: it’s just a simple matter of counting up the characters.</p>
+
+<p>So that’s just one example of the mathematical problems Panlexicon faces. Of course, the algorithm I actually use to write Panlexicon’s Word of the Day on Twitter is by no means fully optimizing, but by keeping the broader computational context in mind, I can fake it reasonably well.</p>
+
+  </div>
+</article>
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2010/8/Social-Media-Strategy-and-the-Dodo-Bird-Effect"><p>Social Media Strategy and the Dodo Bird Effect</p>
+</a>
+    </h1>
+    <p class="post-meta text-muted">
+        <time datetime="2010-08-26T00:00:00+00:00" itemprop="datePublished">August 26, 2010</time>
+
+        • Tagged psychology, social media, and will-it-blend
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>This month’s <em>Harper’s Magazine</em> had an article on the smorgasbord of cognitive behavioral therapies: “The War on Unhappiness: Goodbye Freud, Hello Positive Thinking” by Gary Greenberg:</p>
+
+<blockquote>
+  <p>…all these paths lead to the mountaintop, a miracle known to my profession as the Dodo Bird Effect: psychologist Saul Rosenzweig’s discovery, in 1936, that therapeutic orientation doesn’t matter because all orientations work. (Rosenzweig subtitled his paper “Everyone Has Won and All Must Have Prizes,” the verdict pro- nounced by the dodo in Alice’s Adventures in Wonderland.) The Dodo Bird Effect has been borne out by numerous studies since, with one elaboration.</p>
+</blockquote>
+
+<p>Which made me think of <a href="http://www.comnetwork.org/resources/jargon_s.html#Strategy">strategy</a> advice from the website <a href="http://whatthefuckismysocialmediastrategy.com/">“What the Fuck is My Social Media ‘Strategy’?”</a>, with gems like:</p>
+
+<blockquote>
+  <p>Expose new users to the brand through organic conversations</p>
+</blockquote>
+
+<p>and</p>
+
+<blockquote>
+  <p>Harness social currency to drive buzz</p>
+</blockquote>
+
+<p>The commitment, communications and critical thought necessary to meaningfully adopt <em>any</em> strategy will help more than whatever is contained in the plan itself. That, and as the <em>Harper’s</em> article continues:</p>
+
+<blockquote>
+  <p>The single factory that makes a difference in outcome is faith: the patient must believe in the therapist, and the therapist must believe in the orientation. For therapy to work, both parties must have faith, sometimes against all reason, that their expedition will succeed.</p>
+</blockquote>
+
+  </div>
+</article>
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2010/8/Wealth-Parade"><p>Wealth Parade</p>
+</a>
+    </h1>
+    <p class="post-meta text-muted">
+        <time datetime="2010-08-10T00:00:00+00:00" itemprop="datePublished">August 10, 2010</time>
+
+        • Tagged language, metaphor, and wealth
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>From <em>The Number’s Game: the commonsense guide to understanding numbers in the news, in politics and life</em>, by Michael Blastland and Andrew Dilnot; on wealth and averages:</p>
+
+<blockquote>
+  <p>A Dutch economist, Jan Pen, famously imagined a procession of the worlds population where people were as tall as they were rich, everyone’s height proportional to their wealth (note wealth, not income). A person of average wealth would be of average height. The procession starts with the poorest (and shortest) person ﬁrst and ends, one hour later, with the richest (and tallest). Not until twenty minutes into the procession do we see anyone at all. So far, they’ve had either negative net worth (owing more than they own) or no wealth at all, and so have no height. It’s a full thirty minutes before we begin to see dwarfs about six inches tall. And the dwarfs keep coming. It is not until forty-eight minutes have passed that we see the first person of average height and average wealth, when more than three quarters of the world’s population has already gone by.</p>
+
+  <p>What delays the average so long after the majority have passed? The answer lies in the effect of those who come next. “In the last few minutes,” wrote Pen, “giants loom up… a lawyer, not exceptionally succesful, eighteen feet tall.” As the hour approaches, the very last people in the procession are so tall we can’t see their heads. Last of all, sid Pen (at a time before the fully formed fortunes of Bill Gates and Warren Buffett), we se John Paul Getty. His height is breathtaking, perhaps ten miles, perhaps twice as much.</p>
+
+  <p>One millionaire can shift the average more than many hundreds of poor people, one billionaire a thousand times more. They have not this effect to the extent that 80 percent of the world’s population has less than average.</p>
+
+  <p>In everyday speech, “average” is a word meaning low or disdained. With incomes, the average is high. The colloquial use, being blunt, thoughtless, and bordering on a term of abuse, distorts the statistical one, which might, according to the distribution, be high, or low, or in the middle, or altogether irrelevant. It is worth knowing which. If only one thought survives about averages, let it be that they are not necessarily anywhere near the middle, nor representative of what’s typical, and that places often called “the middle” by politicians or the media may be far removed. These ideas have been lazily hitched together for too long. It is time for a divorce.</p>
+</blockquote>
+
+<p>A more narrative explanation is available from <em><a href="http://www.theatlantic.com/magazine/archive/2006/09/the-height-of-inequality/5089/">The Atlantic</a>.</em></p>
+
+  </div>
+</article>
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2010/8/Art-I-hardly-knew-ye"><p>Art, I hardly knew ye</p>
+</a>
+    </h1>
+    <p class="post-meta text-muted">
+        <time datetime="2010-08-10T00:00:00+00:00" itemprop="datePublished">August 10, 2010</time>
+
+        • Tagged aesthetics, art, perception, and philosophy
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p><a href="/uploads/2010-08-10-Art-I-hardly-knew-ye/spiegelman.jpeg"> <img src="/uploads/2010-08-10-Art-I-hardly-knew-ye/spiegelman-500x453.jpg" alt="" title="Spiegelman" /> </a></p>
+
+<p><a href="http://en.wikipedia.org/wiki/Defamiliarization">Viktor Shlovsky</a> on art, via Art Spiegelman’s “Portrait of the Artist as a Young %@?*! “ in <em>The Best American Comics, 2009</em>:</p>
+
+<blockquote>
+  <p>The purpose of art is to impart the sensation of things as they are perceived and not as they are known. The technique of art is to make objects ‘unfamiliar,’ to make forms difficult to increase the difficulty and length of perception because the process of perception is an aesthetic end in itself and must be prolonged.</p>
+</blockquote>
+
+  </div>
+</article>
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2010/7/What-does-your-computer-symbolize"><p>What does your computer symbolize?</p>
+</a>
+    </h1>
+    <p class="post-meta text-muted">
+        <time datetime="2010-07-16T00:00:00+00:00" itemprop="datePublished">July 16, 2010</time>
+
+        • Tagged criticism, cyberutopia, history, and technology
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>The introduction to <a href="http://communication.stanford.edu/faculty/turner/">Fred Turner</a>’s <em>From Counterculture to Cyberculture</em>:</p>
+
+<blockquote>
+  <p>In the mid-1990s, as first the Internet and then the World Wide Web swung into public view, talk of revolution filled the air. Politics, economics, the nature of the self—all seemed to teeter on the edge of transformation. The Internet was about to “flatten organizations, globalize society, decentralize control, and help harmonize people,” as MIT’s Nicholas Negroponte put it. The stodgy men in gray flannel suits who had so confidently roamed the corridors of industry would shortly disappear, and so too would the chains of command on which their authority depended. In their place, wrote Negroponte and dozens of others, the Internet would bring about the rise of a new “digital generation”—playful, self-sufficient, psychologically whole—and it would see that generation gather, like the Net itself, into collaborative networks of independent peers. States too would melt away, their citizens lured back from archaic part-based politics to the “natural” agora of the digitized marketplace. Even the individual self, so long trapped in the human body, would finally be free to step outside its fleshy confines, explore its authentic interests, and find others with whom it might achieve communion. Ubiquitous networked computing had arrived, and in its shiny array of interlinked devices, pundits, scholars, and investors alike saw the image of an ideal society: decentralized, egalitarian, harmonious, and free.</p>
+
+  <p>But how did this happen? Only thirty years earlier, computers had been the tools and emblems of the same unfeeling industrial-era social machine whose collapse they now seemed ready to bring about. In the winter of 1964, for instance, students marching for free speech at the University of California at Berkeley feared that America’s political leaders were treating them as if they were bits of abstract data. One after another, they took up blank computer cards,punched them through with new patterns of holes—“FSM” and “STRIKE”—and hung them around their necks. One student even pinned a sign to his chest that parroted the cards user instructions, “I am a UC student. Please do not fold, bend, spindle or mutilate me.” For the marchers of the Free Speech Movement, as for many other Americans throughout the 1960s, computers loomed as technologies of dehumanization, of centralized bureaucracy and the rationalization of social life, and, ultimately, of the Vietnam War. Yet, in the 1990s, the same machines that had served as the defining devices of cold war technocracy emerged as the symbols of its transformation. Two decades after the end of the Vietnam War and the fading of the American counterculture, computers somehow seemed poised to bring to life the countercultural dream of empowered individualism, collaborative community,and spiritual communion. How did the cultural meaning of information technology shift so drastically.</p>
+
+  <p>As a number of journalists and historians have suggested, part of the answer is technological. By the 1990s, the room-sized, stand-alone calculating machines of the cold war era had largely disappeared. So too had the armored rooms in which they were housed and the army of technicians that supported them. Now Americans had taken up microcomputers, some the size of notebooks, all of them available to the individual user, regardless of his or her institutional standing. These new machines could perform a range of tasks that far exceeded even the complex calculations for which digital computers had first been built. They became communication devices and were used to prepare novels and spreadsheets, pictures and graphs. Linked over telephone wires and fiber-optic cables,they allowed their users to send messages to one another, to download reams of information from libraries around the world, and to publish their own thoughts on the World Wide Web. In all of these ways,changes in computer technology expanded the range of uses to which computers could be put and the types of social relations they were able to facilitate.</p>
+
+  <p>As dramatic as they were, however, these changes alone do not account for the particular utopian visions to which computers became attached. The fact that a computer can be put on a desktop, for instance, and that it cant be used by an individual, does not make it a “personal” technology. Nor does the fact that individuals can come together by means of computer networks necessarily require that their gatherings become “virtual communities.” On the contrary, as Shoshanna Zuboff has pointed out, in the office, desktop computers and computer networks can become powerful tools for integrating the individual ever more closely into the corporation. At home, those same machines not only allow schoolchildren to download citations from the public library, they also turn the living room into a digital shopping mall. For retailers, the computer in the home becomes an opportunity to harvest all sorts of information about potential customers. For all the utopian claims surrounding the emergence of the Internet, there is nothing about a computer or a computer network that <em>necessarily</em> requires that it level organizational structures, render the individual more psychologically whole, or drive the establishment of intimate, though geographically distributed, communities?</p>
+
+  <p>How was it, then, that computers and computer networks became linked to visions of peer-to-peer ad-hocracy, a leveled marketplace, and a more authentic self? Where did these visions come from? And who enlisted computing machines to represent them?</p>
+</blockquote>
+
+<p>If that hanging question doesn’t make you want to read the book, I don’t know what will.</p>
+
+<p>I just bought a copy of this book for a coworker. I used to frequently give out copies of Richard Bach’s <em>Illusions</em> to friends_, _ but this is a little heavier reading.</p>
+
+  </div>
+</article>
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2010/7/Zilch-for-a-nonprofit"><p>Zilch for a nonprofit</p>
+</a>
+    </h1>
+    <p class="post-meta text-muted">
+        <time datetime="2010-07-12T00:00:00+00:00" itemprop="datePublished">July 12, 2010</time>
+
+        • Tagged corporate, nmba, nonprofit, and zilch
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>Last week I was contacted through LinkedIn by a stranger asking for help in forming a nonprofit organization. I get these types of requests not infrequently—whether directly through this blog, <a href="http://www.linkedin.com/in/bensheldon">LinkedIn</a> or Aardvark—or on mailing lists like Mission Based Massachusetts. My response is usually “Why does your cause necessitate its own 501(c)3? Have you considered <a href="http://foundationcenter.org/getstarted/tutorials/fiscal/index.html">Fiscal Sponsorship</a>?”</p>
+
+<p>I subscribe to the belief that when you’re working within a formal organization, 50% of your time goes towards maintaining organizational function and only the remainder actually goes towards achieving your external mission. <strong>Bringing a mission to scale may require a formal organization eventually, but if you’re trying to **<a href="http://authentic.gilbert.org/2006/11/02/why-fail/">fail faster</a></strong>, is incorporation necessary now?**</p>
+
+<p>The nonprofit sector is already rich with existing organizations and platforms from which you can act. While I don’t share in the delusion that it’s <a href="http://www.island94.org/2006/10/nonprofit-competition-concept-map/">one big lovefest</a>, there are structures in place to incubate unincorporated projects, give tax-exempt status, and even provide administrative, finance, legal and payroll support. Sure, Fiscal Sponsorship usually carries with it an administration fee (shop around), but even at 20% it could be less than the opportunity cost of you doing all that yourself <em>while</em> trying to achieve your mission.</p>
+
+<p><strong>So that’s how the nonprofit sector lets you do more with less: you don’t even need your own nonprofit to participate.</strong></p>
+
+<p><em>This post is created in conjunction with other members of the <a href="http://www.allisonj.org/2009/10/13/nonprofit-millenial-bloggers/">Nonprofit Millennial Bloggers Alliance</a>__. Our posts this week (all with “Zilch” in the title), explore perspectives on how nonprofits can do more with less. Check out other members’ posts and get in on twitter conversations regarding these posts by using the hashtag <a href="http://twitter.com/#search?q=%23nmba">#NMBA</a>.</em></p>
+
+  </div>
+</article>
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2010/7/The-medium-is-the-method"><p>The medium is the method</p>
+</a>
+    </h1>
+    <p class="post-meta text-muted">
+        <time datetime="2010-07-11T00:00:00+00:00" itemprop="datePublished">July 11, 2010</time>
+
+        • Tagged design, forms, and paper
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>Jeff Hawkins, founder of Palm Computing, from <em><a href="http://www.designinginteractions.com/">Designing Interactions</a></em> by Bill Moggridge:</p>
+
+<blockquote>
+  <p>I think paper is just this wonderful medium; it’s been honed for a thousand years. It’s really great! To try to do what you do with paper, with just drawing—line width, sketching, and so on—it’s very hard to get a good experience. Where the tablet type of computer really shines is where you’re not trying to capture the paperness of paper, but you’re trying to get the electronic or the back end of it. Form filling is a great example, because actually forms are pretty hard to do on paper. You never have the right space, it’s hard to know where to put things, there’s not enough room for instructions. So, there’s an example where an electronic version of a paper equivalent would be better. But in terms of the general idea that I’m going to sketch, draw and have a free-flowing paperlike experience—I’m skeptical about that.</p>
+</blockquote>
+
+  </div>
+</article>
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2010/7/The-move-towards-empowerment"><p>The move towards empowerment</p>
+</a>
+    </h1>
+    <p class="post-meta text-muted">
+        <time datetime="2010-07-09T00:00:00+00:00" itemprop="datePublished">July 9, 2010</time>
+
+        • Tagged actualization, empowerment, feminism, history, maslow, neo-liberalism, and women
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>The New York Review of Books <a href="http://www.nybooks.com/articles/archives/2009/dec/17/growing-up-female/?pagination=false">on <em>When Everything Changed: The Amazing Journey of American Women from 1960 to the Present</em></a> by Gail Collins:</p>
+
+<blockquote>
+  <p>And then came Betty Friedan. Her book, Collins writes, hit in 1963 “like an earthquake.” The shameful, confusing malaise felt by many women after the war now had a legitimate source, and the source had a name: The Feminine Mystique. Friedan busted the myth of the happy housewife so thoroughly that it took decades before women who were happy housewives dared to say anything about it. Women, Friedan said, “were being duped into believing homemaking was their natural destiny.” The dueling desires of motherhood and selfhood were articulated at last, and the feminist movement turned from the clear-cut demands of suffragism and equal pay to the less-defined realm of empowerment.</p>
+</blockquote>
+
+<p>Accordingly, criticism of <a href="http://en.wikipedia.org/wiki/Third-wave_feminism">Third Wave Feminism</a> is quite similar to <a href="http://www.island94.org/2009/08/from-self-actualization-to-neo-liberalism/">that of self-actualization</a> (from Rushkoff’s <em>Life, Inc.</em>):</p>
+
+<blockquote>
+  <p>Instead of fueling people to do something about the world, as the Weathermen and Yippies had hoped, spirituality became a way of changing one’s own perspectives, one’s own experiences and one’s own self. By pushing through to the other side of personal liberation, the descendants of Reich once again found self-adjustment the surest path to happiness.</p>
+</blockquote>
+
+  </div>
+</article>
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2010/7/Colin-Rhinesmith"><p>Colin Rhinesmith</p>
+</a>
+    </h1>
+    <p class="post-meta text-muted">
+        <time datetime="2010-07-08T00:00:00+00:00" itemprop="datePublished">July 8, 2010</time>
+
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>Emerging leader. Mapping access photo.</p>
+
+  </div>
+</article>
+
+
+<hr>
+
+<div class="d-flex justify-content-between mb-5">
+    <a href="/posts/28" class="btn btn-outline-primary">Newer posts</a>
+    <a href="/posts/30" class="btn btn-outline-primary">Older posts</a>
+</div>
+
+  </div>
+
+</body>
+</html>

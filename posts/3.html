@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> | Island94.org</title>
+
+  <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="XnNKBxSieP81rEWgCHjf3YQlp3Eo523fFFUvH0mbnpqNWoFp_p-aj7a3FQauMXGQ4ZSF55zdt7Jiq2cwrF4YrQ" />
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Island94.org" href="https://island94.org/feed.xml">
+
+  <link rel="stylesheet" href="/assets/application-3c56ab95cf55e7f461f0ea9391c2b1391a5c64b74433224fe76ad58b7fa20c07.css" data-turbo-track="reload" />
+  <script src="/assets/main-57967bd29e3a27ba3099fee5997ee6ec8c59ef209085f949b6eac799b21915b0.js"></script>
+
+  <script>
+    let theme = localStorage.getItem('theme');
+    if (!["light", "dark"].includes(theme)) {
+      theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    document.documentElement.setAttribute('data-bs-theme', theme);
+  </script>
+
+      <meta name="robots" content="noindex, follow">
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light mb-2 flex-column">
+  <div class="container">
+    <a class="navbar-brand" href="/">Island94.org</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link " href="/about/">About</a></li>
+        <li class="nav-item"><a class="nav-link " href="/archives/">Archives</a></li>
+<!--        <li class="nav-item"><a class="nav-link " href="/books/">Books</a></li>-->
+        <li class="nav-item"><a class="nav-link " href="/tags/">Tags</a></li>
+        <li class="nav-item"><a class="nav-link" href="/feed.xml">RSS Feed <i class="bi bi-rss-fill"></i></a></li>
+
+        <li class="nav-item py-2 py-lg-1 col-12 col-lg-auto">
+          <div class="vr d-none d-lg-flex h-100 mx-lg-2 text-light-500"></div>
+          <hr class="d-lg-none my-0 text-light-500">
+        </li>
+
+        <li class="nav-item dropdown">
+          <button id="bs-theme" class="btn btn-link nav-link dropdown-toggle" type="button" aria-expanded="false" data-bs-toggle="dropdown"  aria-label="Theme (Auto)">
+            <i data-bs-theme-active-icon class="bi bi-circle-half"></i>
+            <span data-bs-theme-label>Theme</span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="bs-theme-text">
+            <li>
+              <button type="button" class="dropdown-item" data-bs-theme-value="light" aria-pressed="false">
+                <i class="bi bi-sun"></i> Light
+              </button>
+            </li>
+            <li>
+              <button type="button" class="dropdown-item" data-bs-theme-value="dark" aria-pressed="false">
+                <i class="bi bi-moon-stars-fill"></i> Dark
+              </button>
+            </li>
+            <li>
+              <button type="button" class="dropdown-item" data-bs-theme-value="auto" aria-pressed="true">
+                <i class="bi bi-circle-half"></i> Auto
+              </button>
+            </li>
+          </ul>
+        </li>
+
+      </ul>
+
+      <form id="search" class="d-flex" action="/search" method="get">
+        <input id="search-box" class="form-control search" role="search" name="q" placeholder="Search" aria-label="Search" results="0" type="text">
+        <button class="visually-hidden" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+  <div class="container">
+    <div class="text-muted fst-italic">
+      — Ben Sheldon's personal blog and <a href="/2012/04/A-Commonplace-Book.html">commonplace book</a>.
+    </div>
+  </div>
+</nav>
+
+
+  <div class="container container-body">
+    
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2024/1/trigger-github-actions-workflows-from-apple-shortcuts"><p>Trigger GitHub Actions workflows with inputs from Apple Shortcuts</p>
+</a>
+    </h1>
+    <p class="post-meta text-muted">
+        <time datetime="2024-01-08T15:18:00-08:00" itemprop="datePublished">January 8, 2024</time>
+
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>I’ve been using Apple Shortcuts to invoke GitHub Actions workflows to create webpage bookmarks. It’s been great! (disclosure: I do work at GitHub)</p>
+
+<p>My use case: I’ve been wanting to quit Pinboard.in, so I needed an alternative way to create and host my web bookmarks, some of which date back to ~2005 del.icio.us vintage. It’s been easy enough for me to export of all my bookmarks (<code>settings -&gt; backup -&gt; JSON</code>) and <a href="https://github.com/bensheldon/bookmarks/blob/bc85a68ea61844ad0b11b823bef355a1879b0462/script/import_pinboard.rb#L7-L20">convert them to YAML files</a> to be served by Jekyll and GitHub Pages. But I also needed an easy way to create new bookmarks that would work on all my Apple devices. I ended up with:</p>
+
+<ol>
+  <li>Bookmarks are organized as individual yaml files, in this <a href="https://github.com/bensheldon/island94-jekyll/tree/a524b8fce50bb315d1a1f1e9c27e572a7af31ccc/_bookmarks">blog’s repository</a>.</li>
+  <li>A <a href="https://github.com/bensheldon/island94-jekyll/blob/a524b8fce50bb315d1a1f1e9c27e572a7af31ccc/scripts/bookmark.rb">Ruby script</a> to take some simple inputs (url, title, notes), generate a new yaml file, and commit it to the repo using Octokit.</li>
+  <li>A GitHub Actions <a href="https://github.com/bensheldon/island94-jekyll/blob/a524b8fce50bb315d1a1f1e9c27e572a7af31ccc/.github/workflows/bookmark.yml#L3-L20">workflow that accepts those same inputs</a>  and can be manually triggered, that runs the script. One thing to note is that I echo the inputs to <code>$GITHUB_STEP_SUMMARY</code> early in the workflow in case a later step errors, so I won’t lose the bookmark details and can go back later and manually fix it up.</li>
+  <li>An Apple Shortcut that asks for those inputs (either implicitly via the Share Sheet or via text inputs) and then manually triggers the GitHub Actions workflow via the GitHub API.</li>
+</ol>
+
+<p>The only difficult part for me was getting Apple Shortcuts to work nicely with the GitHub REST API. Here’s what worked for me:</p>
+
+<p>Use <code>Get Contents of URL</code> Action:</p>
+
+<ul>
+  <li>URL: <code>https://api.github.com/repos/USER/REPOSITORY/actions/workflows/WORKFLOW.yml/dispatches</code></li>
+  <li>Method: <code>POST</code></li>
+  <li>Headers:
+    <ul>
+      <li><code>Accept: application/vnd.github.v3+jsonp</code></li>
+      <li><code>Authorization: Bearer GITHUB_ACCESS_TOKEN</code></li>
+    </ul>
+  </li>
+  <li>Request Body: <code>JSON</code>
+    <ul>
+      <li><code>ref: main</code> (or whatever branch you’re using)</li>
+      <li><code>inputs (Dictionary):</code>
+        <ul>
+          <li><code>INPUT: VALUE</code></li>
+          <li>… and your other GitHub Actions workflow inputs</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p>Here’s what it looks like all together (btw, <a href="https://www.reddit.com/r/shortcuts/comments/zlhva2/dictionaries_broken_in_162/">Dictionary-type inputs were broken in iOS 16 / Mac 13</a> 😨) :</p>
+
+<p><a href="/uploads/2024-01/apple-shortcut.png"><img src="/uploads/2024-01/apple-shortcut.png" alt="Screenshot of Apple Shortcut with the previous configuration" /></a></p>
+
+  </div>
+</article>
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2024/1/recently"><p>Recently, January 3, 2023</p>
+</a>
+    </h1>
+    <p class="post-meta text-muted">
+        <time datetime="2024-01-03T18:40:00-08:00" itemprop="datePublished">January 3, 2024</time>
+
+        • Tagged weeknotes
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <ul>
+  <li>I’ve now watched the Taylor Swift Eras movie twice, once at home, and a second time over the holidays with niece (completely) and nephew (partly). My most burning question is whether Taylor menaces the same dancer every show’s “Tolerate it”, or if they share rhetorical pain. My <a href="https://joe-steel.com/2023-11-28-Apple-Music-Replays-Broken-Record.html">Apple Music Replay</a> also ranked highly with Taylor Swift, though also apparently Andrew McMahon; unexpected.</li>
+  <li>I started playing Talos Principle 1 after beating 2, though it’s a lot more intense with guns and exploding things and so many timing-based puzzles. I’ve almost beaten it… but also took a break to play Super Mario Wonder which is much more fun fun (especially, again, with niece and nephew).</li>
+  <li>I finished reading “Babel”, started then stopped reading “Wolf Hall”, and am picking my way through “Less”. There’s several nonfiction books in there that I’ve read about chapter of, but nothing so memorable to note here. Prior to that I read “Translation State”, and realizing I didn’t remember half of what was happening, re-read the previous 4 Imperial Radch books, which only now makes me think I should read-read Translation State again for the clean sweep. And I guess I finished the latest Bruno book,  “A Chateau Under Siege”, and it was fine (there’s only so many times one can describe Kir Royale, and I think we’re past it).</li>
+  <li>I believe the Crumpler Soupansalad Son-o is the perfect jacket-and-book-and-water-bottle-and-also-half-gallon-of-milk-and-greek-yogurt bag. It also hasn’t been made in like 15 years so I bought another one on eBay (I attempted to do this via Poshmark 6 months ago but it failed to deliver). Now I own two: my longtime bag in brown, the new one in black.</li>
+  <li>After 7 years of service, I’ve stepped down from my church’s Property Committee. The buildings are being sold. As Boenhoeffer wrote, albeit about Germany’s embrace of fascism and not a congregational vote on the role of real-estate within a small church’s modest investment portfolio: “If you board the wrong train, it is no use running along the corridor in the other direction.”  I’m currently serving on zero committees anywhere; a special moment.</li>
+  <li>
+    <p>Reflecting on my past year at GitHub, I’ll just <a href="https://rachelandrew.co.uk/archives/2024/01/01/2023-in-review/">directly quote Rachel Andrew’s blog</a>; search and replace as necessary:</p>
+
+    <blockquote>
+      <p>The layoffs at Google at the beginning of 2023, didn’t impact me or my writing team directly, however they cast a shadow over the year. I try to look at difficult situations through a lens of what I can actually do to change things or improve the situation. At my level of management I’m not privy to layoff decisions, but I can be there to support my team and make space to talk about their concerns. I can strive to make sure our work and the impact of it is visible, and I can make sensible business decisions to make the most of resources in a more constrained environment. And so, after the initial shock of it all, that’s how I’ve approached this year.</p>
+    </blockquote>
+  </li>
+  <li>I’m slowly trending towards GoodJob v4.0. It’s looking like it will be a noop: a chance for me to clean up all of the migrations and deprecation warnings and probably stop support for Ruby &lt; 3.0, but nothing noticeable otherwise. I want to have everything ready for anyone to opt into <code>FOR UPDATE SKIP LOCK</code> from Advisory Locks, but as a <em>feature</em> that won’t be part of four-point-zero. We’ve managed to get to 3.22 (that’s 22 minor releases!) without a breaking change.</li>
+  <li>
+    <p>I’m not big on setting yearly goals, but I liked this <a href="https://www.askamanager.org/2024/01/coworker-made-it-obvious-she-didnt-want-the-gifts-i-gave-her-employees-husband-hangs-around-and-more.html">evergreen advice from Ask a Manager</a>, so I’m gonna continue aspiring to that:</p>
+
+    <blockquote>
+      <p>ideally you’d try to see it as a funny story you can tell friends rather than a hurtful snub that needs to bother you</p>
+    </blockquote>
+  </li>
+</ul>
+
+  </div>
+</article>
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2023/12/solid-queue-first-impressions"><p>Solid Queue first impressions: Nice!</p>
+</a>
+    </h1>
+    <p class="post-meta text-muted">
+        <time datetime="2023-12-19T08:24:00-08:00" itemprop="datePublished">December 19, 2023</time>
+
+        • Tagged Rails and GoodJob
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p><a href="https://github.com/basecamp/solid_queue">Solid Queue</a> was <a href="https://dev.37signals.com/introducing-solid-queue/">released yesterday</a>, a new relational-database backend for Active Job.</p>
+
+<p>I’m the author of <a href="https://github.com/bensheldon/good_job">GoodJob</a> and I’ve been <a href="https://island94.org/2023/10/reflections-on-good-job-for-solid-queue">following along</a> and am very interested and excited about Solid Queue. These are some things I noticed when first going through it.</p>
+
+<p><strong>tl;dr;</strong> It’s nice! I learned some things. It makes a few different choices than GoodJob and I’m very curious how they turn out (in a good way!).</p>
+
+<p>I admit, I didn’t run Solid Queue in production. I poked through the code, got the development environment set up (spent the majority of my time trying to get <code>mysql2</code> to compile, which is no surprise for me; <a href="https://github.blog/2022-08-25-introducing-trilogy-a-new-database-adapter-for-ruby-on-rails/">Trilogy is my day job</a>), ran the test suite and tried TDDing a new feature for it: <code>perform_all_later</code> support. These are just my notes, something to refer back to.</p>
+
+<p><strong>Lots of database tables:</strong> Solid Queue has many database tables. There is a “hot” table (my terminology) in which job records are queued/dequeued/locked from by all the workers, and then several other tables where job records are staged (e.g. they’re scheduled in the future, so don’t insert them into the hot table yet) or archived after they complete/error.  This seems smart because that hot table and its indexes stays compact and single purpose, which is good for performance. Compare that to GoodJob in which the jobs table has like 8 indexes to cover both queue/dequeue and Dashboard listings and everything else, which <em>does</em> slow down inserts and updates. I’ve had the impression with GoodJob that orchestrating across multiple tables would be more difficult (everything is tradeoffs!), so I’m very curious to see an alternative implementation in Solid Queue.</p>
+
+<p><em>Note: I wasn’t successfully able to implement <code>perform_all_later</code> in my 1 hour timebox because it was more complicated than an <code>insert_all</code> because of the necessity of writing to multiple tables.</em></p>
+
+<p><em>Aside: One of the very first comments I got when I launched GoodJob 3 years ago was like “your design assumptions are less than ideal” and then they never replied to any of my follow-ups. That sucked! This is not that. Nothing in Solid Queue is particularly concerning, just different (sometimes better!). Kudos to Rosa Gutiérrez and the Solid Queue developers; you’re doing great work! 💖</em></p>
+
+<p><strong>Again, lots of database tables:</strong> GoodJob is easy mode just targeting Postgres, because there are Advisory Locks and lots of Postgres-only niceties. I do not envy Solid Queue being multi-database, because it has to implement a bunch of stuff with a coarser toolbox. For example, there is a <code>semaphores</code> table, which is used for the Concurrency Controls feature (🎉). I think the “SOLID” libraries (also Solid Cache) are interesting because they have to implement behavior in a relational database that come for free in in-memory databases (example: TTL/record expiration/purging).</p>
+
+<p><strong>Puma Plugin:</strong> TIL. Looks nicer and more explicit than GoodJob trying to transparently detect it’s in the webserver to run asynchronously</p>
+
+<p><strong>Multiprocess.</strong> A nice surprise to me, Solid Queue has a multiprocess supervisor. It does seem like even the Puma plugin forks off another process though; that could have implications for memory constrained environments (e.g. Heroku dynos). I’m nearly 4 years into GoodJob and haven’t tackled multiprocess yet, so exciting to see this in Solid Queue’s first release.</p>
+
+<p><strong>Queue priority:</strong> Nice! I have <em>opinions</em> about how people set up their application’s queues, along the lines of: many people do it wrong, imo. Solid Queue looks like it provides a lot of good flexibility to let people easily migrate and configure their queues initially (though wrongly, by dependency, imo), but then reorient them more performantly (by latency, again imo). A single thread-pool/worker can pull from multiple queues.</p>
+
+<p><strong>Care</strong>. I notice lots of little things that are nice in Solid Queue. The code is clean. The indexes are named for their purpose/usage rather than just like <code>index_table_column_column</code>.  The Puma Plugin is nice. There are things in GoodJob that I dream about what a clean-room, lessons-learned reimplementation would look like, but it’s never top of my priorities, and some things are never going back in the stable (table names are basically forever). Reading the Solid Queue code was a vicarious-nice! experience.</p>
+
+<p><strong>Differences.</strong> Do they even matter? I dunno:</p>
+
+<ul>
+  <li>No Dashboard yet. Waiting on Mission Control. GoodJob definitely got more twisty as I learned all of the things of “you want a button to do what now with those jobs? …oh, I guess that makes sense. hmm.”</li>
+  <li>No LISTEN/NOTIFY (yet?). Seems possible, but would be Postgres only so maybe not. That means latency will never be less than the polling frequency, though an example shows <code>0.1</code> seconds which seems good to me.</li>
+  <li><del>No cron-like functionality. It took me a minute to <a href="https://github.com/bensheldon/good_job/issues/255">come around to the the necessity of this</a>, maybe Solid Queue will too.</del> 🤦 I missed this on first read through: “Unique jobs and recurring, cron-like tasks are coming very soon.” 🙌</li>
+</ul>
+
+<p><strong>Final thoughts:</strong> Path dependency is hard, so I don’t imagine lots of people should swap out their job backend just because there is something new (please, don’t let me ever read a “3 job backends in 4 years” blog post). New projects and applications will be more likely making these choices (and they shouldn’t be valueless choices, hence my excitement for Solid Queue becoming first party to Rails) and I’m really excited to see how Solid Queue grows up with them, and alongside other options like GoodJob and Sidekiq and Delayed et al.</p>
+
+  </div>
+</article>
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2023/12/recently"><p>Recently</p>
+</a>
+    </h1>
+    <p class="post-meta text-muted">
+        <time datetime="2023-12-10T07:44:00-08:00" itemprop="datePublished">December 10, 2023</time>
+
+        • Tagged recently and weeknotes
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <ul>
+  <li>One of my coworkers said this week “You’ve been an engineering director and in leadership before, right? I appreciate your perspective; any advice and resources you’d recommend?” So that set my mind racing. I dunno. On one hand, it’s like, well, first, you grind out 10 years of 1-year of experience 10 times, but do it <a href="https://transmissionproject.org/projects.html">50 times a year</a>.  On the other, <a href="https://medium.com/@livlab/dont-work-with-psychopaths-b1a848914455">keep a delta file</a> and I also think about <a href="https://www.goodreads.com/en/book/show/566213">Secrets of Consulting</a> quite a lot (content warning: I haven’t re-read it in a long time; I tried reading the same author’s <em>The Psychology of Computer Programming</em> more recently and couldn’t do it).</li>
+  <li>Work otherwise is in the final marathon of promo packets and performance reviews and quarterly planning and a reorg and oh, the next version of Ruby is released in 3 weeks and it’s go time. Then we do it all again. I love my team so much.</li>
+  <li>I finished reading <a href="https://www.goodreads.com/series/305076-the-final-architecture">The Final Architecture</a> series. I didn’t enjoy it as much as Children of Time (“the octopus books”). After reading all the Gateway books and 3-body problem books, I’m a bit over the idea that there’s a malicious (or at least self-interested) group of people who are unhappy with the current value of the Planck constant <em>and are doing something about it</em>. I was into the subplot of alien criminality.</li>
+  <li>
+    <p>I finished Talos Principle 2, but I screwed up the golden gates thing, so I have to beat it again just to get the special special ending. I’ve been playing it in parallel with a friend and appreciate our back and forth:</p>
+
+    <blockquote>
+      <p>Me: I’m personally more worried about environmental catastrophe than AI, but i guess they’re intertwined. Material conditions that are unfit for life. Like some of the talos robots seem to touch on my philosophical question which is like: how do we maximize individual agency+satisfaction while also avoiding collective/systemic fucking-around-and-finding-out.</p>
+
+      <p>Friend: we can see from the game the answer lies somewhere on the spectrum between having 1000 robits around a crumbling power source vs having a magic 3D printing pyramid for use to conquer the stars</p>
+    </blockquote>
+
+    <p>I also started playing Talos 1 and it’s much less chill than the 2nd game. I may not finish it.</p>
+  </li>
+  <li>For GoodJob, all of the things I want have been labeled <a href="https://github.com/bensheldon/good_job/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22">“Help Wanted”</a>. I do want to get the row-locking foundations in place myself, though I think the safe upgrade path for it might take a little while to straighten out. I think I have finally <a href="https://github.com/bensheldon/good_job/discussions/831#discussioncomment-7283545">mastered advisory locks</a>, so, of course, that means change it all up.</li>
+  <li>I ran <code>bundle update</code> on Day of the Shirt, which means I also upgraded to Shakapacker, which means that I have, once again, spent an entire weekend fumbling with Webpack configuration to get <code>window.$</code> working. I also got a nice email from the owner of a t-shirt website that validated my <a href="https://dayoftheshirt.com/news/state-of-the-shirt-2020">thesis</a> that no one visits websites anymore, let alone to buy t-shirts: the website owner got a (different) full-time job.</li>
+</ul>
+
+  </div>
+</article>
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2023/11/rails-executor-increasingly-everywhere"><p>The Rails Executor: increasingly everywhere</p>
+</a>
+    </h1>
+    <p class="post-meta text-muted">
+        <time datetime="2023-11-29T21:37:00-08:00" itemprop="datePublished">November 29, 2023</time>
+
+        • Tagged Rails and Ruby
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p><em>The Rails Executor rules everything around <del>you</del> your code.</em></p>
+
+<p>If you write multithreaded-Rails code—like me, author of <a href="https://github.com/bensheldon/good_job">GoodJob</a>—you’re probably familiar with the Rails Executor which is described in the <a href="https://guides.rubyonrails.org/v7.1/threading_and_code_execution.html">Rails Multithreading Guide</a>.</p>
+
+<p>If you’re new to the Rails Executor: it sets up and tears down a lot of Rails’ framework magic. Code wrapped with a Rails Executor or its sibling, the Reloader, pick up a lot of powerful behavior:</p>
+
+<ul>
+  <li>Constant autoloading and reloading</li>
+  <li>Database connection/connection-pool management and query retries</li>
+  <li>Query Cache</li>
+  <li>Query Logging</li>
+  <li>CurrentAttributes</li>
+  <li>Error reporting</li>
+</ul>
+
+<p>You usually won’t think about it. The Rails framework already wraps every Controller Action and Active Job with an Executor. Recently, as of Rails v7.1, it’s showing up everywhere within the Rails codebase:</p>
+
+<ul>
+  <li><a href="https://github.com/rails/rails/pull/44999">Rails runner scripts are now wrapped with an Executor</a></li>
+  <li><a href="https://github.com/rails/rails/pull/43550">Minitest test cases are now wrapped with an Executor</a> (I’m working on getting <a href="https://github.com/rspec/rspec-rails/issues/2713">parity in rspec-rails</a>). It has a nice little explanation why “This helps to better simulate request or job local state being reset around tests and prevent state to leak from one test to another.”</li>
+</ul>
+
+<p>The effect of these small changes could be surprising:</p>
+
+<ul>
+  <li>I came to write this blog post because I saw a Rails Discussion asking how <a href="https://discuss.rubyonrails.org/t/rails-7-1-uses-query-cache-for-runner-scripts/84275">“Rails 7.1 uses query cache for runner scripts”</a> and aha, I knew the answer: the Executor.</li>
+  <li>I recently <a href="https://github.com/bensheldon/good_job/pull/1124">fixed a bunch of flaky GoodJob unit tests</a> by wrapping each RSpec example in a Rails Executor. This is a problem specific to GoodJob, which uses connection-based Advisory Locks, but I discovered that if an Executor context was passed through (for example, executing an Active Job inline), the current database connection would be returned to the pool, sometimes breaking the Advisory Locks when a different connection was checked back out to continue the test. This was only a fluke of the tests, but was a longtime annoyance. I’ve previously had to <a href="https://github.com/bensheldon/good_job/blob/c6d3aa4906783498ed6296060666d350ac2e288c/lib/good_job/current_thread.rb#L6-L7">work around a similar reset of CurrentAttributes</a> that occurs too.</li>
+  <li>At my day job, GitHub, we’ve also been double-checking that all of our Rails-invoking scripts and daemons are wrapped with Rails Executors. Doing so has fixed flukey constant lookups, reduced our database connection error rate and increased successful query retries, and necessitated updating a bunch of tests that counted queries that now hit the query cache.</li>
+</ul>
+
+<p>The Rails Executor is great! Your code is probably already wrapped by the Rails framework, but anytime you start writing scripts or daemons that <code>require_relative "./config/environment.rb"</code> you should double-check, and <em>definitely</em> if you’re using <code>Thread.new</code>, <code>Concurrent::Future</code> or anything that runs in a background thread.</p>
+
+<p>I used the following code in GoodJob to debug that database connection checkout occurs in a Rails Executor, maybe you could adopt something similar too:</p>
+
+<div class="language-rb highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># config/initializers/debug_executors.rb</span>
+
+<span class="no">ActiveSupport</span><span class="p">.</span><span class="nf">on_load</span> <span class="ss">:active_record</span> <span class="k">do</span>
+  <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">ConnectionAdapters</span><span class="o">::</span><span class="no">AbstractAdapter</span><span class="p">.</span><span class="nf">set_callback</span> <span class="ss">:checkout</span><span class="p">,</span> <span class="ss">:before</span><span class="p">,</span> <span class="p">(</span><span class="nb">lambda</span> <span class="k">do</span> <span class="o">|</span><span class="n">conn</span><span class="o">|</span>
+    <span class="k">unless</span> <span class="no">ActiveSupport</span><span class="o">::</span><span class="no">Executor</span><span class="p">.</span><span class="nf">active?</span>
+      <span class="vg">$stdout</span><span class="p">.</span><span class="nf">puts</span> <span class="s2">"WARNING: Connection pool checkout occurred outside of a Rails Executor"</span>
+    <span class="k">end</span>
+  <span class="k">end</span><span class="p">)</span>
+<span class="k">end</span>
+
+</code></pre></div></div>
+
+<p>One last thing about Executors, you want to make sure that you’re <a href="https://guides.rubyonrails.org/v7.1/threading_and_code_execution.html#wrapping-application-code">wrapping individual units of work</a>, so the execution context has a chance to reset itself (check-in database connections, unload and reload code, etc.):</p>
+
+<div class="language-rb highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># scripts/do_all_the_things.rb</span>
+<span class="c1"># ...</span>
+
+<span class="c1"># bad</span>
+<span class="no">Rails</span><span class="p">.</span><span class="nf">application</span><span class="p">.</span><span class="nf">executor</span><span class="p">.</span><span class="nf">wrap</span> <span class="k">do</span>
+  <span class="kp">loop</span> <span class="p">{</span> <span class="no">MyModel</span><span class="p">.</span><span class="nf">do_something</span> <span class="p">}</span>
+<span class="k">end</span>
+
+<span class="c1"># good</span>
+<span class="kp">loop</span> <span class="k">do</span>
+  <span class="no">Rails</span><span class="p">.</span><span class="nf">application</span><span class="p">.</span><span class="nf">executor</span><span class="p">.</span><span class="nf">wrap</span> <span class="p">{</span> <span class="no">MyModel</span><span class="p">.</span><span class="nf">do_something</span> <span class="p">}</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p><strong>Update:</strong> I offered a <a href="https://github.com/rails/rails/pull/50223">Rails PR to make the script runner’s Executor conditional</a> because the introduction of an Executor around <code>bin/rails runner script.rb</code> could introduce problems if the script is long-running/looping/daemon-like; developers would still need to use an Executor, but to wrap individual units of work in their longrunning script.</p>
+
+  </div>
+</article>
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2023/10/reflections-on-good-job-for-solid-queue"><p>Reflections on GoodJob for Solid Queue</p>
+</a>
+    </h1>
+    <p class="post-meta text-muted">
+        <time datetime="2023-10-10T09:05:00-07:00" itemprop="datePublished">October 10, 2023</time>
+
+        • Tagged GoodJob and Ruby
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p><a href="/uploads/2023-10/rails_world_solid_queue.jpg"><img src="/uploads/2023-10/rails_world_solid_queue.jpg" alt="Rails World presents Solid Queue and Mission Control" /></a></p>
+
+<p><em>GoodJob, via its <a href="https://island94.org/2020/07/introducing-goodjob-1-0">introductory blog post</a>, was highlighted last week at Rails World. A new Active Job queue backend, <a href="https://rubygems.org/gems/solid_queue">Solid Queue</a>, was announced, and I’m excited to see where it goes!</em></p>
+
+<p>I attended Rails World in Amsterdam this past week. During the conference, a new Active Job backend was announced: Solid Queue (<a href="https://www.youtube.com/watch?v=iqXjGiQ_D-A&amp;t=3121s">video</a>), which has the potential to become first, first-party backend in Rails. Solid Queue, like my GoodJob, is backed by a relational database. I’m very excited about this! I had a chance to talk to Rosa Gutierrez, who is leading the effort at 37signals, and I’m hopeful that I’ll be able to contribute to Solid Queue and who knows, maybe it could even become a successor to GoodJob.</p>
+
+<p>With that thought in mind, I reflected on some of the design and motivations that became GoodJob, and that I believe are important regardless of the Active Job backend under development. These are not intended to be design documents but more a list of things that I have learned or come across during my 3 years working on GoodJob. It would be nice to keep these in mind when designing a potential successor to GoodJob. And I hope they can be the seed to further conversations, rather than a fully realized proposal or argument. Let’s go:</p>
+
+<ul>
+  <li><strong>SIGKILL Safety</strong>. Recovering from a SIGKILL (or someone unplugging the power cord) is always number one in my mind when thinking of GoodJob. That informed my desire to use Advisory Locks (which are automatically released on disconnect), and my future thinking about heartbeats if GoodJob switched over to using <code>FOR UPDATE SKIP LOCK</code> instead of Advisory Locks. I do not think jobs should be limited to a specific timeout (as Delayed Job’s design uses) as that also creates significant retry latency when resumed, and jobs definitely shouldn’t be wrapped with a transaction either.</li>
+  <li><strong>(Human) Exception and Retry Workflows</strong>. Everybody has a different workflow for how they deal with errors, and I believe that a backend needs to track, report (e.g. send to Sentry or Bugsnag) and expose the various reasons an error appears: retried, retry stopped, explicitly discarded, SIGKILLed/interrupted, unhandled error, etc. I still am dialing this in on GoodJob because there is wide variability of how people and teams manage their error workflows. I’m always learning something new. For example, there are very different answers on “when using <code>retry_on SpecialError, attempts: 3</code> should the 4th error be reported to the exception tracker? What about an explicit <code>discard_on</code>? Should a <code>discard_on</code> error be reviewed and reenqueued or not?” If a job is SIGKILLed/interrupted, should it be automatically restarted or held for manual review? Everyone seems to do it differently! I haven’t cracked the code on what is “ideal” or reasonable to say “nope, don’t do it <em>that</em> way.” Active Job’s error handling isn’t clear cut either, so maybe we can make that better and come around to a more opinionated (but still inclusive) design. Maybe!</li>
+  <li><strong>Process Harnesses</strong>. I think it’s interesting that Rails might ship with a 1st party queue backend before it ships with a 1st party webserver: there is a lot of operational overlap. Signal handling, timeouts, daemonization, liveness and healthcheck probes, monitoring and scaling instrumentation. There’s quite a lot of ground to cover, and a lot different systems and tooling: Kubernetes,  systemd, rc.d, Heroku, Judoscale, to name just a few of the various operational targets that I’ve spent considerable time supporting.</li>
+  <li><strong>Repeating Jobs / Clock Process</strong>. It took me <a href="https://github.com/bensheldon/good_job/issues/255">a while to come around to this</a> in GoodJob, but I believe that performing work <em>repetitively on a schedule</em> (“cron-like”) is very much in the same problem-domain as background jobs. There’s lots of different ways to design it that I don’t feel strongly about, for example GoodJob minimizes autoloading by keeping schedules separate from job classes, but I do think it is necessary to plan for scheduled jobs in a well-architected Rails application.</li>
+  <li><strong>Unique Jobs, Throttles, Fuses and other Concurrency Controls</strong>,. Similarly to Repeating Jobs, demand is high for everything I’d bucket under “concurrency controls”, which I’ll say covers both enqueue and dequeue complexity. And these features are tough because they sit in counterbalance to overall performance: do you want to run jobs faster or smarter? And these are the features that I think are legit because there are other features below under Queue Design that I think are bunk. There’s a lot of discernment to do!</li>
+  <li><strong>Queue design and multi-queue execution pools</strong>. I do think queue design is a place where lots of people do it wrong. I believe queues should be organized by maximum total latency SLO (<code>latency_15s</code>, <code>latency_15m</code> , <code>latency_8h</code>) and <em>not</em> by their purpose or dependencies  (<code>mailers</code>, <code>billing</code>, <code>api</code>). <a href="https://www.railsspeed.com/">Nate Berkopec believes similarly.</a> And I think that informs that <strong>execution pools (e.g. thread pools) should be able to work from multiple queues and have independent concurrency configuration (e.g. number of threads)</strong>, both to ease transition from the latter to the former, but also because it allows sharing resources as optimally as possible (having 3 separate pools that pull from <code>"latency_15s"</code>, <code>"latency_15m, latency_15s"</code>, and <code>"latency_8h,*"</code> in GoodJob’s syntax). I personally think concepts like priority or ordered-queues lead to bad queue design, so I wouldn’t sweat that. Any ordering regime more complex than first-in-first-out (FIFO) prioritizes capacity (or lack thereof) over latency. This might sound strange coming from me who champions running workloads in the webbrowser on tiny dynos, but it’s different in my mind: I don’t think it’s possible to meet a latency target through prioritization when there is a fundamental lack of capacity.</li>
+  <li><strong>Labels</strong>. Per the previous point, though I have yet to implement this in GoodJob (soon!), I think that giving developers the option to label their jobs might break their bad habit of using queue names as functional labels, instead of what I believe queues should be appropriately used for: latency and quality-of-service thresholds. I mention it here just in case that informs Solid Queue’s design.</li>
+  <li><strong>Observability</strong>. GoodJob maintains a lot of bookkeeping, keeping job and granular execution data around after execution so it can be inspected. People seem to like that, and it’s necessary to keep them around for calculating accurate latency metrics, though it all is a trade-off against performance. It makes for a fun Web Dashboard too.</li>
+  <li><strong>Performance Envelope.</strong> I dunno, I mention this just because I think people spend an inordinate amount of time comparing queue backend performance and asking “do the jobs go brrrrr?” GoodJob targets the small and medium end of projects (though some big ones use it too) and prioritizes operational simplicity over performance. That works for me (and a lot of others!) but also isn’t really reflective of the scale of companies leading Rails development. There’s a tension here.</li>
+  <li><strong>Making better mistakes tomorrow</strong>. I’m really proud of having a reputation for being helpful and responsive and curious in the GoodJob issue queue and discussions and various support Slacks (like <a href="https://www.rubyonrails.link">Rails Link</a>). I think there is a lot to the queue backend domain that won’t be learned by upfront analysis, and that can’t be easily bucketed into either “the library is doing it wrong” or “the developer is doing it wrong” There’s a lot of variation! (not to mention across JRuby,etc. and various database versions). I’m able to do things with GoodJob that I think is unlikely on a 1st party Rails queue backend (like cutting a new release after every patch and fix), and I’m able to stay oriented to the people and the problem they’re trying to solve over the technological solution itself. I hope all that can be preserved as these things move upstream.</li>
+</ul>
+
+<p>That’s it! I’m probably forgetting stuff, so I’ll reserve the right to keep adding to this list. I’d love to keep talking about this and hope that Solid Queue will be fantastic!</p>
+
+<p><em>Oh, and Solid Queue isn’t released yet, so if this seems compelling, <a href="https://github.com/bensheldon/good_job">use GoodJob</a> in the meantime.</em></p>
+
+  </div>
+</article>
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2023/10/writing-object-shape-friendly-code-in-ruby"><p>Writing Object Shape friendly code in Ruby</p>
+</a>
+    </h1>
+    <p class="post-meta text-muted">
+        <time datetime="2023-10-01T08:05:00-07:00" itemprop="datePublished">October 1, 2023</time>
+
+        • Tagged Ruby
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p><strong>Update:</strong> Jean Boussier wrote a <a href="https://railsatscale.com/2023-10-24-memoization-pattern-and-object-shapes/">deeper explaination of how Ruby Object Shapes are implemented</a> (and more up-to-date for Ruby 3.3, unreleased as of October 23, 2023) and when and how to optimize for them.</p>
+
+<blockquote>
+  <p>My rule of thumb is that one or two memoized variables in a class are fine, but more than that likely deserve a quick refactor.</p>
+</blockquote>
+
+<p>My original post is below…</p>
+
+<p>Ruby 3.2 includes a performance optimization called Object Shapes, that changes how the Ruby VM stores, looks up, and caches instances variables (the variables that look like <code>@ivar</code>) . YJIT also takes advantage of Object Shapes, and the upcoming Ruby 3.3 has further improvements that improve the performance of Object Shapes.</p>
+
+<p>This is a brief blog post about how to write your own Ruby application code that is optimized for Object Shapes. If instead you’d like to learn more about how Object Shapes is implemented in Ruby, watch <a href="https://www.youtube.com/watch?v=R0oxlyVUpDw">Aaron Patterson’s RubyConf 2022 video</a> or read this <a href="https://poddarayush.com/posts/object-shapes-improve-ruby-code-performance/">explanation from Ayush Poddar</a> .</p>
+
+<p><em>Big thank you to my colleagues John Hawthorn and Matthew Draper for feedback on the coding strategies described here. And John Bachir, Nate Matykiewicz, Josh Nichols, and Jean Boussier whose conversation in <a href="https://www.speedshop.co/rails-performance-workshop.html">Rails Performance Slack</a> inspired it.</em></p>
+
+<h3 id="the-general-rule-define-your-instance-variables-in-the-same-order-every-time">The general rule: define your instance variables in the same order every time</h3>
+
+<p>To take advantage of Object Shape optimizations in your own Ruby Code, the goal is to minimize the number of different shapes of objects that are created and minimize the number of object shape transitions that occur while your application is running:</p>
+
+<ul>
+  <li>Ensure that instances of the same class share the same object shape</li>
+  <li>Ensure that objects do not frequently or unnecessarily transition or change their shape</li>
+  <li>Help objects that <em>could</em> share the same object shape (e.g. substitutable child classes) to do so, with reasonable effort and without compromising readability and maintainability.</li>
+</ul>
+
+<p>This succinct explanation is from <a href="https://poddarayush.com/posts/object-shapes-improve-ruby-code-performance/">Ayush Poddar</a>, and explains the conditions that allow objects to share a shape:</p>
+
+<blockquote>
+  <p>New objects with the same [instance variable] transitions will end up with the same shape. This is independent of the class of the object. This also includes the child classes since they, too, can re-use the shape transitions of the parent class. But, <strong>two objects can share the same shape only if the order in which their instance variables are set is the same.</strong></p>
+</blockquote>
+
+<p>That’s it, that’s what you have to do: if you want to ensure that two objects share the same shape, make sure they define their instance variables in the same order. Let’s start with a counterexample:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Bad: Object Shape unfriendly</span>
+<span class="k">class</span> <span class="nc">GroceryStore</span>
+  <span class="k">def</span> <span class="nf">fruit</span>
+    <span class="vi">@fruit</span> <span class="o">=</span> <span class="s2">"apple"</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">vegetable</span>
+    <span class="vi">@vegetable</span> <span class="o">=</span> <span class="s2">"broccoli"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="c1"># The "Application"</span>
+<span class="n">alpha_store</span> <span class="o">=</span> <span class="no">GroceryStore</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">alpha_store</span><span class="p">.</span><span class="nf">fruit</span> <span class="c1"># defines @fruit first</span>
+<span class="n">alpha_store</span><span class="p">.</span><span class="nf">vegetable</span> <span class="c1"># defines @vegetable second</span>
+
+<span class="n">beta_store</span> <span class="o">=</span> <span class="no">GroceryStore</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">beta_store</span><span class="p">.</span><span class="nf">vegetable</span> <span class="c1"># defines @vegetable first</span>
+<span class="n">beta_store</span><span class="p">.</span><span class="nf">fruit</span> <span class="c1"># defines #fruit second </span>
+</code></pre></div></div>
+
+<p>In this example, <code>alpha_store</code> and <code>beta_store</code> do not share the same object shape because the order in which their instance variables are defined depends on the order the application calls their methods. This code is not Object Shape friendly.</p>
+
+<h3 id="pattern-define-your-instance-variables-in-initialize">Pattern: Define your instance variables in initialize</h3>
+
+<p>The simplest way to ensure instance variables are defined in the same order every time is to define the instance variables in <code>#initialize</code>:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Good: Object Shape friendly</span>
+<span class="k">class</span> <span class="nc">GroceryStore</span>
+  <span class="k">def</span> <span class="nf">initialize</span>
+    <span class="vi">@fruit</span> <span class="o">=</span> <span class="s2">"apple"</span>
+    <span class="vi">@vegetable</span> <span class="o">=</span> <span class="kp">nil</span> <span class="c1"># declare but assign later</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">fruit</span>
+    <span class="vi">@fruit</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">vegetable</span>
+    <span class="vi">@vegetable</span> <span class="o">||=</span>  <span class="s2">"broccoli"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p><del>It’s also ok to define instance variables implicitly with <code>attr_*</code> methods in the class body, which has the same outcome of always defining the instance variables in the same order.</del> <strong>Update</strong>: Ufuk Kayserilioglu informed me that <code>attr_*</code> do not define the instance variable until they are first called, meaning that these methods or their associated instance variables should also be declared with a value in <code>#initialize</code>.</p>
+
+<p>Now I realize this is a very simplistic example, but that’s really all there is to it. If it makes you feel better, at GitHub where I work, we have classes with upwards of 200 instance variables. In hot code, where we have profiled, we go to a negligible effort of making sure those instance variables are defined in the same order; it’s really not that bad!</p>
+
+<h3 id="pattern-null-memoization">Pattern: Null memoization</h3>
+
+<p>Using instance variables to memoize values in your code may present a challenge when nil is a valid memoized value. This is a common pattern in Ruby that is not Object Shape friendly:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Bad: Object Shape unfriendly</span>
+<span class="k">class</span> <span class="nc">GroceryStore</span>
+  <span class="k">def</span> <span class="nf">fruit</span>
+    <span class="k">return</span> <span class="vi">@fruit</span> <span class="k">if</span> <span class="k">defined?</span><span class="p">(</span><span class="vi">@fruit</span><span class="p">)</span>
+    <span class="vi">@fruit</span> <span class="o">=</span> <span class="n">an_expensive_operation</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>Rewrite this by creating a unique <code>NULL</code> constant and check for its presence instead:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Good: Object Shape friendly</span>
+<span class="k">class</span> <span class="nc">GroceryStore</span>
+  <span class="no">NULL</span> <span class="o">=</span> <span class="no">Object</span><span class="p">.</span><span class="nf">new</span>
+  <span class="no">NULL</span><span class="p">.</span><span class="nf">freeze</span> <span class="c1"># not strictly necessary, but makes it Ractor-safe</span>
+
+  <span class="k">def</span> <span class="nf">initialize</span>
+    <span class="vi">@fruit</span> <span class="o">=</span> <span class="no">NULL</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">fruit</span>
+    <span class="k">return</span> <span class="vi">@fruit</span> <span class="k">unless</span> <span class="vi">@fruit</span> <span class="o">==</span> <span class="no">NULL</span>
+    <span class="vi">@fruit</span> <span class="o">=</span> <span class="n">an_expensive_operation</span> 
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>Alternatively, if you’re doing a lot of meta or variable programming and you need an arbitrary number of memoized values, use a hash and key check instead:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Good: Object Shape friendly</span>
+<span class="k">class</span> <span class="nc">GroceryStore</span>
+  <span class="k">def</span> <span class="nf">initialize</span>
+    <span class="vi">@produce</span> <span class="o">=</span> <span class="p">{}</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">produce</span><span class="p">(</span><span class="n">type</span><span class="p">)</span>
+    <span class="k">return</span> <span class="vi">@produce</span><span class="p">[</span><span class="n">type</span><span class="p">]</span> <span class="k">if</span> <span class="vi">@produce</span><span class="p">.</span><span class="nf">key?</span><span class="p">(</span><span class="n">type</span><span class="p">)</span>
+    <span class="vi">@produce</span><span class="p">[</span><span class="n">type</span><span class="p">]</span> <span class="o">=</span> <span class="n">an_expensive_operation</span><span class="p">(</span><span class="n">type</span><span class="p">)</span> 
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<h3 id="thats-it">That’s it</h3>
+
+<p>Creating Object Shape friendly code is not very complicated!</p>
+
+<p>Please reach out if there’s other patterns I’m missing: bensheldon@gmail.com / <a href="https://twitter.com/bensheldon">twitter.com/@bensheldon</a> / <a href="https://ruby.social/@bensheldon">ruby.social/@bensheldon</a></p>
+
+  </div>
+</article>
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2023/9/in-defense-of-consensus"><p>In defense of consensus</p>
+</a>
+    </h1>
+    <p class="post-meta text-muted">
+        <time datetime="2023-09-17T19:30:00-07:00" itemprop="datePublished">September 17, 2023</time>
+
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>There’s a style of reactionary meme that takes a photo of like, empty store-shelves or a trash-strewn street, and applies the image macro “This is what Communism looks like”. But upon closer inspection (and social media lampooning), it’s a photo of America, capitalist America, very much not under communism. We’ll come back to this.</p>
+
+<p>Let’s talk about “consensus”. Not a week goes by in my Bay Area tech worklife where I don’t read or hear someone dragging consensus. Consensus is pilloried: weak, indecisive, lowest-common denominator, unclear, drawn out… consensus is bad, they say.</p>
+
+<p>Working in tech for a decade, I have to admit this struck me as strange the first time I heard a coworker complain about that bogeyman “consensus”. I’ve been a facilitator of consensus-based practice for <a href="https://island94.org/2010/04/I-am-now-a-Technology-of-Participation-facilitator-.html">13 years</a>. These practices, taught to me through the <a href="https://www.ica-usa.org">Institute for Cultural Affair’s ToP (“Technology of Participation”)</a> series, served me well when I was doing nonprofit and community work, serving on boards and facilitating offsites. And consensus-based practices have served me well in tech and business too: using its methods to do discovery, lead meetings, get feedback, and drive decision-making and action. I do strategic planning consultation too.</p>
+
+<p>The consensus-based practices I’ve learned take a group through a process: beginning with a prompt or need, then collecting facts and inputs, understanding people’s reactions to them, their interpretations and implications, and ultimately describing a series of actions and commitments to take. This can be a simple conversation, or a multi-day event that builds fractally on itself: a preceding session’s final actions could be deciding on what will be the following session’s initial inputs. When I’m working with leaders to design the process, we’ll discuss what responsibilities we want to delegate to the group, and what decisions will be retained among leadership. Leadership remains <em>accountable</em>, in the sense that there is a legible decision-making process, which is a strong benefit of deliberative practice. That’s “consensus”.</p>
+
+<p>Alternatively, the Bay Area tech process, not “consensus”, oh no, seems to follow these recipes:</p>
+
+<ul>
+  <li>Plan and socialize</li>
+  <li>Disagree and commit</li>
+</ul>
+
+<p>I was introduced to “plan and socialize” in my second tech job, being mentored by the Director of Engineering. To “socialize” is more than informing people, it’s having conversations and helping them understand how a plan or proposal will affect their work, and getting feedback that might lead to adjustments or compensatory actions. It’s also somewhat vague: asking people to leave comments in a google doc, attend an office hours, or a loosely moderated feedback session. Decisions, once made, are also socialized: explained, defended, adjusted, or white-knuckled through.</p>
+
+<p>Depending on their power level, leaders may then ask people to “disagree and commit” meaning that the (negative) feedback has been heard but those underlings must commit to carrying the plan out regardless. Suck it up, professionally, so to speak. Sometimes this is used as performance feedback: “I’m aware you’ve been sharing your dislike of the plan with coworkers. That lack of trust is undermining the business. I need you to disagree and commit”… and keep your thoughts to yourself.</p>
+
+<p>Under the spotlight, these approaches look less like bold and steely decision-making, and more like mumbly plan shifting backed by blusterful threats. Like the “this is what communism looks like”-meme, the scary-othered threat is not “consensus” but simply the current reality: confused, inadequate, probationary, triangulating, embarrassing, shameful.</p>
+
+<p>There’s a joke in civic tech: government tech projects may say they can’t do incremental development, but that’s exactly what happens after their big-bang waterfall launch crashes-and-burns and they end up having to fix it one piece at a time. Clay Shirky captures it in <a href="https://www.politico.com/magazine/story/2013/11/the-willful-ignorance-that-doomed-healthcaregov-100290/">“How Willful Ignorance Doomed HealthCare.gov”</a>:</p>
+
+<blockquote>
+  <p>It is hard for policy people to imagine that HealthCare.gov could have had a phased rollout, <em>even while it is having one</em>. At launch, on Oct. 1, only a tiny fraction of potential users could actually try the service. They generated errors. Those errors were handed to a team whose job was to improve the site, already public but only partially working. The resulting improvements are incremental and put in place over a period of months. That <em>is</em> a phased rollout, just one conducted in the worst possible way.</p>
+</blockquote>
+
+<p>Bay Area tech has the same relationship to decisions and consensus: by “socializing” plans and decisions, leaders are trying to craft a deliberativeu process for information sharing, feedback gathering, and alignment building. They’re simply doing it <em>after</em> they’ve already written and decided on an insufficient course of action and are grasping for a fix. Ultimately they are reaching for consensus, just consensus conducted in the worst possible way.</p>
+
+<p>Please think of this the next time you hear (or say) something bad about consensus. Consensus is pretty great, and even better when used from the start.</p>
+
+<p><em>The Institute for Cultural Affairs has <a href="https://www.top-training.net/w/schedule/">lots of trainings</a>  on consensus-based facilitation. The <a href="https://strategicfacilitation.com">Center for Strategic Facilitation</a> is the Bay Area’s local trainer and service provider, but there are trainers and service providers all over the globe.</em></p>
+
+<p><em>There is a system known as <a href="https://en.wikipedia.org/wiki/Formal_consensus">“Formal Consensus”</a> which gained some notability during the <a href="https://en.wikipedia.org/wiki/1999_Seattle_WTO_protests">1999 “Battle of Seattle” WTO protests</a> as a means of empowering small groups, particularly indigenous representatives, by providing a limited and fixed number of “blocks” during deliberations to stop actions proposed by far larger groups. Also how my buddy organized <a href="https://github.com/freegeekchicago/fgc-docs/blob/4dc37cbb76eaf766274f30fcb1f9df9d5bc199df/constitution.md#governance">FreeGeek Chicago</a>. I have <strong>never</strong> heard anyone in Bay Area tech reference any of this in regards to what they mean by consensus.</em></p>
+
+  </div>
+</article>
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2023/8/fake-the-algorithm-til-you-make-it"><p>Fake the algorithm til you make it</p>
+</a>
+    </h1>
+    <p class="post-meta text-muted">
+        <time datetime="2023-08-30T15:50:00-07:00" itemprop="datePublished">August 30, 2023</time>
+
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>Almost exactly a decade ago I worked at OkCupid Labs where small teams (~2 engineers, a designer, and a fractional PM) would build zero-to-one applications. It was great fun and I worked mainly on <a href="https://island94.org/2013/07/Meet-Ravel.html">Ravel!</a> though bopped around quite a bit too.</p>
+
+<p>With small teams and quick timelines, I learned a lot about where to invest time in early social apps (onboarding and core loop) and where not to (matchmaking algorithms). The following is lightly adapted from a bunch of comments I wrote on an r/webdev post a few years ago, asking for <a href="https://www.reddit.com/r/webdev/comments/pey1p7/comment/%2Chb4gik2%2C/">“Surprisingly simple web apps?”</a>. My response was <a href="https://www.reddit.com/r/webdev/comments/pey1p7/comment/hb4gpxy/?utm_source=reddit&amp;utm_medium=web2x&amp;context=3">described</a> as “one of the more interesting things I’ve read on reddit in 5 years”:</p>
+
+<p>If you’re looking for inspiration, what is successful today is likely more complex than it was when it was originally launched. Twitter, Tinder, Facebook all likely launched with simple CRUD and associations, and only later did they get fancy algorithms. Also, Nextdoor, Grindr, Yelp [this was 2013].</p>
+
+<p>I used to work on social and dating apps and it is all “fake it till you make it”. The “secret sauce” is bucket by distance intervals, then order by random using the user-id as a seed so it’s determinist, but still just random sort. Smoke and mirrors and marketing bluster.</p>
+
+<p>You see this “Secret Sauce” marketing a lot. An app will imply that they have some secret, complex algorithm that no other competitor has. The software equivalent of “you can get a hamburger from anywhere, but ours has our secret sauce that makes it taste best”. But that can be bluster and market positioning rather than actually complexity. In truth, it’s secretly mayo, ketchup and relish. Or as I’ve encountered building apps, deterministic random.</p>
+
+<p>Imagine you have a dating/social app and you want to have a match-making algorithm. You tell your users that you have the only astrologist datascience team building complex machine-learning models that can map every astronomical body in the known universe to individual personality traits and precisely calculate true love to the 9th decimal.</p>
+
+<p>In truth, you:</p>
+
+<ul>
+  <li>For the current user, bucket other users by distance: a bucket of users that are less than 5km away; less than 25km; less than 100km; and everyone else. Early social app stuff is hard because you have a small userbase but you need to appear to be really popular, so you may need to adjust those numbers; also a reason to launch in a focused market.</li>
+  <li>Within each distance bucket, simply sort the users by random, seeded by the user id of the current user (Postgres <code>setseed</code>). That way the other people will always appear in the same order to the current user.</li>
+</ul>
+
+<p>It works on people’s confirmation bias: if you confidently tell someone that they are a match, they are likely to generate their own evidence to support that impression. You don’t even have to do the location bucketing either, but likely you want to give people something that is actionable for your core loop.</p>
+
+<p>And remember, this is really about priorities in the early life of a product. It’s not difficult to do something complex, but it takes time and engaged users to dial it in; so that’s why you don’t launch with a real algorithm.</p>
+
+<p>This is all really easy to do with just a relational database <em>in the database</em>, no in-memory descent models or whatever. Here’s a simple recommendation strategy for t-shirts (from my <a href="https://dayoftheshirt.com">Day of the Shirt</a>), in SQL for Ruby on Rails:</p>
+
+<p>For a given user, find all of the t-shirts they have favorited, then find all of the users that have also favorited those t-shirts and strength them based on who has favorited the most t-shirts in common with the initial user, and then find all of the t-shirts those users have favorited, multiply through the counts and strengths, sum and order them. There’s your recommended t-shirts:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Shirts</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="c1"># ...</span>
+  <span class="n">scope</span> <span class="ss">:order_by_recommended</span><span class="p">,</span> <span class="nb">lambda</span> <span class="p">{</span> <span class="o">|</span><span class="n">user</span><span class="o">|</span>
+    <span class="n">joins</span><span class="p">(</span><span class="o">&lt;&lt;~</span><span class="no">SQL</span><span class="p">.</span><span class="nf">squish</span><span class="p">).</span><span class="nf">order</span><span class="p">(</span><span class="s1">'strength DESC NULLS LAST'</span><span class="p">)</span><span class="sh">
+      LEFT JOIN (
+        WITH recommended_users AS (
+          SELECT user_id, count(*) AS strength
+          FROM favorite_shirts_users
+          WHERE
+            shirt_id IN (
+              SELECT shirt_id
+              FROM favorite_shirts_users
+              WHERE </span><span class="si">#{</span><span class="n">sanitize_sql_for_conditions</span><span class="p">([</span><span class="s1">'user_id = ?'</span><span class="p">,</span> <span class="n">user</span><span class="p">.</span><span class="nf">id</span><span class="p">])</span><span class="si">}</span><span class="sh">
+            )
+          GROUP BY user_id
+        )
+        SELECT shirt_id, SUM(strength) AS strength
+        FROM favorite_shirts_users
+        LEFT JOIN recommended_users ON recommended_users.user_id = favorite_shirts_users.user_id
+        GROUP BY shirt_id
+      ) AS recommended_shirts ON recommended_shirts.shirt_id = shirts.id
+</span><span class="no">    SQL</span>
+  <span class="p">}</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>That’s a relatively lightweight strategy, that you can run in real-time and if there is enough engagement can appear effective. And if you don’t have enough engagement, again, enrich it with some deterministically random results.</p>
+
+<p>It’s basic but you can also add in other kinds of engagement and weigh them differently or whatever. It’s all good. Then you have massive success and hire a real datascience team.</p>
+
+
+  </div>
+</article>
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2023/8/appropriately-using-rubys-thread-handle_interrupt"><p>Appropriately using Ruby’s Thread.handle_interrupt</p>
+</a>
+    </h1>
+    <p class="post-meta text-muted">
+        <time datetime="2023-08-30T17:41:00-07:00" itemprop="datePublished">August 30, 2023</time>
+
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>Working on <a href="https://github.com/bensheldon/good_job">GoodJob</a>, I spend a lot of time thinking about multithreaded behavior in Ruby. One piece of Ruby functionality that I don’t see written about very often is <code>Thread.handle_interrupt</code>. <em>Big thanks to John Bachir and Matthew Draper for talking through its usage with me.</em></p>
+
+<p><strong>Some background about interrupts:</strong> In Ruby, exceptions can be raised anywhere and at anytime in a thread by other threads (including the main thread, that’s how <code>timeout</code> works). Even <code>rescue</code> and  <code>ensure</code> blocks can be interrupted. Everywhere. Most of the time this isn’t something you need to think about (unless you’re <a href="https://github.com/ankane/the-ultimate-guide-to-ruby-timeouts">using Timeout</a> or <code>rack-timeout</code> or doing explicit multithreaded code). But if you are, it’s important to think and code defensively.</p>
+
+<p>Starting with an example:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">thread</span> <span class="o">=</span> <span class="no">Thread</span><span class="p">.</span><span class="nf">new</span> <span class="k">do</span> 
+  <span class="n">open_work</span>
+  <span class="n">do_work</span>
+<span class="k">ensure</span>
+  <span class="n">close_work</span>
+<span class="k">end</span>
+
+<span class="c1"># wait some time</span>
+<span class="n">thread</span><span class="p">.</span><span class="nf">kill</span> <span class="c1"># or thread.raise</span>
+</code></pre></div></div>
+
+<p>In this example, it’s possible that the exception raised by <code>thread.kill</code> will interrupt the middle of the <code>ensure</code> block. That’s bad! And can leave that work in an inconsistent state.</p>
+
+<p>Ruby’s <code>Thread.handle_interrupt</code> is the defensive tool to use. It allows for modifying when those interrupting exceptions are raised:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># :immediate is the default and will interrupt immediately</span>
+<span class="no">Thread</span><span class="p">.</span><span class="nf">handle_interrupt</span><span class="p">(</span><span class="no">Exception</span><span class="p">:</span> <span class="ss">:immediate</span><span class="p">)</span> <span class="p">{</span> <span class="n">close_work</span> <span class="p">}</span>
+
+<span class="c1"># :on_blocking interrupts only when the GVL is released </span>
+<span class="c1"># e.g. IO outside Ruby</span>
+<span class="no">Thread</span><span class="p">.</span><span class="nf">handle_interrupt</span><span class="p">(</span><span class="no">Exception</span><span class="p">:</span> <span class="ss">:on_blocking</span><span class="p">)</span> <span class="p">{</span> <span class="n">close_work</span> <span class="p">}</span>
+
+<span class="c1"># :never will never interrupt during that block</span>
+<span class="no">Thread</span><span class="p">.</span><span class="nf">handle_interrupt</span><span class="p">(</span><span class="no">Exception</span><span class="p">:</span> <span class="ss">:never</span><span class="p">)</span> <span class="p">{</span> <span class="n">close_work</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<p><code>Thread.handle_interrupt</code> will modify behavior for the duration of the block, and it will then raise the interrupt after the block exits. It can be nested too:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">Thread</span><span class="p">.</span><span class="nf">handle_interrupt</span><span class="p">(</span><span class="no">Exception</span><span class="p">:</span> <span class="ss">:on_blocking</span><span class="p">)</span> <span class="k">do</span>
+  <span class="n">ruby_stuff</span>
+  
+  <span class="no">Thread</span><span class="p">.</span><span class="nf">handle_interrupt</span><span class="p">(</span><span class="no">Exception</span><span class="p">:</span> <span class="ss">:never</span><span class="p">)</span> <span class="k">do</span>
+   <span class="n">really_important_work</span>
+  <span class="k">end</span>
+  
+  <span class="n">file_io</span> <span class="c1"># &lt;= this can be interrupted</span>
+<span class="k">end</span>  
+</code></pre></div></div>
+
+<p><strong>FYI BE AWARE:</strong> Remember, the interrupt behavior is only affected <em>within</em> the <code>handle_interrupt</code> block. The following code <strong>has a problem</strong>:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">thread</span> <span class="o">=</span> <span class="no">Thread</span><span class="p">.</span><span class="nf">new</span> <span class="k">do</span> 
+  <span class="n">open_work</span>
+  <span class="n">do_work</span>
+<span class="k">ensure</span>
+  <span class="no">Thread</span><span class="p">.</span><span class="nf">handle_interrupt</span><span class="p">(</span><span class="no">Exception</span><span class="p">:</span> <span class="ss">:never</span><span class="p">)</span> <span class="k">do</span>
+    <span class="n">close_work</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>Can you spot it? It’s right here:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">ensure</span>
+  <span class="c1"># &lt;- Interrupts can happen right here</span>
+  <span class="no">Thread</span><span class="p">.</span><span class="nf">handle_interrupt</span><span class="p">(</span><span class="no">Exception</span><span class="p">:</span> <span class="ss">:never</span><span class="p">)</span> <span class="k">do</span>
+</code></pre></div></div>
+
+<p>There’s a “seam” right there between the <code>ensure</code> and the <code>Thread.handle_interrupt</code> where interrupts <em>can happen!</em> Sure, it’s probably rare that an interrupt would hit right then and there, but if you went to the trouble to guard against it, it’s likely very bad if it did happen. And it happens!  <a href="https://itnext.io/why-puma-workers-constantly-hung-and-how-we-fixed-by-discovering-the-bug-of-ruby-v2-5-8-and-v2-6-6-7fa0fd0a1958">“Why puma workers constantly hung, and how we fixed by discovering the bug of Ruby v2.5.8 and v2.6.6”</a></p>
+
+<p><strong>HOW TO USE IT APPROPRIATELY:</strong> This is the pattern you likely want:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">thread</span> <span class="o">=</span> <span class="no">Thread</span><span class="p">.</span><span class="nf">new</span> <span class="k">do</span> 
+  <span class="no">Thread</span><span class="p">.</span><span class="nf">handle_interrupt</span><span class="p">(</span><span class="no">Exception</span><span class="p">:</span> <span class="ss">:never</span><span class="p">)</span> <span class="k">do</span>
+    <span class="no">Thread</span><span class="p">.</span><span class="nf">handle_interrupt</span><span class="p">(</span><span class="no">Exception</span><span class="p">:</span> <span class="ss">:immediately</span><span class="p">)</span> <span class="k">do</span>
+      <span class="n">open_work</span>
+      <span class="n">do_work</span>
+    <span class="k">end</span>
+  <span class="k">ensure</span>
+    <span class="n">close_work</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>That’s right: have the <code>ensure</code> block nested within the outer <code>Thread.handle_interrupt(Exception: :never)</code> so that interrupts cannot happen in the <code>ensure</code>, and then use a second <code>Thread.handle_interrupt(Exception: :immediately)</code> to allow the interrupts to take place in the code <em>before</em> the <code>ensure</code> block.</p>
+
+<p>There’s another pattern you might also be able to use with <code>:on_blocking</code>:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">thread</span> <span class="o">=</span> <span class="no">Thread</span><span class="p">.</span><span class="nf">new</span> <span class="k">do</span> 
+  <span class="no">Thread</span><span class="p">.</span><span class="nf">handle_interrupt</span><span class="p">(</span><span class="no">Exception</span><span class="p">:</span> <span class="ss">:on_blocking</span><span class="p">)</span> <span class="k">do</span>
+    <span class="n">open_work</span>
+    <span class="n">do_work</span>
+  <span class="k">ensure</span>
+    <span class="no">Thread</span><span class="p">.</span><span class="nf">handle_interrupt</span><span class="p">(</span><span class="no">Exception</span><span class="p">:</span> <span class="ss">:never</span><span class="p">)</span> <span class="k">do</span>
+      <span class="n">close_work</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>Doesn’t that have the problematic seam? Nope, because when under <code>:on_blocking</code> there isn’t an operation taking place right there would release the GVL (e.g. no IO).</p>
+
+<p>But it does get tricky if, for example, the <code>do_work</code> is some Ruby calculation that is unbounded (I dunno, maybe a problematic regex or someone accidentally decided to calculate prime numbers or something). Then the Ruby code will not be interrupted at all and your thread will hang. That’s bad too. So you’d then need to do something like this:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">thread</span> <span class="o">=</span> <span class="no">Thread</span><span class="p">.</span><span class="nf">new</span> <span class="k">do</span> 
+  <span class="no">Thread</span><span class="p">.</span><span class="nf">handle_interrupt</span><span class="p">(</span><span class="no">Exception</span><span class="p">:</span> <span class="ss">:on_blocking</span><span class="p">)</span> <span class="k">do</span>
+    <span class="n">open_work</span>
+    <span class="no">Thread</span><span class="p">.</span><span class="nf">handle_interrupt</span><span class="p">(</span><span class="no">Exception</span><span class="p">:</span> <span class="ss">:immediately</span><span class="p">)</span> <span class="k">do</span>
+      <span class="n">do_work</span>
+    <span class="k">end</span>
+  <span class="k">ensure</span>
+    <span class="no">Thread</span><span class="p">.</span><span class="nf">handle_interrupt</span><span class="p">(</span><span class="no">Exception</span><span class="p">:</span> <span class="ss">:never</span><span class="p">)</span> <span class="k">do</span>
+      <span class="n">close_work</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>See, it’s ok to nest <code>Thread.handle_interrupt</code> and likely <em>necessary</em> to achieve the safety and defensiveness you’re expecting.</p>
+
+  </div>
+</article>
+
+
+<hr>
+
+<div class="d-flex justify-content-between mb-5">
+    <a href="/posts/2" class="btn btn-outline-primary">Newer posts</a>
+    <a href="/posts/4" class="btn btn-outline-primary">Older posts</a>
+</div>
+
+  </div>
+
+</body>
+</html>

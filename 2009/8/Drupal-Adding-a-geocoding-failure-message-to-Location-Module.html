@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Drupal: Adding a geocoding failure message to Location Module | Island94.org</title>
+
+  <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="ZP-VQzYdX-pJTuhdVvUTzq785RlstScOtmMkNXyYnsi31l4t3CC9mspVuPvwvL2Dy03Hj9iP_WPAnWwamV0Y_w" />
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Island94.org" href="https://island94.org/feed.xml">
+
+  <link rel="stylesheet" href="/assets/application-3c56ab95cf55e7f461f0ea9391c2b1391a5c64b74433224fe76ad58b7fa20c07.css" data-turbo-track="reload" />
+  <script src="/assets/main-57967bd29e3a27ba3099fee5997ee6ec8c59ef209085f949b6eac799b21915b0.js"></script>
+
+  <script>
+    let theme = localStorage.getItem('theme');
+    if (!["light", "dark"].includes(theme)) {
+      theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    document.documentElement.setAttribute('data-bs-theme', theme);
+  </script>
+
+  
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light mb-2 flex-column">
+  <div class="container">
+    <a class="navbar-brand" href="/">Island94.org</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link " href="/about/">About</a></li>
+        <li class="nav-item"><a class="nav-link " href="/archives/">Archives</a></li>
+<!--        <li class="nav-item"><a class="nav-link " href="/books/">Books</a></li>-->
+        <li class="nav-item"><a class="nav-link " href="/tags/">Tags</a></li>
+        <li class="nav-item"><a class="nav-link" href="/feed.xml">RSS Feed <i class="bi bi-rss-fill"></i></a></li>
+
+        <li class="nav-item py-2 py-lg-1 col-12 col-lg-auto">
+          <div class="vr d-none d-lg-flex h-100 mx-lg-2 text-light-500"></div>
+          <hr class="d-lg-none my-0 text-light-500">
+        </li>
+
+        <li class="nav-item dropdown">
+          <button id="bs-theme" class="btn btn-link nav-link dropdown-toggle" type="button" aria-expanded="false" data-bs-toggle="dropdown"  aria-label="Theme (Auto)">
+            <i data-bs-theme-active-icon class="bi bi-circle-half"></i>
+            <span data-bs-theme-label>Theme</span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="bs-theme-text">
+            <li>
+              <button type="button" class="dropdown-item" data-bs-theme-value="light" aria-pressed="false">
+                <i class="bi bi-sun"></i> Light
+              </button>
+            </li>
+            <li>
+              <button type="button" class="dropdown-item" data-bs-theme-value="dark" aria-pressed="false">
+                <i class="bi bi-moon-stars-fill"></i> Dark
+              </button>
+            </li>
+            <li>
+              <button type="button" class="dropdown-item" data-bs-theme-value="auto" aria-pressed="true">
+                <i class="bi bi-circle-half"></i> Auto
+              </button>
+            </li>
+          </ul>
+        </li>
+
+      </ul>
+
+      <form id="search" class="d-flex" action="/search" method="get">
+        <input id="search-box" class="form-control search" role="search" name="q" placeholder="Search" aria-label="Search" results="0" type="text">
+        <button class="visually-hidden" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+  <div class="container">
+    <div class="text-muted fst-italic">
+      — Ben Sheldon's personal blog and <a href="/2012/04/A-Commonplace-Book.html">commonplace book</a>.
+    </div>
+  </div>
+</nav>
+
+
+  <div class="container container-body">
+    
+<div class="container container-body">
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2009/8/Drupal-Adding-a-geocoding-failure-message-to-Location-Module"><p>Drupal: Adding a geocoding failure message to Location Module</p>
+</a>
+    </h1>
+    <p class="post-meta text-muted">
+        <time datetime="2009-08-13T00:00:00+00:00" itemprop="datePublished">August 13, 2009</time>
+
+        • Tagged Drupal, location, mapping, maps, navigation, portfolio, stupid, and warning
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>One of the coolest pieces of Drupal is how simple it is to quickly enter a street address and have it show up on a dynamic map on your website using <a href="http://drupal.org/project/location">Location</a> and <a href="http://drupal.org/project/gmap">GMap</a> modules. To make it happen, a lot of stuff goes on behind the scenes. Unfortunately, in typical Drupal fashion, when something goes wrong, you aren’t provided much information to fix it.</p>
+
+<p>A big issue if you’re having regular users enter information into your website is <em>malformed</em> addresses that can’t be automatically converted into latitude/longitude coordinates (geocoding) for display on a map. Out of the box, the Location module doesn’t give you a warning if it’s unable to geocode an address. On my website <a href="http://mappingaccess.org">MappingAccess.org</a>–a community maintained directory of Cable Access Television stations—I average about an email a week from a visitor saying “I added my station but it’s not showing up on the map”. Usually it’s a simple matter of using a PO Box or wacky abbreviation, but the website itself should be telling them there is a problem, not me.</p>
+
+<p>So I whipped up a simple module that checks everytime a new station is submitted to see if the address was properly geocoded. If not, it displays a message with some tips on how to correct the issue.</p>
+
+<p><img src="/uploads/2009-08-13-Drupal-Adding-a-geocoding-failure-message-to-Location-Module/Picture-3-500x136.png" alt="Geocode Warning Message" title="Geocode Warning Message" /></p>
+
+<p>You can download the module for Drupal 6.x by <a href="/uploads/2009-08-13-Drupal-Adding-a-geocoding-failure-message-to-Location-Module/geocode_warn.zip"><strong>clicking here</strong></a><strong>.</strong></p>
+
+<p>To be nitpicky, I’d rather the message show up during the validation stage—before the node is submitted—with the option to say “Please edit the address or press submit again to publish with the understanding that it will not show up on the map.” Unfortunately, in Drupal 6 you <a href="http://drupal.org/node/241364">can’t make changes to node form during the validation stage</a>—which I would use to set a flag in a hidden form element so that the validation message only gets triggered once. The current implementation calls a drupal_set_message in hook_nodeapi’s insert/update operations. It can be enabled on a per-content-type basis (on the Content Type Configuration screen).</p>
+
+  </div>
+</article>
+
+
+  <div class="card my-4">
+    <div class="card-body">
+      Discuss this with me on <a href="https://twitter.com/bensheldon"><i class="bi bi-twitter"></i> Twitter</a>
+      or suggest a
+      <a href="https://github.com/bensheldon/island94-jekyll/blob/main/_posts/2009-08-13-Drupal-Adding-a-geocoding-failure-message-to-Location-Module.md"><i class="bi bi-github"></i>
+        change</a>.
+
+        <hr>
+        <h5>Related Posts</h5>
+        <ul>
+            <li><a href="/2022/7/what-the-fuck-are-you-talking-about-the-story-of-nodetiles">&quot;What the fuck are you talking about?&quot;: The story of NodeTiles</a></li>
+            <li><a href="/2012/9/Reimagining-Chicagos-311-activity-with-Super-Mayor-Emanuel">Reimagining Chicago&#39;s 311 activity with Super Mayor Emanuel</a></li>
+            <li><a href="/2012/8/Put-Your-Civics-Where-Your-Houseplant-Is">Put Your Civics Where Your Houseplant Is</a></li>
+            <li><a href="/2012/7/Hard-data-on-the-status-of-Open311">Hard data on the status of Open311</a></li>
+            <li><a href="/2011/7/A-modest-web-app-proposal">A modest web-app proposal</a></li>
+        </ul>
+    </div>
+  </div>
+</div>
+
+  </div>
+
+</body>
+</html>
