@@ -4,6 +4,7 @@ ENV["RACK_ENV"] = "production"
 require 'parklife/rails'
 require_relative 'config/environment'
 
+Parklife.application.config.on_404 = :warn
 Parklife.application.config.nested_index = false
 Parklife.application.config.base = "https://island94.org"
 
@@ -16,14 +17,18 @@ Parklife.application.routes do
   get '/404.html'
 end
 
+
+Rails.application.load_tasks
 require 'parklife/application'
 Parklife::Application.prepend(Module.new do
   def build
     start = Time.now
+    Rake::Task['assets:precompile'].invoke
+
     super
 
-    FileUtils.cp_r(Rails.application.root.join("public/assets"), Rails.application.root.join("build/assets"))
-    FileUtils.cp_r(Rails.application.root.join("uploads"), Rails.application.root.join("build/uploads"))
+    FileUtils.mv(Rails.application.root.join("public/assets"), Rails.application.root.join("build/assets"))
+    FileUtils.cp_r(Rails.application.root.join("_uploads"), Rails.application.root.join("build/uploads"))
     FileUtils.cp(Rails.application.root.join("CNAME"), Rails.application.root.join("build/CNAME"))
 
     duration = Time.now - start
@@ -37,6 +42,7 @@ Parklife::Utils.prepend(Module.new do
   def scan_for_links(html, ...)
     super
   rescue => e
+    # sometimes there is an `a` element without a `href` attributes
     puts "#{e}: #{e.message}"
   end
 end)
