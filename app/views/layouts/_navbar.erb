@@ -6,11 +6,10 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item"><a class="nav-link " href="/about/">About</a></li>
-        <li class="nav-item"><a class="nav-link " href="/archives/">Archives</a></li>
-<!--        <li class="nav-item"><a class="nav-link " href="/books/">Books</a></li>-->
-        <li class="nav-item"><a class="nav-link " href="/tags/">Tags</a></li>
-        <li class="nav-item"><a class="nav-link" href="/feed.xml">RSS Feed <i class="bi bi-rss-fill"></i></a></li>
+        <li class="nav-item"><%= link_to "About", about_path, class: ["nav-link", active: current_page?(about_path)] %></li>
+        <li class="nav-item"><%= link_to "Archives", archives_path, class: ["nav-link", active: current_page?(archives_path)] %></li>
+        <li class="nav-item"><%= link_to "Tags", tags_path, class: ["nav-link", active: current_page?(tags_path)] %></li>
+        <li class="nav-item"><%= link_to feed_path(format: :xml), class: "nav-link" do %>RSS Feed <i class="bi bi-rss-fill"></i><% end %></li>
 
         <li class="nav-item py-2 py-lg-1 col-12 col-lg-auto">
           <div class="vr d-none d-lg-flex h-100 mx-lg-2 text-light-500"></div>
