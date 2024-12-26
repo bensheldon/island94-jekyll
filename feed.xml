@@ -6,7 +6,7 @@
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
     <pubDate>Mon, 02 Dec 2024 09:01:00 -0700</pubDate>
-    <lastBuildDate>Thu, 26 Dec 2024 07:07:34 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 26 Dec 2024 16:01:21 +0000</lastBuildDate>
     <generator>Ruby on Rails</generator>
       <item>
         <title>Including Rails View Helpers is a concern</title>
