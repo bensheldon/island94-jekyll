@@ -12,7 +12,7 @@ redirect_from:
 - "?p=2679"
 ---
 
-From the Gilbert Center in an excellent article entitled " [Asking the Wrong Questions: Challenging Technocentrism in Nonprofit Technology Planning](http://news.gilbert.org/WrongQuestions)":
+From the Gilbert Center in an excellent article entitled ["Asking the Wrong Questions: Challenging Technocentrism in Nonprofit Technology Planning"](http://news.gilbert.org/WrongQuestions):
 
 > In every domain in life, the questions we ask shape the responses we get. Our questions reveal our frame of reference and impose that frame on our answers. As a result, much is revealed by examining the assumptions, the reasoning, and the logic models of our questions.
 >
