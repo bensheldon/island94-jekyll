@@ -7,18 +7,19 @@
     <div class="card-body">
       Discuss this with me on <a href="https://twitter.com/bensheldon"><i class="bi bi-twitter"></i> Twitter</a>
       or suggest a
-      <a href="https://github.com/bensheldon/island94-jekyll/blob/main/<%= @post.project_filepath %>"><i class="bi bi-github"></i>
+      <a href="https://github.com/bensheldon/island94.org/blob/main/<%= @post.project_filepath %>"><i class="bi bi-github"></i>
         change</a>.
-
-      <% if @post.related_posts.any? %>
-        <hr>
+    </div>
+    <% if @post.related_posts.any? %>
+      <hr>
+      <div class="card-body">
         <h5>Related Posts</h5>
         <ul>
           <% @post.related_posts.each do |related_post| %>
             <li><%= link_to related_post.title, post_path(related_post) %></li>
           <% end %>
         </ul>
-      <% end %>
+    <% end %>
     </div>
   </div>
 </div>
