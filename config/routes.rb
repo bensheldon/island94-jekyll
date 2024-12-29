@@ -28,4 +28,7 @@ Rails.application.routes.draw do
   direct :bookmark do |bookmark, options|
     route_for :slugged_bookmark, year: bookmark.date.year, month: bookmark.date.month, slug: bookmark.slug, **options
   end
+
+  get 'robots', to: 'robots#robots', as: :robots, format: :txt, defaults: { format: :txt }
+  get 'sitemap', to: 'robots#sitemap', as: :sitemap, format: :xml, defaults: { format: :xml }
 end

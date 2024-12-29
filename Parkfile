@@ -14,6 +14,9 @@ Parklife.application.routes do
   get "/bookmarks", crawl: true
 
   get "/feed.xml"
+  get "/sitemap.xml"
+  get "/robots.txt"
+
   get '/404.html'
 end
 
