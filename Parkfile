@@ -10,7 +10,10 @@ Parklife.application.config.base = "https://island94.org"
 
 Parklife.application.routes do
   root crawl: true
+  
   get "/search"
+  get "/search.json"
+
   get "/redirects", crawl: true
   get "/bookmarks", crawl: true
 
