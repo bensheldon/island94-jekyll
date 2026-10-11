@@ -10,7 +10,7 @@ paths:
     etag: W/"5bbdc03cbb089e921bb4e9d7bf57c2c8"
   "/bookmarks":
     build_path: bookmarks.html
-    etag: W/"3ae7d6750043abf24bce013610f39ed6"
+    etag: W/"9fb237a88d90f577ea29b9d335d2e105"
   "/search":
     build_path: search.html
     etag: W/"dfef525cd97cefb701e94ed1c0b5ab4b"
@@ -3709,7 +3709,7 @@ paths:
     build_path: 2025/1/living-parklife-with-rails-coming-from-jekyll.html
   "/bookmarks/2026/10/deadsimpletech-com-blog-poor-enshittified-souls-ref-labnotes-org":
     build_path: bookmarks/2026/10/deadsimpletech-com-blog-poor-enshittified-souls-ref-labnotes-org.html
-    etag: W/"0f800f0e2ffc9379fa988d218e52756e"
+    etag: W/"c260bd7955384f29e1d3d6ac21521e75"
   "/bookmarks/2026/10/simonwillison-net-2026-oct-11-dwarf-fortress":
     build_path: bookmarks/2026/10/simonwillison-net-2026-oct-11-dwarf-fortress.html
     etag: W/"ca1bd5105df437389088300d6e8be0a5"
