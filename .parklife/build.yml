@@ -10,7 +10,7 @@ paths:
     etag: W/"5bbdc03cbb089e921bb4e9d7bf57c2c8"
   "/bookmarks":
     build_path: bookmarks.html
-    etag: W/"9fb237a88d90f577ea29b9d335d2e105"
+    etag: W/"b4e056076e88f74bc8d884f12b86d66d"
   "/search":
     build_path: search.html
     etag: W/"dfef525cd97cefb701e94ed1c0b5ab4b"
@@ -3707,6 +3707,9 @@ paths:
     build_path: 2025/1/how-im-thinking-about-ai-llms.html
   "/2025/1/living-parklife-with-rails-coming-from-jekyll":
     build_path: 2025/1/living-parklife-with-rails-coming-from-jekyll.html
+  "/bookmarks/2026/10/blog-mastykarz-nl-stop-sensationalizing-ref-labnotes-org":
+    build_path: bookmarks/2026/10/blog-mastykarz-nl-stop-sensationalizing-ref-labnotes-org.html
+    etag: W/"7592a021a71b4ddf61d02f722a38c213"
   "/bookmarks/2026/10/deadsimpletech-com-blog-poor-enshittified-souls-ref-labnotes-org":
     build_path: bookmarks/2026/10/deadsimpletech-com-blog-poor-enshittified-souls-ref-labnotes-org.html
     etag: W/"c260bd7955384f29e1d3d6ac21521e75"
