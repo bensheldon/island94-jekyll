@@ -1,0 +1,197 @@
+:root {
+  --sq-yellow: #ca8a04;
+  --sq-green: #16a34a;
+  --sq-blue: #2563eb;
+  --sq-pink: #e11d48;
+  --sq-purple: #7c3aed;
+  --sq-orange: #ea580c;
+}
+
+body.editor {
+  background: #fafaf9;
+}
+
+.doc-title-input {
+  border: none;
+  outline: none;
+  font-size: 2.25rem;
+  font-weight: 700;
+  width: 100%;
+  background: transparent;
+
+  &::placeholder { color: #d1d5db; }
+}
+
+/* Lexxy writing surface. Highlights are drawn in an overlay behind the
+   editor's (transparent) text, so Lexical's DOM is never modified. */
+.writing-surface {
+  position: relative;
+  font-size: 1.125rem;
+  line-height: 1.75;
+  color: #1f2937;
+
+  lexxy-editor {
+    min-height: 60vh;
+    background: #fff;
+  }
+
+  /* Hide tools with no Markdown equivalent, and uploads. */
+  lexxy-highlight-dropdown,
+  lexxy-toolbar :is([name="underline"], [name="table"], [name="file"], [name="image"]) {
+    display: none !important;
+  }
+}
+
+.hl-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Each finding is a wavy underline in its check's color. */
+.hl-squiggle {
+  position: absolute;
+  background-color: var(--sq-color);
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7'%3E%3Cpath d='M0 5 Q3 1 6 5 T12 5' fill='none' stroke='black' stroke-width='2'/%3E%3C/svg%3E") 0 0 / 12px 7px;
+  /* Stretch the wave slightly so each underline ends on a whole period. */
+  mask-repeat: round no-repeat;
+}
+
+.hl-active {
+  position: absolute;
+  border-radius: 2px;
+  background: rgba(59, 130, 246, 0.12);
+}
+
+.writing-preview {
+  white-space: pre-wrap;
+  background: #fff;
+  font-size: 0.95rem;
+}
+
+/* Commentary sidebar */
+/* The sidebar stays in view; only the findings scroll beneath its header. */
+.commentary-sidebar {
+  position: sticky;
+  top: 1rem;
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100vh - 2rem);
+}
+
+.commentary-header {
+  flex: none;
+}
+
+.commentary-scroll {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.commentary-card {
+  padding: 0.75rem 1rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  background: #fff;
+  cursor: pointer;
+  transition: box-shadow 0.15s ease, border-color 0.15s ease;
+
+  &.is-active {
+    border-color: #3b82f6;
+    box-shadow: 0 2px 10px rgba(59, 130, 246, 0.15);
+  }
+
+  /* Resolved and ignored findings collapse to their header. */
+  &.is-accepted,
+  &.is-resolved,
+  &.is-ignored {
+    opacity: 0.55;
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
+
+    .commentary-body { display: none; }
+  }
+
+  .stale-note { display: none; }
+
+  &.is-stale {
+    opacity: 0.55;
+
+    .stale-note { display: block; }
+    .commentary-quote { text-decoration: line-through; }
+  }
+
+  .commentary-quote {
+    font-style: italic;
+    color: #6b7280;
+    border-left: 3px solid #e5e7eb;
+    padding-left: 0.6rem;
+  }
+}
+
+.color-swatch {
+  display: inline-block;
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  background: var(--sq-color);
+}
+
+/* AI review status */
+.color-swatch-sm {
+  width: 0.75rem;
+  height: 0.75rem;
+}
+
+.review-list {
+  columns: 2;
+  column-gap: 1.5rem;
+  margin-top: 0.5rem;
+  border-top: 1px solid #e5e7eb;
+  padding-top: 0.25rem;
+}
+
+.review-list li {
+  break-inside: avoid;
+}
+
+.review-failed .text-truncate,
+.review-interrupted .text-truncate {
+  text-decoration: line-through;
+  color: #9ca3af;
+}
+
+/* Cards streamed in from a background review */
+@keyframes card-arrive {
+  from { background: #fef9c3; }
+  to { background: #fff; }
+}
+
+.commentary-card.is-new {
+  animation: card-arrive 2s ease-out;
+}
+
+.hl-yellow { --sq-color: var(--sq-yellow); }
+.hl-green  { --sq-color: var(--sq-green); }
+.hl-blue   { --sq-color: var(--sq-blue); }
+.hl-pink   { --sq-color: var(--sq-pink); }
+.hl-purple { --sq-color: var(--sq-purple); }
+.hl-orange { --sq-color: var(--sq-orange); }
+
+/* A suggestion shown as a change to the flagged text */
+.diff-delete {
+  color: #b91c1c;
+  background: #fee2e2;
+  text-decoration: line-through;
+  border-radius: 2px;
+  margin-right: 0.15em;
+}
+
+.diff-insert {
+  color: #15803d;
+  background: #dcfce7;
+  text-decoration: none;
+  border-radius: 2px;
+}

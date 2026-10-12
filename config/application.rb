@@ -12,6 +12,9 @@ Bundler.require(*Rails.groups)
 
 require_relative "middleware/redirect_to_meta_refresh"
 
+# The writing tool at /editor is for local use only and is never part of the published site.
+require_relative "../engines/editor/lib/editor" if Rails.env.local?
+
 module Island94
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.

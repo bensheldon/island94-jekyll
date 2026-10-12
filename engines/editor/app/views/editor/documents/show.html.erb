@@ -1,0 +1,89 @@
+<% content_for :title, @document.title %>
+
+<div class="row justify-content-center"
+     id="workshop"
+     data-controller="annotations suggestions autosave"
+     data-suggestions-annotations-outlet="#workshop"
+     data-autosave-url-value="<%= autosave_document_path(@document) %>"
+     data-action="submit->autosave#guard">
+
+  <%# ---- Editable document column ---- %>
+  <div class="col-lg-7 position-relative">
+    <div class="d-flex flex-wrap align-items-center gap-2 mb-3">
+      <code class="small text-muted"><%= @document.project_filepath %></code>
+      <div class="ms-auto d-flex gap-2">
+        <%= link_to "View post", @document.public_path, class: "btn btn-sm btn-outline-secondary", target: "_blank", rel: "noopener" %>
+        <%= link_to "History", document_revisions_path(@document), class: "btn btn-sm btn-outline-secondary" %>
+        <%= button_to "Flag revision", document_revisions_path(@document), class: "btn btn-sm btn-outline-warning" %>
+      </div>
+    </div>
+
+    <div class="review-box mb-3 p-2 rounded border">
+      <%= form_with url: document_reviews_path(@document), class: "d-flex flex-wrap align-items-center gap-2" do |form| %>
+        <%= form.label :pass_id, "AI review", class: "small fw-semibold" %>
+        <%= form.select :pass_id, [["All active passes", "all"]] + @passes.map { |pass| [pass.name, pass.id] }, {}, class: "form-select form-select-sm w-auto" %>
+        <%= form.submit "Review", class: "btn btn-sm btn-dark" %>
+        <%= link_to "Manage passes", passes_path, class: "btn btn-sm btn-link ms-auto" %>
+      <% end %>
+      <%= render "editor/reviews/panel", document: @document, reviews: @reviews %>
+    </div>
+
+    <%= form_with model: @document, url: document_path(@document), method: :patch,
+          data: { autosave_target: "form", action: "input->autosave#schedule lexxy:change->autosave#schedule" } do |form| %>
+      <div class="d-flex justify-content-end mb-1">
+        <span class="text-muted small" data-autosave-target="status">Saved</span>
+      </div>
+      <%= form.text_field :title, class: "doc-title-input mb-2", placeholder: "Untitled post" %>
+
+      <details class="mb-3">
+        <summary class="small text-muted">Front matter</summary>
+        <%= form.text_area :front_matter, rows: [@document.front_matter.lines.size + 1, 4].max, class: "form-control form-control-sm font-monospace mt-2", spellcheck: false %>
+      </details>
+
+      <div class="writing-surface hl-shell" data-annotations-target="shell" data-controller="straight-quotes"
+           data-action="click->annotations#activateFromCaret keyup->annotations#activateFromCaret">
+        <div class="hl-overlay" data-annotations-target="overlay" aria-hidden="true"></div>
+        <%= content_tag "lexxy-editor", "", class: "lexxy-content", name: "document[body_html]", value: @document.body_html,
+              "permitted-attachment-types": "text/html", placeholder: "Write something…" %>
+      </div>
+
+      <div class="d-flex gap-2 mt-3">
+        <%= form.submit "Save revision", class: "btn btn-sm btn-dark" %>
+      </div>
+    <% end %>
+
+    <p class="text-muted small mt-2">
+      Run an AI review to get findings on your writing. Findings follow the text as
+      you rewrite it. Edits are converted to Markdown and autosaved to the file.
+    </p>
+
+  </div>
+
+  <%# ---- Commentary sidebar ---- %>
+  <aside class="col-lg-4">
+    <div class="commentary-sidebar">
+      <div class="commentary-header d-flex align-items-center mb-3">
+        <h2 class="h6 mb-0">Commentary</h2>
+        <div class="ms-auto d-flex align-items-center gap-2">
+          <span class="text-muted small" data-suggestions-target="counter"></span>
+          <div class="btn-group">
+            <button type="button" class="btn btn-sm btn-outline-secondary" data-action="suggestions#previous" title="Previous">&larr;</button>
+            <button type="button" class="btn btn-sm btn-outline-secondary" data-action="suggestions#next" title="Next">&rarr;</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="commentary-scroll">
+        <div id="commentary_list" data-annotations-target="sidebar">
+          <%= render partial: "editor/highlights/highlight", collection: @highlights %>
+        </div>
+
+        <% if @highlights.empty? %>
+          <p class="text-muted small" id="commentary_empty">
+            No findings yet. Run an AI review to get some.
+          </p>
+        <% end %>
+      </div>
+    </div>
+  </aside>
+</div>

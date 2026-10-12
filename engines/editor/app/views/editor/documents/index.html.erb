@@ -1,0 +1,19 @@
+<% content_for :title, "Posts" %>
+<div class="container" style="max-width: 52rem;">
+  <%= form_with url: documents_path, class: "d-flex gap-2 mb-4" do |form| %>
+    <%= form.text_field :title, class: "form-control", placeholder: "Title of a new post", required: true %>
+    <%= form.submit "New post", class: "btn btn-dark text-nowrap" %>
+  <% end %>
+
+  <div class="list-group">
+    <% @documents.each do |document| %>
+      <%= link_to document_path(document), class: "list-group-item list-group-item-action d-flex align-items-center gap-2" do %>
+        <span class="fw-semibold"><%= document.title.presence || document.id %></span>
+        <% unless document.published? %>
+          <span class="badge text-bg-secondary">draft</span>
+        <% end %>
+        <span class="ms-auto text-muted small text-nowrap"><%= document.date.to_date.to_fs(:long) %></span>
+      <% end %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<% content_for :title, "Revision — #{@document.title}" %>
+<div class="container" style="max-width: 52rem;">
+  <div class="d-flex align-items-center mb-4">
+    <div>
+      <h1 class="h4 mb-0"><%= @revision.display_label %></h1>
+      <div class="text-muted small"><%= @revision.created_at.to_fs(:long) %></div>
+    </div>
+    <div class="ms-auto d-flex gap-2">
+      <%= link_to "History", document_revisions_path(@document), class: "btn btn-sm btn-outline-secondary" %>
+      <%= button_to "Restore this version", restore_document_revision_path(@document, @revision),
+            class: "btn btn-sm btn-dark",
+            data: { turbo_confirm: "Restore this revision?" } %>
+    </div>
+  </div>
+
+  <pre class="writing-preview border rounded p-4"><%= @revision.content %></pre>
+</div>

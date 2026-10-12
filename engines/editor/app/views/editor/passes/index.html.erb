@@ -1,0 +1,35 @@
+<% content_for :title, "Editing passes" %>
+<div class="container" style="max-width: 52rem;">
+  <div class="d-flex align-items-center mb-4">
+    <h1 class="h4 mb-0">Editing passes</h1>
+    <%= link_to "New pass", new_pass_path, class: "btn btn-sm btn-dark ms-auto" %>
+  </div>
+
+  <p class="text-muted small">
+    Each pass is one prompt the editor runs over your writing with the
+    <code>claude</code> CLI. Passes diagnose problems only &mdash; they never hand
+    you replacement wording. Changes are kept in memory until the server restarts.
+  </p>
+
+  <div class="list-group">
+    <% @passes.each do |pass| %>
+      <div class="list-group-item">
+        <div class="d-flex align-items-center gap-2">
+          <%= color_swatch pass.color %>
+          <span class="fw-semibold"><%= pass.name %></span>
+          <code class="small text-muted"><%= pass.slug %></code>
+          <% unless pass.active? %>
+            <span class="badge text-bg-secondary">inactive</span>
+          <% end %>
+          <div class="ms-auto d-flex gap-2">
+            <%= link_to "Edit", edit_pass_path(pass), class: "btn btn-sm btn-outline-secondary" %>
+            <%= button_to "Delete", pass_path(pass), method: :delete,
+                  class: "btn btn-sm btn-outline-danger",
+                  data: { turbo_confirm: "Delete this pass?" } %>
+          </div>
+        </div>
+        <p class="small text-muted mb-0 mt-1"><%= truncate(pass.prompt, length: 160) %></p>
+      </div>
+    <% end %>
+  </div>
+</div>
