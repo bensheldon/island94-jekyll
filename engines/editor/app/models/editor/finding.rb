@@ -21,6 +21,7 @@ module Editor
     attribute :end, :integer
     attribute :suggestions, default: -> { [] }
     attribute :status, :string, default: "open"
+    attribute :verdict, :string # Gemini Nano's review: "confirmed", "dismissed", or nil
 
     validates :document_id, :key, :source, :problem, presence: true
     validates :status, inclusion: { in: STATUSES }
@@ -40,7 +41,7 @@ module Editor
 
         findings.each do |attrs|
           finding = new(
-            **attrs.to_h.symbolize_keys.slice(:key, :rule, :category, :message, :problem, :start, :end, :suggestions),
+            **attrs.to_h.symbolize_keys.slice(:key, :rule, :category, :message, :problem, :start, :end, :suggestions, :verdict),
             document_id: document.id,
             source: source
           )
@@ -51,6 +52,8 @@ module Editor
       end
     end
 
+    def dismissed_by_ai? = verdict == "dismissed"
+    def confirmed_by_ai? = verdict == "confirmed"
     def ignored? = status == "ignored"
     def open? = status == "open"
   end

@@ -8,7 +8,7 @@ module Editor
     # The browser sends JSON; don't also wrap it in a `finding` key.
     wrap_parameters false
 
-    FINDING_ATTRIBUTES = [:key, :source, :rule, :category, :message, :problem, :start, :end, { suggestions: [] }].freeze
+    FINDING_ATTRIBUTES = [:key, :source, :rule, :category, :message, :problem, :start, :end, :verdict, { suggestions: [] }].freeze
 
     # Replaces the findings from one source (Harper or Gemini Nano).
     def create

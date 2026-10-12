@@ -9,7 +9,9 @@
     <%= color_swatch finding_color(finding), class: "flex-shrink-0" %>
     <span class="small fw-semibold text-truncate"><%= finding.rule %></span>
     <% if finding.source == "ai" %>
-      <span class="ms-auto small text-muted">Gemini Nano</span>
+      <span class="ms-auto small text-muted">Found by Gemini Nano</span>
+    <% elsif finding.confirmed_by_ai? %>
+      <span class="ms-auto small text-success" title="Gemini Nano agrees this is an error">✓ Gemini Nano</span>
     <% end %>
   </div>
   <p class="small mb-2"><%= finding.message %></p>

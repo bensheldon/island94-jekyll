@@ -1,25 +1,51 @@
-// Proofreads with Gemini Nano, the model built into Chrome, so nothing leaves
-// the machine. Uses Chrome's Proofreader API where it's available, and
-// otherwise the Prompt API. Both are optional: where neither is available,
-// this does nothing.
+// Reviews and proofreads with Gemini Nano, the model built into Chrome, so
+// nothing leaves the machine. Both of Chrome's APIs for it are optional:
 //
-// https://developer.chrome.com/docs/ai/proofreader-api
-// https://developer.chrome.com/docs/ai/prompt-api
+// - The Prompt API (https://developer.chrome.com/docs/ai/prompt-api) reviews
+//   the local checks' findings for a paragraph (dropping false positives and
+//   choosing the best fix) and finds errors they missed.
+// - The Proofreader API (https://developer.chrome.com/docs/ai/proofreader-api),
+//   used when the Prompt API isn't available, only finds errors.
+//
+// Where neither is available, this does nothing.
 
-const OPTIONS = { expectedInputLanguages: [ "en" ] }
+const LANGUAGES = { expectedInputLanguages: [ "en" ] }
+const PROMPT_OPTIONS = { expectedInputs: [ { type: "text", languages: [ "en" ] } ], expectedOutputs: [ { type: "text", languages: [ "en" ] } ] }
 
-const PROMPT = `You are a careful copy editor proofreading a paragraph from a blog
-post. Find genuine errors only: spelling, grammar, punctuation, and words used
-incorrectly. Respect the author's casual voice: do not flag informal phrasing,
-contractions, or deliberate sentence fragments. Always use straight quotes and
-apostrophes. For each error, give the exact text from the paragraph that is
-wrong, the smallest correction, and a short explanation. If there are no
-errors, return an empty list.`
+const SYSTEM_PROMPT = `You are a careful copy editor proofreading a blog post,
+one paragraph at a time. An automated grammar checker has already flagged some
+possible problems in each paragraph, but it makes mistakes.
+
+Respect the author's casual, conversational voice: informal phrasing,
+contractions, sentence fragments used for effect, and stylistic choices are
+not errors. Always use straight quotes and apostrophes.
+
+For each finding from the checker, decide whether it is a genuine error. If it
+is, choose the best correction for the flagged text: one of the checker's
+suggestions, or a better one. Then list any genuine spelling, grammar, or
+punctuation errors the checker missed, quoting the exact text from the
+paragraph that is wrong.
+
+Some paragraphs are code blocks, which the checker skips. In code, only flag
+typos in comments, strings, and names, and code that is clearly wrong (like a
+misspelled method or an incorrect result in a comment). Don't flag style.`
 
 const SCHEMA = {
   type: "object",
   properties: {
-    corrections: {
+    reviews: {
+      type: "array",
+      items: {
+        type: "object",
+        properties: {
+          id: { type: "integer" },
+          genuine: { type: "boolean" },
+          correction: { type: [ "string", "null" ] }
+        },
+        required: [ "id", "genuine" ]
+      }
+    },
+    missed: {
       type: "array",
       items: {
         type: "object",
@@ -32,69 +58,103 @@ const SCHEMA = {
       }
     }
   },
-  required: [ "corrections" ]
+  required: [ "reviews", "missed" ]
 }
 
-const cache = new Map() // paragraph text -> Promise of corrections
-let session = null
+const cache = new Map() // paragraph + findings -> Promise of a review
+let prompt = null // a Prompt API session
+let proofreader = null // a Proofreader API session
 
-// Which API is usable: "proofreader", "prompt", or null. And whether the model
-// still needs to be downloaded (which requires a click to start).
-export async function availability() {
-  for (const [ api, name ] of [ [ globalThis.Proofreader, "proofreader" ], [ globalThis.LanguageModel, "prompt" ] ]) {
-    if (!api) continue
-    try {
-      const status = await api.availability(name === "prompt" ? { expectedInputs: [ { type: "text", languages: [ "en" ] } ] } : OPTIONS)
-      if (status !== "unavailable") return { api: name, status }
-    } catch (e) {
-      // Try the next API.
-    }
+async function status(api, options) {
+  if (!api) return "unavailable"
+  try {
+    return await api.availability(options)
+  } catch (e) {
+    return "unavailable"
   }
-  return { api: null, status: "unavailable" }
 }
 
-// Creates the session, downloading the model if needed. Must be called from a
+// Which APIs can be used, and whether the model still needs to be downloaded
+// (which requires a click to start).
+export async function availability() {
+  const promptStatus = await status(globalThis.LanguageModel, PROMPT_OPTIONS)
+  const proofreaderStatus = await status(globalThis.Proofreader, LANGUAGES)
+  const api = promptStatus !== "unavailable" ? "prompt" : (proofreaderStatus !== "unavailable" ? "proofreader" : null)
+  return { api, status: api === "prompt" ? promptStatus : proofreaderStatus }
+}
+
+// Creates a session, downloading the model if needed. Must be called from a
 // click when the model needs downloading.
 export async function start(onProgress) {
   const { api } = await availability()
-  if (!api) return null
-
   const monitor = (m) => m.addEventListener("downloadprogress", (e) => onProgress?.(e.loaded))
-  session ||= api === "proofreader"
-    ? Proofreader.create({ ...OPTIONS, includeCorrectionExplanations: true, monitor })
-    : LanguageModel.create({ initialPrompts: [ { role: "system", content: PROMPT } ], monitor })
-  return session
+  if (api === "prompt") {
+    prompt ||= LanguageModel.create({ ...PROMPT_OPTIONS, initialPrompts: [ { role: "system", content: SYSTEM_PROMPT } ], monitor })
+  } else if (api === "proofreader") {
+    proofreader ||= Proofreader.create({ ...LANGUAGES, includeCorrectionExplanations: true, monitor })
+  }
+  await (prompt || proofreader)
 }
 
-// Whether a Gemini Nano session has been started.
 export function enabled() {
-  return session !== null
+  return Boolean(prompt || proofreader)
 }
 
-// Proofreads a paragraph, returning [{ start, end, correction, explanation }]
-// with offsets within the paragraph. Results are cached by paragraph text.
-export function proofread(paragraph) {
-  if (!session || !paragraph.trim()) return Promise.resolve([])
-  if (!cache.has(paragraph)) cache.set(paragraph, run(paragraph).catch(() => []))
-  return cache.get(paragraph)
+// Whether findings are reviewed (or only added to).
+export function reviews() {
+  return Boolean(prompt)
 }
 
-async function run(paragraph) {
-  const instance = await session
-  if (globalThis.Proofreader && instance instanceof Proofreader) {
-    const result = await instance.proofread(paragraph)
-    return result.corrections.map((c) => ({
-      start: c.startIndex,
-      end: c.endIndex,
-      correction: c.correction,
-      explanation: c.explanation || "Suggested by Gemini Nano."
+// Reviews a paragraph (or code block) and the local checks' findings in it,
+// given as [{ id, problem, message, suggestions }]. Returns
+//   { verdicts: Map(id -> { genuine, correction }),
+//     missed: [{ start, end, correction, explanation }] }
+// with offsets within the paragraph. Results are cached.
+export function review(paragraph, code, findings) {
+  // Only the Prompt API can check code.
+  if (!enabled() || !paragraph.trim() || (code && !prompt)) return Promise.resolve({ verdicts: new Map(), missed: [] })
+  const cacheKey = JSON.stringify([ paragraph, code, findings ])
+  if (!cache.has(cacheKey)) {
+    cache.set(cacheKey, run(paragraph, code, findings).catch((error) => {
+      console.warn("Gemini Nano review failed", error)
+      return { verdicts: new Map(), missed: [] }
     }))
   }
+  return cache.get(cacheKey)
+}
 
-  const response = await instance.clone().then((clone) => clone.prompt(paragraph, { responseConstraint: SCHEMA }))
-  return JSON.parse(response).corrections.flatMap(({ original, correction, explanation }) => {
-    const start = paragraph.indexOf(original)
-    if (!original || start === -1 || original === correction) return []
-    return [ { start, end: start + original.length, correction, explanation } ]
-  })
+async function run(paragraph, code, findings) {
+  if (!prompt) {
+    const result = await (await proofreader).proofread(paragraph)
+    return {
+      verdicts: new Map(),
+      missed: result.corrections.map((c) => ({
+        start: c.startIndex,
+        end: c.endIndex,
+        correction: c.correction,
+        explanation: c.explanation || "Suggested by Gemini Nano."
+      }))
+    }
+  }
+
+  const session = await (await prompt).clone()
+  try {
+    const response = await session.prompt(
+      code
+        ? `CODE BLOCK:\n${paragraph}\n\nFINDINGS:\n[]`
+        : `PARAGRAPH:\n${paragraph}\n\nFINDINGS:\n${JSON.stringify(findings)}`,
+      { responseConstraint: SCHEMA }
+    )
+    const { reviews, missed } = JSON.parse(response)
+    return {
+      verdicts: new Map(reviews.map(({ id, genuine, correction }) => [ id, { genuine, correction: correction ?? null } ])),
+      missed: missed.flatMap(({ original, correction, explanation }) => {
+        const start = original ? paragraph.indexOf(original) : -1
+        if (start === -1 || original === correction) return []
+        return [ { start, end: start + original.length, correction, explanation } ]
+      })
+    }
+  } finally {
+    session.destroy()
+  }
 }

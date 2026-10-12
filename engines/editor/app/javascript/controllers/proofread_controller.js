@@ -20,7 +20,7 @@ export default class extends Controller {
   connect() {
     this.version = 0
     this.current = false // whether the cards' positions match the current text
-    this.activeKey = null
+    this.activeId = null
     this.sending = Promise.resolve()
     this.boundChanged = this.changed.bind(this)
     this.boundRender = () => requestAnimationFrame(() => this.render())
@@ -54,9 +54,11 @@ export default class extends Controller {
     return this.element.querySelector("lexxy-editor [contenteditable='true']")
   }
 
-  // The findings shown in the sidebar, as rendered by the server.
+  // The findings shown in the sidebar, as rendered by the server (not
+  // counting those Gemini Nano dismissed).
   get cards() {
     return Array.from(this.sidebarTarget.querySelectorAll(".commentary-card[data-key]"))
+      .filter((card) => !card.closest(".dismissed-by-ai"))
   }
 
   // --- Proofreading ------------------------------------------------------------
@@ -75,26 +77,47 @@ export default class extends Controller {
     const editor = this.editor
     if (!editor) return
     const version = this.version
-    const { text } = extractText(editor)
+    const extracted = extractText(editor)
+    const { text } = extracted
 
-    const findings = await lint(text)
+    // Code is blanked out for the local checks; drop anything they flag in it.
+    const findings = (await lint(text)).filter((finding) => !extracted.code.some((range) => overlaps(range, finding)))
     if (version !== this.version) return
-    this.current = true
     this.send("harper", findings, version)
 
-    // Gemini Nano is slower, so it runs afterwards, paragraph by paragraph.
+    // Gemini Nano is slower, so it runs afterwards, paragraph by paragraph:
+    // reviewing those findings, and adding any errors they missed.
     if (!gemini.enabled()) return
+    const reviewed = findings.map((finding) => ({ ...finding }))
     let aiFindings = []
-    for (const paragraph of paragraphs(text)) {
-      const corrections = await gemini.proofread(paragraph.text)
+    for (const paragraph of paragraphs(extracted)) {
+      const paragraphEnd = paragraph.start + paragraph.text.length
+      const inParagraph = reviewed.filter((f) => f.start >= paragraph.start && f.end <= paragraphEnd)
+      const { verdicts, missed } = await gemini.review(paragraph.text, paragraph.code, inParagraph.map((f, id) => ({
+        id,
+        problem: f.problem,
+        message: f.message,
+        suggestions: f.suggestions
+      })))
       if (version !== this.version) return
+
+      inParagraph.forEach((finding, id) => {
+        const verdict = verdicts.get(id)
+        if (!verdict) return
+        finding.verdict = verdict.genuine ? "confirmed" : "dismissed"
+        // Put Gemini's choice of correction first.
+        if (verdict.genuine && verdict.correction && verdict.correction !== finding.problem) {
+          finding.suggestions = [ verdict.correction, ...finding.suggestions.filter((s) => s !== verdict.correction) ]
+        }
+      })
       aiFindings = [
         ...aiFindings,
-        ...corrections
-          .map((c) => aiFinding(text, paragraph.start + c.start, paragraph.start + c.end, c))
-          .filter((finding) => !findings.some((other) => overlaps(other, finding)))
+        ...missed
+          .map((c) => aiFinding(extracted.raw, paragraph.start + c.start, paragraph.start + c.end, c, paragraph.code))
+          .filter((finding) => !reviewed.some((other) => overlaps(other, finding)))
       ]
     }
+    if (gemini.reviews()) this.send("harper", reviewed, version)
     this.send("ai", aiFindings, version)
   }
 
@@ -113,7 +136,11 @@ export default class extends Controller {
         },
         body
       }).catch(() => null)
-      if (response?.ok && version === this.version) Turbo.renderStreamMessage(await response.text())
+      if (!response?.ok || version !== this.version) return
+      Turbo.renderStreamMessage(await response.text())
+      // The cards now match the current text, so they can be drawn and used.
+      this.current = true
+      this.render()
     })
   }
 
@@ -122,8 +149,8 @@ export default class extends Controller {
   render() {
     this.draw()
     const cards = this.cards
-    const index = cards.findIndex((card) => card.dataset.key === this.activeKey)
-    cards.forEach((card) => card.classList.toggle("is-active", card.dataset.key === this.activeKey))
+    const index = cards.findIndex((card) => card.id === this.activeId)
+    cards.forEach((card) => card.classList.toggle("is-active", card.id === this.activeId))
     this.counterTarget.textContent = cards.length === 0 ? "" : `${index >= 0 ? `${index + 1} of ` : ""}${cards.length}`
   }
 
@@ -143,7 +170,7 @@ export default class extends Controller {
       if (!range) return
       const layer = drawn.filter((other) => overlaps(other, finding)).length
       drawn.push(finding)
-      const active = card.dataset.key === this.activeKey
+      const active = card.id === this.activeId
       for (const rect of lineRects(range)) {
         if (active) this.drawBox("hl-active", rect, shellRect, rect.top, rect.height)
         this.drawBox(`hl-squiggle hl-${card.dataset.color}`, rect, shellRect, rect.bottom - 3 + layer * 6, 7)
@@ -168,8 +195,9 @@ export default class extends Controller {
   async accept(event) {
     const card = event.target.closest("[data-key]")
     const { problem, suggestion } = event.currentTarget.dataset
-    const { start } = position(card)
-    if (!this.current) return
+    const { start, end } = position(card)
+    // Only act on cards that match the current text, and the text it's about.
+    if (!this.current || extractText(this.editor).raw.slice(start, end) !== problem) return
 
     // Edit only the words that change, so formatting on the rest is kept. Edits
     // go from the end backwards so that earlier offsets stay valid.
@@ -221,13 +249,13 @@ export default class extends Controller {
   move(delta) {
     const cards = this.cards
     if (cards.length === 0) return
-    const index = cards.findIndex((card) => card.dataset.key === this.activeKey)
+    const index = cards.findIndex((card) => card.id === this.activeId)
     const next = cards[(index + delta + cards.length) % cards.length]
-    this.activate(next.dataset.key, { scroll: true })
+    this.activate(next.id, { scroll: true })
   }
 
   focusCard(event) {
-    this.activate(event.currentTarget.dataset.key, { scroll: true })
+    this.activate(event.currentTarget.id, { scroll: true })
   }
 
   activateFromCaret() {
@@ -243,13 +271,15 @@ export default class extends Controller {
       const { start, end } = position(c)
       return caret >= start && caret <= end
     })
-    if (card) this.activate(card.dataset.key)
+    if (card) this.activate(card.id)
   }
 
-  activate(findingKey, { scroll = false } = {}) {
-    this.activeKey = findingKey
+  // Activates a finding by its card's id (unique, unlike its key, which is
+  // shared by repeated occurrences of the same problem).
+  activate(cardId, { scroll = false } = {}) {
+    this.activeId = cardId
     this.render()
-    const card = this.cards.find((c) => c.dataset.key === findingKey)
+    const card = this.cards.find((c) => c.id === cardId)
     card?.scrollIntoView({ block: "nearest" })
     if (!scroll || !card || !this.current) return
     const { start, end } = position(card)
@@ -273,13 +303,13 @@ function overlaps(a, b) {
   return a.start < b.end && b.start < a.end
 }
 
-function aiFinding(text, start, end, { correction, explanation }) {
+function aiFinding(text, start, end, { correction, explanation }, code) {
   return {
     start,
     end,
     problem: text.slice(start, end),
     message: explanation,
-    rule: "Gemini Nano",
+    rule: code ? "Code" : "Gemini Nano",
     category: "ai",
     suggestions: [ correction ],
     source: "ai"
@@ -292,41 +322,53 @@ const BLOCKS = new Set([ "P", "H1", "H2", "H3", "H4", "H5", "H6", "LI", "PRE", "
 
 // The editor's text, as a proofreader should see it: paragraphs separated by
 // blank lines, line breaks as newlines, and code blanked out (keeping its
-// length, so offsets still line up). `segments` maps offsets back to the DOM.
+// length, so offsets still line up). `raw` is the same, but with the code.
+// `segments` maps offsets back to the DOM.
 function extractText(root) {
   let text = ""
+  let raw = ""
   const segments = []
+  const code = [] // ranges of code
+  const append = (value, inCode) => {
+    if (inCode) code.push({ start: text.length, end: text.length + value.length })
+    text += inCode ? value.replace(/[^\n]/g, " ") : value
+    raw += value
+  }
   const separate = () => {
-    if (text && !text.endsWith("\n\n")) text += text.endsWith("\n") ? "\n" : "\n\n"
+    if (text && !text.endsWith("\n\n")) append(text.endsWith("\n") ? "\n" : "\n\n", false)
   }
   const walk = (node, inCode) => {
     if (node.nodeType === Node.TEXT_NODE) {
       segments.push({ node, start: text.length, length: node.length })
-      text += inCode ? node.nodeValue.replace(/[^\n]/g, " ") : node.nodeValue
+      append(node.nodeValue, inCode)
       return
     }
     if (node.nodeType !== Node.ELEMENT_NODE || node.getAttribute("contenteditable") === "false") return
     if (node.tagName === "BR") {
-      text += "\n"
+      append("\n", false)
       return
     }
-    const block = BLOCKS.has(node.tagName)
-    const code = inCode || node.tagName === "CODE" || node.tagName === "PRE"
+    // Lexxy renders code blocks as <code data-language>.
+    const block = BLOCKS.has(node.tagName) || (node.tagName === "CODE" && node.hasAttribute("data-language"))
+    const isCode = inCode || node.tagName === "CODE" || node.tagName === "PRE"
     if (block) separate()
-    node.childNodes.forEach((child) => walk(child, code))
+    node.childNodes.forEach((child) => walk(child, isCode))
     if (block) separate()
   }
   root.childNodes.forEach((child) => walk(child, false))
-  return { text, segments }
+  return { text, raw, segments, code }
 }
 
-// The paragraphs of extracted text, with their offsets.
-function paragraphs(text) {
+// The paragraphs of extracted text, with their offsets, including code blocks
+// (which are blank in `text`, but not in `raw`).
+function paragraphs({ text, raw }) {
   const result = []
   const pattern = /[^\n]+(?:\n[^\n]+)*/g
   let match
-  while ((match = pattern.exec(text))) {
-    if (match[0].trim()) result.push({ text: match[0], start: match.index })
+  while ((match = pattern.exec(raw))) {
+    if (!match[0].trim()) continue
+    const code = !text.slice(match.index, match.index + match[0].length).trim()
+    result.push({ text: match[0], start: match.index, code })
   }
   return result
 }

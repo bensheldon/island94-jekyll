@@ -55,6 +55,37 @@ RSpec.describe "Editor", :fake_claude do
     end
   end
 
+  it "has Gemini Nano review the findings and check code", :js do
+    page.driver.browser.page.command("Page.addScriptToEvaluateOnNewDocument",
+                                     source: Rails.root.join("spec/support/editor/fake_gemini_nano.js").read)
+    with_temporary_post(filename: filename, body: "I saw teh cat and alot of dogs.\n\n```ruby\nputs teh_value\n```") do |post|
+      visit document_path
+      expect(page).to have_text("Gemini Nano: on")
+
+      expect(page).to have_css(".commentary-card", text: "✓ Gemini Nano", wait: 10)
+      expect(page).to have_text("1 finding dismissed by Gemini Nano")
+      code_card = find(".commentary-card", text: "Typo in the variable name.")
+      code_card.find(".suggestion-button").click
+
+      expect(page).to have_css("[data-autosave-target='status']", text: "Saved", wait: 5)
+      expect(File.read(post.filepath)).to include("puts the_value")
+    end
+  end
+
+  it "navigates between repeated occurrences of the same problem", :js do
+    with_temporary_post(filename: filename, body: "I saw teh cat. Then I saw teh dog.") do
+      visit document_path
+      expect(page).to have_css(".commentary-card", text: "teh", count: 2, wait: 10)
+      count = all(".commentary-card").size
+
+      click_on "→"
+      expect(page).to have_css("[data-proofread-target='counter']", text: "1 of #{count}")
+      click_on "→"
+      expect(page).to have_css("[data-proofread-target='counter']", text: "2 of #{count}")
+      expect(page).to have_css(".commentary-card.is-active", count: 1)
+    end
+  end
+
   it "stores findings on the server and keeps ignored ones ignored", :js do
     with_temporary_post(filename: filename, body: "This is a test of teh editor.") do
       visit document_path
