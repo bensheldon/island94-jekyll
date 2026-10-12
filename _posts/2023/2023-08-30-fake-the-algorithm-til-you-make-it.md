@@ -5,7 +5,7 @@ published: true
 tags: []
 ---
 
-Almost exactly a decade ago I worked at OkCupid Labs where small teams (~2 engineers, a designer, and a fractional PM) would build zero-to-one applications. It was great fun and I worked mainly on [Ravel!](https://island94.org/2013/07/Meet-Ravel.html) though bopped around quite a bit too. 
+Almost exactly a decade ago I worked at OkCupid Labs where small teams (~2 engineers, a designer, and a fractional PM) would build zero-to-one applications. It was great fun and I worked mainly on [Ravel!](https://island94.org/2013/07/Meet-Ravel.html) though bopped around quite a bit too.
 
 With small teams and quick timelines, I learned a lot about where to invest time in early social apps (onboarding and core loop) and where not to (matchmaking algorithms). The following is lightly adapted from a bunch of comments I wrote on an r/webdev post a few years ago, asking for ["Surprisingly simple web apps?"](https://www.reddit.com/r/webdev/comments/pey1p7/comment/%2Chb4gik2%2C/). My response was [described](https://www.reddit.com/r/webdev/comments/pey1p7/comment/hb4gpxy/?utm_source=reddit&utm_medium=web2x&context=3) as "one of the more interesting things I've read on reddit in 5 years":
 
@@ -26,7 +26,7 @@ It works on people's confirmation bias: if you confidently tell someone that the
 
 And remember, this is really about priorities in the early life of a product. It's not difficult to do something complex, but it takes time and engaged users to dial it in; so that's why you don't launch with a real algorithm.
 
-This is all really easy to do with just a relational database _in the database_, no in-memory descent models or whatever. Here's a simple recommendation strategy for t-shirts (from my [Day of the Shirt](https://dayoftheshirt.com)), in SQL for Ruby on Rails: 
+This is all really easy to do with just a relational database _in the database_, no in-memory descent models or whatever. Here's a simple recommendation strategy for t-shirts (from my [Day of the Shirt](https://dayoftheshirt.com)), in SQL for Ruby on Rails:
 
 For a given user, find all of the t-shirts they have favorited, then find all of the users that have also favorited those t-shirts and strength them based on who has favorited the most t-shirts in common with the initial user, and then find all of the t-shirts those users have favorited, multiply through the counts and strengths, sum and order them. There's your recommended t-shirts:
 
@@ -60,4 +60,3 @@ end
 That's a relatively lightweight strategy, that you can run in real-time and if there is enough engagement can appear effective. And if you don't have enough engagement, again, enrich it with some deterministically random results.
 
 It's basic but you can also add in other kinds of engagement and weigh them differently or whatever. It's all good. Then you have massive success and hire a real datascience team.
-

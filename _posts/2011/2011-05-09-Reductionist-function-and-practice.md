@@ -17,7 +17,7 @@ Rob Haitani on Palm OS from _[Designing Interactions](http://www.designingintera
 
 > One bit of advice that I gave to people designing the Palm OS was, "If you can really understand the one thing your customer wants to do most frequently, and make that a one-step process, then I guarantee people will like the product."
 >
-> Just say, "What is the one thing you want to do?" and even if you have to throw out conventions of logic, architecture, and hierarchy, you should make that one step. The more "illogical" your approach is, the less likely it is that it will blindly follow the conventional wisdom, and hence the more likely it becomes that you will be able to differentiate and create a successful product relative to your competition, If you take the conventional approach, by definition you're not innovating. If you just say, "Here are all the features," and you lay them out in a logical pattern, then that's not going to be a successful product.
+> Just say, "What is the one thing you want to do?" and even if you have to throw out conventions of logic, architecture, and hierarchy, you should make that one step. The more "illogical" your approach is, the less likely it is that it will blindly follow the conventional wisdom, and hence the more likely it becomes that you will be able to differentiate and create a successful product relative to your competition, If you take the conventional approach, by definition you're not innovating. If you just say, "Here are all the features," and you lay them out in a logical pattern, then that's not going to be a successful product.
 
 From [Michael Lopp's interview of Instapaper's Marco Arment](http://www.randsinrepose.com/archives/2011/01/25/interview_marco_arment.html):
 

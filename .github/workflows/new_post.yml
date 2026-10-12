@@ -14,9 +14,19 @@ jobs:
   new_post:
     name: Create new post and open PR
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
+      - name: Generate GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@v3
+        with:
+          app-id: ${{ secrets.BOT_ID }}
+          private-key: ${{ secrets.BOT_PRIVATE_KEY }}
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
+        with:
+          token: ${{ steps.app-token.outputs.token }}
       # Dependencies
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
@@ -36,8 +46,9 @@ jobs:
           git commit -m "Add post: ${{ github.event.inputs.post_title }}"
       - name: Create Pull Request
         id: create_pr
-        uses: peter-evans/create-pull-request@v7
+        uses: peter-evans/create-pull-request@v8
         with:
+          token: ${{ steps.app-token.outputs.token }}
           title: "Add post: ${{ github.event.inputs.post_title }}"
           body: ""
           branch-suffix: timestamp

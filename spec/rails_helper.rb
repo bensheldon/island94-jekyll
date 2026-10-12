@@ -23,10 +23,11 @@ require 'capybara/cuprite'
 # directory. Alternatively, in the individual `*_spec.rb` files, manually
 # require only the support files necessary.
 #
-# Rails.root.glob('spec/support/**/*.rb').sort_by(&:to_s).each { |f| require f }
+Rails.root.glob('spec/support/**/*.rb').sort_by(&:to_s).each { |f| require f }
 
 RSpec.configure do |config|
   # Remove this line to enable support for ActiveRecord
+
   config.use_active_record = false
 
   # If you enable ActiveRecord support you should uncomment these lines,
@@ -69,8 +70,11 @@ RSpec.configure do |config|
         :cuprite,
         screen_size: [1024, 800],
         options: {
+          # Increase Chrome startup wait time
           process_timeout: 30,
-          headless: ENV['SHOW_BROWSER'] ? false : true,
+          # Increase selector timeout
+          timeout: 30,
+          headless: ENV['SHOW_BROWSER'] ? false : "new",
           browser_options: ENV["DOCKER"] ? { "no-sandbox" => nil } : {},
         }
       )

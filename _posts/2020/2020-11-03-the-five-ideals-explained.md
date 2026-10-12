@@ -9,7 +9,7 @@ I previously posted the [The Three Ways](https://island94.org/2017/12/the-three-
 
 The First Ideal: Locality and Simplicity
 
-We need to design things so that we have locality in our systems and the organizations that build them. We need simplicity in everything we do. This ideal relates to the degree to which a development team can make local code changes in a single location without impacting various teams. The last place we want complexity is internally, whether it’s in our code, in our organization, or in our processes. 
+We need to design things so that we have locality in our systems and the organizations that build them. We need simplicity in everything we do. This ideal relates to the degree to which a development team can make local code changes in a single location without impacting various teams. The last place we want complexity is internally, whether it’s in our code, in our organization, or in our processes.
 
 The Second Ideal: Focus, Flow, and Joy
 
@@ -21,7 +21,7 @@ The Third Ideal addresses paying down technical debt and improving architecture.
 
 The Fourth Ideal: Psychological Safety
 
-Psychological safety is one of the top predictors of team performance. When team members feel safe to talk about problems, problems can not only be fixed but prevented. Solving problems requires honesty, and honesty requires an absence of fear. In knowledge work, psychological safety should be treated with the same importance as physical safety is in manufacturing. 
+Psychological safety is one of the top predictors of team performance. When team members feel safe to talk about problems, problems can not only be fixed but prevented. Solving problems requires honesty, and honesty requires an absence of fear. In knowledge work, psychological safety should be treated with the same importance as physical safety is in manufacturing.
 
 The Fifth Ideal: Customer Focus
 

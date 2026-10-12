@@ -34,4 +34,3 @@ You can turn the typical fundraising experience on it's head by offering a Reque
 3. **Write your Public Representative**
 
 There was [once a time in America](http://en.wikipedia.org/wiki/Four_Freedoms) when people believed it was the federal government's responsibility to offer many of the services that the nonprofit sector now provides. Regardless of your political-philosophical position, the government still provides massive amounts of funding to social causes. Contact your local, state or national representative and request support for your particular cause. You might not be able to target a particular organization for earmarks, but a rising tide raises all the boats.
-

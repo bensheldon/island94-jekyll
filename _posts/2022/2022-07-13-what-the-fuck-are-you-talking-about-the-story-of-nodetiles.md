@@ -38,11 +38,11 @@ On May 2, 2012, I sent this email to "Fuzz", Code for America's random-nerdsnipe
 
 <blockquote markdown="1">
 
-Last week Rob and I built a heroku-compatible map-tile renderer (and UTFGrid generator) that can quickly (and with low bandwidth/client-processing) serve interactive maps and markers comprising tens of thousands of points and polygons---and unlike TileMill, the final map can be connected to a live database and updated on-the-fly. It's kind've badass.
+Last week Rob and I built a heroku-compatible map-tile renderer (and UTFGrid generator) that can quickly (and with low bandwidth/client-processing) serve interactive maps and markers comprising tens of thousands of points and polygons---and unlike TileMill, the final map can be connected to a live database and updated on-the-fly. It's kind've badass.
 
 Here are 2 examples:
 
-1. Static map of San Francisco streets and Parks: 
+1. Static map of San Francisco streets and Parks:
  [http://morning-spring-2292.herokuapp.com/](http://morning-spring-2292.herokuapp.com/)
 
 2. Map of all ~1.5k Occupy sites worldwide (I did this in about 15min, so it's a little clunky):
@@ -56,7 +56,7 @@ In terms of why it's badass (from less to more geeky):
 4. It runs on Heroku. It uses node-canvas (not Mapnik) so it is fast, lightweight and has few dependencies.
 5. It renders UTFGrids, which can provide mouse-hovers and other straightforward UI stuff that most maps don't (way less clicky)
 6. It's not a tileserver, it's a tile *renderer*. Seriously, all those maptiles are being generated on on-the-fly (we should probably cache them, but hey, this is bleeding edge)
-7. It's nodejs and all the code is on Github:  [https://github.com/bensheldon/nodetiles](https://github.com/bensheldon/nodetiles)  
+7. It's nodejs and all the code is on Github: [https://github.com/bensheldon/nodetiles](https://github.com/bensheldon/nodetiles)  
 
 I'm still working on it, so if you have a big dataset that you've had trouble mapping before, let me know since I'm looking for more/better use cases.
 
@@ -74,7 +74,7 @@ I haven't done a big writeup yet. I'm hoping to submit to NACIS for their Octobe
 
 General backstory: I had been playing around a lot with TileMill and Mapnik and trying to programmatically generate map tiles; at CfA we have a lot of big, dynamic data and I was trying to set up an automated tile renderer. Then I came across a Tom Carden project where he was use Node-Canvas to render tiles... and then I discovered a node-canvas module that would run on Heroku... and by that point I was in love with the idea of a low-dependency (compared to mapnik) on-the-fly tile rendering implementation.
 
-From there, I wanted to see how close I could get to a full-blown TileJSON implementation. I had my coworker Rob Brackett write me a Javascript UTFGrid implementation and I hooked that up to the tile rasterizer. And bam. It's clunky as hell, and sort've slow (it's rendering an entire shapefile then cropping it down for every tile rather than spatially indexing the features), but I think it has potential. 
+From there, I wanted to see how close I could get to a full-blown TileJSON implementation. I had my coworker Rob Brackett write me a Javascript UTFGrid implementation and I hooked that up to the tile rasterizer. And bam. It's clunky as hell, and sort've slow (it's rendering an entire shapefile then cropping it down for every tile rather than spatially indexing the features), but I think it has potential.
 
 I think the next step (in addition to cleanup and documentation) is loading up some OSM metro data and actually seeing how the performance compares to Mapnik. Also, while I can't foresee implementing something like Cascadenik, node-canvas gives you direct access to the graphics renderer and it might be useful for creating boutique maps with graphical flourishes that Mapnik hasn't implemented... and of course for creating layers with dynamic data.
 

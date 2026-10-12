@@ -15,7 +15,6 @@ redirect_from:
 
 A [comment](http://lowhangingfruit.us/2010/04/19/social-media-avoidance-excuses/#comment-616) I made back in April on a blog post entitled " [4 Poor Excuses for Avoiding Social Media](http://lowhangingfruit.us/2010/04/19/social-media-avoidance-excuses/)" that asked the question "Are there good reasons to avoid social media?":
 
-
 > Not to be a hater, but how about: “Social Media is based upon an exploitative business model that seeks to monetize your relationships and personal/private information.”
 >
 > I totally agree that Social Media can be quite effective at reaching out to people. But I also think the business model that enables social media services (like Facebook and Twitter, or other “free” services that are ad supported) undermines the social change work some nonprofits are attempting to bring about. While on one hand social media strengthens your organization’s ability to organize and mobilize for a cause, on the other hand its strengthening massive media, advertising, and data-mining companies who will use the money they earn from your participation to act and advocate against your social interests.

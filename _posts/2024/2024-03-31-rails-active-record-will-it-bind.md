@@ -5,21 +5,21 @@ published: true
 tags: []
 ---
 
-Active Record, Ruby on Rail’s ORM, has support for Prepared Statements that work _if you structure your query for it_. Because of my work on GoodJob, which can make a lot of nearly identical database queries every second to pop its job queue, I’ve invested a lot of time trying to make those queries as efficient as possible. 
+Active Record, Ruby on Rail’s ORM, has support for Prepared Statements that work _if you structure your query for it_. Because of my work on GoodJob, which can make a lot of nearly identical database queries every second to pop its job queue, I’ve invested a lot of time trying to make those queries as efficient as possible.
 
 Prepared Statements are a database feature that allow the database to reuse query parsing and planning when queries are structurally the same. Prepared statements, at least in Postgres, are linked to the database connection/session and stored in memory in the database. This implies some things:
 
-- There can be a **performance benefit** to making queries “preparable” for Prepared Statements which Active Record will decide for you based on how a query is structured. 
+- There can be a **performance benefit** to making queries “preparable” for Prepared Statements which Active Record will decide for you based on how a query is structured.
 - There can be a **performance harm** (or at least non-useful database processing and [memory growth](https://github.com/rails/rails/issues/14645)) if your application produces a lot of preparable queries that are never reused again.
 
-By default, Rails will have the database store 1,000 queries (`statement_limit: 1000`). Many huge Rails monoliths (like GitHub, where I work) disable prepared statements (`prepared_statements: false`) because there is too much query heterogeneity to get a performance benefit and the database spends extra and unnecessary cycles storing and evicting unused prepared statements.  But that’s maybe not your application!
+By default, Rails will have the database store 1,000 queries (`statement_limit: 1000`). Many huge Rails monoliths (like GitHub, where I work) disable prepared statements (`prepared_statements: false`) because there is too much query heterogeneity to get a performance benefit and the database spends extra and unnecessary cycles storing and evicting unused prepared statements. But that’s maybe not your application!
 
 Structurally similar queries can still have variable values inside of them: these are called **bind parameters**. For example, in GoodJob, I want pop jobs that are scheduled to run right now. In SQL that might look like:
 
 ```sql
 SELECT * FROM good_jobs WHERE scheduled_at < '2024-03-31 16:44:11.047499`
 ```
- 
+
 That query has the downside of the timestamp changing multiple times a second as new queries are emitted. What I want to do is extract out the timestamp into a bind parameter (a `?` or `$1` depending on the database adapter) instead of embedded in the query:
 
 ```sql
@@ -28,7 +28,7 @@ SELECT * FROM good_jobs WHERE scheduled_at < ?
 
 That’s the good stuff! That’s ideal and preparable 👍
 
-But that’s raw SQL, now how to do that in Active Record? In the following exploration, I’m using the private `to_sql_and_binds` method in Active Record; I’m also using the private Arel API. This is all private and subject to change, so be sure to write some tests around this behavior if you do choose to use it.  Here’s some [quick experiments](https://github.com/bensheldon/rails_tricks/blob/6c686c987ee9996bbad8a6ade1f92184c5a9ebf6/bind_params.rb) I’ve done:
+But that’s raw SQL, now how to do that in Active Record? In the following exploration, I’m using the private `to_sql_and_binds` method in Active Record; I’m also using the private Arel API. This is all private and subject to change, so be sure to write some tests around this behavior if you do choose to use it. Here’s some [quick experiments](https://github.com/bensheldon/rails_tricks/blob/6c686c987ee9996bbad8a6ade1f92184c5a9ebf6/bind_params.rb) I’ve done:
 
 ```ruby
 job = Job.create(scheduled_at: 10.minutes.ago)
@@ -57,7 +57,7 @@ _query, binds, prepared = Job.connection.send(:to_sql_and_binds, relation.arel)
 expect(binds.size).to eq 1 # <-- Looking good! 🙌
 expect(prepared).to eq true # <-- Yes! 👏
 ```
-  
+
 That very last option is the good one because it has the bind parameter (`$1`) and then the Active Record logger will show the values in the nested array next to the query. The successful combination uses:
 
 - Arel comparable syntax

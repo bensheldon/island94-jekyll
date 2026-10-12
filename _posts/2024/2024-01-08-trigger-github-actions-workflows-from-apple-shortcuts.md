@@ -11,7 +11,7 @@ My use case: I've been wanting to quit Pinboard.in, so I needed an alternative w
 
 1. Bookmarks are organized as individual yaml files, in this [blog's repository](https://github.com/bensheldon/island94.org/tree/a524b8fce50bb315d1a1f1e9c27e572a7af31ccc/_bookmarks).
 2. A [Ruby script](https://github.com/bensheldon/island94.org/blob/a524b8fce50bb315d1a1f1e9c27e572a7af31ccc/scripts/bookmark.rb) to take some simple inputs (url, title, notes), generate a new yaml file, and commit it to the repo using Octokit.
-3. A GitHub Actions [workflow that accepts those same inputs](https://github.com/bensheldon/island94.org/blob/a524b8fce50bb315d1a1f1e9c27e572a7af31ccc/.github/workflows/bookmark.yml#L3-L20)  and can be manually triggered, that runs the script. One thing to note is that I echo the inputs to `$GITHUB_STEP_SUMMARY` early in the workflow in case a later step errors, so I won't lose the bookmark details and can go back later and manually fix it up.
+3. A GitHub Actions [workflow that accepts those same inputs](https://github.com/bensheldon/island94.org/blob/a524b8fce50bb315d1a1f1e9c27e572a7af31ccc/.github/workflows/bookmark.yml#L3-L20) and can be manually triggered, that runs the script. One thing to note is that I echo the inputs to `$GITHUB_STEP_SUMMARY` early in the workflow in case a later step errors, so I won't lose the bookmark details and can go back later and manually fix it up.
 4. An Apple Shortcut that asks for those inputs (either implicitly via the Share Sheet or via text inputs) and then manually triggers the GitHub Actions workflow via the GitHub API.
 
 The only difficult part for me was getting Apple Shortcuts to work nicely with the GitHub REST API. Here's what worked for me:

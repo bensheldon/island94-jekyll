@@ -16,7 +16,7 @@ There are two things that should be addressed.
 
 ...
 
-I’ve been attempting to find mechanisms to remind myself that my attention is sovereign every single time I open an app on my phone. The only solution, has been to keep it in my pocket and not even try and open an app. Slowly slowly you begin to not bother pulling out your phone at all. If you are actually doing something, like reading a longread news article and feel the urge to check social media you have to think to yourself ‘Should I open twitter *again* or should I keep doing what I was doing’. 
+I’ve been attempting to find mechanisms to remind myself that my attention is sovereign every single time I open an app on my phone. The only solution, has been to keep it in my pocket and not even try and open an app. Slowly slowly you begin to not bother pulling out your phone at all. If you are actually doing something, like reading a longread news article and feel the urge to check social media you have to think to yourself ‘Should I open twitter *again* or should I keep doing what I was doing’.
 
 </blockquote>
 
@@ -36,7 +36,7 @@ Ask yourself the first three questions that UK non-profit Women’s Aid suggests
 
 If you substitute ‘phone’ for ‘partner’, you could answer yes to each question. And then you’ll probably blame yourself.
 
-If this feels dangerously close to trivializing abuse and intimate partner violence, then stick with me just a minute more. What our smartphones and relationship abusers share is that they both exert power over us in a world shaped to tip the balance in their favour, and they both work really, really hard to obscure this fact and keep us confused and blaming ourselves. Here are some of the ways our unequal relationship with our smartphones is like an abusive relationship: 
+If this feels dangerously close to trivializing abuse and intimate partner violence, then stick with me just a minute more. What our smartphones and relationship abusers share is that they both exert power over us in a world shaped to tip the balance in their favour, and they both work really, really hard to obscure this fact and keep us confused and blaming ourselves. Here are some of the ways our unequal relationship with our smartphones is like an abusive relationship:
 
 - They isolate us from deeper, competing relationships in favour of superficial contact – ‘user engagement’ – that keeps their hold on us strong. Working with social media, they insidiously curate our social lives, manipulating us emotionally with dark patterns to keep us scrolling.
 - They tell us the onus is on us to manage their behavior. It’s our job to tiptoe around them and limit their harms. Spending too much time on a literally-designed-to-be-behaviorally-addictive phone? They send company-approved messages about our online time, but ban from their stores the apps that would really cut our use. We just need to use willpower. We just need to be good enough to deserve them.

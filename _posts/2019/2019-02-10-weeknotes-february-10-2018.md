@@ -19,15 +19,15 @@ I binge read Fred Brooks _The Mythical Man Month_ after seeing someone tweet a B
 
 We had a work trip visiting Montgomery, Alabama to attend the National Memorial of Peace and Justice and the Legacy Museum, in addition to the Civil Rights Museum and the Rosa Parks Museum. At the legacy museum there was a neat display weighing regressive court opinions (2x) vs progressive ones. I liked a quote from Justice Brennan, in dissent of one of the regressive ones, criticizing the majority of having a “fear of too much justice”.
 
-Two weeks ago I attended a [manager training](https://www.beplucky.com/manager/). One suggestion was to dedicate the 1st one-on-one of the month to career development, to ensure it happens. I followed that advice with my reports and had some incredible conversations. I asked them to pick from the Career Planning cards from the [Plucky 1:1 Deck](https://shop.beplucky.com/products/the-plucky-1-1-starter-pack). 
+Two weeks ago I attended a [manager training](https://www.beplucky.com/manager/). One suggestion was to dedicate the 1st one-on-one of the month to career development, to ensure it happens. I followed that advice with my reports and had some incredible conversations. I asked them to pick from the Career Planning cards from the [Plucky 1:1 Deck](https://shop.beplucky.com/products/the-plucky-1-1-starter-pack).
 
-Technically I focused on linting this week. While onboarding a new rotation to our team they asked, like everyone asks, about a code styleguide. By agreement the team has suggestions but not requirements, but personally being tired of getting the same new-person sourface that proceeds (including my own when I joined), I said that if that’s something they care about, let’s pair on it right now. So we did. 
+Technically I focused on linting this week. While onboarding a new rotation to our team they asked, like everyone asks, about a code styleguide. By agreement the team has suggestions but not requirements, but personally being tired of getting the same new-person sourface that proceeds (including my own when I joined), I said that if that’s something they care about, let’s pair on it right now. So we did.
 
 From this post by [Cate Huston](https://cate.blog/2019/02/06/the-cost-of-fixing-things/) on burnout I learned about the [Maslach Burnout Inventory](https://www.forbes.com/sites/johnrampton/2015/05/13/the-6-causes-of-professional-burnout-and-how-to-avoid-them/#f9c0c821dde1) which has 6 “mismatches” that cause burnout:
 
 1. Lack of control
 2. Insufficient reward
-3. Lack of community 
+3. Lack of community
 4. Absence of fairness
 5. Conflict in values
 6. Work overload

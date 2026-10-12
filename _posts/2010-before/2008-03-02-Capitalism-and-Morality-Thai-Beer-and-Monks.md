@@ -24,4 +24,3 @@ I find myself mentioning [this story](http://www.bloomberg.com/apps/news?pid=100
 And then, the (former) PM's view:
 
 > As the alcohol industry is the cause of many damages to society, as shown by those statistics, it lacks the qualifications to raise funds and list in the stock exchange. Even if, from an economic point of view, it is the source of tax collected from the sale of beer, it's not worth all the losses it creates.
-

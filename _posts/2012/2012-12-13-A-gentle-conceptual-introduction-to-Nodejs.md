@@ -39,7 +39,7 @@ Turns out that the same properties that make javascript work well for interactin
 
 - Event-based: a server will constantly be getting requests (at different urls, on different ports) that need to be responded to in different ways when those events take place
 
-- Asynchronous: in dealing with a request, a server will need to load other data (from a file, a database, another server like Twitter), and you don't want your entire server to just lock up while it waits for that external service (we call this I/O for "Input/Output") to finish. For a typical web request, the _majority_ of time will be spent waiting on  I/O.
+- Asynchronous: in dealing with a request, a server will need to load other data (from a file, a database, another server like Twitter), and you don't want your entire server to just lock up while it waits for that external service (we call this I/O for "Input/Output") to finish. For a typical web request, the _majority_ of time will be spent waiting on I/O.
 
 So how are other languages that aren't (for the most part) event-based/asynchronous used on web servers? Like Ruby, Python and PHP. The synchronous code runs on top of an asynchronous web server (Apache, Rack, WSGI) that creates a synchronous "thread" to run your Ruby/Python/PHP code. If another request comes in while that first thread is still processing, the web server creates a new thread. Unfortunately, those threads are resource-intensive which means you can only create a limited number of them (based on how powerful your server is). If all your threads are in-use, a new request will have to wait until a previous request is finished and the thread becomes available again.
 
@@ -55,9 +55,9 @@ So what can you do when you're able to quickly serve hundreds/thousands of simul
 
 3. Real-time connections to the web-browser: Traditional/Threaded systems try to keep their connections brief (because they can only handle a few at a time). If you don't have that few-at-a-time constraint, you can leave the connection open much longer and thus easily send data back and forth in real time. **Socket.io** is a library for doing this.
 
-Example of all 3: visualizing traffic going through a Node.js load-balancer by geolocating the requesting IP address and sending them to a map  in the web browser in real-time via Socket.io: [http://vimeo.com/48470307](http://vimeo.com/48470307)
+Example of all 3: visualizing traffic going through a Node.js load-balancer by geolocating the requesting IP address and sending them to a map in the web browser in real-time via Socket.io: [http://vimeo.com/48470307](http://vimeo.com/48470307)
 
-[ ![maptail](/uploads/2012-12/maptail-600x330.png) ](http://vimeo.com/48470307)
+[![maptail](/uploads/2012-12/maptail-600x330.png) ](http://vimeo.com/48470307)
 
 Alternatives to Node.js: EventMachine (Ruby) or Twisted (Python). Unfortunately, the majority of Ruby/Python libraries aren't written to be evented/asynchronous, which means you can't use those libraries in an asynchronous environment (because they will lock it up). Whereas the majority of Node.js/Javascript code \*is\* written to be evented/asynchronous.
 
@@ -80,4 +80,3 @@ Still, the opportunities that Node.js creates are worth it. Other fun stuff/oppo
 The Rails ecosystem is more mature than Node's: there are more engineers, more libraries, stronger conventions and a more complete development and deployment pipeline (scaffolding, testing, continuous integration, monitoring, etc.). If you have a startup with a limited development window and a typical product design ("users create accounts, post content, favorite other user's content, see what was most favorited content") that you need to quickly/agilely iterate, Rails has that problem solved (this is the strength of Rails over pretty much everything, not a weakness of Node specifically). If you're looking at a cost curve, the starting cost for Rails will be way lower for a vanilla product. Now if you're talking about doing something non-typical (realtime interaction) or are operating at a huge scale (where you can swap infrastructure costs for engineering costs), Node is enabling (there are some things you just can't/don't want to do without Node) if not affordable. Also, you can use Node in a heterogenous environment (running the load balancer, or analytics server) or integrate a Node-powered service into a more traditional product (for example, real-time chat is powered by Node, but user accounts, relationships and chat history is managed by Rails).
 
 ![nodejs-cost](/uploads/2012-12/nodejs-cost.png)
-

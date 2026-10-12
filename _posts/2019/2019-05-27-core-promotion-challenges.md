@@ -3,7 +3,7 @@ date: '2019-05-27 15:01 -0700'
 published: true
 title: Core promotion challenges
 ---
-From "Your Next Move" by Michael D. Watkins in the section of _Core promotion challenges_: 
+From "Your Next Move" by Michael D. Watkins in the section of _Core promotion challenges_:
 
 <table>
   <thead>

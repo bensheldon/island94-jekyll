@@ -17,7 +17,7 @@ Jesse Lichtenstein in "Transparency for All", writing for _Wired:_
 
 Yes and yes. Most government data is policy-level, which means to understand and act on that data, you not only need to be data literate, but also civically literate to transform knowledge into power. Call me a constructionist, but community organizing creates a stronger sense of agency than statistics.
 
-And "cheap" data inconsiderately presented can be harmful. The worst data abuses come from trying to use policy-level, non-contextualized or incomplete data to inform individual decision-making. For example, I had to add this caveat to the [Boston Bike Crash Map](http://bostoncyclistsunion.org/resources/crash-map/) after getting several anxiety-producing inquiries:
+And "cheap" data inconsiderately presented can be harmful. The worst data abuses come from trying to use policy-level, non-contextualized or incomplete data to inform individual decision-making. For example, I had to add this caveat to the [Boston Bike Crash Map](http://bostoncyclistsunion.org/resources/crash-map/) after getting several anxiety-producing inquiries:
 
 > This data alone is not appropriate for making routing decisions. The presence or absence of incidents in a location should not be used to determine the relative safety of biking there as this data does not include ridership or traffic information; i.e. a location may contain less incidents because bikers know to avoid it.
 

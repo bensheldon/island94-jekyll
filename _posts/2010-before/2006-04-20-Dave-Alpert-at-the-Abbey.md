@@ -32,4 +32,3 @@ _A couple tracks from the show:_
 3. [Lovesong for the Wrong Person](http://island94.org/files/Dave%20Alpert%20-%20Lovesong%20for%20the%20wrong%20person.mp3)
 
 The songnames are mostly wrong, just relating to how Dave described the songs. Lastly, the mic was sitting on the bar, so any thumps or clicks are people setting down their glasses. Any guffawing is probably me—at the jokes, not the music.
-

@@ -26,7 +26,7 @@ ScheduledTask.execute(15) do
   # run some code
 end
 ```
- 
+
 In Concurrent Ruby, the object to do this is a [`Concurrent::ScheduledTask`](https://ruby-concurrency.github.io/concurrent-ruby/1.2.0/Concurrent/ScheduledTask.html ) (good name, right?). A ScheduledTask will wait `delay` seconds and then run the block of code on a background thread.
 
 Behind the ScheduledTask is the real star: the [`Concurrent::TimerSet`](https://ruby-concurrency.github.io/concurrent-ruby/1.2.0/Concurrent/TimerSet.html), which executes a collection of tasks, each after a given delay. Let’s break down the components of a TimerSet:
@@ -59,9 +59,9 @@ I earlier described `Event` as a `Mutex` and `ConditionVariable` packaged togeth
 A [Ruby `ConditionVariable`](https://docs.ruby-lang.org/en/3.2/Thread/ConditionVariable.html) has two features that are perfect for multithreaded programming:
 
 - `wait`, which is blocking and will put a thread to sleep, with an optional timeout
-- `set`, which broadcasts a signal to any waiting threads to wake up. 
+- `set`, which broadcasts a signal to any waiting threads to wake up.
 
-Jesse Storimer's excellent and free ebook _Working with Ruby Threads_ has a great [section on ConditionVariables](https://workingwithruby.com/wwrt/condvars/) and why the mutex is a necessary part of the implementation. 
+Jesse Storimer's excellent and free ebook _Working with Ruby Threads_ has a great [section on ConditionVariables](https://workingwithruby.com/wwrt/condvars/) and why the mutex is a necessary part of the implementation.
 
 Here's some code that implements an Event with an example to show how it can wake up a thread:
 
@@ -158,7 +158,7 @@ end
 
 A couple things to call out here:
 
-- The  `GLOBAL_TIMER_SET` is necessary so that all ScheduledTasks are added to the same TimerSet. In Concurrent Ruby, this is `Concurrent.global_timer_set`, though a `ScheduledTask.execute` can be given an explicit `timer_set:` parameter if an application has multiple TimerSets (for example, GoodJob initializes its own TimerSet for finer lifecycle management).
+- The `GLOBAL_TIMER_SET` is necessary so that all ScheduledTasks are added to the same TimerSet. In Concurrent Ruby, this is `Concurrent.global_timer_set`, though a `ScheduledTask.execute` can be given an explicit `timer_set:` parameter if an application has multiple TimerSets (for example, GoodJob initializes its own TimerSet for finer lifecycle management).
 - The `<=>` comparison operator, which will be used to keep our list of tasks sorted with the soonest tasks first.
 
 ### The `TimerSet`
@@ -211,16 +211,16 @@ class TimerSet
     end
   end
 end
-``` 
+```
 
 There’s a lot going on here, but here are the landmarks:
 
 - In this TimerSet, `@queue` is an `Array` that we explicitly call `sort!` on so that the soonest task is always first in the array. In the Concurrent Ruby implementation, that’s done more elegantly with a `Concurrent::Collection::NonConcurrentPriorityQueue`. The `@mutex` is used to make sure that adding/sorting/peeking/popping operations on the queue are synchronized and safe across threads.
-- The magic happens in `#process_tasks`, which creates a new thread and starts up a loop. It loops over the first task in the queue (the soonest): 
-  - If there is no task, it breaks the loop and exits the thread. 
-  - If there is a task, it checks whether it’s time to run, and if so, runs it. If it’s not time yet, it uses the `Event#wait` until it _is_ time to run, or 60 seconds, whichever is sooner. That 60 seconds is a magic number in the real implementation, and I assume that’s to reduce clock drift. Remember,  `Event#wait` is signalable, so if a new task is added, the loop will be immediately restarted and the delay recalculated.  
-  - In real Concurrent Ruby, `task.run` is posted to a separate thread pool where it won’t block or slow down the loop. 
-- The `Event#set` is called inside of `#add_task` which inserts new tasks into the queue. The `process_tasks` background thread is only created _the first time_ a task is added to the queue after the queue has been emptied. This minimizes the number of active threads. 
+- The magic happens in `#process_tasks`, which creates a new thread and starts up a loop. It loops over the first task in the queue (the soonest):
+  - If there is no task, it breaks the loop and exits the thread.
+  - If there is a task, it checks whether it’s time to run, and if so, runs it. If it’s not time yet, it uses the `Event#wait` until it _is_ time to run, or 60 seconds, whichever is sooner. That 60 seconds is a magic number in the real implementation, and I assume that’s to reduce clock drift. Remember, `Event#wait` is signalable, so if a new task is added, the loop will be immediately restarted and the delay recalculated.  
+  - In real Concurrent Ruby, `task.run` is posted to a separate thread pool where it won’t block or slow down the loop.
+- The `Event#set` is called inside of `#add_task` which inserts new tasks into the queue. The `process_tasks` background thread is only created _the first time_ a task is added to the queue after the queue has been emptied. This minimizes the number of active threads.
 - The `Event#reset` is called when the queue is first peeked in `process_tasks`. There’s a lot of subtle race conditions being guarded against in a TimerSet. Calling reset unsets the event at the top of the loop to allow the Event to be set again before the `Event#wait`
 
 And finally, we can put all of the pieces together to fulfill our use case of scheduled tasks:

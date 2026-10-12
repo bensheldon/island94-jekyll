@@ -33,7 +33,7 @@ I've been digging through the section on communications in _Radical Technology_,
 
 And on using half-inch portable video for community television:
 
-> The animator [the producer] should be neutral; act only when invited; help, but not direct, the slection and debate of issues [John] Hopkins adds. The Challenge for Change [a community video group] worker, as he says, becomes a "spark plug for _process_ rather than a creator of _product_, and could use his previous liability as an outsider to mediate difficulties and bring conflicting parties together."
+> The animator [the producer] should be neutral; act only when invited; help, but not direct, the slection and debate of issues [John] Hopkins adds. The Challenge for Change [a community video group] worker, as he says, becomes a "spark plug for _process_ rather than a creator of _product_, and could use his previous liability as an outsider to mediate difficulties and bring conflicting parties together."
 >
 > Community television looks for consens. It uncovers 'issues', records opinions supporting either side, and then tries to resolve them by getting people together to watch the tapes and talk. It hopes for 'media-tion'.
 >

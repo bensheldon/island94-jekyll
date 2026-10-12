@@ -51,4 +51,3 @@ Great comment from slashdot on [English Units](http://tech.slashdot.org/comments
 > In such a system of measurement, you never, ever have to deal with fractions. Breaking down into smaller units is simply a matter of dividing a whole into two equal parts. So if you want to buy things without having to specify fractions, traditional units are the bee's knees (equal to 1 / 128 of an inch ... no just kidding). That's not so important in a world with calculators -- you just calculate a unit price.
 >
 > Still, if you want to buy eight feet, three inches of rope, you can measure out twenty-four hands and three thumbs and come rather close.
-

@@ -6,7 +6,9 @@ date: '2018-08-17 20:26 -0700'
 I like how _Rapid Development: Taming Wild Software Schedules_ by by Steve McConnell lays out exactly how "Best Practices" were selected or rejected:
 
 <blockquote markdown="1">
+
 ### Summary of Best-Practice Candidates
+
 Each practice described in a best-practice chapter has been chosen for one of the following reasons:
 
 - Reduction of development schedules

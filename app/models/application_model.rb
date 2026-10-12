@@ -12,4 +12,12 @@ class ApplicationModel
   def self.reset
     @_cache = {}
   end
+
+  # Writes a front-matter markdown file, raising if one already exists at that path.
+  def self.write_frontmatter_file(path, frontmatter:, body:)
+    raise "File already exists: #{path.sub("#{Rails.root}/", '')}" if File.exist?(path)
+
+    FileUtils.mkdir_p(File.dirname(path))
+    File.write(path, "#{frontmatter.to_yaml.strip}\n---\n\n#{body}\n")
+  end
 end

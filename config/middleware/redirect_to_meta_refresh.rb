@@ -5,6 +5,9 @@ class RedirectToMetaRefresh
   end
 
   def call(env)
+    # The local-only editor is a regular web app and uses real redirects.
+    return @app.call(env) if env["PATH_INFO"].start_with?("/editor")
+
     status, headers, body = @app.call(env)
 
     if (300..399).cover?(status) && headers['Location']

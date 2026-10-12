@@ -22,7 +22,7 @@ I ran across a year-old article I had bookmarked from GovTech entitled ["Do Apps
 >
 > On the surface, it seems like a win-win situation for all. But local buzz only lasts for so long, especially when a winning app doesn't always lead to a long-term government contract.
 >
-> ...the contests let city officials advertise transparency efforts and collaborate with citizens to address local issues. But because applications submitted in the competitions don't go through normal procurement channels, [Jay] Nath [manager of innovation for San Francisco] said, cities cannot use them as "official" apps. That means the shelf life of the winning app is left in the hands of the developers.
+> ...the contests let city officials advertise transparency efforts and collaborate with citizens to address local issues. But because applications submitted in the competitions don't go through normal procurement channels, [Jay] Nath [manager of innovation for San Francisco] said, cities cannot use them as "official" apps. That means the shelf life of the winning app is left in the hands of the developers.
 >
 > Just ask Brian Sobel, one of the three developers of the website iLive.at, where users can learn about a neighborhood in Washington, D.C., by plugging in an address. After winning the top individual prize for the district's first Apps for Democracy contest, he remembers meeting the mayor and attending press conferences. But eventually the hoopla died down. And without any incentives to keep the data up-to-date, he said, the free site has "gone kind of stale."
 >

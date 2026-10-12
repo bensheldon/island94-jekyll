@@ -5,7 +5,7 @@ published: true
 tags:
 ---
 
-From Allison Green's [Ask a Manager: "I Got a Terrible Review on Glassdoor, and I’m Spiraling"](https://www.thecut.com/article/ask-a-boss-glassdoor-negative-review.html): 
+From Allison Green's [Ask a Manager: "I Got a Terrible Review on Glassdoor, and I’m Spiraling"](https://www.thecut.com/article/ask-a-boss-glassdoor-negative-review.html):
 
 > The reality is, when you’re a manager, not everyone will like working for you. You could be the greatest boss in the world and some people still wouldn’t like you. Partly that’s because being a good manager means giving feedback, addressing problems, and holding people accountable in ways they might not like. If you need to correct someone a lot, or have difficult conversations with them about their work, or say no to something they wanted, it’s human nature that you might not end up being their favorite person. Or you might have a style that doesn’t align well with theirs — maybe you’re very direct and matter-of-fact and that feels brusque to them, or maybe you’re a planner and a devotee of process and they work more spontaneously. That wouldn’t mean either of you is in the wrong; it would just mean you don’t mesh well together.
 >

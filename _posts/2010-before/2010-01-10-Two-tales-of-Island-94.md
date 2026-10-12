@@ -29,7 +29,7 @@ The title promises two tales; both are actually the same story, told with differ
 >
 > That morning, in the dim dawn light as the fog and mist began to clear, Sarpy's sailors looked upstream. Island #94 had completely disappeared---pirates and all!
 >
-> For a hundred years there was no Stack Island, no Island #94. Since then the river has redeposited another body of sand in that location which carries the same name and number today. But it is not the same isle where Captain Sarpy so narrowly escaped a brutal ambush and was saved by an earthquake.
+> For a hundred years there was no Stack Island, no Island #94. Since then the river has redeposited another body of sand in that location which carries the same name and number today. But it is not the same isle where Captain Sarpy so narrowly escaped a brutal ambush and was saved by an earthquake.
 >
 > Further to the north, at the end of Long Reach, near the present-day town of Osceola. was Island #32. You won't find it on any modern navigation maps. There is an Island #31 and an Island #33 but no Island #32. It, too, was to disappear in the darkness of an early December morning---but not yet. As of December 16, 1811, Island #32 was still there, but its was days were numbered. In less than a week, it, too, would follow the fate of Island #94.
 
@@ -39,6 +39,6 @@ I suspect the previous story is quite close to the St. Louis Globe Democrat's "T
 >
 > As Sarpy and two of his men explored the island, however, they overheard talking in the blockhouse and, peering in the windows, listened as a group of ﬁfteen river pirates discussed plans to fall upon the _Belle Heloise_ the following morning. Sarpy and his crewmen hurried back to the boat and quietly pushed off, tying up at a hidden place in the willows on the west bank about a mile below Island 94.
 >
-> The following morning, after weathering a night of earthquakes, Sarpy looked upstream to see that Island 94 had disintegrated—the entire landmass was gone, and presumably, its criminal inhabitants along with it.
+> The following morning, after weathering a night of earthquakes, Sarpy looked upstream to see that Island 94 had disintegrated—the entire landmass was gone, and presumably, its criminal inhabitants along with it.
 >
 > Whether or not the story is true, Island 94 did indeed disappear.

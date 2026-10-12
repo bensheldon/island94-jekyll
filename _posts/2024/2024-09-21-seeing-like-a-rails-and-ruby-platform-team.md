@@ -34,7 +34,7 @@ There is a general order here, from most important to least in broad strokes. Re
   * Avoid monkeypatching or reaching into private methods or objects.
   * The most appropriate place to make changes is upstream.
 * **Safety, Security**
-  * Avoiding thread safety issues, like globally held objects and privacy violations, not leaking data between requests, or retaining big objects in memory.  [Profile](https://rubykaigi.org/2024/presentations/jhawthorn.html), [profile](https://www.youtube.com/watch?v=pQ1XCrwq1qc), [profile](https://island94.org/2024/01/the-answer-is-in-your-heap-debugging-big-rails-memory).
+  * Avoiding thread safety issues, like globally held objects and privacy violations, not leaking data between requests, or retaining big objects in memory. [Profile](https://rubykaigi.org/2024/presentations/jhawthorn.html), [profile](https://www.youtube.com/watch?v=pQ1XCrwq1qc), [profile](https://island94.org/2024/01/the-answer-is-in-your-heap-debugging-big-rails-memory).
   * Seeking object locality (or avoiding globalness) by storing objects on instances of controllers and jobs (or their attributes) and embracing the natural lifecycles provided by the framework. Frequently a developer desires not to call `SomeObject.new` at the usage-site, but to have a DSL-like callable method already ready in the appropriate scope (eg. `current_some_object`). We love a good DSL and they can be difficult to get right.
 * **Code Loading, Autoloading, and Reloading**
   * Code autoloading is [one of the most important design-constraints in Rails](https://github.blog/engineering/infrastructure/upgrading-github-from-rails-3-2-to-5-2/) that can vastly affect inner-loop development (the “hands-on-keyboard” part) and production availability because of impact to application boot speed.
@@ -50,7 +50,7 @@ There is a general order here, from most important to least in broad strokes. Re
     - Native extensions that don't release the interpreter lock
     - Metaprogramming generally
     * None of these are intrinsically bad (except OpenStruct and poorly done native extensions), and framework and platform level code definitely make use of them. And they're also constantly changing because of upstream Ruby work. And are maybe ok in isolation but a problem when copied as a pattern or introduced as a part of the platform for broad consumption. Something John Hawthorn has said:
-      >  A thought experiment I like to try is asking myself how I would implement this in another language without [Ruby magic]... Adding that constraint can help unblock thinking of simpler, more "normal" approaches without expensive metaprogramming.
+      > A thought experiment I like to try is asking myself how I would implement this in another language without [Ruby magic]... Adding that constraint can help unblock thinking of simpler, more "normal" approaches without expensive metaprogramming.
 * **External to the Ruby VM constraints and dependencies (memory, compute, file descriptors, database connections, etc.)**
   * Database stuff alone is a lot. The design prompt everyone is largely working from is “how does one architect an efficient, stateless application that sits between an end-user client and stateful data sources and manages bidirectional transformations of data?” Sounds hard when you put it that way, right?
   * Thinking about resource lifecycle, pooling, and how they interact across the various concurrency models available to use (process forking, threads, etc.). We do expect the frameworks and platform libraries we choose to keep these out of mind for most development tasks 😅
@@ -65,7 +65,7 @@ There is a general order here, from most important to least in broad strokes. Re
   * We want to choose dependencies that are well-maintained: their maintainers proactively respond to upstream changes, are responsive to issues and PRs, and [importantly in Ruby](https://en.wiktionary.org/wiki/MINASWAN), are nice. (And to whom we are nice too!) That’s more important than benchmarks.
   * And dependencies should be well architected too, obvs.
 * **Automating and Scaling: Packwerk, Sorbet, Rubocop**
-  * We do our best to encode our knowledge and shape the application through tooling; that’s how our team scales!  We send our custom rules upstream, too.
+  * We do our best to encode our knowledge and shape the application through tooling; that’s how our team scales! We send our custom rules upstream, too.
   * But it’s complicated! Sometimes that means that developers may focus on designing their code [in response to the automated tooling](https://island94.org/2024/09/the-novice-problem) and ending up with a less effective design or even introduce global risks and impacts to the application. At worst, a developer might even glaze over the linter’s intent by smuggling their design through a spelling or arrangement the linter doesn’t recognize 💀 Unfortunately the most important things are often the most abstract and arguable and difficult to detect or automatically warn about. We regret when we do have to tell folks that an approach is untenable in a PR or even after the fact when we notice production metrics have degraded.
 
 ### A conclusion about lists

@@ -12,7 +12,7 @@ redirect_from:
 - "?p=1611"
 ---
 
-This is how the emerging internet is described in _The Axemaker's Gift_, published in  1995. Interesting sections to me highlighted by me:
+This is how the emerging internet is described in _The Axemaker's Gift_, published in 1995. Interesting sections to me highlighted by me:
 
 > The new systems can present data to the user in the form of a "web" on which all the information contained in a database is interlinked. For example, a simple chain of web data-links might go: "toilet roll, invented in response to sanitation ceramics, resulting from nineteenth-century sewage developments, triggered by a cholera epidemic, whose social effects generated public health legislation, that established pathology labs, able to function clue to tissue-staining techniques, that used aniline dyes, discovered during a search for artiﬁcial quinine, in coal-tar that was a by-product of the manufacture of gaslight, that illuminated early workers' evening classes, in factories spinning cotton from America, processed by Eli Whitney's gin, after he developed interchangeable musket parts, that made possible the manufacture of machine tools, for production lines that introduced continuous-process techniques, that one day would make toilet rolls."
 >

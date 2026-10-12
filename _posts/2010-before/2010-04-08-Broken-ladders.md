@@ -14,7 +14,7 @@ redirect_from:
 
 _Let's get polemic._
 
-So Forrester Research's Groundswell has released an update to their Ladder of Participation. Needless to say I'm annoyed. I have already heard from a few close nonprofit friends  [excited](http://www.forrester.com/Research/Document/0,7211,42057,00.html) (I'm not picking on Beth, [she _gets_ it](http://beth.typepad.com/beths_blog/2009/03/sxsw-social-media-for-social-good-bbq.html)) by Forrester Research's  [Social Technographics Report](http://forrester.typepad.com/groundswell/2007/04/forresters_new_.html). Needless to say, I'm disappointed by their excitement. From the original  [blog](http://forrester.typepad.com/groundswell/2007/04/forresters_new_.html) entry:
+So Forrester Research's Groundswell has released an update to their Ladder of Participation. Needless to say I'm annoyed. I have already heard from a few close nonprofit friends [excited](http://www.forrester.com/Research/Document/0,7211,42057,00.html) (I'm not picking on Beth, [she _gets_ it](http://beth.typepad.com/beths_blog/2009/03/sxsw-social-media-for-social-good-bbq.html)) by Forrester Research's [Social Technographics Report](http://forrester.typepad.com/groundswell/2007/04/forresters_new_.html). Needless to say, I'm disappointed by their excitement. From the original [blog](http://forrester.typepad.com/groundswell/2007/04/forresters_new_.html) entry:
 
 > The report also lays out how companies can create strategies using Social Technographics. For example, I've used the "participation ladder" to help figure out which social strategies to deploy first – and also how to encourage users to "climb up", so to speak, from being Spectators to becoming more engaged. It's my belief that not everyone is cut out from the start to be a Creator; nor is everyone inclined to jump with both feet into social networking. Companies seeking to engage customers with these new tools need to understand where their audiences are with this categorization.
 
@@ -22,7 +22,7 @@ From a social change perspective, in brief, that's pretty fucked. And to be clea
 
 This is Forrester's ladder:
 
-[ ![](/uploads/2010-04-08-Broken-ladders/Ladder_3.gif "Ladder_3") ](/uploads/2010-04-08-Broken-ladders/Ladder_3.gif)
+[![](/uploads/2010-04-08-Broken-ladders/Ladder_3.gif "Ladder_3") ](/uploads/2010-04-08-Broken-ladders/Ladder_3.gif)
 
 Compare that to another ladder [I really like](http://www.island94.org/2009/10/we-participate-they-profit/): Sherry Arnstein's Ladder of Citizen Participation (it came out in 1969 so be considerate of its lack of shinyness):
 

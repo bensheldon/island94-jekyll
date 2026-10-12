@@ -19,7 +19,7 @@ Here’s what their plan for “responsive” looks like
 - **Standardize on CSS rules for projects**: Every CSS file must have at least 1 media query. All container elements must have at least 2 breakpoints. No fixed width element can be wider than 320px. All buttons must be larger than 16 x 16px.
 - **Write some automated tests and QA tools** to ensure those rules are followed.
 
-### That’s a good plan, right?
+### That’s a good plan, right?
 
 The plan is standards based, actionable, measurable, and integrated into the development process. And engineering is championing it. That’s great!
 
@@ -32,7 +32,7 @@ So things move along and then…
 
 So the company decides to hire you.
 
-### Imagine you’re hired to fix this
+### Imagine you’re hired to fix this
 
 What do you say? (Remember, it’s 2018.)
 
@@ -52,7 +52,7 @@ This is tough, right? It’s a slow and steady push. It’s amazing anyone manag
 
 Over and over again I see organizations fall into an approach that places accessibility as an implementation detail to be addressed at the end of the product development process.
 
-> Because so many accessibility errors relating to assistive technologies are markup errors, and because markup errors are so easy to identify, we’ve grown up in an accessibility remediation culture that is assistive technology obsessed and focused on discrete code errors. 
+> Because so many accessibility errors relating to assistive technologies are markup errors, and because markup errors are so easy to identify, we’ve grown up in an accessibility remediation culture that is assistive technology obsessed and focused on discrete code errors.
 >
 > Inclusive design has a different take. It acknowledges the importance of markup in making semantic, robust interfaces, but it is the user’s ability to actually get things done that it makes the object. The quality of the markup is measured by what it can offer in terms of UX.
 >

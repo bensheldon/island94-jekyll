@@ -6,8 +6,7 @@ tags:
 - confidentiality
 ---
 
-From "Secrets: A memoir of Vietnam and the Pentagon Papers" by Daniel Ellsberg: 
-
+From "Secrets: A memoir of Vietnam and the Pentagon Papers" by Daniel Ellsberg:
 
 > “Henry [Kissinger], there’s something I would like to tell you, for what it’s worth, something I wish I had been told years ago. You’ve been a consultant for a long time, and you’ve dealt a great deal with top secret information. But you’re about to receive a whole slew of special clearances, maybe fifteen or twenty of them, that are higher than top secret.
 >

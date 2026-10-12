@@ -12,15 +12,15 @@ redirect_from:
 - "?p=573"
 ---
 
-Previously posting on [writing authentically](http://www.island94.org/2009/03/pratfalls-to-writing-authentically/), I wanted to find some other criticisms/observations on the topic.  The following is from [_Can't You Get Along with Anyone_](http://www.amazon.com/Cant-You-Get-Along-Anyone/dp/0979711703) by Allan C. Weisbecker, one of my favorite how-to books on writing that is not explicitly a how-to book on writing [Part 1, Ch. 12: p. 64]:
+Previously posting on [writing authentically](http://www.island94.org/2009/03/pratfalls-to-writing-authentically/), I wanted to find some other criticisms/observations on the topic. The following is from [_Can't You Get Along with Anyone_](http://www.amazon.com/Cant-You-Get-Along-Anyone/dp/0979711703) by Allan C. Weisbecker, one of my favorite how-to books on writing that is not explicitly a how-to book on writing [Part 1, Ch. 12: p. 64]:
 
 > Nonfiction writers, of which I am one at this moment, routinely lie like slugs in their narratives. Often they'll lie like like slugs about facts, which, as you already know, I _sometimes_ do. Sometimes lying about facts is okay, sometimes not. But **what's never okay is to lie in subtext, purposely cause the reader to have a rush of insight about the workings of the world which the writer knows to be false.** Lying in subtext is _sin_. Writers who do this, of which there are a bunch, will rot in Writer Hell. My theory is that this worse case lying-in-writing scenario is invariably caused by the same condition that cases bad behavior of any sort: a failure in self-reflection.\*
 >
-> If you're going to write a book (but not _someday_): The key to writing, good writing, is self-reflection. In  a sense, it's a writer's job, his _only_ job. Take that to the bank and put it in an interest-bearing account.†
+> If you're going to write a book (but not _someday_): The key to writing, good writing, is self-reflection. In a sense, it's a writer's job, his _only_ job. Take that to the bank and put it in an interest-bearing account.†
 >
-> \*     My view is that lying about facts is _sometimes_ "okay" when the writer's sole motive is to keep the story moving, or to foster unity (symmetry), or to _ease_ the narrative onto another subject (a segue), with not deceitful implications about ho the world works.
+> \* My view is that lying about facts is _sometimes_ "okay" when the writer's sole motive is to keep the story moving, or to foster unity (symmetry), or to _ease_ the narrative onto another subject (a segue), with not deceitful implications about ho the world works.
 >
-> †    Aside from self-reflecting in his work, a writer has to keep the reader wanting to know What Happens Next. So, regarding jobs, writers actually have two.
+> † Aside from self-reflecting in his work, a writer has to keep the reader wanting to know What Happens Next. So, regarding jobs, writers actually have two.
 >
 >
 
@@ -52,6 +52,6 @@ Later on in the book, Weisbecker shows some explicit examples, as well as makes 
 >
 > That I had this rush of insight about the journalist who in the 1970s questioned everything and in doing so uncovered the truth, then followed the truth wherever it led, even to the toppling of a president, and who was a hero of mine, and who was now the personification of why Orwell was an optimist and hence of _why the world is so fucked-up_, slightly exacerbated my terminal loneliness.\*
 >
-> \*    If the rewriting (or erasing) of history, which is what Woodward does in his books, sounds vaguely familiar, this was the protagonist Winston Smith's job at the Ministry of Truth in George Orwell's _1984_. Smith, along with the rest of the world of that story, was intimidated, threatened, bullied, into denial/lying via "jackboots on human faces." That the jackboots are unnecessary in the world of today to get Woodward (and the rest of the mainstream media) to rewrite history is the basis of my observation that Orwell was an optimist.
+> \* If the rewriting (or erasing) of history, which is what Woodward does in his books, sounds vaguely familiar, this was the protagonist Winston Smith's job at the Ministry of Truth in George Orwell's _1984_. Smith, along with the rest of the world of that story, was intimidated, threatened, bullied, into denial/lying via "jackboots on human faces." That the jackboots are unnecessary in the world of today to get Woodward (and the rest of the mainstream media) to rewrite history is the basis of my observation that Orwell was an optimist.
 >
 >

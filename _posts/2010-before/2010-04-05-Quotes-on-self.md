@@ -76,7 +76,6 @@ Carl Rogers on the seven stages of change (cribbed from [here](http://www.behik.
 > - personal constructs reformulated but much less rigid;
 > - strong feelings of choice and self-responsibility.
 
-
 _Brooklyn Follies_ by Paul Auster:
 
 > All men contain several men inside them, and most of us bounce from one self to another without ever knowing who we are. Up one day and down the next; morose and silent in the morning, laughing and cracking jokes at night. Harry had been low when he talked to Tom, but now that his business venture was in the works, he was flying high with me.

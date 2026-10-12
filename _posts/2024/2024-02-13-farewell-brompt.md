@@ -96,15 +96,15 @@ window.Confetti = function () {
   }
 
   // $(document).ready(function () {
-  //   SetGlobals();
-  //   InitializeConfetti();
+  // SetGlobals();
+  // InitializeConfetti();
   //
-  //   $(window).resize(function () {
-  //     W = window.innerWidth;
-  //     H = window.innerHeight;
-  //     canvas.width = W;
-  //     canvas.height = H;
-  //   });
+  // $(window).resize(function () {
+  // W = window.innerWidth;
+  // H = window.innerHeight;
+  // canvas.width = W;
+  // canvas.height = H;
+  // });
   // });
 
   function SetGlobals() {
@@ -142,7 +142,6 @@ window.Confetti = function () {
   function RandomFromTo(from, to) {
     return Math.floor(Math.random() * (to - from + 1) + from);
   }
-
 
   function Update() {
     var remainingFlakes = 0;
@@ -257,10 +256,10 @@ window.Confetti = function () {
       InitializeConfetti();
 
       // $(window).resize(function () {
-      //   W = window.innerWidth;
-      //   H = window.innerHeight;
-      //   canvas.width = W;
-      //   canvas.height = H;
+      // W = window.innerWidth;
+      // H = window.innerHeight;
+      // canvas.width = W;
+      // canvas.height = H;
       // });
     },
     start: function() {

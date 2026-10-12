@@ -7,12 +7,12 @@ class PostsController < ApplicationController
   def index
     @limit = LIMIT
     @page = params.fetch(:page, 1).to_i
-    @posts = Post.all.reverse.drop((@page - 1) * @limit).take(@limit)
+    @posts = Post.published.reverse.drop((@page - 1) * @limit).take(@limit)
   end
 
   def show
     # remove any trailing extension
-    slug_param = params[:slug].sub(/\.[^.]*\z/, "")
+    slug_param = params.expect(:slug).sub(/\.[^.]*\z/, "")
 
     @post = Post.all.find { |post| post.slug == slug_param }
     raise ActionController::RoutingError, "Not Found" unless @post
@@ -22,6 +22,6 @@ class PostsController < ApplicationController
     @tag = Post.tags.find { |tag| tag.parameterize == params[:tag_slug] }
     raise ActionController::RoutingError, "Not Found" unless @tag
 
-    @posts = Post.all.select { |post| post.tag_slugs.include?(params[:tag_slug]) }
+    @posts = Post.published.select { |post| post.tag_slugs.include?(params[:tag_slug]) }
   end
 end

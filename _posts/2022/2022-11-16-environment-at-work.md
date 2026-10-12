@@ -11,7 +11,7 @@ tags: [terroir, work]
 
 I played a lot of Sim Earth as a kid. It had a mode called Daisyworld based on the [“Gaia Hypothesis”](https://en.wikipedia.org/wiki/Gaia_hypothesis):
 
-> proposes that living organisms interact with their inorganic surroundings on  Earth to form a synergistic and self-regulating, complex system that helps to maintain and perpetuate the conditions for life on the planet.
+> proposes that living organisms interact with their inorganic surroundings on Earth to form a synergistic and self-regulating, complex system that helps to maintain and perpetuate the conditions for life on the planet.
 
 In Sim Earth's Daisyworld, that was simulated by populating the Earth with different shades of flower. Darker flowers survived at lower temperatures and absorbed sunlight, warming their immediate environment; lighter flowers survived at warmer temperatures and reflecting sunlight, cooling their immediate environment. Running the simulation would, eventually, usually, lead to a dynamically changing, but still steady-state environment; in [Conway terminoloy](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life#Examples_of_patterns): still lifes and oscillators.
 
@@ -26,7 +26,8 @@ Usually your Earth found and could recover a steady state! That's [homeostasis](
 > Homeostasis is brought about by a natural resistance to change when already in the optimal conditions, and equilibrium is maintained by many regulatory mechanisms: it is thought to be the central motivation for all organic action.
 
 ## Terroir
-From Vicki Boykis's  [“The Art of the Long Goodbye”](https://vicki.substack.com/p/the-art-of-the-long-goodbye) :
+
+From Vicki Boykis's [“The Art of the Long Goodbye”](https://vicki.substack.com/p/the-art-of-the-long-goodbye) :
 
 > A few years ago, I read the Southern Reach trilogy, by Jeff Van Der Meer….
 >
@@ -46,7 +47,7 @@ One of my challenges as an engineering leader during the pandemic was this: how 
 
 An example: pair programming. We were a lot of people from Pivotal labs (there it is!) with a strong belief in Extreme Programming: shared ownership, an active-closeness to the users of our software, and closeness to each other through frequent pair programming. And we went from largely in-person pairing, to remote pairing. I find pair programming to be exhausting in the best of circumstances, and the ongoing pandemic didn't help. So we adapted our values and practices, and de-emphasized pairing and went from an expectation of "most of the time" to "a tool that's available some of the time". It was a stretch (aside: it wasn't just pairing that got stretched either, the whole XP thing)
 
-A team is never static. People were leaving, we were hiring, teams were forming and reforming. It was tenuous for everyone, to test out the limits of inclusion and identity. And as an engineering leader, it led to a lot of tough conversations about  _how... we... work... together_. It was hard; I think we lost that cultivar.
+A team is never static. People were leaving, we were hiring, teams were forming and reforming. It was tenuous for everyone, to test out the limits of inclusion and identity. And as an engineering leader, it led to a lot of tough conversations about _how... we... work... together_. It was hard; I think we lost that cultivar.
 
 ## Oasis
 

@@ -13,7 +13,7 @@ I started attending Lighthouse Labs and doing some organizational advocacy. It w
 
 ### A/B & Split Testing
 
-A/B testing progress, like accessibility, was  hampered by the absence of champions on the design and product front. Having made some presentations, identified some opportunities, and demoed the ease and possibilities, it was difficult to champion from an engineering role. A few months into 2018 we've now run some successful tests.
+A/B testing progress, like accessibility, was hampered by the absence of champions on the design and product front. Having made some presentations, identified some opportunities, and demoed the ease and possibilities, it was difficult to champion from an engineering role. A few months into 2018 we've now run some successful tests.
 
 ### Ops / Kaizen
 

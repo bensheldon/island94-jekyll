@@ -20,4 +20,4 @@ Below is a year-old memo I wrote for the Transmission Project was later polished
 >
 > While Basic Computer Literacy skills form the foundation for a Digital Literacy curriculum, an effective Digital Literacy Training will provide participants with the motivations and context for utilizing modern internet technologies and applications within business, nonprofit and community environments. This educational model requires a broader focus upon training participants in community building, decision making, and team facilitation. Training participants to apply digital technologies within these given contexts will best prepare them for 21st century employment. The job interview of tomorrow will not ask "What new media tools can you use?", but rather "Given a business problem, how would you use new media tools in its solution?"
 
-...of course, "you're burying people at the bottom of Maslow's hierarchy" is a pretty easy criticism to make about many things.
+...of course, "you're burying people at the bottom of Maslow's hierarchy" is a pretty easy criticism to make about many things.

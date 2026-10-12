@@ -15,4 +15,4 @@ redirect_from:
 
 [![](/uploads/2010-06-06-Stages-of-team-development/Stages-of-Team-Development-500x386.png "Stages of Team Development")](/uploads/2010-06-06-Stages-of-team-development/Stages-of-Team-Development.png)
 
-I nearly always see the "Forming, Storming, Norming" team development model in use for community practice. So here are a handful more from _Making Sense of Change Management_ by Esther Cameron and Mike Green. View the  [larger image](/uploads/2010-06-06-Stages-of-team-development/Stages-of-Team-Development.png) or [download a PDF](/uploads/2010-06-06-Stages-of-team-development/Stages-of-Team-Development.pdf).
+I nearly always see the "Forming, Storming, Norming" team development model in use for community practice. So here are a handful more from _Making Sense of Change Management_ by Esther Cameron and Mike Green. View the [larger image](/uploads/2010-06-06-Stages-of-team-development/Stages-of-Team-Development.png) or [download a PDF](/uploads/2010-06-06-Stages-of-team-development/Stages-of-Team-Development.pdf).

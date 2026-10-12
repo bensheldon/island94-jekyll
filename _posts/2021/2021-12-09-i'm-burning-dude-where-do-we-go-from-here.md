@@ -9,33 +9,33 @@ A powerful conversation from Reveal's ["Mississippi Goddam Chapter 6: Mississipp
 
 <blockquote markdown="1">
 
-**Al Letson**	
+**Al Letson**
 
 After the interview, I was still thinking about everything Curley said. JJ and I walked back to our car mostly in silence, but on the ride back, we talked about it.
 
 Okay, so, what did you think about the interview with Curley?
 
-**Jonathan Jones**	
+**Jonathan Jones**
 
 It was good. It was slightly pessimistic at the end of it.
 
-**Al Letson**	
+**Al Letson**
 
 That’s kind of what I wanted to talk to you about though, is that like, I am just really tired of people asking Black folks to have hope, and to make people feel better about the American situation, when everything in our history tells us that that is not the case. And I especially am uncomfortable with it when we are asking people who are doing the work, like Curley Clark is out there doing the work to try to make this world a more just place. And I, in the work that I choose to do, I’m trying to make the world a better place in it. And in the work that you do, it’s the same reason. We’re both driven to the work that we do and the cases that we look at and pick, because we want this place to be more just for everybody. And so, but the idea that somehow or another, Black folks are supposed to have hope, and Black folks are not supposed to be pessimistic. It just feels yucky to me, because it’s like asking us to look at all the history of what’s happened in this country and kind of ignore it.
 
-**Jonathan Jones**	
+**Jonathan Jones**
 
 No, but I don’t disagree with you. I think that’s a misunderstanding of what I was asking. I wasn’t fishing for Black folk to fight.
 
-**Al Letson**	
+**Al Letson**
 
 No, I don’t think you were. That’s not what I’m saying. I’m not saying that you were telling me…
 
-**Jonathan Jones**	
+**Jonathan Jones**
 
 Well, let me just… I mean, I am thinking about, I want to inspire. I want to… I don’t want to be an activist, but I hope our journalism helps to make this better world. And in investigative reporting, we do a great job of finding bad guys. We don’t do a very good job about solutions.
 
-**Al Letson**	
+**Al Letson**
 
 I think we look at it in two different ways, in the sense of, we’re both shooting for the same goal. And I want to be really clear that I didn’t think that you were telling Curley Clark to work harder. I felt like you were asking Curley, and by extension me, why don’t we have hope, and where’s the hope? And my point is that the history of this country tells me, no, no, I can’t do that anymore.
 
@@ -49,11 +49,11 @@ I got so much anger, and I’m so tired of hiding it, and I’m so tired of pret
 
 And that seems very real, and I completely affirm that. I think maybe I would have, maybe I should have phrased the question a little bit better, because that answer that you gave would have been the answer. I guess my point was, where do we go from here? It can be from anger and raw rage, and outrage at injustice. It’s just, where do we go from here? And I don’t want to have a… I’m not trying to do a hokey fairytale at all.
 
-**Al Letson**	
+**Al Letson**
 
 Right, right.
 
-**Jonathan Jones**	
+**Jonathan Jones**
 
 And it’s… it’s hard.
 

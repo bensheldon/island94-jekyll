@@ -50,4 +50,3 @@ On the changing (and more difficult) labor market for data scientists, [“Data 
 > “Thirty years ago my older brother, who was ten years old at the time, was trying to get a report on birds written that he’d had three months to write. [It] was due the next day. We were out at our family cabin in Bolinas, and he was at the kitchen table close to tears, surrounded by binder paper and pencils and unopened books on birds, immobilized by the hugeness of the task ahead. Then my father sat down beside him, put his arm around my brother’s shoulder, and said. ‘Bird by bird, buddy. Just take it bird by bird.’”
 >
 > And he got it done.
-

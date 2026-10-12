@@ -41,12 +41,31 @@ FileUtils.chdir APP_ROOT do
   puts '== Rubocop =='
   system! "bundle exec rubocop --no-server #{options[:nofix] ? '--parallel' : '--autocorrect'} --force-exclusion #{changed_files.join(' ')}"
 
-  puts "\n== ERB Lint =="
-  erblint_changed_files = changed_files.grep(/^app\/views\/.*\.erb$/)
+  erb_changed_files = changed_files.grep(%r{^(app|engines/[^/]+/app)/views/.*\.erb$})
 
-  if !options[:diff] || erblint_changed_files.any?
-    system! "bundle exec erb_lint #{options[:diff] ? erblint_changed_files.join(' ') : '.'}"
+  puts "\n== Herb =="
+  if !options[:diff] || erb_changed_files.any?
+    system! "bundle exec herb analyze app"
+    system! "bundle exec herb analyze engines"
   else
     puts "No changes to ERB templates."
+  end
+
+  puts "\n== ERB Lint =="
+  if !options[:diff] || erb_changed_files.any?
+    system! "bundle exec erb_lint #{options[:diff] ? erb_changed_files.join(' ') : ". #{Dir.glob('engines/*/app/views/**/*.erb').join(' ')}"}"
+  else
+    puts "No changes to ERB templates."
+  end
+
+  puts "\n== MDL =="
+  mdl_changed_files = changed_files.grep(%r{^_posts/.*\.md$})
+
+  if !options[:diff] || mdl_changed_files.any?
+    targets = options[:diff] ? mdl_changed_files.join(" ") : "_posts"
+    fix_flag = options[:nofix] ? "" : "--fix "
+    system! "bundle exec mdl --style .mdl_style.rb --rulesets .mdl_rules.rb --ignore-front-matter #{fix_flag}#{targets}"
+  else
+    puts "No changes to markdown files."
   end
 end

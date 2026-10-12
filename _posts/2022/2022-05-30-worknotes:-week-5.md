@@ -18,11 +18,12 @@ I think the majority of the feedback a manager should be giving is shining a spo
 
 I've been working through Lara Hogan's ["Questions for our first 1:1"](https://larahogan.me/blog/first-one-on-one-questions/), which is part of my personal manager runbook.
 
-The question "How do you prefer to receive recognition?" gets spicy answers!  I'm managing a very high level team and the answers closely line up with my own high-level friends and high-level former coworkers and myself: people are _uncomfortable_ with recognition.
+The question "How do you prefer to receive recognition?" gets spicy answers! I'm managing a very high level team and the answers closely line up with my own high-level friends and high-level former coworkers and myself: people are _uncomfortable_ with recognition.
 
-Which is... a not unreasonable reaction. In the words of a close friend "This is total shit, but... thanks, I'm glad you like it."  When I think about my own reaction, I attribute it to navigating a lot of intersecting supremacy cultures (conscious and unconscious) which are complicated: perfectionism, humbleness, [honest practice](http://transmissionproject.org/current/2011/4/honest-practice-how-the-public-sector-can-look-at-itself-new-article-in-resources.html), a desire to recognize all contributors (which has its own recursive sympathy).
+Which is... a not unreasonable reaction. In the words of a close friend "This is total shit, but... thanks, I'm glad you like it." When I think about my own reaction, I attribute it to navigating a lot of intersecting supremacy cultures (conscious and unconscious) which are complicated: perfectionism, humbleness, [honest practice](http://transmissionproject.org/current/2011/4/honest-practice-how-the-public-sector-can-look-at-itself-new-article-in-resources.html), a desire to recognize all contributors (which has its own recursive sympathy).
 
 I get it. I think about how much self-work I've done in my own life to reply to "I like your X" with simply "Thanks!" (and not "oh, and I like your.." or "oh, it's not that great").
 
 ## What's next
+
 Two quarterly activities are upcoming that I'm excited to be organizing for the first time: engineering rotations and OKR setting. I'm sure I'll learn a lot.

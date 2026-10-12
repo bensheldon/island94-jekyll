@@ -11,8 +11,7 @@ With AI, in my context we’re talking about LLMs (Large Language Models), which
 
 I wrote this to share with some folks I’m collaborating with on building AI-augmented workflows. I’ve struggled to find something that is both condensed and whose opinionations match my own. So I wrote it myself.
 
-The following explanation is intended to be accurate, but not particularly precise.  For example, there is ChatGPT the product, there is an LLM at the bottom, and then in the middle there are other functions and capabilities. Or Claude or AWS Nova or Llama. These things are more than _*just*_ LLMs, but they are also *not much* more than an LLM. Some of these tools can also interpret images and documents and audio and video. To do so, they’re passing those documents through specialized functions like OCR (optical character recognition), voice-recognition and image-recognition tools and then those results are turned into more text input. And some of them can take “Actions” with “Agents” which is still based on text output, just being structured and fed into something else. It’s text text text.
-
+The following explanation is intended to be accurate, but not particularly precise. For example, there is ChatGPT the product, there is an LLM at the bottom, and then in the middle there are other functions and capabilities. Or Claude or AWS Nova or Llama. These things are more than _*just*_ LLMs, but they are also *not much* more than an LLM. Some of these tools can also interpret images and documents and audio and video. To do so, they’re passing those documents through specialized functions like OCR (optical character recognition), voice-recognition and image-recognition tools and then those results are turned into more text input. And some of them can take “Actions” with “Agents” which is still based on text output, just being structured and fed into something else. It’s text text text.
 
 (also, if something is particularly wrong, let me know please)
 

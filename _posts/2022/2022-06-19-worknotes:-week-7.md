@@ -11,7 +11,7 @@ I am making good pace at completing my Engineering Manager bingo card. So far I 
 - Worked with team and directors to write out quarterly OKRs, and close out the previous quarters
 - Gone through (well, shadowed) the half-yearly performance review process
 - Worked with a report through their departure from the team
-- Participated in the candidate interview loop, though not yet as a hiring manager 
+- Participated in the candidate interview loop, though not yet as a hiring manager
 
 ### Something I'm inspired by
 
@@ -23,36 +23,36 @@ Writing OKRs with my team, boss, grandboss, and peer managers has been really, r
 
 I think planning is a fun challenge, with the two things that I focus on being:
 
-- Strategic Planning vs Operational Planning. In my sideline as a strategic planning consultant, separating out these threads is _the work_. 
-- Team participation. I wasn't surprised that participatory OKR planning was a stretch. At my previous jobs it's not uncommon to have coworkers go from griping about long participatory planning meetings, to then asking "I don't understand how the team prioritizes work." Sometimes that can mean "I don't agree with what came out of planning" but it frequently can mean "I didn't see _that_ planning as the venue for what _I_ want to advocate for." 
+- Strategic Planning vs Operational Planning. In my sideline as a strategic planning consultant, separating out these threads is _the work_.
+- Team participation. I wasn't surprised that participatory OKR planning was a stretch. At my previous jobs it's not uncommon to have coworkers go from griping about long participatory planning meetings, to then asking "I don't understand how the team prioritizes work." Sometimes that can mean "I don't agree with what came out of planning" but it frequently can mean "I didn't see _that_ planning as the venue for what _I_ want to advocate for."
 
 I'm still uncomfortable writing essays in Slack, but I did write this for the team:
 
 > OKR thoughts: It might be interesting to explain how I view the OKRs in case it changes your feedback about them.
-> 
+>
 > I write OKRs is that they're a summary of what the team wants to do, to be communicated upwards. And then we expect management/leadership to protect/fund those activities over the duration of the quarter.
-> 
+>
 > So they're things that we believe (hopefully, feedback wanted) :
 > - we're enthusiastic about doing (most importantly)
-> - AND we think we can reasonably accomplish during the quarter (maybe with a bit of stretch, but that should come from us) 
-> 
+> - AND we think we can reasonably accomplish during the quarter (maybe with a bit of stretch, but that should come from us)
+>
 > And then that gets sent upwards, and (usually, in my experience elsewhere) Leadership says "great! let us know how we can help." And if there is feedback, it's usually of the form of "do you think this falls more into X or Y bucket?" (because they have to write their OKRs) and then maybe it's a conversation. I've seen Leadership start meddling when a team doesn't put forward a confident set of objectives, not usually in opposition to them. They're part of a team umbrella ☂️
-> 
+>
 > I have never seen OKRs be inflicted on a team; if it feels that way, I think that sucks. Hence why I'm wanting to explain my perspective in case that's new.
-> 
+>
 > Bring thoughts to our Sync Meeting next Tuesday, or add them to the OKR chat above, or DM me.
-> 
+>
 > Thank you for coming to my TED Talk 😃
 
 ### Something I'm challenged by
 
-One way you might design a performance review process is to combine: 
+One way you might design a performance review process is to combine:
 
--  Evaluative feedback, simple quantitative metrics (does not meet, meets, exceeds) expectations, grounded against a career ladder or functional job description. 
+- Evaluative feedback, simple quantitative metrics (does not meet, meets, exceeds) expectations, grounded against a career ladder or functional job description.
 - Coaching and appreciation, qualitative narrative about past contributions and future opportunity and explains the gaps between the true work and the ideals of the career ladder.
-- Unifying economic model for salary adjustments (and bonus, new to me) and promotions that answers what the company "recognizes" ("recognition"  is how across my career I hear ICs talk about their perceived match between personal/team contributions and compensation/hierarchy)
+- Unifying economic model for salary adjustments (and bonus, new to me) and promotions that answers what the company "recognizes" ("recognition" is how across my career I hear ICs talk about their perceived match between personal/team contributions and compensation/hierarchy)
 
-The challenge of these systems (like my essay on OKRs above) is keeping them simple enough to be transparent, while recognizing that the map is neither the landscape, nor the expedition. I think there is room for improvement in all things, and I haven't yet seen any of the worst pathologies of my past (like a long ago director who pushed back against a transparent career ladder because of their fear people would "game it"). I'm hoping I remember all this 6 months from now when it kicks off again. 
+The challenge of these systems (like my essay on OKRs above) is keeping them simple enough to be transparent, while recognizing that the map is neither the landscape, nor the expedition. I think there is room for improvement in all things, and I haven't yet seen any of the worst pathologies of my past (like a long ago director who pushed back against a transparent career ladder because of their fear people would "game it"). I'm hoping I remember all this 6 months from now when it kicks off again.
 
 ### What's next
 

@@ -1,5 +1,9 @@
 # frozen_string_literal: true
 class Post < ApplicationModel
+  include Markdownable
+
+  MEDIA_URL_ATTRIBUTES = %w[src href].freeze
+
   attribute :filepath, :string
   attribute :frontmatter, default: -> { {} }
   attribute :body, :string
@@ -20,12 +24,48 @@ class Post < ApplicationModel
   end
 
   def self.tags
-    all.flat_map(&:tags).uniq(&:parameterize).sort_by(&:downcase)
+    published.flat_map(&:tags).uniq(&:parameterize).sort_by(&:downcase)
+  end
+
+  def self.published
+    all.select(&:published?)
   end
 
   def self.from_file(path)
     parsed = FrontMatterParser::Parser.parse_file(path)
     new(filepath: path, frontmatter: parsed.front_matter, body: parsed.content)
+  end
+
+  # Creates a new post file on disk. Raises if a post with the same title/date already exists.
+  def self.create!(title:, body: nil, date: Time.zone.now, **extra_frontmatter)
+    title = title.to_s.strip
+    raise ArgumentError, "title is required" if title.empty?
+
+    path = filepath_for(title: title, date: date)
+    frontmatter = {
+      "title" => title,
+      "date" => date.strftime('%Y-%m-%d %H:%M %Z'),
+      "published" => true,
+      "tags" => [],
+    }.merge(extra_frontmatter.stringify_keys)
+    body = <<~MARKDOWN.strip
+      #{body}
+
+      <blockquote markdown="1">
+
+
+
+      </blockquote>
+    MARKDOWN
+
+    write_frontmatter_file(path, frontmatter: frontmatter, body: body)
+
+    reset
+    from_file(path)
+  end
+
+  def self.filepath_for(title:, date:)
+    Rails.root.join("_posts", "#{date.strftime('%Y-%m-%d')}-#{title.parameterize}.md").to_s
   end
 
   def slug
@@ -44,8 +84,11 @@ class Post < ApplicationModel
     frontmatter.fetch("title", "")
   end
 
-  def content
-    @_content ||= Kramdown::Document.new(body, input: 'GFM').to_html.html_safe # rubocop:disable Rails/OutputSafety
+  def content(base_url: nil)
+    @_content ||= render_markdown(body)
+    return @_content unless base_url
+
+    rewrite_media_urls(@_content, base_url)
   end
 
   def published_at
@@ -57,7 +100,7 @@ class Post < ApplicationModel
   end
 
   def tags
-    (frontmatter["tags"] || []).uniq(&:parameterize)
+    Array(frontmatter["tags"]).uniq(&:parameterize)
   end
 
   def tag_slugs
@@ -73,8 +116,7 @@ class Post < ApplicationModel
   def related_posts
     return [] if tags.empty?
 
-    self.class.all
-        .select(&:published?)
+    self.class.published
         .select { |post| post.tag_slugs.intersect?(tag_slugs) }
         .reject { |post| post == self }
         .sort_by(&:published_at)
@@ -82,6 +124,21 @@ class Post < ApplicationModel
   end
 
   private
+
+  def rewrite_media_urls(html, base_url)
+    fragment = Nokogiri::HTML::DocumentFragment.parse(html)
+
+    fragment.css("[src], [href]").each do |element|
+      MEDIA_URL_ATTRIBUTES.each do |attribute|
+        value = element[attribute]
+        next unless value&.start_with?("/")
+
+        element[attribute] = URI.join(base_url, value).to_s
+      end
+    end
+
+    fragment.to_html.html_safe # rubocop:disable Rails/OutputSafety
+  end
 
   def raw_slug
     filename.split("-", 4).last

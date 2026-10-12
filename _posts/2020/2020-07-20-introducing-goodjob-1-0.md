@@ -7,7 +7,7 @@ title: >-
 tags:
   - GoodJob
 ---
-[GoodJob](https://github.com/bensheldon/good_job) is a new Postgres-based, multithreaded, second-generation ActiveJob backend for Ruby on Rails. 
+[GoodJob](https://github.com/bensheldon/good_job) is a new Postgres-based, multithreaded, second-generation ActiveJob backend for Ruby on Rails.
 
 **Inspired by Delayed::Job and Que, [GoodJob](https://github.com/bensheldon/good_job) is designed for maximum compatibility with Ruby on Rails, ActiveJob, and Postgres to be simple and performant for most workloads.**
 * **Designed for ActiveJob.** Complete support for async, queues, delays, priorities, timeouts, and retries with near-zero configuration.
@@ -21,7 +21,7 @@ tags:
 
 Why “second-generation*”? GoodJob is designed from the beginning to be an ActiveJob-backend in a conventional Ruby on Rails application.
 
-First-generation ActiveJob backends, like Delayed::Job and Que, all predate ActiveJob and support non-Rails applications. First-generation ActiveJob backends are significantly more complex than GoodJob because they separately maintain a lot of functionality that comes with a conventional Rails installation (ActiveRecord, ActiveSupport, Concurrent::Ruby) and re-implement job lifecycle hooks so they can work apart from ActiveJob. I’ve observed that this can make them slow to keep up with major Rails changes. An impetus for GoodJob was reviewing the number of outages, blocked upgrades, and forks of first-generation backends I’ve managed during both major and minor Rails upgrades over the years. 
+First-generation ActiveJob backends, like Delayed::Job and Que, all predate ActiveJob and support non-Rails applications. First-generation ActiveJob backends are significantly more complex than GoodJob because they separately maintain a lot of functionality that comes with a conventional Rails installation (ActiveRecord, ActiveSupport, Concurrent::Ruby) and re-implement job lifecycle hooks so they can work apart from ActiveJob. I’ve observed that this can make them slow to keep up with major Rails changes. An impetus for GoodJob was reviewing the number of outages, blocked upgrades, and forks of first-generation backends I’ve managed during both major and minor Rails upgrades over the years.
 
 As a second-generation ActiveJob backend, GoodJob can draft off of all the advances and solved problems of ActiveJob and Ruby on Rails. For example `rescue_from`, `retry_on`, `discard_on` are all implemented already by ActiveJob.
 
@@ -31,9 +31,9 @@ _*“Second generation” was coined for me by Daniel Lopez on [Ruby on Rails Li
 
 ### Postgres-based
 
-I love Postgres. Postgres offers a lot of features, has safety and integrity guarantees, and simply running fewer services (skipping Redis) means less complexity in development and production. 
+I love Postgres. Postgres offers a lot of features, has safety and integrity guarantees, and simply running fewer services (skipping Redis) means less complexity in development and production.
 
-GoodJob builds atop ActiveRecord. It’s numbingly boring, in a good way. 
+GoodJob builds atop ActiveRecord. It’s numbingly boring, in a good way.
 
 GoodJob uses session-level Advisory Locks to provide run-once guarantees with relatively little performance implications for most workloads.  
 
@@ -41,16 +41,16 @@ GoodJob’s session-level Advisory Lock implementation is perhaps the only “no
 
 ### Multi-threaded
 
-GoodJob uses [Concurrent::Ruby](https://github.com/ruby-concurrency/concurrent-ruby)  to scale and manage jobs across multiple threads. “*Concurrent Ruby makes one of the strongest thread-safety guarantees of any Ruby concurrency library”.*  Ruby on Rails has adopted Concurrent Ruby, and GoodJob follows its lead and [thread-execution and safety guidelines](https://guides.rubyonrails.org/threading_and_code_execution.html).
+GoodJob uses [Concurrent::Ruby](https://github.com/ruby-concurrency/concurrent-ruby) to scale and manage jobs across multiple threads. “*Concurrent Ruby makes one of the strongest thread-safety guarantees of any Ruby concurrency library”.* Ruby on Rails has adopted Concurrent Ruby, and GoodJob follows its lead and [thread-execution and safety guidelines](https://guides.rubyonrails.org/threading_and_code_execution.html).
 
-In building GoodJob I leaned heavily on my positive experiences running Que, another multithreaded backend, on Heroku. Threads are great for balancing simplicity, economy, and performance for typical IO-bound workloads like heavy database queries, API requests, Selenium web-driving, or sending emails. 
+In building GoodJob I leaned heavily on my positive experiences running Que, another multithreaded backend, on Heroku. Threads are great for balancing simplicity, economy, and performance for typical IO-bound workloads like heavy database queries, API requests, Selenium web-driving, or sending emails.
 
-A feature that won’t be in GoodJob 1.0, but I hope to implement soon, is the ability to run the GoodJob scheduler inside the webserver process (“async mode”). This was a feature  [withdrawn from Que](https://github.com/que-rb/que/issues/238#issuecomment-480648845) , but I believe can be safely implemented with Concurrent Ruby. An async mode would offer even greater economy, for example, in Heroku’s constrained environment.
+A feature that won’t be in GoodJob 1.0, but I hope to implement soon, is the ability to run the GoodJob scheduler inside the webserver process (“async mode”). This was a feature [withdrawn from Que](https://github.com/que-rb/que/issues/238#issuecomment-480648845) , but I believe can be safely implemented with Concurrent Ruby. An async mode would offer even greater economy, for example, in Heroku’s constrained environment.
 
 ### GoodJob is right for me
 
-GoodJob’s design is based directly on my experience in 2-pizza, full-stack teams, and as an economy-minded solo developer. GoodJob already powers  [Day of the Shirt](https://dayoftheshirt.com/) and [Brompt](https://brompt.com/) performing tens-of-thousands of real-world jobs a day. 
+GoodJob’s design is based directly on my experience in 2-pizza, full-stack teams, and as an economy-minded solo developer. GoodJob already powers [Day of the Shirt](https://dayoftheshirt.com/) and [Brompt](https://brompt.com/) performing tens-of-thousands of real-world jobs a day.
 
 ### Is GoodJob right for you?
 
-[Try it out](https://github.com/bensheldon/good_job)  and let me know.
+[Try it out](https://github.com/bensheldon/good_job) and let me know.

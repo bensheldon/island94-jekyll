@@ -11,4 +11,3 @@ redirect_from:
 ---
 
 > This project represents a new way of democratizing access to [whatever, especially with a gerund; e.g. "the tools for understanding local educational outcomes"] which is needed by [whomever], and many others.
- 

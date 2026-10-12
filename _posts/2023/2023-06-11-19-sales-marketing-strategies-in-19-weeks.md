@@ -7,16 +7,16 @@ tags: []
 
 The book [*Traction*](https://www.goodreads.com/pt/book/show/24693635-traction), by Gabriel Weinberg and Justin Mares has an unstated thesis I find compelling:
 
-Comprehensive, grinding, tryhard mediocrity over narrow, stabby, hopeful genius. 
+Comprehensive, grinding, tryhard mediocrity over narrow, stabby, hopeful genius.
 
 Or: boil the sales & marketing ocean with these spreadsheets and punchlists (a marketing lifestyle I associate with Penny Arcade's [former business manager](https://www.reddit.com/r/IAmA/comments/nx0bs/comment/c3cm3zm/) with [stuff like this](https://web.archive.org/web/20120107151014/http://penny-arcade.com/khoo/viral)).
 
 There are lots of quotes from like Paul Graham, Peter Thiel, Marc Andreesen. This is what one signs up for in a book like this. Also replace "traction" with "sales and marketing":
 
 >  ...spend your time constructing your product or service and testing traction channels *in parallel*.... We strongly believe that many startups give up way too early... You should always have an explicit traction goal you’re working toward.
-> 
+>
 > ...The importance of choosing the right traction goal cannot be overstated. Are you going for growth or “profitability, or something in between? If you need to raise money in X months, what traction do you need to show to do so? These are the types of questions that help you determine the right traction goal.
-> 
+>
 > Once that is defined, you can work backward and set clear quantitative and time-based traction subgoals, such as reaching one thousand customers by next quarter or hitting 20 percent monthly growth targets. Clear subgoals provide accountability. By placing traction activities on the same calendar as product development and other company milestones, you ensure that enough of your time will be spent on traction.
 
 It feels a little dumb pulling out quotes, but also I get security from seeing it not be overthought:
@@ -26,7 +26,7 @@ It feels a little dumb pulling out quotes, but also I get security from seeing i
 * Set your growth goals: Set quantitative numbers.
 * Find your bright spots: if not hitting quantitative numbers, who is qualitively excited and try to learn from them and replan.
 
-And then the spreadsheets. There are pictures of spreadsheets, and descriptions of columns in spreadsheets. It's great! 
+And then the spreadsheets. There are pictures of spreadsheets, and descriptions of columns in spreadsheets. It's great!
 
 1. How much will it cost to acquire customers through this channel?
 2. How many customers are available through this channel
@@ -38,17 +38,17 @@ And then the spreadsheets. There are pictures of spreadsheets, and descriptions 
 And the 19 strategies:
 
 1. **Targeting Blogs**: building up from tiny outlets to large
-2. **Publicity**: building relationships with journalists, HARO. 
+2. **Publicity**: building relationships with journalists, HARO.
 3. **Unconventional PR**: stunts, customer appreciation
 4. **Search Engine Marketing**
 5. **Social and Display Ads**
 6. **Offline Ads**
-7. **Search Engine Optimization**: fat-head (narrow ranking) and long-tail (lots of landing page content, content marketing farming) strategies. Google Adword's Keyword Planner,  Open Site Explorer.
+7. **Search Engine Optimization**: fat-head (narrow ranking) and long-tail (lots of landing page content, content marketing farming) strategies. Google Adword's Keyword Planner, Open Site Explorer.
 8. **Content Marketing**. Spend 6 months blogging do stuff that doesn't scale (contact influential people, do guest posts, write about recent news events, nerd out)
 9. **Email Marketing**: with your own mailing list or advertise on other mailing lists. Transactional funnel reminders, retention, upselling/expansion, referral emails too.
 10. **Viral Marketing**: map out the loop.
 11. **Engineering as Marketing**: giveaway tools/services (lol, examples are all SEO companies building free SEO tools for marketers, not necessarily engineering)
-12. **Business Development**: partnerships, joint ventures, licensing, distribution, supply. Boil the ocean of potential partners, spreadsheet and pipeline it.  Identify who is in charge of the partner's metric you're targeting, and make your cold emails forwardable. Write a memo to yourself afterwords "how the deal was done" (how long it took to get to milestones, key contacts, sticking points, partner's specific interests and influences)
+12. **Business Development**: partnerships, joint ventures, licensing, distribution, supply. Boil the ocean of potential partners, spreadsheet and pipeline it. Identify who is in charge of the partner's metric you're targeting, and make your cold emails forwardable. Write a memo to yourself afterwords "how the deal was done" (how long it took to get to milestones, key contacts, sticking points, partner's specific interests and influences)
 13. **Sales**. It's sales! lol, about time wasters ("have you ever brought other technology into your company?")
 14. **Affiliate Programs**
 15. **Existing Platforms**

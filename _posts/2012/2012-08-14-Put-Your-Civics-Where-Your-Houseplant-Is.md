@@ -14,7 +14,7 @@ redirect_from:
 
 ![](/uploads/2012-08/civicsgarden-large-600x266.png "civicsgarden-large")
 
-The core assumption of engagement applications is that people will do an activity consistently and repeatedly if you just structure the experience and incentivize it correctly — even if it’s asinine.  The justification for _civic_ engagement apps can be similarly foolish: people will perform a potentially beneficial activity that they aren't currently doing if we give them the ability to do it on the internet (or via SMS, or iPhone, etc.). That's why I built [Civics Garden](http://civicsgarden.herokuapp.com).
+The core assumption of engagement applications is that people will do an activity consistently and repeatedly if you just structure the experience and incentivize it correctly — even if it’s asinine. The justification for _civic_ engagement apps can be similarly foolish: people will perform a potentially beneficial activity that they aren't currently doing if we give them the ability to do it on the internet (or via SMS, or iPhone, etc.). That's why I built [Civics Garden](http://civicsgarden.herokuapp.com).
 
 A few months ago a Code for America email thread came around asking how "If you could tell the story of how government works, what would you say?" I pushed back with the idea that one cannot know government without participating in it, and since we are a government of, by, and for the people, the best place to start would be reflecting on one's own civic life and civic actions.
 

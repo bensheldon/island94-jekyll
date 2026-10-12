@@ -8,7 +8,7 @@ tags:
 
 This is a quick roundup of what’s new with GoodJob v1.12.0 since the last update published for [GoodJob v1.9](https://island94.org/2021/01/goodjob-1-4-jruby-compatibility-and-more).
 
-GoodJob ( [github](https://github.com/bensheldon/good_job) ) is a multithreaded, Postgres-based, ActiveJob backend for Ruby on Rails. If you’re new to GoodJob, read the  [introductory blog post](https://island94.org/2020/07/introducing-goodjob-1-0).
+GoodJob ( [github](https://github.com/bensheldon/good_job) ) is a multithreaded, Postgres-based, ActiveJob backend for Ruby on Rails. If you’re new to GoodJob, read the [introductory blog post](https://island94.org/2020/07/introducing-goodjob-1-0).
 
 _For further details on the following updates, check out GoodJob's [Changelog](https://github.com/bensheldon/good_job/blob/main/CHANGELOG.md) or [Readme](https://github.com/bensheldon/good_job/blob/main/README.md)._
 
@@ -74,15 +74,12 @@ Don't take my word for what a good job it is. Check out the new GoodJob Dashboar
 
 ### More news:
 
-- Wojciech Wnętrzak aka [@morgoth](https://github.com/morgoth) became a GoodJob maintainer. 
+- Wojciech Wnętrzak aka [@morgoth](https://github.com/morgoth) became a GoodJob maintainer.
 - Wrote up details of the [evolving development philosophy](https://github.com/bensheldon/good_job/issues/255) behind GoodJob.
-- The Dashboard now allows removing jobs, with more actions coming soon. 
+- The Dashboard now allows removing jobs, with more actions coming soon.
 
 ### Contribute
 
-Code, documentation, and curiosity-based contributions are welcome! Check out the  [GoodJob Backlog](https://github.com/bensheldon/good_job/projects/1) , comment on or open a Github Issue, or make a Pull Request.
+Code, documentation, and curiosity-based contributions are welcome! Check out the [GoodJob Backlog](https://github.com/bensheldon/good_job/projects/1) , comment on or open a Github Issue, or make a Pull Request.
 
-I also have a  [GitHub Sponsors Profile](https://github.com/sponsors/bensheldon)  if you’re able to support GoodJob and me monetarily. It helps me stay in touch and send you project updates too.
-
-
-
+I also have a [GitHub Sponsors Profile](https://github.com/sponsors/bensheldon) if you’re able to support GoodJob and me monetarily. It helps me stay in touch and send you project updates too.

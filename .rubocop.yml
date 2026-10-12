@@ -33,9 +33,6 @@ AllCops:
     - vendor/**/*
   NewCops: enable
 
-Capybara/ClickLinkOrButtonStyle:
-  EnforcedStyle: link_or_button
-
 Layout/EmptyLineAfterMagicComment:
   Enabled: false
 
@@ -169,6 +166,9 @@ Style/MultilineBlockChain:
   Enabled: false
 
 Style/NumericLiterals:
+  Enabled: false
+
+Style/OneClassPerFile:
   Enabled: false
 
 Style/PercentLiteralDelimiters:

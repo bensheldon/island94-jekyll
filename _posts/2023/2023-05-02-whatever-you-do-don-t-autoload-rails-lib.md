@@ -7,13 +7,13 @@ tags: []
 
 _**Update:** Rails v7.1 will introduce a new configuration method [`config.autoload_lib`](https://github.com/rails/rails/pull/48572) to make it safer and easier to autoload the `/lib` directory and explicitly exclude directories from autoloading. When released, this advice may no longer be relevant, though I imagine it will still be possible for developers to twist themselves into knots and cause outages with autoloading overrides._  
 
-One of the most common problems I encounter consulting on Rails projects is that developers have previously added `lib/` to autoload paths and then twisted themselves into knots creating error-prone, project-specific conventions for subsequently un-autoloading a subset of files also in `lib/`. 
+One of the most common problems I encounter consulting on Rails projects is that developers have previously added `lib/` to autoload paths and then twisted themselves into knots creating error-prone, project-specific conventions for subsequently un-autoloading a subset of files also in `lib/`.
 
 *Don't do it. Don't add your Rails project's `lib/` to autoload paths.*
 
 ### How does this happen?
 
-A growing Rails application will accumulate a lot of ruby classes and files that don't cleanly fit into the default `app/` directories of `controllers`, `helpers`, `jobs`, or `models`. Developers should also be creating new directories in `app/*` to organize like-with-like files (your `app/services/` or `app/merchants/`, etc.). That's ok! 
+A growing Rails application will accumulate a lot of ruby classes and files that don't cleanly fit into the default `app/` directories of `controllers`, `helpers`, `jobs`, or `models`. Developers should also be creating new directories in `app/*` to organize like-with-like files (your `app/services/` or `app/merchants/`, etc.). That's ok!
 
 But frequently there are one-off classes that don't seem to rise to the level of their own directory in `app/`. From looking through the cruft of projects like [Mastodon](https://github.com/mastodon/mastodon/tree/c62604b5f69c3ad7f5449e0a7dc26606adebb777/app/lib) or applications [I've](https://github.com/codeforamerica/vita-min/tree/2f5faf06f586d1ea3915af262aab7683240f4727/app/lib) [worked](https://github.com/bensheldon/open311status/blob/2cd70e391770f64d734f462624222fb8f8bc14a4/app/lib/service_requests_pager.rb) [on](https://github.com/bensheldon/open311status/tree/2cd70e391770f64d734f462624222fb8f8bc14a4/app/lib), these files look like:
 
@@ -25,9 +25,9 @@ That these files accumulate in a project is a fact of life. When choosing where 
 
 In a newly built Rails project `lib/` looks like the natural place for these. But `lib/` has a downside: `lib/` is not autoloaded. This can come as a surprise, even to experienced developers, because they have been accustomed to the convenience of autoloaded files in `app/`. It's not difficult to add an explicit `require` statement into `application.rb` or in an initializer, but that may not be one's first thought.
 
-That's when people jump to googling "how to autoload `lib/`". Don't do it! `lib/` should not be autoloaded. 
+That's when people jump to googling "how to autoload `lib/`". Don't do it! `lib/` should not be autoloaded.
 
-The problem with autoloading `lib/` is that there will subsequently be files added to `lib/` that should _not_ be autoloaded; because they should only be provisionally loaded in a certain environment or context, or deferred, for behavioral, performance, or memory reasons. If your project has already enabled autoloading on `lib/`, it's now likely you'll then add additional configuration to un-autoload the new files. These overrides and counter-overrides accumulate over time and become difficult to understand and unwind, and they cause breakage because someone's intuition of what will or won't be loaded in a certain environment or context is wrong. 
+The problem with autoloading `lib/` is that there will subsequently be files added to `lib/` that should _not_ be autoloaded; because they should only be provisionally loaded in a certain environment or context, or deferred, for behavioral, performance, or memory reasons. If your project has already enabled autoloading on `lib/`, it's now likely you'll then add additional configuration to un-autoload the new files. These overrides and counter-overrides accumulate over time and become difficult to understand and unwind, and they cause breakage because someone's intuition of what will or won't be loaded in a certain environment or context is wrong.
 
 What should you do instead?
 
@@ -43,11 +43,11 @@ The omakase solution is to manually require files from `lib/` or use `app/models
 
 Xavier Noria, Zeitwerk's creator [writes](https://github.com/rails/rails/issues/37835#issuecomment-757367812):
 
-> The best practice to accomplish that nowadays is to move that code to `app/lib`. Only the Ruby code you want to reload, tasks or other auxiliary files are OK in `lib`. 
+> The best practice to accomplish that nowadays is to move that code to `app/lib`. Only the Ruby code you want to reload, tasks or other auxiliary files are OK in `lib`.
 
 Sidekiq's Problems and Troubleshooting [explains](https://github.com/sidekiq/sidekiq/wiki/Problems-and-Troubleshooting#autoloading):
 
-> A `lib/` directory will only cause pain. Move the code to `app/lib/` and make sure the code inside follows the class/filename conventions.
+> A `lib/` directory will only cause pain. Move the code to `app/lib/` and make sure the code inside follows the class/filename conventions.
 
 The best practice is to create an `app/lib/` directory to home these files. [Mastodon](https://github.com/mastodon/mastodon/tree/c62604b5f69c3ad7f5449e0a7dc26606adebb777/app/lib) does it, as do [many others](https://github.com/search?type=code&auto_enroll=true&q=path%3A%2F%5Eapp%5C%2Flib%5C%2F.*%5C.rb%2F).
 
@@ -55,4 +55,4 @@ This "best practice" is not without contention, as usually anything in Rails tha
 
 ### Really, don't autoload `lib/`
 
-Whatever path you take, don't take the path of autoloading `lib/`. 
+Whatever path you take, don't take the path of autoloading `lib/`.

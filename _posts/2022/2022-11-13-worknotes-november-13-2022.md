@@ -17,9 +17,9 @@ It's here again. As a manager, I have a template for how I like to receive self-
 
 1. Laundry list all of your projects, contributions, and accomplishments during the time period [if this seems difficult, have some sympathy for your manager]
 2. What future growth areas (lined up in phrases from the Career Ladder) would you like to focus on developing?
-3. What specific project/work opportunities exist (or you’d like to create) that would help you develop the growth areas you described in the previous question? (or you would really, really want to work on). 
- 
-And then it's a matter of trying to shoe-horn those questions into the invariably slightly different organizational template. I wrote up a big document for my reports. 
+3. What specific project/work opportunities exist (or you’d like to create) that would help you develop the growth areas you described in the previous question? (or you would really, really want to work on).
+
+And then it's a matter of trying to shoe-horn those questions into the invariably slightly different organizational template. I wrote up a big document for my reports.
 
 Here's what I drafted for myself on the opportunities question:
 

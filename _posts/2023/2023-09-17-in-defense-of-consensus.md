@@ -5,7 +5,7 @@ published: true
 tags: []
 ---
 
-There's a style of reactionary meme that takes a photo of like, empty store-shelves or a trash-strewn street, and applies the image macro "This is what Communism looks like". But upon closer inspection (and social media lampooning), it's a photo of America, capitalist America, very much not under communism. We'll come back to this. 
+There's a style of reactionary meme that takes a photo of like, empty store-shelves or a trash-strewn street, and applies the image macro "This is what Communism looks like". But upon closer inspection (and social media lampooning), it's a photo of America, capitalist America, very much not under communism. We'll come back to this.
 
 Let's talk about "consensus". Not a week goes by in my Bay Area tech worklife where I don't read or hear someone dragging consensus. Consensus is pilloried: weak, indecisive, lowest-common denominator, unclear, drawn out... consensus is bad, they say.
 
@@ -20,11 +20,11 @@ Alternatively, the Bay Area tech process, not "consensus", oh no, seems to follo
 
 I was introduced to "plan and socialize" in my second tech job, being mentored by the Director of Engineering. To "socialize" is more than informing people, it's having conversations and helping them understand how a plan or proposal will affect their work, and getting feedback that might lead to adjustments or compensatory actions. It's also somewhat vague: asking people to leave comments in a google doc, attend an office hours, or a loosely moderated feedback session. Decisions, once made, are also socialized: explained, defended, adjusted, or white-knuckled through.
 
-Depending on their power level, leaders may then ask people to "disagree and commit" meaning that the (negative) feedback has been heard but those underlings must commit to carrying the plan out regardless. Suck it up, professionally, so to speak. Sometimes this is used as performance feedback: "I'm aware you've been sharing your dislike of the plan with coworkers. That lack of trust is undermining the business. I need you to disagree and commit"... and keep your thoughts to yourself. 
+Depending on their power level, leaders may then ask people to "disagree and commit" meaning that the (negative) feedback has been heard but those underlings must commit to carrying the plan out regardless. Suck it up, professionally, so to speak. Sometimes this is used as performance feedback: "I'm aware you've been sharing your dislike of the plan with coworkers. That lack of trust is undermining the business. I need you to disagree and commit"... and keep your thoughts to yourself.
 
 Under the spotlight, these approaches look less like bold and steely decision-making, and more like mumbly plan shifting backed by blusterful threats. Like the "this is what communism looks like"-meme, the scary-othered threat is not "consensus" but simply the current reality: confused, inadequate, probationary, triangulating, embarrassing, shameful.
 
-There's a joke in civic tech: government tech projects may say they can't do incremental development, but that's exactly what happens after their big-bang waterfall launch crashes-and-burns and they end up having to fix it one piece at a time. Clay Shirky captures it in ["How Willful Ignorance Doomed HealthCare.gov"](https://www.politico.com/magazine/story/2013/11/the-willful-ignorance-that-doomed-healthcaregov-100290/): 
+There's a joke in civic tech: government tech projects may say they can't do incremental development, but that's exactly what happens after their big-bang waterfall launch crashes-and-burns and they end up having to fix it one piece at a time. Clay Shirky captures it in ["How Willful Ignorance Doomed HealthCare.gov"](https://www.politico.com/magazine/story/2013/11/the-willful-ignorance-that-doomed-healthcaregov-100290/):
 
 > It is hard for policy people to imagine that HealthCare.gov could have had a phased rollout, *even while it is having one*. At launch, on Oct. 1, only a tiny fraction of potential users could actually try the service. They generated errors. Those errors were handed to a team whose job was to improve the site, already public but only partially working. The resulting improvements are incremental and put in place over a period of months. That *is* a phased rollout, just one conducted in the worst possible way.
 
@@ -32,6 +32,6 @@ Bay Area tech has the same relationship to decisions and consensus: by "socializ
 
 Please think of this the next time you hear (or say) something bad about consensus. Consensus is pretty great, and even better when used from the start.
 
-*The Institute for Cultural Affairs has [lots of trainings](https://www.top-training.net/w/schedule/)  on consensus-based facilitation. The [Center for Strategic Facilitation](https://strategicfacilitation.com) is the Bay Area's local trainer and service provider, but there are trainers and service providers all over the globe.*
+*The Institute for Cultural Affairs has [lots of trainings](https://www.top-training.net/w/schedule/) on consensus-based facilitation. The [Center for Strategic Facilitation](https://strategicfacilitation.com) is the Bay Area's local trainer and service provider, but there are trainers and service providers all over the globe.*
 
 *There is a system known as ["Formal Consensus"](https://en.wikipedia.org/wiki/Formal_consensus) which gained some notability during the [1999 "Battle of Seattle" WTO protests](https://en.wikipedia.org/wiki/1999_Seattle_WTO_protests) as a means of empowering small groups, particularly indigenous representatives, by providing a limited and fixed number of "blocks" during deliberations to stop actions proposed by far larger groups. Also how my buddy organized [FreeGeek Chicago](https://github.com/freegeekchicago/fgc-docs/blob/4dc37cbb76eaf766274f30fcb1f9df9d5bc199df/constitution.md#governance). I have **never** heard anyone in Bay Area tech reference any of this in regards to what they mean by consensus.*

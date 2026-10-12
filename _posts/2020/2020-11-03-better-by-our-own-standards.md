@@ -15,7 +15,6 @@ Boas devoted his life to showing people that the science they were relying on wa
 
 ...
 
-
 It’s true that Boas and Benedict spoke of “relativity,” and that at the end of “Patterns of Culture” Benedict refers to “coexisting and equally valid patterns of life which mankind has created for itself from the raw materials of existence.” But everything else in Benedict’s book contradicts the assertion that all cultures are “equally valid.” The whole point is to judge which practices, others’ or our own, seem to produce the kind of society we want. The anthropological mirror has a moral purpose.
 
 The term “culture” is responsible for some of the confusion. We think that to call something part of a group’s culture is to excuse it from judgment. We say, That’s just the lens through which people in that society view the world. It’s not for us to tell them what to think. Our ways are not better, only different. What it all boils down to (to paraphrase Montaigne) is: We wear pants; they do not. That would be relativism.

@@ -224,4 +224,3 @@ http://www.spitfirestrategies.com/tools
 Logic Model Development Guide, W.K. Kellogg Foundation
 
 www.wkkf.org/Pubs/Tools/Evaluation/Pub3669.pdf
-

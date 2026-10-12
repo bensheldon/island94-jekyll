@@ -4,11 +4,9 @@ on:
   workflow_dispatch:
   schedule:
     - cron: '0 7 * * *'
-  repository_dispatch:
-    types: [trigger-test-and-publish]
 concurrency:
   group: ${{ github.workflow}}-${{ github.ref }}
-  cancel-in-progress: true
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
 jobs:
   test_and_publish:
     name: Test and Publish
@@ -19,17 +17,26 @@ jobs:
       RUBYOPT: "--enable=yjit"
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
       - name: "Ruby: Install Ruby"
         uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
+      - name: Lint
+        run: bin/lint --nofix
+      - name: "Node: Setup"
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: '.node-version'
+          cache: 'npm'
+      - name: "Node: Install dependencies"
+        run: npm clean-install
       - name: Precompile assets
         run: bin/rails assets:precompile
       - name: Run tests
         run: bin/rspec --format documentation
       - name: Archive system spec screenshots
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         if: failure()
         with:
           name: screenshots

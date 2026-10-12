@@ -7,11 +7,11 @@ tags: [Rails, Ruby]
 
 *The Rails Executor rules everything around ~~you~~ your code.*
 
-If you write multithreaded-Rails code—like me, author of [GoodJob](https://github.com/bensheldon/good_job)—you're probably familiar with the Rails Executor which is described in the [Rails Multithreading Guide](https://guides.rubyonrails.org/v7.1/threading_and_code_execution.html). 
+If you write multithreaded-Rails code—like me, author of [GoodJob](https://github.com/bensheldon/good_job)—you're probably familiar with the Rails Executor which is described in the [Rails Multithreading Guide](https://guides.rubyonrails.org/v7.1/threading_and_code_execution.html).
 
 If you're new to the Rails Executor: it sets up and tears down a lot of Rails' framework magic. Code wrapped with a Rails Executor or its sibling, the Reloader, pick up a lot of powerful behavior:
 
-- Constant autoloading and reloading 
+- Constant autoloading and reloading
 - Database connection/connection-pool management and query retries
 - Query Cache
 - Query Logging
@@ -25,9 +25,9 @@ You usually won't think about it. The Rails framework already wraps every Contro
 
 The effect of these small changes could be surprising:
 
-- I came to write this blog post because I saw a Rails Discussion asking how ["Rails 7.1 uses query cache for runner scripts"](https://discuss.rubyonrails.org/t/rails-7-1-uses-query-cache-for-runner-scripts/84275) and aha, I knew the answer: the Executor. 
-- I recently [fixed a bunch of flaky GoodJob unit tests](https://github.com/bensheldon/good_job/pull/1124) by wrapping each RSpec example in a Rails Executor. This is a problem specific to GoodJob, which uses connection-based Advisory Locks, but I discovered that if an Executor context was passed through (for example, executing an Active Job inline), the current database connection would be returned to the pool, sometimes breaking the Advisory Locks when a different connection was checked back out to continue the test. This was only a fluke of the tests, but was a longtime annoyance. I've previously had to [work around a similar reset of CurrentAttributes](https://github.com/bensheldon/good_job/blob/c6d3aa4906783498ed6296060666d350ac2e288c/lib/good_job/current_thread.rb#L6-L7) that occurs too. 
-- At my day job, GitHub, we've also been double-checking that all of our Rails-invoking scripts and daemons are wrapped with Rails Executors. Doing so has fixed flukey constant lookups, reduced our database connection error rate and increased successful query retries, and necessitated updating a bunch of tests that counted queries that now hit the query cache. 
+- I came to write this blog post because I saw a Rails Discussion asking how ["Rails 7.1 uses query cache for runner scripts"](https://discuss.rubyonrails.org/t/rails-7-1-uses-query-cache-for-runner-scripts/84275) and aha, I knew the answer: the Executor.
+- I recently [fixed a bunch of flaky GoodJob unit tests](https://github.com/bensheldon/good_job/pull/1124) by wrapping each RSpec example in a Rails Executor. This is a problem specific to GoodJob, which uses connection-based Advisory Locks, but I discovered that if an Executor context was passed through (for example, executing an Active Job inline), the current database connection would be returned to the pool, sometimes breaking the Advisory Locks when a different connection was checked back out to continue the test. This was only a fluke of the tests, but was a longtime annoyance. I've previously had to [work around a similar reset of CurrentAttributes](https://github.com/bensheldon/good_job/blob/c6d3aa4906783498ed6296060666d350ac2e288c/lib/good_job/current_thread.rb#L6-L7) that occurs too.
+- At my day job, GitHub, we've also been double-checking that all of our Rails-invoking scripts and daemons are wrapped with Rails Executors. Doing so has fixed flukey constant lookups, reduced our database connection error rate and increased successful query retries, and necessitated updating a bunch of tests that counted queries that now hit the query cache.
 
 The Rails Executor is great! Your code is probably already wrapped by the Rails framework, but anytime you start writing scripts or daemons that `require_relative "./config/environment.rb"` you should double-check, and _definitely_ if you're using `Thread.new`, `Concurrent::Future` or anything that runs in a background thread.
 

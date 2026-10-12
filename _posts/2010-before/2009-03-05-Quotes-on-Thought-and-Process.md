@@ -8,7 +8,7 @@ redirect_from:
 - "?p=500"
 ---
 
-> For hundreds of years we have believed that if something is logical in hindsight then logic should have been enough to get the idea in the first place.  This is complete and total rubbish in a patterning system.  Most of our thinking and education is based on this absurdly false belief.
+> For hundreds of years we have believed that if something is logical in hindsight then logic should have been enough to get the idea in the first place. This is complete and total rubbish in a patterning system. Most of our thinking and education is based on this absurdly false belief.
 
 Edward de Bono, in the forward of [A Smile in the Mind](http://www.amazon.com/Smile-Mind-Beryl-McAlhone/dp/0714838128?tag=particculturf-20)
 

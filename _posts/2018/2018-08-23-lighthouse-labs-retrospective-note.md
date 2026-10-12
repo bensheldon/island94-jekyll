@@ -7,7 +7,7 @@ tags:
   - notes
 ---
 For more than a year I've been attending monthly [Lighthouse Labs meetups](https://lighthouse-sf.org/lighthouse-labs/)
- at San Francisco's Lighthouse for the Blind. Each month Lighthouse Labs holds an open forum for accessibility technologists to present and receive feedback. These are my notes from an audience retrospective of a year of these presentations: 
+ at San Francisco's Lighthouse for the Blind. Each month Lighthouse Labs holds an open forum for accessibility technologists to present and receive feedback. These are my notes from an audience retrospective of a year of these presentations:
 
 - Working with new learners:
 	* What tech do you currently have?

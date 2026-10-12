@@ -21,7 +21,7 @@ The following is from the conclusion of the _[Axemaker's Gift](http://www.amazon
 >
 > Above all (and most recently) we have also been persuaded to think that it is unacceptable to be different or even to acknowledge that differences in abilities exist between us. But our survival may depend on the realization and expression of humanity's immense diversity. Only if we use what may be the ultimate of the many axemalcer's gifts—the coming information systems—to nurture this individual and cultural diversity, only if we celebrate our differences rather than suppressing them, will we stand a chance of harnessing the wealth of human talent that has been ignored for millennia and that is now eager, all around the world, for release.
 
-I greatly enjoyed the book, but I understand where the [only 1-star  reviewer](http://www.amazon.com/review/R156572MF792X/ref=cm_cr_rdp_perm) is coming from:
+I greatly enjoyed the book, but I understand where the [only 1-star reviewer](http://www.amazon.com/review/R156572MF792X/ref=cm_cr_rdp_perm) is coming from:
 
 > the suggested solution of a "web supported" world full of small democrartic communities is such hairy-armpit, dope-smoking, hippy rubbish I found myself laughing out loud. I'm fascinated to know who is going to design and construct and distribute the servers to enable this web-supported world, let alone who is going to host and maintain them
 >

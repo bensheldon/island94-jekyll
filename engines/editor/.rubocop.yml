@@ -1,0 +1,7 @@
+inherit_from: ../../.rubocop.yml
+
+# The editor's models are plain ActiveModel objects, not Active Record.
+Rails/FindEach:
+  Enabled: false
+Rails/RedundantActiveRecordAllMethod:
+  Enabled: false

@@ -51,7 +51,7 @@ Let's move on.
 
 ### GZip, but maybe you don't need it
 
-So… everything in web development is connected. While wondering why new copies of every `.gz` file were being committed on every build, I remembered what my buddy Rob recently did in Rails: [`MakeActiveSupport::Gzip.compress`￼deterministic](https://github.com/rails/rails/pull/55382).
+So… everything in web development is connected. While wondering why new copies of every `.gz` file were being committed on every build, I remembered what my buddy Rob recently did in Rails: [`MakeActiveSupport::Gzip.compress`deterministic](https://github.com/rails/rails/pull/55382).
 
 > I have some tests of code that uses `ActiveSupport::Gzip.compress` that have been flaky for a long time, and recently discovered this is because the output of that method includes the timestamp of when it was compressed. If two calls with the same input happen during different seconds, then you get different output (so, in my flaky tests, they fail to compare correctly).
 
@@ -96,4 +96,4 @@ All of this stuff about file modification dates reminded me of _another_ thing I
 
 …but not the one set by `GZip#mtime=`. I cannot find any evidence anywhere that value, _in the contents of the gzip file_ matters. Nada. All it does is make the gzip file's _contents_ be different, because of that one tiny value being included. I can't imagine anything cares about the original mtime when it's unzipped, that wasn't already transmitted via the Last-Modified HTTP header. What am I missing?
 
-Of the evidence I have, it seems like developers set `GZip#mtime=`… because it's an option? I couldn't find a reason [in the Sprockets history](https://github.com/rack/rack/commit/d2d51ff05966b36c40dc9439437e82d0a23f2b88). I noticed that Rack::Deflater does the same for reasons I haven't figured out [in their history](https://github.com/rack/rack/commit/d2d51ff05966b36c40dc9439437e82d0a23f2b88) either.  This behavior probably is not busting _a lot_ of content-based caches unnecessarily, but it probably does some. So maybe don't do it unless you need to.
+Of the evidence I have, it seems like developers set `GZip#mtime=`… because it's an option? I couldn't find a reason [in the Sprockets history](https://github.com/rack/rack/commit/d2d51ff05966b36c40dc9439437e82d0a23f2b88). I noticed that Rack::Deflater does the same for reasons I haven't figured out [in their history](https://github.com/rack/rack/commit/d2d51ff05966b36c40dc9439437e82d0a23f2b88) either. This behavior probably is not busting _a lot_ of content-based caches unnecessarily, but it probably does some. So maybe don't do it unless you need to.

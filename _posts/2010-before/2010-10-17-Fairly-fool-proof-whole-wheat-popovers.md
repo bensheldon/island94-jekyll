@@ -7,6 +7,7 @@ tags:
 - food
 - navigation
 - portfolio
+- recipe
 wp:post_type: post
 redirect_from:
 - 2010/10/fairly-fool-proof-popovers/
@@ -21,7 +22,7 @@ I have made both a ton of popovers and a ton of hockey pucks, so this is my fair
 
 **Ingredients**
 
-1 cup whole wheat pastry flour (or 3/4 C white whole wheat flour + 1/4 C All Purpose White Flour; I have not managed to get consistent results with 100% white whole wheat)
+1 cup whole wheat pastry flour (or 3/4 C white whole wheat flour + 1/4 C All Purpose White Flour; I have not managed to get consistent results with 100% white whole wheat)
 
 1/4 teaspoon salt
 

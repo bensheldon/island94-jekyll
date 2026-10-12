@@ -20,4 +20,4 @@ I was forwarded this from [Angelina](http://alinapazwrites.blogspot.com/), who a
 Pres. and CEO,
 Susan G. Komen for the Cure._
 
-The last sentence is mostly pablum, but from yesterday's post about [dialogue and creating a shared community](http://www.island94.org/2009/02/online-fundraising-please-do-it-right/), I think it's important to think about not only what your own committment is, but also the expectations you are committing to with others.  In other words, a mission is a statement, a promise is a contract.
+The last sentence is mostly pablum, but from yesterday's post about [dialogue and creating a shared community](http://www.island94.org/2009/02/online-fundraising-please-do-it-right/), I think it's important to think about not only what your own committment is, but also the expectations you are committing to with others. In other words, a mission is a statement, a promise is a contract.

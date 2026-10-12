@@ -14,7 +14,7 @@ redirect_from:
 - "?p=2266"
 ---
 
-NPR has a story on an [algorithm created by researchers David Larcker and Anastasia Zakolyukina](http://www.npr.org/templates/story/story.php?storyId=130544236) that can allegedly detect when business leaders are being dishonest about their company's practices or earnings. Unfortunately, they don't publish the complete wordlists used in their [algorithm](http://www.gsb.stanford.edu/news/pdf/larckerzakolyukia.pdf) (pdf) , just these 2 categories:
+NPR has a story on an [algorithm created by researchers David Larcker and Anastasia Zakolyukina](http://www.npr.org/templates/story/story.php?storyId=130544236) that can allegedly detect when business leaders are being dishonest about their company's practices or earnings. Unfortunately, they don't publish the complete wordlists used in their [algorithm](http://www.gsb.stanford.edu/news/pdf/larckerzakolyukia.pdf) (pdf) , just these 2 categories:
 
 > **Extreme positive emotions**
 >

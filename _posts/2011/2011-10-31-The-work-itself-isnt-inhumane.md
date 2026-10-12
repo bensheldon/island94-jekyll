@@ -21,7 +21,7 @@ As someone who has spent a large amount of life sorting (and resorting) spreadsh
 
 > "...the work itself isn’t inhumane---unless you consider a repetitive, exhausting, and alienating workplace over which you have no influence or authority to be inhumane. And that would pretty much describe every single manufacturing or burger-flipping job ever."
 
-Which is to say that maintaining a database is _work_ and doubly so when the "data driven decisions" are not the maintainers' to make. I think of this whenever the licensing costs of "closed" commercial databases are cited as driving the need for "open"; I agree that data in the public interest should be "free",  but I recognize that freedom comes with a cost.
+Which is to say that maintaining a database is _work_ and doubly so when the "data driven decisions" are not the maintainers' to make. I think of this whenever the licensing costs of "closed" commercial databases are cited as driving the need for "open"; I agree that data in the public interest should be "free", but I recognize that freedom comes with a cost.
 
 At the Summit, Tim O'Reilly said, "Data is infrastructure." If that's the case, I hope us data "architects" recognize the experience of people---the data pavers, data plumbers, and data janitors---who maintain such "virtual" infrastructure if we expect to gain greater liberties than our current physical landscape provides.
 

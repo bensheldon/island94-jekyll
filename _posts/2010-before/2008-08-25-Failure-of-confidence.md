@@ -30,4 +30,3 @@ Diebold (now Premier Election Systems), [admits voting machines have had critica
 Where does this confidence stem from? Obviously the pre-election testing and bipartisan committee failed to catch this critical flaw. Not to mention that the lab that certified voting machines was shut down for [not actually doing their job](http://www.nytimes.com/2007/01/04/washington/04voting.html?ei=5094&en=363e471aee8b4edc&hp=&ex=1167886800&partner=homepage&pagewanted=all).
 
 The first NY Times article says that they have systems in place to audit and catch inconsistencies. But shouldn't that have set off alarm bells that something in the system was broken?
-

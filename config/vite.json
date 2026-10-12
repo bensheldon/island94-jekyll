@@ -1,0 +1,28 @@
+{
+  "all": {
+    "sourceCodeDir": "app/javascript",
+    "publicOutputDir": "assets/vite",
+    "watchAdditionalPaths": [
+      "engines/editor/app/javascript/**/*"
+    ]
+  },
+  "development": {
+    "autoBuild": true,
+    "publicOutputDir": "assets/vite-dev",
+    "host": "127.0.0.1",
+    "port": 3036,
+    "additionalEntrypoints": [
+      "~/{assets,fonts,icons,images}/**/*",
+      "engines/editor/app/javascript/editor.js"
+    ]
+  },
+  "test": {
+    "autoBuild": false,
+    "publicOutputDir": "assets/vite-test",
+    "port": 3037,
+    "additionalEntrypoints": [
+      "~/{assets,fonts,icons,images}/**/*",
+      "engines/editor/app/javascript/editor.js"
+    ]
+  }
+}

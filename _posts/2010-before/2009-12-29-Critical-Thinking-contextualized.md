@@ -12,13 +12,13 @@ Below is an excerpt from my final paper for the Critical and Creative Thinking c
 
 > Most authors and developers of major cognitive curriculum projects agree that direct instruction in thinking skills is imperative. Edward de Bono, Barry Beyer, Reuven Feuerstein, Arthur Whimbey, and Mattew Lipman would agree on at least this point: That the teaching of thinking requires that teachers instruct students directly in the processes of thinking. Even David Perkins believes that creativity can be taught—by design.
 
-The question I investigated was _if these major authors and developers agree that critical thinking can be taught, on what aspects of teaching do they disagree_? To write the paper, I investigated the backgrounds of those 6 individuals and then placed  their major works into an analytical framework. It actually turned out easier than I first expected because in my research I discovered a paper that had already created such a framework: Yoram Harpaz's “ [Approaches to Critical Thinking: Toward a Conceptual Mapping of the Field](http://www.tcrecord.org/Content.asp?ContentID=12260)”. So my work was mostly to synthesize and connect around my question.
+The question I investigated was _if these major authors and developers agree that critical thinking can be taught, on what aspects of teaching do they disagree_? To write the paper, I investigated the backgrounds of those 6 individuals and then placed their major works into an analytical framework. It actually turned out easier than I first expected because in my research I discovered a paper that had already created such a framework: Yoram Harpaz's “ [Approaches to Critical Thinking: Toward a Conceptual Mapping of the Field](http://www.tcrecord.org/Content.asp?ContentID=12260)”. So my work was mostly to synthesize and connect around my question.
 
 The 3 major approaches to Critical Thinking are:
 
 > **The skills approach**: thinking tools are used efficiently—quickly and precisely—in given circumstances. Rather than imparting knowledge to students, they should be trained in proper thinking skills. These thinking skills can include strategies, heuristics, and algorithms as well as seeking precision or efficiency when thinking.
 >
-> De Bono  (Physician) – CoRT
+> De Bono (Physician) – CoRT
 >
 > Beyer (Education/Pedagogy) – Direct teaching of thinking
 >
@@ -36,7 +36,7 @@ The 3 major approaches to Critical Thinking are:
 >
 > Costa (included because his quote is the inspiration for this paper) – Habits of mind
 >
-> **The understanding approach**: the ability to locate a concept in the context of other concepts or implement a concept within another context. “Thinking is not a pure activity but activity with knowledge; and when this knowledge is understood, thinking activity is more generative (creates better solutions, decisions and ideas). Understanding therefore, is not (only) a product of good thinking but (also) its source.” [ [Harpaz](http://www.tcrecord.org/Content.asp?ContentID=12260)]
+> **The understanding approach**: the ability to locate a concept in the context of other concepts or implement a concept within another context. “Thinking is not a pure activity but activity with knowledge; and when this knowledge is understood, thinking activity is more generative (creates better solutions, decisions and ideas). Understanding therefore, is not (only) a product of good thinking but (also) its source.” [[Harpaz](http://www.tcrecord.org/Content.asp?ContentID=12260)]
 >
 > Lipman (Philosophy) – Philosophy for Children
 >

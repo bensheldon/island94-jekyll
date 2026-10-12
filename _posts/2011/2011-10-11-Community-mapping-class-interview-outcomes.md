@@ -10,7 +10,6 @@ redirect_from:
 
 ![](/uploads/2011-10/CIMG3114-600x399.jpg "CIMG3114")
 
-
 Last year I interviewed [Richard (Dick) Howe](http://www.richardhowe.com), [Lowell's Registrar of Deeds](http://www.lowelldeeds.com/) about the impact of his participation in a Community Mapping class I taught at [LTC](http://ltc.org) in Spring, 2006.
 
 The interview came about as a result a NTIA administrator asking the [Transmission Project](http://transmissionproject.org) for evidence of a community training initiative that resulted in the creation of something of lasting economic or social value to a community, specifically a brief " example in which tech training --> spurs creativity --> results in innovative outcome".

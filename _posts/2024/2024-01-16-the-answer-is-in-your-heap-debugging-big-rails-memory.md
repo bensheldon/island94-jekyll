@@ -16,7 +16,7 @@ Lots of people ask for help on r/rails, and it can be difficult to debug at a di
 We worked through a bunch of questions:
 
 * Was the memory increase at startup or over time? Not at boot, but memory increased very quickly.
-* Did anything change with Puma configuration?  Nope.
+* Did anything change with Puma configuration? Nope.
 * Get set up with [`derailed_benchmarks`](https://github.com/zombocom/derailed_benchmarks), and create a `bin/profile` Rails binstub to make it easy to boot into a production-like configuration for profiling. Here’s what my very polished one looks like:
 
   ```ruby
@@ -146,7 +146,7 @@ What we’re looking at is something in Rails’ `RoutesProxy` holding onto a re
 
 ### The explanation
 
-Using Rails’ git history, we were able to find that a [change](https://github.com/rails/rails/pull/46974) had been made to the `RoutesProxy` ’s behavior of dynamically creating a new method: a `class_eval`  had been changed to an `instance_eval`.
+Using Rails’ git history, we were able to find that a [change](https://github.com/rails/rails/pull/46974) had been made to the `RoutesProxy` ’s behavior of dynamically creating a new method: a `class_eval` had been changed to an `instance_eval`.
 
 Calling `instance_eval "def method...."` is what introduced a new singleton class, because that new method is only defined on that one object instance. Singleton classes can be cached by the Ruby VM (they’ll be purged when the cache fills up), and that’s what, through that chain of objects, was causing the model instances to stick around longer than expected and bloat up the memory! It’s not that `instance_eval`ing new methods is itself inherently problematic, but when those singleton methods are defined on an object that references an instance of an Action Controller, which has many instance variables that contained big Active Record objects…. that’s a problem.
 

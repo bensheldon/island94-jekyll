@@ -12,7 +12,7 @@ redirect_from:
 - "?p=1919"
 ---
 
-Wikipedia on  [satisficing](http://en.wikipedia.org/wiki/Satisficing):
+Wikipedia on [satisficing](http://en.wikipedia.org/wiki/Satisficing):
 
 > **Satisficing** (a portmanteau of satisfy and suffice) is a decision-making strategy that attempts to meet criteria for adequacy, rather than to identify an optimal solution. A satisficing strategy may often be (near) optimal if the costs of the decision-making process itself, such as the cost of obtaining complete information, are considered in the outcome calculus.
 >

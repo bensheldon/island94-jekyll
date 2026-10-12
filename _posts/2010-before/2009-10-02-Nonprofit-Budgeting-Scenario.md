@@ -18,7 +18,7 @@ redirect_from:
 
 While cleaning up some files, I came across this awesome scenario I wrote for our AmeriCorps\*VISTA orientation last summer. I wrote it to give our new service members an idea of what it's like to enter a small community nonprofit organization in contemporary times: under-staffed, under-resourced, broadly missioned, lacking in a comprehensive strategic plan. Most importantly, the nonprofit in this scenario lacks a well-prepared board... which is the role _you_ play in this scenario.
 
-I pasted the text of the  scenario below, though you can download the whole thing along with the budget worksheet in a [word document(.doc)](/uploads/2009-10-02-Nonprofit-Budgeting-Scenario/Nonprofit-Realities-Budgeting-Scenario.doc).
+I pasted the text of the scenario below, though you can download the whole thing along with the budget worksheet in a [word document(.doc)](/uploads/2009-10-02-Nonprofit-Budgeting-Scenario/Nonprofit-Realities-Budgeting-Scenario.doc).
 
 > **Nonprofit Board of Directors Roleplay:**
 >
@@ -42,9 +42,9 @@ I pasted the text of the  scenario below, though you can download the whole thi
 >
 > Your organization, Rural Food Services is the only Food Bank in rural Spring County. Covering 1,200 square-miles, Spring County has a population of 40,000 , an average age of 42, and a median income of $22,500. Light commercial (call centers) and light manufacturing (automotive and industrial parts) are the primary employers. And a WalMart Supercenter.
 >
-> Rural Food Services was founded in the early 1980s to provide free and reduced-cost food and staples to rural Spring County. It is the only Food Bank in Spring County.  20% of residents (8,000 people) in the county receive aid from the Food Bank each year.  The food itself is donated from distributors and the government, but Rural Food Services must pickup and store the food, dispose of rotten or expired food, and comply with licensing and inspection requirements.
+> Rural Food Services was founded in the early 1980s to provide free and reduced-cost food and staples to rural Spring County. It is the only Food Bank in Spring County. 20% of residents (8,000 people) in the county receive aid from the Food Bank each year. The food itself is donated from distributors and the government, but Rural Food Services must pickup and store the food, dispose of rotten or expired food, and comply with licensing and inspection requirements.
 >
-> In the year 2000, the organization applied for and received a low-power, non-commercial radio license. Since then, KSRV has been broadcasting local news, disaster alerts and community-produced stories from a small studio in a former storage room.  KSRV is the only non-commercial radio station serving Spring County, and the only radio station that consistently covers local issues. All programming is created locally by volunteers, but Rural Food Services must pay for music licensing, antenna-tower rental and equipment maintenance.
+> In the year 2000, the organization applied for and received a low-power, non-commercial radio license. Since then, KSRV has been broadcasting local news, disaster alerts and community-produced stories from a small studio in a former storage room. KSRV is the only non-commercial radio station serving Spring County, and the only radio station that consistently covers local issues. All programming is created locally by volunteers, but Rural Food Services must pay for music licensing, antenna-tower rental and equipment maintenance.
 >
 > Rural Food Services depends upon volunteers for nearly all of its operations. In addition to the Executive Director, the staff only includes a Finance/Operations Manager, a Grants/Fundraising Manager, and a Volunteer Manager.
 >
@@ -77,6 +77,6 @@ I pasted the text of the  scenario below, though you can download the whole thi
 >
 > **Budget Worksheet:** _this can be downloaded in the [attached Word Document](/uploads/2009-10-02-Nonprofit-Budgeting-Scenario/Nonprofit-Realities-Budgeting-Scenario.doc)._
 >
-> [ ![np-budget-worksheet](/uploads/2009-10-02-Nonprofit-Budgeting-Scenario/np-budget-worksheet-500x594.png "np-budget-worksheet") ](/uploads/2009-10-02-Nonprofit-Budgeting-Scenario/np-budget-worksheet.png)
+> [![np-budget-worksheet](/uploads/2009-10-02-Nonprofit-Budgeting-Scenario/np-budget-worksheet-500x594.png "np-budget-worksheet") ](/uploads/2009-10-02-Nonprofit-Budgeting-Scenario/np-budget-worksheet.png)
 >
 >

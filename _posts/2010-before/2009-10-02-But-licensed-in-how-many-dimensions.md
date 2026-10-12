@@ -23,4 +23,3 @@ My boss came in this morning to gripe about how a media service, [Mixcloud](http
 I love that "throughout the universe" part. Harvard Law's [Berkman Center](http://cyber.law.harvard.edu/) used to have a project parsing Licensing Agreements, but I can't find it. So here's a recent report on how [Charitable Foundations could benefit from more freely licensing their publications and those of their grantees](http://cyber.law.harvard.edu/publications/2009/Open_Content_Licensing_for_Foundations). An excerpt:
 
 > Thoughtful and intentional decisions about how to license foundation-supported works currently happen only in a limited number of cases. The status quo prevails, often for no reason other than inertia, and generic contract language regarding copyrights is often used in place of genuine consideration or conversations about best practices between foundations and their grantees and consultants or within foundations.
-

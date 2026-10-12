@@ -15,7 +15,7 @@ redirect_from:
 - "?p=126"
 ---
 
-[ ![The Faces of MeetAmeriCorps.com](http://farm1.static.flickr.com/235/444085635_15a71d43c8.jpg) ](http://www.flickr.com/photos/bensheldon/444085635/ "Photo Sharing")
+![The Faces of MeetAmeriCorps.com](/uploads/2007/meetamericorps-still-a-success-1.jpg)
 
 I just got back from some extended travel in California where I met with some fellow AmeriCorps\*VISTAs and, among other things, discussed how we could get our [AmeriCorps social networking website](http://meetamericorps.com) growing even faster. Right now the site has over 300 registered users, which is pretty good for a six month old baby.
 
@@ -26,4 +26,3 @@ Most importantly, we're working on stepping up our outreach. Unlike what some of
 **Physical objects are best**, so I'm in the process of designing a postcard to mail out to AmeriCorps host organizations.
 
 Also, because MeetAmeriCorps.com already has so many [members across the country](http://meetamericorps.com/map), we can have them lend a hand too in outreach activities. That's always a benefit of working with AmeriCorps: we love to help.
-

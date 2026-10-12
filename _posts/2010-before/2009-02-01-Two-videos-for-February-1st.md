@@ -15,4 +15,3 @@ redirect_from:
 ---
 
 The first day of February was warm and coming back from Super Bowl snack-shopping, I shot some videos. Enjoy.
-

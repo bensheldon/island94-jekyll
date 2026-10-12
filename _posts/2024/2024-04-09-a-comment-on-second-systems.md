@@ -9,13 +9,13 @@ tags: []
 I recently left this comment on a Pragmatic Engineer review of Fred Brook's _Mythical Man Month_ in ["What Changed in 50 Years of Computing: Part 2"](https://newsletter.pragmaticengineer.com/p/what-changed-in-50-years-of-computing-8d0). This was what I reacted to:
 
 <blockquote markdown=1>
-    
+
 **Software design and “the second-system effect”**
 
 Brooks covers an interesting phenomenon in Chapter 5: “The Second-System Effect.” He states that architects tend to design their first system well, but they over-engineer the second one, and carry this over-engineering habit on to future systems.
 
 > “This second system is the most dangerous system a [person] ever designs. When [they] do this and [their] third and later ones, [their] prior experiences will confirm each other as to the general characteristics of such systems, and their differences will identify those parts of [their] experience that are particular and not generalizable.”
-> 
+>
 > The general tendency is to over-design the second system, using all the ideas and frills that were sidetracked on the first one.”
 
 I can see this observation making sense at a time when:
@@ -30,14 +30,14 @@ Today, all these assumptions are wrong:
 - System designs are commonly written down and critiqued by others. We cover more in the article, Engineering Planning with RFCs, Design Documents and ADRs
 - “Hands-off architects” are increasingly rare at startups, scaleups, and Big Tech
 
-As a result, engineers design more than one or two systems in a year and get more feedback, so this “second-system effect” is likely nonexistent. 
+As a result, engineers design more than one or two systems in a year and get more feedback, so this “second-system effect” is likely nonexistent.
 
 </blockquote>
 
 And this was my comment/reaction:
 
 <blockquote markdown=1>
-    
+
 I think the Second-System Effect is still very present.
 
 I would say it most frequently manifests as a result of not recognizing Gall's Law: "all complex systems that work evolved from simpler systems that worked."
@@ -59,4 +59,3 @@ I really enjoyed this book, and reading it I flipped between three predominant t
 - Wouldn’t it be inspiring to live in a world where your team believes that software can actually improve without replacing it entirely?
 
 </blockquote>
-

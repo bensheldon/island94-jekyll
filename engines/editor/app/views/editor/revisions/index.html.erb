@@ -1,0 +1,29 @@
+<% content_for :title, "History — #{@document.title}" %>
+<div class="container" style="max-width: 52rem;">
+  <div class="d-flex align-items-center mb-4">
+    <h1 class="h4 mb-0">History: <%= @document.title %></h1>
+    <%= link_to "Back to post", document_path(@document), class: "btn btn-sm btn-outline-dark ms-auto" %>
+  </div>
+
+  <p class="text-muted small">Revisions are kept in memory and are lost when the server restarts.</p>
+
+  <div class="list-group">
+    <% @revisions.each do |revision| %>
+      <div class="list-group-item d-flex align-items-center">
+        <div>
+          <span class="fw-semibold"><%= revision.display_label %></span>
+          <% if revision.major? %>
+            <span class="badge text-bg-warning ms-1">Major</span>
+          <% end %>
+          <div class="text-muted small"><%= revision.created_at.to_fs(:long) %></div>
+        </div>
+        <div class="ms-auto d-flex gap-2">
+          <%= link_to "View", document_revision_path(@document, revision), class: "btn btn-sm btn-outline-secondary" %>
+          <%= button_to "Restore", restore_document_revision_path(@document, revision),
+                class: "btn btn-sm btn-outline-dark",
+                data: { turbo_confirm: "Restore this revision? The current file will be snapshotted first." } %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

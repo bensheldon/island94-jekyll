@@ -14,7 +14,7 @@ The Susan Sotamayor confirmation is bringing with it some interesting commentary
 
 - Experience is reality and the public sphere (and its laws and policies) is the ongoing (and unending) attempt to find commonalities between all of us based upon a tiny set of values so basic that they can be declared universal (life, liberty and property the pursuit of happiness).
 
-The following is from an editorial by Stanley Fish in the NY Times entitled _ [What kind of judges do we want?](http://fish.blogs.nytimes.com/2009/06/22/what-kind-of-judges-do-we-want/) (_emphasis mine):
+The following is from an editorial by Stanley Fish in the NY Times entitled _ [What kind of judges do we want?](http://fish.blogs.nytimes.com/2009/06/22/what-kind-of-judges-do-we-want/) (_emphasis mine):
 
 > If Sotomayor is being prescriptive, if she is saying, “I will actively (as opposed to involuntarily) consult the influences that have shaped me at every point of decision,” she is announcing a method of judging that invites Sessions’s criticism.
 >

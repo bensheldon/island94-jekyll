@@ -18,13 +18,13 @@ A [sensible reply](http://news.slashdot.org/comments.pl?sid=1812480&cid=33827892
 
 > ...living in a 3rd world country where access to book is diffucult and "piracy" normal (including on books) I think he might be "righter" than we think.
 >
-> Currently there are "roughtly" 1 billion people living in countries where the majority reads at least "some" and 5 billion who live in counties where only a minority reads. (nb: of course india, china, etc have great literature, and la hogera in santa cruz is trying very hard to get good interesting local writers to the local market, but the realitly is that the wast majority of people in emerging countries do not read for "fun", they read if they are ordered to by their employers...., because:
+> Currently there are "roughtly" 1 billion people living in countries where the majority reads at least "some" and 5 billion who live in counties where only a minority reads. (nb: of course india, china, etc have great literature, and la hogera in santa cruz is trying very hard to get good interesting local writers to the local market, but the realitly is that the wast majority of people in emerging countries do not read for "fun", they read if they are ordered to by their employers...., because:
 >
 > If you are poor and a "cheap low quality pirated book" cost 4 to 5 hours of work you will not offer 100 hours of work every year to your child, so the child will not connect "reading with fun" (exept the statistical "lucky" one outlier)).
 >
-> Moreover there is little avaiability of recent outside book (a hard cover foreign book can cost about 50% of a basic montly salary). So execpt the pirated copies of some blockbusters made popular by pirated copies of foreign movies, you do not read recent foreign books (softcover classics are about the end of it).
+> Moreover there is little avaiability of recent outside book (a hard cover foreign book can cost about 50% of a basic montly salary). So execpt the pirated copies of some blockbusters made popular by pirated copies of foreign movies, you do not read recent foreign books (softcover classics are about the end of it).
 >
-> But "everybody" has access to computers (mostly of course in cyber cafés) and most students use pirated PDF's of school books, not just because they cannot affort the 30..40$+ \* 10..20 they would need, but because:
+> But "everybody" has access to computers (mostly of course in cyber cafés) and most students use pirated PDF's of school books, not just because they cannot affort the 30..40$+ \* 10..20 they would need, but because:
 >
 > - Amazon do not deliver in many 3rd world countries
 > - and other providers can take up to 2 month to get the book to you (assuming you have an internationally valid credit card)

@@ -26,4 +26,3 @@ Fun, but the interesting thing was a [comment](http://slashdot.org/comments.pl?s
 >
 
 Makes sense, and is the basis for what I tell people who are concerned about SEO disproportionately to having a useful and relevant website: concentrate on having a good service and a useful website first.
-

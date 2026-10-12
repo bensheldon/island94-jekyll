@@ -7,70 +7,50 @@ task :new_post, [:title, :body] => :environment do |_t, args|
   ENV["TZ"] = 'America/Los_Angeles'
 
   title = args[:title] || ENV['POST_TITLE'] || raise("Title cannot be empty")
-  body = args[:content] || ENV.fetch('POST_BODY', nil)
+  body = args[:body] || ENV.fetch('POST_BODY', nil)
 
-  content = <<~MARKDOWN
-    ---
-    title: #{title.to_json}
-    date: #{Time.zone.now.strftime('%Y-%m-%d %H:%M %Z')}
-    published: true
-    tags: []
-    ---
-
-    #{body}
-
-    <blockquote markdown="1">
-
-
-
-    </blockquote>
-  MARKDOWN
-
-  filename = "#{Time.zone.now.strftime('%Y-%m-%d')}-#{title.parameterize}.md"
-  path = File.join("_posts", filename)
-  File.write(path, content)
+  post = Post.create!(title: title, body: body)
 
   $stdout.puts "=== Generating post ==="
-  $stdout.puts path
+  $stdout.puts post.project_filepath
 end
 
-desc 'Create a new book review'
-task :new_book, [:title, :author, :link, :rating, :review] => :environment do |_t, args|
+desc 'Create a new bookmark'
+task :new_bookmark, [:link, :title, :tags, :notes] => :environment do |_t, args|
   ENV["TZ"] = 'America/Los_Angeles'
 
-  title = args[:title] || ENV.fetch('BOOK_TITLE', nil)
-  author = args[:author] || ENV.fetch('BOOK_AUTHOR', nil)
-  link = args[:link] || ENV.fetch('BOOK_LINK', nil)
-  rating = args[:rating] || ENV.fetch('BOOK_RATING', nil)
-  review = args[:review] || ENV.fetch('BOOK_REVIEW', nil)
+  link = (args[:link] || ENV.fetch('BOOKMARK_LINK', nil)).to_s.strip
+  raise "Link cannot be empty" if link.empty?
 
-  raise "Title cannot be empty" if title.nil?
+  title = (args[:title] || ENV.fetch('BOOKMARK_TITLE', nil)).presence
+  tags = (args[:tags] || ENV.fetch('BOOKMARK_TAGS', nil)).to_s.split(",").map(&:strip).reject(&:empty?)
 
-  content = <<~MARKDOWN
-    ---
-    title: #{title.to_json}
-    author: "#{author}"
-    link: "#{link}"
-    rating: #{rating}
-    date: #{Time.zone.now.strftime('%Y-%m-%d %H:%M %Z')}
-    published: true
-    layout: book
-    tags: []
-    ---
+  notes = args[:notes] || ENV.fetch('BOOKMARK_NOTES', nil)
+  notes = $stdin.read.strip if notes.blank? && $stdin.stat.pipe?
 
-    #{review}
+  if title.blank?
+    require 'metainspector'
+    begin
+      title = MetaInspector.new(link).best_title
+    rescue StandardError => e
+      warn "Failed to fetch title: #{e.message}"
+    end
+  end
 
-    <blockquote markdown="1">
+  bookmark = Bookmark.create!(link: link, title: title, tags: tags, notes: notes)
 
+  # Bookmark notes/titles are often pasted or scraped from third-party web pages, which can
+  # carry over invisible/no-break whitespace. Fix that here, at save time, rather than linting
+  # the whole (mostly untouched, historical) _bookmarks archive.
+  system(
+    "bundle", "exec", "mdl",
+    "--style", Rails.root.join(".mdl_style.rb").to_s,
+    "--rulesets", Rails.root.join(".mdl_rules.rb").to_s,
+    "--ignore-front-matter",
+    "--fix",
+    bookmark.filepath
+  )
 
-
-    </blockquote>
-  MARKDOWN
-
-  filename = "#{Time.zone.now.strftime('%Y-%m-%d')}-#{title.parameterize}.md"
-  path = File.join("_posts", filename)
-  File.write(path, content)
-
-  $stdout.puts "=== Generating book review ==="
-  $stdout.puts path
+  $stdout.puts "=== Generating bookmark ==="
+  $stdout.puts bookmark.project_filepath
 end

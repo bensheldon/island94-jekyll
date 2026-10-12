@@ -1,4 +1,4 @@
-name: Create Bookmark
+name: New Bookmark
 on:
   workflow_dispatch:
     inputs:
@@ -19,45 +19,63 @@ on:
         required: false
         type: string
 jobs:
-  create_bookmark:
-    name: Create a new Bookmark
+  new_bookmark:
+    name: Create new bookmark
     runs-on: ubuntu-latest
     permissions:
-      contents: write
+      contents: read
     steps:
-      - name: Bookmark Details
-        env:
-          BOOKMARK_LINK: ${{ github.event.inputs.bookmark_link }}
-          BOOKMARK_TITLE: ${{ github.event.inputs.bookmark_title }}
-          BOOKMARK_TAGS: ${{ github.event.inputs.bookmark_tags }}
-          BOOKMARK_NOTES: ${{ github.event.inputs.bookmark_notes }}
-        run: |
-          echo ${{ toJSON(format('- Bookmark Link: {0}', github.event.inputs.bookmark_link)) }} >> $GITHUB_STEP_SUMMARY
-          echo ${{ toJSON(format('- Bookmark Title: {0}', github.event.inputs.bookmark_title)) }} >> $GITHUB_STEP_SUMMARY
-          echo ${{ toJSON(format('- Bookmark Tags: {0}', github.event.inputs.bookmark_tags)) }} >> $GITHUB_STEP_SUMMARY
-          echo ${{ toJSON(format('- Bookmark Notes: {0}', github.event.inputs.bookmark_notes)) }} >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-
+      - name: Generate GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@v3
+        with:
+          app-id: ${{ secrets.BOT_ID }}
+          private-key: ${{ secrets.BOT_PRIVATE_KEY }}
       - name: Checkout code
-        uses: actions/checkout@v4
-
+        uses: actions/checkout@v7
+        with:
+          token: ${{ steps.app-token.outputs.token }}
+      # Dependencies
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
-
-      - name: Create bookmark
+      - name: Generate new bookmark
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BOOKMARK_LINK: ${{ github.event.inputs.bookmark_link }}
           BOOKMARK_TITLE: ${{ github.event.inputs.bookmark_title }}
           BOOKMARK_TAGS: ${{ github.event.inputs.bookmark_tags }}
           BOOKMARK_NOTES: ${{ github.event.inputs.bookmark_notes }}
+        run: bundle exec rake new_bookmark
+      - name: Create commit
         run: |
-          bundle exec scripts/bookmark.rb --commit="${GITHUB_REPOSITORY}#${GITHUB_REF##*/}"
+          git config user.name $GITHUB_ACTOR
+          git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
 
-      - name: Trigger test and publish workflow
-        uses: peter-evans/repository-dispatch@v3
+          git add --all _bookmarks/
+          git commit -m "Add bookmark for ${{ github.event.inputs.bookmark_link }}"
+      - name: Push to main
+        id: push
+        continue-on-error: true
+        run: git push origin HEAD:main
+      - name: Create Pull Request
+        if: steps.push.outcome == 'failure'
+        id: create_pr
+        uses: peter-evans/create-pull-request@v8
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          event-type: trigger-test-and-publish
+          token: ${{ steps.app-token.outputs.token }}
+          title: "Add bookmark for ${{ github.event.inputs.bookmark_link }}"
+          body: ""
+          branch-suffix: timestamp
+          add-paths: |
+            _bookmarks/
+
+      - name: Summary
+        run: |
+          if [ "${{ steps.push.outcome }}" = "success" ]; then
+            echo "- Pushed directly to main" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "- Push to main conflicted, opened a Pull Request instead" >> $GITHUB_STEP_SUMMARY
+            echo "- Pull Request Number - ${{ steps.create_pr.outputs.pull-request-number }}" >> $GITHUB_STEP_SUMMARY
+            echo "- Pull Request URL - ${{ steps.create_pr.outputs.pull-request-url }}" >> $GITHUB_STEP_SUMMARY
+          fi

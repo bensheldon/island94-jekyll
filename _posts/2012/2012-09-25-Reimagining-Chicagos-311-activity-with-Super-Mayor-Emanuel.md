@@ -21,8 +21,6 @@ redirect_from:
 
 **Awesome explanation:** The mayor runs through the streets of Chicago, leaping over newly-reported civic issues and collecting coins as those civic problems are fixed.
 
-I really like this application, not only because of its visual style, but because it lets you engage with the 311 data in a completely novel way: aurally. Turn up those speakers and let the website run in the background for about 30 minutes. Spinies (new requests) come in waves, and coin blocks (updated/closed requests) are disappointingly rare. Sure, I could have just created a chart of statistics, but I think actually _experiencing_ requests as they come in makes you think differently about both the people who submitted a request and the 311 operators and city staff who are receiving them (just think about what caused those restaurant complaints... or maybe don't).
+I really like this application, not only because of its visual style, but because it lets you engage with the 311 data in a completely novel way: aurally. Turn up those speakers and let the website run in the background for about 30 minutes. Spinies (new requests) come in waves, and coin blocks (updated/closed requests) are disappointingly rare. Sure, I could have just created a chart of statistics, but I think actually _experiencing_ requests as they come in makes you think differently about both the people who submitted a request and the 311 operators and city staff who are receiving them (just think about what caused those restaurant complaints... or maybe don't).
 
 The application is built with Node.js, which fetches and caches 311 requests, and a Backbone-based web-app, communicating via socket.io, which manages all of interface and animation. The source is on [Github](https://github.com/codeforamerica/super-mayor).
-
- 

@@ -5,7 +5,7 @@ published: true
 tags: [Rails]
 ---
 
-To briefly catch you up to speed if you haven't been minutely tracking Ruby on Rails performance errata: the Puma webserver has some mildly surprising behavior with the order in which it processes and prioritizes requests that are pipelined through keepalive connections; under load, it can lead to unexpected latency. 
+To briefly catch you up to speed if you haven't been minutely tracking Ruby on Rails performance errata: the Puma webserver has some mildly surprising behavior with the order in which it processes and prioritizes requests that are pipelined through keepalive connections; under load, it can lead to unexpected latency.
 
 Heroku wrote [~3,000 words about this Puma thing](https://www.heroku.com/blog/pumas-routers-keepalives-ohmy/), and [very smart people](https://github.com/puma/puma/issues/3487) are [working on it](https://github.com/puma/puma/pull/3506). All of this became mildly important because: Heroku upgraded their network router ("Router 2.0"), which _does_ support connection keepalive, which has the potential to reduce a little bit of latency by reducing the number of TCP handshakes going over Heroku's internal network between their router and your application dyno. People want it.
 
@@ -13,7 +13,7 @@ When you read the Heroku blog post (all several thousand words of it), it will s
 
 Anyways, there's a 3rd option: **use Thruster**.
 
-- Requests on the Heroku network between the Heroku router and Thruster running in your application dyno can use connection keepalives (sidenote: I'm 98% confident Thruster supports keepalives because [Go `net/http`](https://github.com/basecamp/thruster/blob/10e33f6f5a2476231c00a59be209f7a58e98dc1a/internal/server.go#L9) enables keepalives by default and Thruster doesn't appear to explicitly disable them) 
+- Requests on the Heroku network between the Heroku router and Thruster running in your application dyno can use connection keepalives (sidenote: I'm 98% confident Thruster supports keepalives because [Go `net/http`](https://github.com/basecamp/thruster/blob/10e33f6f5a2476231c00a59be209f7a58e98dc1a/internal/server.go#L9) enables keepalives by default and Thruster doesn't appear to explicitly disable them)
 - Requests _locally_ within your application dyno between Thruster and Puma can disable connection keepalive and there shouldn't be any network latency for the TCP handshake because it's all happening locally in the dyno.
 
 No one else seems to be blogging about this---a fact pointed out when I suggested this in the Rails Performance Slack. So here ya go.

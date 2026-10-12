@@ -17,7 +17,6 @@ An [enduring issue](http://wordpress.org/support/topic/how-can-i-set-the-class-o
 
 Adding the following code to your Wordpress theme's `functions.php` file will automatically add a class to the anchor link when you insert linked images through Wordpress's Media Library interface. It won't fix posts you've already written, but should make things better moving forward.
 
-
 ```php
 /**
  * Attach a class to linked images' parent anchors

@@ -8,7 +8,7 @@ redirect_from:
 - "?p=3107"
 ---
 
-From  [Why’s (Poignant) Guide to Ruby](http://mislav.uniqpath.com/poignant-guide/book/):
+From [Why’s (Poignant) Guide to Ruby](http://mislav.uniqpath.com/poignant-guide/book/):
 
 > Let’s start with some deep breathing. Give me a good deep breath and count to four with me.
 >
@@ -26,8 +26,8 @@ From  [Why’s (Poignant) Guide to Ruby](http://mislav.uniqpath.com/poignant-gu
 >
 > Big, big deep breath. Deep down inside you there is a submarine. It has a tongue. Exhale.
 >
-> Breathe through your nostrils. Deep breath. Filter the air through your nostrils. Breathing through the nostrils gives you quality air. Your nostrils flare, you are taking breaths of nature’s air, the way God intended. Imagine a floppy disk drive clogged up with orphans. And while it chokes on orphans, you have good, wholesome God’s breath in your lungs. But that pleasurable, life-giving air will become a powerful toxin if held too long. _Hurry, exhale God and nature’s air!_
+> Breathe through your nostrils. Deep breath. Filter the air through your nostrils. Breathing through the nostrils gives you quality air. Your nostrils flare, you are taking breaths of nature’s air, the way God intended. Imagine a floppy disk drive clogged up with orphans. And while it chokes on orphans, you have good, wholesome God’s breath in your lungs. But that pleasurable, life-giving air will become a powerful toxin if held too long. _Hurry, exhale God and nature’s air!_
 >
 > Now, you will wake up, smoothing out the creases of this page in your web browser. You will have full recollection of your whole life and not forgetting any one of the many adventures you have had in your life. You will feel rich and renewed and expert. You will have no remembrance of this short exercise, you will instead remember teaching a rabbit to use scissors from a great distance.
 >
-> And as you will wake up with your eyes directed to the top of this exercise, you will begin again. But this time, try to imagine that even _your shadow_ is a telephone cord.
+> And as you will wake up with your eyes directed to the top of this exercise, you will begin again. But this time, try to imagine that even _your shadow_ is a telephone cord.

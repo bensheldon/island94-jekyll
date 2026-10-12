@@ -5,7 +5,7 @@ published: true
 tags: [education, learning]
 ---
 
-From Logic #17, in ["The Edtech Gold Rush"](https://logicmag.io/home/the-edtech-gold-rush/) by Kevin Miller (emphasis mine): 
+From Logic #17, in ["The Edtech Gold Rush"](https://logicmag.io/home/the-edtech-gold-rush/) by Kevin Miller (emphasis mine):
 
 <blockquote markdown="1">
 

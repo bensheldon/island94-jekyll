@@ -58,4 +58,3 @@ end
 Note: it's possible to add _custom_ validation contexts on `before_validation` and `after_validation` callbacks, but not others like `before_save`, `after_commit`, etc. only take the non-custom callbacks like `on: :create`.
 
 So to wrap it up: sure, maybe it can all go in the Active Record model.
-

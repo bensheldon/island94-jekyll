@@ -28,5 +28,3 @@ some_method { next } # => "ok"
 ````
 
 This works because the methods `ensure` block will always be called, even if `#some_method` returns early. That was a novel implementation for me.
-
-

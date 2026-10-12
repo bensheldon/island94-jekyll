@@ -8,7 +8,6 @@ tags:
 An interesting breakdown of types of corruption by [Yuen Yuen Ang on Freakonomics](
 https://freakonomics.com/podcast/chinas-gilded-age/):
 
-
 <blockquote markdown="1">
 
 I propose a typology of four types of corruption divided along two dimensions. First, whether the corruption involves elites or non-elites. And second, whether the corruption involves theft or exchange. So this intersection creates, first of all, corruption with theft, which I divide into petty theft and grand theft. Petty theft would be like extortion — a police officer who just stops you and robs you of $200. Grand theft would be embezzlement. Nigeria would be a classic case, billions of dollars siphoned out of a country. And then I distinguish between two types of transactional corruption. The first is what I call speed money, which is bribes paid to low- or medium-level officials in order to overcome red tape or delays or harassment. And then I have a fourth category called access money, which is privileges paid to powerful officials, not because you want to overcome red tape, but because you want to buy special deals from them.

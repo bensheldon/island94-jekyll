@@ -30,7 +30,7 @@ With the political talk about Rush Limbaugh being [in charge](http://www.huffing
 >
 > **Christian Right**
 >
-> Christian Nationalists---Biblically-defined immorality and sin breed chaos and anarchy. America's greatness as Godʼs chosen land has been undermined by liberal  secular humanists, feminists, and homosexuals. Purists want litmus tests for issues of abortion, tolerance of gays and lesbians, and prayer in school. Includes some non-Christian cultural conservatives. Overlaps somewhat with Christian theocracy.
+> Christian Nationalists---Biblically-defined immorality and sin breed chaos and anarchy. America's greatness as Godʼs chosen land has been undermined by liberal secular humanists, feminists, and homosexuals. Purists want litmus tests for issues of abortion, tolerance of gays and lesbians, and prayer in school. Includes some non-Christian cultural conservatives. Overlaps somewhat with Christian theocracy.
 >
 >
 
@@ -50,8 +50,8 @@ With the political talk about Rush Limbaugh being [in charge](http://www.huffing
 >
 > **Far Right or Ultra Right**---Militant forms of insurgent or revolutionary right ideology. Separatist or genocidalist ethnocentric nationalism. Reject pluralist democracy for an organic oligarchy that unites the idealized homogeneic nation. Conspiracist views of power that are overwhelmingly antisemitic. Home to overt fascists, neo-nazis, Christian Identity, Church of the Creator.
 
-There was also in the book an interesting graphic explaining the "Producerist Narrative used in Repressive Right Wing Populism" from [Right Wing Populism in American: Too Close for Comfort](http://www.amazon.com/Right-Wing-Populism-America-Close-Comfort/product-reviews/1572305622/ref=cm_cr_dp_hist_1?ie=UTF8&showViewpoints=0&filterBy=addOneStar).  I think it's an interesting use of design to explain a dynamic narrative (click the image to view a larger version):
+There was also in the book an interesting graphic explaining the "Producerist Narrative used in Repressive Right Wing Populism" from [Right Wing Populism in American: Too Close for Comfort](http://www.amazon.com/Right-Wing-Populism-America-Close-Comfort/product-reviews/1572305622/ref=cm_cr_dp_hist_1?ie=UTF8&showViewpoints=0&filterBy=addOneStar). I think it's an interesting use of design to explain a dynamic narrative (click the image to view a larger version):
 
-[ ![Producerist Narrative](/uploads/2009-03-03-Excerpt-Sectors-of-the-US-Right---Active-in-the-Year-2001/producerist-narrative-500x407.png "Producerist Narrative") ](/uploads/2009-03-03-Excerpt-Sectors-of-the-US-Right---Active-in-the-Year-2001/producerist-narrative.png)
+[![Producerist Narrative](/uploads/2009-03-03-Excerpt-Sectors-of-the-US-Right---Active-in-the-Year-2001/producerist-narrative-500x407.png "Producerist Narrative") ](/uploads/2009-03-03-Excerpt-Sectors-of-the-US-Right---Active-in-the-Year-2001/producerist-narrative.png)
 
 And as a chaser, it would be could to review [The 7 Things Everyone Wants](http://www.island94.org/2008/05/ntc08-the-seven-things-everyone-wants/)---specifically #4.

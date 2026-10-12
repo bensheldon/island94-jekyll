@@ -36,7 +36,7 @@ Releasing Bulk functionality was a two-step: I initially implemented it while wo
 [GoodJob's Batch functionality](https://github.com/bensheldon/good_job#batches) coordinates parallelized sets of jobs. The ability to coordinate a set of jobs, and run callbacks during lifecycle events, has been a highly demanded feature. Most people who talked to me about job batches were familiar with [Sidekiq Pro](https://sidekiq.org/products/pro.html) 's [batch functionality](https://github.com/mperham/sidekiq/wiki/Batches), which I didn't want to simply recreate (Sidekiq Pro is excellent!). So I've been collecting use cases and thinking about what's most in the spirit of Rails, Active Job, and Postgres:
 
 - Batches are mutable, database-backed objects with foreign-key relationships to sets of job records.
-- Batches have  `properties` which use Active Job's serializer, so they can contain and rehydrate any GlobalID object, like Active Record models.
+- Batches have `properties` which use Active Job's serializer, so they can contain and rehydrate any GlobalID object, like Active Record models.
 - Batches have callbacks, which are themselves Active Job jobs
 
 Here's a simple example:

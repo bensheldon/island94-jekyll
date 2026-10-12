@@ -31,13 +31,13 @@ An incident does not make an indictment, and an infraction need not be a crime, 
 
 This is not a criticism of the police or the City of Chicago, who should be commended for being more transparent and making this information more readily available; this is a plea for the media and application makers to appropriately label this data and use it with an understanding of its limitations.
 
-Ben Fry, [on visualization future and data literacy](http://flowingdata.com/2011/05/13/ben-fry-on-visualization-future-and-data-literacy/) looks toward the future:
+Ben Fry, [on visualization future and data literacy](http://flowingdata.com/2011/05/13/ben-fry-on-visualization-future-and-data-literacy/) looks toward the future:
 
 > "I think the real thing that's going to change is that we're going to start understanding that visualization isn't this sort of monolithic thing... I like to look at it a lot like writing. You have novels and poetry and haikus. You know there's lots of different types of writing and styles of writing — and I think the same thing happens in visualization... some things are tools for analysis and some things are purely for entertainment, and there's not so much a spectrum that there is different ways of addressing it.
 
 But this understanding and widespread "data literacy" is not here yet. It's up to us so called techie types to exhibit "Data Leadership" and work to better interpret and explain the complexity and nuance of our analysis---the absence of which I've [complained about before](http://www.island94.org/2011/06/data-divides-and-umbrellafication/).
 
-Data leadership is appropriately labeling data. Data leadership is presenting data with a recognition of its limitations. Data leadership is consideration for how your presentation of data may be interpreted _and responsibility_ for the consequences.
+Data leadership is appropriately labeling data. Data leadership is presenting data with a recognition of its limitations. Data leadership is consideration for how your presentation of data may be interpreted _and responsibility_ for the consequences.
 
 Data leadership is ultimately a recognition of the broader context of human experience and how information is collected, analyzed and integrated into our lives and decision-making processes---both individually and socially. I realize that's awfully heady for discussing glorified spreadsheets, but to riff off the old chestnut, you can't manage what you misrepresented.
 

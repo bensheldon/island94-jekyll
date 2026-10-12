@@ -17,7 +17,7 @@ This paper on ["The Concrete Sumo: Exigent Decision-Making in Engineering"](http
 The afterward explains the simplified procedure:
 
 > A year ago, I agreed to instruct an ethics workshop for undergraduate engineering students in preparation for the Fundamentals of Engineering Examination (FEE). The FEE is the first step toward licensure. The workshop was scheduled for ninety minutes. I convened the workshop by passing out a trial examination in professional ethics. Instead of lecturing on ethics as I had planned, it occurred to me to ask the students to take the examination. Fifteen minutes later, they had finished. Then I asked them to think of an aged, highly mature person: a family member or some legendary character; someone who exhibited great wisdom and caring for others. Then I asked the students to re-do the examination, but this time putting their sage in the position of test taker. Finally, I gave them the solution to the examination and asked them to grade both responses, theirs and the responses of the sages. The results were surprising: the first responses were either failures or marginal passes; the second responses maximized the examination! I then adjourned what turned out to be a forty-minute workshop.
-> 
+>
 > The following semester, one of the students informed me that he had taken the FEE and passed it, and had done very well on its ethics portion.
-> 
+>
 > Perhaps the literary approach to problem solving in ethics and deference to the old yet have places in engineering, in practice as well as in the classroom, today.

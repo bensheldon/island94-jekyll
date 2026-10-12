@@ -50,7 +50,7 @@ alpha_store.vegetable # defines @vegetable second
 
 beta_store = GroceryStore.new
 beta_store.vegetable # defines @vegetable first
-beta_store.fruit # defines #fruit second 
+beta_store.fruit # defines #fruit second
 ```
 
 In this example, `alpha_store` and `beta_store` do not share the same object shape because the order in which their instance variables are defined depends on the order the application calls their methods. This code is not Object Shape friendly.
@@ -77,7 +77,7 @@ class GroceryStore
 end
 ```
 
-~~It's also ok to define instance variables implicitly with `attr_*` methods in the class body, which has the same outcome of always defining the instance variables in the same order.~~ **Update**: Ufuk Kayserilioglu informed me that `attr_*` do not define the instance variable until they are first called, meaning that these methods or their associated instance variables should also be declared with a value in `#initialize`.    
+~~It's also ok to define instance variables implicitly with `attr_*` methods in the class body, which has the same outcome of always defining the instance variables in the same order.~~ **Update**: Ufuk Kayserilioglu informed me that `attr_*` do not define the instance variable until they are first called, meaning that these methods or their associated instance variables should also be declared with a value in `#initialize`.
 
 Now I realize this is a very simplistic example, but that's really all there is to it. If it makes you feel better, at GitHub where I work, we have classes with upwards of 200 instance variables. In hot code, where we have profiled, we go to a negligible effort of making sure those instance variables are defined in the same order; it's really not that bad!
 
@@ -109,7 +109,7 @@ class GroceryStore
 
   def fruit
     return @fruit unless @fruit == NULL
-    @fruit = an_expensive_operation 
+    @fruit = an_expensive_operation
   end
 end
 ```
@@ -125,13 +125,13 @@ class GroceryStore
 
   def produce(type)
     return @produce[type] if @produce.key?(type)
-    @produce[type] = an_expensive_operation(type) 
+    @produce[type] = an_expensive_operation(type)
   end
 end
 ```
 
 ### That's it
 
-Creating Object Shape friendly code is not very complicated! 
+Creating Object Shape friendly code is not very complicated!
 
 Please reach out if there's other patterns I'm missing: bensheldon@gmail.com / [twitter.com/@bensheldon](https://twitter.com/bensheldon) / [ruby.social/@bensheldon](https://ruby.social/@bensheldon)

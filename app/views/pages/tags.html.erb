@@ -1,7 +1,7 @@
 <% provide :title, "Tags" %>
 
 <%
-  tag_counts = Post.all.flat_map(&:tag_slugs).tally
+  tag_counts = Post.published.flat_map(&:tag_slugs).tally
 %>
 
 <ul class="list-unstyled list-columns">

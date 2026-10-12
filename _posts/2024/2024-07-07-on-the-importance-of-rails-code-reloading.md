@@ -5,7 +5,7 @@ published: true
 tags: []
 ---
 
-I've elevated to "strongly held belief" that [code reloading and autoloading is _the_ most important design constraint](https://island94.org/2024/04/a-ruby-meetup-and-3-podcasts) when designing or architecting for Ruby on Rails. 
+I've elevated to "strongly held belief" that [code reloading and autoloading is _the_ most important design constraint](https://island94.org/2024/04/a-ruby-meetup-and-3-podcasts) when designing or architecting for Ruby on Rails.
 
 - Code reloading is what powers the "make a code change, refresh the browser, see the result" development loop.
 - Code autoloading is what allows Rails to boot in milliseconds (if you've designed for it!) to run generators and application scripts and a single targeted test for tight test-driven-development loops.
@@ -18,7 +18,7 @@ When [autoloading and reloading](https://guides.rubyonrails.org/autoloading_and_
 
 Code reloading and autoloading not working correctly is a huge pain. It's not great, at all!
 
-The history of code reloading and autoloading came up recently in the [Rails Performance Slack](https://www.railsspeed.com). A  developer working on an old Rails application asked what Spork was (a forking preloader), and whether it was necessary (not necessarily). As a Rails Developer who is increasingly aware of my ~~age~~ experience (I started working with Rails in 2012, long after it first launched in 2004, but it's still been a minute), I realized I had something to share.
+The history of code reloading and autoloading came up recently in the [Rails Performance Slack](https://www.railsspeed.com). A developer working on an old Rails application asked what Spork was (a forking preloader), and whether it was necessary (not necessarily). As a Rails Developer who is increasingly aware of my ~~age~~ experience (I started working with Rails in 2012, long after it first launched in 2004, but it's still been a minute), I realized I had something to share.
 
 Over history, various strategies have been taken to make the development loop faster because that's so important. Those strategies usually boil down to:
 
@@ -37,7 +37,7 @@ I wish I could easily leave this post with some kind of _nugget_ of something ac
 
 - Don't reference, don't access, don't use or touch any constants in `app/`, or allow them to be referenced (looking at you, custom Rack Middleware) unless you're doing so from another constant in `app/` (or somewhere that you _know_ is [autoloaded](https://island94.org/2023/05/whatever-you-do-don-t-autoload-rails-lib)).
 - Take care with `config/initializers/` and ensure you're making the most of `ActiveSupport.on_load` hooks. Rails may even be missing [some load hooks](https://guides.rubyonrails.org/engines.html#available-load-hooks), so make an upstream PR if you need to configure an autoloaded object and you can't. It's super common to run into trouble; in writing this blog post alone, I discovered a [problem with a gem I use](https://github.com/textacular/textacular/pull/159).
-- If you're writing library code, become familiar with the configuration-class-initializer-attribute-pattern dance (my name for it), which is how you'll get something like `config.action_view.something = :the_thing` lifted and constantized into `ActionView::Base.something #=> TheThing` 
+- If you're writing library code, become familiar with the configuration-class-initializer-attribute-pattern dance (my name for it), which is how you'll get something like `config.action_view.something = :the_thing` lifted and constantized into `ActionView::Base.something #=> TheThing`
 
 You might find luck with this [bin/autoload-check script](https://gist.github.com/bensheldon/ba6532c4216c11dd9ba03487c5a06ee4), that I adapted from something [John Hawthorn](https://www.johnhawthorn.com/) originally wrote, giving output like:
 

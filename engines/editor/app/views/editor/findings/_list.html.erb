@@ -1,0 +1,27 @@
+<% open_findings = findings.select(&:open?) %>
+<% dismissed_by_ai = open_findings.select(&:dismissed_by_ai?) %>
+<% open_findings -= dismissed_by_ai %>
+<% ignored_count = findings.count(&:ignored?) %>
+<div id="findings" data-proofread-target="findings" data-count="<%= open_findings.size %>">
+  <% if ignored_count.positive? %>
+    <div class="small text-muted mb-2">
+      <%= pluralize(ignored_count, "ignored finding") %> ·
+      <%= button_to "Show again", reset_document_findings_path(document), class: "btn btn-sm btn-link p-0 align-baseline", form_class: "d-inline" %>
+    </div>
+  <% end %>
+
+  <% if open_findings.empty? %>
+    <p class="text-muted small">No problems found.</p>
+  <% end %>
+
+  <%= render partial: "editor/findings/finding", collection: open_findings %>
+
+  <% if dismissed_by_ai.any? %>
+    <details class="dismissed-by-ai mt-3">
+      <summary class="small text-muted"><%= pluralize(dismissed_by_ai.size, "finding") %> dismissed by Gemini Nano</summary>
+      <div class="mt-2">
+        <%= render partial: "editor/findings/finding", collection: dismissed_by_ai %>
+      </div>
+    </details>
+  <% end %>
+</div>

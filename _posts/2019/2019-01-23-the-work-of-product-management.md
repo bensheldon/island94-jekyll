@@ -6,7 +6,7 @@ title: The work of product management
 From _[Escaping the Build Trap](https://web.archive.org/web/20190327231139/https://www.amazon.com/Escaping-Build-Trap-Effective-Management/dp/149197379X)_ by Melissa Perri:
 
 <blockquote markdown="1">
-  
+
 Product managers ultimately play a few key roles, but one of the most important ones is being able to marry the business goals with the customer goals to achieve value. Good product managers are able to figure out how to achieve goals for the business by creating or optimizing products, all with a view toward solving actual customer problems. This is a very important skill set.
 
 When you look at the role of the product owner in most Scrum literature, the three responsibilities of the position include the following:
@@ -26,5 +26,5 @@ These are the functions that are focused on and taught in the shorter product ow
 * How can we integrate with third-party software to enter new markets?
 
 Product ownership is just a piece of product management. A good product manager is taught how to prioritize work against clear, outcome-oriented goals, to define and discover real customer and business value, and to determine what processes are needed to reduce the uncertainty about the product’s success in the market.
-  
+
 </blockquote>

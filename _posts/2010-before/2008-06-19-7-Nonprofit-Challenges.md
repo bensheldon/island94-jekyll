@@ -32,4 +32,3 @@ And the challenges:
 6. Investment problem
 
 7. Overheads in service delivery
-

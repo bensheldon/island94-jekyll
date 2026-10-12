@@ -24,4 +24,3 @@ From Thicht Nhat Hanh's _The Miracle of Mindfulness:_
 Directly preceding this:
 
 > While washing the dishes one should only be washing the dishes, which means that while washing the dishes one should be completely aware of the fact that one is washing the dishes. At first glance, that might seem a little silly: why put so much stress on a simple thing? But that's precisely the point. The fact that I am standing there and washing these bowls is a wondrous reality. I'm being completely myself, following my breath, conscious of my presence, and conscious of my thoughts and actions. There's no way I can be tossed around mindlessly like a bottle slapped here and there on the waves.
-

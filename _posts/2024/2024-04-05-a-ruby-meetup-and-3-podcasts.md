@@ -14,4 +14,3 @@ Also, I haven't shared here the 3 podcasts I did over the past few years. Here t
 - [The Ruby on Rails Podcast](https://www.therubyonrailspodcast.com/383) from September, 2021.
 - [GemRuby Show](https://www.youtube.com/watch?v=DJ9HIjLla_U) from September, 2023.
 - [The Ruby Rogues](https://topenddevs.com/podcasts/ruby-rogues/episodes/examining-goodjob-solidq-and-more-ruby-623) from January, 2024.
-

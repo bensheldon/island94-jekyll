@@ -7,7 +7,6 @@ tags: []
 
 Brandon Weaver's ["Beyond Senior - Metric Obsessions"](https://dev.to/baweaver/beyond-senior-metric-obsessions-1j7p) has been stuck in my mind ever since we caught up at a SF Ruby Meetup and chatted about rules-adherence as a general problem:
 
-
 <blockquote markdown="1">
 
 ...by definition a vast majority of your engineers are likely to be concentrated more towards the novice end of the spectrum, and will frequently over rate themselves on this scale.
@@ -22,7 +21,7 @@ This is coming from the [Dreyfus Model of Skills Acquisition](https://www.kaizen
 
 <blockquote markdown="1">
 
-1. Novice: 
+1. Novice:
     - “rigid adherence to taught rules or plans”
     - no exercise of “discretionary judgment”
 2. Advanced beginner
@@ -45,5 +44,3 @@ This is coming from the [Dreyfus Model of Skills Acquisition](https://www.kaizen
     - uses “analytical approaches” in new situations or in case of problems
 
 </blockquote>
-
-

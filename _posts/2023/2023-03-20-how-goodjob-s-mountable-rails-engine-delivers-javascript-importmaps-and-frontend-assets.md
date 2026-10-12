@@ -9,7 +9,7 @@ tags: [GoodJob]
 
 GoodJob includes a full-featured (though optional) web dashboard to monitor and administer background jobs. The web dashboard is included in the `good_job` gem as a mountable Rails Engine.
 
-As the maintainer of GoodJob, I want to make gem development easier for myself by innovating as little as possible. That’s why GoodJob builds on top of Active Record and Concurrent::Ruby. 
+As the maintainer of GoodJob, I want to make gem development easier for myself by innovating as little as possible. That’s why GoodJob builds on top of Active Record and Concurrent::Ruby.
 
 But, the frontend can be a beast. When thinking about how to build a full-featured web dashboard *packaged within a Rails Engine within a gem*, I had three goals:
 
@@ -17,7 +17,7 @@ But, the frontend can be a beast. When thinking about how to build a full-featur
 2. **Allow easy patching/debugging.** I want the GoodJob web dashboard to work when using the Git repo directly in a project’s Gemfile or simply `bundle open good_job` to debug a problem.
 3. **Write contemporary frontend code.** I want to use Bootstrap UI, Stimulus, Rails UJS, and write modular JavaScript with imports. Maybe even Turbo!
 
-And of course, I want GoodJob to be secure, performant, and a joy to develop and use for myself and the developer community. 
+And of course, I want GoodJob to be secure, performant, and a joy to develop and use for myself and the developer community.
 
 Read on for how I achieved it all (mostly!) with GoodJob.
 
@@ -47,7 +47,7 @@ scope :frontend, controller: :frontends do
 end
 ```
 
-In the matching controller, I create static constants that define hashes of files that are matched and served, which I store in a `app/frontend` directory in my Rails Engine. *I want paths to be explicit for security reasons because passing any sort of dynamic file path through the URL could be a path traversal vulnerability.* All of the frontend assets are stored in  `app/frontend` and served out of this controller:
+In the matching controller, I create static constants that define hashes of files that are matched and served, which I store in a `app/frontend` directory in my Rails Engine. *I want paths to be explicit for security reasons because passing any sort of dynamic file path through the URL could be a path traversal vulnerability.* All of the frontend assets are stored in `app/frontend` and served out of this controller:
 
 ```ruby
 # app/controllers/good_job/frontends_controller.rb
@@ -99,7 +99,7 @@ end
 
 One downside of this is that I’m unable to use Sass or Typescript or anything that isn’t vanilla CSS or Javascript. So far I haven’t missed that too much; Bootstrap brings a very comprehensive design system and Rubymine is pretty good at hinting Javscript on its own.
 
-Another downside is that I package several hundred kilobytes of frontend code within my gem. This increases the gem size, which is a real bummer if an application isn’t mounting the dashboard. I’ve considered separating the optional dashboard into a separate gem, but I’m deferring that until anyone notices that it’s problematic (so far so good!). 
+Another downside is that I package several hundred kilobytes of frontend code within my gem. This increases the gem size, which is a real bummer if an application isn’t mounting the dashboard. I’ve considered separating the optional dashboard into a separate gem, but I’m deferring that until anyone notices that it’s problematic (so far so good!).
 
 **Manually link assets and construct a JS importmaps in my Engine’s layout `<head>`**
 
@@ -112,7 +112,7 @@ Having created the routes and controller actions, I can simply link the static f
   <%# Note: Do not use asset tag helpers to avoid paths being overriden by config.asset_host %>
   <%= tag.link rel: "stylesheet", href: frontend_static_path(:bootstrap, format: :css, v: GoodJob::VERSION, locale: nil), nonce: content_security_policy_nonce %>
   <%= tag.link rel: "stylesheet", href: frontend_static_path(:style, format: :css, v: GoodJob::VERSION, locale: nil), nonce: content_security_policy_nonce %>
-	
+
   <%= tag.script "", src: frontend_static_path(:bootstrap, format: :js, v: GoodJob::VERSION, locale: nil), nonce: content_security_policy_nonce %>
   <%= tag.script "", src: frontend_static_path(:chartjs, format: :js, v: GoodJob::VERSION, locale: nil), nonce: content_security_policy_nonce %>
   <%= tag.script "", src: frontend_static_path(:rails_ujs, format: :js, v: GoodJob::VERSION, locale: nil), nonce: content_security_policy_nonce %>
@@ -134,6 +134,6 @@ Beneath this, I manually construct the JSON the browser expects for importmaps:
 
 ### That’s it!
 
-I’ll admit, serving frontend assets using `render file:` is boring, but I experienced a thrill the first time I wired up the importmaps and *it just worked*. Writing small Javascript modules and using `import` directives is really nice. I recently added Stimulus and I’m feeling optimistic that I could reliably implement Turbo in my gem’s Rails Engine fully decoupled from the parent application. 
+I’ll admit, serving frontend assets using `render file:` is boring, but I experienced a thrill the first time I wired up the importmaps and *it just worked*. Writing small Javascript modules and using `import` directives is really nice. I recently added Stimulus and I’m feeling optimistic that I could reliably implement Turbo in my gem’s Rails Engine fully decoupled from the parent application.
 
 I hope this post about GoodJob inspires you to build full-featured web frontends for your own gems and libraries.

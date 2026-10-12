@@ -23,4 +23,4 @@ I shared it in Google Reader and Tom Wolf (who I've [quoted before](http://www.i
 
 > This is a neat way to think about building applications. Rather than starting from "let's solve a problem", start from "given this solution, how should it behave assuming I hold X as my primary belief framework?" I'm not sure it's a _practical_ way to build apps for the masses, but it's pretty cool nonetheless :)
 
-And just in minor regards to Objectivism, I inadvertently dabbled in it when I was about 14 but fortunately quickly outgrew it.
+And just in minor regards to Objectivism, I inadvertently dabbled in it when I was about 14 but fortunately quickly outgrew it.

@@ -8,7 +8,7 @@ tags:
 I frequently need to generate a short, random string:
 
 - I need a non-numeric, non-enumerable url ID. e.g. `https://example.com/resources/TOKEN`
-- I need to generate a short, human-readable random activation token and I don’t want it to contain similar-looking characters like `1I` or `O0` 
+- I need to generate a short, human-readable random activation token and I don’t want it to contain similar-looking characters like `1I` or `O0`
 - I want to do something fun with strings of emojis.
 
  I’ve been copy-pasting this snippet around for years:
@@ -18,7 +18,7 @@ def random_string(alphabet:, length:)
   Array.new(length) { alphabet.chars[rand(alphabet.chars.size)] }.join
 end
 
-random_string(alphabet: "AaBbCc123", length: 7) 
+random_string(alphabet: "AaBbCc123", length: 7)
 # => "C113A11", "Abcc3B2", "33cabbC", etc.
 
 random_string(alphabet: "😀😍🙃🤪😎", length: 3)
@@ -57,5 +57,3 @@ require 'securerandom'
 SecureRandom.send :choose, "😀😍🙃🤪😎".chars, 3
 # => "😍😎😍"
 ```
-
-

@@ -17,4 +17,4 @@ redirect_from:
 
 _Build, learn, organize, subvert_
 
-A design by Ryan Jenkins of Troy, NY. My colleague Carolyn Braunius had this screen-printed on a shirt at the [Prometheus Barnraising](http://www.island94.org/2010/09/kitchen-consensus-conjecture/).
+A design by Ryan Jenkins of Troy, NY. My colleague Carolyn Braunius had this screen-printed on a shirt at the [Prometheus Barnraising](http://www.island94.org/2010/09/kitchen-consensus-conjecture/).

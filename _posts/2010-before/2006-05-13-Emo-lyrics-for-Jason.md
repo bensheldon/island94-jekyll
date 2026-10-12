@@ -59,5 +59,3 @@ I told my long-time friend Jason about my blog--honestly, no one reads this thin
 > Aaaah-oh
 >
 > Wooooaaa-o
-
-

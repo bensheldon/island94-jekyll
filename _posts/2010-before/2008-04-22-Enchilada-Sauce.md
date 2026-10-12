@@ -21,7 +21,6 @@ Dandy's recipe:
 - 1/4 bunch of cilantro, chopped
 - 2 garlic cloves
 
-
 Then:
 
 - In large sauce pan, stew tomatoes and jalepeno.

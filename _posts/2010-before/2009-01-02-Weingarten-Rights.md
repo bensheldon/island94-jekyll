@@ -38,4 +38,3 @@ Some [protected activities](http://library.findlaw.com/2004/Jul/19/133510.html) 
 > 3. Non-Union Employees Are Free to Walk Off The Job To Complain About Supervisors or Other Job Conditions
 >
 > Another common trap is when non-union employees walk off a job to protest certain job conditions. Most employers naturally (but incorrectly) presume that they may terminate non-union employees for abandoning the job. But that is not always the case. If, for example, employees engage in a work stoppage due to a legitimate job complaint, the NLRA may protect such conduct. In Trompler, Inc., an employer was held liable for back pay and reinstatement for terminating six employees who walked off the job in response to unanswered complaints about their supervisor.Such a work stoppage may qualify as "protected concerted activity" under Section 7 of the NLRA.
-

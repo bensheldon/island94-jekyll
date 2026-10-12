@@ -8,7 +8,7 @@ redirect_from:
 - "?p=1846"
 ---
 
-I love this rhetoric from Georgetown University's [Martin Irvine](http://www9.georgetown.edu/faculty/irvinem/) entitled " [Writing to be Read: A rhetoric for writing in the post-digital era](http://www9.georgetown.edu/faculty/irvinem/articles/WritingtobeRead.html)". It's written for academic writing, but I appreciate any approach that pushes the [dialogic](http://en.wikipedia.org/wiki/Dialogism). An excerpt:
+I love this rhetoric from Georgetown University's [Martin Irvine](http://www9.georgetown.edu/faculty/irvinem/) entitled " [Writing to be Read: A rhetoric for writing in the post-digital era](http://www9.georgetown.edu/faculty/irvinem/articles/WritingtobeRead.html)". It's written for academic writing, but I appreciate any approach that pushes the [dialogic](http://en.wikipedia.org/wiki/Dialogism). An excerpt:
 
 > **Rhetoric 101a: What It Is and Why it Holds**
 >

@@ -13,7 +13,7 @@ redirect_from:
 - "?p=491"
 ---
 
-I assume I'm not the only person making this connection, but it's interesting how successful the entertainment industry (and anyone with an intellectual-property axe to grind)  has been in making this rhetoric commonly accepted:
+I assume I'm not the only person making this connection, but it's interesting how successful the entertainment industry (and anyone with an intellectual-property axe to grind) has been in making this rhetoric commonly accepted:
 
 > Ludvig Werner, the boss of IFPI's local Swedish chapter, had a somewhat different perspective: The Pirate Bay is about keeping money out of creators' hands and putting it into Pirate Bay pockets. "**Copyright exists to ensure that everyone in the creative world—from the artist to the record label, from the independent film producer to the TV programme maker—can choose how their creations are distributed and get fairly rewarded for their work**," he said in a statement. [from the [trial against the Pirate Bay in Sweden](http://arstechnica.com/tech-policy/news/2009/02/labels-want-13-million-from-pirate-bay-as-trial-starts.ars)]
 

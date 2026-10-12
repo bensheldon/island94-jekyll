@@ -19,24 +19,24 @@ The difficult part was separating and isolating GoodJob's `I18n` configuration f
 
 ### Why is it necessary to isolate `I18n`?
 
-As a mountable Rails Engine, GoodJob's dashboard sits _within_ a parent Rails application. GoodJob should step lightly. 
+As a mountable Rails Engine, GoodJob's dashboard sits _within_ a parent Rails application. GoodJob should step lightly.
 
 The `I18n` library provides a number of configuration options:
 
 - `I18n.current_locale`
 - `I18n.default_locale`
 - `I18n.available_locales`
-- `I18n.enforce_available_locales` , which will raise an exception if the locale is switched to one not contained within the set of available locales. 
+- `I18n.enforce_available_locales` , which will raise an exception if the locale is switched to one not contained within the set of available locales.
 
 It's possible that GoodJob's administrative web dashboard would have different values for these than the parent Rails Application. Imagine: An English and Ukrainian speaking development and operations team administering a French and German language only website. How to do it?
 
 ### Isolating configuration values
 
-`I18n` configuration needs to be thread-local, so that a multithreaded webserver like Puma can serve a web request to the GoodJob Dashboard in Ukrainian (per the previous scenario) while _also_ serving a web request for the parent Rails application in French (or raise an exception if someone tries to access it in Italian). 
+`I18n` configuration needs to be thread-local, so that a multithreaded webserver like Puma can serve a web request to the GoodJob Dashboard in Ukrainian (per the previous scenario) while _also_ serving a web request for the parent Rails application in French (or raise an exception if someone tries to access it in Italian).
 
-Unfortunately,  `I18n.current_locale` is the only configuration value that delegates to a thread-locale variable. All other configuration values are [implemented as global `@@` class variables](https://github.com/ruby-i18n/i18n/blob/7cf09474b77fd41e65d979134b0525f67cf371b0/lib/i18n/config.rb#L58) on `I18n.config`. This makes sense when thinking of a monolithic application, but not when a Rails application is made up of multiple Engines or components that serve different purposes and audiences (the frontend visitor and the backend administrator). I struggled _a lot_ figuring out a workaround for this, until I discovered that `I18n.config` is _also_ thread-local.
+Unfortunately, `I18n.current_locale` is the only configuration value that delegates to a thread-locale variable. All other configuration values are [implemented as global `@@` class variables](https://github.com/ruby-i18n/i18n/blob/7cf09474b77fd41e65d979134b0525f67cf371b0/lib/i18n/config.rb#L58) on `I18n.config`. This makes sense when thinking of a monolithic application, but not when a Rails application is made up of multiple Engines or components that serve different purposes and audiences (the frontend visitor and the backend administrator). I struggled _a lot_ figuring out a workaround for this, until I discovered that `I18n.config` is _also_ thread-local.
 
-**Swap out the entire `I18n.config`  value with your Engine's own `I18n::Config`-compatible object:**
+**Swap out the entire `I18n.config` value with your Engine's own `I18n::Config`-compatible object:**
 
 ```ruby
 # app/controllers/good_job/application_controller.rb
@@ -91,12 +91,12 @@ First, time helper translations should be namespaced in the yaml translation fil
 
 ```yaml
 # config/locales/en.yml
-good_job: 
+good_job:
   # ...
   datetime:
     distance_in_words:
     # ...
-  format: 
+  format:
     # ...
   # ...
 ```

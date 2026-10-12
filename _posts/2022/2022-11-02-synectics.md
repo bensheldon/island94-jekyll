@@ -11,7 +11,7 @@ tags: []
 
 This book has big '60s energy, believing in the creative potential of a group of men openly jawboning in a room (but the prompts!) to solve problems. I've also read _The Practice of Creativity_ and _The Innovator’s Handbook_ too; the former probably being the best of them. They all are mainly persuasive theory and leave me trying to figure out the actual facilitation plans between the lines.
 
-The book as a whole is engaging and has a lot of transcripts of people talking over eachother to solve a problem, as good as any pulp hard/heroic science fiction of the period. 
+The book as a whole is engaging and has a lot of transcripts of people talking over eachother to solve a problem, as good as any pulp hard/heroic science fiction of the period.
 
 What is synectics?
 
@@ -25,7 +25,6 @@ Demo or die:
 
 > The most important (and most underrated) single aspect of a Synectics project is the implementation (in the form of working models) of those concepts developed as solutions. Such model building is vital to the success of a new product or invention program. Moreover, we have observed that unless a teaching program includes the experience of “getting the hands dirty” by actively implementing conceptions, the program is threatened with incompletion and impotence precisely because it is limited to over-abstract discussion. ...[30 pages]...Exciting as it is for Synectics groups to succeed in making the familiar strange, it is hardly an end in itself. The end is a functioning, working model of the invention product, just as the end result of a narrative idea is not the idea but the novel into which it is transformed, or as the end result of a visual insight is the painting into which it is evolved.”
 
-
 The general idea of a Synectics group ("in the Industrial Model") is having the company psychologist pick a small group of [men] to go live and cook together and solve problems for the firm. This is interesting:
 
 > In the selection of personnel for Synectics activity, if we are faced with a choice between two individuals of different intellectual backgrounds, but of similar emotional orientations, our tendency would be to choose only one. On the other hand, two individuals having the same intellectual background but different emotional patterns of response could be included in an integrated group which is designed to reflect extreme diversity.
@@ -34,7 +33,7 @@ How do you choose? Lots of bias here:
 
 <blockquote markdown="1">
 
-1. Metaphoric Capacity: The candidate’s language is carefully watched for signs of metaphor and analogy as described by the operational mechanisms: Personal Analogy, Symbolic Analogy, Direct Analogy, and Fantasy Analogy. The candidate is encouraged to speak metaphorically...
+1. Metaphoric Capacity: The candidate’s language is carefully watched for signs of metaphor and analogy as described by the operational mechanisms: Personal Analogy, Symbolic Analogy, Direct Analogy, and Fantasy Analogy. The candidate is encouraged to speak metaphorically...
 
 2. Attitude of Assistance: Because some characteristics of a candidate can’t be identified from conversation alone, the interview includes taking a walk in the woods, inviting the candidate to participate in a project on the property (pipe is being laid or a little bridge is being built over a stream, or a new timber is being fitted to the bam); in the evening the candidate meets with the Synectors for a cook-out. If his attitude of assistance has not revealed itself before, the cook-out preparation is used as the ultimate test. In general there are three kinds of response to this activity:
 
@@ -44,11 +43,11 @@ How do you choose? Lots of bias here:
 
     Building a fire is such a universal function, known to everyone, that it serves as an excellent test of assistance attitude. Obviously, for the purpose of Synectics, a man who sees how he can help and does it is the most acceptable. Part of the fire making technique is to make sure that there is not enough kindling on the spot so as to guarantee ample opportunity for the candidate to reveal himself.
 
-3. Kinesthetic Coordination: Although clumsiness is not inconsistent with creative potential, Synectors guard against selecting a man whose extreme lack of coordination implies a lack of self-confidence. [jesus christ]...
+3. Kinesthetic Coordination: Although clumsiness is not inconsistent with creative potential, Synectors guard against selecting a man whose extreme lack of coordination implies a lack of self-confidence. [jesus christ]...
 
 4. Risk: In the course of talking to the candidate, Synectors must determine whether he enjoys taking risks and, if so, what kind of risks. Is the candidate a self-destructive gambler who is unconsciously trying to injure himself? Is he willing to risk because he knows it’s the only way to accomplish certain tasks? Does he enjoy risking or does it frighten him?...
 
-5. Emotional Maturity: Creative people tend to have a childlike quality about them, but this childishness is not necessarily a sign of emotional immaturity. The emotionally immature childlike person does not use his childlike surprise, wonder, and infinite curiosity about the world as a psychological basis for creative acts. It is the capacity to integrate childishness into constructive acts which the Synectors look for in their interviews with candidates....
+5. Emotional Maturity: Creative people tend to have a childlike quality about them, but this childishness is not necessarily a sign of emotional immaturity. The emotionally immature childlike person does not use his childlike surprise, wonder, and infinite curiosity about the world as a psychological basis for creative acts. It is the capacity to integrate childishness into constructive acts which the Synectors look for in their interviews with candidates....
 
 6. The Capacity to Generalize: What are the candidate’s thinking habits? Can he take three or four facts and construct from them a straightforward, conversational, coherent generalization? Can he oscillate from particular facts to theories which embrace and integrate the facts? A generalization is a hypothesis describing and including diverse and sometimes conflicting data. Can he tolerate the ambiguity with which he must live until a soothing, all-ordering generalization explains the data? And then can he act on the basis of his generalization?...
 
@@ -65,12 +64,12 @@ But what do they do?!
 <blockquote markdown="1">
 
 The Synectic process involves:
-  
+
 1. making the strange familiar;
 2. making the familiar strange.
 
 ...Synectics has identified four mechanisms for making the familiar strange, each metaphorical in character:
-  
+
 1. Personal Analogy [how would you live/feel if you were the subject under study?]
 2. Direct Analogy ["the actual comparison of parallel facts, knowledge, or technology"]
 3. Symbolic Analogy ["views the problem qualitatively with the condensed suddenness of a poetic phrase."]

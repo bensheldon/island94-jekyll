@@ -34,10 +34,10 @@ So if you want to look at your social impact, follow the money.
 Updated: Read the other posts in the Millenial Blogger Alliance:
 
 Rosetta, [Working at a Nonprofit Does Not Equal Social Change](http://rosettathurman.com/blog/2009/11/working-at-a-nonprofit-does-not-equal-social-change/)
-Colleen,  [Does Writing a Check to a Nonprofit Equal Social Change?](http://colleendilen.com/2009/11/12/does-writing-a-check-to-a-nonprofit-equal-social-change/)
-Elizabeth,  [What is Social Impact?
-](http://nonprofitperiscope.wordpress.com/2009/11/16/what-is-social-impact/)Elisa,  [Measuring Social Impact](http://elisamortiz.wordpress.com/2009/11/11/measuring-social-impact-wait%E2%80%A6what-is-social-impact/)
-Tracey,  [The Meaning of Social Impact](http://www.blackgivesback.com/2009/11/meaning-of-social-impact.html)
-James,  [Measuring Social Impact](http://jameselbaor.wordpress.com/2009/11/17/measuring-social-impact/)
-Lauren,   [How Do You Define and Measure Social Impact?
-](http://alaurenabele.com/2009/11/how-do-you-define-and-measure-social-impact/)Allison,  [Five Problems With How We Measure Social Change](http://entrylevelliving.wordpress.com/2009/11/17/five-problems-measure-social-change/)
+Colleen, [Does Writing a Check to a Nonprofit Equal Social Change?](http://colleendilen.com/2009/11/12/does-writing-a-check-to-a-nonprofit-equal-social-change/)
+Elizabeth, [What is Social Impact?
+](http://nonprofitperiscope.wordpress.com/2009/11/16/what-is-social-impact/)Elisa, [Measuring Social Impact](http://elisamortiz.wordpress.com/2009/11/11/measuring-social-impact-wait%E2%80%A6what-is-social-impact/)
+Tracey, [The Meaning of Social Impact](http://www.blackgivesback.com/2009/11/meaning-of-social-impact.html)
+James, [Measuring Social Impact](http://jameselbaor.wordpress.com/2009/11/17/measuring-social-impact/)
+Lauren, [How Do You Define and Measure Social Impact?
+](http://alaurenabele.com/2009/11/how-do-you-define-and-measure-social-impact/)Allison, [Five Problems With How We Measure Social Change](http://entrylevelliving.wordpress.com/2009/11/17/five-problems-measure-social-change/)

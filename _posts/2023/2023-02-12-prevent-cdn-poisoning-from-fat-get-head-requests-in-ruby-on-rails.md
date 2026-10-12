@@ -101,4 +101,3 @@ RSpec.describe SanitizeFatRequests, type: :request do
   end
 end
 ```
-

@@ -24,4 +24,3 @@ I really liked this series of comments on a [BoingBoing post](http://www.boingbo
 > Nobody cares that you don't care.
 >
 >
-

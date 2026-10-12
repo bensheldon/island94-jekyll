@@ -9,7 +9,7 @@ layout: book
 tags:
 ---
 
-I discovered the [ACT UP](https://actupny.org/documents/documents.html) organization in the wake of Occupy, when I became friends with Michael Petrellis, who I met through my church. 
+I discovered the [ACT UP](https://actupny.org/documents/documents.html) organization in the wake of Occupy, when I became friends with Michael Petrellis, who I met through my church.
 
 This book is a wonderful approach to documenting an organizing: powerful, tragic, and practical.
 

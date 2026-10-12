@@ -25,22 +25,22 @@ Sent this off after some wild, though not misplaced, enthusiasm for Kickstarter,
 >
 See also [FreeGeek Chicago's Funding Statement](http://wiki.freegeekchicago.org/wiki/Community/FundingStatement); an excerpt:
 
-> We believe these questions should be kept in mind when pursing funding:
+> We believe these questions should be kept in mind when pursing funding:
 >
-> - How does funding sustain or improve something FreeGeek Chicago already does?
+> - How does funding sustain or improve something FreeGeek Chicago already does?
 >
-> - How does funding make FreeGeek more sustainable?
+> - How does funding make FreeGeek more sustainable?
 >
-> - Who provides the funding? Do their values and behavior match FreeGeek's mission and values?
+> - Who provides the funding? Do their values and behavior match FreeGeek's mission and values?
 >
-> - Has FreeGeek planned for the time when funding runs out? Where does it leave us?
+> - Has FreeGeek planned for the time when funding runs out? Where does it leave us?
 >
-> - What forms of overhead does the funding create? Do we have the organizational resources to properly manage the transactions?
+> - What forms of overhead does the funding create? Do we have the organizational resources to properly manage the transactions?
 >
-> - What forms of accountability go along with the funding?
+> - What forms of accountability go along with the funding?
 >
-> - How could the obligations of funding affect our organizational structure and community process?
+> - How could the obligations of funding affect our organizational structure and community process?
 >
-> - Can the goals of a funding source be better filled by another organization (either existing or to be created) outside of FreeGeek?
+> - Can the goals of a funding source be better filled by another organization (either existing or to be created) outside of FreeGeek?
 >
 > - Does the funder require personal information from participants? Are we comfortable asking for that information?

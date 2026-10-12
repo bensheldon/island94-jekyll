@@ -38,16 +38,16 @@ There's a lot of history and anthropology to boil down:
 
 <blockquote markdown="1">
 
-...the key point to remember is that we are not talking here about ‘freedom’ as an abstract ideal or formal principle (as in ‘Liberty, Equality and Fraternity!’). Over the course of these chapters we have instead talked about basic forms of social liberty which one might actually put into practice: 
+...the key point to remember is that we are not talking here about ‘freedom’ as an abstract ideal or formal principle (as in ‘Liberty, Equality and Fraternity!’). Over the course of these chapters we have instead talked about basic forms of social liberty which one might actually put into practice:
 
-1. the freedom to move away or relocate from one’s surroundings; 
-2. the freedom to ignore or disobey commands issued by others; and 
+1. the freedom to move away or relocate from one’s surroundings;
+2. the freedom to ignore or disobey commands issued by others; and
 3. the freedom to shape entirely new social realities, or shift back and forth between different ones
 
 ....three elementary principles of domination:
 
-1. control of violence (or sovereignty), 
-2. control of knowledge, and 
+1. control of violence (or sovereignty),
+2. control of knowledge, and
 3. charismatic politics
 
 </blockquote>
@@ -56,7 +56,7 @@ There's a lot of history and anthropology to boil down:
 
 <blockquote markdown="1">
 
-Environmental determinists have an unfortunate tendency to treat humans as little more than automata, living out some economist’s fantasy of rational calculation. To be fair, they don’t deny that human beings are quirky and imaginative creatures – they just seem to reason that, in the long run, this fact makes very little difference. 
+Environmental determinists have an unfortunate tendency to treat humans as little more than automata, living out some economist’s fantasy of rational calculation. To be fair, they don’t deny that human beings are quirky and imaginative creatures – they just seem to reason that, in the long run, this fact makes very little difference.
 
 ...
 

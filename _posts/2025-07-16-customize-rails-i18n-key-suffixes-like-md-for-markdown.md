@@ -11,11 +11,11 @@ If you’ve had reason to use internationalization in Rails on Rails, you’ve p
 
 Authoring HTML within translations can be a pain because HTML is quite verbose and easy to mess up when maintaining multiple versions of the same phrase, or paragraph, or page across multiple languages.
 
-It would be nice 💅 to have something like this: 
+It would be nice 💅 to have something like this:
 
 > Keys with a `_md` suffix can be authored in Markdown and will be automatically converted to HTML and marked as HTML safe.
 
-Markdown is a lot less verbose than HTML and easier to write and eyeball. Let’s do it! 
+Markdown is a lot less verbose than HTML and easier to write and eyeball. Let’s do it!
 
 First, we have to patch into the I18n `translate` method. It looks something like this:
 
@@ -65,7 +65,7 @@ ActiveSupport::HtmlSafeTranslation.prepend Markdown::HtmlSafeTranslationExt
 
 That’s pretty much it!
 
-If you’re uncomfortable patching things, Tim Masliuchenko has a gem called  [`I18n::Transformers`](https://github.com/timfjord/i18n-transformers) that makes it easy create custom key-based transformations. I believe you’ll still need to patch into the HTML safety behavior of Rails though—and anything involving marking things as HTML-safe should be always be scrutinized for [XSS](https://guides.rubyonrails.org/security.html#cross-site-scripting-xss) potential.
+If you’re uncomfortable patching things, Tim Masliuchenko has a gem called [`I18n::Transformers`](https://github.com/timfjord/i18n-transformers) that makes it easy create custom key-based transformations. I believe you’ll still need to patch into the HTML safety behavior of Rails though—and anything involving marking things as HTML-safe should be always be scrutinized for [XSS](https://guides.rubyonrails.org/security.html#cross-site-scripting-xss) potential.
 
 Here’s the full initializer I have, including how I get Kramdown to create “inline” markdown:
 

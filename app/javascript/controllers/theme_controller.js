@@ -7,14 +7,14 @@ export default class extends Controller {
   }
 
   connect() {
-    this.setTheme(this.#getPreferredTheme())
-    this.#updateTheme()
+    const theme = this.#getConfiguredTheme()
+    this.setTheme(theme)
+    this.#showActiveTheme(theme)
 
     // Setup media query listener
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
-      const storedTheme = this.#getStoredTheme()
-      if (storedTheme !== 'light' && storedTheme !== 'dark') {
-        this.setTheme(this.#getPreferredTheme())
+      if (this.#getConfiguredTheme() === 'auto') {
+        this.setTheme('auto')
       }
     })
   }
@@ -48,12 +48,8 @@ export default class extends Controller {
     localStorage.setItem('theme', theme)
   }
 
-  #getPreferredTheme() {
-    const storedTheme = this.#getStoredTheme()
-    if (storedTheme) {
-      return storedTheme
-    }
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+  #getConfiguredTheme() {
+    return this.#getStoredTheme() || 'auto'
   }
 
   #showActiveTheme(theme, focus = false) {
@@ -82,9 +78,5 @@ export default class extends Controller {
     if (focus) {
       this.switcherTarget.focus()
     }
-  }
-
-  #updateTheme() {
-    this.#showActiveTheme(this.#getPreferredTheme())
   }
 }

@@ -9,7 +9,7 @@ layout: book
 tags: []
 ---
 
-An "Event" has caused rabbits to become anthropomophic. This exchange is the book in a walnut-shell: 
+An "Event" has caused rabbits to become anthropomophic. This exchange is the book in a walnut-shell:
 
 <blockquote markdown="1">
 
@@ -29,7 +29,7 @@ So while we ate the excellent walnut cake that the Venerable Bunty’s mother’
 
 ‘Maybe it’s the default position of humans when they feel threatened,’ I ventured, ‘although if I’m honest, I know a lot of people who claim to have “nothing against rabbits” but tacitly do nothing against the overt leporiphobia that surrounds them.’
 
-‘Or maybe it’s just satire for comedy’s sake and nothing else,’ added Connie, ‘or even more useless, satire that provokes a few guffaws but only low to middling outrage – but is coupled with more talk and no action. A sort of  . . . empty cleverness.’
+‘Or maybe it’s just satire for comedy’s sake and nothing else,’ added Connie, ‘or even more useless, satire that provokes a few guffaws but only low to middling outrage – but is coupled with more talk and no action. A sort of . . . empty cleverness.’
 
 ‘Maybe a small puff in the right moral direction is the best that could be hoped for,’ added Finkle thoughtfully. ‘Perhaps that’s what satire does – not change things wholesale but nudge the collective consciousness in a direction that favours justice and equality. Is there any more walnut cake?’
 
