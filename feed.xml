@@ -5,8 +5,55 @@
     <description>A Lost and Found</description>
     <link>https://island94.org/</link>
     <atom:link href="https://island94.org/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 05 Sep 2026 12:00:00 +0000</pubDate>
+    <pubDate>Mon, 12 Oct 2026 19:06:00 +0000</pubDate>
     <generator>Ruby on Rails</generator>
+      <item>
+        <title>Adding custom Thor commands to your Rails app</title>
+        <description>
+          <![CDATA[
+          <p>Thor is a really nice command-line runner, with much nicer support for arguments than Rake imo. The Rails framework supports both, but <a href="https://github.com/rails/rails/pull/22457">since</a> <a href="https://github.com/rails/rails/pull/26414">Rails 5.1</a> most Rails’ built-in commands (like <code>bin/rails generate</code>) use Thor, and it’s very simple to add custom Thor-based commands to gems and engines too, which Rails will auto-discover when placed in the engine’s <code>lib/commands</code> directory.</p>
+
+<p>The one place Thor commands don’t work out of the box is your Rails application. Rails ships with a <code>lib/tasks</code> directory, but not a <code>lib/commands</code> directory. But when you create that directory, and add your custom command to it, it still won’t work.</p>
+
+<p>There’s a simple fix to make <code>lib/commands</code> work and have Rails auto-discover your app’s custom Thor commands: add your app’s <code>lib</code> directory to the Ruby load path in your app’s <code>config/boot.rb</code>:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># config/boot.rb</span>
+<span class="c1"># ...</span>
+<span class="vg">$LOAD_PATH</span> <span class="o">&lt;&lt;</span> <span class="no">File</span><span class="p">.</span><span class="nf">expand_path</span><span class="p">(</span><span class="s2">"../lib"</span><span class="p">,</span> <span class="n">__dir__</span><span class="p">)</span> <span class="c1"># Discover Rails commands in lib/commands.</span>
+</code></pre></div></div>
+
+<p>And then you can simply add some custom Thor commands like so:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># lib/commands/foobar_command.rb</span>
+<span class="k">class</span> <span class="nc">FoobarCommand</span> <span class="o">&lt;</span> <span class="no">Rails</span><span class="o">::</span><span class="no">Command</span><span class="o">::</span><span class="no">Base</span>
+  <span class="n">desc</span> <span class="s2">"foobar"</span><span class="p">,</span> <span class="s2">"Prints foobar"</span>
+  <span class="k">def</span> <span class="nf">perform</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+    <span class="n">boot_application!</span> <span class="c1"># optional, like a Rake task's =&gt; :environment dependency</span>
+    <span class="n">say</span> <span class="s2">"foobar"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<h2 id="why-patching-bootrb-sucks">Why?! Patching <code>boot.rb</code> sucks</h2>
+
+<p>It is unfortunate! Here’s why it’s necessary for this:</p>
+
+<p>When you invoke a command like <code>bin/rails foobar</code>, Rails will attempt to find a matching <code>commands/foobar_command.rb</code> within Ruby’s <code>$LOAD_PATH</code>. If that file exists in the load path, the file is loaded and the command invoked. If not, you’ll see <code>Unrecognized command "foobar" (Rails::Command::UnrecognizedCommandError)</code>.</p>
+
+<p>But, Rails does this command lookup before fully loading your Rails application (because that’s slow, I presume). And <a href="https://github.com/rails/rails/pull/48596">by recent convention</a>, Rails does not add <code>lib</code> to the Ruby <code>$LOAD_PATH</code> until your application has been loaded. Bit of a problem, in this context. And that’s why the patch adds <code>lib</code> to the load path.</p>
+
+<h2 id="theres-got-to-be-a-better-way">There’s got to be a better way</h2>
+
+<p>I made a <a href="https://github.com/rails/rails/pull/50218">PR to upstream Rails</a> to try to make <code>lib/commands</code> work out of the box. It’s neat because the change I proposed first does the fast-path to resolve the command without loading the application, and then if it hasn’t found the command, it loads the application (adding <code>lib</code> to the load path) and tries to look up the command again.</p>
+
+<p>There’s also another funny/interesting thing I discovered while digging into this: Rails only loads the <em>first</em> matching command. So if you have the <code>aaaaaaa</code> gem and it has a <code>lib/rails/commands/generate/generate_command.rb</code> earlier in Ruby’s <code>$LOAD_PATH</code> than Rails’ own matching file, then Rails will never load its built-in generate command. Bit of a problem! This seems like an artifact of pre-Ruby 1.9 that didn’t <a href="https://github.com/ruby/ruby/blob/92135776ce7dd134916fd4931b6004322c41a9b0/NEWS#L360">store the expanded canonical path of loaded features</a> (e.g. <code>require "feature"</code>). I have a <a href="https://github.com/rails/rails/pull/58376">PR to change that</a> too.</p>
+
+          ]]>
+        </description>
+        <link>https://island94.org/2026/10/adding-custom-thor-commands-to-your-rails-app</link>
+        <guid isPermaLink="true">https://island94.org/2026/10/adding-custom-thor-commands-to-your-rails-app</guid>
+        <pubDate>Mon, 12 Oct 2026 19:06:00 +0000</pubDate>
+      </item>
       <item>
         <title>Converting a Ruby block interface to start/stop methods with a Fiber</title>
         <description>
@@ -1195,27 +1242,6 @@ curl <span class="nt">-s</span> <span class="s2">"https://uploads.github.com/use
         <link>https://island94.org/2026/02/post-your-prompts</link>
         <guid isPermaLink="true">https://island94.org/2026/02/post-your-prompts</guid>
         <pubDate>Fri, 27 Feb 2026 12:00:00 +0000</pubDate>
-      </item>
-      <item>
-        <title>Frontier novelty</title>
-        <description>
-          <![CDATA[
-          <p>From Benji Edward’s <a href="https://arstechnica.com/information-technology/2026/01/10-things-i-learned-from-burning-myself-out-with-ai-coding-agents/">“10 things I learned from burning myself out with AI coding agents”</a> describing the challenge of maintaining novelty during AI coding:</p>
-
-<blockquote>
-  <p>Due to what might poetically be called “preconceived notions” baked into a coding model’s neural network (more technically, statistical semantic associations), it can be difficult to get AI agents to create truly novel things, even if you carefully spell out what you want.<br>
-For example, I spent four days trying to get Claude Code to create an Atari 800 version of my HTML game <em>Violent Checkers</em>, but it had trouble because in the game’s design, the squares on the checkerboard don’t matter beyond their starting positions. No matter how many times I told the agent (and made notes in my Claude project files), it would come back to trying to center the pieces to the squares, snap them within squares, or use the squares as a logical basis of the game’s calculations when they should really just form a background image.</p>
-
-  <p>To get around this in the Atari 800 version, I started over and told Claude that I was creating a game with a UFO (instead of a circular checker piece) flying over a field of adjacent squares—never once mentioning the words “checker,” “checkerboard,” or “checkers.” With that approach, I got the results I wanted.</p>
-</blockquote>
-
-<p>I’ve experienced something similar in my own AI-assisted game design. In my case, it’s my perennial desire to have a Simcity-like city builder that operates on “parcels” rather than tiles or zones and, oh boy, the LLM really chafes at it. Is it weird <em>enough</em> to work?</p>
-
-          ]]>
-        </description>
-        <link>https://island94.org/2026/01/frontier-novelty</link>
-        <guid isPermaLink="true">https://island94.org/2026/01/frontier-novelty</guid>
-        <pubDate>Sun, 25 Jan 2026 20:08:00 +0000</pubDate>
       </item>
   </channel>
 </rss>

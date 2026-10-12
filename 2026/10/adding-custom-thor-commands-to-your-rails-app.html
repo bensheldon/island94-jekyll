@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Adding custom Thor commands to your Rails app | Island94.org</title>
+  
+
+  <link rel="stylesheet" href="/assets/application-c31b21bc688426a89aeb8504c37610396fc40eb398ab03565e0258c2b123d099.css" data-turbo-track="reload" />
+  
+  <script src="/assets/vite/assets/application-DMmR6YbA.js" crossorigin="" type="module"></script>
+
+  <script type="text/javascript">
+    function setTheme() {
+      let theme = localStorage.getItem('theme');
+      if (!["light", "dark"].includes(theme)) {
+        theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+      document.documentElement.setAttribute('data-bs-theme', theme);
+    }
+
+    setTheme();
+    document.addEventListener('turbo:load', setTheme);
+  </script>
+
+  <link rel="alternate" type="application/rss+xml" title="Island94.org" href="https://island94.org/feed.xml">
+
+  
+</head>
+<body data-controller="search">
+  <nav class="navbar navbar-expand-lg navbar-light mb-2 flex-column">
+  <div class="container">
+    <a class="navbar-brand" href="/">Island94.org</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="/archives">Archives</a></li>
+        <li class="nav-item"><a class="nav-link" href="/tags">Tags</a></li>
+        <li class="nav-item"><a class="nav-link" href="/feed.xml">RSS Feed <i class="bi bi-rss-fill"></i></a></li>
+
+        <li class="nav-item py-2 py-lg-1 col-12 col-lg-auto">
+          <div class="vr d-none d-lg-flex h-100 mx-lg-2 text-light-500"></div>
+          <hr class="d-lg-none my-0 text-light-500">
+        </li>
+
+        <li class="nav-item dropdown" data-controller="theme">
+          <button
+            data-theme-target="switcher"
+            class="btn btn-link nav-link dropdown-toggle"
+            type="button"
+            aria-expanded="false"
+            data-bs-toggle="dropdown">
+            <i data-theme-target="activeIcon" class="bi bi-circle-half"></i>
+            <span data-theme-target="switcherText">Theme</span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li>
+              <button
+                type="button"
+                class="dropdown-item"
+                data-bs-theme-value="light"
+                data-action="theme#switch"
+                aria-pressed="false">
+                <i class="bi bi-sun"></i> Light
+              </button>
+            </li>
+            <li>
+              <button
+                type="button"
+                class="dropdown-item"
+                data-bs-theme-value="dark"
+                data-action="theme#switch"
+                aria-pressed="false">
+                <i class="bi bi-moon-stars-fill"></i> Dark
+              </button>
+            </li>
+            <li>
+              <button
+                type="button"
+                class="dropdown-item"
+                data-bs-theme-value="auto"
+                data-action="theme#switch"
+                aria-pressed="true">
+                <i class="bi bi-circle-half"></i> Auto
+              </button>
+            </li>
+          </ul>
+        </li>
+
+      </ul>
+
+      <form id="search" class="d-flex" action="/search" method="get">
+        <div class="input-group">
+          <input data-search-target="input" data-action="input->search#syncInputs" id="search-box" class="form-control search" role="search" name="q" placeholder="Search" aria-label="Search" results="0" type="text" autocomplete="off">
+          <button type="submit" class="btn btn-outline-secondary">
+            <i class="bi bi-search"></i>
+            <span class="visually-hidden">Search</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="container">
+    <div class="text-muted fst-italic">
+      — Ben Sheldon's personal blog and <a href="/2012/04/a-commonplace-book">commonplace book</a>.
+    </div>
+  </div>
+</nav>
+
+  
+  <div class="container container-body">
+    
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2026/10/adding-custom-thor-commands-to-your-rails-app"><p>Adding custom Thor commands to your Rails app</p>
+</a>
+    </h1>
+    <p class="post-meta text-muted">
+        <time datetime="2026-10-12T19:06:00Z" itemprop="datePublished">October 12, 2026</time>
+
+        • Tagged <a href="/posts/tags/ruby-on-rails">Ruby on Rails</a> and <a href="/posts/tags/ruby">Ruby</a>
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>Thor is a really nice command-line runner, with much nicer support for arguments than Rake imo. The Rails framework supports both, but <a href="https://github.com/rails/rails/pull/22457">since</a> <a href="https://github.com/rails/rails/pull/26414">Rails 5.1</a> most Rails’ built-in commands (like <code>bin/rails generate</code>) use Thor, and it’s very simple to add custom Thor-based commands to gems and engines too, which Rails will auto-discover when placed in the engine’s <code>lib/commands</code> directory.</p>
+
+<p>The one place Thor commands don’t work out of the box is your Rails application. Rails ships with a <code>lib/tasks</code> directory, but not a <code>lib/commands</code> directory. But when you create that directory, and add your custom command to it, it still won’t work.</p>
+
+<p>There’s a simple fix to make <code>lib/commands</code> work and have Rails auto-discover your app’s custom Thor commands: add your app’s <code>lib</code> directory to the Ruby load path in your app’s <code>config/boot.rb</code>:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># config/boot.rb</span>
+<span class="c1"># ...</span>
+<span class="vg">$LOAD_PATH</span> <span class="o">&lt;&lt;</span> <span class="no">File</span><span class="p">.</span><span class="nf">expand_path</span><span class="p">(</span><span class="s2">"../lib"</span><span class="p">,</span> <span class="n">__dir__</span><span class="p">)</span> <span class="c1"># Discover Rails commands in lib/commands.</span>
+</code></pre></div></div>
+
+<p>And then you can simply add some custom Thor commands like so:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># lib/commands/foobar_command.rb</span>
+<span class="k">class</span> <span class="nc">FoobarCommand</span> <span class="o">&lt;</span> <span class="no">Rails</span><span class="o">::</span><span class="no">Command</span><span class="o">::</span><span class="no">Base</span>
+  <span class="n">desc</span> <span class="s2">"foobar"</span><span class="p">,</span> <span class="s2">"Prints foobar"</span>
+  <span class="k">def</span> <span class="nf">perform</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+    <span class="n">boot_application!</span> <span class="c1"># optional, like a Rake task's =&gt; :environment dependency</span>
+    <span class="n">say</span> <span class="s2">"foobar"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<h2 id="why-patching-bootrb-sucks">Why?! Patching <code>boot.rb</code> sucks</h2>
+
+<p>It is unfortunate! Here’s why it’s necessary for this:</p>
+
+<p>When you invoke a command like <code>bin/rails foobar</code>, Rails will attempt to find a matching <code>commands/foobar_command.rb</code> within Ruby’s <code>$LOAD_PATH</code>. If that file exists in the load path, the file is loaded and the command invoked. If not, you’ll see <code>Unrecognized command "foobar" (Rails::Command::UnrecognizedCommandError)</code>.</p>
+
+<p>But, Rails does this command lookup before fully loading your Rails application (because that’s slow, I presume). And <a href="https://github.com/rails/rails/pull/48596">by recent convention</a>, Rails does not add <code>lib</code> to the Ruby <code>$LOAD_PATH</code> until your application has been loaded. Bit of a problem, in this context. And that’s why the patch adds <code>lib</code> to the load path.</p>
+
+<h2 id="theres-got-to-be-a-better-way">There’s got to be a better way</h2>
+
+<p>I made a <a href="https://github.com/rails/rails/pull/50218">PR to upstream Rails</a> to try to make <code>lib/commands</code> work out of the box. It’s neat because the change I proposed first does the fast-path to resolve the command without loading the application, and then if it hasn’t found the command, it loads the application (adding <code>lib</code> to the load path) and tries to look up the command again.</p>
+
+<p>There’s also another funny/interesting thing I discovered while digging into this: Rails only loads the <em>first</em> matching command. So if you have the <code>aaaaaaa</code> gem and it has a <code>lib/rails/commands/generate/generate_command.rb</code> earlier in Ruby’s <code>$LOAD_PATH</code> than Rails’ own matching file, then Rails will never load its built-in generate command. Bit of a problem! This seems like an artifact of pre-Ruby 1.9 that didn’t <a href="https://github.com/ruby/ruby/blob/92135776ce7dd134916fd4931b6004322c41a9b0/NEWS#L360">store the expanded canonical path of loaded features</a> (e.g. <code>require "feature"</code>). I have a <a href="https://github.com/rails/rails/pull/58376">PR to change that</a> too.</p>
+
+  </div>
+</article>
+
+
+<div class="card my-4">
+  <div class="card-body">
+    Discuss this with me on
+      <a href="https://ruby.social/@bensheldon"><i class="bi bi-mastodon" style="margin-right: 0.2em"></i>Mastodon</a>,
+      <a href="https://bensheldon.bsky.social"><i class="bi bi-bluesky" style="margin-right: 0.2em"></i>Bluesky</a>,
+      or suggest a change on
+      <a href="https://github.com/bensheldon/island94.org/blob/main/_posts/2026-10-12-adding-custom-thor-commands-to-your-rails-app.md" style="text-wrap: nowrap"><i class="bi bi-github" style="margin-right: 0.2em"></i>GitHub</a>.
+  </div>
+    <hr>
+    <div class="card-body">
+      <h5>Related Posts</h5>
+      <ul>
+          <li><a href="/2026/07/running-code-when-the-ruby-on-rails-webserver-boots">Running code when the Ruby on Rails webserver boots</a></li>
+          <li><a href="/2026/05/one-year-of-ruby-on-rails-configuration">One year of Ruby on Rails configuration</a></li>
+          <li><a href="/2025/10/hanami-and-loading-code-faster">Hanami and loading code, faster</a></li>
+          <li><a href="/2025/10/serializing-viewcomponent-for-active-job-and-turbo-broadcast-later">Serializing ViewComponent for Active Job and Turbo Broadcast Later</a></li>
+          <li><a href="/2025/10/notes-from-building-a-who-is-doing-what-right-now-on-our-website-presence-feature-with-action-cable">Notes from building a “who is doing what right now on our website?” presence feature with Action Cable</a></li>
+      </ul>
+    </div>
+</div>
+
+  </div>
+
+  <script nomodule="nomodule" src="/assets/vite/assets/polyfills-legacy-DeTkG8vT.js"></script><script nomodule="nomodule">System.import('/assets/vite/assets/application-legacy-D-GVNTyO.js')</script>
+</body>
+</html>

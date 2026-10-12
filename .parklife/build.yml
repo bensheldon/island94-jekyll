@@ -4,7 +4,7 @@ config:
 paths:
   "/":
     build_path: index.html
-    etag: W/"9df1b87aeff1d45072e973f63676decf"
+    etag: W/"e03c25bb21a5e7d86462c94b11efdefd"
   "/redirects":
     build_path: redirects.html
     etag: W/"5bbdc03cbb089e921bb4e9d7bf57c2c8"
@@ -16,13 +16,13 @@ paths:
     etag: W/"dfef525cd97cefb701e94ed1c0b5ab4b"
   "/search.json":
     build_path: search.json
-    etag: W/"8d3de07deb3dd20306c3d9e97b78e9b6"
+    etag: W/"4500beeccce51e2dac751a58bcb513d2"
   "/feed.xml":
     build_path: feed.xml
-    etag: W/"acebb513771f9b880c1f1c4f83aa730c"
+    etag: W/"428cfd80c8ceaf1192e5be350ae94ced"
   "/sitemap.xml":
     build_path: sitemap.xml
-    etag: W/"868da2f6b7930ce235ad632288d2e803"
+    etag: W/"5fbf469116f7caee637bfe7da6609efb"
   "/robots.txt":
     build_path: robots.txt
     etag: W/"bc3f5f94fa4fb061f9ba0cfdb5c499cf"
@@ -33,13 +33,22 @@ paths:
     etag: W/"936aafcecd0a538eddc1cbeaf499cf42"
   "/archives":
     build_path: archives.html
-    etag: W/"2aaed6a3e46fdf8999dbdd6c7ade5cc3"
+    etag: W/"c69958008944a828c56d41f8e37847ab"
   "/tags":
     build_path: tags.html
-    etag: W/"675f6b061c7a9883d9fa3ac8d3f2d5f9"
+    etag: W/"20831be06b388dd02e7b378d1c89b18c"
   "/2012/04/a-commonplace-book":
     build_path: 2012/04/a-commonplace-book.html
     etag: W/"828501a875873cf50987e367fe1aa3e3"
+  "/2026/10/adding-custom-thor-commands-to-your-rails-app":
+    build_path: 2026/10/adding-custom-thor-commands-to-your-rails-app.html
+    etag: W/"83e26b0d2475fa72d94c5ba7c6376988"
+  "/posts/tags/ruby-on-rails":
+    build_path: posts/tags/ruby-on-rails.html
+    etag: W/"4520a0a5ec8aa53e0d9f79e1e7073b8e"
+  "/posts/tags/ruby":
+    build_path: posts/tags/ruby.html
+    etag: W/"4d7c0b61a676416510412f6eae746cc5"
   "/2026/09/converting-a-ruby-block-interface-to-start-stop-methods-with-a-fiber":
     build_path: 2026/09/converting-a-ruby-block-interface-to-start-stop-methods-with-a-fiber.html
     etag: W/"3d2bfaa454d200e2db44d9882d75e827"
@@ -51,19 +60,13 @@ paths:
     etag: W/"483e7c8fa6a089b4157bd54aa9be8704"
   "/2026/07/running-code-when-the-ruby-on-rails-webserver-boots":
     build_path: 2026/07/running-code-when-the-ruby-on-rails-webserver-boots.html
-    etag: W/"43b0b665ac6127b9e74d5d30832b9ae6"
-  "/posts/tags/ruby-on-rails":
-    build_path: posts/tags/ruby-on-rails.html
-    etag: W/"1d325be7aa9e9be65070cef9bf617ada"
+    etag: W/"71645825869c3bc655c55948bb365ed9"
   "/2026/07/planning-badly-more-and-less":
     build_path: 2026/07/planning-badly-more-and-less.html
     etag: W/"106b17320bd4e7e638f6ee7127faa878"
   "/2026/05/one-year-of-ruby-on-rails-configuration":
     build_path: 2026/05/one-year-of-ruby-on-rails-configuration.html
-    etag: W/"9187751fcad5b5fc6d3eb1f354037df3"
-  "/posts/tags/ruby":
-    build_path: posts/tags/ruby.html
-    etag: W/"7bac523da95a88a4eab4e8859f1bc0e5"
+    etag: W/"4b2eeae57dac57d8306c8d54f1a4648b"
   "/2026/03/a-bulletproof-wait_for_turbo-test-helper":
     build_path: 2026/03/a-bulletproof-wait_for_turbo-test-helper.html
     etag: W/"2d99a15acdca6f1253353df7b0b05480"
@@ -73,15 +76,9 @@ paths:
   "/2026/02/post-your-prompts":
     build_path: 2026/02/post-your-prompts.html
     etag: W/"84a514c45c506889c348d6b8b429534f"
-  "/2026/01/frontier-novelty":
-    build_path: 2026/01/frontier-novelty.html
-    etag: W/"8b86a3dc57d4877f7cb3b183819cbafa"
-  "/posts/tags/quotes":
-    build_path: posts/tags/quotes.html
-    etag: W/"1dbcbf08f8ad51b67c0216cea4c2e79b"
   "/posts/2":
     build_path: posts/2.html
-    etag: W/"8c74dba107023628aef55c77b9f51bef"
+    etag: W/"674f1a952931e808edbc3c9cf0d4146f"
   "/posts":
     build_path: posts.html
   "/articles/pool-soup":
@@ -18515,6 +18512,9 @@ paths:
   "/bookmarks/2005/04/blog-atomicworkshop-org":
     build_path: bookmarks/2005/04/blog-atomicworkshop-org.html
     etag: W/"169646d61355236c89af7614fc12293c"
+  "/2026/01/frontier-novelty":
+    build_path: 2026/01/frontier-novelty.html
+    etag: W/"8b86a3dc57d4877f7cb3b183819cbafa"
   "/2026/01/goodjob-solid-queue-sidekiq-active-job-in-2026":
     build_path: 2026/01/goodjob-solid-queue-sidekiq-active-job-in-2026.html
     etag: W/"d4fe3a62d2d439ce6927091a7b05d921"
@@ -18529,22 +18529,22 @@ paths:
     etag: W/"c2d7ce391a0783469aabfc82160cea94"
   "/2025/10/hanami-and-loading-code-faster":
     build_path: 2025/10/hanami-and-loading-code-faster.html
-    etag: W/"aac93450d8a813e5e4a85501ad76e2b2"
+    etag: W/"ad856f9f689afaea9b0942135c5ab9ac"
   "/2025/10/notes-from-building-a-who-is-doing-what-right-now-on-our-website-presence-feature-with-action-cable":
     build_path: 2025/10/notes-from-building-a-who-is-doing-what-right-now-on-our-website-presence-feature-with-action-cable.html
-    etag: W/"08bc320022240da2d22e3ea93b9f427b"
+    etag: W/"0ad4702268f94a5ef9cb373024a34a02"
   "/2025/10/serializing-viewcomponent-for-active-job-and-turbo-broadcast-later":
     build_path: 2025/10/serializing-viewcomponent-for-active-job-and-turbo-broadcast-later.html
-    etag: W/"3c75f4b7958ca2dcba88e22beed74ad6"
+    etag: W/"c5c3681da0665aa7f15916ffc9bc4e7a"
   "/2025/09/serializing-viewcomponent-for-active-job-and-turbo-broadcast-later":
     build_path: 2025/09/serializing-viewcomponent-for-active-job-and-turbo-broadcast-later.html
-    etag: W/"3c75f4b7958ca2dcba88e22beed74ad6"
+    etag: W/"c5c3681da0665aa7f15916ffc9bc4e7a"
   "/2025/08/building-deterministic-reproducible-assets-with-sprockets":
     build_path: 2025/08/building-deterministic-reproducible-assets-with-sprockets.html
-    etag: W/"20ad3a92530dc86a9e382cd8353b4cdc"
+    etag: W/"c0a126930998be9bedf30b92a88f2f09"
   "/2025/08/everything-i-know-about-ai-learned-by-reading-the-aws-bedrock-client-ruby-sdk-code":
     build_path: 2025/08/everything-i-know-about-ai-learned-by-reading-the-aws-bedrock-client-ruby-sdk-code.html
-    etag: W/"a263499611ae6cb14fad1090252f682c"
+    etag: W/"ec7d433d399ccfa88506148d0f290d77"
   "/2025/07/consider-thruster-with-puma-on-heroku":
     build_path: 2025/07/consider-thruster-with-puma-on-heroku.html
     etag: W/"63c0bab008da27ef6cc3416be9ffd971"
@@ -18598,7 +18598,7 @@ paths:
     etag: W/"76a9b92d412f98b9e0c59141595f9ed5"
   "/2025/01/ruby-thread-contention-simply-gvl-queuing":
     build_path: 2025/01/ruby-thread-contention-simply-gvl-queuing.html
-    etag: W/"5de9728d8ebd11412ec766be38b85c01"
+    etag: W/"2a178d66651926ad621961de24821d67"
   "/2025/01/living-parklife-with-rails-coming-from-jekyll":
     build_path: 2025/01/living-parklife-with-rails-coming-from-jekyll.html
     etag: W/"600da72ef46c10c6f8322a4b0c960331"
@@ -18619,7 +18619,7 @@ paths:
     etag: W/"ee00d6d6fd1bb79b4eadf83005561d25"
   "/2024/09/seeing-like-a-rails-and-ruby-platform-team":
     build_path: 2024/09/seeing-like-a-rails-and-ruby-platform-team.html
-    etag: W/"e37bccc2b0c7703da2d2359fb0cdf355"
+    etag: W/"551d58b8dc80c0d424da0df7e1607d76"
   "/2024/09/secret-to-rails-database-connection-pool-size":
     build_path: 2024/09/secret-to-rails-database-connection-pool-size.html
     etag: W/"4c819a0abe38c60d67f3c7138e6fd9c1"
@@ -18646,7 +18646,7 @@ paths:
     etag: W/"5554f6b4f6d1747f2f61bd229d80c6e3"
   "/2024/04/a-ruby-meetup-and-3-podcasts":
     build_path: 2024/04/a-ruby-meetup-and-3-podcasts.html
-    etag: W/"75503aa35284f6d1a47300dc8ea930ee"
+    etag: W/"bf4b615e929196280f80bc8eb72e6c3c"
   "/2024/03/rails-active-record-will-it-bind":
     build_path: 2024/03/rails-active-record-will-it-bind.html
     etag: W/"2f0b6d389bd015a8cb1da060abbe5f09"
@@ -18679,13 +18679,13 @@ paths:
     etag: W/"fe67537d3bad1673b4f2b0393a088166"
   "/2023/11/rails-executor-increasingly-everywhere":
     build_path: 2023/11/rails-executor-increasingly-everywhere.html
-    etag: W/"759d240b26fb405d6fec81e5ca39911a"
+    etag: W/"34a701df29b59b8cc393c09241ce89d1"
   "/2023/10/reflections-on-good-job-for-solid-queue":
     build_path: 2023/10/reflections-on-good-job-for-solid-queue.html
-    etag: W/"9ab2723ea0e8d66154a0daef84ff537b"
+    etag: W/"2bcba9620683309694d93066c39c2f4e"
   "/2023/10/writing-object-shape-friendly-code-in-ruby":
     build_path: 2023/10/writing-object-shape-friendly-code-in-ruby.html
-    etag: W/"26ad1cebd70bfb052ff45866eda5e22f"
+    etag: W/"cb752c109d3c7f6597811246c33fa7c1"
   "/2023/09/in-defense-of-consensus":
     build_path: 2023/09/in-defense-of-consensus.html
     etag: W/"38a2e14db3708d6f31923c8049b5f51d"
@@ -18697,7 +18697,7 @@ paths:
     etag: W/"019c01664eb8f7680550ebf8bd453414"
   "/2023/08/how-to-isolate-i18n-configuration-in-a-rails-engine":
     build_path: 2023/08/how-to-isolate-i18n-configuration-in-a-rails-engine.html
-    etag: W/"6319abd45390fae318e09552736d235a"
+    etag: W/"2f4caea5bdd9c3b6ab7672f55d136d5f"
   "/2023/08/recoding-america":
     build_path: 2023/08/recoding-america.html
     etag: W/"fbdfe99b8b8bf88fa81dc2f074ed9ef6"
@@ -18727,7 +18727,7 @@ paths:
     etag: W/"9931dd8ffca4a315aba684faf68ef70d"
   "/2023/02/service-object-objects-in-ruby":
     build_path: 2023/02/service-object-objects-in-ruby.html
-    etag: W/"f8a83f01ecaa5e084b6e5195aa638f17"
+    etag: W/"250f4702ce216ee979af92737e21a58d"
   "/2023/02/slop-and-call":
     build_path: 2023/02/slop-and-call.html
     etag: W/"8af15d76a025b343928230854e56e900"
@@ -21269,6 +21269,9 @@ paths:
   "/posts/tags/quote":
     build_path: posts/tags/quote.html
     etag: W/"4c0a55d481d1431921280a8cf33260a3"
+  "/posts/tags/quotes":
+    build_path: posts/tags/quotes.html
+    etag: W/"1dbcbf08f8ad51b67c0216cea4c2e79b"
   "/posts/tags/rabbits":
     build_path: posts/tags/rabbits.html
     etag: W/"798460919c9d8540222d338b9661df32"
@@ -22051,17 +22054,17 @@ paths:
     etag: W/"eb36366f20042d91ac10f0a8598f02eb"
   "/posts/1":
     build_path: posts/1.html
-    etag: W/"9df1b87aeff1d45072e973f63676decf"
+    etag: W/"e03c25bb21a5e7d86462c94b11efdefd"
   "/posts/3":
     build_path: posts/3.html
-    etag: W/"df35308a6b37d78c87435a0f9530011b"
+    etag: W/"f522743ff9dae9fbeebdb5d69780c566"
   "/uploads/2005/poolsoup.mp4":
     build_path: uploads/2005/poolsoup.mp4
   "/uploads/2006-03/digitalbicycle-guy.jpg":
     build_path: uploads/2006-03/digitalbicycle-guy.jpg
   "/tags/":
     build_path: tags.html
-    etag: W/"675f6b061c7a9883d9fa3ac8d3f2d5f9"
+    etag: W/"20831be06b388dd02e7b378d1c89b18c"
   "/uploads/2006-10/Typology_of_Nonprofit_Competition-concept_map.pdf":
     build_path: uploads/2006-10/Typology_of_Nonprofit_Competition-concept_map.pdf
   "/uploads/2006-11/nonprofit-tech-sandwich.pdf":
@@ -22306,211 +22309,211 @@ paths:
     build_path: uploads/2008-08-10-Drupal-theme-override-for-Uploadmodules-attachments-list/shiny_upload.zip
   "/posts/4":
     build_path: posts/4.html
-    etag: W/"517ff8800631deb899c1651a0ecd82c3"
+    etag: W/"6787245da825a01b288769f3cda95330"
   "/posts/5":
     build_path: posts/5.html
-    etag: W/"088155030c00eef9c6a2ea57aa595b91"
+    etag: W/"9cbb2239216c2692bfc15fb034b49fe7"
   "/posts/6":
     build_path: posts/6.html
-    etag: W/"f6cc06a3c3d17af23ebac751fb9d7ece"
+    etag: W/"6f7025c0932ba8568fb6440142e0c7fc"
   "/posts/7":
     build_path: posts/7.html
-    etag: W/"bb1db77fe8cbf65d66ee863cbb9d00d8"
+    etag: W/"08aa407f56048e86b02e59f62ef24b0c"
   "/posts/8":
     build_path: posts/8.html
-    etag: W/"f7f99eae26099e06132f1c0bc77c4de4"
+    etag: W/"ba9d869829ef8cc1c863c7ffa91aa47e"
   "/posts/9":
     build_path: posts/9.html
-    etag: W/"2598cec5bcbd0c43088da80aa6396670"
+    etag: W/"61818f6580f3b84a7c4f92f7dd9e5967"
   "/posts/10":
     build_path: posts/10.html
-    etag: W/"c5a26e8c2e4ec566ab4e8d013ddca30a"
+    etag: W/"0c6b25c3883d12a6d4d84f924f4a97b8"
   "/posts/11":
     build_path: posts/11.html
-    etag: W/"6e6d4942d1341f9a50bd24b3e7bd1e33"
+    etag: W/"fdf9efcef7be3016ef494acb92de0385"
   "/posts/12":
     build_path: posts/12.html
-    etag: W/"04ba1207f9dd26ef1d4e3bf4ca26e9f6"
+    etag: W/"d2a01529756c5b62448c64c5d96f64b6"
   "/posts/13":
     build_path: posts/13.html
-    etag: W/"a5fea94cab2f24105a0b4eaa30e280c4"
+    etag: W/"e5b235d650130d3f1b67068bbae8e2ab"
   "/posts/14":
     build_path: posts/14.html
-    etag: W/"8c0dfe77b6f05648cb5ef645a3e88322"
+    etag: W/"3a53ad42fb4d57b88d9045311b3e2f65"
   "/posts/15":
     build_path: posts/15.html
-    etag: W/"0303a251d6e9b75359117e5b6644d31e"
+    etag: W/"36e7a8f1d910ad46ea729a665d680df8"
   "/posts/16":
     build_path: posts/16.html
-    etag: W/"41a39972cd4caf55996f2da9261ea273"
+    etag: W/"53c10dff855a5e5a3969303040f27b85"
   "/posts/17":
     build_path: posts/17.html
-    etag: W/"fb1fcb38611a44265f4091a88f389c06"
+    etag: W/"5530f2b35db74cca200377fb0f457214"
   "/posts/18":
     build_path: posts/18.html
-    etag: W/"9d01100326ee6e14a331d4c8edf738de"
+    etag: W/"f3469be8a6b49e6ad4fdc420d701604a"
   "/posts/19":
     build_path: posts/19.html
-    etag: W/"a8128eec48ccfe81518f46cf6747999f"
+    etag: W/"9be4c2f1341a81a95eab875b34694d2b"
   "/posts/20":
     build_path: posts/20.html
-    etag: W/"2fe42971657a02c3ed17102ff4c55b98"
+    etag: W/"67b0ca932e1782aafcb452c942a258e9"
   "/posts/21":
     build_path: posts/21.html
-    etag: W/"af5afbd5622f253d75e15ce1987607a7"
+    etag: W/"1a01febb16a5661d5a84c8e320f12f0c"
   "/posts/22":
     build_path: posts/22.html
-    etag: W/"1cbbe5236657c648a271aa59d384fa23"
+    etag: W/"acd7d4953aab83085d4165aa6d5521f7"
   "/posts/23":
     build_path: posts/23.html
-    etag: W/"692df65265d1801a55f8cb0e0cff5906"
+    etag: W/"a041ad28c7ae41b6c843caa20d747766"
   "/posts/24":
     build_path: posts/24.html
-    etag: W/"851b904d31eebefbef198e386298a4f9"
+    etag: W/"bad4dbda978b8c71ded8dfc04ffc62d6"
   "/posts/25":
     build_path: posts/25.html
-    etag: W/"d8673af291b209c40611ff16de91e5b5"
+    etag: W/"8bb4e6d478cb7fd7ff289ed01e675aca"
   "/posts/26":
     build_path: posts/26.html
-    etag: W/"c044b7e1b12552d2489d23a3924632ed"
+    etag: W/"a3a76e156be7c0d0a8396115f5e01883"
   "/posts/27":
     build_path: posts/27.html
-    etag: W/"03df89a55d07202a7e6bcce6af7c760b"
+    etag: W/"c56195b77117ba19a91dba24f3d0adfe"
   "/posts/28":
     build_path: posts/28.html
-    etag: W/"040d100224f31da49f81555195ed2d4a"
+    etag: W/"b4d1fbafe20b89e0582106a990ce7bdf"
   "/posts/29":
     build_path: posts/29.html
-    etag: W/"a4a662c4fa94f6bdff21c136c0a52fb6"
+    etag: W/"41667ededf7614d0d4d4c80337877de1"
   "/posts/30":
     build_path: posts/30.html
-    etag: W/"91ee7311c382b45456c51db799791866"
+    etag: W/"f8ed661da448d61170a818dcb79b6289"
   "/posts/31":
     build_path: posts/31.html
-    etag: W/"47f3f59590be32ad1800552581c090de"
+    etag: W/"0bdbe43a5c606a064a2e49d6ff8a743b"
   "/posts/32":
     build_path: posts/32.html
-    etag: W/"ae4efe5444af4100cdc4d122c895dc3f"
+    etag: W/"70d3b8f9f2cbc505e3fc806f904ebfcc"
   "/posts/33":
     build_path: posts/33.html
-    etag: W/"997aa10eb8d8ef5a6fb0e451f36e1729"
+    etag: W/"fecf3e507b6818ea17b375d134d7279b"
   "/posts/34":
     build_path: posts/34.html
-    etag: W/"fc8d9cc52a39c6ff88bc792656aa4b5e"
+    etag: W/"4ebf660596c80f5febf408e3001f0a67"
   "/posts/35":
     build_path: posts/35.html
-    etag: W/"e65bd0fc8ca28dc47a6d7f9952798af0"
+    etag: W/"bc5e9c86c0a2ddb0b74af92ea4774a18"
   "/posts/36":
     build_path: posts/36.html
-    etag: W/"e4db63c5f3b2f3c34946143ba103fe69"
+    etag: W/"489836fcca255ba42303e01cc5c9fd09"
   "/posts/37":
     build_path: posts/37.html
-    etag: W/"615c43b842f48ea6995cee4845783f12"
+    etag: W/"002c344279a294e21ef094273f4750a3"
   "/posts/38":
     build_path: posts/38.html
-    etag: W/"d3ae44d34e96b34dbee4c8e7a12a6d52"
+    etag: W/"bc91a97d9b167581a6aed8650b60a9b1"
   "/posts/39":
     build_path: posts/39.html
-    etag: W/"8f75fe14ea0d19d555d7579a20b0df11"
+    etag: W/"e23d8bcdd829d4aa3aa94d7ebcf4063e"
   "/posts/40":
     build_path: posts/40.html
-    etag: W/"89fd109c0f77a8d8f4cf45e0ad24be92"
+    etag: W/"2d23640fad567e868e73b9bf1847e1a1"
   "/posts/41":
     build_path: posts/41.html
-    etag: W/"15fc22cb264fce48214956d384165098"
+    etag: W/"f1b8ad8cf9f79a52f8525b8b2f4c3313"
   "/posts/42":
     build_path: posts/42.html
-    etag: W/"145cc125f16a2293c10e6b51412c3d79"
+    etag: W/"e1afae700ccca2dedaf7b9c5fe52e781"
   "/posts/43":
     build_path: posts/43.html
-    etag: W/"e40d9cb95686faee25d2c41dfe0b4725"
+    etag: W/"36f10b285652efa5d9e948fb998ac033"
   "/posts/44":
     build_path: posts/44.html
-    etag: W/"403a49cfda3b177847f556ec5cdfc158"
+    etag: W/"edfc088f6df43f41a7b20ee939f69273"
   "/posts/45":
     build_path: posts/45.html
-    etag: W/"bf33a0e24b9eb1533dc4da3a60ddac0e"
+    etag: W/"da1c41fe5367ec9d52a145c4f76d7092"
   "/posts/46":
     build_path: posts/46.html
-    etag: W/"d032d4c220005a27e7116130d429e937"
+    etag: W/"6f24a067e94691d3fa28f888c3be0add"
   "/posts/47":
     build_path: posts/47.html
-    etag: W/"02ac800341d70dab3b271711edcc6b47"
+    etag: W/"c5744b9fd9b782cf80b206f774642a9a"
   "/posts/48":
     build_path: posts/48.html
-    etag: W/"d7b760d5a4b43e3267c40011644e41fc"
+    etag: W/"424a6f531afc982cab41fb62dc631796"
   "/posts/49":
     build_path: posts/49.html
-    etag: W/"c96bb08ab6ebcedd96e40c67d072d3f1"
+    etag: W/"835ac0ca2539c2818512646ee23b61a7"
   "/posts/50":
     build_path: posts/50.html
-    etag: W/"2c905797d0bcb39ab0edacdbc8025ce6"
+    etag: W/"c7c1f36a8e7b6d62461f5d70a18ef56c"
   "/posts/51":
     build_path: posts/51.html
-    etag: W/"bfe2ac4b769ee94e315a988a35e80de5"
+    etag: W/"dffbf1b5a52c367cd21c3e47f663d038"
   "/posts/52":
     build_path: posts/52.html
-    etag: W/"655b907977628c3db24d57de9ddf2415"
+    etag: W/"54bc2a482d37cfca6b1a7a25042b61c6"
   "/posts/53":
     build_path: posts/53.html
-    etag: W/"136d2e9766ea695dbec178844e887b1e"
+    etag: W/"307ddddd5ae187735e234691f0474831"
   "/posts/54":
     build_path: posts/54.html
-    etag: W/"e76f86883c0698243d002a6e8d27777e"
+    etag: W/"3a2c1a871b725ea3067385b8c3606d2a"
   "/posts/55":
     build_path: posts/55.html
-    etag: W/"a84d3a97b76afb18405da2ad8ad7c731"
+    etag: W/"bdff55c5b6266c622093b674a7fe309d"
   "/posts/56":
     build_path: posts/56.html
-    etag: W/"92dab6940c63a77833eb6340bf398bbb"
+    etag: W/"dba46f98ccb5d2e6d215baf8740d77da"
   "/posts/57":
     build_path: posts/57.html
-    etag: W/"2ba11bc2abc1830b97b33b46f03ec834"
+    etag: W/"14c23c55a4720ee1467325cab381b06a"
   "/posts/58":
     build_path: posts/58.html
-    etag: W/"af4d0a8d9767d230ce07c64463915470"
+    etag: W/"bdf3775b9d787af0f7d83e7bf6429a62"
   "/posts/59":
     build_path: posts/59.html
-    etag: W/"b57001304f61b3a609e8251ebfffcaad"
+    etag: W/"271927d1762e71167255083e9ad81ca4"
   "/posts/60":
     build_path: posts/60.html
-    etag: W/"6fcb74787473a8ca91ad282318319c8b"
+    etag: W/"d564ddf48eea509212049263beed349b"
   "/posts/61":
     build_path: posts/61.html
-    etag: W/"8228ab151939b2f242e1c8f2e46b0e2a"
+    etag: W/"7b7636906cbc50bd0907dc805529ec51"
   "/posts/62":
     build_path: posts/62.html
-    etag: W/"5d391a1e1249b5533646a30fa0ffb79f"
+    etag: W/"41264888f0b87f6678c641ccd4641d38"
   "/posts/63":
     build_path: posts/63.html
-    etag: W/"6a33ec4015efd320df711420af5e596e"
+    etag: W/"df2ee7bc8405fc2891e79b33f1eddd6f"
   "/posts/64":
     build_path: posts/64.html
-    etag: W/"44429f7ca4c7b79841e03f3819f574ea"
+    etag: W/"c5e59ff75f1d4d2b29ebc637b5306f3e"
   "/posts/65":
     build_path: posts/65.html
-    etag: W/"8f6ef33f676d6d0b66e7832c67cc3280"
+    etag: W/"cabcc19d2185d5276388d0aaa8475c15"
   "/posts/66":
     build_path: posts/66.html
-    etag: W/"3bac2983ab039722b311efc7f61cbda0"
+    etag: W/"5766b281dc45425423d32de9a089c58d"
   "/posts/67":
     build_path: posts/67.html
-    etag: W/"ad754bbeb68f2550bd8675f6c3e8926f"
+    etag: W/"9384fb4a0925b8a5cb49666b958029f1"
   "/posts/68":
     build_path: posts/68.html
-    etag: W/"b06900ac13f6846d3a681579fd1d7e71"
+    etag: W/"f1399ccd6365db8b5a4b11e140494852"
   "/posts/69":
     build_path: posts/69.html
-    etag: W/"760402e351b498af6bfbd96d158158f8"
+    etag: W/"e036c343e6d785a64dfb4200373a1e7d"
   "/posts/70":
     build_path: posts/70.html
-    etag: W/"0e84aee08f64747c3269fbe004e0ff1a"
+    etag: W/"04353139fecbdce91a0b56e25b42a5ff"
   "/posts/71":
     build_path: posts/71.html
-    etag: W/"d688d79b02e0725d91018d1e5083a5ff"
+    etag: W/"6b73e5a7a30a8416fb598c914fc0188f"
   "/posts/72":
     build_path: posts/72.html
-    etag: W/"256f5816f7f7187dc247ac7042daeee0"
+    etag: W/"6f94bbd1ce4338ca7733446fb057e842"
   "/posts/73":
     build_path: posts/73.html
-    etag: W/"a4a228c6fb8b9f2e3fa73617c725224a"
+    etag: W/"79daf5550e9c6e881fc2c3fa6ebefc4a"

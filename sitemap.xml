@@ -4362,4 +4362,10 @@
       <changefreq>daily</changefreq>
       <priority>1.0</priority>
     </url>
+     <url>
+      <loc>https://island94.org/2026/10/adding-custom-thor-commands-to-your-rails-app</loc>
+      <lastmod>2026-10-12</lastmod>
+      <changefreq>daily</changefreq>
+      <priority>1.0</priority>
+    </url>
 </urlset>

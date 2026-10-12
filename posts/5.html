@@ -118,6 +118,152 @@
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
     <h1 class="post-title" itemprop="name headline">
+      <a class="post-link" href="/2025/01/how-im-thinking-about-ai-llms"><p>How I’m thinking about AI (LLMs)</p>
+</a>
+    </h1>
+    <p class="post-meta text-muted">
+        <time datetime="2025-01-05T22:49:00Z" itemprop="datePublished">January 5, 2025</time>
+
+        • Tagged <a href="/posts/tags/ai">ai</a> and <a href="/posts/tags/opinions">opinions</a>
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>With AI, in my context we’re talking about LLMs (Large Language Models), which I simplify down to “text generator”: they take text as input, and they output text.</p>
+
+<p>I wrote this to share with some folks I’m collaborating with on building AI-augmented workflows. I’ve struggled to find something that is both condensed and whose opinionations match my own. So I wrote it myself.</p>
+
+<p>The following explanation is intended to be accurate, but not particularly precise. For example, there is ChatGPT the product, there is an LLM at the bottom, and then in the middle there are other functions and capabilities. Or Claude or AWS Nova or Llama. These things are more than <em>*just*</em> LLMs, but they are also <em>not much</em> more than an LLM. Some of these tools can also interpret images and documents and audio and video. To do so, they’re passing those documents through specialized functions like OCR (optical character recognition), voice-recognition and image-recognition tools and then those results are turned into more text input. And some of them can take “Actions” with “Agents” which is still based on text output, just being structured and fed into something else. It’s text text text.</p>
+
+<p>(also, if something is particularly wrong, let me know please)</p>
+
+<h3 id="a-little-about-llms">A little about LLMs</h3>
+
+<p>The language around LLMs and “AI” is fucked up with hype and inappropriate metaphors. But the general idea is there is two key phases to keep track of:</p>
+
+<ol>
+  <li>Training: Baking the model. At which point it’s done. I don’t know anyone who is actually building models Everyone is using something like OpenAI or Claude or Llama. And even while these things can be “fine tuned” I don’t know anyone doing it; operating at the model level requires input data on the order of tens of thousands of inputs/examples.</li>
+  <li>Prompting: Using the model, giving input and getting output. This is everything the vast majority of developers are doing.</li>
+</ol>
+
+<p>That’s it. Those are the only two buckets you need to think about.</p>
+
+<h4 id="1-training">1. Training</h4>
+
+<p>The way AI models get made is to first collect trillions of pages of written text (an example is <a href="https://commoncrawl.org/">Common Crawl</a> which scrapes the Internet). Then use machine learning to identify probabilistic patterns that can be represented by only several billion variables (floating point numbers). This is called <strong>“Pre Training”</strong>. At this point, you can say “Based on the input data, it’s probabilistically likely that the word after “eeny meany miney” is “moe”.</p>
+
+<p>Then there is the phase of <strong>“Fine Tuning”</strong> which makes sure that longer strings of text input are completed in ways that are intended (never right or wrong, just intended or expected). For example, if the text input is “Write me a Haiku about frogs” you expect a short haiku about frogs and not a treatise on the magic of the written word or amphibians. Fine tuning is largely accomplished by tens of thousands of workers in Africa and South Asia reading examples of inputs and outputs and clicking 👍 or 👎 on their screen. This is then fed back into machine learning models to say, of the billion variables, which variables should get a little more or less oomph when they’re calculating the output. Fine Tuning requires tens of thousands of these scored examples; again, this is probabilistic-scale stuff. This can also be called <strong>RLHF (Reinforcement Learning from Human Feedback)</strong>, though that sometimes also refers to few-shot prompting, which is Prompt-phase (“Learning” is a nonsense word in the AI domain; it has zero salience without clarifying which phase you’re talking about). A lot of the interesting fine-tuning, imo, comes from getting these text generators to:</p>
+
+<ul>
+  <li>Read like a human chatting with you, rather than textual diarrhea</li>
+  <li>Getting structured output, like valid JSON, rather than textual diarrhea</li>
+</ul>
+
+<p>Note: You can mentally slot in words like “parameters”, “dimensions”, “weights” and “layers” into all this. Also whenever someone says “we don’t really know how they work” what they really mean is “there’s a lot of variables and I didn’t specifically look at them all”. But that’s no different than being given an Excel spreadsheet with several VLOOKUPS and functions and saying “sure, that looks ok” and copy-pasting the report on to your boss; I mean, you <em>could</em> figure it all out, but it seems to work and you’re a busy person.</p>
+
+<p>Ok, now we’re done with training. The model at this point is baked and no further modification takes place: no memory, no storage, no “learning” in the sense of a biological process. From this point further they operate as a function: input in, output out, no side effects.</p>
+
+<p>Here’s how AWS Bedrock, which is how I imagine lots of companies are using AI in their product, <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/data-protection.html">describes all this</a>:</p>
+
+<blockquote>
+  <p>After delivery of a model from a model provider [Anthropic, OpenAI, Meta] to AWS, Amazon Bedrock will perform a deep copy of a model provider’s inference and training software into those accounts for deployment. Because the model providers don’t have access to those accounts, they don’t have access to Amazon Bedrock logs or to customer prompts and completions.</p>
+</blockquote>
+
+<p>See! It’s all just dead artifacts uploaded into S3, that are then loaded onto EC2 on-demand. A fancy lambda! Nothing more.</p>
+
+<h4 id="2-prompting">2. Prompting</h4>
+
+<p>Prompting is when we give the model input, and then it gives back some output. That’s it. Unless we are specifically collecting trillions of documents, or doing fine-tuning against thousands of examples (which we are NOT!), we are simply writing a prompt, and having the model generate some text based on it. It riffs. The output can be called “completions” because they’re just that: More words.</p>
+
+<p>(Fun fact: how to get the LLM to <em>stop</em> writing words is a hard problem to solve)</p>
+
+<p>Note: You might sometimes see prompting called model “testing” (as opposed to model building or training). That’s because you’re powering up the artifact to put some words through it. Testing testing is called “Evaluations” (“Evals” for short) and like all test test regimes the lukewarm debate I hear from everybody is “we aren’t but should we?”</p>
+
+<h3 id="writing-prompts">Writing prompts</h3>
+
+<p>This is the work! Unfortunately the language used to describe all of this is truly and totally fucked. By which I mean that words like “learning” and “thought” and “memory” and even “training” is reused again.</p>
+
+<p>It’s all about simply writing a prompt that boops the resulting text generator output into the shape you want. It’s all snoot-booping, all the time.</p>
+
+<p>Going back to the Training data, let’s make some conceptual distinctions:</p>
+
+<ul>
+  <li>Content: specific facts, statements and assertions that were (possibly) encoded into those billions of probabilities from the training data</li>
+  <li>Structure: the overall probability that a string of words (really fragments of words) comes out again looking like something we expect, which has been adjusted via Fine Tuning</li>
+</ul>
+
+<p>Remember, this is just a probabilistic text generator. So there is probabilistic facts, and probabilistic structure. And that probabilistic part is why we have words like “hallucination” and “slop” and “safety”. There’s no there there. It’s just probabilities. There’s no guarantee that a particular fact has been captured in those billions of variables. It’s just a text generator. And it’s been trained on a lot of dumb shit people write. It’s <em>just</em> a text generator. Don’t trust it.</p>
+
+<p>So on to some prompting strategies:</p>
+
+<ul>
+  <li><strong>Zero-Shot Prompting:</strong> This just means to ask something open-ended and the AI returns something that probabilistical follows:
+    <blockquote>
+      <p>Classify the sentiment of the following review as positive, neutral, or negative: “The quality is amazing, and it exceeded my expectations”</p>
+    </blockquote>
+  </li>
+  <li><strong>Few-Shot (or one-shot/multi-shot) Prompting</strong>: This just means to provide one or more examples of “expected” completions in the prompt (remember, this is all prompt, not fine-tuning) to try to narrow down what could probabilistically follow:
+    <blockquote>
+      <p>Task: Classify the sentiment of the following reviews as positive, neutral, or negative.<br />
+Examples:</p>
+      <ol>
+        <li>“I absolutely adore this product. It’s fantastic!” - positive</li>
+        <li>“It’s okay, not the best I’ve used.” - neutral</li>
+        <li>“This is terrible. I regret buying it.” - negative<br />
+Now classify this review:</li>
+        <li>“The quality is amazing, and it exceed my expectations” - [it’s blank, for the model to finish]</li>
+      </ol>
+    </blockquote>
+  </li>
+</ul>
+
+<p><em>Note: Zero/One/Few/Multi-Shot is sometimes called “Learning” instead of “Prompting”. This is a terrible name, because there is no learning (the models are dead!) but is one of those things where the most assume-good-intent explanation is that over the course of the prompt and its incrementally generated completion that the output assumes the desired shape.</em></p>
+
+<ul>
+  <li><strong>Chain of Thought Prompting</strong>: The idea here is that the prompt includes a description of how a human might explain what they were doing to complete the prompt. And that boops the completion into filling out those steps, and arriving at a more expected answer:
+    <blockquote>
+      <p>Classify the sentiment of the following review as positive, neutral, or negative.<br />
+“I absolutely adore this product. It’s fantastic!”<br />
+Analysis 1: How does it describe the product?<br />
+Analysis 2: How does it describe the functionality of the product?<br />
+Analysis 3: How does it describe their relationship with the product?<br />
+Analysis 4: How does it describe how friends, family, or others relate to the product?<br />
+Overall: Is it positive, neutral, or negative?</p>
+    </blockquote>
+  </li>
+</ul>
+
+<p><em>Note: again, there is no “thought” happening. The point of the prompt is to boop the text completion into giving a more expected answer. There are some new models (as of late 2024) that are supposed to do Chain-of-Thought implicitly; afaik there is just a hidden/unshown prompt that says “break this down into steps” and an intermediate output that takes the output of that and feeds it into another hidden/unshown prompt and then the output of that is shown to you. That’s why they costs more, cause it’s invoking the the LLM twice on your behalf.</em></p>
+
+<ul>
+  <li><strong>Chain Prompting</strong>: This simply means that you take the output of one prompt, and then feed that into a new prompt. This can be useful to isolate a specific prompt and output. It might also be necessary because of the length: LLMs can only operate on so many words, so if you need to summarize a long document in a prompt, you’d need to first break it down into smaller chunks, use the LLM to summarize each chunk, and then combine the summaries into a new prompt for the LLM summarize that.</li>
+  <li><strong>RAG (Retrieval Augmented Generation) Prompting</strong>: This means that you look up some info in a database, and then insert that into the prompt before handing it to the LLM. Everything is prompt, there is only prompt.</li>
+</ul>
+
+<p><em>Note: <strong>“Embeddings”</strong> are a way of search indexing your text. LLMs take all those trillions of documents and probabilistically boils them down to several billion variables. Embeddings boil down further to a couple thousand variables (floating point numbers). Creating an embedding means providing a piece of text, and you get back the values of those thousand floating point numbers that probabilistically describe that text (big brain idea: it is the document’s location in a thousand-dimensional space). That lets you compute across multiple documents “given this document within the n-dimensional space, what are its closest neighboring documents semantically/probabilistically?” Embeddings are useful when you want to do RAG Prompting to pull out relevant documents and insert their text into your prompt before it’s fed to the LLM to generate output.</em></p>
+
+<ul>
+  <li><strong>Cues and Nudges</strong> There are <a href="https://web.archive.org/web/20241112140504/https://news.ycombinator.com/item?id=40474716">certain phrases</a>, like “no yapping” or <a href="https://arstechnica.com/information-technology/2023/09/telling-ai-model-to-take-a-deep-breath-causes-math-scores-to-soar-in-study/">“take a deep breath”</a> that change the output. I don’t think there is anything delightful about this; it’s simply trying to boop up the variables you want in your output and words are the only inputs you have. I’m sure there will someday be better ways to do it, but whatever works.</li>
+</ul>
+
+<h3 id="a-strong-opinion-about-zero-shot-prompting">A strong opinion about zero-shot prompting</h3>
+
+<p>Don’t do it! I think it’s totally fine if you just want to ask a question and try to intuit the extent that the model has been trained or tuned on the particular domain you’re curious about. But you should put ZERO stock in the answer as something factual.</p>
+
+<p>If you need facts, you must provide the facts as part of your prompt. That means:</p>
+
+<ul>
+  <li>Providing a giant pile of text as content, or breaking it down (like via embeddings) and injecting smaller chunks via RAG</li>
+  <li>Providing any and all input you ever expect to get out of the output</li>
+</ul>
+
+<p>It’s ok to summarize, extract, translate or sentiment. The only reason it’s ok to zero-shot code is because it’s machine verifiable (you run it). Otherwise, you must verify! Or don’t do it at all.</p>
+
+  </div>
+</article>
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">
       <a class="post-link" href="/2024/12/including-rails-view-helpers-concern"><p>Including Rails View Helpers is a concern</p>
 </a>
     </h1>
@@ -981,63 +1127,6 @@ from code loaded at boot.
 </code></pre></div></div>
 
 <p>That’s everything. All in all I’m very happy with the migration 🌅</p>
-
-  </div>
-</article>
-<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">
-      <a class="post-link" href="/2024/07/introducing-goodjob-v4"><p>Introducing GoodJob v4</p>
-</a>
-    </h1>
-    <p class="post-meta text-muted">
-        <time datetime="2024-07-07T04:44:00Z" itemprop="datePublished">July 7, 2024</time>
-
-        • Tagged <a href="/posts/tags/goodjob">GoodJob</a> and <a href="/posts/tags/rails">Rails</a>
-    </p>
-  </header>
-
-  <div class="post-content" itemprop="articleBody">
-    <p>GoodJob version 4.0 has been released! 🎉 GoodJob v4 has breaking changes that should be addressed through a transitionary v3.99 release, but if you’ve kept up with v3.x releases and migrations, you’re likely ready to upgrade 🚀</p>
-
-<p>The <a href="https://github.com/bensheldon/good_job?tab=readme-ov-file#upgrading-v3-to-v4">README has an upgrade guide</a>. If you’d like to leave feedback about this release, please comment on the <a href="https://github.com/bensheldon/good_job/discussions/1396">GitHub Discussions post 📣</a></p>
-
-<p>If you’re not familiar with GoodJob, you can read the <a href="https://island94.org/2020/07/introducing-goodjob-1-0">introductory blog post</a> from four years ago. We’ve come pretty far.</p>
-
-<h3 id="breaking-changes-to-job-schema">Breaking changes to job schema</h3>
-
-<p>GoodJob v4 changes how job and job execution records are stored in the database; moving from job and executions being commingled in the <code>good_jobs</code> table to Jobs (still in <code>good_jobs</code>) having many discrete Execution records in the <code>good_job_executions</code> table.</p>
-
-<p>To safely upgrade, all unfinished jobs must use the new schema relationship, tracked in the <code>good_jobs.is_discrete</code> column. This change was transparently introduced in GoodJob <a href="https://github.com/bensheldon/good_job/releases/tag/v3.15.4">v3.15.4 (April 2023)</a>, so your application is likely ready-to-upgrade already if you have kept up with GoodJob updates and migrations. You can check by running <code>v3.99</code>’s <code>GoodJob.v4_ready?</code> in production or run the following SQL query on the production database and check it returns zero: <code>SELECT COUNT(*) FROM "good_jobs" WHERE finished_at IS NULL AND is_discrete IS NOT TRUE</code>. If not all unfinished jobs are stored in the new format, either wait to upgrade until those jobs finish or discard them. If you upgrade prematurely to v4 without allowing those jobs to finish, they may never be performed.</p>
-
-<h3 id="other-notable-changes">Other notable changes</h3>
-
-<p>GoodJob v4:</p>
-
-<ul>
-  <li>Only supports Rails 6.1+, CRuby 3.0+ and JRuby 9.4+, Postgres 12+. Rails 6.0 is no longer supported. CRuby 2.6 and 2.7 are no longer supported. JRuby 9.3 is no longer supported.</li>
-  <li>Changes job priority to give smaller numbers higher priority (default: 0), in accordance with Active Job’s definition of priority.</li>
-  <li>Enqueues and executes jobs via the <code>GoodJob::Job</code> model instead of <code>GoodJob::Execution</code></li>
-  <li>Changes the behavior of <code>config.good_job.cleanup_interval_jobs</code>, <code>GOOD_JOB_CLEANUP_INTERVAL_JOBS</code>, <code>config.good_job.cleanup_interval_seconds</code>, or <code>GOOD_JOB_CLEANUP_INTERVAL_SECONDS</code> set to <code>nil</code> or <code>””</code> to no longer disable count- or time-based cleanups. Instead, now set to <code>false</code> to disable, or <code>-1</code> to run a cleanup after every job execution.</li>
-</ul>
-
-<h3 id="new-features">New Features</h3>
-
-<p>GoodJob v4 does not introduce any new features on its own. In the 110 releases since GoodJob v3.0 was released (June, 2022), these new features and improvements have been introduced:</p>
-
-<ul>
-  <li><a href="https://github.com/bensheldon/good_job#batches">Batches</a></li>
-  <li>Bulk enqueueing including support for Active Job’s <code>perform_all_later</code>.</li>
-  <li><a href="https://github.com/bensheldon/good_job?tab=readme-ov-file#labelled-jobs">Labelled jobs</a></li>
-  <li>Throttling added to <a href="https://github.com/bensheldon/good_job?tab=readme-ov-file#concurrency-controls">Concurrency Controls</a></li>
-  <li>Improvements to the <a href="https://goodjob-demo.herokuapp.com/good_job/jobs">Web Dashboard</a>, including Dark Mode, performance dashboard, and improved UI, and customizable templates.</li>
-  <li>Storage of error backtraces. Improved handling of job error conditions, including signal interruptions. Added <code>GoodJob.current_thread_running?</code> and <code>GoodJob.current_thread_shutting_down?</code> to support job iteration.</li>
-  <li><a href="https://github.com/bensheldon/good_job/pull/665">Ordered Queues</a>, <a href="https://github.com/bensheldon/good_job/pull/727"><code>queue_select_limit</code></a> and further options for configuring queue order and performance.</li>
-  <li>Improvements to Cron / Repeating Jobs.</li>
-  <li>Operational improvements including <code>systemd</code> integration, improved health checks.</li>
-</ul>
-
-<p><strong>A huge thank you to 88 (!) GoodJob v3.x contributors 🙇🏻</strong> @afn, @ain2108, @aisayo, @Ajmal, @aki77, @alec-c4, @AndersGM, @andyatkinson, @andynu, @arnaudlevy, @baka-san, @benoittgt, @bforma, @BilalBudhani, @binarygit, @bkeepers, @blafri, @blumhardts, @ckdake, @cmcinnes-mdsol, @coreyaus, @DanielHeath, @defkode, @dixpac, @Earlopain, @eric-christian, @erick-tmr, @esasse, @francois-ferrandis, @frans-k, @gap777, @grncdr, @hahwul, @hidenba, @hss-mateus, @Intrepidd, @isaac, @jgrau, @jklina, @jmarsh24, @jpcamara, @jrochkind, @julienanne, @julik, @LucasKendi, @luizkowalski, @maestromac, @marckohlbrugge, @maxim, @mec, @metalelf0, @michaelglass, @mitchellhenke, @mkrfowler, @morgoth, @Mr0grog, @mthadley, @namiwang, @nickcampbell18, @padde, @patriciomacadden, @paul, @Pauloparakleto, @pgvsalamander, @remy727, @rrunyon, @saksham-jain, @sam1el, @sasha-id, @SebouChu, @segiddins, @SemihCag, @shouichi, @simi, @sparshalc, @stas, @steveroot, @TAGraves, @tagrudev, @thepry, @ur5us, @WailanTirajoh, @yenshirak, @ylansegal, @yshmarov, @zarqman</p>
 
   </div>
 </article>
