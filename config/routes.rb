@@ -34,5 +34,7 @@ Rails.application.routes.draw do
   get 'robots', to: 'robots#robots', as: :robots, format: :txt, defaults: { format: :txt }
   get 'sitemap', to: 'robots#sitemap', as: :sitemap, format: :xml, defaults: { format: :xml }
 
+  mount Editor::Engine, at: "/editor" if defined?(Editor::Engine)
+
   get "*path", to: redirect { |_params, request| Redirect.path(request.fullpath) }, constraints: ->(req) { Redirect.path?(req.fullpath) }
 end

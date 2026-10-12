@@ -1,0 +1,74 @@
+<% content_for :title, @document.title %>
+
+<div class="row justify-content-center"
+     id="workshop"
+     data-controller="proofread autosave"
+     data-proofread-findings-url-value="<%= document_findings_path(@document) %>"
+     data-autosave-url-value="<%= autosave_document_path(@document) %>"
+     data-action="submit->autosave#guard">
+
+  <%# ---- Editable document column ---- %>
+  <div class="col-lg-7 position-relative">
+    <div class="d-flex flex-wrap align-items-center gap-2 mb-3">
+      <code class="small text-muted"><%= @document.project_filepath %></code>
+      <div class="ms-auto d-flex gap-2">
+        <%= link_to "View post", @document.public_path, class: "btn btn-sm btn-outline-secondary", target: "_blank", rel: "noopener" %>
+        <%= link_to "History", document_revisions_path(@document), class: "btn btn-sm btn-outline-secondary" %>
+        <%= button_to "Flag revision", document_revisions_path(@document), class: "btn btn-sm btn-outline-warning" %>
+      </div>
+    </div>
+
+    <%= form_with model: @document, url: document_path(@document), method: :patch,
+          data: { autosave_target: "form", action: "input->autosave#schedule lexxy:change->autosave#schedule" } do |form| %>
+      <div class="d-flex justify-content-end mb-1">
+        <span class="text-muted small" data-autosave-target="status">Saved</span>
+      </div>
+      <%= form.text_field :title, class: "doc-title-input mb-2", placeholder: "Untitled post" %>
+
+      <details class="mb-3">
+        <summary class="small text-muted">Front matter</summary>
+        <%= form.text_area :front_matter, rows: [@document.front_matter.lines.size + 1, 4].max, class: "form-control form-control-sm font-monospace mt-2", spellcheck: false %>
+      </details>
+
+      <div class="writing-surface hl-shell" data-proofread-target="shell" data-controller="straight-quotes"
+           data-action="click->proofread#activateFromCaret keyup->proofread#activateFromCaret">
+        <div class="hl-overlay" data-proofread-target="overlay" aria-hidden="true"></div>
+        <%= content_tag "lexxy-editor", "", class: "lexxy-content", name: "document[body_html]", value: @document.body_html,
+              "permitted-attachment-types": "text/html", placeholder: "Write something…" %>
+      </div>
+
+      <div class="d-flex gap-2 mt-3">
+        <%= form.submit "Save revision", class: "btn btn-sm btn-dark" %>
+      </div>
+    <% end %>
+
+    <p class="text-muted small mt-2">
+      Proofreading runs in your browser as you type, with Harper and Chrome's
+      built-in Gemini Nano. Edits are converted to Markdown and autosaved to the file.
+    </p>
+
+  </div>
+
+  <%# ---- Proofreading sidebar ---- %>
+  <aside class="col-lg-4">
+    <div class="commentary-sidebar">
+      <div class="commentary-header mb-3">
+        <div class="d-flex align-items-center">
+          <h2 class="h6 mb-0">Proofreading</h2>
+          <div class="ms-auto d-flex align-items-center gap-2">
+            <span class="text-muted small" data-proofread-target="counter"></span>
+            <div class="btn-group">
+              <button type="button" class="btn btn-sm btn-outline-secondary" data-action="proofread#previous" title="Previous">&larr;</button>
+              <button type="button" class="btn btn-sm btn-outline-secondary" data-action="proofread#next" title="Next">&rarr;</button>
+            </div>
+          </div>
+        </div>
+        <div class="small text-muted mt-1" data-proofread-target="gemini"></div>
+      </div>
+
+      <div class="commentary-scroll" data-proofread-target="sidebar">
+        <%= render "editor/findings/list", document: @document, findings: @findings %>
+      </div>
+    </div>
+  </aside>
+</div>
