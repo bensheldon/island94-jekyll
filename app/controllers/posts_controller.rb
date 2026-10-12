@@ -19,9 +19,9 @@ class PostsController < ApplicationController
   end
 
   def tag
-    @tag = params[:tag_slug]&.parameterize
+    @tag = Post.tags.find { |tag| tag.parameterize == params[:tag_slug] }
     raise ActionController::RoutingError, "Not Found" unless @tag
 
-    @posts = Post.all.select { |post| post.tags.include?(@tag) }
+    @posts = Post.all.select { |post| post.tag_slugs.include?(params[:tag_slug]) }
   end
 end
