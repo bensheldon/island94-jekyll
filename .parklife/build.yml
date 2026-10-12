@@ -10,7 +10,7 @@ paths:
     etag: W/"5bbdc03cbb089e921bb4e9d7bf57c2c8"
   "/bookmarks":
     build_path: bookmarks.html
-    etag: W/"0db4ac53e8176bc0ce60802a719c90d0"
+    etag: W/"4b76961ba1a120e0b3e3ecb87694841d"
   "/search":
     build_path: search.html
     etag: W/"dfef525cd97cefb701e94ed1c0b5ab4b"
@@ -3704,6 +3704,9 @@ paths:
     build_path: 2025/1/how-im-thinking-about-ai-llms.html
   "/2025/1/living-parklife-with-rails-coming-from-jekyll":
     build_path: 2025/1/living-parklife-with-rails-coming-from-jekyll.html
+  "/bookmarks/2026/10/github-com-ravigadgil-writing-helper":
+    build_path: bookmarks/2026/10/github-com-ravigadgil-writing-helper.html
+    etag: W/"44bb61da1b90c8766f85ba13c33ce40d"
   "/bookmarks/2026/10/jasongriffey-net-2026-10-12-work-update-publishing-heroes-report":
     build_path: bookmarks/2026/10/jasongriffey-net-2026-10-12-work-update-publishing-heroes-report.html
     etag: W/"f04c114e9dbd90583b89610005b6382f"
