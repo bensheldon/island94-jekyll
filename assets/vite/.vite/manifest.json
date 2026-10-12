@@ -6,13 +6,13 @@
     "isDynamicEntry": true
   },
   "../../vite/legacy-polyfills-legacy": {
-    "file": "assets/polyfills-legacy-DeTkG8vT.js",
+    "file": "assets/polyfills-legacy-7rm_FOgz.js",
     "name": "polyfills",
     "src": "../../vite/legacy-polyfills-legacy",
     "isEntry": true
   },
   "entrypoints/application-legacy.js": {
-    "file": "assets/application-legacy-D-GVNTyO.js",
+    "file": "assets/application-legacy-BJUSYmLe.js",
     "name": "entrypoints/application.js",
     "src": "entrypoints/application-legacy.js",
     "isEntry": true,
@@ -27,7 +27,7 @@
     "isDynamicEntry": true
   },
   "entrypoints/application.js": {
-    "file": "assets/application-DMmR6YbA.js",
+    "file": "assets/application-CHNL1LYZ.js",
     "name": "entrypoints/application.js",
     "src": "entrypoints/application.js",
     "isEntry": true,

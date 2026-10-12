@@ -1,0 +1,1 @@
+throw Error(`Could not resolve "@rails/activestorage" imported by "@37signals/lexxy". Is it installed?`);

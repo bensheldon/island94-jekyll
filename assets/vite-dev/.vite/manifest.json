@@ -1,4 +1,22 @@
 {
+  "../../__vite-optional-peer-dep:@rails/activestorage:@37signals/lexxy-legacy": {
+    "file": "assets/lexxy-legacy-CRoJ7LJF.js",
+    "name": "lexxy",
+    "src": "../../__vite-optional-peer-dep:@rails/activestorage:@37signals/lexxy-legacy",
+    "isDynamicEntry": true
+  },
+  "../../engines/editor/app/javascript/editor-legacy.js": {
+    "file": "assets/editor-legacy-CNUpbY_K.js",
+    "name": "engines/editor/app/javascript/editor.js",
+    "src": "../../engines/editor/app/javascript/editor-legacy.js",
+    "isEntry": true,
+    "imports": [
+      "_dist-legacy-CEvILvca.js"
+    ],
+    "dynamicImports": [
+      "../../__vite-optional-peer-dep:@rails/activestorage:@37signals/lexxy-legacy"
+    ]
+  },
   "../../node_modules/@rails/actioncable/src/index-legacy.js": {
     "file": "assets/src-legacy-CQ-iPgvu.js",
     "name": "src",
@@ -6,18 +24,49 @@
     "isDynamicEntry": true
   },
   "../../vite/legacy-polyfills-legacy": {
-    "file": "assets/polyfills-legacy-DeTkG8vT.js",
+    "file": "assets/polyfills-legacy-Dvf1MhFV.js",
     "name": "polyfills",
     "src": "../../vite/legacy-polyfills-legacy",
     "isEntry": true
   },
+  "_dist-legacy-CEvILvca.js": {
+    "file": "assets/dist-legacy-CEvILvca.js",
+    "name": "dist",
+    "dynamicImports": [
+      "../../node_modules/@rails/actioncable/src/index-legacy.js"
+    ]
+  },
   "entrypoints/application-legacy.js": {
-    "file": "assets/application-legacy-D-GVNTyO.js",
+    "file": "assets/application-legacy-CgtkqYon.js",
     "name": "entrypoints/application.js",
     "src": "entrypoints/application-legacy.js",
     "isEntry": true,
+    "imports": [
+      "_dist-legacy-CEvILvca.js"
+    ]
+  },
+  "../../__vite-optional-peer-dep:@rails/activestorage:@37signals/lexxy": {
+    "file": "assets/lexxy-VLSjGP7_.js",
+    "name": "lexxy",
+    "src": "../../__vite-optional-peer-dep:@rails/activestorage:@37signals/lexxy",
+    "isDynamicEntry": true
+  },
+  "../../engines/editor/app/javascript/editor.js": {
+    "file": "assets/editor-COinyNwG.js",
+    "name": "engines/editor/app/javascript/editor.js",
+    "src": "../../engines/editor/app/javascript/editor.js",
+    "isEntry": true,
+    "imports": [
+      "_dist-BFMpUNvk.js"
+    ],
     "dynamicImports": [
-      "../../node_modules/@rails/actioncable/src/index-legacy.js"
+      "../../__vite-optional-peer-dep:@rails/activestorage:@37signals/lexxy"
+    ],
+    "css": [
+      "assets/editor-BfKs_qN2.css"
+    ],
+    "assets": [
+      "assets/harper_wasm_bg-BEyNQVrT.wasm"
     ]
   },
   "../../node_modules/@rails/actioncable/src/index.js": {
@@ -26,13 +75,24 @@
     "src": "../../node_modules/@rails/actioncable/src/index.js",
     "isDynamicEntry": true
   },
+  "../../node_modules/harper.js/dist/harper_wasm_bg.wasm": {
+    "file": "assets/harper_wasm_bg-BEyNQVrT.wasm",
+    "src": "../../node_modules/harper.js/dist/harper_wasm_bg.wasm"
+  },
+  "_dist-BFMpUNvk.js": {
+    "file": "assets/dist-BFMpUNvk.js",
+    "name": "dist",
+    "dynamicImports": [
+      "../../node_modules/@rails/actioncable/src/index.js"
+    ]
+  },
   "entrypoints/application.js": {
-    "file": "assets/application-BubkaVEr.js",
+    "file": "assets/application-DWNFs8XG.js",
     "name": "entrypoints/application.js",
     "src": "entrypoints/application.js",
     "isEntry": true,
-    "dynamicImports": [
-      "../../node_modules/@rails/actioncable/src/index.js"
+    "imports": [
+      "_dist-BFMpUNvk.js"
     ]
   }
 }
