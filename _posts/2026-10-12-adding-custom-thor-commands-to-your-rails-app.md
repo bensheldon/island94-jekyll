@@ -2,7 +2,7 @@
 title: "Adding custom Thor commands to your Rails app"
 date: 2026-10-12 19:06 UTC
 published: true
-tags: []
+tags: [Ruby on Rails, Ruby]
 ---
 Thor is a really nice command-line runner, with much nicer support for arguments than Rake imo. The Rails framework supports both, but [since](https://github.com/rails/rails/pull/22457) [Rails 5.1](https://github.com/rails/rails/pull/26414) most Rails’ built-in commands (like `bin/rails db:migrate`) use Thor, and it’s very simple to add custom Thor-based commands to gems and engines too, which Rails will auto-discover when placed in the engine’s `lib/commands` directory.
 
