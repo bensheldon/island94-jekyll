@@ -5,6 +5,9 @@ RSpec.describe "Editor", :fake_claude do
   let(:filename) { "2026-01-01-editor-system-spec.md" }
   let(:document_path) { "/editor/documents/2026-01-01-editor-system-spec" }
 
+  # The modifier for keyboard shortcuts: ⌘ on macOS, Ctrl elsewhere (like CI).
+  let(:shortcut) { RUBY_PLATFORM.include?("darwin") ? :command : :control }
+
   it "creates a new unpublished post file" do
     visit "/editor"
     fill_in "title", with: "Editor Spec Brand New Post"
@@ -24,9 +27,9 @@ RSpec.describe "Editor", :fake_claude do
       visit document_path
       editor = find("lexxy-editor [contenteditable='true']")
       editor.click
-      editor.send_keys([:command, "a"], :backspace) # select all
+      editor.send_keys([shortcut, "a"], :backspace) # select all
       editor.send_keys("Edited ")
-      editor.send_keys([:command, "b"], "bold", [:command, "b"], " text.")
+      editor.send_keys([shortcut, "b"], "bold", [shortcut, "b"], " text.")
       click_on "Save revision"
 
       expect(page).to have_text "Saved _posts/#{filename}"
@@ -147,7 +150,8 @@ RSpec.describe "Editor", :fake_claude do
       visit document_path
       editor = find("lexxy-editor [contenteditable='true']")
       editor.click
-      editor.send_keys([:command, :down], " More.")
+      # Move to the end of the document
+      editor.send_keys(RUBY_PLATFORM.include?("darwin") ? [:command, :down] : [:control, :end], " More.")
       expect(page).to have_css("[data-autosave-target='status']", text: "Saved", wait: 5)
 
       expect(Post.from_file(post.filepath).body).to eq %(It's "quoted" -- ok...\n\nSecond. More.)
