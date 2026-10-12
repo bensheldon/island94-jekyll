@@ -30,6 +30,9 @@ module Editor
       raise NotFound, "Couldn't find a post named #{id}" unless path
 
       from_file(path)
+    rescue Errno::ENOENT
+      # The file was deleted after it was found.
+      raise NotFound, "Couldn't find a post named #{id}"
     end
 
     def self.from_file(path)

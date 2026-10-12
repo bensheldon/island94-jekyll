@@ -27,6 +27,15 @@ RSpec.describe Editor::Document do
     end
   end
 
+  it "is not found when its file is deleted while it's being found" do
+    allow(File).to receive(:read).and_call_original
+    allow(File).to receive(:read).with(a_string_ending_with("2026-01-01-editor-document-spec.md")).and_raise(Errno::ENOENT)
+
+    with_temporary_post(filename: filename, body: "Body") do
+      expect { described_class.find("2026-01-01-editor-document-spec") }.to raise_error(described_class::NotFound)
+    end
+  end
+
   it "refuses to write invalid front matter" do
     with_temporary_post(filename: filename, body: "Body") do |post|
       original = File.read(post.filepath)
