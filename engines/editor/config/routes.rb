@@ -2,14 +2,10 @@
 Editor::Engine.routes.draw do
   root "documents#index"
 
-  resources :passes, except: [:show]
-
   resources :documents, only: [:index, :show, :create, :update] do
     member do
       patch :autosave
     end
-
-    resources :reviews, only: [:index, :create]
 
     resources :revisions, only: [:index, :show, :create] do
       member do
@@ -17,6 +13,9 @@ Editor::Engine.routes.draw do
       end
     end
 
-    resources :highlights, only: [:update]
+    # Proofreading runs in the browser, which sends its findings here.
+    resources :findings, only: [:create, :update] do
+      post :reset, on: :collection
+    end
   end
 end

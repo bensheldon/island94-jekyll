@@ -3,8 +3,8 @@ require "json"
 require "fileutils"
 
 module Editor
-  # Storage for highlights, comments, revisions, reviews, and editing passes,
-  # persisted as a JSON file in tmp/ so that it survives server restarts.
+  # Storage for revisions and dismissed proofreading findings, persisted as a
+  # JSON file in tmp/ so that it survives server restarts.
   #
   # It lives outside of the autoloaded (reloadable) code and only holds plain
   # data so that it also survives development code reloads, which happen every
@@ -12,7 +12,6 @@ module Editor
   module Store
     @mutex = Monitor.new
     @_data = nil
-    @active_reviews = Set.new
 
     class << self
       def path=(path)
@@ -57,10 +56,6 @@ module Editor
           FileUtils.rm_f(path)
         end
       end
-
-      # Reviews being worked on by this process. Any others that are still
-      # pending were interrupted by a server restart.
-      attr_reader :active_reviews
 
       private
 

@@ -1,0 +1,16 @@
+<% open_findings = findings.select(&:open?) %>
+<% ignored_count = findings.count(&:ignored?) %>
+<div id="findings" data-proofread-target="findings" data-count="<%= open_findings.size %>">
+  <% if ignored_count.positive? %>
+    <div class="small text-muted mb-2">
+      <%= pluralize(ignored_count, "ignored finding") %> ·
+      <%= button_to "Show again", reset_document_findings_path(document), class: "btn btn-sm btn-link p-0 align-baseline", form_class: "d-inline" %>
+    </div>
+  <% end %>
+
+  <% if open_findings.empty? %>
+    <p class="text-muted small">No problems found.</p>
+  <% end %>
+
+  <%= render partial: "editor/findings/finding", collection: open_findings %>
+</div>

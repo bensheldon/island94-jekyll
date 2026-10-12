@@ -1,0 +1,30 @@
+<div class="commentary-card mb-2"
+     id="<%= dom_id(finding) %>"
+     data-key="<%= finding.key %>"
+     data-start="<%= finding.start %>"
+     data-end="<%= finding.end %>"
+     data-color="<%= finding_color(finding) %>"
+     data-action="click->proofread#focusCard">
+  <div class="d-flex align-items-center gap-2 mb-1">
+    <%= color_swatch finding_color(finding), class: "flex-shrink-0" %>
+    <span class="small fw-semibold text-truncate"><%= finding.rule %></span>
+    <% if finding.source == "ai" %>
+      <span class="ms-auto small text-muted">Gemini Nano</span>
+    <% end %>
+  </div>
+  <p class="small mb-2"><%= finding.message %></p>
+
+  <% if finding.suggestions.any? %>
+    <div class="d-flex flex-column gap-1 mb-2">
+      <% finding.suggestions.each do |suggestion| %>
+        <button type="button" class="suggestion-button small" title="Accept"
+                data-action="proofread#accept:stop" data-problem="<%= finding.problem %>" data-suggestion="<%= suggestion %>">
+          <%= suggestion_diff(finding.problem, suggestion) %>
+        </button>
+      <% end %>
+    </div>
+  <% end %>
+
+  <%= button_to "Ignore", document_finding_path(finding.document_id, finding), method: :patch,
+        params: { finding: { status: "ignored" } }, class: "btn btn-sm btn-link p-0 text-decoration-none text-muted" %>
+</div>

@@ -172,10 +172,6 @@ module Editor
       save
     end
 
-    def highlights
-      Highlight.for_document(self)
-    end
-
     def revisions
       Revision.for_document(self)
     end

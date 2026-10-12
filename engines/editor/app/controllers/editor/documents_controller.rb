@@ -9,9 +9,7 @@ module Editor
 
     def show
       @document.snapshot!(label: "Opened") if @document.revisions.empty?
-      @passes = Pass.active
-      @reviews = Review.recent_for(@document)
-      @highlights = ordered_by_document_position(@document.highlights)
+      @findings = Finding.for_document(@document)
     end
 
     def create
@@ -42,17 +40,6 @@ module Editor
     end
 
     private
-
-    # Sort highlights by where their quoted text appears in the document, so the
-    # commentary sidebar reads top-to-bottom with the prose. Highlights whose text
-    # is no longer present (stale) fall to the end.
-    def ordered_by_document_position(highlights)
-      text = @document.text
-      highlights.sort_by.with_index do |highlight, i|
-        index = text.index(highlight.quote)
-        [index.nil? ? 1 : 0, index || 0, i]
-      end
-    end
 
     def document_params
       params.expect(document: %i[title front_matter body_html])

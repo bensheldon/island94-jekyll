@@ -1,6 +1,12 @@
 # frozen_string_literal: true
 module Editor
   module ApplicationHelper
+    FINDING_COLORS = { "spelling" => "pink", "grammar" => "blue", "style" => "yellow", "ai" => "purple" }.freeze
+
+    def finding_color(finding)
+      FINDING_COLORS.fetch(finding.category, "blue")
+    end
+
     def color_swatch(color, **options)
       tag.span(class: ["color-swatch", "hl-#{color}", options.delete(:class)], **options)
     end
@@ -14,14 +20,6 @@ module Editor
         else text
         end
       end)
-    end
-
-    def severity_badge_class(severity)
-      case severity
-      when "high" then "text-bg-danger"
-      when "medium" then "text-bg-warning"
-      else "text-bg-secondary"
-      end
     end
   end
 end

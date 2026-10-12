@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 require_relative "editor/store"
-require_relative "editor/reviewer"
 require_relative "editor/engine"
 
 # A local-only writing tool for drafting and workshopping blog posts.
