@@ -16,7 +16,7 @@ paths:
     etag: W/"782878c629658bb48aa35fc4fe80bd4f"
   "/search.json":
     build_path: search.json
-    etag: W/"4500beeccce51e2dac751a58bcb513d2"
+    etag: W/"ec35810254d0bbb9746ccc7945986859"
   "/feed.xml":
     build_path: feed.xml
     etag: W/"428cfd80c8ceaf1192e5be350ae94ced"
@@ -36,19 +36,19 @@ paths:
     etag: W/"69d74ce2b2aced933b98887415f77904"
   "/tags":
     build_path: tags.html
-    etag: W/"141313e2fcddc035b8738ce9f3b11531"
+    etag: W/"de96ed7408a93844ecb0797ca7760829"
   "/2012/04/a-commonplace-book":
     build_path: 2012/04/a-commonplace-book.html
     etag: W/"d65e954814fc160f731f19aa0e81b906"
   "/2026/10/adding-custom-thor-commands-to-your-rails-app":
     build_path: 2026/10/adding-custom-thor-commands-to-your-rails-app.html
-    etag: W/"d6d9e613653d01fc8c56b5ef8238a4c7"
+    etag: W/"5d4d452eb6c886076b7e500ccb79dff1"
   "/posts/tags/ruby-on-rails":
     build_path: posts/tags/ruby-on-rails.html
-    etag: W/"97ee3a157b2d5ac60e16621d3d3f09ce"
+    etag: W/"d3559c9f6975e87194a0a11b978d48be"
   "/posts/tags/ruby":
     build_path: posts/tags/ruby.html
-    etag: W/"d36acf2278d844aa75aec78ca31c1065"
+    etag: W/"7230b07b6853b65d78f42256afc28148"
   "/2026/09/converting-a-ruby-block-interface-to-start-stop-methods-with-a-fiber":
     build_path: 2026/09/converting-a-ruby-block-interface-to-start-stop-methods-with-a-fiber.html
     etag: W/"58ad084ccf7122a5102b971330d4b7a0"
@@ -60,13 +60,13 @@ paths:
     etag: W/"7d07c2790bf24580d96964267c931bb9"
   "/2026/07/running-code-when-the-ruby-on-rails-webserver-boots":
     build_path: 2026/07/running-code-when-the-ruby-on-rails-webserver-boots.html
-    etag: W/"f55bae1b8f14cbfa08127e2688f55560"
+    etag: W/"64ec1dc63dbc5e07b2f004ea4bb6b3f2"
   "/2026/07/planning-badly-more-and-less":
     build_path: 2026/07/planning-badly-more-and-less.html
     etag: W/"383103e0b3d70ebef978e2991defe302"
   "/2026/05/one-year-of-ruby-on-rails-configuration":
     build_path: 2026/05/one-year-of-ruby-on-rails-configuration.html
-    etag: W/"b347bf3952fca5272174afe226b956eb"
+    etag: W/"64c0d644f3edb99a03d7110fcbd93dd1"
   "/2026/03/a-bulletproof-wait_for_turbo-test-helper":
     build_path: 2026/03/a-bulletproof-wait_for_turbo-test-helper.html
     etag: W/"7f39bcc22e6877eebb4a3e2eeb8d8622"
@@ -329,7 +329,7 @@ paths:
     build_path: articles/hot-slow-sunday-jp.html
   "/2006/06/hot-slow-sunday-in-jp":
     build_path: 2006/06/hot-slow-sunday-in-jp.html
-    etag: W/"1ce169d83494125ec53ad637d6835355"
+    etag: W/"7b7e4cb6050a23ecf92d84220d7926b1"
   "/2006/06/Hot-Slow-Sunday-in-JP":
     build_path: 2006/06/Hot-Slow-Sunday-in-JP.html
   "/node/58":
@@ -428,7 +428,7 @@ paths:
     build_path: articles/zuchini-harvest.html
   "/2006/07/zuchini-harvest":
     build_path: 2006/07/zuchini-harvest.html
-    etag: W/"fa6683b2b0c16db152ef37c12c6586de"
+    etag: W/"59f3f349d4e3dc9919f47ce12389c7d5"
   "/2006/07/Zuchini-harvest":
     build_path: 2006/07/Zuchini-harvest.html
   "/articles/two-two-two-yolks-one":
@@ -892,7 +892,7 @@ paths:
     build_path: articles/airport-vehicles.html
   "/2007/03/airport-vehicles":
     build_path: 2007/03/airport-vehicles.html
-    etag: W/"de249cf57e8fde09c46c9ba1d050c3d3"
+    etag: W/"e15839d386cf00fa1685804b60a74400"
   "/2007/03/Airport-Vehicles":
     build_path: 2007/03/Airport-Vehicles.html
   "/articles/ways-and-water":
@@ -1705,7 +1705,7 @@ paths:
     build_path: articles/brompt-blog-reminder.html
   "/2008/04/brompt-is-a-blog-reminder":
     build_path: 2008/04/brompt-is-a-blog-reminder.html
-    etag: W/"8fa3265981fbd1a7f941174163c6d3f1"
+    etag: W/"b5890715e2bd4ce4576f35b490bfa7bd"
   "/2008/04/Brompt-is-a-blog-reminder":
     build_path: 2008/04/Brompt-is-a-blog-reminder.html
   "/node/215":
@@ -3392,7 +3392,7 @@ paths:
     build_path: 2011/03/Towards-advocacy-based-media.html
   "/2011/03/a-form-from-my-favorites":
     build_path: 2011/03/a-form-from-my-favorites.html
-    etag: W/"e858397f488601ef945b2c99e691f3fe"
+    etag: W/"f510212482b6c1bda6596a666bd0a0f9"
   "/2011/03/A-form-from-my-favorites":
     build_path: 2011/03/A-form-from-my-favorites.html
   "/2011/03/it-was-sexist-when-i-got-here":
@@ -18538,31 +18538,31 @@ paths:
     etag: W/"93266bab651f3f2cfa3c280bb130b399"
   "/2025/10/rails-103-early-hints-could-be-better-maybe-doesn-t-matter":
     build_path: 2025/10/rails-103-early-hints-could-be-better-maybe-doesn-t-matter.html
-    etag: W/"a448f369ff0b009d080ebd2dac8b9ff1"
+    etag: W/"37aee3f90ae26f2beb2acef7fe111f76"
   "/2025/10/hanami-and-loading-code-faster":
     build_path: 2025/10/hanami-and-loading-code-faster.html
-    etag: W/"c2ae01637d32a43fea7e76875778faaa"
+    etag: W/"180c530457a421d8c9ac17f865b425dc"
   "/2025/10/notes-from-building-a-who-is-doing-what-right-now-on-our-website-presence-feature-with-action-cable":
     build_path: 2025/10/notes-from-building-a-who-is-doing-what-right-now-on-our-website-presence-feature-with-action-cable.html
-    etag: W/"4f1ac340e2c851cdca11be535463c5b7"
+    etag: W/"21dac9675d0cdc061db537966dd69916"
   "/2025/10/serializing-viewcomponent-for-active-job-and-turbo-broadcast-later":
     build_path: 2025/10/serializing-viewcomponent-for-active-job-and-turbo-broadcast-later.html
-    etag: W/"e759805db1ddb465c626d6558c120c6a"
+    etag: W/"58874ceb1488eca9432f9e4810ef0d6e"
   "/2025/09/serializing-viewcomponent-for-active-job-and-turbo-broadcast-later":
     build_path: 2025/09/serializing-viewcomponent-for-active-job-and-turbo-broadcast-later.html
-    etag: W/"e759805db1ddb465c626d6558c120c6a"
+    etag: W/"58874ceb1488eca9432f9e4810ef0d6e"
   "/2025/08/building-deterministic-reproducible-assets-with-sprockets":
     build_path: 2025/08/building-deterministic-reproducible-assets-with-sprockets.html
-    etag: W/"c8b421be4c5104ac82deb2ec166bfca6"
+    etag: W/"7c0ec5fa989714e6d16ca08acccdb85f"
   "/2025/08/everything-i-know-about-ai-learned-by-reading-the-aws-bedrock-client-ruby-sdk-code":
     build_path: 2025/08/everything-i-know-about-ai-learned-by-reading-the-aws-bedrock-client-ruby-sdk-code.html
-    etag: W/"517197ee245334c596570c1f95f8d065"
+    etag: W/"c54e8c1886c06ba2580f062b46c8811d"
   "/2025/07/consider-thruster-with-puma-on-heroku":
     build_path: 2025/07/consider-thruster-with-puma-on-heroku.html
-    etag: W/"62b3a2924552dff41f03c15c9b861692"
+    etag: W/"53cc3d8b6b90e7d5c5e9b32808a44d7f"
   "/2025/07/customize-rails-i18n-key-suffixes-like-md-for-markdown":
     build_path: 2025/07/customize-rails-i18n-key-suffixes-like-md-for-markdown.html
-    etag: W/"67c908ec846e7c33771dca4d8910d0ce"
+    etag: W/"b591ab2669a14329105a7ec3825ec2e3"
   "/2025/07/is-everyone-ok-at-the-gemba":
     build_path: 2025/07/is-everyone-ok-at-the-gemba.html
     etag: W/"23b5dc0182dd6d4112b62bbc5ecf389a"
@@ -18571,7 +18571,7 @@ paths:
     etag: W/"ab842b8ef8a137893830b4b967c5fa45"
   "/2025/06/difference-rails-plugin-extensions-gems-railties-engines":
     build_path: 2025/06/difference-rails-plugin-extensions-gems-railties-engines.html
-    etag: W/"6eed3bf71b60490a5bb528017059049f"
+    etag: W/"b280f703dda6490aa4ef2cc5f25a7c09"
   "/2025/06/recently-june-8-2025":
     build_path: 2025/06/recently-june-8-2025.html
     etag: W/"cdfc3ec3c4af5d4277230615f8491722"
@@ -18595,7 +18595,7 @@ paths:
     etag: W/"32a834a15366ed5c312254e63f5f8d80"
   "/2025/04/wide-models-and-active-record-custom-validation-contexts":
     build_path: 2025/04/wide-models-and-active-record-custom-validation-contexts.html
-    etag: W/"c9d01a611bdc9fa70e2ff10668bd5b5f"
+    etag: W/"0682d4dfa9b4bc7db93a82be3d8a28d0"
   "/2025/03/recently-march-26-2025":
     build_path: 2025/03/recently-march-26-2025.html
     etag: W/"647ab31f3e1a267cee9e8fe470360502"
@@ -18613,13 +18613,13 @@ paths:
     etag: W/"5066d29c64bea7cbed2b86cbca7df5f4"
   "/2025/01/living-parklife-with-rails-coming-from-jekyll":
     build_path: 2025/01/living-parklife-with-rails-coming-from-jekyll.html
-    etag: W/"686aaa5a2a6ea448bbaeb2f7da5f2b46"
+    etag: W/"e13c39c171bb019b1e1e8a95eabc689e"
   "/2025/01/how-im-thinking-about-ai-llms":
     build_path: 2025/01/how-im-thinking-about-ai-llms.html
-    etag: W/"309e1fa56a046b9cfa728735a7f5ca2c"
+    etag: W/"1a16a06b5c0b08386b071380c3f6e658"
   "/2024/12/including-rails-view-helpers-concern":
     build_path: 2024/12/including-rails-view-helpers-concern.html
-    etag: W/"2e61e3455ff5861052a879419691d7aa"
+    etag: W/"48f1e1e2cd04110c7e9c1fc17ca95c57"
   "/2024/11/keep-your-secrets-yml-in-rails-7-2":
     build_path: 2024/11/keep-your-secrets-yml-in-rails-7-2.html
     etag: W/"48239512d361fed4112336d16cf3ea3d"
@@ -18628,25 +18628,25 @@ paths:
     etag: W/"d1b2b045567418330b16b303a9f02b0e"
   "/2024/09/spectator-sport-a-brief-introduction-to-an-upcoming-rails-plugin":
     build_path: 2024/09/spectator-sport-a-brief-introduction-to-an-upcoming-rails-plugin.html
-    etag: W/"ccd2b24ac68b7beb6a0110751a129aaa"
+    etag: W/"c06ef5aa028e45298c4e5abde79e3469"
   "/2024/09/seeing-like-a-rails-and-ruby-platform-team":
     build_path: 2024/09/seeing-like-a-rails-and-ruby-platform-team.html
     etag: W/"500660c4d209297db25df96d99025a27"
   "/2024/09/secret-to-rails-database-connection-pool-size":
     build_path: 2024/09/secret-to-rails-database-connection-pool-size.html
-    etag: W/"92ccc80593a94ef8eaaded45724c9233"
+    etag: W/"641109fb3796c02e1b27a7b7e3320be0"
   "/2024/09/the-novice-problem":
     build_path: 2024/09/the-novice-problem.html
     etag: W/"8f2b98a9d763d21af44fe3417573cd8c"
   "/2024/07/notes-from-carrierwave-to-active-storage":
     build_path: 2024/07/notes-from-carrierwave-to-active-storage.html
-    etag: W/"7c934f791fc320c7d66b21559371db84"
+    etag: W/"c5f9124eff15e7d0b28afe99d8962756"
   "/2024/07/on-the-importance-of-rails-code-reloading":
     build_path: 2024/07/on-the-importance-of-rails-code-reloading.html
     etag: W/"fd774300d50edcd958ca2bfeb4fe116f"
   "/2024/07/introducing-goodjob-v4":
     build_path: 2024/07/introducing-goodjob-v4.html
-    etag: W/"5fe8efe26d0e5f06aafdd2db3a7f7565"
+    etag: W/"791a74a7e934f570727c4b93b48e87c9"
   "/2024/06/rails-strict-locals-local_assigns-and-reserved-keywords":
     build_path: 2024/06/rails-strict-locals-local_assigns-and-reserved-keywords.html
     etag: W/"6f3c867fcd1c4fee44205ef99ab3ec7a"
@@ -18667,16 +18667,16 @@ paths:
     etag: W/"2ebc02e53ad75640ba5aaa45fe94b214"
   "/2024/02/farewell-brompt":
     build_path: 2024/02/farewell-brompt.html
-    etag: W/"5bcb1b5843b0461d57e07b1cfe8ea5f3"
+    etag: W/"e5c68ba9d4cc0d4336a8c8d41647619f"
   "/2024/01/replacing-devise-with-rails-has_secure_password-and-friends":
     build_path: 2024/01/replacing-devise-with-rails-has_secure_password-and-friends.html
-    etag: W/"a5f33597cc4b844ee631adb4e822134b"
+    etag: W/"5d59f44027f8bb9347c7b428fad0f87a"
   "/2024/01/two-stories-about-technical-debt-i-guess":
     build_path: 2024/01/two-stories-about-technical-debt-i-guess.html
     etag: W/"c22466ce0bb31611432662d5f84fa622"
   "/2024/01/the-answer-is-in-your-heap-debugging-big-rails-memory":
     build_path: 2024/01/the-answer-is-in-your-heap-debugging-big-rails-memory.html
-    etag: W/"74eec82fd4bf6a22f3b9a4b8fa265300"
+    etag: W/"564e3db1f9a077dc748a310a17840c7d"
   "/2024/01/trigger-github-actions-workflows-from-apple-shortcuts":
     build_path: 2024/01/trigger-github-actions-workflows-from-apple-shortcuts.html
     etag: W/"3c94210c1a83a4567c4c2c3414daed0b"
@@ -18685,7 +18685,7 @@ paths:
     etag: W/"98c91e7bbcf0c7d9ef1c8eebff53546b"
   "/2023/12/solid-queue-first-impressions":
     build_path: 2023/12/solid-queue-first-impressions.html
-    etag: W/"9b197ee6dcb53de66b29088fd4e2b6b6"
+    etag: W/"dc072381c20bf34a393ad794b6c0fa05"
   "/2023/12/recently":
     build_path: 2023/12/recently.html
     etag: W/"98c91e7bbcf0c7d9ef1c8eebff53546b"
@@ -18709,7 +18709,7 @@ paths:
     etag: W/"3021c045c7902f1c7b6c79c358b9448b"
   "/2023/08/how-to-isolate-i18n-configuration-in-a-rails-engine":
     build_path: 2023/08/how-to-isolate-i18n-configuration-in-a-rails-engine.html
-    etag: W/"e3c3e421d4e51e42d620b70f7b70529e"
+    etag: W/"54a1017f25f25012177d73d7e2167de1"
   "/2023/08/recoding-america":
     build_path: 2023/08/recoding-america.html
     etag: W/"03250f71f2fce17a8724e5038c444e48"
@@ -18721,7 +18721,7 @@ paths:
     etag: W/"6435f2a06f25c6167ced2ec2c12fd311"
   "/2023/06/rebuilding-concurrent-ruby-scheduledtask-event-and-timerset":
     build_path: 2023/06/rebuilding-concurrent-ruby-scheduledtask-event-and-timerset.html
-    etag: W/"bbac36faa828376aeccae32de66b9a7d"
+    etag: W/"5fb0c672eace9e0b081fd5847624fe1b"
   "/2023/05/whatever-you-do-don-t-autoload-rails-lib":
     build_path: 2023/05/whatever-you-do-don-t-autoload-rails-lib.html
     etag: W/"3e1ecc0ed6552ab1a43c66dd391dc211"
@@ -18745,7 +18745,7 @@ paths:
     etag: W/"6f00cbdf1a143cabc66c314424bd1219"
   "/2023/02/prevent-cdn-poisoning-from-fat-get-head-requests-in-ruby-on-rails":
     build_path: 2023/02/prevent-cdn-poisoning-from-fat-get-head-requests-in-ruby-on-rails.html
-    etag: W/"647815a0100d4c781562128317133c1f"
+    etag: W/"096fc3ba22625e9440bf28e0a3ffca66"
   "/2023/02/introducing-goodjob-bulk-and-batch":
     build_path: 2023/02/introducing-goodjob-bulk-and-batch.html
     etag: W/"5221b8d8c2f0b6b73cf8540bd7cbdcd6"
@@ -18790,7 +18790,7 @@ paths:
     etag: W/"dcae334df188e5bacf8a8e1a21366f05"
   "/2022/09/reflections-on-brompt-2022":
     build_path: 2022/09/reflections-on-brompt-2022.html
-    etag: W/"a5ab12f424cb9fe004abaf08b96a7086"
+    etag: W/"f8bf029f7f0ecb13df8fe380c9ea37bb"
   "/2022/09/object-thinking":
     build_path: 2022/09/object-thinking.html
     etag: W/"a77a093c83f048c0556897093651ed03"
@@ -19267,7 +19267,7 @@ paths:
     etag: W/"ca28585790a1cbd1d2baeb8c8adf4022"
   "/posts/tags/ai":
     build_path: posts/tags/ai.html
-    etag: W/"2d262d9f79ae9d9523b23559d36a98aa"
+    etag: W/"127b0b0a5c6cc229396be816b84cd46a"
   "/posts/tags/airplanes":
     build_path: posts/tags/airplanes.html
     etag: W/"65416c5b11b91d332d0524ee0b841c1f"
@@ -19477,7 +19477,7 @@ paths:
     etag: W/"907622c66e255186dd98af04e668f412"
   "/posts/tags/brompt":
     build_path: posts/tags/brompt.html
-    etag: W/"9f74e3aa06a4d2a875de7a6f287f738a"
+    etag: W/"72d124ce0eb4f0635d15f9c61b787ee9"
   "/posts/tags/brookline":
     build_path: posts/tags/brookline.html
     etag: W/"3972ed2218cb63f620d7f2d394b82df4"
@@ -20503,7 +20503,7 @@ paths:
     etag: W/"2fcfc3cc77b05a21e3ce0a814c4eef29"
   "/posts/tags/jamaica-plain":
     build_path: posts/tags/jamaica-plain.html
-    etag: W/"f1cb386cd4de565298b7dbf5a3543978"
+    etag: W/"74d007cf43e3b91fc3176dbe1a2bad54"
   "/posts/tags/jargon":
     build_path: posts/tags/jargon.html
     etag: W/"5a05fe94d4994f50a68a1325ae66080f"
@@ -21295,7 +21295,7 @@ paths:
     etag: W/"787d91476c50bc84a7d9cc5512e2dc52"
   "/posts/tags/rails":
     build_path: posts/tags/rails.html
-    etag: W/"f8b3af748b7161dcaa70ce3727f7b08c"
+    etag: W/"56d888878f21a2f67b8e1bcf249d2f23"
   "/posts/tags/rails-engines":
     build_path: posts/tags/rails-engines.html
     etag: W/"2cb8d728af87f5dcdfc124ca8594a91c"
@@ -21934,10 +21934,7 @@ paths:
     etag: W/"a34d9d678deef4c18e1cf05a371ea0c4"
   "/posts/tags/washington-dc":
     build_path: posts/tags/washington-dc.html
-    etag: W/"b51663489d836578bb6cc59f6dcb98e5"
-  "/posts/tags/washingtondc":
-    build_path: posts/tags/washingtondc.html
-    etag: W/"7768d849405d99f446c5d768e4e570d0"
+    etag: W/"2ad176459ed3a4303098a11a8bb8b04f"
   "/posts/tags/water":
     build_path: posts/tags/water.html
     etag: W/"d21e3c533dc43fe16443c94cc9f32584"
@@ -22076,7 +22073,7 @@ paths:
     build_path: uploads/2006-03/digitalbicycle-guy.jpg
   "/tags/":
     build_path: tags.html
-    etag: W/"141313e2fcddc035b8738ce9f3b11531"
+    etag: W/"de96ed7408a93844ecb0797ca7760829"
   "/uploads/2006-10/Typology_of_Nonprofit_Competition-concept_map.pdf":
     build_path: uploads/2006-10/Typology_of_Nonprofit_Competition-concept_map.pdf
   "/uploads/2006-11/nonprofit-tech-sandwich.pdf":
@@ -22501,7 +22498,7 @@ paths:
     etag: W/"dd1017db45bd5e33ed8d4d7608a123d3"
   "/posts/64":
     build_path: posts/64.html
-    etag: W/"65e8407eeddd2640f1e917e9fb4455e4"
+    etag: W/"0a335362789e63ab7186ff675b73e93b"
   "/posts/65":
     build_path: posts/65.html
     etag: W/"58a470d149d6db58986da8c9983142c8"
