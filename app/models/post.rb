@@ -24,7 +24,7 @@ class Post < ApplicationModel
   end
 
   def self.tags
-    published.flat_map(&:tags).uniq.sort
+    published.flat_map(&:tags).uniq(&:parameterize).sort_by(&:downcase)
   end
 
   def self.published
@@ -100,7 +100,11 @@ class Post < ApplicationModel
   end
 
   def tags
-    Array(frontmatter["tags"])
+    Array(frontmatter["tags"]).uniq(&:parameterize)
+  end
+
+  def tag_slugs
+    tags.map(&:parameterize)
   end
 
   def redirects
@@ -113,7 +117,7 @@ class Post < ApplicationModel
     return [] if tags.empty?
 
     self.class.published
-        .select { |post| post.tags.intersect?(tags) }
+        .select { |post| post.tag_slugs.intersect?(tag_slugs) }
         .reject { |post| post == self }
         .sort_by(&:published_at)
         .last(5).reverse # Limit to 5 related posts

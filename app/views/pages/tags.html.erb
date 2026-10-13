@@ -1,13 +1,11 @@
 <% provide :title, "Tags" %>
 
 <%
-  all_tags = Post.published.flat_map(&:tags)
-  tag_counts = all_tags.tally
-  sorted_tags = tag_counts.keys.sort_by(&:downcase)
+  tag_counts = Post.published.flat_map(&:tag_slugs).tally
 %>
 
 <ul class="list-unstyled list-columns">
-  <% sorted_tags.each do |tag| %>
-    <li><%= link_to tag, tag_path(tag) %> (<%= tag_counts[tag] %>)</li>
+  <% Post.tags.each do |tag| %>
+    <li><%= link_to tag, tag_path(tag) %> (<%= tag_counts[tag.parameterize] %>)</li>
   <% end %>
 </ul>

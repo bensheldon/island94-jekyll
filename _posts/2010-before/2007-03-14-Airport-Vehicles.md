@@ -6,7 +6,7 @@ tags:
 - dulles
 - paul
 - video
-- washingtonDC
+- Washington DC
 wp:post_type: post
 redirect_from:
 - node/121
