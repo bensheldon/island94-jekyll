@@ -22,7 +22,7 @@ paths:
     etag: W/"428cfd80c8ceaf1192e5be350ae94ced"
   "/sitemap.xml":
     build_path: sitemap.xml
-    etag: W/"4b899710cc1705e9927c499ed3addaa8"
+    etag: W/"17e8919f0732b199c992da4bfe0db0e7"
   "/robots.txt":
     build_path: robots.txt
     etag: W/"bc3f5f94fa4fb061f9ba0cfdb5c499cf"
